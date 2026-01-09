@@ -200,7 +200,7 @@ def show_landing_page():
     st.markdown("""
     <div class="hero-container">
         <h1 class="hero-title">STARS <span class="gold-text">RSUD CIPAYUNG</span></h1>
-        <h1 class="hero-title">"(Sistem Terintegrasi Alat Kesehatan Rumah Sakit)"</h1></div>
+        <h1 class="hero-title">(Sistem Terintegrasi Alat Kesehatan Rumah Sakit)</h1></div>
     """, unsafe_allow_html=True)
 
     # CTA Button (Login Hack)
@@ -400,6 +400,7 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
 
 
 
