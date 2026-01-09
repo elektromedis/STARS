@@ -78,7 +78,7 @@ st.markdown("""
     }
     
     .feature-card {
-        background: white;
+        background: primary-blue;
         border: 1px solid #e0e0e0;
         border-radius: 15px;
         padding: 2rem;
@@ -402,4 +402,5 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
 
