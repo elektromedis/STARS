@@ -6,15 +6,141 @@ from PIL import Image
 import io
 import os
 from datetime import datetime
+import time
 
-# --- KONFIGURASI HALAMAN ---
+# --- 1. KONFIGURASI HALAMAN & CSS ENGINE ---
 st.set_page_config(page_title="STARS RSUD CIPAYUNG", page_icon="🏥", layout="wide")
 
-# --- DATABASE CONFIG ---
+# CSS Kustom untuk Tema "Engineering Blue & Gold"
+st.markdown("""
+<style>
+    /* Import Font Keren */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@600;800&display=swap');
+
+    /* Variabel Warna */
+    :root {
+        --primary-blue: #003366;
+        --secondary-blue: #005b96;
+        --accent-gold: #D4AF37;
+        --light-gold: #F3E5AB;
+        --white: #FFFFFF;
+        --bg-gray: #F4F6F7;
+    }
+
+    /* Reset Streamlit Default */
+    .stApp {
+        background-color: var(--white);
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    /* Header Styles */
+    h1, h2, h3 {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--primary-blue);
+    }
+    
+    .gold-text {
+        color: var(--accent-gold);
+    }
+
+    /* --- HERO SECTION --- */
+    .hero-container {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        padding: 4rem 2rem;
+        border-radius: 0 0 50px 50px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: -60px; /* Menarik ke atas menutupi padding default */
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        font-weight: 300;
+        max-width: 800px;
+        margin: 0 auto 2rem auto;
+        opacity: 0.9;
+    }
+
+    /* --- CARDS (Programs & Services) --- */
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 2rem 0;
+    }
+    
+    .feature-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        border-top: 5px solid var(--accent-gold);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .icon-box {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-blue);
+    }
+
+    /* --- BUTTONS --- */
+    .stButton > button {
+        background-color: var(--primary-blue);
+        color: var(--accent-gold);
+        border: 2px solid var(--accent-gold);
+        border-radius: 30px;
+        padding: 0.5rem 2rem;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    
+    .stButton > button:hover {
+        background-color: var(--accent-gold);
+        color: var(--primary-blue);
+        border-color: var(--primary-blue);
+        transform: scale(1.05);
+    }
+
+    /* --- TESTIMONIALS --- */
+    .testimonial-box {
+        background-color: var(--bg-gray);
+        border-left: 5px solid var(--primary-blue);
+        padding: 1.5rem;
+        margin: 1rem 0;
+        font-style: italic;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+        background-color: var(--primary-blue);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        margin-top: 4rem;
+        border-radius: 20px 20px 0 0;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# --- 2. LOGIKA DATABASE (BACKEND LAMA) ---
 DB_NAME = 'inventaris.db'
 
 def init_db():
-    """Membuat tabel database jika belum ada saat aplikasi pertama kali dijalankan"""
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute('''
@@ -30,13 +156,9 @@ def init_db():
     conn.commit()
     conn.close()
 
-# Inisialisasi Database
 init_db()
 
-# --- FUNGSI-FUNGSI LOGIKA (BACKEND) ---
-
 def load_data_from_db():
-    """Mengambil data dari database ke dalam format Tabel (DataFrame)"""
     conn = sqlite3.connect(DB_NAME)
     try:
         df = pd.read_sql_query("SELECT * FROM alat_kesehatan", conn)
@@ -46,7 +168,6 @@ def load_data_from_db():
     return df
 
 def update_status_db(kode_aset, status_baru):
-    """Mengubah status alat (misal: Baik -> Rusak) di database"""
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute("UPDATE alat_kesehatan SET kondisi = ? WHERE kode_aset = ?", (status_baru, kode_aset))
@@ -54,22 +175,18 @@ def update_status_db(kode_aset, status_baru):
     conn.close()
 
 def format_nomor_wa(nomor):
-    """Mengubah format 08xx menjadi 628xx untuk link WhatsApp"""
     nomor = str(nomor).strip().replace('-', '').replace(' ', '')
     if nomor.startswith('0'): return '62' + nomor[1:]
     if nomor.startswith('+62'): return nomor[1:]
     return nomor
 
 def generate_qr(data):
-    """Membuat gambar QR Code"""
     qr = qrcode.QRCode(version=1, box_size=10, border=5)
     qr.add_data(data)
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
     return img
 
-# --- DATA PEGAWAI (USER) ---
-# Bisa ditambahkan/diedit sesuai kebutuhan RS
 PEGAWAI = {
     "Faisal Aly Marzuki (IGD)": "0812-8822-4386",
     "Sr. Siti Aminah (ICU)": "0813-5555-6666",
@@ -77,194 +194,211 @@ PEGAWAI = {
     "Bd. Yuli (VK)": "0857-1234-5678"
 }
 
-# --- SIDEBAR: AREA ADMIN (UPLOAD DATA) ---
-with st.sidebar:
-    st.image("https://img.icons8.com/color/96/hospital-2.png", width=80)
-    st.title("Admin Area")
-    st.info("Gunakan menu ini untuk update data inventaris massal.")
-    
-    uploaded_file = st.file_uploader("Upload File Excel (.xlsx)", type=['xlsx'])
-    
-    if uploaded_file is not None:
-        if st.button("Proses & Simpan ke Database"):
-            try:
-                # 1. Baca Excel (dtype=str agar angka 0 di depan tidak hilang)
-                df_upload = pd.read_excel(uploaded_file, dtype=str)
-                
-                # 2. Bersihkan Data (Hapus spasi, Huruf Besar, dll)
-                df_upload = df_upload.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
-                
-                # Pastikan nama kolom sesuai standar
-                # Mapping kolom jaga-jaga kalau user salah tulis header di Excel
-                df_upload.columns = df_upload.columns.str.lower().str.replace(' ', '_')
-                
-                if 'nama_alat' in df_upload.columns:
-                    df_upload['nama_alat'] = df_upload['nama_alat'].str.title()
-                if 'ruangan' in df_upload.columns:
-                    df_upload['ruangan'] = df_upload['ruangan'].str.upper()
-                
-                df_upload.fillna('-', inplace=True)
-                
-                # 3. Masukkan ke SQLite
-                conn = sqlite3.connect(DB_NAME)
-                # if_exists='replace' artinya data lama ditimpa data baru
-                df_upload.to_sql('alat_kesehatan', conn, if_exists='replace', index=False)
-                conn.close()
-                
-                st.success(f"✅ Sukses! {len(df_upload)} data alat berhasil disimpan.")
-                st.rerun() # Refresh halaman otomatis
-            except Exception as e:
-                st.error(f"Gagal memproses file. Error: {e}")
-                st.warning("Pastikan Header Excel Anda: kode_aset, nama_alat, merk, ruangan, kondisi")
+# --- 3. FUNGSI HALAMAN LANDING PAGE (NEW) ---
+def show_landing_page():
+    # Hero Section
+    st.markdown("""
+    <div class="hero-container">
+        <h1 class="hero-title">STARS <span class="gold-text">RSUD CIPAYUNG</span></h1>
+        <p class="hero-subtitle">Sistem Terpadu Akurasi & Respon Cepat Service Elektromedis. 
+        Menjamin keandalan teknologi medis demi keselamatan pasien.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
-# --- HALAMAN UTAMA (DASHBOARD) ---
-st.title("🏥 STARS RSUD Cipayung")
-st.markdown("**Sistem Terintegrasi Alat Kesehatan Rumah Sakit**")
+    # CTA Button (Login Hack)
+    col_cta1, col_cta2, col_cta3 = st.columns([1, 2, 1])
+    with col_cta2:
+        st.write("")
+        if st.button("🚀 MASUK KE DASHBOARD SISTEM", use_container_width=True):
+            st.session_state['page'] = 'dashboard'
+            st.rerun()
 
-# Load Data Terbaru dari Database
-df_alkes = load_data_from_db()
-
-# Cek apakah database kosong
-if df_alkes.empty:
-    st.warning("⚠️ Database Kosong. Silakan upload file Excel Inventaris di menu sebelah kiri (Sidebar).")
-    # Stop aplikasi di sini jika data kosong, biar tidak error di bawah
-    st.stop() 
-
-# Inisialisasi Session State untuk Tiket Laporan (agar realtime di satu sesi)
-if 'laporan_masuk' not in st.session_state:
-    st.session_state.laporan_masuk = []
-
-# --- MENU TABS ---
-tab1, tab2, tab3 = st.tabs(["📝 Form Lapor Kerusakan", "📦 Dashboard Aset & QR", "🔔 Tiket Masuk"])
-
-# === TAB 1: FORM LAPOR ===
-with tab1:
-    st.header("Formulir Laporan Kerusakan")
-    
+    # About Section
+    st.markdown("---")
     col1, col2 = st.columns(2)
-    
     with col1:
-        # Dropdown list alat (Format: KODE - NAMA - RUANGAN)
-        list_alat_display = df_alkes.apply(lambda x: f"{x['kode_aset']} - {x['nama_alat']} ({x['ruangan']})", axis=1).tolist()
-        pilihan_alat = st.selectbox("Pilih Alat yang Rusak:", list_alat_display)
-        
-        # Ambil Kode Aset dari pilihan user (Split string)
-        id_terpilih = pilihan_alat.split(" - ")[0]
-        
-        # Ambil detail lengkap alat tersebut
-        detail_alat = df_alkes[df_alkes['kode_aset'] == id_terpilih].iloc[0]
-
+        st.markdown("""
+        ### 🏥 Tentang Kami
+        Unit Elektromedis RSUD Cipayung berdedikasi untuk menjaga performa alat kesehatan melalui manajemen aset berbasis teknologi. 
+        Aplikasi **STARS** hadir sebagai solusi digital untuk:
+        * Digitalisasi Inventaris Aset
+        * Respon Cepat Perbaikan (Quick Response)
+        * Monitoring Kelaikan Alat (Calibration & Safety)
+        """)
     with col2:
-        # Dropdown Pelapor
-        pilihan_nama = st.selectbox("Nama Pelapor:", list(PEGAWAI.keys()))
-        no_hp_otomatis = PEGAWAI[pilihan_nama]
-        st.info(f"📱 No. WhatsApp Terdeteksi: {no_hp_otomatis}")
+        # Placeholder Image (Engineering Vibe)
+        st.image("https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80", caption="Professional Electromedical Engineering", use_container_width=True)
 
-    keluhan = st.text_area("Deskripsi Keluhan:", placeholder="Contoh: Layar blank, kabel power panas...")
+    # Program Showcase (HTML Card Grid)
+    st.markdown("""
+    <div style="text-align:center; margin-top:3rem;">
+        <h2>Program Unggulan</h2>
+        <p>Inovasi layanan kami untuk RSUD Cipayung</p>
+    </div>
+    <div class="card-container">
+        <div class="feature-card">
+            <div class="icon-box">📊</div>
+            <h3>Asset Management</h3>
+            <p>Pemetaan inventaris alat kesehatan yang real-time, akurat, dan terintegrasi dengan database pusat.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-box">⚡</div>
+            <h3>Quick Response</h3>
+            <p>Pelaporan kerusakan berbasis WhatsApp Gateway dengan respon time teknisi kurang dari 15 menit.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-box">🛡️</div>
+            <h3>Safety & Quality</h3>
+            <p>Jadwal kalibrasi otomatis dan pemeliharaan preventif untuk menjamin 100% keamanan pasien.</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    if st.button("Kirim Laporan", type="primary"):
-        # 1. Update status di Database jadi "Rusak"
-        update_status_db(id_terpilih, "Rusak / Lapor")
-        
-        # 2. Buat Link WhatsApp Otomatis
-        nama_pelapor_short = pilihan_nama.split(" (")[0]
-        wa_target = format_nomor_wa(no_hp_otomatis)
-        pesan_wa = (
-            f"Halo {nama_pelapor_short}, laporan kerusakan *{detail_alat['nama_alat']}* "
-            f"({detail_alat['ruangan']}) dengan keluhan: _{keluhan}_ sudah kami terima. "
-            "Teknisi akan segera mengecek."
-        )
-        # Encode URL agar spasi dan enter terbaca
-        import urllib.parse
-        pesan_encoded = urllib.parse.quote(pesan_wa)
-        link_wa = f"https://wa.me/{wa_target}?text={pesan_encoded}"
+    # Testimonials
+    st.markdown("### 💬 Apa Kata Tenaga Medis")
+    st.markdown("""
+    <div class="testimonial-box">
+        "Sejak ada STARS, lapor alat rusak di IGD jadi sangat cepat. Teknisi langsung datang tanpa perlu telpon berkali-kali."
+        <br><strong>- Kepala Ruangan IGD</strong>
+    </div>
+    <div class="testimonial-box">
+        "Sangat membantu saat akreditasi. Data kalibrasi alat tersaji lengkap tinggal scan QR Code."
+        <br><strong>- Tim Mutu RSUD Cipayung</strong>
+    </div>
+    """, unsafe_allow_html=True)
 
-        # 3. Masukkan ke List Tiket Dashboard
-        tiket_baru = {
-            "Waktu": datetime.now().strftime("%Y-%m-%d %H:%M"),
-            "Alat": f"{detail_alat['nama_alat']} ({detail_alat['ruangan']})",
-            "Pelapor": pilihan_nama,
-            "Keluhan": keluhan,
-            "Link WA": link_wa
-        }
-        st.session_state.laporan_masuk.append(tiket_baru)
-        
-        st.success("✅ Laporan Terkirim! Status alat berubah menjadi 'Rusak'.")
+    # Footer
+    st.markdown("""
+    <div class="footer">
+        <p>© 2026 IPSRS RSUD Cipayung. All Rights Reserved.</p>
+        <p>Jl. Mini I, Bambu Apus, Cipayung, Jakarta Timur</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+# --- 4. FUNGSI HALAMAN DASHBOARD (SYSTEM LAMA) ---
+def show_dashboard():
+    # Tombol Logout / Kembali ke Landing Page
+    if st.sidebar.button("🏠 Logout / Ke Halaman Utama"):
+        st.session_state['page'] = 'landing'
         st.rerun()
 
-# === TAB 2: DATA ASET & QR ===
-with tab2:
-    st.header("Database Aset & Cetak QR")
-    
-    # Fitur Cari
-    cari = st.text_input("🔍 Cari Alat (Nama / Ruangan / Kode):")
-    
-    # Filter DataFrame
-    if cari:
-        df_tampil = df_alkes[
-            df_alkes['nama_alat'].str.contains(cari, case=False) | 
-            df_alkes['ruangan'].str.contains(cari, case=False) |
-            df_alkes['kode_aset'].str.contains(cari, case=False)
-        ]
-    else:
-        df_tampil = df_alkes
+    # --- SIDEBAR ADMIN ---
+    with st.sidebar:
+        st.image("https://img.icons8.com/color/96/hospital-2.png", width=80)
+        st.title("Admin Panel")
+        st.write("Upload Database Inventaris:")
+        uploaded_file = st.file_uploader("File Excel (.xlsx)", type=['xlsx'])
+        if uploaded_file is not None:
+            if st.button("Update Database"):
+                try:
+                    df_upload = pd.read_excel(uploaded_file, dtype=str)
+                    df_upload = df_upload.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
+                    df_upload.columns = df_upload.columns.str.lower().str.replace(' ', '_')
+                    if 'nama_alat' in df_upload.columns: df_upload['nama_alat'] = df_upload['nama_alat'].str.title()
+                    if 'ruangan' in df_upload.columns: df_upload['ruangan'] = df_upload['ruangan'].str.upper()
+                    df_upload.fillna('-', inplace=True)
+                    conn = sqlite3.connect(DB_NAME)
+                    df_upload.to_sql('alat_kesehatan', conn, if_exists='replace', index=False)
+                    conn.close()
+                    st.success(f"✅ Database updated: {len(df_upload)} rows.")
+                    time.sleep(1)
+                    st.rerun()
+                except Exception as e:
+                    st.error(f"Error: {e}")
 
-    # Tampilkan Tabel dengan Warna (Merah jika Rusak)
-    def warna_status(val):
-        return 'background-color: #ffcccc' if 'Rusak' in str(val) else ''
-
-    st.dataframe(
-        df_tampil.style.map(warna_status, subset=['kondisi']), 
-        use_container_width=True,
-        hide_index=True
-    )
-
-    st.divider()
+    # --- MAIN SYSTEM CONTENT ---
+    st.title("⚙️ Dashboard STARS")
     
-    # Area QR Code Generator
-    st.subheader("🖨️ Cetak Label QR Code")
-    c_qr1, c_qr2 = st.columns([1, 2])
-    
-    with c_qr1:
-        # Pilihan alat untuk dicetak
-        pilihan_qr = st.selectbox("Pilih Alat:", list_alat_display, key="qr_select")
-        kode_qr = pilihan_qr.split(" - ")[0]
+    df_alkes = load_data_from_db()
+    if df_alkes.empty:
+        st.warning("Database Kosong. Harap upload data Excel di Sidebar.")
+        st.stop()
+
+    if 'laporan_masuk' not in st.session_state:
+        st.session_state.laporan_masuk = []
+
+    tab1, tab2, tab3 = st.tabs(["📝 Lapor Kerusakan", "📦 Data Aset & QR", "🔔 Tiket Masuk"])
+
+    # TAB 1: FORM
+    with tab1:
+        st.subheader("Formulir Lapor Cepat")
+        col1, col2 = st.columns(2)
+        with col1:
+            list_alat_display = df_alkes.apply(lambda x: f"{x['kode_aset']} - {x['nama_alat']} ({x['ruangan']})", axis=1).tolist()
+            pilihan_alat = st.selectbox("Pilih Alat:", list_alat_display)
+            id_terpilih = pilihan_alat.split(" - ")[0]
+            detail_alat = df_alkes[df_alkes['kode_aset'] == id_terpilih].iloc[0]
+        with col2:
+            pilihan_nama = st.selectbox("Pelapor:", list(PEGAWAI.keys()))
+            no_hp_otomatis = PEGAWAI[pilihan_nama]
+            st.info(f"WA: {no_hp_otomatis}")
         
-    with c_qr2:
-        # Generate QR
-        img = generate_qr(f"Lapor Kerusakan ID: {kode_qr}")
-        
-        # Ubah gambar ke bytes agar bisa tampil di web
-        buf = io.BytesIO()
-        img.save(buf)
-        byte_im = buf.getvalue()
-        
-        col_sub1, col_sub2 = st.columns(2)
-        with col_sub1:
-            st.image(byte_im, width=150, caption=f"ID: {kode_qr}")
-        with col_sub2:
-            st.write("Tempel QR ini pada fisik alat.")
-            st.download_button(
-                label="⬇️ Download Label (PNG)",
-                data=byte_im,
-                file_name=f"QR_{kode_qr}.png",
-                mime="image/png"
-            )
+        keluhan = st.text_area("Keluhan Kerusakan:")
+        if st.button("Kirim Laporan", type="primary"):
+            update_status_db(id_terpilih, "Rusak / Lapor")
+            # Logic WA
+            nama_short = pilihan_nama.split(" (")[0]
+            wa_target = format_nomor_wa(no_hp_otomatis)
+            pesan_wa = f"Halo {nama_short}, laporan *{detail_alat['nama_alat']}* ({detail_alat['ruangan']}): _{keluhan}_ diterima."
+            import urllib.parse
+            link_wa = f"https://wa.me/{wa_target}?text={urllib.parse.quote(pesan_wa)}"
+            
+            # Save Tiket
+            tiket = {
+                "Waktu": datetime.now().strftime("%Y-%m-%d %H:%M"),
+                "Alat": f"{detail_alat['nama_alat']} ({detail_alat['ruangan']})",
+                "Pelapor": pilihan_nama,
+                "Keluhan": keluhan,
+                "Link WA": link_wa
+            }
+            st.session_state.laporan_masuk.append(tiket)
+            st.success("Laporan Terkirim!")
+            st.rerun()
 
-# === TAB 3: TIKET MONITORING ===
-with tab3:
-    st.header("🔔 Tiket Laporan Masuk (Monitoring)")
-    
-    if len(st.session_state.laporan_masuk) == 0:
-        st.info("Belum ada laporan kerusakan baru. Aman! ☕")
-    else:
-        # Tampilkan dari yang terbaru (reversed)
-        for tiket in reversed(st.session_state.laporan_masuk):
+    # TAB 2: ASET
+    with tab2:
+        st.subheader("Database Aset")
+        cari = st.text_input("Cari Aset:")
+        if cari:
+            df_tampil = df_alkes[df_alkes.astype(str).apply(lambda x: x.str.contains(cari, case=False)).any(axis=1)]
+        else:
+            df_tampil = df_alkes
+        
+        def highlight_rusak(val):
+            return 'background-color: #ffcccc' if 'Rusak' in str(val) else ''
+        
+        st.dataframe(df_tampil.style.map(highlight_rusak, subset=['kondisi']), use_container_width=True, hide_index=True)
+        
+        st.divider()
+        col_q1, col_q2 = st.columns([1,2])
+        with col_q1:
+            qr_pilih = st.selectbox("Cetak QR untuk:", list_alat_display, key="qr_key")
+            qr_code_str = qr_pilih.split(" - ")[0]
+        with col_q2:
+            img = generate_qr(f"ID: {qr_code_str}")
+            buf = io.BytesIO()
+            img.save(buf)
+            byte_im = buf.getvalue()
+            st.image(byte_im, width=150)
+            st.download_button("Download QR", byte_im, f"QR_{qr_code_str}.png", "image/png")
+
+    # TAB 3: TIKET
+    with tab3:
+        st.subheader("Tiket Masuk")
+        if not st.session_state.laporan_masuk:
+            st.info("Tidak ada laporan baru.")
+        for t in reversed(st.session_state.laporan_masuk):
             with st.container(border=True):
-                col_t1, col_t2 = st.columns([4, 1])
-                with col_t1:
-                    st.write(f"🚨 **{tiket['Alat']}**")
-                    st.write(f"🗣️ _{tiket['Keluhan']}_")
-                    st.caption(f"Pelapor: {tiket['Pelapor']} | 🕒 {tiket['Waktu']}")
-                with col_t2:
-                    st.link_button("💬 Chat WA", tiket['Link WA'])
+                c1, c2 = st.columns([4,1])
+                c1.write(f"**{t['Alat']}** | {t['Keluhan']}")
+                c1.caption(f"{t['Pelapor']} @ {t['Waktu']}")
+                c2.link_button("Chat WA", t['Link WA'])
+
+# --- 5. NAVIGASI UTAMA (MAIN CONTROLLER) ---
+if 'page' not in st.session_state:
+    st.session_state['page'] = 'landing'
+
+if st.session_state['page'] == 'landing':
+    show_landing_page()
+else:
+    show_dashboard()
