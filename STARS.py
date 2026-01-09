@@ -1,222 +1,161 @@
-from flask import Flask, render_template_string, request, redirect, url_for
+import streamlit as st
+import pandas as pd
 from datetime import datetime
+import qrcode
+from PIL import Image
+import io
 
-app = Flask(__name__)
+# --- KONFIGURASI HALAMAN ---
+st.set_page_config(page_title="SIM-E RSUD Cipayung", page_icon="🏥", layout="wide")
 
 # --- 1. DATABASE PEGAWAI (USER) ---
-# Data ini yang akan mengisi otomatis nomor HP
-data_pegawai = [
-    {"nama": "Faisal Aly Marzuki", "ruangan": "Elektromedis", "hp": "0856-8082-019"},
-    {"nama": "Sr. Siti Aminah", "ruangan": "ICU", "hp": "0813-5555-6666"},
-    {"nama": "Dr. Rahmat", "ruangan": "Radiologi", "hp": "0811-9999-8888"},
-    {"nama": "Bd. Yuli", "ruangan": "VK (Bersalin)", "hp": "0857-1234-5678"}
-]
+PEGAWAI = {
+    "Br. Budi Santoso (IGD)": "0812-3333-4444",
+    "Sr. Siti Aminah (ICU)": "0813-5555-6666",
+    "Dr. Rahmat (Radiologi)": "0811-9999-8888",
+    "Bd. Yuli (VK)": "0857-1234-5678"
+}
 
-# --- 2. DATABASE ALKES ---
-data_alkes = [
-    {"id": "ELECT-001", "nama": "Patient Monitor", "ruangan": "IGD", "status": "Baik"},
-    {"id": "ELECT-002", "nama": "Syringe Pump", "ruangan": "ICU", "status": "Baik"},
-    {"id": "ELECT-003", "nama": "X-Ray Mobile", "ruangan": "Radiologi", "status": "Perlu Kalibrasi"}
-]
+# --- 2. DATABASE ALKES (Simulasi) ---
+if 'data_alkes' not in st.session_state:
+    st.session_state.data_alkes = [
+        {"ID": "ELECT-001", "Nama": "Patient Monitor", "Ruangan": "IGD", "Status": "Baik", "Install": "2020-01-10", "Harga": 35000000},
+        {"ID": "ELECT-002", "Nama": "Syringe Pump", "Ruangan": "ICU", "Status": "Baik", "Install": "2022-05-20", "Harga": 18000000},
+        {"ID": "ELECT-003", "Nama": "X-Ray Mobile", "Ruangan": "Radiologi", "Status": "Perlu Kalibrasi", "Install": "2019-11-05", "Harga": 150000000}
+    ]
 
-laporan_masuk = []
+# --- 3. DATABASE TIKET ---
+if 'laporan_masuk' not in st.session_state:
+    st.session_state.laporan_masuk = []
 
-# --- HELPER: FORMAT WA ---
+# --- FUNGSI HELPER ---
 def format_nomor_wa(nomor):
-    nomor = nomor.strip().replace('-', '').replace(' ', '')
+    nomor = str(nomor).strip().replace('-', '').replace(' ', '')
     if nomor.startswith('0'): return '62' + nomor[1:]
     if nomor.startswith('+62'): return nomor[1:]
     return nomor
 
-# --- TAMPILAN WEB (HTML + JAVASCRIPT) ---
-html_base = """
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SIM-E RSUD Cipayung</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f4f6f9; }
-        .nav { background: #004085; padding: 15px; color: white; display: flex; justify-content: space-between; align-items: center;}
-        .nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
-        .container { padding: 20px; max-width: 800px; margin: auto; }
-        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px;}
-        th, td { border-bottom: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background-color: #f8f9fa; }
-        input, select, textarea { width: 100%; padding: 10px; margin: 5px 0 15px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .btn-lapor { background: #dc3545; color: white; border: none; padding: 12px; cursor: pointer; border-radius: 5px; width: 100%; font-size: 16px; font-weight: bold;}
-        .btn-wa { background: #25D366; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; font-size: 12px; display: inline-block;}
-    </style>
-</head>
-<body>
-    <div class="nav">
-        <span>🏥 SIM-E RSUD Cipayung</span>
-        <div><a href="/">Dashboard</a><a href="/lapor-kerusakan">Form Laporan</a></div>
-    </div>
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
-</body>
-</html>
-"""
+def generate_qr(data):
+    qr = qrcode.QRCode(version=1, box_size=10, border=5)
+    qr.add_data(data)
+    qr.make(fit=True)
+    img = qr.make_image(fill_color="black", back_color="white")
+    return img
 
-@app.route('/')
-def dashboard():
-    content = """
-    {% extends "base" %}
-    {% block content %}
+# --- APLIKASI UTAMA ---
+st.title("🏥 SIM-E RSUD Cipayung")
+st.markdown("**Sistem Informasi Manajemen Elektromedis & Post Market Surveillance**")
+
+# Tab Menu
+tab1, tab2, tab3 = st.tabs(["📝 Form Lapor Kerusakan", "📦 Dashboard Aset & QR", "🔔 Tiket Masuk"])
+
+# --- TAB 1: FORM LAPOR ---
+with tab1:
+    st.header("Formulir Laporan Kerusakan")
     
-    <div class="card">
-        <h3>🔔 Tiket Laporan Masuk</h3>
-        {% if tiket %}
-            <table>
-            <tr><th>Waktu</th><th>Pelapor</th><th>Alat & Keluhan</th><th>Aksi</th></tr>
-            {% for lapor in tiket %}
-            <tr>
-                <td>{{ lapor.waktu }}</td>
-                <td>{{ lapor.pelapor }}</td>
-                <td><b>{{ lapor.nama_alat }}</b><br><span style="color:red">{{ lapor.keluhan }}</span></td>
-                <td><a href="{{ lapor.link_wa }}" target="_blank" class="btn-wa">💬 Chat WA</a></td>
-            </tr>
-            {% endfor %}
-            </table>
-        {% else %}
-            <p>Tidak ada laporan kerusakan.</p>
-        {% endif %}
-    </div>
-
-    <div class="card">
-        <h3>📦 Daftar Aset</h3>
-        <table>
-            <tr><th>Nama Alat</th><th>Ruangan</th><th>Status</th><th>QR</th></tr>
-            {% for item in data %}
-            <tr>
-                <td>{{ item.nama }}</td>
-                <td>{{ item.ruangan }}</td>
-                <td>{{ item.status }}</td>
-                <td><a href="/cetak-label/{{ item.id }}" target="_blank">🖨️</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-    {% endblock %}
-    """
-    full_html = html_base.replace('{% block content %}{% endblock %}', content).replace('{% extends "base" %}', '')
-    return render_template_string(full_html, data=data_alkes, tiket=laporan_masuk)
-
-@app.route('/cetak-label/<id_alat>')
-def cetak_label(id_alat):
-    alat = next((item for item in data_alkes if item['id'] == id_alat), None)
-    url_lapor = f"{request.host_url}lapor-kerusakan?id={id_alat}"
-    qr_api_url = f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={url_lapor}"
-    return render_template_string("""
-        <div style="text-align:center; font-family:Arial; padding:20px; border:2px solid black; display:inline-block;">
-            <h2>{{ alat.nama }}</h2><img src="{{ qr_url }}"><br>Scan untuk Lapor<br><br>
-            <button onclick="window.print()">Print</button>
-        </div>
-    """, alat=alat, qr_url=qr_api_url)
-
-@app.route('/lapor-kerusakan', methods=['GET', 'POST'])
-def lapor():
-    id_otomatis = request.args.get('id') # Tangkap ID dari QR Code
+    col1, col2 = st.columns(2)
     
-    if request.method == 'POST':
-        id_alat = request.form['id_alat']
-        pelapor_info = request.form['pelapor'] # Format: "Nama|NoHP"
-        keluhan = request.form['keluhan']
+    with col1:
+        # Pilih Alat
+        list_alat = [f"{item['ID']} - {item['Nama']} ({item['Ruangan']})" for item in st.session_state.data_alkes]
+        pilihan_alat = st.selectbox("Pilih Alat yang Rusak:", list_alat)
         
-        # Pisahkan Nama dan HP dari value dropdown
-        nama_pelapor, no_hp = pelapor_info.split('|')
+        # Ambil ID alat yang dipilih
+        id_terpilih = pilihan_alat.split(" - ")[0]
 
-        # Update status alat
-        nama_alat_lapor = ""
-        ruangan_alat = ""
-        for alat in data_alkes:
-            if alat['id'] == id_alat:
-                alat['status'] = "Rusak / Lapor"
-                nama_alat_lapor = alat['nama']
-                ruangan_alat = alat['ruangan']
+    with col2:
+        # Pilih Pelapor (Otomatis HP)
+        pilihan_nama = st.selectbox("Nama Pelapor:", list(PEGAWAI.keys()))
+        no_hp_otomatis = PEGAWAI[pilihan_nama]
+        st.info(f"📱 No. WhatsApp Terdeteksi: {no_hp_otomatis}")
+
+    keluhan = st.text_area("Deskripsi Keluhan / Kerusakan:", placeholder="Contoh: Layar mati, kabel terkelupas, error code 404...")
+
+    if st.button("Kirim Laporan", type="primary"):
+        # Logika Simpan
+        # 1. Update Status Alat
+        nama_alat_simple = ""
+        ruangan_simple = ""
+        for alat in st.session_state.data_alkes:
+            if alat['ID'] == id_terpilih:
+                alat['Status'] = "Rusak / Lapor"
+                nama_alat_simple = alat['Nama']
+                ruangan_simple = alat['Ruangan']
                 break
         
-        # Generate Link WA
-        link_wa = f"https://wa.me/{format_nomor_wa(no_hp)}?text=Halo%20{nama_pelapor},%20terkait%20laporan%20{nama_alat_lapor}..."
+        # 2. Buat Link WA
+        pelapor_clean = pilihan_nama.split(" (")[0]
+        wa_target = format_nomor_wa(no_hp_otomatis)
+        pesan = f"Halo {pelapor_clean}, laporan kerusakan *{nama_alat_simple}* ({ruangan_simple}) dengan keluhan: _{keluhan}_ sudah kami terima. Teknisi akan segera meluncur."
+        link_wa = f"https://wa.me/{wa_target}?text={pesan.replace(' ', '%20')}"
 
-        laporan_masuk.append({
-            "waktu": datetime.now().strftime("%H:%M"),
-            "nama_alat": nama_alat_lapor,
-            "ruangan": ruangan_alat,
-            "pelapor": nama_pelapor,
-            "link_wa": link_wa,
-            "keluhan": keluhan
-        })
-        return redirect(url_for('sukses_lapor'))
-
-    content = """
-    {% extends "base" %}
-    {% block content %}
-    <div class="card" style="max-width: 600px; margin: auto;">
-        <h2 style="color: #d9534f;">Formulir Laporan Kerusakan</h2>
+        # 3. Simpan ke Database Tiket
+        tiket_baru = {
+            "Waktu": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "Alat": f"{nama_alat_simple} ({ruangan_simple})",
+            "Pelapor": pilihan_nama,
+            "Keluhan": keluhan,
+            "Link WA": link_wa
+        }
+        st.session_state.laporan_masuk.append(tiket_baru)
         
-        <form method="post">
-            <label><b>Pilih Alat:</b></label>
-            <select name="id_alat" required>
-                <option value="" disabled selected>-- Pilih Alat --</option>
-                {% for item in data_alkes %}
-                <option value="{{ item.id }}" {% if item.id == id_selected %}selected{% endif %}>
-                    {{ item.nama }} - {{ item.ruangan }}
-                </option>
-                {% endfor %}
-            </select>
+        st.success("✅ Laporan Berhasil Dikirim! Status alat berubah menjadi 'Rusak'.")
+
+# --- TAB 2: DASHBOARD ASET ---
+with tab2:
+    st.header("Database Aset & Cetak QR")
+    
+    # Tampilkan Dataframe
+    df_alkes = pd.DataFrame(st.session_state.data_alkes)
+    st.dataframe(df_alkes, use_container_width=True)
+
+    st.divider()
+    
+    # Fitur Cetak QR
+    st.subheader("🖨️ Generator Label QR Code")
+    col_qr1, col_qr2 = st.columns([1, 2])
+    
+    with col_qr1:
+        qr_pilih = st.selectbox("Pilih Alat untuk Cetak Label:", list_alat, key="qr_select")
+        qr_id = qr_pilih.split(" - ")[0]
+        # Cari detail alat
+        detail_alat = next((item for item in st.session_state.data_alkes if item['ID'] == qr_id), None)
+    
+    with col_qr2:
+        if detail_alat:
+            # Generate QR Image
+            # Di aplikasi real, ini bisa link ke web app. Di sini kita isi ID Alat.
+            img = generate_qr(f"Lapor Kerusakan ID: {qr_id}")
             
-            <label><b>Nama Pelapor:</b></label>
-            <select name="pelapor" id="select_pelapor" onchange="isiOtomatis()" required>
-                <option value="" disabled selected>-- Siapa Anda? --</option>
-                {% for orang in pegawai %}
-                <option value="{{ orang.nama }}|{{ orang.hp }}" data-hp="{{ orang.hp }}">
-                    {{ orang.nama }} ({{ orang.ruangan }})
-                </option>
-                {% endfor %}
-            </select>
-
-            <label><b>Nomor WhatsApp (Terisi Otomatis):</b></label>
-            <input type="text" id="input_hp" placeholder="Nomor akan muncul otomatis..." readonly style="background-color: #e9ecef;">
+            # Konversi ke bytes untuk ditampilkan
+            buf = io.BytesIO()
+            img.save(buf)
+            byte_im = buf.getvalue()
             
-            <label><b>Keluhan:</b></label>
-            <textarea name="keluhan" rows="4" placeholder="Jelaskan kerusakan..." required></textarea>
+            st.image(byte_im, caption=f"QR Code: {qr_id}", width=200)
             
-            <button type="submit" class="btn-lapor">Kirim Laporan</button>
-        </form>
+            # Tombol Download
+            st.download_button(
+                label="⬇️ Download Label Gambar",
+                data=byte_im,
+                file_name=f"Label_{qr_id}.png",
+                mime="image/png"
+            )
+            st.caption(f"Tempel di unit: {detail_alat['Nama']} ({detail_alat['Ruangan']})")
 
-        <script>
-            function isiOtomatis() {
-                // Ambil elemen dropdown dan input
-                var dropdown = document.getElementById("select_pelapor");
-                var inputHP = document.getElementById("input_hp");
-                
-                // Ambil data-hp dari opsi yang dipilih
-                var selectedOption = dropdown.options[dropdown.selectedIndex];
-                var nomor = selectedOption.getAttribute("data-hp");
-                
-                // Isi ke kolom input
-                inputHP.value = nomor;
-            }
-        </script>
-    </div>
-    {% endblock %}
-    """
-    full_html = html_base.replace('{% block content %}{% endblock %}', content).replace('{% extends "base" %}', '')
-    return render_template_string(full_html, data_alkes=data_alkes, pegawai=data_pegawai, id_selected=id_otomatis)
-
-@app.route('/sukses')
-def sukses_lapor():
-    return render_template_string("""
-    <div style="text-align:center; padding:50px; font-family:sans-serif;">
-        <h1 style="color:green;">Laporan Terkirim! ✅</h1>
-        <a href="/">Kembali</a>
-    </div>
-    """)
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
-
+# --- TAB 3: TIKET MASUK ---
+with tab3:
+    st.header("🔔 Tiket Laporan Masuk (Dashboard Teknisi)")
+    
+    if len(st.session_state.laporan_masuk) > 0:
+        for idx, tiket in enumerate(reversed(st.session_state.laporan_masuk)):
+            with st.container():
+                st.warning(f"🚨 **{tiket['Alat']}** - {tiket['Keluhan']}")
+                col_tik1, col_tik2 = st.columns([3, 1])
+                with col_tik1:
+                    st.caption(f"Pelapor: {tiket['Pelapor']} | Waktu: {tiket['Waktu']}")
+                with col_tik2:
+                    st.link_button("💬 Chat WA Pelapor", tiket['Link WA'])
+                st.divider()
+    else:
+        st.info("Belum ada laporan kerusakan masuk. Semua aman! ☕")
