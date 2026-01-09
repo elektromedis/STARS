@@ -48,7 +48,7 @@ st.markdown("""
         background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
         padding: 4rem 2rem;
         border-radius: 0 0 50px 50px;
-        color: white;
+        color: gray;
         text-align: center;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         margin-top: -60px; /* Menarik ke atas menutupi padding default */
@@ -78,7 +78,7 @@ st.markdown("""
     }
     
     .feature-card {
-        background: white;
+        background: gray;
         border: 1px solid #e0e0e0;
         border-radius: 15px;
         padding: 2rem;
@@ -127,7 +127,7 @@ st.markdown("""
 
     /* --- FOOTER --- */
     .footer {
-        background-color: var(--primary-blue);
+        background-color: var(--gray);
         color: white;
         padding: 2rem;
         text-align: center;
@@ -184,7 +184,7 @@ def generate_qr(data):
     qr = qrcode.QRCode(version=1, box_size=10, border=5)
     qr.add_data(data)
     qr.make(fit=True)
-    img = qr.make_image(fill_color="black", back_color="white")
+    img = qr.make_image(fill_color="black", back_color="gray")
     return img
 
 PEGAWAI = {
@@ -402,4 +402,5 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
 
