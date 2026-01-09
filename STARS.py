@@ -6,7 +6,7 @@ app = Flask(__name__)
 # --- 1. DATABASE PEGAWAI (USER) ---
 # Data ini yang akan mengisi otomatis nomor HP
 data_pegawai = [
-    {"nama": "Br. Budi Santoso", "ruangan": "IGD", "hp": "0812-3333-4444"},
+    {"nama": "Faisal Aly Marzuki", "ruangan": "Elektromedis", "hp": "0856-8082-019"},
     {"nama": "Sr. Siti Aminah", "ruangan": "ICU", "hp": "0813-5555-6666"},
     {"nama": "Dr. Rahmat", "ruangan": "Radiologi", "hp": "0811-9999-8888"},
     {"nama": "Bd. Yuli", "ruangan": "VK (Bersalin)", "hp": "0857-1234-5678"}
@@ -219,3 +219,4 @@ def sukses_lapor():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
+
