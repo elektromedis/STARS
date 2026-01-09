@@ -200,7 +200,7 @@ def show_landing_page():
     st.markdown("""
     <div class="hero-container">
         <h1 class="hero-title">STARS <span class="gold-text">RSUD CIPAYUNG</span></h1>
-        <p class="hero-subtitle">Sistem Terintegrasi Alat Kesehata Rumah Sakit. Terpadu Akurasi & Respon Cepat Service Elektromedis. Menjamin keandalan teknologi medis demi keselamatan pasien.</p></div>
+        <h1 class="hero-title">Sistem Terintegrasi Alat Kesehata Rumah Sakit</span></h1></div>
     """, unsafe_allow_html=True)
 
     # CTA Button (Login Hack)
@@ -225,7 +225,7 @@ def show_landing_page():
         """)
     with col2:
         # Placeholder Image (Engineering Vibe)
-        st.image("https://www.freepik.com/free-ai-image/3d-cartoon-scene-depicting-variety-people-multitasking_152373435.htm#fromView=search&page=1&position=16&uuid=8cdf2e54-f5cc-4747-9b51-5dcbd1a58ed5&query=Medical+engineering", caption="Professional Electromedical Engineering", use_container_width=True)
+        st.image("", caption="Professional Electromedical Engineering", use_container_width=True)
 
     # Program Showcase (HTML Card Grid)
     st.markdown("""
@@ -400,6 +400,7 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
 
 
 
