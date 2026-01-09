@@ -128,7 +128,7 @@ st.markdown("""
     /* --- FOOTER --- */
     .footer {
         background-color: var(--primary-blue);
-        color: white;
+        color: black;
         padding: 2rem;
         text-align: center;
         margin-top: 4rem;
@@ -402,5 +402,6 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
 
 
