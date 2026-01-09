@@ -6,11 +6,11 @@ from PIL import Image
 import io
 
 # --- KONFIGURASI HALAMAN ---
-st.set_page_config(page_title="SIM-E RSUD Cipayung", page_icon="🏥", layout="wide")
+st.set_page_config(page_title="STARS RSUD CIPAYUNG", page_icon="🏥", layout="wide")
 
 # --- 1. DATABASE PEGAWAI (USER) ---
 PEGAWAI = {
-    "Faisal Aly Marzuki (IGD)": "0856-8082-019",
+    "Faisal Aly Marzuki (IGD)": "0812-8822-4386",
     "Sr. Siti Aminah (ICU)": "0813-5555-6666",
     "Dr. Rahmat (Radiologi)": "0811-9999-8888",
     "Bd. Yuli (VK)": "0857-1234-5678"
@@ -159,3 +159,4 @@ with tab3:
                 st.divider()
     else:
         st.info("Belum ada laporan kerusakan masuk. Semua aman! ☕")
+
