@@ -10,7 +10,7 @@ st.set_page_config(page_title="SIM-E RSUD Cipayung", page_icon="🏥", layout="w
 
 # --- 1. DATABASE PEGAWAI (USER) ---
 PEGAWAI = {
-    "Br. Budi Santoso (IGD)": "0812-3333-4444",
+    "Faisal Aly Marzuki (IGD)": "0856-8082-019",
     "Sr. Siti Aminah (ICU)": "0813-5555-6666",
     "Dr. Rahmat (Radiologi)": "0811-9999-8888",
     "Bd. Yuli (VK)": "0857-1234-5678"
