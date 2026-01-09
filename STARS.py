@@ -227,7 +227,7 @@ def show_landing_page():
         """)
     with col2:
         # Placeholder Image (Engineering Vibe)
-        st.image("https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80", caption="Professional Electromedical Engineering", use_container_width=True)
+        st.image("https://unsplash.com/id/foto/lihat-ini-potret-close-up-insinyur-pria-yang-menunjukkan-prostesis-tangan-kepada-rekan-wanitanya-wanita-menyentuh-tangan-bionik-selama-pengujian-foto-stok-FmBq2yDciSQ", caption="Professional Electromedical Engineering", use_container_width=True)
 
     # Program Showcase (HTML Card Grid)
     st.markdown("""
@@ -270,8 +270,8 @@ def show_landing_page():
     # Footer
     st.markdown("""
     <div class="footer">
-        <p>© 2026 IPSRS RSUD Cipayung. All Rights Reserved.</p>
-        <p>Jl. Mini I, Bambu Apus, Cipayung, Jakarta Timur</p>
+        <p>© 2026 Elektromedis RSUD Cipayung. All Rights Reserved.</p>
+        <p>Jl. Mini III no. 4, Bambu Apus, Cipayung, Jakarta Timur</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -402,6 +402,7 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
 
 
 
