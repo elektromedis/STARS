@@ -200,8 +200,7 @@ def show_landing_page():
     st.markdown("""
     <div class="hero-container">
         <h1 class="hero-title">STARS <span class="gold-text">RSUD CIPAYUNG</span></h1>
-        <p class="hero-subtitle">Sistem Terpadu Akurasi & Respon Cepat Service Elektromedis. 
-        Menjamin keandalan teknologi medis demi keselamatan pasien.</p>
+        <p class="hero-subtitle">Sistem Terintegrasi Alat Kesehata Rumah Sakit. Terpadu Akurasi & Respon Cepat Service Elektromedis. Menjamin keandalan teknologi medis demi keselamatan pasien.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -402,6 +401,7 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
 
 
 
