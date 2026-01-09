@@ -48,7 +48,7 @@ st.markdown("""
         background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
         padding: 4rem 2rem;
         border-radius: 0 0 50px 50px;
-        color: gray;
+        color: white;
         text-align: center;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         margin-top: -60px; /* Menarik ke atas menutupi padding default */
@@ -402,5 +402,6 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
 
 
