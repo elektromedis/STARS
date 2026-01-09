@@ -118,7 +118,7 @@ st.markdown("""
 
     /* --- TESTIMONIALS --- */
     .testimonial-box {
-        background-color: var(--bg-gray);
+        background-color: var(--black);
         border-left: 5px solid var(--primary-blue);
         padding: 1.5rem;
         margin: 1rem 0;
@@ -128,7 +128,7 @@ st.markdown("""
     /* --- FOOTER --- */
     .footer {
         background-color: var(--primary-blue);
-        color: black;
+        color: white;
         padding: 2rem;
         text-align: center;
         margin-top: 4rem;
@@ -402,6 +402,7 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
 
 
 
