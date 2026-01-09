@@ -29,7 +29,7 @@ st.markdown("""
 
     /* Reset Streamlit Default */
     .stApp {
-        background-color: var(--white);
+        background-color: var(--black);
         font-family: 'Roboto', sans-serif;
     }
     
@@ -402,3 +402,4 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
+
