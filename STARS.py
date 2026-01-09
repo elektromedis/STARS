@@ -29,7 +29,7 @@ st.markdown("""
 
     /* Reset Streamlit Default */
     .stApp {
-        background-color: var(--black);
+        background-color: var(--white);
         font-family: 'Roboto', sans-serif;
     }
     
@@ -78,7 +78,7 @@ st.markdown("""
     }
     
     .feature-card {
-        background: primary-blue;
+        background: white;
         border: 1px solid #e0e0e0;
         border-radius: 15px;
         padding: 2rem;
@@ -118,7 +118,7 @@ st.markdown("""
 
     /* --- TESTIMONIALS --- */
     .testimonial-box {
-        background-color: var(--black);
+        background-color: var(--bg-gray);
         border-left: 5px solid var(--primary-blue);
         padding: 1.5rem;
         margin: 1rem 0;
@@ -200,7 +200,9 @@ def show_landing_page():
     st.markdown("""
     <div class="hero-container">
         <h1 class="hero-title">STARS <span class="gold-text">RSUD CIPAYUNG</span></h1>
-        <h1 class="hero-title">(Sistem Terintegrasi Alat Kesehatan Rumah Sakit)</h1></div>
+        <p class="hero-subtitle">Sistem Terpadu Akurasi & Respon Cepat Service Elektromedis. 
+        Menjamin keandalan teknologi medis demi keselamatan pasien.</p>
+    </div>
     """, unsafe_allow_html=True)
 
     # CTA Button (Login Hack)
@@ -225,7 +227,7 @@ def show_landing_page():
         """)
     with col2:
         # Placeholder Image (Engineering Vibe)
-        st.image("", caption="Professional Electromedical Engineering", use_container_width=True)
+        st.image("https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80", caption="Professional Electromedical Engineering", use_container_width=True)
 
     # Program Showcase (HTML Card Grid)
     st.markdown("""
@@ -268,8 +270,8 @@ def show_landing_page():
     # Footer
     st.markdown("""
     <div class="footer">
-        <p>© 2026 Elektromedis RSUD Cipayung. All Rights Reserved.</p>
-        <p>Jl. Mini III no. 4, Bambu Apus, Cipayung, Jakarta Timur</p>
+        <p>© 2026 IPSRS RSUD Cipayung. All Rights Reserved.</p>
+        <p>Jl. Mini I, Bambu Apus, Cipayung, Jakarta Timur</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -400,13 +402,3 @@ if st.session_state['page'] == 'landing':
     show_landing_page()
 else:
     show_dashboard()
-
-
-
-
-
-
-
-
-
-
