@@ -50,6 +50,9 @@ if exist "..\prisma\dev.db" (
   choice /C YN /M "Salin sebagai data awal server? HANYA untuk instalasi pertama - menimpa data server"
   if not errorlevel 2 (
     docker compose -f docker-compose.yml --env-file .env cp ..\prisma\dev.db app:/app/data/stars.db
+    REM docker cp membuat file milik root; aplikasi berjalan sebagai user nextjs (1001),
+    REM jadi kepemilikan harus dibetulkan dan sisa berkas WAL lama dibuang.
+    docker compose -f docker-compose.yml --env-file .env exec -u root app sh -c "rm -f /app/data/stars.db-wal /app/data/stars.db-shm && chown 1001:1001 /app/data/stars.db"
     docker compose -f docker-compose.yml --env-file .env restart app
     echo [INFO] Data awal dimuat ke server.
   )
