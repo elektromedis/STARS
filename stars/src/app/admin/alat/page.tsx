@@ -11,9 +11,10 @@ export const dynamic = "force-dynamic";
 export default async function AlatPage() {
   const s = await sesiHalaman("Viewer");
   const bolehKelola = cukup(s.user.peran, "Operator") && process.env.STARS_MODE !== "internet";
-  const [data, units] = await Promise.all([
-    prisma.alat.findMany({ orderBy: [{ unitKerja: { urut: "asc" } }, { nama: "asc" }], include: { unitKerja: { select: { nama: true } }, _count: { select: { permintaan: true, perintah: true } } } }),
+  const [data, units, ruangan] = await Promise.all([
+    prisma.alat.findMany({ orderBy: [{ unitKerja: { urut: "asc" } }, { nama: "asc" }], include: { unitKerja: { select: { nama: true } }, ruangan: { select: { nama: true } }, _count: { select: { permintaan: true, perintah: true } } } }),
     prisma.unitKerja.findMany({ where: { NOT: { nama: "TIDAK ADA" } }, orderBy: { urut: "asc" }, select: { id: true, nama: true } }),
+    prisma.ruangan.findMany({ where: { aktif: true }, orderBy: [{ unitKerja: { urut: "asc" } }, { nama: "asc" }], select: { id: true, nama: true, gedung: true, unitKerjaId: true, unitKerja: { select: { nama: true } } } }),
   ]);
   return (
     <div className="grid gap-4">
@@ -23,7 +24,7 @@ export default async function AlatPage() {
           <span>{process.env.STARS_MODE === "internet" ? "Server ini mode internet (baca saja)." : <>Peran <strong>{s.user.peran}</strong> hanya dapat melihat. Menambah/mengubah alat memerlukan peran Operator.</>}</span>
         </p>
       )}
-      <AlatManager data={data} units={units} bolehKelola={bolehKelola} />
+      <AlatManager data={data} units={units} ruangan={ruangan} bolehKelola={bolehKelola} />
     </div>
   );
 }

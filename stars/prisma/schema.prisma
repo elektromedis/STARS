@@ -21,6 +21,22 @@ model UnitKerja {
   pengguna   Pengguna[]
   alat       Alat[]
   permintaan PermintaanKerja[]
+  ruangan    Ruangan[]
+}
+
+/// Ruangan/lokasi fisik alat (mis. "PERINA Lt. 2"), di bawah satu unit kerja.
+model Ruangan {
+  id          Int       @id @default(autoincrement())
+  nama        String
+  gedung      String?
+  unitKerja   UnitKerja @relation(fields: [unitKerjaId], references: [id])
+  unitKerjaId Int
+  kepala      String?
+  aktif       Boolean   @default(true)
+  alat        Alat[]
+
+  @@unique([nama, unitKerjaId])
+  @@index([unitKerjaId])
 }
 
 /// Akun pengguna area admin. Peran: Viewer | Operator | Admin | Super Admin (Public = tanpa akun).
@@ -105,9 +121,16 @@ model Alat {
   nomorSeri      String?
   unitKerja      UnitKerja         @relation(fields: [unitKerjaId], references: [id])
   unitKerjaId    Int
+  ruangan        Ruangan?          @relation(fields: [ruanganId], references: [id])
+  ruanganId      Int?
   lokasi         String?
   kategori       String?
+  jenis          String            @default("Medik") // Medik | Non Medik
+  risiko         String?           // Tinggi | Sedang | Rendah (klasifikasi EM)
   tahunPerolehan Int?
+  hargaPerolehan Float?
+  usiaTeknis     Int?              // tahun
+  garansiSampai  DateTime?
   kondisi        String            @default("Baik") // Baik | Rusak Ringan | Rusak Berat | Afkir
   aktif          Boolean           @default(true)
   catatan        String?
@@ -116,9 +139,30 @@ model Alat {
   permintaan     PermintaanKerja[]
   perintah       PerintahKerja[]
   jadwal         JadwalPreventif[]
+  kalibrasi      Kalibrasi[]
 
   @@index([unitKerjaId])
   @@index([kondisi])
+  @@index([jenis])
+}
+
+/// Riwayat kalibrasi/pengujian alat beserta sertifikat & masa berlaku.
+model Kalibrasi {
+  id                Int       @id @default(autoincrement())
+  alat              Alat      @relation(fields: [alatId], references: [id])
+  alatId            Int
+  tanggal           DateTime
+  kalibrator        String // lembaga/institusi pengkalibrasi
+  petugas           String?
+  metode            String?
+  laik              Boolean   @default(true)
+  nomorSertifikat   String?
+  berlakuSampai     DateTime?
+  keterangan        String?
+  createdAt         DateTime  @default(now())
+
+  @@index([alatId])
+  @@index([berlakuSampai])
 }
 
 /// Permintaan kerja / laporan kerusakan. Dapat dibuat publik tanpa akun.
@@ -160,16 +204,20 @@ model PerintahKerja {
   teknisi        Pengguna?        @relation("TeknisiPerintah", fields: [teknisiId], references: [id])
   teknisiId      Int?
   status         String           @default("Terbuka") // Terbuka | Dikerjakan | Selesai | Batal
+  checklist      String?          // daftar tugas, satu per baris; awali "[x]" bila selesai
   tindakan       String?
   sukuCadang     String?
   biaya          Float            @default(0)
   tanggalMulai   DateTime?
   tanggalSelesai DateTime?
+  jadwal         JadwalPreventif? @relation(fields: [jadwalId], references: [id])
+  jadwalId       Int?
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
 
   @@index([status])
   @@index([teknisiId])
+  @@index([jadwalId])
 }
 
 /// Jadwal pemeliharaan preventif berkala per alat (UI penuh menyusul).
@@ -183,6 +231,7 @@ model JadwalPreventif {
   terakhir     DateTime?
   berikutnya   DateTime?
   aktif        Boolean   @default(true)
+  perintah     PerintahKerja[]
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
 

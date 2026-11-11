@@ -83,6 +83,7 @@ const skemaUbahPerintah = z.object({
   jenis: z.enum(JENIS_PERINTAH).optional(),
   teknisiId: z.coerce.number().int().positive().nullable().optional(),
   prioritas: z.enum(PRIORITAS).optional(),
+  checklist: z.string().trim().max(4000).optional(),
   tindakan: z.string().trim().max(2000).optional(),
   sukuCadang: z.string().trim().max(1000).optional(),
   biaya: z.coerce.number().min(0).optional(),
@@ -93,7 +94,7 @@ export async function ubahPerintah(_prev: StatusAksi, fd: FormData): Promise<Sta
   if (!g.sesi) return { error: g.pesan! };
   const parsed = skemaUbahPerintah.safeParse({
     id: fd.get("id"), status: fd.get("status"), jenis: fd.get("jenis") || undefined, teknisiId: fd.get("teknisiId") || null,
-    prioritas: fd.get("prioritas") || undefined, tindakan: fd.get("tindakan") || undefined, sukuCadang: fd.get("sukuCadang") || undefined, biaya: fd.get("biaya") || undefined,
+    prioritas: fd.get("prioritas") || undefined, checklist: fd.get("checklist") ?? undefined, tindakan: fd.get("tindakan") || undefined, sukuCadang: fd.get("sukuCadang") || undefined, biaya: fd.get("biaya") || undefined,
   });
   if (!parsed.success) return { error: pesanZod(parsed.error) };
   const d = parsed.data;
@@ -108,7 +109,7 @@ export async function ubahPerintah(_prev: StatusAksi, fd: FormData): Promise<Sta
     where: { id: d.id },
     data: {
       status: d.status, jenis: d.jenis ?? wo.jenis, teknisiId: d.teknisiId ?? null, prioritas: d.prioritas ?? wo.prioritas,
-      tindakan: d.tindakan ?? wo.tindakan, sukuCadang: d.sukuCadang ?? wo.sukuCadang, biaya: d.biaya ?? wo.biaya,
+      checklist: d.checklist !== undefined ? d.checklist || null : wo.checklist, tindakan: d.tindakan ?? wo.tindakan, sukuCadang: d.sukuCadang ?? wo.sukuCadang, biaya: d.biaya ?? wo.biaya,
       tanggalMulai: mulai, tanggalSelesai: selesai,
     },
   });

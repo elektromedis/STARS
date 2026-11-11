@@ -10,3 +10,6 @@ prisma/dev.db-journal
 uploads/
 *.tsbuildinfo
 next-env.d.ts
+
+# Salinan Trilux CAMS (kode pihak ketiga, referensi) - tidak ikut Git
+trilux_cams/

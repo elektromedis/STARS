@@ -1,19 +1,19 @@
 "use client";
 
 import { useActionState } from "react";
-import { CheckCircle2, ChevronDown, Loader2, XCircle } from "lucide-react";
+import { CheckCircle2, ChevronDown, Loader2, Printer, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { badgePrioritas, badgeStatusPerintah, JENIS_PERINTAH, PRIORITAS, STATUS_PERINTAH } from "@/lib/pemeliharaan";
+import { badgePrioritas, badgeStatusPerintah, JENIS_PERINTAH, PRIORITAS, STATUS_PERINTAH, urai } from "@/lib/pemeliharaan";
 import { ubahPerintah, type StatusAksi } from "@/app/admin/pemeliharaan/actions";
 import { formatIDRCompact } from "@/lib/utils";
 
 type Teknisi = { id: number; nama: string };
 export type Perintah = {
-  id: number; nomor: string; jenis: string; deskripsi: string; prioritas: string; status: string;
+  id: number; nomor: string; jenis: string; deskripsi: string; prioritas: string; status: string; checklist: string | null;
   teknisiId: number | null; teknisi: { nama: string } | null; tindakan: string | null; sukuCadang: string | null;
   biaya: number; tanggalMulai: string | Date | null; tanggalSelesai: string | Date | null;
   permintaan: { nomor: string } | null; alat: { kode: string; nama: string } | null; createdAt: string | Date;
@@ -39,10 +39,12 @@ function Baris({ wo, teknisi, bolehKelola }: { wo: Perintah; teknisi: Teknisi[];
           <p className="whitespace-pre-wrap"><span className="text-muted-foreground">Uraian:</span> {wo.deskripsi}</p>
           <p><span className="text-muted-foreground">Jenis:</span> {wo.jenis}{wo.permintaan ? ` · dari ${wo.permintaan.nomor}` : ""}</p>
           {wo.alat && <p><span className="text-muted-foreground">Alat:</span> <span className="font-mono text-xs">{wo.alat.kode}</span> {wo.alat.nama}</p>}
+          {(() => { const t = urai(wo.checklist); return t.length ? <p className="text-xs"><span className="text-muted-foreground">Checklist:</span> {t.filter((x) => x.selesai).length}/{t.length} selesai</p> : null; })()}
           {wo.tindakan && <p className="whitespace-pre-wrap"><span className="text-muted-foreground">Tindakan:</span> {wo.tindakan}</p>}
           {wo.sukuCadang && <p><span className="text-muted-foreground">Suku cadang:</span> {wo.sukuCadang}</p>}
           {wo.biaya > 0 && <p><span className="text-muted-foreground">Biaya:</span> {formatIDRCompact(wo.biaya)}</p>}
           <p className="text-xs text-muted-foreground">Mulai {tgl(wo.tanggalMulai)} · Selesai {tgl(wo.tanggalSelesai)}</p>
+          <a href={`/api/pemeliharaan/wo/${wo.id}/pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 pt-1 text-xs font-medium text-teal-700 hover:underline"><Printer className="size-3.5" /> Cetak lembar kerja (PDF)</a>
         </div>
 
         {bolehKelola ? (
@@ -62,6 +64,9 @@ function Baris({ wo, teknisi, bolehKelola }: { wo: Perintah; teknisi: Teknisi[];
                 <Select name="prioritas" defaultValue={wo.prioritas} className="h-9">{PRIORITAS.map((p) => <option key={p} value={p}>{p}</option>)}</Select>
               </label>
             </div>
+            <label className="grid gap-1 text-xs text-muted-foreground">Checklist tugas — satu per baris, awali <code>[x]</code> bila selesai
+              <textarea name="checklist" defaultValue={wo.checklist ?? ""} rows={3} maxLength={4000} className="w-full rounded-md border border-input bg-card px-3 py-2 font-mono text-xs" placeholder={"[x] Periksa fisik\n[ ] Uji fungsi alarm"} />
+            </label>
             <textarea name="tindakan" defaultValue={wo.tindakan ?? ""} rows={2} maxLength={2000} placeholder="Tindakan yang dilakukan" className="w-full rounded-md border border-input bg-card px-3 py-2 text-sm" />
             <div className="grid grid-cols-2 gap-2">
               <Input name="sukuCadang" defaultValue={wo.sukuCadang ?? ""} placeholder="Suku cadang" className="h-9" maxLength={1000} />
