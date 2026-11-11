@@ -43,11 +43,16 @@ RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs \
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-# mesin Prisma (query engine untuk linux-musl) + CLI untuk `migrate deploy` saat start
+# mesin Prisma (query engine untuk linux-musl) untuk @prisma/client saat runtime
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/prisma ./node_modules/prisma
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
+# Prisma CLI lengkap (untuk `migrate deploy` saat start) dipasang utuh di folder
+# terpisah - menyalin node_modules/prisma saja tidak cukup karena CLI punya
+# dependensi lain (c12, effect, dll.) yang menyebabkan MODULE_NOT_FOUND.
+RUN mkdir -p /opt/prisma-cli && cd /opt/prisma-cli && npm init -y >/dev/null \
+    && npm install --no-audit --no-fund prisma@6.19.3 \
+    && npm cache clean --force
 COPY --chown=nextjs:nodejs deploy/entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
