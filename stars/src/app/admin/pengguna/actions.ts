@@ -52,9 +52,13 @@ export async function ubahPengguna(_prev: StatusAksi, fd: FormData): Promise<Sta
   if (!target) return { error: "Pengguna tidak ditemukan." };
   const { s, error } = await pemeriksa(d.peran === "Super Admin" || target.peran === "Super Admin" ? "Super Admin" : undefined);
   if (!s) return { error: error! };
-  if (String(target.id) === s.user.id && (!d.aktif || !cukup(d.peran as Peran, "Admin"))) return { error: "Anda tidak dapat menonaktifkan atau menurunkan peran akun sendiri." };
-  await prisma.pengguna.update({ where: { id: d.id }, data: { nama: d.nama, email: d.email, peran: d.peran, unitKerjaId: d.unitKerjaId ?? null, aktif: d.aktif, ...(d.aktif ? { terkunciSampai: null, gagalLogin: 0 } : {}) } });
-  await audit("pengguna.ubah", { email: s.user.email, ip: await ip(), objek: d.email, detail: `peran ${d.peran}, aktif ${d.aktif}, unit ${d.unitKerjaId ?? "semua"}` });
+  const sayaSendiri = String(target.id) === s.user.id;
+  // Checkbox "Aktif" di form dinonaktifkan untuk akun sendiri, dan input disabled
+  // tidak dikirim browser — akun sendiri selalu dianggap tetap aktif.
+  const aktif = sayaSendiri ? true : d.aktif;
+  if (sayaSendiri && !cukup(d.peran as Peran, "Admin")) return { error: "Anda tidak dapat menurunkan peran akun sendiri." };
+  await prisma.pengguna.update({ where: { id: d.id }, data: { nama: d.nama, email: d.email, peran: d.peran, unitKerjaId: d.unitKerjaId ?? null, aktif, ...(aktif ? { terkunciSampai: null, gagalLogin: 0 } : {}) } });
+  await audit("pengguna.ubah", { email: s.user.email, ip: await ip(), objek: d.email, detail: `peran ${d.peran}, aktif ${aktif}, unit ${d.unitKerjaId ?? "semua"}` });
   revalidatePath("/admin/pengguna");
   return { ok: `Pengguna ${d.email} diperbarui.` };
 }
