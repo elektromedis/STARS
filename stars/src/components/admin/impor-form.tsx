@@ -13,8 +13,9 @@ type Masalah = { baris: number; kolom: string; pesan: string };
 type Pratinjau = { kode: string; status: "baru" | "diperbarui"; tahun: number; tahap: string; namaPaket: string; unitKerja: string; kategori: string; nilai: number; serapan: boolean };
 type Hasil = {
   mode: string; sheet: string; totalBaris: number; barisValid: number; barisBaru: number; barisDiperbarui: number; barisError: number; totalNilai: number;
+  ganti?: boolean; akanDihapus?: number;
   kolomDikenali: string[]; kolomTidakDikenali: string[]; errors: Masalah[]; warnings: Masalah[]; pratinjau: Pratinjau[];
-  simpan?: { logId: number; barisBaru: number; barisDiperbarui: number; totalNilai: number }; error?: string;
+  simpan?: { logId: number; barisBaru: number; barisDiperbarui: number; totalNilai: number; barisDihapus?: number }; error?: string;
 };
 
 /** Alur tiga langkah: pilih berkas → Periksa (validasi tanpa menyimpan) → Simpan (hanya bila nol error). */
@@ -23,14 +24,22 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
   const [hasil, setHasil] = useState<Hasil | null>(null);
   const [sibuk, setSibuk] = useState<"" | "validasi" | "simpan">("");
   const [pesan, setPesan] = useState<string | null>(null);
+  const [ganti, setGanti] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   async function kirim(mode: "validasi" | "simpan") {
     if (!file) return;
+    if (mode === "simpan" && ganti) {
+      const yakin = window.confirm(
+        `Mode GANTI aktif: ${formatNumber(hasil?.akanDihapus ?? 0)} baris data lama (tahun & tahap yang sama dengan berkas) akan DIHAPUS, lalu diganti ${formatNumber(hasil?.barisValid ?? 0)} baris dari berkas.\n\nTindakan ini tidak bisa dibatalkan. Lanjutkan?`
+      );
+      if (!yakin) return;
+    }
     setSibuk(mode); setPesan(null);
     try {
       const fd = new FormData();
       fd.append("file", file); fd.append("mode", mode);
+      if (ganti) fd.append("ganti", "1");
       const res = await fetch("/api/admin/impor", { method: "POST", body: fd });
       const data = (await res.json()) as Hasil & { error?: string };
       if (!res.ok && !data.totalBaris) { setPesan(data.error ?? `Gagal (${res.status})`); setHasil(null); }
@@ -67,6 +76,17 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
             </Button>
           </div>
         </CardContent>
+        <CardContent className="pt-0">
+          <label className={`flex cursor-pointer items-start gap-2 rounded-lg border p-3 text-sm ${ganti ? "border-red-300 bg-red-50 text-red-900" : "text-muted-foreground"}`}>
+            <input type="checkbox" className="mt-0.5 accent-red-600" checked={ganti}
+              onChange={(e) => { setGanti(e.target.checked); setHasil(null); setPesan(null); }} />
+            <span>
+              <strong>Ganti data lama (hapus lalu impor ulang).</strong> Semua paket lama pada <em>tahun &amp; tahap yang sama</em> dengan
+              isi berkas akan dihapus lebih dulu, lalu diganti seluruh isi berkas — satu kali impor, data lama terganti utuh.
+              Tanpa centang ini, impor hanya menambah/memperbarui baris yang cocok tanpa menghapus apa pun.
+            </span>
+          </label>
+        </CardContent>
       </Card>
 
       {pesan && !tersimpan && (
@@ -80,13 +100,20 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
             <CardDescription>Sheet <code>{hasil.sheet}</code> • kolom dikenali: {hasil.kolomDikenali.join(", ")}{hasil.kolomTidakDikenali.length > 0 && <> • diabaikan: {hasil.kolomTidakDikenali.join(", ")}</>}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+            <div className={`grid grid-cols-2 gap-3 ${hasil.ganti ? "md:grid-cols-6" : "md:grid-cols-5"}`}>
               <Ringkas label="Baris dibaca" nilai={formatNumber(hasil.totalBaris)} />
               <Ringkas label="Valid" nilai={formatNumber(hasil.barisValid)} warna="text-emerald-700" />
               <Ringkas label="Baru / Diperbarui" nilai={`${formatNumber(hasil.barisBaru)} / ${formatNumber(hasil.barisDiperbarui)}`} />
+              {hasil.ganti && <Ringkas label="Data lama dihapus" nilai={formatNumber(hasil.simpan?.barisDihapus ?? hasil.akanDihapus ?? 0)} warna="text-red-700" />}
               <Ringkas label="Baris error" nilai={formatNumber(hasil.barisError)} warna={hasil.barisError ? "text-red-700" : "text-emerald-700"} />
               <Ringkas label="Total nilai valid" nilai={formatIDRCompact(hasil.totalNilai)} />
             </div>
+            {hasil.ganti && !tersimpan && (
+              <div className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-900">
+                <AlertTriangle className="mt-0.5 size-4 shrink-0" />
+                <span>Mode ganti aktif: saat Simpan, <strong>{formatNumber(hasil.akanDihapus ?? 0)} baris data lama</strong> pada tahun &amp; tahap yang sama akan dihapus lebih dulu, lalu diganti isi berkas.</span>
+              </div>
+            )}
 
             {hasil.errors.length > 0 && (
               <Daftar judul={`Error (${hasil.errors.length}) — harus diperbaiki`} items={hasil.errors} variant="danger" icon={<XCircle className="size-4" />} />
@@ -128,7 +155,7 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
           </CardHeader>
           <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             {tersimpan ? (
-              <p className="flex items-center gap-2 text-sm text-emerald-800"><CheckCircle2 className="size-5" /> Tersimpan: {formatNumber(hasil.simpan!.barisBaru)} baru, {formatNumber(hasil.simpan!.barisDiperbarui)} diperbarui, total {formatIDRCompact(hasil.simpan!.totalNilai)} (log #{hasil.simpan!.logId}).</p>
+              <p className="flex items-center gap-2 text-sm text-emerald-800"><CheckCircle2 className="size-5" /> Tersimpan: {hasil.ganti ? `${formatNumber(hasil.simpan!.barisDihapus ?? 0)} lama dihapus, ` : ""}{formatNumber(hasil.simpan!.barisBaru)} baru, {formatNumber(hasil.simpan!.barisDiperbarui)} diperbarui, total {formatIDRCompact(hasil.simpan!.totalNilai)} (log #{hasil.simpan!.logId}).</p>
             ) : (
               <p className="text-sm text-muted-foreground">{hasil.barisError > 0 ? "Perbaiki error di atas, lalu pilih berkas lagi dan Periksa ulang." : `${formatNumber(hasil.barisValid)} baris siap disimpan.`}</p>
             )}

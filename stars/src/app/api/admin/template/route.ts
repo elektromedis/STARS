@@ -1,14 +1,54 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { keXlsx } from "@/lib/export";
 import { JENIS, KOLOM_TEMPLATE } from "@/lib/impor";
 import { TAHAP_URUT } from "@/lib/filter";
+import { kePdf, type KolomPdf } from "@/lib/pdf";
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
-/** GET /api/admin/template → template Excel STARS (sheet paket, unit_kerja, petunjuk). */
-export async function GET() {
+/**
+ * GET /api/admin/template → template Excel STARS (sheet paket, unit_kerja, petunjuk).
+ * GET /api/admin/template?format=pdf → formulir kosong siap cetak untuk pengisian manual oleh unit.
+ */
+export async function GET(req: NextRequest) {
   const units = await prisma.unitKerja.findMany({ orderBy: { urut: "asc" } });
+
+  if (req.nextUrl.searchParams.get("format") === "pdf") {
+    const kolom: KolomPdf[] = [
+      { kunci: "no", label: "No", lebar: 8, rata: "center" },
+      { kunci: "nama_paket", label: "Nama Paket / Pekerjaan" },
+      { kunci: "uraian", label: "Uraian", lebar: 30 },
+      { kunci: "unit_kerja", label: "Unit Kerja", lebar: 24 },
+      { kunci: "vol1", label: "Vol", lebar: 10, rata: "center" },
+      { kunci: "satuan1", label: "Satuan", lebar: 14 },
+      { kunci: "vol2", label: "Vol 2", lebar: 10, rata: "center" },
+      { kunci: "satuan2", label: "Satuan 2", lebar: 14 },
+      { kunci: "harga_satuan", label: "Harga Satuan (Rp)", lebar: 26, rata: "right" },
+      { kunci: "nilai", label: "Nilai (Rp)", lebar: 26, rata: "right" },
+      { kunci: "prioritas", label: "Prioritas", lebar: 15, rata: "center" },
+    ];
+    const buf = kePdf({
+      judul: "Formulir Usulan Paket (Isian Manual)",
+      subjudul: `Tahun anggaran: ............  Tahap: ${TAHAP_URUT.join(" / ")}  Jenis: ${JENIS.join(" / ")}`,
+      kolom,
+      baris: [],
+      barisKosong: 14,
+      orientasi: "l",
+      catatan: [
+        "Formulir ini untuk pengumpulan usulan secara tertulis. Setelah terkumpul, salin ke template Excel STARS (unduh di Admin -> Ekspor & Template) lalu impor di Admin -> Impor.",
+        "Satu baris = satu paket/pekerjaan. Nilai = Vol x Vol 2 x Harga Satuan.",
+        `Unit kerja harus salah satu dari ${units.length} unit resmi: ${units.map((u) => u.nama).join(", ")}.`,
+        "Prioritas diisi PP 1 (sangat mendesak), PP 2, atau PP 3. Kolom kategori tidak perlu diisi (ditentukan otomatis saat impor).",
+        "Tanda tangan kepala unit: ................................  Tanggal: ....../....../............",
+      ],
+    });
+    return new NextResponse(new Uint8Array(buf), {
+      headers: { "Content-Type": "application/pdf", "Content-Disposition": 'attachment; filename="STARS_formulir_paket.pdf"' },
+    });
+  }
+
   const kosong = Object.fromEntries(KOLOM_TEMPLATE.map((k) => [k, ""]));
   const contoh = [
     { ...kosong, tahun: 2026, tahap: "Perubahan", jenis: "Pemeliharaan", sumber_dana: "BLUD", nama_rekening: "2.6.2001 Biaya Jasa Kalibrasi Alat Kesehatan / Alat Penunjang Medik BLUD", nama_paket: "Jasa Pengujian dan Kalibrasi Baby Incubator", uraian: "Pengujian dan atau Kalibrasi", unit_kerja: "PERINA", vol1: 4, satuan1: "Unit", vol2: 1, satuan2: "Kali", harga_satuan: 929040, nilai: 3716160, serapan: "Ya", prioritas: "PP 1", kategori: "Pengujian & Kalibrasi" },

@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { bacaExcel, validasi } from "@/lib/impor";
-import { simpanImpor, tentukanKode } from "@/lib/impor-simpan";
+import { lingkupGanti, simpanImpor, tentukanKode } from "@/lib/impor-simpan";
 import { sesiApi } from "@/lib/sesi";
 import { cukup } from "@/lib/peran";
 import { audit, ipDari } from "@/lib/audit";
@@ -14,9 +14,11 @@ export const runtime = "nodejs";
 const MAKS_BYTE = 10 * 1024 * 1024;
 
 /**
- * POST /api/admin/impor  (multipart: file=.xlsx, mode=validasi|simpan)
+ * POST /api/admin/impor  (multipart: file=.xlsx, mode=validasi|simpan, ganti=1 opsional)
  * - validasi (Viewer+): baca + periksa, kembalikan ringkasan, error, peringatan, pratinjau. Tidak menulis apa pun.
  * - simpan (Operator+): ulangi validasi, lalu simpan bila nol error (satu transaksi) dan catat di LogImpor + AuditLog.
+ * - ganti=1: sebelum menyimpan, hapus dulu SEMUA paket lama pada tahun+tahap yang ada di berkas
+ *   (dibatasi unit kerja akun bila akun dibatasi unit), sehingga satu impor menggantikan data lama utuh.
  * Operator dengan unit kerja tertentu hanya boleh menyimpan baris unitnya sendiri.
  */
 export async function POST(req: NextRequest) {
@@ -25,6 +27,7 @@ export async function POST(req: NextRequest) {
   const form = await req.formData();
   const file = form.get("file");
   const mode = form.get("mode") === "simpan" ? "simpan" : "validasi";
+  const ganti = form.get("ganti") === "1";
   if (mode === "simpan" && process.env.STARS_MODE === "internet") return NextResponse.json({ error: "Server mode internet bersifat baca saja; simpan data di server intranet." }, { status: 403 });
   if (mode === "simpan" && !cukup(sesi.user.peran, "Operator")) return NextResponse.json({ error: "Menyimpan memerlukan peran Operator atau lebih tinggi." }, { status: 403 });
   if (!(file instanceof File)) return NextResponse.json({ error: "Berkas tidak ditemukan (field `file`)." }, { status: 400 });
@@ -32,9 +35,10 @@ export async function POST(req: NextRequest) {
   if (file.size > MAKS_BYTE) return NextResponse.json({ error: "Ukuran berkas melebihi 10 MB." }, { status: 413 });
 
   const buffer = Buffer.from(await file.arrayBuffer());
+  const semuaUnit = await prisma.unitKerja.findMany({ orderBy: { urut: "asc" } });
   let hasil;
   try {
-    const daftarUnit = (await prisma.unitKerja.findMany({ orderBy: { urut: "asc" } })).map((u) => u.nama);
+    const daftarUnit = semuaUnit.map((u) => u.nama);
     const { baris, ...info } = bacaExcel(buffer);
     hasil = validasi(baris, daftarUnit, info);
   } catch (err) {
@@ -52,7 +56,13 @@ export async function POST(req: NextRequest) {
   }
 
   const siap = await tentukanKode(hasil.valid);
+  // Lingkup mode ganti: paket lama pada tahun+tahap yang ada di berkas; akun yang dibatasi
+  // unit hanya menghapus (dan mengganti) data unitnya sendiri.
+  const unitGantiId = sesi.user.unitKerja && !cukup(sesi.user.peran, "Admin") ? semuaUnit.find((u) => u.nama === sesi.user.unitKerja)?.id ?? null : null;
+  const akanDihapus = ganti && siap.length > 0 ? await prisma.paket.count({ where: lingkupGanti(siap, unitGantiId) }) : 0;
   const ringkas = {
+    ganti,
+    akanDihapus,
     sheet: hasil.sheet,
     totalBaris: hasil.totalBaris,
     barisValid: siap.length,
@@ -84,8 +94,8 @@ export async function POST(req: NextRequest) {
 
   const ip = ipDari(req.headers);
   try {
-    const simpan = await simpanImpor(siap, { namaBerkas: file.name, ukuranByte: file.size, pengguna: sesi.user.email, berkasTersimpan, barisError: ringkas.barisError });
-    await audit("impor.simpan", { email: sesi.user.email, ip, objek: file.name, detail: `${simpan.barisBaru} baru, ${simpan.barisDiperbarui} diperbarui, total ${simpan.totalNilai}` });
+    const simpan = await simpanImpor(siap, { namaBerkas: file.name, ukuranByte: file.size, pengguna: sesi.user.email, berkasTersimpan, barisError: ringkas.barisError }, { ganti, unitKerjaId: unitGantiId });
+    await audit("impor.simpan", { email: sesi.user.email, ip, objek: file.name, detail: `${simpan.barisBaru} baru, ${simpan.barisDiperbarui} diperbarui, total ${simpan.totalNilai}${ganti ? `, mode ganti: ${simpan.barisDihapus} dihapus` : ""}` });
     return NextResponse.json({ mode, ...ringkas, simpan });
   } catch (err) {
     await audit("impor.gagal", { email: sesi.user.email, ip, objek: file.name, detail: err instanceof Error ? err.message : String(err) });

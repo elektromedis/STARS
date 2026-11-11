@@ -40,6 +40,17 @@ Siklus **unduh → edit → unggah**:
 2. Ubah angka yang perlu (mis. tandai `serapan` = ya) — **jangan sentuh kolom `kode`**.
 3. Unggah kembali lewat Impor → baris yang sama diperbarui, tidak ada data ganda.
 
+**Mengganti data lama seutuhnya (satu kali impor):** di halaman Impor, centang
+**"Ganti data lama (hapus lalu impor ulang)"**. Semua paket lama pada *tahun & tahap yang sama*
+dengan isi berkas dihapus dulu, lalu diganti seluruh isi berkas — cocok bila daftar lama mau
+dibuang dan diganti versi baru. Jumlah baris yang akan terhapus tampil saat **Periksa**, dan ada
+konfirmasi sebelum Simpan. Akun yang dibatasi satu unit hanya mengganti data unitnya sendiri.
+Hati-hati: penghapusan tidak bisa dibatalkan (buat Cadangan dulu di Admin → Sistem bila ragu).
+
+**Ekspor PDF & formulir cetak:** di **Ekspor & Template** kini ada tombol **PDF** (laporan daftar
+paket siap cetak, lengkap dengan total), **PDF rekap unit**, dan **Formulir PDF (cetak)** — formulir
+kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template Excel.
+
 ## Menit 50–60 · Hal penting lain + tanya jawab
 
 - **Log Impor**: semua unggahan terekam (siapa, kapan, berkas apa). Berkas asli tersimpan di server.

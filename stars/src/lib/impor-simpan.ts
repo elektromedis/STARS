@@ -9,6 +9,19 @@ export type BarisSiap = BarisImpor & { kode: string; status: "baru" | "diperbaru
 const kunci = (b: { tahun: number; tahap: string; namaPaket: string; unitKerja: string; namaRekening: string }) =>
   [b.tahun, b.tahap, b.namaPaket.toLowerCase(), b.unitKerja, b.namaRekening.toLowerCase()].join("|");
 
+/** Kombinasi tahun+tahap unik yang muncul pada baris impor (dipakai untuk lingkup mode ganti). */
+export function grupTahunTahap(baris: { tahun: number; tahap: string }[]) {
+  return [...new Set(baris.map((b) => `${b.tahun}|${b.tahap}`))].map((g) => {
+    const [t, th] = g.split("|");
+    return { tahun: Number(t), tahap: th };
+  });
+}
+
+/** Lingkup penghapusan mode ganti: seluruh paket pada tahun+tahap yang ada di berkas (opsional dibatasi satu unit). */
+export function lingkupGanti(baris: { tahun: number; tahap: string }[], unitKerjaId?: number | null) {
+  return { OR: grupTahunTahap(baris), ...(unitKerjaId ? { unitKerjaId } : {}) };
+}
+
 /**
  * Menentukan kode setiap baris dan apakah baris itu baru atau memperbarui data lama:
  * 1) kode terisi → dipakai apa adanya;
@@ -17,7 +30,7 @@ const kunci = (b: { tahun: number; tahap: string; namaPaket: string; unitKerja: 
  */
 export async function tentukanKode(valid: BarisImpor[]): Promise<BarisSiap[]> {
   if (valid.length === 0) return [];
-  const grup = [...new Set(valid.map((v) => `${v.tahun}|${v.tahap}`))].map((g) => { const [t, th] = g.split("|"); return { tahun: Number(t), tahap: th }; });
+  const grup = grupTahunTahap(valid);
   const lama = await prisma.paket.findMany({
     where: { OR: grup }, select: { kode: true, tahun: true, tahap: true, namaPaket: true, namaRekening: true, unitKerja: { select: { nama: true } } },
   });
@@ -43,13 +56,22 @@ export async function tentukanKode(valid: BarisImpor[]): Promise<BarisSiap[]> {
   });
 }
 
-export async function simpanImpor(baris: BarisSiap[], meta: { namaBerkas: string; ukuranByte: number; pengguna?: string | null; berkasTersimpan?: string | null; barisError: number }) {
+export async function simpanImpor(
+  baris: BarisSiap[],
+  meta: { namaBerkas: string; ukuranByte: number; pengguna?: string | null; berkasTersimpan?: string | null; barisError: number },
+  opsi?: { ganti?: boolean; unitKerjaId?: number | null }
+) {
   const units = new Map((await prisma.unitKerja.findMany()).map((u) => [u.nama, u.id]));
   const fallback = units.get("TIDAK ADA");
   const totalNilai = baris.reduce((a, b) => a + b.nilai, 0);
+  let barisDihapus = 0;
   try {
     await prisma.$transaction(
       async (tx) => {
+        if (opsi?.ganti) {
+          const hapus = await tx.paket.deleteMany({ where: lingkupGanti(baris, opsi.unitKerjaId) });
+          barisDihapus = hapus.count;
+        }
         for (const { status: _s, baris: _no, unitKerja, ...b } of baris) {
           void _s; void _no;
           const unitKerjaId = units.get(unitKerja) ?? fallback;
@@ -68,7 +90,10 @@ export async function simpanImpor(baris: BarisSiap[], meta: { namaBerkas: string
   }
   const barisBaru = baris.filter((b) => b.status === "baru").length;
   const log = await prisma.logImpor.create({
-    data: { ...meta, totalBaris: baris.length, barisBaru, barisDiperbarui: baris.length - barisBaru, totalNilai, status: "Berhasil" },
+    data: {
+      ...meta, totalBaris: baris.length, barisBaru, barisDiperbarui: baris.length - barisBaru, totalNilai, status: "Berhasil",
+      ...(opsi?.ganti ? { pesan: `Mode ganti: ${barisDihapus} baris data lama dihapus sebelum impor.` } : {}),
+    },
   });
-  return { logId: log.id, barisBaru, barisDiperbarui: baris.length - barisBaru, totalNilai };
+  return { logId: log.id, barisBaru, barisDiperbarui: baris.length - barisBaru, totalNilai, barisDihapus };
 }
