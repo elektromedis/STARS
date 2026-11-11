@@ -11,7 +11,7 @@ Status per 10 November 2026:
 | 0 | Persiapan lingkungan kerja | ✅ Selesai |
 | 1 | Dashboard publik (Prioritas 1) | ✅ Selesai 10 Nov 2026 — data nyata RKPBU/RKBU 2024–2027 (lihat catatan di bawah tabel Tahap 1) |
 | 2 | Administrasi Excel (Prioritas 2) | ✅ Selesai 10 Nov 2026 — `/admin` impor/ekspor/log (sandi sementara) |
-| 3 | Keamanan & deployment ganda (Prioritas 3) | ✅ Kode selesai & teruji lokal 11 Nov 2026; teruji juga di Linux (devcontainer: `npm ci`, typecheck, build, smoke test API — 11 Nov 2026); Docker belum diuji |
+| 3 | Keamanan & deployment ganda (Prioritas 3) | ✅ Selesai 11 Nov 2026 — teruji di Windows, Linux, dan **Docker** (server intranet berjalan di laptop via `deploy/server-rs.bat`); akses internet HTTPS aktif via Tailscale Funnel (`deploy/domain-gratis.bat`, lihat `docs/DOMAIN-GRATIS.md`) |
 | 4 | Uji coba, migrasi data, serah terima | 🟡 Perangkat siap 11 Nov 2026 — `docs/UAT.md`, `docs/SOP.md`, `docs/PANDUAN-OPERATOR.md`, `docs/SERAH-TERIMA.md`; pelaksanaan uji oleh pengguna belum |
 
 ---
@@ -354,8 +354,8 @@ Bila Docker belum boleh dipasang, alternatif sementara: `jalankan-produksi.bat` 
 
 ### 3.4 Kriteria selesai Tahap 3
 
-- [ ] `https://stars.<domain>` terbuka dengan gembok hijau dari HP di luar RS. *(menunggu VPS + domain)*
-- [ ] `http://stars.rsud.local:3000` terbuka dari komputer unit kerja saat kabel internet dicabut. *(menunggu server intranet)*
+- [x] Dashboard terbuka dengan HTTPS dari HP di luar RS. *(teruji 11 Nov 2026 via domain gratis Tailscale Funnel `….ts.net`; domain resmi RS + VPS tetap jadi rencana akhir)*
+- [ ] `http://<IP-server>:3000` terbuka dari komputer unit kerja saat kabel internet dicabut. *(server intranet laptop sudah berjalan 11 Nov 2026 via Docker; uji dari komputer lain belum)*
 - [x] Membuka `/admin` tanpa login dialihkan ke `/login`; Operator unit A tidak bisa mengunggah untuk unit B. *(teruji 11 Nov 2026)*
 - [x] Data yang diunggah di intranet dapat dikirim ke internet lewat `npm run sync` (jadwal harian: `deploy/sinkron-harian.ps1`). *(teruji ke server lokal)*
 - [x] Cadangan dapat diunduh dari Admin → Sistem; pulihkan dengan mengganti berkas `.db`. *(teruji unduh; uji pulih saat Tahap 4)*
@@ -407,8 +407,8 @@ Perangkat tahap ini sudah disiapkan (11 Nov 2026): rencana uji **`docs/UAT.md`**
 | 2–3 | ✅ API publik, filter via query string, ganti semua data contoh, unduh XLSX/CSV (selesai lebih cepat: 1 hari) |
 | 4–5 | ✅ Halaman admin impor/ekspor, validasi, log impor (selesai 10 Nov 2026) |
 | 6 | ✅ Auth.js, peran, middleware, audit log (selesai 11 Nov 2026) |
-| 7 | ✅ Berkas Docker + sinkronisasi + cadangan (kode selesai); ⬜ uji Docker & deploy intranet di server RS |
-| 8 | ⬜ Deploy internet + HTTPS, jadwal sinkron harian, uji pulih cadangan |
+| 7 | ✅ Berkas Docker + sinkronisasi + cadangan; Docker teruji & server intranet berjalan di laptop (11 Nov 2026) |
+| 8 | ✅ Akses internet + HTTPS via Tailscale Funnel (11 Nov 2026); ⬜ jadwal sinkron harian (belum perlu — satu server), uji pulih cadangan |
 | 9–10 | Migrasi data, UAT, pelatihan, SOP, serah terima |
 
 Prinsip untuk pemula: **satu tahap satu cabang Git**, selesaikan checklist sebelum pindah tahap, dan setiap akhir hari pastikan `npm run build` masih lolos.
