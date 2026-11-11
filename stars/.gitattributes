@@ -1,0 +1,7 @@
+# Normalisasi akhir baris: LF di repo untuk semua teks, CRLF hanya untuk skrip Windows.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
+*.jpg binary
+*.ico binary

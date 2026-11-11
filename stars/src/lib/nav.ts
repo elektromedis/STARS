@@ -1,0 +1,12 @@
+import { LayoutDashboard, Wallet, PackageSearch, Database, Info, Settings, type LucideIcon } from "lucide-react";
+
+export type NavItem = { label: string; href: string; icon: LucideIcon; description: string };
+
+export const NAV_ITEMS: NavItem[] = [
+  { label: "Overview", href: "/", icon: LayoutDashboard, description: "Profil perencanaan, pengadaan, dan pemeliharaan alkes" },
+  { label: "Nilai", href: "/nilai", icon: Wallet, description: "Nilai anggaran dan realisasi" },
+  { label: "Paket", href: "/paket", icon: PackageSearch, description: "Daftar dan status paket" },
+  { label: "Data", href: "/data", icon: Database, description: "Dataset dan unduhan" },
+  { label: "About STARS", href: "/about", icon: Info, description: "Tentang sistem" },
+  { label: "Admin", href: "/admin", icon: Settings, description: "Impor/ekspor Excel, pengguna, log (perlu login)" },
+];

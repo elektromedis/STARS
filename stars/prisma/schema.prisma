@@ -1,0 +1,103 @@
+// STARS — skema basis data Tahap 1.
+// Pengembangan: SQLite (berkas prisma/dev.db). Produksi (Tahap 3): ganti provider ke "postgresql".
+
+generator client {
+  provider      = "prisma-client-js"
+  // native = mesin pengembang (Windows); linux-musl = image Docker node:alpine (Tahap 3)
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// 28 unit kerja RSUD Cipayung (master). "TIDAK ADA" dipakai bila lokasi tidak cocok.
+model UnitKerja {
+  id       Int        @id @default(autoincrement())
+  nama     String     @unique
+  urut     Int        @default(0)
+  paket    Paket[]
+  pengguna Pengguna[]
+}
+
+/// Akun pengguna area admin. Peran: Viewer | Operator | Admin | Super Admin (Public = tanpa akun).
+model Pengguna {
+  id             Int        @id @default(autoincrement())
+  email          String     @unique
+  nama           String
+  sandiHash      String
+  peran          String     @default("Viewer")
+  unitKerja      UnitKerja? @relation(fields: [unitKerjaId], references: [id])
+  unitKerjaId    Int? // Operator: hanya boleh mengunggah data unit ini
+  aktif          Boolean    @default(true)
+  gagalLogin     Int        @default(0)
+  terkunciSampai DateTime?
+  terakhirLogin  DateTime?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+}
+
+/// Jejak aktivitas keamanan & administrasi (login, impor, kelola pengguna, cadangan, sinkron).
+model AuditLog {
+  id     Int      @id @default(autoincrement())
+  waktu  DateTime @default(now())
+  email  String?
+  aksi   String
+  objek  String?
+  detail String?
+  ip     String?
+
+  @@index([waktu])
+}
+
+/// Satu baris RKPBU (pemeliharaan) atau RKBU (pengadaan/modal) alat kesehatan.
+model Paket {
+  id           Int       @id @default(autoincrement())
+  kode         String    @unique
+  tahun        Int
+  tahap        String // Ranwal | Penetapan | Pergeseran | Perubahan | Perubahan II
+  jenis        String // Pemeliharaan | Pengadaan
+  sumberDana   String    @default("BLUD")
+  namaRekening String
+  namaPaket    String
+  uraian       String?
+  unitKerja    UnitKerja @relation(fields: [unitKerjaId], references: [id])
+  unitKerjaId  Int
+  lokasiAsli   String? // teks lokasi apa adanya dari kertas kerja
+  kodeBarang   String?
+  vol1         Float     @default(1)
+  satuan1      String?
+  vol2         Float     @default(1)
+  satuan2      String?
+  hargaSatuan  Float
+  nilai        Float
+  serapan      Boolean   @default(false)
+  prioritas    String?
+  linkHarga    String?
+  keterangan   String?
+  kategori     String    @default("Pemeliharaan Lainnya")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([tahun, tahap])
+  @@index([unitKerjaId])
+  @@index([kategori])
+}
+
+/// Jejak setiap percobaan penyimpanan impor Excel (untuk audit BLUD).
+model LogImpor {
+  id              Int      @id @default(autoincrement())
+  waktu           DateTime @default(now())
+  namaBerkas      String
+  ukuranByte      Int
+  pengguna        String?
+  totalBaris      Int
+  barisBaru       Int
+  barisDiperbarui Int
+  barisError      Int      @default(0)
+  totalNilai      Float    @default(0)
+  status          String // Berhasil | Gagal
+  pesan           String?
+  berkasTersimpan String?
+}

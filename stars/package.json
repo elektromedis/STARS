@@ -1,0 +1,56 @@
+{
+  "name": "stars",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "prisma generate",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "tsx --env-file=.env prisma/seed.ts",
+    "db:setup": "prisma migrate deploy && tsx --env-file=.env prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "db:konversi": "python -I scripts/konversi-rkpbu.py",
+    "env:siapkan": "node scripts/siapkan-env.js",
+    "sync": "tsx --env-file=.env scripts/sinkron.ts"
+  },
+  "prisma": {
+    "seed": "tsx --env-file=.env prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "@radix-ui/react-slot": "^1.1.1",
+    "bcryptjs": "^3.0.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "next": "^15.5.29",
+    "next-auth": "^5.0.0-beta.32",
+    "prisma": "^6.19.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.15.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "xlsx": "^0.18.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.29",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.23.15",
+    "typescript": "^5.7.2"
+  }
+}

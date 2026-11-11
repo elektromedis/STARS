@@ -1,0 +1,13 @@
+# Ganti dengan domain publik STARS, mis. stars.rsudcipayung.jakarta.go.id
+# Caddy otomatis mengurus sertifikat HTTPS (Let's Encrypt) dan pembaruan.
+{$STARS_DOMAIN:stars.example.id} {
+    encode gzip zstd
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        -Server
+    }
+    reverse_proxy app:3000
+}
