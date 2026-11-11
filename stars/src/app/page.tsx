@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { StatCard } from "@/components/dashboard/stat-card";
 import { ChartCard } from "@/components/dashboard/chart-card";
 import { FilterBar } from "@/components/dashboard/filter-bar";
+import { FiixCta } from "@/components/dashboard/fiix-cta";
 import { PackageTable } from "@/components/dashboard/package-table";
 import { TahunChart } from "@/components/charts/tahun-chart";
 import { CategoryDonut } from "@/components/charts/category-donut";
@@ -58,6 +59,8 @@ export default async function OverviewPage({ searchParams }: { searchParams: Pro
           </div>
         </div>
       </section>
+
+      <FiixCta />
 
       <FilterBar filter={filter} options={options} />
 
