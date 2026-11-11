@@ -46,6 +46,7 @@ Aturan validasi lengkap ada di sheet `petunjuk` pada template (`GET /api/admin/t
 
 ## Deployment ganda (intranet + internet)
 
+- **Sekali klik (Windows + Docker Desktop):** `deploy\server-rs.bat` — membuat `deploy\.env` berisi rahasia acak (catat sandi Super Admin yang tampil), build + jalankan server untuk seluruh LAN, dan menawarkan pemuatan data awal dari `prisma\dev.db`. Lanjutkan dengan `deploy\domain-gratis.bat` untuk alamat internet gratis `https://….ts.net` (Tailscale Funnel) — lihat `docs/DOMAIN-GRATIS.md`.
 - **Tanpa Docker (Windows, intranet):** `jalankan-produksi.bat`, akses `http://<IP>:3000`. Untuk berjalan sebagai layanan, daftarkan dengan NSSM.
 - **Docker (intranet / VPS internet):** `copy deploy\.env.example deploy\.env`, isi, lalu
   `docker compose -f deploy/docker-compose.yml --env-file deploy/.env up -d --build` (tambah `--profile internet` di VPS untuk HTTPS otomatis via Caddy). Basis data SQLite tersimpan di volume `stars_data`. *Belum diuji di mesin pengembang.*

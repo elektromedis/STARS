@@ -9,6 +9,8 @@
 # Basis data: SQLite di volume `stars_data` (cukup untuk skala RS; cadangan lewat Admin → Sistem).
 # Salin deploy/.env.example → deploy/.env lalu isi nilainya SEBELUM up.
 # ============================================================
+name: stars
+
 services:
   app:
     build:
