@@ -1,4 +1,5 @@
-import { ExternalLink, Wrench } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, Send, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -24,15 +25,20 @@ export function FiixCta() {
           <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">RSUD Cipayung</p>
           <h2 className="text-lg font-bold text-navy-800">Have an issue to report?</h2>
           <p className="mt-0.5 text-sm text-muted-foreground">
-            Ada alat kesehatan rusak atau bermasalah? Formulir permintaan kerja akan terbuka di aplikasi pemeliharaan Fiix (tab baru), tanpa perlu akun.
+            Ada alat kesehatan atau sarana yang rusak/bermasalah? Laporkan lewat STARS (tanpa akun), atau kirim permintaan kerja ke aplikasi pemeliharaan Fiix.
           </p>
         </div>
       </div>
-      <Button variant="teal" size="lg" className="shrink-0" asChild>
-        <a href={url} target="_blank" rel="noopener noreferrer" aria-label="Submit a work request — formulir permintaan kerja Fiix RSUD Cipayung, terbuka di tab baru">
-          Submit a work request <ExternalLink aria-hidden />
-        </a>
-      </Button>
+      <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:items-center">
+        <Button variant="teal" size="lg" asChild>
+          <Link href="/lapor" aria-label="Lapor kerusakan alat lewat STARS"><Send aria-hidden /> Lapor Kerusakan</Link>
+        </Button>
+        <Button variant="outline" size="lg" asChild>
+          <a href={url} target="_blank" rel="noopener noreferrer" aria-label="Submit a work request — formulir permintaan kerja Fiix RSUD Cipayung, terbuka di tab baru">
+            Submit a work request <ExternalLink aria-hidden />
+          </a>
+        </Button>
+      </div>
     </section>
   );
 }

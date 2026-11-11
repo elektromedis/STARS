@@ -8,7 +8,7 @@ export function StatCard({ label, value, delta, trend, hint }: { label: string; 
     <Card className="p-5">
       <p className="text-sm font-medium text-muted-foreground">{label}</p>
       <p className="mt-2 text-2xl font-bold tracking-tight text-navy-800 md:text-3xl">{value}</p>
-      {delta && (
+      {delta ? (
         <p className="mt-2 flex items-center gap-1.5 text-xs">
           <span className={cn("inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold", trend === "down" ? "bg-red-50 text-red-700" : "bg-teal-50 text-teal-800")}>
             <Icon className="size-3" aria-hidden />
@@ -16,7 +16,9 @@ export function StatCard({ label, value, delta, trend, hint }: { label: string; 
           </span>
           {hint && <span className="text-muted-foreground">{hint}</span>}
         </p>
-      )}
+      ) : hint ? (
+        <p className="mt-2 text-xs text-muted-foreground">{hint}</p>
+      ) : null}
     </Card>
   );
 }

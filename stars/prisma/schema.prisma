@@ -14,11 +14,13 @@ datasource db {
 
 /// 28 unit kerja RSUD Cipayung (master). "TIDAK ADA" dipakai bila lokasi tidak cocok.
 model UnitKerja {
-  id       Int        @id @default(autoincrement())
-  nama     String     @unique
-  urut     Int        @default(0)
-  paket    Paket[]
-  pengguna Pengguna[]
+  id         Int               @id @default(autoincrement())
+  nama       String            @unique
+  urut       Int               @default(0)
+  paket      Paket[]
+  pengguna   Pengguna[]
+  alat       Alat[]
+  permintaan PermintaanKerja[]
 }
 
 /// Akun pengguna area admin. Peran: Viewer | Operator | Admin | Super Admin (Public = tanpa akun).
@@ -36,6 +38,7 @@ model Pengguna {
   terakhirLogin  DateTime?
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
+  perintahKerja  PerintahKerja[] @relation("TeknisiPerintah")
 }
 
 /// Jejak aktivitas keamanan & administrasi (login, impor, kelola pengguna, cadangan, sinkron).
@@ -83,6 +86,108 @@ model Paket {
   @@index([tahun, tahap])
   @@index([unitKerjaId])
   @@index([kategori])
+}
+
+// ============================================================
+// Modul Pemeliharaan Alat Kesehatan (CMMS internal STARS).
+// Alur: Alat -> Permintaan Kerja (lapor kerusakan, publik) -> Perintah Kerja
+// (work order, dikerjakan teknisi) -> Selesai. Jadwal Preventif opsional.
+// Terpisah dari tabel Paket (RKPBU/RKBU) agar data pengadaan tidak tersentuh.
+// ============================================================
+
+/// Aset/alat kesehatan yang dipelihara. Kode = nomor inventaris (unik).
+model Alat {
+  id             Int               @id @default(autoincrement())
+  kode           String            @unique
+  nama           String
+  merek          String?
+  model          String?
+  nomorSeri      String?
+  unitKerja      UnitKerja         @relation(fields: [unitKerjaId], references: [id])
+  unitKerjaId    Int
+  lokasi         String?
+  kategori       String?
+  tahunPerolehan Int?
+  kondisi        String            @default("Baik") // Baik | Rusak Ringan | Rusak Berat | Afkir
+  aktif          Boolean           @default(true)
+  catatan        String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  permintaan     PermintaanKerja[]
+  perintah       PerintahKerja[]
+  jadwal         JadwalPreventif[]
+
+  @@index([unitKerjaId])
+  @@index([kondisi])
+}
+
+/// Permintaan kerja / laporan kerusakan. Dapat dibuat publik tanpa akun.
+model PermintaanKerja {
+  id             Int            @id @default(autoincrement())
+  nomor          String         @unique // WR-2026-0001
+  alat           Alat?          @relation(fields: [alatId], references: [id])
+  alatId         Int?
+  namaAlat       String // teks bila alat belum terdaftar
+  unitKerja      UnitKerja?     @relation(fields: [unitKerjaId], references: [id])
+  unitKerjaId    Int?
+  lokasi         String?
+  pelapor        String
+  kontak         String?
+  keluhan        String
+  prioritas      String         @default("Normal") // Rendah | Normal | Tinggi | Darurat
+  foto           String?
+  status         String         @default("Baru") // Baru | Ditinjau | Diproses | Selesai | Ditolak
+  catatanPetugas String?
+  perintah       PerintahKerja?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+/// Perintah kerja (work order) yang dikerjakan teknisi.
+model PerintahKerja {
+  id             Int              @id @default(autoincrement())
+  nomor          String           @unique // WO-2026-0001
+  permintaan     PermintaanKerja? @relation(fields: [permintaanId], references: [id])
+  permintaanId   Int?             @unique
+  alat           Alat?            @relation(fields: [alatId], references: [id])
+  alatId         Int?
+  jenis          String           @default("Korektif") // Korektif | Preventif
+  deskripsi      String
+  prioritas      String           @default("Normal")
+  teknisi        Pengguna?        @relation("TeknisiPerintah", fields: [teknisiId], references: [id])
+  teknisiId      Int?
+  status         String           @default("Terbuka") // Terbuka | Dikerjakan | Selesai | Batal
+  tindakan       String?
+  sukuCadang     String?
+  biaya          Float            @default(0)
+  tanggalMulai   DateTime?
+  tanggalSelesai DateTime?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  @@index([status])
+  @@index([teknisiId])
+}
+
+/// Jadwal pemeliharaan preventif berkala per alat (UI penuh menyusul).
+model JadwalPreventif {
+  id           Int       @id @default(autoincrement())
+  alat         Alat      @relation(fields: [alatId], references: [id])
+  alatId       Int
+  nama         String
+  intervalHari Int // ulang setiap N hari
+  checklist    String?
+  terakhir     DateTime?
+  berikutnya   DateTime?
+  aktif        Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([alatId])
+  @@index([berikutnya])
 }
 
 /// Jejak setiap percobaan penyimpanan impor Excel (untuk audit BLUD).
