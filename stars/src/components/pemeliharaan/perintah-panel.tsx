@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { badgePrioritas, badgeStatusPerintah, JENIS_PERINTAH, PRIORITAS, STATUS_PERINTAH, urai } from "@/lib/pemeliharaan";
 import { ubahPerintah, type StatusAksi } from "@/app/admin/pemeliharaan/actions";
-import { formatIDRCompact } from "@/lib/utils";
+import { formatRupiah } from "@/lib/utils";
 
 type Teknisi = { id: number; nama: string };
 export type Perintah = {
@@ -42,7 +42,7 @@ function Baris({ wo, teknisi, bolehKelola }: { wo: Perintah; teknisi: Teknisi[];
           {(() => { const t = urai(wo.checklist); return t.length ? <p className="text-xs"><span className="text-muted-foreground">Checklist:</span> {t.filter((x) => x.selesai).length}/{t.length} selesai</p> : null; })()}
           {wo.tindakan && <p className="whitespace-pre-wrap"><span className="text-muted-foreground">Tindakan:</span> {wo.tindakan}</p>}
           {wo.sukuCadang && <p><span className="text-muted-foreground">Suku cadang:</span> {wo.sukuCadang}</p>}
-          {wo.biaya > 0 && <p><span className="text-muted-foreground">Biaya:</span> {formatIDRCompact(wo.biaya)}</p>}
+          {wo.biaya > 0 && <p><span className="text-muted-foreground">Biaya:</span> {formatRupiah(wo.biaya)}</p>}
           <p className="text-xs text-muted-foreground">Mulai {tgl(wo.tanggalMulai)} · Selesai {tgl(wo.tanggalSelesai)}</p>
           <a href={`/api/pemeliharaan/wo/${wo.id}/pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 pt-1 text-xs font-medium text-teal-700 hover:underline"><Printer className="size-3.5" /> Cetak lembar kerja (PDF)</a>
         </div>

@@ -10,7 +10,9 @@ export type KolomPdf = { kunci: string; label: string; lebar?: number; rata?: "l
 const NAVY: [number, number, number] = [23, 37, 84];
 const TEAL: [number, number, number] = [13, 148, 136];
 
-export const formatRpPdf = (n: number) => "Rp " + Math.round(n).toLocaleString("id-ID");
+import { formatRupiah } from "./utils";
+
+export const formatRpPdf = formatRupiah;
 
 function tanggalCetak() {
   return new Date().toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" });

@@ -1,4 +1,7 @@
 import { prisma } from "./prisma";
+import { SEMUA_TAHAP } from "./tahap";
+
+export { SEMUA_TAHAP, labelTahap, labelFilter } from "./tahap";
 
 /** Urutan tahap anggaran dari paling awal ke paling akhir. */
 export const TAHAP_URUT = ["Ranwal", "Penetapan", "Pergeseran", "Perubahan", "Perubahan II"] as const;
@@ -47,7 +50,10 @@ export async function resolveFilter(sp: SearchParams, opts?: FilterOptions): Pro
     options.tahunTahap[0];
   const tahun = tahunRow?.tahun ?? tahunIni;
   const tahapReq = first(sp.tahap);
-  const tahap = tahunRow && tahapReq && tahunRow.tahap.includes(tahapReq) ? tahapReq : tahapTerakhir(tahunRow?.tahap ?? []);
+  const tahap =
+    tahunRow && tahapReq === SEMUA_TAHAP ? SEMUA_TAHAP
+    : tahunRow && tahapReq && tahunRow.tahap.includes(tahapReq) ? tahapReq
+    : tahapTerakhir(tahunRow?.tahap ?? []);
   const unitReq = first(sp.unit);
   const unit = unitReq && options.units.includes(unitReq) ? unitReq : null;
   const katReq = first(sp.kategori);
@@ -55,11 +61,11 @@ export async function resolveFilter(sp: SearchParams, opts?: FilterOptions): Pro
   return { filter: { tahun, tahap, unit, kategori }, options };
 }
 
-/** Klausa `where` Prisma dari filter. */
+/** Klausa `where` Prisma dari filter. Tahap "semua" = tanpa batasan tahap (semua tahap pada tahun itu dijumlahkan). */
 export function whereFilter(f: Filter) {
   return {
     tahun: f.tahun,
-    tahap: f.tahap,
+    ...(f.tahap === SEMUA_TAHAP ? {} : { tahap: f.tahap }),
     ...(f.unit ? { unitKerja: { nama: f.unit } } : {}),
     ...(f.kategori ? { kategori: f.kategori } : {}),
   };

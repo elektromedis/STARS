@@ -1,7 +1,7 @@
 "use client";
 
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
-import { formatIDRCompact } from "@/lib/utils";
+import { formatRupiah } from "@/lib/utils";
 
 export const CHART_COLORS = ["#0B2545", "#14A0A8", "#25507F", "#5CD0D5", "#6F95C2", "#A9C0DD"];
 
@@ -15,15 +15,15 @@ export function CategoryDonut({ data }: { data: { name: string; value: number }[
             <Pie data={data} dataKey="value" nameKey="name" innerRadius={52} outerRadius={84} paddingAngle={2} stroke="none">
               {data.map((_, i) => <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />)}
             </Pie>
-            <Tooltip formatter={(v) => formatIDRCompact(Number(v))} contentStyle={{ borderRadius: 8, border: "1px solid #E2E8F0" }} />
+            <Tooltip formatter={(v) => formatRupiah(Number(v))} contentStyle={{ borderRadius: 8, border: "1px solid #E2E8F0" }} />
           </PieChart>
         </ResponsiveContainer>
       </div>
       <ul className="w-full space-y-2 text-sm">
         {data.map((d, i) => (
           <li key={d.name} className="flex items-center justify-between gap-3">
-            <span className="flex items-center gap-2"><span className="size-2.5 rounded-full" style={{ background: CHART_COLORS[i % CHART_COLORS.length] }} />{d.name}</span>
-            <span className="tabular-nums text-muted-foreground">{formatIDRCompact(d.value)}</span>
+            <span className="flex min-w-0 items-center gap-2"><span className="size-2.5 shrink-0 rounded-full" style={{ background: CHART_COLORS[i % CHART_COLORS.length] }} />{d.name}</span>
+            <span className="whitespace-nowrap tabular-nums text-muted-foreground">{formatRupiah(d.value)}</span>
           </li>
         ))}
       </ul>

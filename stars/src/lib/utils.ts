@@ -9,11 +9,10 @@ export function formatNumber(n: number) {
   return new Intl.NumberFormat("id-ID").format(n);
 }
 
-export function formatIDRCompact(n: number) {
-  if (n >= 1e12) return `Rp ${(n / 1e12).toFixed(2).replace(".", ",")} T`;
-  if (n >= 1e9) return `Rp ${(n / 1e9).toFixed(1).replace(".", ",")} M`;
-  if (n >= 1e6) return `Rp ${(n / 1e6).toFixed(0)} jt`;
-  return `Rp ${formatNumber(n)}`;
+/** Rupiah lengkap format RS, mis. "Rp. 247.123.456,-". */
+export function formatRupiah(n: number) {
+  const bulat = Math.round(n);
+  return `${bulat < 0 ? "-" : ""}Rp. ${new Intl.NumberFormat("id-ID", { maximumFractionDigits: 0 }).format(Math.abs(bulat))},-`;
 }
 
 /** Label sumbu grafik ringkas: 1,2 M / 350 jt */

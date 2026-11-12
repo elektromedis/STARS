@@ -4,9 +4,9 @@ import { Download, FileSpreadsheet, FileText, Printer } from "lucide-react";
 import { FilterBar } from "@/components/dashboard/filter-bar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { filterToQuery, resolveFilter, type SearchParams } from "@/lib/filter";
+import { filterToQuery, labelFilter, resolveFilter, type SearchParams } from "@/lib/filter";
 import { getRingkasan } from "@/lib/queries";
-import { formatIDRCompact, formatNumber } from "@/lib/utils";
+import { formatRupiah, formatNumber } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Ekspor & Template" };
 export const dynamic = "force-dynamic";
@@ -34,7 +34,7 @@ export default async function EksporPage({ searchParams }: { searchParams: Promi
         <CardContent>
           <FilterBar filter={filter} options={options} />
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-muted-foreground">{formatNumber(r.jumlahPaket)} paket • {formatIDRCompact(r.totalNilai)} • {filter.tahap} {filter.tahun}{filter.unit ? ` • ${filter.unit}` : ""}</p>
+            <p className="text-sm text-muted-foreground">{formatNumber(r.jumlahPaket)} paket • {formatRupiah(r.totalNilai)} • {labelFilter(filter)}{filter.unit ? ` • ${filter.unit}` : ""}</p>
             <div className="flex flex-wrap gap-2">
               <Button variant="outline" asChild><Link href={`/api/dataset/paket${filterToQuery(filter, { format: "xlsx" })}`}><Download /> XLSX</Link></Button>
               <Button variant="outline" asChild><Link href={`/api/dataset/paket${filterToQuery(filter, { format: "csv" })}`}><Download /> CSV</Link></Button>

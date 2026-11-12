@@ -12,9 +12,9 @@ import { CategoryDonut } from "@/components/charts/category-donut";
 import { BarListChart } from "@/components/charts/bar-list-chart";
 import { NAV_ITEMS } from "@/lib/nav";
 import { LogoFull } from "@/components/layout/logo";
-import { filterToQuery, resolveFilter, type SearchParams } from "@/lib/filter";
+import { filterToQuery, labelFilter, resolveFilter, SEMUA_TAHAP, type SearchParams } from "@/lib/filter";
 import { getNilaiPerKategori, getNilaiPerTahun, getNilaiPerUnit, getPaketList, getRingkasan } from "@/lib/queries";
-import { formatIDRCompact, formatNumber } from "@/lib/utils";
+import { formatRupiah, formatNumber } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -31,10 +31,10 @@ export default async function OverviewPage({ searchParams }: { searchParams: Pro
   const q = filterToQuery(filter);
   const shortcuts = NAV_ITEMS.filter((n) => ["/nilai", "/paket", "/data"].includes(n.href));
   const kpis = [
-    { label: "Total Nilai Anggaran", value: formatIDRCompact(ringkasan.totalNilai), hint: `${filter.tahap} ${filter.tahun}` },
+    { label: "Total Nilai Anggaran", value: formatRupiah(ringkasan.totalNilai), hint: labelFilter(filter) },
     { label: "Jumlah Paket", value: formatNumber(ringkasan.jumlahPaket), hint: "baris RKPBU/RKBU alat kesehatan" },
     { label: "Alkes Dipelihara", value: formatNumber(ringkasan.alkesDipelihara), hint: "unit alat dalam rencana pemeliharaan" },
-    { label: "Serapan", value: `${ringkasan.realisasiPersen.toFixed(1).replace(".", ",")}%`, hint: `${formatIDRCompact(ringkasan.nilaiTerserap)} terserap` },
+    { label: "Serapan", value: `${ringkasan.realisasiPersen.toFixed(1).replace(".", ",")}%`, hint: `${formatRupiah(ringkasan.nilaiTerserap)} terserap` },
   ];
 
   return (
@@ -72,7 +72,7 @@ export default async function OverviewPage({ searchParams }: { searchParams: Pro
         <ChartCard className="lg:col-span-3" title="Nilai Anggaran per Tahun dan Tahap" description={filter.unit ? `Unit ${filter.unit}, semua tahun yang tercatat` : "Seluruh unit kerja, semua tahun yang tercatat"}>
           <TahunChart data={perTahun.data} tahapKeys={perTahun.tahapKeys} />
         </ChartCard>
-        <ChartCard className="lg:col-span-2" title="Distribusi per Kategori" description={`Porsi nilai menurut kategori, ${filter.tahap} ${filter.tahun}`}>
+        <ChartCard className="lg:col-span-2" title="Distribusi per Kategori" description={`Porsi nilai menurut kategori, ${labelFilter(filter)}`}>
           <CategoryDonut data={perKategori} />
         </ChartCard>
       </section>
@@ -85,11 +85,11 @@ export default async function OverviewPage({ searchParams }: { searchParams: Pro
           <CardHeader className="flex-row items-start justify-between gap-4">
             <div className="space-y-1">
               <CardTitle>Paket Bernilai Terbesar</CardTitle>
-              <CardDescription>5 paket dengan nilai tertinggi pada {filter.tahap} {filter.tahun}</CardDescription>
+              <CardDescription>5 paket dengan nilai tertinggi pada {labelFilter(filter)}</CardDescription>
             </div>
             <Button variant="link" size="sm" asChild><Link href={`/paket${q}`}>Lihat semua</Link></Button>
           </CardHeader>
-          <CardContent className="px-0 pb-2"><PackageTable rows={terbesar.data} /></CardContent>
+          <CardContent className="px-0 pb-2"><PackageTable rows={terbesar.data} tampilTahap={filter.tahap === SEMUA_TAHAP} /></CardContent>
         </Card>
       </section>
 

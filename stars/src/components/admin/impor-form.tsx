@@ -2,12 +2,13 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AlertTriangle, CheckCircle2, Download, FileSpreadsheet, Loader2, Save, SearchCheck, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { formatIDRCompact, formatNumber } from "@/lib/utils";
+import { formatRupiah, formatNumber } from "@/lib/utils";
 
 type Masalah = { baris: number; kolom: string; pesan: string };
 type Pratinjau = { kode: string; status: "baru" | "diperbarui"; tahun: number; tahap: string; namaPaket: string; unitKerja: string; kategori: string; nilai: number; serapan: boolean };
@@ -26,6 +27,7 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
   const [pesan, setPesan] = useState<string | null>(null);
   const [ganti, setGanti] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   async function kirim(mode: "validasi" | "simpan") {
     if (!file) return;
@@ -43,7 +45,7 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
       const res = await fetch("/api/admin/impor", { method: "POST", body: fd });
       const data = (await res.json()) as Hasil & { error?: string };
       if (!res.ok && !data.totalBaris) { setPesan(data.error ?? `Gagal (${res.status})`); setHasil(null); }
-      else { setHasil(data); if (data.error) setPesan(data.error); }
+      else { setHasil(data); if (data.error) setPesan(data.error); if (data.simpan) router.refresh(); }
     } catch (e) {
       setPesan(e instanceof Error ? e.message : String(e));
     } finally { setSibuk(""); }
@@ -106,7 +108,7 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
               <Ringkas label="Baru / Diperbarui" nilai={`${formatNumber(hasil.barisBaru)} / ${formatNumber(hasil.barisDiperbarui)}`} />
               {hasil.ganti && <Ringkas label="Data lama dihapus" nilai={formatNumber(hasil.simpan?.barisDihapus ?? hasil.akanDihapus ?? 0)} warna="text-red-700" />}
               <Ringkas label="Baris error" nilai={formatNumber(hasil.barisError)} warna={hasil.barisError ? "text-red-700" : "text-emerald-700"} />
-              <Ringkas label="Total nilai valid" nilai={formatIDRCompact(hasil.totalNilai)} />
+              <Ringkas label="Total nilai valid" nilai={formatRupiah(hasil.totalNilai)} />
             </div>
             {hasil.ganti && !tersimpan && (
               <div className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-900">
@@ -136,7 +138,7 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
                         <TableCell className="max-w-xs"><span className="line-clamp-2">{p.namaPaket}</span></TableCell>
                         <TableCell>{p.unitKerja}</TableCell>
                         <TableCell className="hidden md:table-cell text-muted-foreground">{p.kategori}</TableCell>
-                        <TableCell className="text-right tabular-nums">{formatIDRCompact(p.nilai)}</TableCell>
+                        <TableCell className="text-right tabular-nums">{formatRupiah(p.nilai)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -155,7 +157,7 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
           </CardHeader>
           <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             {tersimpan ? (
-              <p className="flex items-center gap-2 text-sm text-emerald-800"><CheckCircle2 className="size-5" /> Tersimpan: {hasil.ganti ? `${formatNumber(hasil.simpan!.barisDihapus ?? 0)} lama dihapus, ` : ""}{formatNumber(hasil.simpan!.barisBaru)} baru, {formatNumber(hasil.simpan!.barisDiperbarui)} diperbarui, total {formatIDRCompact(hasil.simpan!.totalNilai)} (log #{hasil.simpan!.logId}).</p>
+              <p className="flex items-center gap-2 text-sm text-emerald-800"><CheckCircle2 className="size-5" /> Tersimpan: {hasil.ganti ? `${formatNumber(hasil.simpan!.barisDihapus ?? 0)} lama dihapus, ` : ""}{formatNumber(hasil.simpan!.barisBaru)} baru, {formatNumber(hasil.simpan!.barisDiperbarui)} diperbarui, total {formatRupiah(hasil.simpan!.totalNilai)} (log #{hasil.simpan!.logId}).</p>
             ) : (
               <p className="text-sm text-muted-foreground">{hasil.barisError > 0 ? "Perbaiki error di atas, lalu pilih berkas lagi dan Periksa ulang." : `${formatNumber(hasil.barisValid)} baris siap disimpan.`}</p>
             )}

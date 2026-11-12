@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { prisma } from "@/lib/prisma";
-import { formatIDRCompact, formatNumber } from "@/lib/utils";
+import { formatRupiah, formatNumber } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Log Impor" };
 export const dynamic = "force-dynamic";
@@ -31,7 +31,7 @@ export default async function LogPage() {
               <TableCell className="hidden md:table-cell">{l.pengguna ?? "-"}</TableCell>
               <TableCell className="text-right tabular-nums">{formatNumber(l.totalBaris)}</TableCell>
               <TableCell className="hidden text-right tabular-nums lg:table-cell">{formatNumber(l.barisBaru)} / {formatNumber(l.barisDiperbarui)}</TableCell>
-              <TableCell className="text-right tabular-nums">{formatIDRCompact(l.totalNilai)}</TableCell>
+              <TableCell className="text-right tabular-nums">{formatRupiah(l.totalNilai)}</TableCell>
               <TableCell>
                 <Badge variant={l.status === "Berhasil" ? "success" : "danger"} title={l.pesan ?? undefined}>{l.status}</Badge>
               </TableCell>

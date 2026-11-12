@@ -2,10 +2,11 @@
 
 import { useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Loader2, RotateCcw } from "lucide-react";
+import { Info, Loader2, RotateCcw } from "lucide-react";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import type { Filter, FilterOptions } from "@/lib/filter";
+import { labelFilter, SEMUA_TAHAP } from "@/lib/tahap";
 
 /**
  * Filter global: tahun anggaran, tahap, unit kerja, kategori.
@@ -44,6 +45,7 @@ export function FilterBar({ filter, options }: { filter: Filter; options: Filter
         <label className="grid gap-1.5 text-xs font-medium text-muted-foreground">
           Tahap anggaran
           <Select value={filter.tahap} onChange={(e) => update({ tahap: e.target.value })} aria-label="Tahap anggaran">
+            {tahapList.length > 0 && <option value={SEMUA_TAHAP}>Semua Tahapan</option>}
             {tahapList.map((t) => <option key={t} value={t}>{t}</option>)}
           </Select>
         </label>
@@ -65,7 +67,7 @@ export function FilterBar({ filter, options }: { filter: Filter; options: Filter
       <div className="mt-3 flex items-center justify-between gap-3 text-xs text-muted-foreground">
         <span className="inline-flex items-center gap-2">
           {pending && <Loader2 className="size-3.5 animate-spin" aria-hidden />}
-          Menampilkan <strong className="text-foreground">{filter.tahap} {filter.tahun}</strong>
+          Menampilkan <strong className="text-foreground">{labelFilter(filter)}</strong>
           {filter.unit && <> • Unit <strong className="text-foreground">{filter.unit}</strong></>}
           {filter.kategori && <> • <strong className="text-foreground">{filter.kategori}</strong></>}
         </span>
@@ -75,6 +77,12 @@ export function FilterBar({ filter, options }: { filter: Filter; options: Filter
           </Button>
         )}
       </div>
+      {filter.tahap === SEMUA_TAHAP && tahapList.length > 1 && (
+        <p className="mt-2 flex items-start gap-1.5 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-900">
+          <Info className="mt-0.5 size-3.5 shrink-0" aria-hidden />
+          <span>Nilai dijumlahkan dari {tahapList.length} tahap ({tahapList.join(", ")}). Tiap tahap adalah revisi anggaran, jadi paket yang sama di beberapa tahap ikut terhitung lebih dari sekali — untuk pagu final pilih tahap terakhir.</span>
+        </p>
+      )}
     </div>
   );
 }

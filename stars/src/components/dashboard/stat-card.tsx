@@ -7,7 +7,10 @@ export function StatCard({ label, value, delta, trend, hint }: { label: string; 
   return (
     <Card className="p-5">
       <p className="text-sm font-medium text-muted-foreground">{label}</p>
-      <p className="mt-2 text-2xl font-bold tracking-tight text-navy-800 md:text-3xl">{value}</p>
+      {/* Ukuran huruf menyesuaikan lebar kartu agar rupiah panjang (Rp. 2.392.681.269,-) tetap satu baris */}
+      <div className="[container-type:inline-size]">
+        <p className="mt-2 whitespace-nowrap font-bold tracking-tight text-navy-800 tabular-nums" style={{ fontSize: `clamp(1rem, ${(100 / Math.max(value.length * 0.6, 1)).toFixed(2)}cqi, 1.875rem)`, lineHeight: 1.2 }}>{value}</p>
+      </div>
       {delta ? (
         <p className="mt-2 flex items-center gap-1.5 text-xs">
           <span className={cn("inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold", trend === "down" ? "bg-red-50 text-red-700" : "bg-teal-50 text-teal-800")}>

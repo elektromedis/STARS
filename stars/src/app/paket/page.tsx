@@ -8,7 +8,7 @@ import { PaketToolbar } from "@/components/dashboard/paket-toolbar";
 import { Pagination } from "@/components/dashboard/pagination";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { filterToQuery, first, resolveFilter, type SearchParams } from "@/lib/filter";
+import { filterToQuery, first, resolveFilter, SEMUA_TAHAP, type SearchParams } from "@/lib/filter";
 import { getPaketList } from "@/lib/queries";
 
 export const metadata: Metadata = { title: "Paket" };
@@ -39,7 +39,7 @@ export default async function PaketPage({ searchParams }: { searchParams: Promis
       <FilterBar filter={filter} options={options} />
       <Card className="overflow-hidden">
         <PaketToolbar q={q} status={status} />
-        <PackageTable rows={hasil.data} kosong={q ? `Tidak ada paket yang cocok dengan "${q}".` : "Tidak ada paket untuk filter ini."} />
+        <PackageTable rows={hasil.data} tampilTahap={filter.tahap === SEMUA_TAHAP} kosong={q ? `Tidak ada paket yang cocok dengan "${q}".` : "Tidak ada paket untuk filter ini."} />
         <Pagination page={hasil.page} pages={hasil.pages} total={hasil.total} pageSize={hasil.pageSize} query={query} />
       </Card>
     </>

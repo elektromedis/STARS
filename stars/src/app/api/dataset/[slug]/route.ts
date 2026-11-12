@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { resolveFilter, type Filter } from "@/lib/filter";
+import { labelFilter, resolveFilter, SEMUA_TAHAP, type Filter } from "@/lib/filter";
 import { getNilaiPerKategori, getNilaiPerUnit, getPaketForExport, getUnitKerjaRows } from "@/lib/queries";
 import { keCsv, keXlsx, namaBerkas } from "@/lib/export";
 import { formatRpPdf, kePdf, type KolomPdf } from "@/lib/pdf";
@@ -69,25 +69,26 @@ function responsPdf(buf: Buffer, nama: string) {
 
 /** Laporan PDF siap cetak per dataset (kolom dipilih agar muat dan terbaca di kertas A4). */
 async function pdfDataset(slug: string, filter: Filter) {
-  const sub = `${filter.tahap} ${filter.tahun}${filter.unit ? ` - ${filter.unit}` : ""}`;
+  const sub = `${labelFilter(filter)}${filter.unit ? ` - ${filter.unit}` : ""}`;
 
   if (slug === "paket") {
     const rows = await getPaketForExport(filter);
     const totalNilai = rows.reduce((a, b) => a + Number(b.nilai || 0), 0);
+    const gabungan = filter.tahap === SEMUA_TAHAP;
     const baris = rows.map((p, i) => ({
-      no: i + 1, kode: p.kode, nama_paket: p.nama_paket, unit: p.unit_kerja, kategori: p.kategori,
+      no: i + 1, kode: gabungan ? `${p.kode}\n${p.tahap}` : p.kode, nama_paket: p.nama_paket, unit: p.unit_kerja, kategori: p.kategori,
       vol: `${p.vol1} ${p.satuan1} x ${p.vol2} ${p.satuan2}`.replace(/\s+/g, " ").trim(),
       harga: formatRpPdf(Number(p.harga_satuan || 0)), nilai: formatRpPdf(Number(p.nilai || 0)), serapan: p.serapan,
     }));
     const kolom: KolomPdf[] = [
       { kunci: "no", label: "No", lebar: 9, rata: "center" },
-      { kunci: "kode", label: "Kode", lebar: 27 },
+      { kunci: "kode", label: gabungan ? "Kode / Tahap" : "Kode", lebar: 27 },
       { kunci: "nama_paket", label: "Nama Paket" },
       { kunci: "unit", label: "Unit", lebar: 24 },
-      { kunci: "kategori", label: "Kategori", lebar: 32 },
+      { kunci: "kategori", label: "Kategori", lebar: 30 },
       { kunci: "vol", label: "Volume", lebar: 24 },
-      { kunci: "harga", label: "Harga Satuan", lebar: 25, rata: "right" },
-      { kunci: "nilai", label: "Nilai", lebar: 27, rata: "right" },
+      { kunci: "harga", label: "Harga Satuan", lebar: 29, rata: "right" },
+      { kunci: "nilai", label: "Nilai", lebar: 32, rata: "right" },
       { kunci: "serapan", label: "Serapan", lebar: 15, rata: "center" },
     ];
     const buf = kePdf({

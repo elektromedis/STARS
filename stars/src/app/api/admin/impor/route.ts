@@ -1,5 +1,6 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { bacaExcel, validasi } from "@/lib/impor";
@@ -95,6 +96,7 @@ export async function POST(req: NextRequest) {
   const ip = ipDari(req.headers);
   try {
     const simpan = await simpanImpor(siap, { namaBerkas: file.name, ukuranByte: file.size, pengguna: sesi.user.email, berkasTersimpan, barisError: ringkas.barisError }, { ganti, unitKerjaId: unitGantiId });
+    revalidatePath("/", "layout");
     await audit("impor.simpan", { email: sesi.user.email, ip, objek: file.name, detail: `${simpan.barisBaru} baru, ${simpan.barisDiperbarui} diperbarui, total ${simpan.totalNilai}${ganti ? `, mode ganti: ${simpan.barisDihapus} dihapus` : ""}` });
     return NextResponse.json({ mode, ...ringkas, simpan });
   } catch (err) {

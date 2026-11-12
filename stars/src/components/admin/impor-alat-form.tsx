@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AlertTriangle, CheckCircle2, Download, FileSpreadsheet, Loader2, Save, SearchCheck, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,6 +25,7 @@ export function ImporAlatForm({ bolehSimpan: izin = true }: { bolehSimpan?: bool
   const [hasil, setHasil] = useState<Hasil | null>(null);
   const [sibuk, setSibuk] = useState<"" | "validasi" | "simpan">("");
   const [pesan, setPesan] = useState<string | null>(null);
+  const router = useRouter();
 
   async function kirim(mode: "validasi" | "simpan") {
     if (!file) return;
@@ -32,7 +34,7 @@ export function ImporAlatForm({ bolehSimpan: izin = true }: { bolehSimpan?: bool
       const fd = new FormData(); fd.append("file", file); fd.append("mode", mode);
       const res = await fetch("/api/admin/impor-alat", { method: "POST", body: fd });
       const data = (await res.json()) as Hasil;
-      if (!res.ok && !data.totalBaris) { setPesan(data.error ?? `Gagal (${res.status})`); setHasil(null); } else { setHasil(data); if (data.error) setPesan(data.error); }
+      if (!res.ok && !data.totalBaris) { setPesan(data.error ?? `Gagal (${res.status})`); setHasil(null); } else { setHasil(data); if (data.error) setPesan(data.error); if (data.simpan) router.refresh(); }
     } catch (e) { setPesan(e instanceof Error ? e.message : String(e)); } finally { setSibuk(""); }
   }
   const tersimpan = Boolean(hasil?.simpan);
