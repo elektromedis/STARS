@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Info } from "lucide-react";
 import { ImporForm } from "@/components/admin/impor-form";
+import { ImporAlatForm } from "@/components/admin/impor-alat-form";
 import { sesiHalaman } from "@/lib/sesi";
 import { cukup } from "@/lib/peran";
 
@@ -23,7 +24,10 @@ export default async function ImporPage() {
           </span>
         </p>
       )}
+      <h2 className="mb-3 text-base font-semibold text-navy-800">A. Data paket perencanaan (RKPBU/RKBU)</h2>
       <ImporForm bolehSimpan={bolehSimpan && !modeInternet} />
+      <h2 className="mb-3 mt-10 text-base font-semibold text-navy-800">B. Inventaris alat kesehatan (CMMS)</h2>
+      <ImporAlatForm bolehSimpan={bolehSimpan && !modeInternet} />
     </>
   );
 }

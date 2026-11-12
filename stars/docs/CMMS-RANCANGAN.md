@@ -3,8 +3,9 @@
 Tujuan: STARS menjadi sistem pemeliharaan alat kesehatan milik RSUD Cipayung sendiri,
 dengan fungsi setara aplikasi Trilux CAMS lama (PHP/Yii, `Lite/trilux_cams`), namun
 dibangun ulang di atas Next.js + Prisma + SQLite yang sudah dipakai STARS.
-Kode Trilux **tidak disalin** (hak cipta vendor; folder `Lite/` dan `stars/trilux_cams/`
-hanya referensi dan di-gitignore). Yang diambil hanya *pola proses kerja* dan *data* RS.
+Source Trilux dimiliki RS secara legal (bisa dimodifikasi), tetapi karena teknologinya berbeda
+(PHP/Yii + MySQL) fungsinya **diport**, bukan ditempel: logika/skema Trilux dipakai sebagai acuan,
+data RS diimpor lewat Excel. Folder `Lite/` dan `stars/trilux_cams/` tetap di luar Git (222 MB).
 
 ## Peta fitur Trilux → STARS
 
@@ -26,7 +27,7 @@ hanya referensi dan di-gitignore). Yang diambil hanya *pola proses kerja* dan *d
 | Foto & dokumen alat, label QR | — | Fase 2 |
 | Integrasi ASPAK / SIMAK-BMN / SIMBADA | — | Fase 3 (butuh akses resmi) |
 | SKP teknisi, rekanan, penawaran | — | Fase 3 |
-| Impor inventaris massal dari Excel | — | Fase 2 (pakai mesin impor STARS) |
+| Impor inventaris massal dari Excel | Admin → Impor Excel → bagian B (terima langsung ekspor Trilux: alat + ruangan + kalibrasi) | ✅ Fase 1b |
 
 ## Prinsip
 
@@ -35,6 +36,14 @@ hanya referensi dan di-gitignore). Yang diambil hanya *pola proses kerja* dan *d
 - Operator ke atas mengelola; semua aksi penting masuk `AuditLog`.
 - Server `STARS_MODE=internet` baca saja.
 - Satu migrasi per fase; `prisma migrate deploy` jalan otomatis saat kontainer start.
+
+## Fase 1b (12 Nov 2026) — impor inventaris Trilux
+
+Migrasi `impor_alat_trilux`: kolom warisan di `Alat` (kodeAspak, noUrutAset, instalasi, pelayanan,
+tahunPembelian/Pembukuan, pendanaan, teknologi, kelasRisiko, akl, produsen, distributor,
+tanggalUjiFungsi, umurPemakaian). `src/lib/impor-alat.ts`: pembaca header otomatis (baris 3 pada
+ekspor Trilux), pemetaan lokasi → unit kerja, kondisi, kelas risiko, tanggal; upsert per kode
+(No Inventaris → No Urut Asset → No Seri); ruangan & kalibrasi ikut dibuat; log ke `LogImpor`.
 
 ## Fase 1 (dibangun 11 Nov 2026)
 

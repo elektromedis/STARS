@@ -27,7 +27,9 @@ function bacaForm(fd: FormData) {
     lokasi: fd.get("lokasi") || undefined, kategori: fd.get("kategori") || undefined, jenis: fd.get("jenis") || "Medik",
     risiko: fd.get("risiko") || null, tahunPerolehan: fd.get("tahunPerolehan") || null, hargaPerolehan: fd.get("hargaPerolehan") || null,
     usiaTeknis: fd.get("usiaTeknis") || null, garansiSampai: fd.get("garansiSampai") || null, kondisi: fd.get("kondisi") || "Baik",
-    catatan: fd.get("catatan") || undefined,
+    catatan: fd.get("catatan") || undefined, kodeAspak: fd.get("kodeAspak") || undefined, pendanaan: fd.get("pendanaan") || undefined,
+    akl: fd.get("akl") || undefined, produsen: fd.get("produsen") || undefined, distributor: fd.get("distributor") || undefined,
+    tanggalUjiFungsi: fd.get("tanggalUjiFungsi") || null,
   });
 }
 
@@ -37,6 +39,8 @@ function rapikan(d: DataAlat) {
     ...d, merek: d.merek || null, model: d.model || null, nomorSeri: d.nomorSeri || null, ruanganId: d.ruanganId ?? null,
     lokasi: d.lokasi || null, kategori: d.kategori || null, risiko: d.risiko ?? null, tahunPerolehan: d.tahunPerolehan ?? null,
     hargaPerolehan: d.hargaPerolehan ?? null, usiaTeknis: d.usiaTeknis ?? null, garansiSampai: d.garansiSampai ?? null, catatan: d.catatan || null,
+    kodeAspak: d.kodeAspak || null, pendanaan: d.pendanaan || null, akl: d.akl || null, produsen: d.produsen || null, distributor: d.distributor || null,
+    tanggalUjiFungsi: d.tanggalUjiFungsi ?? null,
   };
 }
 

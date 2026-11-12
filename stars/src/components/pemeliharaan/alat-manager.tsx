@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import Link from "next/link";
 import { CheckCircle2, ChevronDown, DoorOpen, Loader2, Plus, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,6 +19,9 @@ export type Alat = {
   lokasi: string | null; kategori: string | null; jenis: string; risiko: string | null; tahunPerolehan: number | null;
   hargaPerolehan: number | null; usiaTeknis: number | null; garansiSampai: string | Date | null;
   kondisi: string; catatan: string | null; _count: { permintaan: number; perintah: number };
+  kodeAspak: string | null; noUrutAset: string | null; instalasi: string | null; pelayanan: string | null; tahunPembelian: number | null; tahunPembukuan: number | null;
+  pendanaan: string | null; teknologi: string | null; kelasRisiko: string | null; akl: string | null; produsen: string | null; distributor: string | null;
+  tanggalUjiFungsi: string | Date | null; umurPemakaian: string | null;
 };
 
 const tglInput = (d: string | Date | null | undefined) => (d ? new Date(d).toISOString().slice(0, 10) : "");
@@ -65,7 +69,18 @@ function Medan({ a, units, ruangan }: { a?: Alat; units: Unit[]; ruangan: Ruanga
       <label className={L}>Kondisi
         <Select name="kondisi" defaultValue={a?.kondisi ?? "Baik"} className="h-9">{KONDISI_ALAT.map((k) => <option key={k} value={k}>{k}</option>)}</Select>
       </label>
-      <label className={`${L} sm:col-span-3 lg:col-span-3`}>Catatan<Input name="catatan" defaultValue={a?.catatan ?? ""} maxLength={1000} className="h-9" /></label>
+      <label className={L}>Kode ASPAK / Trilux<Input name="kodeAspak" defaultValue={a?.kodeAspak ?? ""} maxLength={40} className="h-9" placeholder="mis. 20902005" /></label>
+      <label className={L}>Pendanaan<Input name="pendanaan" defaultValue={a?.pendanaan ?? ""} maxLength={80} className="h-9" placeholder="BLUD / APBD / DAK / Hibah" /></label>
+      <label className={L}>No. AKL<Input name="akl" defaultValue={a?.akl ?? ""} maxLength={120} className="h-9" /></label>
+      <label className={L}>Tanggal uji fungsi<Input name="tanggalUjiFungsi" type="date" defaultValue={tglInput(a?.tanggalUjiFungsi)} className="h-9" /></label>
+      <label className={L}>Produsen<Input name="produsen" defaultValue={a?.produsen ?? ""} maxLength={160} className="h-9" /></label>
+      <label className={L}>Distributor<Input name="distributor" defaultValue={a?.distributor ?? ""} maxLength={160} className="h-9" /></label>
+      <label className={`${L} sm:col-span-3 lg:col-span-2`}>Catatan<Input name="catatan" defaultValue={a?.catatan ?? ""} maxLength={1000} className="h-9" /></label>
+      {a && (a.instalasi || a.pelayanan || a.teknologi || a.kelasRisiko || a.umurPemakaian || a.noUrutAset) && (
+        <p className="text-xs text-muted-foreground sm:col-span-3 lg:col-span-4">
+          <span className="font-medium">Data impor Trilux:</span> {[a.instalasi && `Instalasi ${a.instalasi}`, a.pelayanan && `Pelayanan ${a.pelayanan}`, a.noUrutAset && `No urut aset ${a.noUrutAset}`, a.tahunPembelian && `Beli ${a.tahunPembelian}`, a.tahunPembukuan && `Buku ${a.tahunPembukuan}`, a.teknologi && `Teknologi ${a.teknologi}`, a.kelasRisiko && `Kelas risiko ${a.kelasRisiko}`, a.umurPemakaian && `Umur pakai ${a.umurPemakaian}`].filter(Boolean).join(" · ")}
+        </p>
+      )}
     </div>
   );
 }
@@ -152,7 +167,10 @@ export function AlatManager({ data, units, ruangan, bolehKelola }: { data: Alat[
       )}
 
       <Card>
-        <CardHeader><CardTitle>Daftar alat ({data.length})</CardTitle></CardHeader>
+        <CardHeader className="flex-row items-start justify-between gap-4">
+          <CardTitle>Daftar alat ({data.length})</CardTitle>
+          {bolehKelola && <Button variant="outline" size="sm" asChild><Link href="/admin/impor#alat">Impor dari Excel Trilux</Link></Button>}
+        </CardHeader>
         <CardContent className="px-0">
           {data.length === 0 ? (
             <p className="px-4 py-6 text-center text-sm text-muted-foreground">Belum ada alat terdaftar.</p>

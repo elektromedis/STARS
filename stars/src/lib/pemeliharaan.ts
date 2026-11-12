@@ -67,6 +67,12 @@ export const skemaAlat = z.object({
   garansiSampai: z.coerce.date().nullable().optional(),
   kondisi: z.enum(KONDISI_ALAT).default("Baik"),
   catatan: z.string().trim().max(1000).optional(),
+  kodeAspak: z.string().trim().max(40).optional(),
+  pendanaan: z.string().trim().max(80).optional(),
+  akl: z.string().trim().max(120).optional(),
+  produsen: z.string().trim().max(160).optional(),
+  distributor: z.string().trim().max(160).optional(),
+  tanggalUjiFungsi: z.coerce.date().nullable().optional(),
 });
 
 export const skemaRuangan = z.object({

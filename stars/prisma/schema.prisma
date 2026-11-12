@@ -134,6 +134,21 @@ model Alat {
   kondisi        String            @default("Baik") // Baik | Rusak Ringan | Rusak Berat | Afkir
   aktif          Boolean           @default(true)
   catatan        String?
+  // --- kolom warisan Trilux CAMS (impor inventaris) ---
+  kodeAspak        String?   // kode alat ASPAK/Trilux, mis. 20902005
+  noUrutAset       String?
+  instalasi        String?   // teks asli Trilux
+  pelayanan        String?   // teks asli Trilux
+  tahunPembelian   Int?
+  tahunPembukuan   Int?
+  pendanaan        String?
+  teknologi        String?
+  kelasRisiko      String?   // teks asli, mis. "Medium (sedang)"
+  akl              String?
+  produsen         String?
+  distributor      String?
+  tanggalUjiFungsi DateTime?
+  umurPemakaian    String?
   createdAt      DateTime          @default(now())
   updatedAt      DateTime          @updatedAt
   permintaan     PermintaanKerja[]
