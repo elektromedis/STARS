@@ -1,13 +1,20 @@
 import { prisma } from "./prisma";
 import { SEMUA_TAHAP } from "./tahap";
+import { unitTerkunci } from "./akses";
 
-export { SEMUA_TAHAP, labelTahap, labelFilter } from "./tahap";
+export { SEMUA_TAHAP, labelTahap, labelFilter, labelNilai } from "./tahap";
 
 /** Urutan tahap anggaran dari paling awal ke paling akhir. */
 export const TAHAP_URUT = ["Ranwal", "Penetapan", "Pergeseran", "Perubahan", "Perubahan II"] as const;
 
 export type SearchParams = Record<string, string | string[] | undefined>;
-export type Filter = { tahun: number; tahap: string; unit: string | null; kategori: string | null };
+export type Filter = {
+  tahun: number; tahap: string; unit: string | null; kategori: string | null;
+  /** Tahap terakhir pada tahun terpilih (pagu final), dipakai saat tahap = "semua". */
+  tahapFinal?: string;
+  /** true bila unit dikunci oleh akun Viewer ber-unit (tidak bisa diganti di filter). */
+  unitTerkunci?: boolean;
+};
 export type FilterOptions = {
   tahunTahap: { tahun: number; tahap: string[] }[];
   units: string[];
@@ -21,12 +28,13 @@ export function tahapTerakhir(list: string[]) {
   return [...list].sort(byTahap).at(-1) ?? "";
 }
 
-/** Pilihan filter yang tersedia di basis data (tahun → tahap, unit kerja, kategori). */
-export async function getFilterOptions(): Promise<FilterOptions> {
+/** Pilihan filter yang tersedia di basis data (tahun → tahap, unit kerja, kategori). `unit` = batasi ke satu unit. */
+export async function getFilterOptions(unit?: string | null): Promise<FilterOptions> {
+  const w = unit ? { unitKerja: { nama: unit } } : {};
   const [tt, units, kat] = await Promise.all([
-    prisma.paket.groupBy({ by: ["tahun", "tahap"], orderBy: [{ tahun: "desc" }] }),
-    prisma.unitKerja.findMany({ orderBy: { urut: "asc" }, select: { nama: true } }),
-    prisma.paket.groupBy({ by: ["kategori"], orderBy: { kategori: "asc" } }),
+    prisma.paket.groupBy({ by: ["tahun", "tahap"], where: w, orderBy: [{ tahun: "desc" }] }),
+    prisma.unitKerja.findMany({ where: unit ? { nama: unit } : {}, orderBy: { urut: "asc" }, select: { nama: true } }),
+    prisma.paket.groupBy({ by: ["kategori"], where: w, orderBy: { kategori: "asc" } }),
   ]);
   const map = new Map<number, string[]>();
   for (const r of tt) map.set(r.tahun, [...(map.get(r.tahun) ?? []), r.tahap]);
@@ -39,9 +47,11 @@ export async function getFilterOptions(): Promise<FilterOptions> {
 /**
  * Menerjemahkan query string (?tahun=&tahap=&unit=&kategori=) menjadi filter yang valid.
  * Default: tahun anggaran berjalan (bila ada datanya), tahap paling akhir pada tahun itu.
+ * Akun Viewer ber-unit selalu dikunci ke unitnya sendiri (lihat lib/akses.ts).
  */
 export async function resolveFilter(sp: SearchParams, opts?: FilterOptions): Promise<{ filter: Filter; options: FilterOptions }> {
-  const options = opts ?? (await getFilterOptions());
+  const kunci = await unitTerkunci();
+  const options = opts ?? (await getFilterOptions(kunci?.nama));
   const tahunReq = Number(first(sp.tahun));
   const tahunIni = new Date().getFullYear();
   const tahunRow =
@@ -55,10 +65,11 @@ export async function resolveFilter(sp: SearchParams, opts?: FilterOptions): Pro
     : tahunRow && tahapReq && tahunRow.tahap.includes(tahapReq) ? tahapReq
     : tahapTerakhir(tahunRow?.tahap ?? []);
   const unitReq = first(sp.unit);
-  const unit = unitReq && options.units.includes(unitReq) ? unitReq : null;
+  const unit = kunci ? kunci.nama : unitReq && options.units.includes(unitReq) ? unitReq : null;
   const katReq = first(sp.kategori);
   const kategori = katReq && options.kategori.includes(katReq) ? katReq : null;
-  return { filter: { tahun, tahap, unit, kategori }, options };
+  const tahapFinal = tahapTerakhir(tahunRow?.tahap ?? []);
+  return { filter: { tahun, tahap, unit, kategori, tahapFinal, ...(kunci ? { unitTerkunci: true } : {}) }, options };
 }
 
 /** Klausa `where` Prisma dari filter. Tahap "semua" = tanpa batasan tahap (semua tahap pada tahun itu dijumlahkan). */
@@ -69,6 +80,15 @@ export function whereFilter(f: Filter) {
     ...(f.unit ? { unitKerja: { nama: f.unit } } : {}),
     ...(f.kategori ? { kategori: f.kategori } : {}),
   };
+}
+
+/**
+ * Klausa `where` untuk ANGKA TOTAL (ringkasan, grafik, rekap). Saat "Semua Tahapan" hanya memakai
+ * tahap terakhir (pagu final) agar paket yang sama di beberapa tahap tidak terhitung berulang.
+ */
+export function whereNilai(f: Filter) {
+  const tahap = f.tahap === SEMUA_TAHAP ? f.tahapFinal ?? "" : f.tahap;
+  return { ...whereFilter(f), tahap };
 }
 
 /** Query string dari filter, untuk tautan antarhalaman. */

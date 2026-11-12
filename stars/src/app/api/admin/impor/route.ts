@@ -16,14 +16,14 @@ const MAKS_BYTE = 10 * 1024 * 1024;
 
 /**
  * POST /api/admin/impor  (multipart: file=.xlsx, mode=validasi|simpan, ganti=1 opsional)
- * - validasi (Viewer+): baca + periksa, kembalikan ringkasan, error, peringatan, pratinjau. Tidak menulis apa pun.
+ * - validasi (Operator+): baca + periksa, kembalikan ringkasan, error, peringatan, pratinjau. Tidak menulis apa pun.
  * - simpan (Operator+): ulangi validasi, lalu simpan bila nol error (satu transaksi) dan catat di LogImpor + AuditLog.
  * - ganti=1: sebelum menyimpan, hapus dulu SEMUA paket lama pada tahun+tahap yang ada di berkas
  *   (dibatasi unit kerja akun bila akun dibatasi unit), sehingga satu impor menggantikan data lama utuh.
  * Operator dengan unit kerja tertentu hanya boleh menyimpan baris unitnya sendiri.
  */
 export async function POST(req: NextRequest) {
-  const { sesi, tolak } = await sesiApi("Viewer");
+  const { sesi, tolak } = await sesiApi("Operator");
   if (tolak) return tolak;
   const form = await req.formData();
   const file = form.get("file");

@@ -2,6 +2,8 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { NextResponse } from "next/server";
 import { sesiApi } from "@/lib/sesi";
+import { prisma } from "@/lib/prisma";
+import { unitTerkunci } from "@/lib/akses";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -16,6 +18,10 @@ export async function GET(_req: Request, { params }: { params: Promise<{ nama: s
   // Hanya izinkan nama berkas aman: uuid.ext (tanpa path traversal)
   const m = /^[0-9a-f-]{36}\.(jpg|png|webp)$/i.exec(nama);
   if (!m) return NextResponse.json({ error: "Nama berkas tidak valid." }, { status: 400 });
+  const kunci = await unitTerkunci();
+  if (kunci && !(await prisma.permintaanKerja.findFirst({ where: { foto: nama, unitKerja: { nama: kunci.nama } }, select: { id: true } }))) {
+    return NextResponse.json({ error: "Foto ini bukan milik unit kerja Anda." }, { status: 403 });
+  }
   try {
     const dir = join(process.env.UPLOAD_DIR || join(process.cwd(), "uploads"), "permintaan");
     const buf = await readFile(join(dir, nama));

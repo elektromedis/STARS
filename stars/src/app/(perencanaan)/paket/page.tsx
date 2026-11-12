@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Download } from "lucide-react";
 import { PageHeader } from "@/components/dashboard/page-header";
 import { FilterBar } from "@/components/dashboard/filter-bar";
@@ -31,8 +30,8 @@ export default async function PaketPage({ searchParams }: { searchParams: Promis
         description="Daftar paket pemeliharaan dan pengadaan alat kesehatan beserta unit kerja, kategori, nilai, dan status serapan."
         actions={
           <>
-            <Button variant="outline" size="sm" asChild><Link href={`/api/dataset/paket${filterToQuery(filter, { format: "xlsx" })}`}><Download /> XLSX</Link></Button>
-            <Button variant="outline" size="sm" asChild><Link href={`/api/dataset/paket${filterToQuery(filter, { format: "csv" })}`}><Download /> CSV</Link></Button>
+            <Button variant="outline" size="sm" asChild><a href={`/api/dataset/paket${filterToQuery(filter, { format: "xlsx" })}`}><Download /> XLSX</a></Button>
+            <Button variant="outline" size="sm" asChild><a href={`/api/dataset/paket${filterToQuery(filter, { format: "csv" })}`}><Download /> CSV</a></Button>
           </>
         }
       />

@@ -72,7 +72,7 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
             <input ref={inputRef} type="file" accept=".xlsx,.xlsm,.csv" className="sr-only" onChange={(e) => pilih(e.target.files?.[0] ?? null)} />
           </label>
           <div className="flex gap-2">
-            <Button variant="outline" asChild><Link href="/api/admin/template"><Download /> Unduh template</Link></Button>
+            <Button variant="outline" asChild><a href="/api/admin/template"><Download /> Unduh template</a></Button>
             <Button onClick={() => kirim("validasi")} disabled={!file || sibuk !== ""}>
               {sibuk === "validasi" ? <Loader2 className="animate-spin" /> : <SearchCheck />} Periksa
             </Button>

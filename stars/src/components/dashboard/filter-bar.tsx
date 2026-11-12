@@ -2,7 +2,7 @@
 
 import { useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Info, Loader2, RotateCcw } from "lucide-react";
+import { Loader2, Lock, RotateCcw } from "lucide-react";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import type { Filter, FilterOptions } from "@/lib/filter";
@@ -20,7 +20,7 @@ export function FilterBar({ filter, options }: { filter: Filter; options: Filter
   const [pending, start] = useTransition();
 
   const tahapList = options.tahunTahap.find((t) => t.tahun === filter.tahun)?.tahap ?? [];
-  const adaFilter = Boolean(sp.get("unit") || sp.get("kategori") || sp.get("tahap") || sp.get("tahun"));
+  const adaFilter = Boolean((!filter.unitTerkunci && sp.get("unit")) || sp.get("kategori") || sp.get("tahap") || sp.get("tahun"));
 
   function update(patch: Partial<Record<"tahun" | "tahap" | "unit" | "kategori", string>>) {
     const p = new URLSearchParams(sp.toString());
@@ -51,8 +51,8 @@ export function FilterBar({ filter, options }: { filter: Filter; options: Filter
         </label>
         <label className="grid gap-1.5 text-xs font-medium text-muted-foreground">
           Nama Unit Kerja
-          <Select value={filter.unit ?? ""} onChange={(e) => update({ unit: e.target.value })} aria-label="Nama Unit Kerja">
-            <option value="">Semua unit kerja</option>
+          <Select value={filter.unit ?? ""} onChange={(e) => update({ unit: e.target.value })} aria-label="Nama Unit Kerja" disabled={filter.unitTerkunci}>
+            {!filter.unitTerkunci && <option value="">Semua unit kerja</option>}
             {options.units.map((u) => <option key={u} value={u}>{u}</option>)}
           </Select>
         </label>
@@ -65,11 +65,14 @@ export function FilterBar({ filter, options }: { filter: Filter; options: Filter
         </label>
       </div>
       <div className="mt-3 flex items-center justify-between gap-3 text-xs text-muted-foreground">
-        <span className="inline-flex items-center gap-2">
+        <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
           {pending && <Loader2 className="size-3.5 animate-spin" aria-hidden />}
           Menampilkan <strong className="text-foreground">{labelFilter(filter)}</strong>
-          {filter.unit && <> • Unit <strong className="text-foreground">{filter.unit}</strong></>}
+          {filter.unit && <> • Unit <strong className="text-foreground">{filter.unit}</strong>{filter.unitTerkunci && <Lock className="size-3" aria-label="dikunci sesuai akun" />}</>}
           {filter.kategori && <> • <strong className="text-foreground">{filter.kategori}</strong></>}
+          {filter.tahap === SEMUA_TAHAP && filter.tahapFinal && tahapList.length > 1 && (
+            <> • angka total memakai pagu final <strong className="text-foreground">{filter.tahapFinal}</strong>; daftar paket berisi semua tahap</>
+          )}
         </span>
         {adaFilter && (
           <Button variant="ghost" size="sm" onClick={() => start(() => router.push(pathname, { scroll: false }))}>
@@ -77,12 +80,6 @@ export function FilterBar({ filter, options }: { filter: Filter; options: Filter
           </Button>
         )}
       </div>
-      {filter.tahap === SEMUA_TAHAP && tahapList.length > 1 && (
-        <p className="mt-2 flex items-start gap-1.5 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-900">
-          <Info className="mt-0.5 size-3.5 shrink-0" aria-hidden />
-          <span>Nilai dijumlahkan dari {tahapList.length} tahap ({tahapList.join(", ")}). Tiap tahap adalah revisi anggaran, jadi paket yang sama di beberapa tahap ikut terhitung lebih dari sekali — untuk pagu final pilih tahap terakhir.</span>
-        </p>
-      )}
     </div>
   );
 }

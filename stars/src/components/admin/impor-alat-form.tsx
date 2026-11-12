@@ -54,7 +54,7 @@ export function ImporAlatForm({ bolehSimpan: izin = true }: { bolehSimpan?: bool
             <input type="file" accept=".xlsx,.xlsm,.xls,.csv" className="sr-only" onChange={(e) => { setFile(e.target.files?.[0] ?? null); setHasil(null); setPesan(null); }} />
           </label>
           <div className="flex gap-2">
-            <Button variant="outline" asChild><Link href="/api/admin/template-alat"><Download /> Template</Link></Button>
+            <Button variant="outline" asChild><a href="/api/admin/template-alat"><Download /> Template</a></Button>
             <Button onClick={() => kirim("validasi")} disabled={!file || sibuk !== ""}>{sibuk === "validasi" ? <Loader2 className="animate-spin" /> : <SearchCheck />} Periksa</Button>
           </div>
         </CardContent>

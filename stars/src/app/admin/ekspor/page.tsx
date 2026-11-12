@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Download, FileSpreadsheet, FileText, Printer } from "lucide-react";
 import { FilterBar } from "@/components/dashboard/filter-bar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { filterToQuery, labelFilter, resolveFilter, type SearchParams } from "@/lib/filter";
+import { filterToQuery, labelFilter, resolveFilter, SEMUA_TAHAP, whereFilter, type SearchParams } from "@/lib/filter";
+import { prisma } from "@/lib/prisma";
 import { getRingkasan } from "@/lib/queries";
 import { formatRupiah, formatNumber } from "@/lib/utils";
 
@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 
 export default async function EksporPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const { filter, options } = await resolveFilter(await searchParams);
-  const r = await getRingkasan(filter);
+  const [r, jumlahBaris] = await Promise.all([getRingkasan(filter), prisma.paket.count({ where: whereFilter(filter) })]);
   return (
     <div className="grid gap-4">
       <Card>
@@ -22,8 +22,8 @@ export default async function EksporPage({ searchParams }: { searchParams: Promi
           <CardDescription>Excel berisi sheet <code>paket</code> (header + 2 contoh), <code>unit_kerja</code> (28 unit), dan <code>petunjuk</code> pengisian. Versi PDF berupa formulir kosong siap cetak untuk pengumpulan usulan tertulis dari unit.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
-          <Button asChild><Link href="/api/admin/template"><FileSpreadsheet /> Template Excel</Link></Button>
-          <Button variant="outline" asChild><Link href="/api/admin/template?format=pdf"><Printer /> Formulir PDF (cetak)</Link></Button>
+          <Button asChild><a href="/api/admin/template"><FileSpreadsheet /> Template Excel</a></Button>
+          <Button variant="outline" asChild><a href="/api/admin/template?format=pdf"><Printer /> Formulir PDF (cetak)</a></Button>
         </CardContent>
       </Card>
       <Card>
@@ -34,12 +34,12 @@ export default async function EksporPage({ searchParams }: { searchParams: Promi
         <CardContent>
           <FilterBar filter={filter} options={options} />
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-muted-foreground">{formatNumber(r.jumlahPaket)} paket • {formatRupiah(r.totalNilai)} • {labelFilter(filter)}{filter.unit ? ` • ${filter.unit}` : ""}</p>
+            <p className="text-sm text-muted-foreground">{formatNumber(jumlahBaris)} baris diekspor • {labelFilter(filter)}{filter.tahap === SEMUA_TAHAP ? ` • pagu final ${filter.tahapFinal}: ` : " • "}{formatRupiah(r.totalNilai)}{filter.unit ? ` • ${filter.unit}` : ""}</p>
             <div className="flex flex-wrap gap-2">
-              <Button variant="outline" asChild><Link href={`/api/dataset/paket${filterToQuery(filter, { format: "xlsx" })}`}><Download /> XLSX</Link></Button>
-              <Button variant="outline" asChild><Link href={`/api/dataset/paket${filterToQuery(filter, { format: "csv" })}`}><Download /> CSV</Link></Button>
-              <Button variant="outline" asChild><Link href={`/api/dataset/paket${filterToQuery(filter, { format: "pdf" })}`}><FileText /> PDF</Link></Button>
-              <Button variant="outline" asChild><Link href={`/api/dataset/nilai-per-unit${filterToQuery(filter, { format: "pdf" })}`}><FileText /> PDF rekap unit</Link></Button>
+              <Button variant="outline" asChild><a href={`/api/dataset/paket${filterToQuery(filter, { format: "xlsx" })}`}><Download /> XLSX</a></Button>
+              <Button variant="outline" asChild><a href={`/api/dataset/paket${filterToQuery(filter, { format: "csv" })}`}><Download /> CSV</a></Button>
+              <Button variant="outline" asChild><a href={`/api/dataset/paket${filterToQuery(filter, { format: "pdf" })}`}><FileText /> PDF</a></Button>
+              <Button variant="outline" asChild><a href={`/api/dataset/nilai-per-unit${filterToQuery(filter, { format: "pdf" })}`}><FileText /> PDF rekap unit</a></Button>
             </div>
           </div>
         </CardContent>

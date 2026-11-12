@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Info } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { sesiHalaman } from "@/lib/sesi";
+import { unitTerkunci } from "@/lib/akses";
 import { cukup } from "@/lib/peran";
 import { JadwalManager } from "@/components/pemeliharaan/jadwal-manager";
 
@@ -11,9 +12,11 @@ export const dynamic = "force-dynamic";
 export default async function JadwalPage() {
   const s = await sesiHalaman("Viewer");
   const bolehKelola = cukup(s.user.peran, "Operator") && process.env.STARS_MODE !== "internet";
+  const kunci = await unitTerkunci();
+  const u = kunci ? { unitKerja: { nama: kunci.nama } } : {};
   const [jadwal, alat] = await Promise.all([
-    prisma.jadwalPreventif.findMany({ orderBy: [{ aktif: "desc" }, { berikutnya: "asc" }], include: { alat: { select: { kode: true, nama: true, unitKerja: { select: { nama: true } } } }, perintah: { where: { status: { in: ["Terbuka", "Dikerjakan"] } }, select: { nomor: true } } } }),
-    prisma.alat.findMany({ where: { aktif: true }, orderBy: [{ unitKerja: { urut: "asc" } }, { nama: "asc" }], select: { id: true, kode: true, nama: true, unitKerja: { select: { nama: true } } } }),
+    prisma.jadwalPreventif.findMany({ where: kunci ? { alat: u } : {}, orderBy: [{ aktif: "desc" }, { berikutnya: "asc" }], include: { alat: { select: { kode: true, nama: true, unitKerja: { select: { nama: true } } } }, perintah: { where: { status: { in: ["Terbuka", "Dikerjakan"] } }, select: { nomor: true } } } }),
+    prisma.alat.findMany({ where: { ...u, aktif: true }, orderBy: [{ unitKerja: { urut: "asc" } }, { nama: "asc" }], select: { id: true, kode: true, nama: true, unitKerja: { select: { nama: true } } } }),
   ]);
   return (
     <div className="grid gap-4">

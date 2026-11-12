@@ -7,7 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { StatCard } from "@/components/dashboard/stat-card";
 import { PageHeader } from "@/components/dashboard/page-header";
 import { formatNumber } from "@/lib/utils";
-import { getRingkasanPemeliharaan } from "@/lib/pemeliharaan-ringkasan";
+import { batasUnit, getRingkasanPemeliharaan } from "@/lib/pemeliharaan-ringkasan";
+import { unitTerkunci } from "@/lib/akses";
 
 export const metadata: Metadata = { title: "Dashboard Pemeliharaan" };
 export const dynamic = "force-dynamic";
@@ -30,12 +31,14 @@ function Batang({ data, warna = "bg-teal-500" }: { data: { label: string; nilai:
 }
 
 export default async function PemeliharaanPublikPage() {
+  const kunci = await unitTerkunci();
+  const b = batasUnit(kunci?.nama);
   const [r, kondisi, permintaanStatus, perintahStatus, woSelesaiTautan] = await Promise.all([
-    getRingkasanPemeliharaan(),
-    prisma.alat.groupBy({ by: ["kondisi"], where: { aktif: true }, _count: { _all: true } }),
-    prisma.permintaanKerja.groupBy({ by: ["status"], _count: { _all: true } }),
-    prisma.perintahKerja.groupBy({ by: ["status"], _count: { _all: true } }),
-    prisma.perintahKerja.findMany({ where: { status: "Selesai", permintaanId: { not: null }, tanggalSelesai: { not: null } }, select: { createdAt: true, tanggalSelesai: true, permintaan: { select: { createdAt: true } } }, take: 500, orderBy: { tanggalSelesai: "desc" } }),
+    getRingkasanPemeliharaan(kunci?.nama),
+    prisma.alat.groupBy({ by: ["kondisi"], where: { ...b.alat, aktif: true }, _count: { _all: true } }),
+    prisma.permintaanKerja.groupBy({ by: ["status"], where: b.permintaan, _count: { _all: true } }),
+    prisma.perintahKerja.groupBy({ by: ["status"], where: b.perintah, _count: { _all: true } }),
+    prisma.perintahKerja.findMany({ where: { ...b.perintah, status: "Selesai", permintaanId: { not: null }, tanggalSelesai: { not: null } }, select: { createdAt: true, tanggalSelesai: true, permintaan: { select: { createdAt: true } } }, take: 500, orderBy: { tanggalSelesai: "desc" } }),
   ]);
   const hitung = <K extends string>(rows: (Record<K, string> & { _count: { _all: number } })[], kunci: K, nilai: string) => rows.find((r) => r[kunci] === nilai)?._count._all ?? 0;
   const kond = ["Baik", "Rusak Ringan", "Rusak Berat", "Afkir"].map((k) => ({ label: k, nilai: hitung(kondisi, "kondisi", k) }));
@@ -49,7 +52,7 @@ export default async function PemeliharaanPublikPage() {
     <>
       <PageHeader
         title="Dashboard Pemeliharaan Alat"
-        description="Ringkasan kondisi alat, laporan kerusakan, perintah kerja, jadwal preventif, dan kalibrasi. Hanya angka agregat yang ditampilkan."
+        description={`Ringkasan kondisi alat, laporan kerusakan, perintah kerja, jadwal preventif, dan kalibrasi${kunci ? ` untuk unit ${kunci.nama}` : ""}. Hanya angka agregat yang ditampilkan.`}
         actions={<div className="flex gap-2"><Button variant="teal" asChild><Link href="/lapor"><Send /> Lapor Kerusakan</Link></Button><Button variant="outline" asChild><Link href="/admin/pemeliharaan"><Wrench /> Kelola (login)</Link></Button></div>}
       />
       <section aria-label="Indikator" className="mb-6 grid grid-cols-2 gap-4 xl:grid-cols-4">

@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { prisma } from "@/lib/prisma";
+import { sesiHalaman } from "@/lib/sesi";
 import { formatRupiah, formatNumber } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Log Impor" };
@@ -11,6 +12,7 @@ export const dynamic = "force-dynamic";
 const tgl = (d: Date) => new Intl.DateTimeFormat("id-ID", { dateStyle: "medium", timeStyle: "short" }).format(d);
 
 export default async function LogPage() {
+  await sesiHalaman("Operator");
   const log = await prisma.logImpor.findMany({ orderBy: { waktu: "desc" }, take: 50 });
   return (
     <Card className="overflow-hidden">

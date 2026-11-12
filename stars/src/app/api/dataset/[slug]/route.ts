@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { labelFilter, resolveFilter, SEMUA_TAHAP, type Filter } from "@/lib/filter";
+import { labelFilter, labelNilai, resolveFilter, SEMUA_TAHAP, type Filter } from "@/lib/filter";
 import { getNilaiPerKategori, getNilaiPerUnit, getPaketForExport, getUnitKerjaRows } from "@/lib/queries";
 import { keCsv, keXlsx, namaBerkas } from "@/lib/export";
 import { formatRpPdf, kePdf, type KolomPdf } from "@/lib/pdf";
@@ -35,7 +35,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ slug
       nama = namaBerkas(["nilai_per_kategori", filter.tahun, filter.tahap, filter.unit], format);
       break;
     case "unit-kerja":
-      baris = await getUnitKerjaRows();
+      baris = await getUnitKerjaRows(filter.unitTerkunci ? filter.unit : null);
       nama = namaBerkas(["unit_kerja"], format);
       break;
     default:
@@ -70,11 +70,15 @@ function responsPdf(buf: Buffer, nama: string) {
 /** Laporan PDF siap cetak per dataset (kolom dipilih agar muat dan terbaca di kertas A4). */
 async function pdfDataset(slug: string, filter: Filter) {
   const sub = `${labelFilter(filter)}${filter.unit ? ` - ${filter.unit}` : ""}`;
+  const subNilai = `${labelNilai(filter)}${filter.unit ? ` - ${filter.unit}` : ""}`;
 
   if (slug === "paket") {
     const rows = await getPaketForExport(filter);
-    const totalNilai = rows.reduce((a, b) => a + Number(b.nilai || 0), 0);
     const gabungan = filter.tahap === SEMUA_TAHAP;
+    // Saat semua tahap: total = pagu final saja (tiap tahap revisi anggaran), subtotal per tahap di catatan.
+    const perTahap = new Map<string, { n: number; nilai: number }>();
+    for (const r of rows) { const t = perTahap.get(r.tahap) ?? { n: 0, nilai: 0 }; t.n++; t.nilai += Number(r.nilai || 0); perTahap.set(r.tahap, t); }
+    const totalNilai = gabungan ? perTahap.get(filter.tahapFinal ?? "")?.nilai ?? 0 : rows.reduce((a, b) => a + Number(b.nilai || 0), 0);
     const baris = rows.map((p, i) => ({
       no: i + 1, kode: gabungan ? `${p.kode}\n${p.tahap}` : p.kode, nama_paket: p.nama_paket, unit: p.unit_kerja, kategori: p.kategori,
       vol: `${p.vol1} ${p.satuan1} x ${p.vol2} ${p.satuan2}`.replace(/\s+/g, " ").trim(),
@@ -93,7 +97,11 @@ async function pdfDataset(slug: string, filter: Filter) {
     ];
     const buf = kePdf({
       judul: "Daftar Paket Perencanaan-Pengadaan", subjudul: `${sub} - ${rows.length} paket`, kolom, baris, orientasi: "l",
-      kaki: ["", "", `TOTAL ${rows.length} paket`, "", "", "", "", formatRpPdf(totalNilai), ""],
+      kaki: ["", "", gabungan ? `TOTAL PAGU FINAL (${filter.tahapFinal}, ${perTahap.get(filter.tahapFinal ?? "")?.n ?? 0} paket)` : `TOTAL ${rows.length} paket`, "", "", "", "", formatRpPdf(totalNilai), ""],
+      ...(gabungan ? { catatan: [
+        "Semua Tahapan: tiap tahap adalah revisi anggaran, jadi nilainya tidak dijumlahkan. Total di atas = pagu final (tahap terakhir).",
+        ...[...perTahap.entries()].map(([t, v]) => `${t}: ${v.n} paket, ${formatRpPdf(v.nilai)}${t === filter.tahapFinal ? " (pagu final)" : ""}`),
+      ] } : {}),
     });
     return responsPdf(buf, namaBerkas(["paket", filter.tahun, filter.tahap, filter.unit], "pdf"));
   }
@@ -111,7 +119,7 @@ async function pdfDataset(slug: string, filter: Filter) {
       { kunci: "nilai", label: "Nilai", lebar: 45, rata: "right" },
     ];
     const buf = kePdf({
-      judul, subjudul: sub, orientasi: "p", kolom,
+      judul, subjudul: subNilai, orientasi: "p", kolom,
       baris: data.map((r, i) => ({ no: i + 1, nama: r.name, paket: r.paket, nilai: formatRpPdf(r.value) })),
       kaki: ["", "TOTAL", String(totalPaket), formatRpPdf(totalNilai)],
     });
@@ -119,7 +127,7 @@ async function pdfDataset(slug: string, filter: Filter) {
   }
 
   if (slug === "unit-kerja") {
-    const rows = await getUnitKerjaRows();
+    const rows = await getUnitKerjaRows(filter.unitTerkunci ? filter.unit : null);
     const kolom: KolomPdf[] = [
       { kunci: "no", label: "No", lebar: 10, rata: "center" },
       { kunci: "nama_unit_kerja", label: "Unit Kerja" },

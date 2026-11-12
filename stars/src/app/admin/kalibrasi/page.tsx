@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Info } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { sesiHalaman } from "@/lib/sesi";
+import { unitTerkunci } from "@/lib/akses";
 import { cukup } from "@/lib/peran";
 import { KalibrasiManager } from "@/components/pemeliharaan/kalibrasi-manager";
 
@@ -11,9 +12,11 @@ export const dynamic = "force-dynamic";
 export default async function KalibrasiPage() {
   const s = await sesiHalaman("Viewer");
   const bolehKelola = cukup(s.user.peran, "Operator") && process.env.STARS_MODE !== "internet";
+  const kunci = await unitTerkunci();
+  const u = kunci ? { unitKerja: { nama: kunci.nama } } : {};
   const [data, alat] = await Promise.all([
-    prisma.kalibrasi.findMany({ orderBy: { tanggal: "desc" }, take: 300, include: { alat: { select: { kode: true, nama: true, unitKerja: { select: { nama: true } } } } } }),
-    prisma.alat.findMany({ where: { aktif: true }, orderBy: [{ unitKerja: { urut: "asc" } }, { nama: "asc" }], select: { id: true, kode: true, nama: true, unitKerja: { select: { nama: true } } } }),
+    prisma.kalibrasi.findMany({ where: kunci ? { alat: u } : {}, orderBy: { tanggal: "desc" }, take: 300, include: { alat: { select: { kode: true, nama: true, unitKerja: { select: { nama: true } } } } } }),
+    prisma.alat.findMany({ where: { ...u, aktif: true }, orderBy: [{ unitKerja: { urut: "asc" } }, { nama: "asc" }], select: { id: true, kode: true, nama: true, unitKerja: { select: { nama: true } } } }),
   ]);
   return (
     <div className="grid gap-4">

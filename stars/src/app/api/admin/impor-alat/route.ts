@@ -14,7 +14,7 @@ const MAKS_BYTE = 15 * 1024 * 1024;
 
 /** POST /api/admin/impor-alat (multipart: file=.xlsx/.xls/.csv, mode=validasi|simpan) — impor inventaris alat (format Trilux atau template STARS). */
 export async function POST(req: NextRequest) {
-  const { sesi, tolak } = await sesiApi("Viewer");
+  const { sesi, tolak } = await sesiApi("Operator");
   if (tolak) return tolak;
   const form = await req.formData();
   const file = form.get("file");

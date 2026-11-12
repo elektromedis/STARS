@@ -27,3 +27,20 @@
   body { @apply bg-background text-foreground antialiased; font-feature-settings: "cv02", "cv03", "cv04", "cv11"; }
   :focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
 }
+
+/* Logo STARS beranimasi (components/layout/logo-animasi.tsx). Ringan: hanya transform, opacity, stroke-dashoffset. */
+@layer components {
+  .stars-cincin { transform-box: view-box; transform-origin: 200px 210px; animation: stars-putar 28s linear infinite; }
+  .stars-pendar { transform-box: view-box; transform-origin: 200px 210px; animation: stars-pendar 4s ease-in-out infinite; }
+  /* 388 = panjang garis EKG di logo-animasi.tsx; ubah bersama bila bentuk garisnya diubah */
+  .stars-ekg { stroke-dasharray: 388 388; animation: stars-ekg 3s ease-in-out infinite; }
+  .stars-titik { animation: stars-kedip 1.8s ease-in-out infinite; }
+}
+@keyframes stars-putar { to { transform: rotate(360deg); } }
+@keyframes stars-pendar { 0%, 100% { opacity: 0.08; transform: scale(0.96); } 50% { opacity: 0.2; transform: scale(1.04); } }
+@keyframes stars-ekg { 0% { stroke-dashoffset: 388; } 50% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -388; } }
+@keyframes stars-kedip { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .stars-cincin, .stars-pendar, .stars-ekg, .stars-titik { animation: none; }
+  .stars-ekg { stroke-dasharray: none; }
+}

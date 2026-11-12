@@ -23,7 +23,7 @@ function PilihanPeranUnit({ units, peranBoleh, peran, unitKerjaId }: { units: Un
       <label className="grid gap-1 text-xs font-medium text-muted-foreground">Peran
         <Select name="peran" defaultValue={peran ?? "Operator"} required>{peranBoleh.map((p) => <option key={p} value={p}>{p}</option>)}</Select>
       </label>
-      <label className="grid gap-1 text-xs font-medium text-muted-foreground">Batas unit kerja (Operator)
+      <label className="grid gap-1 text-xs font-medium text-muted-foreground">Batas unit kerja (Operator & Viewer)
         <Select name="unitKerjaId" defaultValue={unitKerjaId ?? ""}>
           <option value="">Semua unit</option>
           {units.map((u) => <option key={u.id} value={u.id}>{u.nama}</option>)}

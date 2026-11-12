@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Info } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { sesiHalaman } from "@/lib/sesi";
+import { unitTerkunci } from "@/lib/akses";
+import { batasUnit } from "@/lib/pemeliharaan-ringkasan";
 import { cukup } from "@/lib/peran";
 import { StatCard } from "@/components/dashboard/stat-card";
 import { PermintaanPanel } from "@/components/pemeliharaan/permintaan-panel";
@@ -14,15 +16,17 @@ export const dynamic = "force-dynamic";
 export default async function PemeliharaanPage() {
   const s = await sesiHalaman("Viewer");
   const bolehKelola = cukup(s.user.peran, "Operator") && process.env.STARS_MODE !== "internet";
+  const kunci = await unitTerkunci();
+  const b = batasUnit(kunci?.nama);
 
   const [permintaan, perintah, teknisi, cBaru, cProses, cTerbuka, cSelesai] = await Promise.all([
-    prisma.permintaanKerja.findMany({ orderBy: [{ createdAt: "desc" }], take: 100, include: { unitKerja: { select: { nama: true } }, perintah: { select: { nomor: true } } } }),
-    prisma.perintahKerja.findMany({ orderBy: [{ createdAt: "desc" }], take: 100, include: { teknisi: { select: { nama: true } }, permintaan: { select: { nomor: true } }, alat: { select: { kode: true, nama: true } } } }),
+    prisma.permintaanKerja.findMany({ where: b.permintaan, orderBy: [{ createdAt: "desc" }], take: 100, include: { unitKerja: { select: { nama: true } }, perintah: { select: { nomor: true } } } }),
+    prisma.perintahKerja.findMany({ where: b.perintah, orderBy: [{ createdAt: "desc" }], take: 100, include: { teknisi: { select: { nama: true } }, permintaan: { select: { nomor: true } }, alat: { select: { kode: true, nama: true } } } }),
     prisma.pengguna.findMany({ where: { aktif: true, peran: { in: ["Operator", "Admin", "Super Admin"] } }, orderBy: { nama: "asc" }, select: { id: true, nama: true } }),
-    prisma.permintaanKerja.count({ where: { status: "Baru" } }),
-    prisma.permintaanKerja.count({ where: { status: { in: ["Ditinjau", "Diproses"] } } }),
-    prisma.perintahKerja.count({ where: { status: { in: ["Terbuka", "Dikerjakan"] } } }),
-    prisma.perintahKerja.count({ where: { status: "Selesai" } }),
+    prisma.permintaanKerja.count({ where: { ...b.permintaan, status: "Baru" } }),
+    prisma.permintaanKerja.count({ where: { ...b.permintaan, status: { in: ["Ditinjau", "Diproses"] } } }),
+    prisma.perintahKerja.count({ where: { ...b.perintah, status: { in: ["Terbuka", "Dikerjakan"] } } }),
+    prisma.perintahKerja.count({ where: { ...b.perintah, status: "Selesai" } }),
   ]);
 
   return (

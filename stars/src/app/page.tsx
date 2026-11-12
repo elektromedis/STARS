@@ -5,15 +5,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { StatCard } from "@/components/dashboard/stat-card";
 import { ChartCard } from "@/components/dashboard/chart-card";
 import { FilterBar } from "@/components/dashboard/filter-bar";
-import { FiixCta } from "@/components/dashboard/fiix-cta";
+import { LaporCta } from "@/components/dashboard/lapor-cta";
 import { PackageTable } from "@/components/dashboard/package-table";
 import { TahunChart } from "@/components/charts/tahun-chart";
 import { CategoryDonut } from "@/components/charts/category-donut";
 import { BarListChart } from "@/components/charts/bar-list-chart";
 import { NAV_ITEMS, PERENCANAAN_TABS } from "@/lib/nav";
-import { LogoFull } from "@/components/layout/logo";
-import { filterToQuery, labelFilter, resolveFilter, SEMUA_TAHAP, type SearchParams } from "@/lib/filter";
-import { getNilaiPerKategori, getNilaiPerTahun, getNilaiPerUnit, getPaketList, getRingkasan } from "@/lib/queries";
+import { LogoAnimasi } from "@/components/layout/logo-animasi";
+import { filterToQuery, labelNilai, resolveFilter, SEMUA_TAHAP, type SearchParams } from "@/lib/filter";
+import { PerbandinganTahap } from "@/components/dashboard/perbandingan-tahap";
+import { getNilaiPerKategori, getNilaiPerTahun, getNilaiPerUnit, getPaketList, getPerbandinganTahap, getRingkasan } from "@/lib/queries";
 import { getRingkasanPemeliharaan } from "@/lib/pemeliharaan-ringkasan";
 import { formatRupiah, formatNumber } from "@/lib/utils";
 
@@ -34,17 +35,18 @@ function JudulBagian({ icon: Icon, judul, keterangan, href, tautan }: { icon: ty
 export default async function DashboardPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const sp = await searchParams;
   const { filter, options } = await resolveFilter(sp);
-  const [ringkasan, perTahun, perKategori, perUnit, terbesar, pml] = await Promise.all([
+  const [ringkasan, perTahun, perKategori, perUnit, terbesar, pml, perTahap] = await Promise.all([
     getRingkasan(filter),
     getNilaiPerTahun(filter),
     getNilaiPerKategori(filter),
     getNilaiPerUnit(filter, 8),
-    getPaketList({ filter, pageSize: 5 }),
-    getRingkasanPemeliharaan(),
+    getPaketList({ filter, pageSize: 5, hanyaFinal: true }),
+    getRingkasanPemeliharaan(filter.unitTerkunci ? filter.unit : null),
+    filter.tahap === SEMUA_TAHAP ? getPerbandinganTahap(filter) : Promise.resolve([]),
   ]);
   const q = filterToQuery(filter);
   const kpis = [
-    { label: "Total Nilai Anggaran", value: formatRupiah(ringkasan.totalNilai), hint: labelFilter(filter) },
+    { label: "Total Nilai Anggaran", value: formatRupiah(ringkasan.totalNilai), hint: labelNilai(filter) },
     { label: "Jumlah Paket", value: formatNumber(ringkasan.jumlahPaket), hint: "baris RKPBU/RKBU alat kesehatan" },
     { label: "Alkes Dipelihara", value: formatNumber(ringkasan.alkesDipelihara), hint: "unit alat dalam rencana pemeliharaan" },
     { label: "Serapan", value: `${ringkasan.realisasiPersen.toFixed(1).replace(".", ",")}%`, hint: `${formatRupiah(ringkasan.nilaiTerserap)} terserap` },
@@ -76,13 +78,13 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
               <Button size="lg" className="bg-white/10 text-white hover:bg-white/20" asChild><Link href="/pemeliharaan"><Activity /> Pemeliharaan Alat</Link></Button>
             </div>
           </div>
-          <div className="hidden shrink-0 rounded-2xl bg-white p-4 shadow-lg xl:block">
-            <LogoFull width={300} />
+          <div className="hidden shrink-0 xl:block">
+            <LogoAnimasi className="w-[360px]" />
           </div>
         </div>
       </section>
 
-      <FiixCta />
+      <LaporCta />
 
       <JudulBagian icon={ClipboardList} judul="Perencanaan-Pengadaan" keterangan="Nilai anggaran dan paket RKPBU/RKBU alat kesehatan" href={`/nilai${q}`} tautan="Buka menu" />
       <FilterBar filter={filter} options={options} />
@@ -90,12 +92,13 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       <section aria-label="Indikator perencanaan-pengadaan" className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {kpis.map((k) => <StatCard key={k.label} {...k} />)}
       </section>
+      {filter.tahap === SEMUA_TAHAP && <PerbandinganTahap data={perTahap} tahun={filter.tahun} />}
 
       <section className="mb-6 grid gap-4 lg:grid-cols-5">
         <ChartCard className="lg:col-span-3" title="Nilai Anggaran per Tahun dan Tahap" description={filter.unit ? `Unit ${filter.unit}, semua tahun yang tercatat` : "Seluruh unit kerja, semua tahun yang tercatat"}>
           <TahunChart data={perTahun.data} tahapKeys={perTahun.tahapKeys} />
         </ChartCard>
-        <ChartCard className="lg:col-span-2" title="Distribusi per Kategori" description={`Porsi nilai menurut kategori, ${labelFilter(filter)}`}>
+        <ChartCard className="lg:col-span-2" title="Distribusi per Kategori" description={`Porsi nilai menurut kategori, ${labelNilai(filter)}`}>
           <CategoryDonut data={perKategori} />
         </ChartCard>
       </section>
@@ -108,11 +111,11 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
           <CardHeader className="flex-row items-start justify-between gap-4">
             <div className="space-y-1">
               <CardTitle>Paket Bernilai Terbesar</CardTitle>
-              <CardDescription>5 paket dengan nilai tertinggi pada {labelFilter(filter)}</CardDescription>
+              <CardDescription>5 paket dengan nilai tertinggi pada {labelNilai(filter)}</CardDescription>
             </div>
             <Button variant="link" size="sm" asChild><Link href={`/paket${q}`}>Lihat semua</Link></Button>
           </CardHeader>
-          <CardContent className="px-0 pb-2"><PackageTable rows={terbesar.data} tampilTahap={filter.tahap === SEMUA_TAHAP} ringkas /></CardContent>
+          <CardContent className="px-0 pb-2"><PackageTable rows={terbesar.data} ringkas /></CardContent>
         </Card>
       </section>
 

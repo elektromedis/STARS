@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sesiApi } from "@/lib/sesi";
+import { unitTerkunci } from "@/lib/akses";
+import { batasUnit } from "@/lib/pemeliharaan-ringkasan";
 import { lembarKerjaPdf } from "@/lib/pdf";
 import { urai } from "@/lib/pemeliharaan";
 
@@ -14,8 +16,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   const { id } = await params;
   const n = Number(id);
   if (!Number.isInteger(n) || n <= 0) return NextResponse.json({ error: "ID tidak valid." }, { status: 400 });
-  const wo = await prisma.perintahKerja.findUnique({
-    where: { id: n },
+  const kunci = await unitTerkunci();
+  const wo = await prisma.perintahKerja.findFirst({
+    where: { id: n, ...batasUnit(kunci?.nama).perintah },
     include: { teknisi: { select: { nama: true } }, permintaan: { select: { nomor: true, pelapor: true, kontak: true } }, alat: { include: { unitKerja: { select: { nama: true } }, ruangan: { select: { nama: true } } } } },
   });
   if (!wo) return NextResponse.json({ error: "Perintah kerja tidak ditemukan." }, { status: 404 });

@@ -56,6 +56,15 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
 - **Log Impor**: semua unggahan terekam (siapa, kapan, berkas apa). Berkas asli tersimpan di server.
 - **Nol error ≠ angka benar.** Validasi hanya menjaga format; cocokkan total dengan kertas kerja Anda.
 - Jadwal unggah dan kontak bantuan: lihat `docs/SOP.md`.
+- **Hak akses Viewer:** hanya melihat & mengunduh (tidak bisa impor). Bila akun Viewer diberi unit kerja
+  (Admin → Pengguna → *Batas unit kerja*), seluruh data, ekspor, foto laporan, dan dokumennya otomatis
+  dibatasi ke unit itu — filter unit terkunci.
+- **"Semua Tahapan":** angka total & grafik memakai *pagu final* (tahap terakhir tahun itu) agar paket yang
+  sama tidak terhitung dua kali; tabel *Perbandingan per Tahap* menunjukkan nilai tiap tahap dan selisihnya.
+  Daftar paket dan ekspor tetap berisi baris dari semua tahap.
+- **Membersihkan data lama (Admin):** Admin → Sistem → *Hapus data paket per tahun / tahap*. Centang
+  tahun/tahap, ketik `HAPUS`, lalu tekan *Hapus permanen*. Salinan basis data dibuat otomatis sebelum
+  menghapus (di server: folder `cadangan` di samping basis data); tetap disarankan unduh cadangan dulu.
 
 ## Pesan error yang sering muncul
 

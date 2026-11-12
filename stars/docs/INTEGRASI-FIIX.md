@@ -2,7 +2,7 @@
 
 Status per 11 November 2026:
 - **Modul Pemeliharaan internal STARS: aktif** (lihat bagian bawah) — CMMS ringan milik RS sendiri.
-- **Tombol "Submit a work request" ke Fiix: aktif** (Tahap A).
+- **Tombol "Submit a work request" ke Fiix: DIHAPUS** (12 Nov 2026, permintaan RS) — dashboard kini hanya menautkan ke formulir lapor kerusakan STARS (`/lapor`). Formulir guest Fiix tetap bisa dibuka langsung dari situs Fiix.
 - **Integrasi data API Fiix: belum dibuat** (Tahap B) — menunggu kredensial & keputusan resmi.
 
 STARS kini punya alur pemeliharaan sendiri **dan** tetap menautkan ke Fiix. Keduanya

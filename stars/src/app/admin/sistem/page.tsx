@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { DatabaseBackup, Globe, Server } from "lucide-react";
+import { DatabaseBackup, Globe, Server, Trash2 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { sesiHalaman } from "@/lib/sesi";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { formatNumber } from "@/lib/utils";
+import { getDatasets } from "@/lib/queries";
+import { HapusDataPaket } from "@/components/admin/hapus-data-paket";
 import pkg from "../../../../package.json";
 
 export const metadata: Metadata = { title: "Sistem" };
@@ -18,12 +19,13 @@ const tgl = (d: Date | null | undefined) => (d ? new Intl.DateTimeFormat("id-ID"
 export default async function SistemPage() {
   await sesiHalaman("Admin");
   const mode = process.env.STARS_MODE === "internet" ? "internet" : "intranet";
-  const [paket, pengguna, logImpor, sinkron, auditLog] = await Promise.all([
+  const [paket, pengguna, logImpor, sinkron, auditLog, grupPaket] = await Promise.all([
     prisma.paket.count(),
     prisma.pengguna.count({ where: { aktif: true } }),
     prisma.logImpor.count(),
     prisma.logImpor.findFirst({ where: { pengguna: "sinkron" }, orderBy: { waktu: "desc" } }),
     prisma.auditLog.findMany({ orderBy: { waktu: "desc" }, take: 50 }),
+    getDatasets(),
   ]);
   const db = (process.env.DATABASE_URL ?? "").startsWith("file:") ? "SQLite" : "PostgreSQL";
 
@@ -47,9 +49,17 @@ export default async function SistemPage() {
         </Card>
         <Card>
           <CardHeader><CardTitle className="flex items-center gap-2"><DatabaseBackup className="size-5 text-teal-700" /> Cadangan</CardTitle><CardDescription>Salinan konsisten seluruh basis data (.db). Simpan di drive RS/cloud minimal mingguan.</CardDescription></CardHeader>
-          <CardContent><Button asChild><Link href="/api/admin/cadangan"><DatabaseBackup /> Unduh cadangan sekarang</Link></Button></CardContent>
+          <CardContent><Button asChild><a href="/api/admin/cadangan"><DatabaseBackup /> Unduh cadangan sekarang</a></Button></CardContent>
         </Card>
       </div>
+
+      <Card className="border-red-200">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-red-800"><Trash2 className="size-5" /> Hapus data paket per tahun / tahap</CardTitle>
+          <CardDescription>Untuk membersihkan data lama. Salinan basis data dibuat otomatis di server sebelum menghapus; untuk pengamanan ekstra, unduh cadangan di atas terlebih dahulu. Tindakan tercatat di audit log.</CardDescription>
+        </CardHeader>
+        <CardContent><HapusDataPaket data={grupPaket.map((g) => ({ tahun: g.tahun, tahap: g.tahap, baris: g.baris, nilai: g.nilai }))} boleh={mode !== "internet"} /></CardContent>
+      </Card>
 
       <Card>
         <CardHeader><CardTitle>Sinkronisasi intranet → internet</CardTitle><CardDescription>Dijalankan dari server intranet, mengirim seluruh paket ke server internet dengan token bersama.</CardDescription></CardHeader>

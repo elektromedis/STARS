@@ -3,7 +3,7 @@ export const PERAN = ["Viewer", "Operator", "Admin", "Super Admin"] as const;
 export type Peran = (typeof PERAN)[number];
 
 export const PERAN_KETERANGAN: Record<Peran, string> = {
-  Viewer: "Melihat area admin (log, ekspor) tanpa mengubah data",
+  Viewer: "Hanya melihat & mengunduh data (tanpa impor). Bila diberi unit kerja, semua data & dokumen dibatasi ke unit itu",
   Operator: "Mengunggah/mengubah data paket untuk unit kerjanya (atau semua unit bila tidak dibatasi)",
   Admin: "Semua unit kerja, kelola pengguna, cadangan basis data",
   "Super Admin": "Admin + pengaturan sistem, menetapkan peran Super Admin",

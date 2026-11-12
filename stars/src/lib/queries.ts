@@ -1,5 +1,5 @@
 import { prisma } from "./prisma";
-import { type Filter, TAHAP_URUT, whereFilter } from "./filter";
+import { type Filter, TAHAP_URUT, whereFilter, whereNilai } from "./filter";
 
 export type PaketRow = {
   kode: string; namaPaket: string; unit: string; kategori: string; nilai: number; serapan: boolean;
@@ -7,7 +7,7 @@ export type PaketRow = {
 };
 
 export async function getRingkasan(f: Filter) {
-  const where = whereFilter(f);
+  const where = whereNilai(f);
   const [agg, terserap, pm] = await Promise.all([
     prisma.paket.aggregate({ where, _sum: { nilai: true }, _count: { _all: true } }),
     prisma.paket.aggregate({ where: { ...where, serapan: true }, _sum: { nilai: true }, _count: { _all: true } }),
@@ -28,7 +28,7 @@ export async function getRingkasan(f: Filter) {
 export async function getNilaiPerUnit(f: Filter, limit?: number) {
   const g = await prisma.paket.groupBy({
     by: ["unitKerjaId"],
-    where: whereFilter(f),
+    where: whereNilai(f),
     _sum: { nilai: true },
     _count: { _all: true },
     orderBy: { _sum: { nilai: "desc" } },
@@ -41,7 +41,7 @@ export async function getNilaiPerUnit(f: Filter, limit?: number) {
 
 export async function getNilaiPerKategori(f: Filter) {
   const g = await prisma.paket.groupBy({
-    by: ["kategori"], where: whereFilter(f), _sum: { nilai: true }, _count: { _all: true }, orderBy: { _sum: { nilai: "desc" } },
+    by: ["kategori"], where: whereNilai(f), _sum: { nilai: true }, _count: { _all: true }, orderBy: { _sum: { nilai: "desc" } },
   });
   return g.map((x) => ({ name: x.kategori, value: x._sum.nilai ?? 0, paket: x._count._all }));
 }
@@ -64,11 +64,12 @@ export async function getNilaiPerTahun(f: Pick<Filter, "unit" | "kategori">) {
   return { data: [...rows.values()], tahapKeys: [...tahapKeys] };
 }
 
-export type PaketQuery = { filter: Filter; q?: string; status?: string; page?: number; pageSize?: number; orderBy?: "nilai" | "nama" };
+/** `hanyaFinal` = saat "Semua Tahapan", ambil paket dari pagu final saja (untuk peringkat/total, bukan daftar lengkap). */
+export type PaketQuery = { filter: Filter; q?: string; status?: string; page?: number; pageSize?: number; orderBy?: "nilai" | "nama"; hanyaFinal?: boolean };
 
-export async function getPaketList({ filter, q, status, page = 1, pageSize = 25, orderBy = "nilai" }: PaketQuery) {
+export async function getPaketList({ filter, q, status, page = 1, pageSize = 25, orderBy = "nilai", hanyaFinal = false }: PaketQuery) {
   const where = {
-    ...whereFilter(filter),
+    ...(hanyaFinal ? whereNilai(filter) : whereFilter(filter)),
     ...(status === "terserap" ? { serapan: true } : status === "direncanakan" ? { serapan: false } : {}),
     ...(q
       ? { OR: [{ namaPaket: { contains: q } }, { uraian: { contains: q } }, { namaRekening: { contains: q } }, { kode: { contains: q } }, { lokasiAsli: { contains: q } }] }
@@ -102,17 +103,36 @@ export async function getPaketForExport(f: Filter) {
   }));
 }
 
-/** Daftar dataset yang bisa diunduh: satu per (tahun, tahap). */
-export async function getDatasets() {
+/**
+ * Perbandingan per tahap pada tahun terpilih (unit/kategori ikut filter): nilai, jumlah paket, terserap,
+ * dan selisih terhadap tahap sebelumnya. Dipakai saat "Semua Tahapan".
+ */
+export async function getPerbandinganTahap(f: Filter) {
+  const where = { tahun: f.tahun, ...(f.unit ? { unitKerja: { nama: f.unit } } : {}), ...(f.kategori ? { kategori: f.kategori } : {}) };
+  const [g, t] = await Promise.all([
+    prisma.paket.groupBy({ by: ["tahap"], where, _sum: { nilai: true }, _count: { _all: true } }),
+    prisma.paket.groupBy({ by: ["tahap"], where: { ...where, serapan: true }, _sum: { nilai: true } }),
+  ]);
+  const terserap = new Map(t.map((x) => [x.tahap, x._sum.nilai ?? 0]));
+  const urut = g.sort((a, b) => TAHAP_URUT.indexOf(a.tahap as never) - TAHAP_URUT.indexOf(b.tahap as never));
+  return urut.map((x, i) => {
+    const nilai = x._sum.nilai ?? 0;
+    const sebelumnya = i > 0 ? urut[i - 1]._sum.nilai ?? 0 : null;
+    return { tahap: x.tahap, nilai, paket: x._count._all, terserap: terserap.get(x.tahap) ?? 0, selisih: sebelumnya === null ? null : nilai - sebelumnya, final: i === urut.length - 1 };
+  });
+}
+
+/** Daftar dataset yang bisa diunduh: satu per (tahun, tahap). `unit` = hanya baris unit itu. */
+export async function getDatasets(unit?: string | null) {
   const g = await prisma.paket.groupBy({
-    by: ["tahun", "tahap"], _count: { _all: true }, _sum: { nilai: true }, _max: { updatedAt: true }, orderBy: [{ tahun: "desc" }],
+    by: ["tahun", "tahap"], where: unit ? { unitKerja: { nama: unit } } : {}, _count: { _all: true }, _sum: { nilai: true }, _max: { updatedAt: true }, orderBy: [{ tahun: "desc" }],
   });
   return g
     .sort((a, b) => b.tahun - a.tahun || TAHAP_URUT.indexOf(b.tahap as never) - TAHAP_URUT.indexOf(a.tahap as never))
     .map((x) => ({ tahun: x.tahun, tahap: x.tahap, baris: x._count._all, nilai: x._sum.nilai ?? 0, diperbarui: x._max.updatedAt }));
 }
 
-export async function getUnitKerjaRows() {
-  const units = await prisma.unitKerja.findMany({ orderBy: { urut: "asc" }, include: { _count: { select: { paket: true } } } });
+export async function getUnitKerjaRows(unit?: string | null) {
+  const units = await prisma.unitKerja.findMany({ where: unit ? { nama: unit } : {}, orderBy: { urut: "asc" }, include: { _count: { select: { paket: true } } } });
   return units.map((u) => ({ no: u.urut + 1, nama_unit_kerja: u.nama, jumlah_paket_tercatat: u._count.paket }));
 }
