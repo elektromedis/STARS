@@ -27,7 +27,7 @@ export default async function AlatPage() {
           <span>{process.env.STARS_MODE === "internet" ? "Server ini mode internet (baca saja)." : <>Peran <strong>{s.user.peran}</strong> hanya dapat melihat. Menambah/mengubah alat memerlukan peran Operator.</>}</span>
         </p>
       )}
-      <AlatManager data={data} units={units} ruangan={ruangan} bolehKelola={bolehKelola} />
+      <AlatManager data={data} units={units} ruangan={ruangan} bolehKelola={bolehKelola} alamatPublik={process.env.STARS_URL_PUBLIK ?? ""} />
     </div>
   );
 }

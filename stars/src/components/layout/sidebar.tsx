@@ -14,7 +14,6 @@ export function Sidebar() {
       </div>
       <div className="hidden border-t border-white/10 p-4 text-xs text-navy-300 lg:block">
         <p className="font-medium text-navy-100">STARS • RSUD Cipayung</p>
-        <p className="mt-1">Tahap 1 — data RKPBU/RKBU BLUD.</p>
       </div>
     </aside>
   );

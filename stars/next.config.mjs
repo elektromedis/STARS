@@ -14,7 +14,7 @@ const nextConfig = {
   poweredByHeader: false,
   // Output standalone untuk Docker (deploy/Dockerfile)
   output: "standalone",
-  serverExternalPackages: ["@prisma/client", "prisma", "bcryptjs"],
+  serverExternalPackages: ["@prisma/client", "prisma", "bcryptjs", "qrcode"],
   experimental: {
     // Foto lapor kerusakan maks 5 MB lewat server action (bawaan Next hanya 1 MB).
     serverActions: { bodySizeLimit: "6mb" },

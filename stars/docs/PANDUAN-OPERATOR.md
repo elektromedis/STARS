@@ -66,6 +66,12 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
   *Kelola* → unggah per jenis (PDF/JPG/PNG/DOCX/XLSX, maks 15 MB; isi berkas diperiksa, bukan hanya
   ekstensinya). Di menu Paket, kolom dokumen menampilkan ikon bila sudah ada; membukanya wajib login, dan
   Viewer ber-unit hanya bisa membuka dokumen unitnya. Operator yang dibatasi unit hanya mengelola dokumen unitnya.
+- **Label QR alat:** Admin → *Daftar Alat* → *Cetak label QR alat* (per unit/ruangan) atau *Cetak label QR*
+  di baris satu alat. Tiap QR menunjuk tepat ke satu alat; dipindai kamera HP (atau tombol Scan QR) →
+  *Lapor Kerusakan* terisi otomatis. Isi kolom alamat dengan alamat **https publik** STARS (mis. Tailscale) —
+  alamat `localhost`/`http://192.168…` tidak bisa dibuka dari HP. Agar tidak perlu diisi tiap kali, Admin
+  server bisa menambahkan `STARS_URL_PUBLIK=https://…` di `deploy\.env` lalu menjalankan ulang `server-rs.bat`.
+  Cetak di kertas stiker A4 pada skala 100% (ukuran sebenarnya).
 - **Urutkan tabel paket:** klik judul kolom (Kode, Nama Paket, Unit Kerja, Nilai, Serapan); klik lagi untuk membalik.
 - **Scan QR (tombol bulat kanan bawah):** QR STARS membuka halamannya; QR lama Trilux & QR berisi kode alat
   membuka *Lapor Kerusakan* yang sudah terisi data alatnya. Kamera hanya jalan lewat alamat **https**

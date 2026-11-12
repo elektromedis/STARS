@@ -28,7 +28,7 @@ async function bacaDari(sumber: HTMLVideoElement | HTMLImageElement, kanvas: HTM
 
 /**
  * Tombol mengambang "Scan QR" di pojok kanan bawah setiap halaman.
- * Isi QR → tautan STARS dibuka; QR lama Trilux (JSON "codenom") & teks/kode alat → formulir Lapor Kerusakan terisi otomatis;
+ * Isi QR → tautan STARS dibuka (label QR alat dari alamat STARS mana pun tetap dibuka di alamat yang sedang dipakai); QR lama Trilux (JSON "codenom") & teks/kode alat → formulir Lapor Kerusakan terisi otomatis;
  * tautan situs lain hanya ditampilkan (tidak dibuka otomatis).
  */
 export function QrScan() {
@@ -58,7 +58,8 @@ export function QrScan() {
     if (/^https?:\/\//i.test(teks)) {
       try {
         const url = new URL(teks);
-        if (url.origin === window.location.origin) { tutup(); router.push(`${url.pathname}${url.search}${url.hash}`); return; }
+        const tautanLapor = url.pathname === "/lapor" && (url.searchParams.has("alat") || url.searchParams.has("aspak"));
+        if (url.origin === window.location.origin || tautanLapor) { tutup(); router.push(`${url.pathname}${url.search}${url.hash}`); return; }
         setHasil({ jenis: "luar", url: url.toString() }); return;
       } catch { /* bukan URL valid → perlakukan sebagai teks */ }
     }

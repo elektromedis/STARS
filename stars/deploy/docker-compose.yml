@@ -28,6 +28,7 @@ services:
       SUPERADMIN_NAMA: ${SUPERADMIN_NAMA:-Super Admin STARS}
       STARS_MODE: ${STARS_MODE:-intranet}
       SYNC_TOKEN: ${SYNC_TOKEN:-}
+      STARS_URL_PUBLIK: ${STARS_URL_PUBLIK:-}
     volumes:
       - stars_data:/app/data
       - stars_uploads:/app/uploads
