@@ -1,8 +1,8 @@
 "use client";
 
-import { useActionState, useRef } from "react";
+import { useActionState, useRef, useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, Loader2, Send, XCircle } from "lucide-react";
+import { CheckCircle2, Loader2, ScanQrCode, Send, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -10,10 +10,23 @@ import { PRIORITAS } from "@/lib/pemeliharaan";
 import { buatPermintaan, type StatusLapor } from "./actions";
 
 type Unit = { id: number; nama: string };
+/** Alat hasil scan QR (atau tautan ?alat=) yang bisa dipilih untuk mengisi formulir otomatis. */
+export type AlatQr = { id: number; nama: string; unitKerjaId: number; unit: string; lokasi: string | null };
 
-export function LaporForm({ units }: { units: Unit[] }) {
+export function LaporForm({ units, kandidat = [], pesanQr = null }: { units: Unit[]; kandidat?: AlatQr[]; pesanQr?: string | null }) {
   const [status, aksi, pending] = useActionState<StatusLapor, FormData>(buatPermintaan, undefined);
   const formRef = useRef<HTMLFormElement>(null);
+  const awal = kandidat.length === 1 ? kandidat[0] : null;
+  const [alat, setAlat] = useState<AlatQr | null>(awal);
+  const [namaAlat, setNamaAlat] = useState(awal?.nama ?? kandidat[0]?.nama ?? "");
+  const [unitId, setUnitId] = useState(awal ? String(awal.unitKerjaId) : "");
+  const [lokasi, setLokasi] = useState(awal?.lokasi ?? "");
+
+  function pilihAlat(id: string) {
+    const a = kandidat.find((k) => String(k.id) === id) ?? null;
+    setAlat(a);
+    if (a) { setNamaAlat(a.nama); setUnitId(String(a.unitKerjaId)); setLokasi(a.lokasi ?? ""); }
+  }
 
   if (status?.nomor) {
     return (
@@ -37,21 +50,34 @@ export function LaporForm({ units }: { units: Unit[] }) {
         <p role="alert" className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800"><XCircle className="mt-0.5 size-4 shrink-0" /> {status.error}</p>
       )}
 
+      {pesanQr && (
+        <p className="flex items-start gap-2 rounded-lg border border-teal-200 bg-teal-50 p-3 text-sm text-teal-900"><ScanQrCode className="mt-0.5 size-4 shrink-0" /> {pesanQr}</p>
+      )}
+      <input type="hidden" name="alatId" value={alat?.id ?? ""} />
       <div className="grid gap-4 sm:grid-cols-2">
+        {kandidat.length > 1 && (
+          <label className="grid gap-1 text-sm font-medium text-navy-800 sm:col-span-2">
+            Pilih alat sesuai QR
+            <Select value={alat ? String(alat.id) : ""} onChange={(e) => pilihAlat(e.target.value)}>
+              <option value="">— pilih unit alat yang dimaksud ({kandidat.length} cocok) —</option>
+              {kandidat.map((k) => <option key={k.id} value={k.id}>{k.nama} — {k.lokasi ? `${k.lokasi}, ` : ""}{k.unit}</option>)}
+            </Select>
+          </label>
+        )}
         <label className="grid gap-1 text-sm font-medium text-navy-800 sm:col-span-2">
           Nama / jenis alat yang bermasalah <span className="text-red-600">*</span>
-          <Input name="namaAlat" required maxLength={200} placeholder="mis. Baby Incubator, Ventilator, AC ruang perawatan" />
+          <Input name="namaAlat" value={namaAlat} onChange={(e) => setNamaAlat(e.target.value)} required maxLength={200} placeholder="mis. Baby Incubator, Ventilator, AC ruang perawatan" />
         </label>
         <label className="grid gap-1 text-sm font-medium text-navy-800">
           Unit kerja / lokasi
-          <Select name="unitKerjaId" defaultValue="">
+          <Select name="unitKerjaId" value={unitId} onChange={(e) => setUnitId(e.target.value)}>
             <option value="">— Pilih unit (opsional) —</option>
             {units.map((u) => <option key={u.id} value={u.id}>{u.nama}</option>)}
           </Select>
         </label>
         <label className="grid gap-1 text-sm font-medium text-navy-800">
           Rincian lokasi
-          <Input name="lokasi" maxLength={200} placeholder="mis. Ruang PERINA, bed 3" />
+          <Input name="lokasi" value={lokasi} onChange={(e) => setLokasi(e.target.value)} maxLength={200} placeholder="mis. Ruang PERINA, bed 3" />
         </label>
         <label className="grid gap-1 text-sm font-medium text-navy-800">
           Nama pelapor <span className="text-red-600">*</span>

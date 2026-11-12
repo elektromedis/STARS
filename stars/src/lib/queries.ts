@@ -1,10 +1,28 @@
+import type { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
 import { type Filter, TAHAP_URUT, whereFilter, whereNilai } from "./filter";
+import type { StatusDokumen } from "./dokumen";
+import { getStatusDokumen } from "./dokumen-data";
 
 export type PaketRow = {
   kode: string; namaPaket: string; unit: string; kategori: string; nilai: number; serapan: boolean;
   tahun: number; tahap: string; jenis: string; prioritas: string | null;
+  dokumen?: StatusDokumen;
 };
+
+/** Kolom yang bisa diurutkan di tabel paket (?urut=&arah=). */
+export const KOLOM_URUT = ["kode", "nama", "unit", "kategori", "nilai", "serapan"] as const;
+export type KolomUrut = (typeof KOLOM_URUT)[number];
+export type Arah = "asc" | "desc";
+export const adalahKolomUrut = (v: unknown): v is KolomUrut => typeof v === "string" && (KOLOM_URUT as readonly string[]).includes(v);
+
+/** Kolom angka/boolean diurutkan oleh basis data. */
+function urutanPrisma(urut: "nilai" | "serapan", arah: Arah) {
+  return urut === "serapan" ? [{ serapan: arah }, { nilai: "desc" as const }] : [{ nilai: arah }];
+}
+
+/** Kolom teks diurutkan secara alami bahasa Indonesia: tidak peka kapital, angka sebagai angka ("3" < "7" < "32"). */
+const kolator = new Intl.Collator("id", { numeric: true, sensitivity: "base" });
 
 export async function getRingkasan(f: Filter) {
   const where = whereNilai(f);
@@ -64,10 +82,13 @@ export async function getNilaiPerTahun(f: Pick<Filter, "unit" | "kategori">) {
   return { data: [...rows.values()], tahapKeys: [...tahapKeys] };
 }
 
-/** `hanyaFinal` = saat "Semua Tahapan", ambil paket dari pagu final saja (untuk peringkat/total, bukan daftar lengkap). */
-export type PaketQuery = { filter: Filter; q?: string; status?: string; page?: number; pageSize?: number; orderBy?: "nilai" | "nama"; hanyaFinal?: boolean };
+/**
+ * `hanyaFinal` = saat "Semua Tahapan", ambil paket dari pagu final saja (untuk peringkat/total, bukan daftar lengkap).
+ * `dokumen` = sertakan status dokumen pendukung tiap paket.
+ */
+export type PaketQuery = { filter: Filter; q?: string; status?: string; page?: number; pageSize?: number; urut?: KolomUrut; arah?: Arah; hanyaFinal?: boolean; dokumen?: boolean };
 
-export async function getPaketList({ filter, q, status, page = 1, pageSize = 25, orderBy = "nilai", hanyaFinal = false }: PaketQuery) {
+export async function getPaketList({ filter, q, status, page = 1, pageSize = 25, urut = "nilai", arah = "desc", hanyaFinal = false, dokumen = false }: PaketQuery) {
   const where = {
     ...(hanyaFinal ? whereNilai(filter) : whereFilter(filter)),
     ...(status === "terserap" ? { serapan: true } : status === "direncanakan" ? { serapan: false } : {}),
@@ -75,20 +96,33 @@ export async function getPaketList({ filter, q, status, page = 1, pageSize = 25,
       ? { OR: [{ namaPaket: { contains: q } }, { uraian: { contains: q } }, { namaRekening: { contains: q } }, { kode: { contains: q } }, { lokasiAsli: { contains: q } }] }
       : {}),
   };
-  const [total, rows] = await Promise.all([
-    prisma.paket.count({ where }),
-    prisma.paket.findMany({
-      where,
-      include: { unitKerja: { select: { nama: true } } },
-      orderBy: orderBy === "nama" ? { namaPaket: "asc" } : { nilai: "desc" },
-      skip: (page - 1) * pageSize,
-      take: pageSize,
-    }),
-  ]);
+  const skip = (page - 1) * pageSize;
+  let total: number;
+  let rows: Awaited<ReturnType<typeof ambilHalaman>>;
+  async function ambilHalaman(args: { where: Prisma.PaketWhereInput; skip?: number; take?: number; orderBy?: Prisma.PaketOrderByWithRelationInput[] }) {
+    return prisma.paket.findMany({ ...args, include: { unitKerja: { select: { nama: true } } } });
+  }
+  if (urut === "nilai" || urut === "serapan") {
+    [total, rows] = await Promise.all([prisma.paket.count({ where }), ambilHalaman({ where, orderBy: urutanPrisma(urut, arah), skip, take: pageSize })]);
+  } else {
+    // SQLite mengurutkan teks secara biner (peka kapital, "32" < "7"); urutkan kunci ringan di sini lalu ambil satu halaman.
+    const semua = await prisma.paket.findMany({ where, select: { id: true, kode: true, namaPaket: true, kategori: true, nilai: true, unitKerja: { select: { nama: true } } } });
+    const kunci = (p: (typeof semua)[number]) => (urut === "kode" ? p.kode : urut === "nama" ? p.namaPaket : urut === "unit" ? p.unitKerja.nama : p.kategori);
+    const arahKali = arah === "asc" ? 1 : -1;
+    semua.sort((a, b) => kolator.compare(kunci(a), kunci(b)) * arahKali || b.nilai - a.nilai);
+    const ids = semua.slice(skip, skip + pageSize).map((p) => p.id);
+    const urutan = new Map(ids.map((id, i) => [id, i]));
+    total = semua.length;
+    rows = (await ambilHalaman({ where: { id: { in: ids } } })).sort((a, b) => (urutan.get(a.id) ?? 0) - (urutan.get(b.id) ?? 0));
+  }
   const data: PaketRow[] = rows.map((p) => ({
     kode: p.kode, namaPaket: p.namaPaket, unit: p.unitKerja.nama, kategori: p.kategori, nilai: p.nilai, serapan: p.serapan,
     tahun: p.tahun, tahap: p.tahap, jenis: p.jenis, prioritas: p.prioritas,
   }));
+  if (dokumen) {
+    const status = await getStatusDokumen(data.map((d) => d.kode));
+    for (const d of data) d.dokumen = status.get(d.kode) ?? {};
+  }
   return { data, total, page, pageSize, pages: Math.max(1, Math.ceil(total / pageSize)) };
 }
 

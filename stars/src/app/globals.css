@@ -40,7 +40,11 @@
 @keyframes stars-pendar { 0%, 100% { opacity: 0.08; transform: scale(0.96); } 50% { opacity: 0.2; transform: scale(1.04); } }
 @keyframes stars-ekg { 0% { stroke-dashoffset: 388; } 50% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -388; } }
 @keyframes stars-kedip { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+/* Garis pindai pada bingkai kamera Scan QR (components/layout/qr-scan.tsx) */
+.qr-garis { top: 8%; animation: qr-pindai 2.2s ease-in-out infinite alternate; }
+@keyframes qr-pindai { from { top: 8%; } to { top: 92%; } }
 @media (prefers-reduced-motion: reduce) {
-  .stars-cincin, .stars-pendar, .stars-ekg, .stars-titik { animation: none; }
+  .stars-cincin, .stars-pendar, .stars-ekg, .stars-titik, .qr-garis { animation: none; }
   .stars-ekg { stroke-dasharray: none; }
 }

@@ -254,6 +254,26 @@ model JadwalPreventif {
   @@index([berikutnya])
 }
 
+/// Dokumen pendukung paket (RKPBU, AKPA, Nota Dinas, SP/SPK, Invoice/Faktur).
+/// Ditautkan lewat KODE paket (bukan id) agar tetap menempel saat paket dihapus-lalu-diimpor ulang
+/// (mode "ganti" memakai kode yang sama). Berkas disimpan di UPLOAD_DIR/dokumen.
+model DokumenPaket {
+  id           Int       @id @default(autoincrement())
+  paketKode    String
+  jenis        String // RKPBU | AKPA | NOTA_DINAS | SP_SPK | INVOICE
+  namaBerkas   String // nama asli dari pengunggah
+  berkas       String    @unique // nama tersimpan (uuid.ext)
+  tipe         String // MIME
+  ukuran       Int
+  nomor        String?
+  tanggal      DateTime?
+  keterangan   String?
+  diunggahOleh String?
+  createdAt    DateTime  @default(now())
+
+  @@index([paketKode, jenis])
+}
+
 /// Jejak setiap percobaan penyimpanan impor Excel (untuk audit BLUD).
 model LogImpor {
   id              Int      @id @default(autoincrement())

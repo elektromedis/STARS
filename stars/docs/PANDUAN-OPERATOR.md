@@ -62,6 +62,14 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
 - **"Semua Tahapan":** angka total & grafik memakai *pagu final* (tahap terakhir tahun itu) agar paket yang
   sama tidak terhitung dua kali; tabel *Perbandingan per Tahap* menunjukkan nilai tiap tahap dan selisihnya.
   Daftar paket dan ekspor tetap berisi baris dari semua tahap.
+- **Dokumen paket (RKPBU, AKPA, Nota Dinas, SP/SPK, Invoice/Faktur):** Admin → *Dokumen Paket* → cari paket →
+  *Kelola* → unggah per jenis (PDF/JPG/PNG/DOCX/XLSX, maks 15 MB; isi berkas diperiksa, bukan hanya
+  ekstensinya). Di menu Paket, kolom dokumen menampilkan ikon bila sudah ada; membukanya wajib login, dan
+  Viewer ber-unit hanya bisa membuka dokumen unitnya. Operator yang dibatasi unit hanya mengelola dokumen unitnya.
+- **Urutkan tabel paket:** klik judul kolom (Kode, Nama Paket, Unit Kerja, Nilai, Serapan); klik lagi untuk membalik.
+- **Scan QR (tombol bulat kanan bawah):** QR STARS membuka halamannya; QR lama Trilux & QR berisi kode alat
+  membuka *Lapor Kerusakan* yang sudah terisi data alatnya. Kamera hanya jalan lewat alamat **https**
+  (mis. alamat Tailscale); lewat alamat http di jaringan lokal gunakan *Ambil / pilih foto QR*.
 - **Membersihkan data lama (Admin):** Admin → Sistem → *Hapus data paket per tahun / tahap*. Centang
   tahun/tahap, ketik `HAPUS`, lalu tekan *Hapus permanen*. Salinan basis data dibuat otomatis sebelum
   menghapus (di server: folder `cadangan` di samping basis data); tetap disarankan unduh cadangan dulu.
