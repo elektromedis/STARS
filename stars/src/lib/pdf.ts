@@ -41,7 +41,7 @@ export function kePdf(opsi: {
   doc.setFont("helvetica", "bold").setFontSize(14).setTextColor(...NAVY);
   doc.text(judul, margin, 16);
   doc.setFont("helvetica", "normal").setFontSize(9).setTextColor(90);
-  doc.text("STARS - Profil Perencanaan & Pengadaan Alat Kesehatan, RSUD Cipayung", margin, 22);
+  doc.text("STARS - Sistem Terintegrasi Alat Kesehatan Rumah Sakit - RSUD Cipayung", margin, 22);
   const infoKanan = `Dicetak: ${tanggalCetak()}`;
   doc.text(infoKanan, lebarHal - margin, 16, { align: "right" });
   if (subjudul) {

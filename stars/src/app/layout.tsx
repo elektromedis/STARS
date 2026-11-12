@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: { default: "STARS — Sistem Terintegrasi Alat Kesehatan Rumah Sakit", template: "%s | STARS" },
-  description: "Profil perencanaan-pengadaan dan pemeliharaan alat kesehatan di RSUD Cipayung.",
+  description: "Sistem Terintegrasi Alat Kesehatan Rumah Sakit - RSUD Cipayung: perencanaan-pengadaan dan pemeliharaan alat kesehatan.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

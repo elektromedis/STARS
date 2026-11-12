@@ -20,7 +20,7 @@ export default function AboutPage() {
             <LogoFull width={280} className="-ml-2" />
             <p>STARS adalah sistem terintegrasi untuk memantau perencanaan, pengadaan, dan pemeliharaan alat kesehatan di RSUD Cipayung, mulai dari ringkasan nilai, daftar paket, hingga dataset yang dapat diunduh.</p>
             <p>Sumber data adalah kertas kerja RKPBU (Rencana Kebutuhan Pemeliharaan Barang Unit) dan RKBU alat kesehatan BLUD RSUD Cipayung per tahun dan tahap anggaran (Ranwal, Penetapan, Pergeseran, Perubahan). Nilai yang ditampilkan sudah termasuk PPN sesuai kertas kerja.</p>
-            <p>Struktur informasi (Overview, Nilai, Paket, Data) terinspirasi dari dashboard INAPROC. STARS dikembangkan secara independen dan bukan aplikasi resmi INAPROC maupun LKPP.</p>
+            <p>Struktur informasi (Dashboard, Perencanaan-Pengadaan: Nilai, Paket, Data) terinspirasi dari dashboard INAPROC. STARS dikembangkan secara independen dan bukan aplikasi resmi INAPROC maupun LKPP.</p>
           </CardContent>
         </Card>
         <Card>
