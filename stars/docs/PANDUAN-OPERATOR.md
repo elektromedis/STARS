@@ -76,6 +76,19 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
   alamat `localhost`/`http://192.168…` tidak bisa dibuka dari HP. Agar tidak perlu diisi tiap kali, Admin
   server bisa menambahkan `STARS_URL_PUBLIK=https://…` di `deploy\.env` lalu menjalankan ulang `server-rs.bat`.
   Cetak di kertas stiker A4 pada skala 100% (ukuran sebenarnya).
+- **Inventaris Alat Kesehatan (publik):** menu **Pemeliharaan** → bagian *Inventaris Alat Kesehatan*. Siapa pun
+  (tanpa login) bisa mencari alat, menyaring per unit/jenis/kondisi/status kalibrasi, dan mengurutkan kolom.
+  QR tiap alat tampil di antara kode dan nama alat (juga di Admin → *Daftar Alat*): klik untuk memperbesar,
+  *Unduh* gambar QR, *Lapor kerusakan*, atau (bila login) *Cetak label*. Viewer ber-unit hanya melihat alat unitnya.
+- **CMS Kalibrasi (Operator):** Admin → *Kalibrasi* → *Unggah sertifikat* (PDF/JPG/PNG, boleh banyak sekaligus).
+  Dari **PDF berteks** STARS mengisi otomatis tanggal kalibrasi, masa berlaku, nomor sertifikat, lembaga, hasil
+  (laik/tidak), dan alatnya (dicocokkan lewat **nomor seri/kode** yang tercantum; ikon ✦ = terisi otomatis).
+  Laporan kolektif yang memuat banyak alat otomatis menjadi satu baris per alat. PDF hasil pindai/foto tidak
+  berteks → isi tanggal & data secara manual (alat tetap dicoba dicocokkan dari **nama berkas**, mis.
+  `Sertifikat_SP2009-00102.pdf`). Masa berlaku yang tidak tertulis = tanggal kalibrasi + 12 bulan (bisa diubah
+  6/24/36 bulan). **Periksa isian sebelum menekan Simpan.** Mengunggah ulang sertifikat untuk alat & tanggal
+  yang sama memperbarui catatan (tidak dobel). Klik alat di *Perlu perhatian* untuk langsung mencatat
+  kalibrasinya; riwayat bisa dicari, diubah (ganti tanggal/sertifikat), dan dihapus. Membuka sertifikat wajib login.
 - **Urutkan tabel paket:** klik judul kolom (Kode, Nama Paket, Unit Kerja, Nilai, Serapan); klik lagi untuk membalik.
 - **Scan QR (tombol bulat kanan bawah):** QR STARS membuka halamannya; QR lama Trilux & QR berisi kode alat
   membuka *Lapor Kerusakan* yang sudah terisi data alatnya. Kamera hanya jalan lewat alamat **https**

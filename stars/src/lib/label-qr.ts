@@ -5,6 +5,7 @@
  */
 import { jsPDF } from "jspdf";
 import QRCode from "qrcode";
+import { tautanLapor } from "./alamat";
 
 /** Tata letak mengikuti lembar stiker A4 standar (setara Avery L7160 & L7165). Satuan mm. */
 export const UKURAN_LABEL = {
@@ -15,7 +16,7 @@ export type UkuranLabel = keyof typeof UKURAN_LABEL;
 
 export type DataLabel = { kode: string; nama: string; merek: string | null; model: string | null; nomorSeri: string | null; unit: string; ruangan: string | null };
 
-export const tautanLabel = (alamat: string, kode: string) => `${alamat.replace(/\/+$/, "")}/lapor?alat=${encodeURIComponent(kode)}`;
+export const tautanLabel = tautanLapor;
 
 function gambarQr(doc: jsPDF, isi: string, x: number, y: number, sisi: number) {
   const qr = QRCode.create(isi, { errorCorrectionLevel: "M" });

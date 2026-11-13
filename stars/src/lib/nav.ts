@@ -16,7 +16,7 @@ export const PERENCANAAN_TABS: NavItem[] = [
 export const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard, description: "Ringkasan seluruh menu: perencanaan-pengadaan, pemeliharaan alat, dan laporan kerusakan" },
   { label: "Perencanaan-Pengadaan", href: "/nilai", icon: ClipboardList, match: PERENCANAAN_TABS.map((t) => t.href), description: "Nilai anggaran, daftar paket, dan unduhan data RKPBU/RKBU dalam satu menu" },
-  { label: "Pemeliharaan", href: "/pemeliharaan", icon: Activity, description: "Kondisi alat, laporan kerusakan, perintah kerja, jadwal preventif, dan kalibrasi" },
+  { label: "Pemeliharaan", href: "/pemeliharaan", icon: Activity, description: "Kondisi alat, Inventaris Alat Kesehatan (QR tiap alat), laporan kerusakan, perintah kerja, jadwal preventif, dan kalibrasi" },
   { label: "Lapor Kerusakan", href: "/lapor", icon: Wrench, description: "Laporkan alat kesehatan atau sarana yang rusak — tanpa perlu akun" },
   { label: "About STARS", href: "/about", icon: Info, description: "Tentang aplikasi, sumber data, dan cara kerja STARS" },
   { label: "Admin", href: "/admin", icon: Settings, description: "Impor/ekspor Excel, pemeliharaan, daftar alat, pengguna, dan log (perlu login)" },

@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { badgeKondisi, JENIS_ALAT, KONDISI_ALAT, RISIKO_ALAT } from "@/lib/pemeliharaan";
 import { buatAlat, buatRuangan, ubahAlat, type StatusAksi } from "@/app/admin/alat/actions";
+import { QrAlat } from "./qr-alat";
 
 type Unit = { id: number; nama: string };
 export type RuanganRingkas = { id: number; nama: string; gedung: string | null; unitKerjaId: number; unitKerja: { nama: string } };
@@ -89,13 +90,14 @@ function TautanLabel({ href }: { href: string }) {
   return <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:underline"><QrCode className="size-3.5" /> Cetak label QR</a>;
 }
 
-function BarisAlat({ a, units, ruangan, bolehKelola, label }: { a: Alat; units: Unit[]; ruangan: RuanganRingkas[]; bolehKelola: boolean; label: string }) {
+function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat; units: Unit[]; ruangan: RuanganRingkas[]; bolehKelola: boolean; label: string; alamat: string }) {
   const [st, aksi, pend] = useActionState<StatusAksi, FormData>(ubahAlat, undefined);
   return (
     <details className="group border-b last:border-b-0">
       <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 hover:bg-muted/40">
         <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" aria-hidden />
         <span className="font-mono text-xs text-muted-foreground">{a.kode}</span>
+        <QrAlat kode={a.kode} nama={a.nama} keterangan={`${a.unitKerja.nama}${a.ruangan ? ` · ${a.ruangan.nama}` : ""}`} alamat={alamat} labelHref={label} ukuran={34} />
         <span className="min-w-0 flex-1 truncate font-medium text-navy-800">{a.nama}{a.merek ? <span className="font-normal text-muted-foreground"> · {a.merek}{a.model ? ` ${a.model}` : ""}</span> : null}</span>
         <span className="hidden text-xs text-muted-foreground md:block">{a.unitKerja.nama}{a.ruangan ? ` · ${a.ruangan.nama}` : ""}</span>
         <Badge variant={a.jenis === "Medik" ? "teal" : "outline"}>{a.jenis}</Badge>
@@ -254,7 +256,7 @@ export function AlatManager({ data, units, ruangan, bolehKelola, alamatPublik }:
           {data.length === 0 ? (
             <p className="px-4 py-6 text-center text-sm text-muted-foreground">Belum ada alat terdaftar.</p>
           ) : (
-            <div className="overflow-hidden rounded-lg border">{data.map((a) => <BarisAlat key={a.id} a={a} units={units} ruangan={ruangan} bolehKelola={bolehKelola} label={labelSatu(a.id)} />)}</div>
+            <div className="overflow-hidden rounded-lg border">{data.map((a) => <BarisAlat key={a.id} a={a} units={units} ruangan={ruangan} bolehKelola={bolehKelola} label={labelSatu(a.id)} alamat={alamat} />)}</div>
           )}
         </CardContent>
       </Card>

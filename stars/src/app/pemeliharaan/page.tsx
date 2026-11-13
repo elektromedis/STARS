@@ -9,8 +9,13 @@ import { PageHeader } from "@/components/dashboard/page-header";
 import { formatNumber } from "@/lib/utils";
 import { batasUnit, getRingkasanPemeliharaan } from "@/lib/pemeliharaan-ringkasan";
 import { unitTerkunci } from "@/lib/akses";
+import { auth } from "@/auth";
+import { adalahKolomInventaris, getInventaris, getUnitInventaris } from "@/lib/inventaris";
+import { JENIS_ALAT, KONDISI_ALAT } from "@/lib/pemeliharaan";
+import { FILTER_KALIBRASI } from "@/lib/kalibrasi";
+import { InventarisAlat, type ParamInventaris } from "@/components/pemeliharaan/inventaris-alat";
 
-export const metadata: Metadata = { title: "Dashboard Pemeliharaan" };
+export const metadata: Metadata = { title: "Pemeliharaan & Inventaris Alat Kesehatan" };
 export const dynamic = "force-dynamic";
 
 /** Daftar batang sederhana (tanpa JS) untuk hitungan. */
@@ -30,15 +35,28 @@ function Batang({ data, warna = "bg-teal-500" }: { data: { label: string; nilai:
   );
 }
 
-export default async function PemeliharaanPublikPage() {
+type Sp = Record<string, string | string[] | undefined>;
+const satu = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v)?.trim() ?? "";
+const pilih = <T extends string>(v: string, daftar: readonly T[]) => ((daftar as readonly string[]).includes(v) ? v : "");
+
+export default async function PemeliharaanPublikPage({ searchParams }: { searchParams: Promise<Sp> }) {
+  const sp = await searchParams;
   const kunci = await unitTerkunci();
   const b = batasUnit(kunci?.nama);
-  const [r, kondisi, permintaanStatus, perintahStatus, woSelesaiTautan] = await Promise.all([
+  const urut = satu(sp.urut);
+  const pInv: ParamInventaris = {
+    q: satu(sp.q).slice(0, 100), unit: satu(sp.unit).slice(0, 100), jenis: pilih(satu(sp.jenis), JENIS_ALAT), kondisi: pilih(satu(sp.kondisi), KONDISI_ALAT),
+    kal: pilih(satu(sp.kal), FILTER_KALIBRASI.map((f) => f.kode)), urut: adalahKolomInventaris(urut) ? urut : "unit", arah: satu(sp.arah) === "desc" ? "desc" : "asc",
+  };
+  const [r, kondisi, permintaanStatus, perintahStatus, woSelesaiTautan, inventaris, unitOpsi, sesi] = await Promise.all([
     getRingkasanPemeliharaan(kunci?.nama),
     prisma.alat.groupBy({ by: ["kondisi"], where: { ...b.alat, aktif: true }, _count: { _all: true } }),
     prisma.permintaanKerja.groupBy({ by: ["status"], where: b.permintaan, _count: { _all: true } }),
     prisma.perintahKerja.groupBy({ by: ["status"], where: b.perintah, _count: { _all: true } }),
     prisma.perintahKerja.findMany({ where: { ...b.perintah, status: "Selesai", permintaanId: { not: null }, tanggalSelesai: { not: null } }, select: { createdAt: true, tanggalSelesai: true, permintaan: { select: { createdAt: true } } }, take: 500, orderBy: { tanggalSelesai: "desc" } }),
+    getInventaris({ kunci: kunci?.nama, ...pInv, page: Number(satu(sp.page)) || 1, pageSize: 25 }),
+    kunci ? Promise.resolve([]) : getUnitInventaris(),
+    auth(),
   ]);
   const hitung = <K extends string>(rows: (Record<K, string> & { _count: { _all: number } })[], kunci: K, nilai: string) => rows.find((r) => r[kunci] === nilai)?._count._all ?? 0;
   const kond = ["Baik", "Rusak Ringan", "Rusak Berat", "Afkir"].map((k) => ({ label: k, nilai: hitung(kondisi, "kondisi", k) }));
@@ -52,7 +70,7 @@ export default async function PemeliharaanPublikPage() {
     <>
       <PageHeader
         title="Dashboard Pemeliharaan Alat"
-        description={`Ringkasan kondisi alat, laporan kerusakan, perintah kerja, jadwal preventif, dan kalibrasi${kunci ? ` untuk unit ${kunci.nama}` : ""}. Hanya angka agregat yang ditampilkan.`}
+        description={`Ringkasan kondisi alat, laporan kerusakan, perintah kerja, jadwal preventif, dan kalibrasi${kunci ? ` untuk unit ${kunci.nama}` : ""}, beserta Inventaris Alat Kesehatan dan QR tiap alat. Data pelapor tidak ditampilkan.`}
         actions={<div className="flex gap-2"><Button variant="teal" asChild><Link href="/lapor"><Send /> Lapor Kerusakan</Link></Button><Button variant="outline" asChild><Link href="/admin/pemeliharaan"><Wrench /> Kelola (login)</Link></Button></div>}
       />
       <section aria-label="Indikator" className="mb-6 grid grid-cols-2 gap-4 xl:grid-cols-4">
@@ -70,6 +88,7 @@ export default async function PemeliharaanPublikPage() {
         <Card><CardHeader><CardTitle className="flex items-center gap-2"><Activity className="size-4 text-teal-700" /> Waktu tanggap rata-rata</CardTitle><CardDescription>Dari laporan masuk sampai perintah kerja dibuat ({formatNumber(woSelesaiTautan.length)} WO selesai)</CardDescription></CardHeader><CardContent><p className="text-3xl font-bold text-navy-800">{jam(rataRespon)}</p></CardContent></Card>
         <Card><CardHeader><CardTitle className="flex items-center gap-2"><Activity className="size-4 text-teal-700" /> Waktu penyelesaian rata-rata</CardTitle><CardDescription>Dari perintah kerja dibuat sampai selesai</CardDescription></CardHeader><CardContent><p className="text-3xl font-bold text-navy-800">{jam(rataSelesai)}</p></CardContent></Card>
       </section>
+      <InventarisAlat hasil={inventaris} p={pInv} unitOpsi={unitOpsi} kunci={kunci?.nama ?? null} bolehLabel={Boolean(sesi?.user)} />
     </>
   );
 }

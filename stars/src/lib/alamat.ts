@@ -27,3 +27,21 @@ export function urlLogin(h: Headers, kembaliKe: string, cadangan?: string): URL 
   u.searchParams.set("callbackUrl", tujuanAman(kembaliKe));
   return u;
 }
+
+/** Normalisasi alamat isian (http/https saja) → origin + path tanpa garis miring akhir; null bila tidak valid. */
+export function normalAlamat(calon: string | null | undefined): string | null {
+  if (!calon) return null;
+  try {
+    const u = new URL(calon);
+    if (u.protocol === "https:" || u.protocol === "http:") return `${u.origin}${u.pathname.replace(/\/+$/, "")}`;
+  } catch { /* bukan URL */ }
+  return null;
+}
+
+/** Alamat STARS yang ditanam di QR alat: isian formulir → STARS_URL_PUBLIK → alamat yang sedang dibuka. */
+export function alamatQr(h: Headers, isian?: string | null, cadangan?: string): string {
+  return normalAlamat(isian) ?? normalAlamat(process.env.STARS_URL_PUBLIK) ?? asalPermintaan(h, cadangan);
+}
+
+/** Isi QR satu alat: tautan formulir Lapor Kerusakan yang langsung terisi alat tersebut. */
+export const tautanLapor = (alamat: string, kode: string) => `${alamat.replace(/\/+$/, "")}/lapor?alat=${encodeURIComponent(kode)}`;

@@ -174,10 +174,18 @@ model Kalibrasi {
   nomorSertifikat   String?
   berlakuSampai     DateTime?
   keterangan        String?
+  // --- sertifikat (CMS Kalibrasi) ---
+  // Satu berkas boleh dipakai beberapa catatan (sertifikat/laporan kolektif); berkas dihapus bila tak dirujuk lagi.
+  berkas            String?   // nama simpan di UPLOAD_DIR/kalibrasi: <uuid>.<ext>
+  namaBerkas        String?   // nama asli saat diunggah
+  tipeBerkas        String?
+  ukuranBerkas      Int?
+  diunggahOleh      String?
   createdAt         DateTime  @default(now())
 
   @@index([alatId])
   @@index([berlakuSampai])
+  @@index([berkas])
 }
 
 /// Permintaan kerja / laporan kerusakan. Dapat dibuat publik tanpa akun.

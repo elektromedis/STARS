@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { sesiApi } from "@/lib/sesi";
 import { unitTerkunci } from "@/lib/akses";
 import { audit, ipDari } from "@/lib/audit";
-import { asalPermintaan } from "@/lib/alamat";
+import { alamatQr } from "@/lib/alamat";
 import { pdfLabelQr, UKURAN_LABEL, type UkuranLabel } from "@/lib/label-qr";
 
 export const dynamic = "force-dynamic";
@@ -12,13 +12,7 @@ export const runtime = "nodejs";
 const MAKS = 2000;
 
 /** Alamat yang ditanam di QR: ?alamat= (dari formulir) → STARS_URL_PUBLIK → alamat permintaan ini. Hanya http/https. */
-function alamatPublik(req: NextRequest) {
-  for (const calon of [req.nextUrl.searchParams.get("alamat"), process.env.STARS_URL_PUBLIK]) {
-    if (!calon) continue;
-    try { const u = new URL(calon); if (u.protocol === "https:" || u.protocol === "http:") return `${u.origin}${u.pathname.replace(/\/+$/, "")}`; } catch { /* abaikan */ }
-  }
-  return asalPermintaan(req.headers, req.nextUrl.origin);
-}
+const alamatPublik = (req: NextRequest) => alamatQr(req.headers, req.nextUrl.searchParams.get("alamat"), req.nextUrl.origin);
 
 /**
  * GET /api/admin/alat/label?id=1,2 | unit=<nama>&ruangan=<id> & ukuran=kecil|besar & mulai=1 & alamat=https://…
