@@ -94,7 +94,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       </section>
       {filter.tahap === SEMUA_TAHAP && <PerbandinganTahap data={perTahap} tahun={filter.tahun} />}
 
-      <section className="mb-6 grid gap-4 lg:grid-cols-5">
+      <section className="mb-6 grid gap-4 lg:grid-cols-5 [&>*]:min-w-0">
         <ChartCard className="lg:col-span-3" title="Nilai Anggaran per Tahun dan Tahap" description={filter.unit ? `Unit ${filter.unit}, semua tahun yang tercatat` : "Seluruh unit kerja, semua tahun yang tercatat"}>
           <TahunChart data={perTahun.data} tahapKeys={perTahun.tahapKeys} />
         </ChartCard>
@@ -103,7 +103,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         </ChartCard>
       </section>
 
-      <section className="mb-10 grid gap-4 xl:grid-cols-5">
+      <section className="mb-10 grid gap-4 xl:grid-cols-5 [&>*]:min-w-0">
         <ChartCard className="xl:col-span-2" title="Nilai per Unit Kerja" description="8 unit kerja dengan nilai tertinggi">
           <BarListChart data={perUnit} />
         </ChartCard>

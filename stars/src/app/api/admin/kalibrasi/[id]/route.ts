@@ -28,7 +28,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const fd = await req.formData();
   const ambil = (n: string) => { const v = fd.get(n); return typeof v === "string" ? v : null; };
   const parsed = skemaBarisKalibrasi.safeParse({
-    alatId: ambil("alatId") ?? k.alatId, tanggal: ambil("tanggal"), berlakuSampai: ambil("berlakuSampai"), kalibrator: ambil("kalibrator"),
+    alatId: ambil("alatId") ?? k.alatId, jenis: ambil("jenis") ?? k.jenis, tanggal: ambil("tanggal"), berlakuSampai: ambil("berlakuSampai"), kalibrator: ambil("kalibrator"),
     nomorSertifikat: ambil("nomorSertifikat"), laik: ambil("laik") === "1", petugas: ambil("petugas"), metode: ambil("metode"), keterangan: ambil("keterangan"),
   });
   if (!parsed.success) return NextResponse.json({ error: pesanZod(parsed.error) }, { status: 400 });

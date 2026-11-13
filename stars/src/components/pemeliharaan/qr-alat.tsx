@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { Download, Printer, Send, X } from "lucide-react";
+import { Download, FileSearch, Printer, Send, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { urlDetailAlat } from "@/lib/dokumen-alat";
 
 /**
- * QR satu alat (gambar kecil). Klik → QR besar + tombol Lapor Kerusakan / Unduh / Cetak label.
- * Isi QR = <alamat STARS>/lapor?alat=<kode>, sama dengan label cetak. Bisa dilihat publik.
+ * QR satu alat (gambar kecil). Klik → QR besar + tombol Detail Inventaris / Lapor Kerusakan / Unduh / Cetak label.
+ * Isi QR = <alamat STARS>/alat?kode=<kode> (detail inventaris + Lapor Kerusakan), sama dengan label cetak. Bisa dilihat publik.
  */
 export function QrAlat({ kode, nama, keterangan, alamat, labelHref, ukuran = 40 }: {
   kode: string; nama: string; keterangan?: string; alamat?: string; labelHref?: string; ukuran?: number;
@@ -55,11 +56,14 @@ export function QrAlat({ kode, nama, keterangan, alamat, labelHref, ukuran = 40 
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={src} alt={`QR code alat ${kode}`} width={240} height={240} className="block size-60" />
             </div>
-            <p className="px-4 text-center text-xs text-muted-foreground">Scan dengan kamera HP untuk membuka formulir Lapor Kerusakan alat ini.</p>
-            <div className="flex flex-wrap gap-2 p-4">
-              <Button asChild variant="teal" size="sm" className="flex-1"><Link href={`/lapor?alat=${encodeURIComponent(kode)}`}><Send /> Lapor kerusakan</Link></Button>
-              <Button asChild variant="outline" size="sm"><a href={src} download={`QR-${kode.replace(/[^\w.-]+/g, "_")}.svg`}><Download /> Unduh</a></Button>
-              {labelHref && <Button asChild variant="outline" size="sm"><a href={labelHref} target="_blank" rel="noopener noreferrer"><Printer /> Cetak label</a></Button>}
+            <p className="px-4 text-center text-xs text-muted-foreground">Scan dengan kamera HP untuk membuka detail inventaris alat ini dan melapor kerusakan.</p>
+            <div className="grid grid-cols-2 gap-2 px-4 pt-4">
+              <Button asChild variant="default" size="sm"><Link href={urlDetailAlat(kode)}><FileSearch /> Detail inventaris</Link></Button>
+              <Button asChild variant="teal" size="sm"><Link href={`/lapor?alat=${encodeURIComponent(kode)}`}><Send /> Lapor kerusakan</Link></Button>
+            </div>
+            <div className="flex flex-wrap gap-2 p-4 pt-2">
+              <Button asChild variant="outline" size="sm" className="flex-1"><a href={src} download={`QR-${kode.replace(/[^\w.-]+/g, "_")}.svg`}><Download /> Unduh QR</a></Button>
+              {labelHref && <Button asChild variant="outline" size="sm" className="flex-1"><a href={labelHref} target="_blank" rel="noopener noreferrer"><Printer /> Cetak label</a></Button>}
             </div>
           </div>
         </div>,

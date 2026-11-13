@@ -6,6 +6,7 @@ import { Header } from "./header";
 import { MobileNav } from "./mobile-nav";
 import { Footer } from "./footer";
 import { QrScan } from "./qr-scan";
+import { MenuBawah } from "./menu-bawah";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -19,11 +20,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <MobileNav open={open} onClose={close} />
       <div className="flex min-h-screen flex-col md:pl-[72px] lg:pl-64">
         <Header onMenuClick={() => setOpen(true)} />
-        <main id="main" className="mx-auto w-full max-w-[1360px] flex-1 px-4 pb-24 pt-6 md:px-6 md:pb-24 md:pt-8">
+        <main id="main" className="mx-auto w-full max-w-[1360px] flex-1 px-4 pb-10 pt-6 md:px-6 md:pb-10 md:pt-8">
           {children}
         </main>
         <Footer />
       </div>
+      <MenuBawah />
       <QrScan />
     </div>
   );

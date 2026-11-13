@@ -149,12 +149,15 @@ model Alat {
   distributor      String?
   tanggalUjiFungsi DateTime?
   umurPemakaian    String?
+  // --- foto alat (publik): UPLOAD_DIR/alat/<uuid>.jpg + gambar kecil <uuid>-kecil.jpg ---
+  foto             String?
   createdAt      DateTime          @default(now())
   updatedAt      DateTime          @updatedAt
   permintaan     PermintaanKerja[]
   perintah       PerintahKerja[]
   jadwal         JadwalPreventif[]
   kalibrasi      Kalibrasi[]
+  dokumen        DokumenAlat[]
 
   @@index([unitKerjaId])
   @@index([kondisi])
@@ -181,6 +184,7 @@ model Kalibrasi {
   tipeBerkas        String?
   ukuranBerkas      Int?
   diunggahOleh      String?
+  jenis             String    @default("Kalibrasi") // Kalibrasi | Pengujian (menu Pengujian dan Kalibrasi)
   createdAt         DateTime  @default(now())
 
   @@index([alatId])
@@ -203,6 +207,8 @@ model PermintaanKerja {
   keluhan        String
   prioritas      String         @default("Normal") // Rendah | Normal | Tinggi | Darurat
   foto           String?
+  video          String?        // video opsional (maks 20 MB), UPLOAD_DIR/permintaan
+  kodeLacak      String?        // token acak untuk pelapor melacak status tanpa akun (Riwayat/Notifikasi)
   status         String         @default("Baru") // Baru | Ditinjau | Diproses | Selesai | Ditolak
   catatanPetugas String?
   perintah       PerintahKerja?
@@ -280,6 +286,29 @@ model DokumenPaket {
   createdAt    DateTime  @default(now())
 
   @@index([paketKode, jenis])
+}
+
+/// Dokumen alat ala Trilux: File Penerimaan (Kontrak, BA Penerimaan, AKD/AKL, BA Uji Fungsi, BA Uji Coba)
+/// dan File Pendukung (Garansi, SOP, User/Service Manual, SP Pemeliharaan/Perbaikan, Lainnya).
+/// Satu berkas boleh dipakai beberapa alat (mis. User Manual untuk semua alat merek & tipe sama);
+/// berkas di UPLOAD_DIR/dokumen-alat dihapus bila tidak dirujuk lagi. Sertifikat kalibrasi tetap di tabel Kalibrasi.
+model DokumenAlat {
+  id           Int       @id @default(autoincrement())
+  alat         Alat      @relation(fields: [alatId], references: [id], onDelete: Cascade)
+  alatId       Int
+  jenis        String // lihat src/lib/dokumen-alat.ts
+  namaBerkas   String
+  berkas       String // nama tersimpan (uuid.ext), boleh sama untuk beberapa alat
+  tipe         String // MIME
+  ukuran       Int
+  nomor        String?
+  tanggal      DateTime?
+  keterangan   String?
+  diunggahOleh String?
+  createdAt    DateTime  @default(now())
+
+  @@index([alatId, jenis])
+  @@index([berkas])
 }
 
 /// Jejak setiap percobaan penyimpanan impor Excel (untuk audit BLUD).

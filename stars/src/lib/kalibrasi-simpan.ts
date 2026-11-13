@@ -6,6 +6,7 @@ const teksOpsional = (maks: number) => z.string().trim().max(maks).optional().nu
 
 export const skemaBarisKalibrasi = z.object({
   alatId: z.coerce.number().int().positive({ message: "Alat wajib dipilih" }),
+  jenis: z.enum(["Kalibrasi", "Pengujian"]).optional().nullable().transform((v) => v ?? "Kalibrasi"),
   tanggal: z.string().refine(adalahIso, "Tanggal kalibrasi tidak valid"),
   berlakuSampai: z.string().optional().nullable().transform((v) => v || null).refine((v) => v === null || adalahIso(v), "Tanggal berlaku tidak valid"),
   kalibrator: z.string().trim().min(1, "Lembaga kalibrator wajib diisi").max(160),
@@ -23,6 +24,7 @@ export type BarisKalibrasi = z.infer<typeof skemaBarisKalibrasi>;
 /** Data Prisma dari baris valid; berlaku kosong → otomatis tanggal + 12 bulan. */
 export const dataKalibrasi = (d: BarisKalibrasi) => ({
   tanggal: dariIso(d.tanggal),
+  jenis: d.jenis,
   berlakuSampai: dariIso(d.berlakuSampai ?? berlakuOtomatis(d.tanggal)),
   kalibrator: d.kalibrator,
   nomorSertifikat: d.nomorSertifikat,

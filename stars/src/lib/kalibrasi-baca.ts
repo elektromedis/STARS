@@ -13,6 +13,8 @@ export type SaranKalibrasi = {
   nomorSertifikat: string | null;
   kalibrator: string | null;
   laik: boolean | null;
+  /** "Pengujian" bila sertifikat/laporan pengujian, "Kalibrasi" bila sertifikat kalibrasi, null bila tak jelas. */
+  jenis: "Kalibrasi" | "Pengujian" | null;
 };
 export type AlatUntukCocok = { id: number; kode: string; nomorSeri: string | null; noUrutAset: string | null };
 export type AlatCocok = { id: number; via: "nomor seri" | "kode" | "no. aset" | "nama berkas" };
@@ -111,6 +113,15 @@ function cariLaik(teks: string): boolean | null {
   return null;
 }
 
+/** Jenis dokumen: judul "Sertifikat/Laporan Hasil Pengujian" / "Test Report" vs "Sertifikat Kalibrasi" / "Calibration Certificate". */
+function cariJenis(teks: string): "Kalibrasi" | "Pengujian" | null {
+  const uji = /(sertifikat|laporan|lembar)\s+(hasil\s+)?pengujian|hasil\s+uji\s+(?:fungsi|keselamatan)|\btest\s+report\b/i.test(teks);
+  const kal = /sertifikat\s+kalibrasi|calibration\s+certificate|certificate\s+of\s+calibration|laporan\s+(hasil\s+)?kalibrasi/i.test(teks);
+  if (uji && !kal) return "Pengujian";
+  if (kal && !uji) return "Kalibrasi";
+  return null;
+}
+
 export function saranDariTeks(teks: string): SaranKalibrasi {
   const semua = cariTanggal(teks);
   let tanggal = tanggalSetelahLabel(teks, LABEL_TANGGAL, semua, false);
@@ -126,7 +137,7 @@ export function saranDariTeks(teks: string): SaranKalibrasi {
   }
   if (tanggal && berlakuSampai && berlakuSampai <= tanggal) berlakuSampai = null;
   if (tanggal && tanggal > isoTanggal(new Date(Date.now() + 86_400_000))) tanggal = null; // tanggal kalibrasi tidak mungkin di masa depan
-  return { tanggal, berlakuSampai, nomorSertifikat: cariNomor(teks), kalibrator: cariLembaga(teks), laik: cariLaik(teks) };
+  return { tanggal, berlakuSampai, nomorSertifikat: cariNomor(teks), kalibrator: cariLembaga(teks), laik: cariLaik(teks), jenis: cariJenis(teks) };
 }
 
 /** Teks dinormalisasi: huruf besar, selain huruf/angka jadi spasi tunggal, diapit spasi (pencocokan per kata utuh). */

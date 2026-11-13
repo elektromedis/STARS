@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
   if ("error" in b) return NextResponse.json({ error: b.error }, { status: b.status });
 
   const teks = b.ext === "pdf" ? await teksPdf(b.buf) : null;
-  const kosong: SaranKalibrasi = { tanggal: null, berlakuSampai: null, nomorSertifikat: null, kalibrator: null, laik: null };
+  const kosong: SaranKalibrasi = { tanggal: null, berlakuSampai: null, nomorSertifikat: null, kalibrator: null, laik: null, jenis: null };
   const saran = teks ? saranDariTeks(teks) : kosong;
   const daftar = await prisma.alat.findMany({ where: { aktif: true }, select: { id: true, kode: true, nomorSeri: true, noUrutAset: true } });
   const alat = cocokkanAlat(teks ?? "", b.nama, daftar);

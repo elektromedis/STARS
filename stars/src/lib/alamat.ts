@@ -43,5 +43,7 @@ export function alamatQr(h: Headers, isian?: string | null, cadangan?: string): 
   return normalAlamat(isian) ?? normalAlamat(process.env.STARS_URL_PUBLIK) ?? asalPermintaan(h, cadangan);
 }
 
-/** Isi QR satu alat: tautan formulir Lapor Kerusakan yang langsung terisi alat tersebut. */
+/** Tautan formulir Lapor Kerusakan yang langsung terisi alat tersebut (isi QR label lama — tetap dilayani). */
 export const tautanLapor = (alamat: string, kode: string) => `${alamat.replace(/\/+$/, "")}/lapor?alat=${encodeURIComponent(kode)}`;
+/** Isi QR satu alat (sejak 13 Nov 2026): halaman detail inventaris alat, berisi tombol Lapor Kerusakan. */
+export const tautanAlat = (alamat: string, kode: string) => `${alamat.replace(/\/+$/, "")}/alat?kode=${encodeURIComponent(kode)}`;

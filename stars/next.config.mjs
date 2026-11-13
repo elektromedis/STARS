@@ -16,10 +16,10 @@ const nextConfig = {
   output: "standalone",
   serverExternalPackages: ["@prisma/client", "prisma", "bcryptjs", "qrcode"],
   experimental: {
-    // Foto lapor kerusakan maks 5 MB lewat server action (bawaan Next hanya 1 MB).
+    // Server action (formulir admin) — bawaan Next hanya 1 MB. Lapor Kerusakan (foto 5 MB + video 20 MB) memakai /api/lapor.
     serverActions: { bodySizeLimit: "6mb" },
-    // Unggahan ke /api/admin melewati middleware; bawaannya memotong badan permintaan di 10 MB.
-    middlewareClientMaxBodySize: "20mb",
+    // Unggahan ke /api/admin melewati middleware; bawaannya memotong badan permintaan di 10 MB (dokumen alat maks 30 MB).
+    middlewareClientMaxBodySize: "32mb",
   },
   async headers() {
     return [{ source: "/:path*", headers: headerKeamanan }];

@@ -1,23 +1,26 @@
 import type { Metadata } from "next";
 import { Wrench } from "lucide-react";
 import { prisma } from "@/lib/prisma";
-import { LaporForm, type AlatQr } from "./lapor-form";
+import { LaporForm, type AlatQr, type SaranLokasi } from "./lapor-form";
 
 export const metadata: Metadata = { title: "Lapor Kerusakan Alat" };
 export const dynamic = "force-dynamic";
 
 type Sp = { alat?: string; aspak?: string };
 
+const pilih = { id: true, kode: true, nama: true, merek: true, nomorSeri: true, foto: true, unitKerjaId: true, lokasi: true, unitKerja: { select: { nama: true } }, ruangan: { select: { nama: true } } } as const;
+type AlatDb = { id: number; kode: string; nama: string; merek: string | null; nomorSeri: string | null; foto: string | null; unitKerjaId: number; lokasi: string | null; unitKerja: { nama: string }; ruangan: { nama: string } | null };
+const keQr = (a: AlatDb): AlatQr => ({
+  id: a.id, kode: a.kode, nama: a.merek ? `${a.nama} (${a.merek})` : a.nama, nomorSeri: a.nomorSeri, foto: a.foto,
+  unitKerjaId: a.unitKerjaId, unit: a.unitKerja.nama, lokasi: a.ruangan?.nama ?? a.lokasi,
+});
+
 /**
  * Isian otomatis dari scan QR:
  *  ?alat=<kode>  → QR/teks berisi kode inventaris, no seri, atau no urut aset alat STARS.
  *  ?aspak=<kode> → QR lama Trilux (JSON "codenom" = kode jenis alat ASPAK); bisa cocok ke beberapa alat sejenis.
  */
-async function cariAlat(sp: Sp): Promise<{ kandidat: AlatQr[]; pesan: string | null }> {
-  const pilih = { id: true, nama: true, merek: true, unitKerjaId: true, lokasi: true, unitKerja: { select: { nama: true } }, ruangan: { select: { nama: true } } } as const;
-  const keQr = (a: { id: number; nama: string; merek: string | null; unitKerjaId: number; lokasi: string | null; unitKerja: { nama: string }; ruangan: { nama: string } | null }): AlatQr => ({
-    id: a.id, nama: a.merek ? `${a.nama} (${a.merek})` : a.nama, unitKerjaId: a.unitKerjaId, unit: a.unitKerja.nama, lokasi: a.ruangan?.nama ?? a.lokasi,
-  });
+async function cariAlatQr(sp: Sp): Promise<{ kandidat: AlatQr[]; pesan: string | null }> {
   const kode = sp.alat?.trim().slice(0, 120);
   if (kode) {
     const a = await prisma.alat.findFirst({ where: { aktif: true, OR: [{ kode }, { nomorSeri: kode }, { noUrutAset: kode }] }, select: pilih });
@@ -33,10 +36,29 @@ async function cariAlat(sp: Sp): Promise<{ kandidat: AlatQr[]; pesan: string | n
   return { kandidat: [], pesan: null };
 }
 
+/** Saran "Rincian lokasi": nama ruangan + teks lokasi/pelayanan dari data alat, per unit kerja. */
+async function saranLokasi(): Promise<SaranLokasi[]> {
+  const [ruangan, alat] = await Promise.all([
+    prisma.ruangan.findMany({ where: { aktif: true }, select: { nama: true, gedung: true, unitKerjaId: true }, orderBy: { nama: "asc" } }),
+    prisma.alat.findMany({ where: { aktif: true, OR: [{ lokasi: { not: null } }, { pelayanan: { not: null } }] }, select: { lokasi: true, pelayanan: true, unitKerjaId: true }, take: 20000 }),
+  ]);
+  const hasil = new Map<string, SaranLokasi>();
+  const tambah = (teks: string | null, unitKerjaId: number, gedung?: string | null) => {
+    const t = teks?.replace(/\s+/g, " ").trim();
+    if (!t || t.length < 2 || t === "-") return;
+    const k = `${unitKerjaId}|${t.toLowerCase()}`;
+    if (!hasil.has(k)) hasil.set(k, { teks: t, unitKerjaId, gedung: gedung ?? null });
+  };
+  for (const r of ruangan) tambah(r.nama, r.unitKerjaId, r.gedung);
+  for (const a of alat) { tambah(a.lokasi, a.unitKerjaId); tambah(a.pelayanan, a.unitKerjaId); }
+  return [...hasil.values()].slice(0, 3000);
+}
+
 export default async function LaporPage({ searchParams }: { searchParams: Promise<Sp> }) {
-  const [units, qr] = await Promise.all([
+  const [units, lokasi, qr] = await Promise.all([
     prisma.unitKerja.findMany({ where: { NOT: { nama: "TIDAK ADA" } }, orderBy: { urut: "asc" }, select: { id: true, nama: true } }),
-    searchParams.then(cariAlat),
+    saranLokasi(),
+    searchParams.then(cariAlatQr),
   ]);
   return (
     <div className="mx-auto max-w-3xl">
@@ -48,7 +70,7 @@ export default async function LaporPage({ searchParams }: { searchParams: Promis
           <p className="mt-1 text-sm text-navy-100">Laporkan alat kesehatan atau sarana yang rusak/bermasalah. Tidak perlu akun — cukup isi formulir di bawah, atau scan QR pada alat.</p>
         </div>
       </section>
-      <LaporForm units={units} kandidat={qr.kandidat} pesanQr={qr.pesan} />
+      <LaporForm units={units} lokasi={lokasi} kandidat={qr.kandidat} pesanQr={qr.pesan} />
     </div>
   );
 }

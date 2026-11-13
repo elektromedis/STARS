@@ -14,21 +14,23 @@ import { cn } from "@/lib/utils";
 
 export type AlatPilihan = { id: number; kode: string; nama: string; nomorSeri: string | null; unit: string; ruangan: string | null };
 export type CatatanKalibrasi = {
-  id: number; alatId: number; tanggal: string | Date; kalibrator: string; petugas: string | null; metode: string | null; laik: boolean;
+  id: number; alatId: number; tanggal: string | Date; jenis: string; kalibrator: string; petugas: string | null; metode: string | null; laik: boolean;
   nomorSertifikat: string | null; berlakuSampai: string | Date | null; keterangan: string | null; berkas: string | null; namaBerkas: string | null;
   alat: { kode: string; nama: string; unitKerja: { nama: string } };
 };
 export type PerluPerhatian = { alatId: number; kode: string; nama: string; unit: string; laik: boolean; berlakuSampai: string | Date | null };
 
 type Baris = {
-  kunci: string; berkasKunci: string | null; alatId: number | null; tanggal: string; berlaku: string; berlakuManual: boolean;
+  kunci: string; berkasKunci: string | null; alatId: number | null; jenis: JenisUji; tanggal: string; berlaku: string; berlakuManual: boolean;
   kalibrator: string; nomor: string; laik: boolean; otomatis: string[]; via?: string; galat?: string;
 };
 type InfoBerkas = { kunci: string; file: File; status: "membaca" | "siap" | "galat"; pesan?: string; teksTerbaca?: boolean };
 type HasilBaca = {
   namaBerkas: string; teksTerbaca: boolean; catatan: string | null; alat: { id: number; via: string }[];
-  saran: { tanggal: string | null; berlakuSampai: string | null; nomorSertifikat: string | null; kalibrator: string | null; laik: boolean | null };
+  saran: { tanggal: string | null; berlakuSampai: string | null; nomorSertifikat: string | null; kalibrator: string | null; laik: boolean | null; jenis: JenisUji | null };
 };
+type JenisUji = "Kalibrasi" | "Pengujian";
+const JENIS_UJI: JenisUji[] = ["Kalibrasi", "Pengujian"];
 
 const ID_DAFTAR = "daftar-alat-kalibrasi";
 const KUNCI_LEMBAGA = "stars-kalibrator-terakhir";
@@ -63,7 +65,7 @@ function PilihAlat({ peta, label, nilai, onPilih, wajib = true }: {
   );
 }
 
-const ISIAN_OTOMATIS: Record<string, string> = { alat: "alat", tanggal: "tanggal", berlaku: "berlaku", nomor: "nomor sertifikat", lembaga: "lembaga", hasil: "hasil" };
+const ISIAN_OTOMATIS: Record<string, string> = { alat: "alat", jenis: "jenis", tanggal: "tanggal", berlaku: "berlaku", nomor: "nomor sertifikat", lembaga: "lembaga", hasil: "hasil" };
 
 function BarisInput({ b, peta, label, ubah, hapus }: { b: Baris; peta: Map<number, AlatPilihan>; label: Map<string, number>; ubah: (p: Partial<Baris>) => void; hapus: () => void }) {
   const L = "grid gap-1 text-xs text-muted-foreground";
@@ -76,8 +78,11 @@ function BarisInput({ b, peta, label, ubah, hapus }: { b: Baris; peta: Map<numbe
         </label>
         <Button type="button" variant="ghost" size="icon" className="mt-4 shrink-0" onClick={hapus} title="Buang baris ini" aria-label="Buang baris ini"><X className="size-4" /></Button>
       </div>
-      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.5fr_1.2fr_auto]">
-        <label className={L}><span>Tanggal kalibrasi * {oto("tanggal")}</span>
+      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-[0.9fr_1fr_1fr_1.5fr_1.2fr_auto]">
+        <label className={L}><span>Jenis {oto("jenis")}</span>
+          <Select value={b.jenis} className="h-9" onChange={(e) => ubah({ jenis: e.target.value as JenisUji })}>{JENIS_UJI.map((j) => <option key={j} value={j}>{j}</option>)}</Select>
+        </label>
+        <label className={L}><span>Tanggal uji/kalibrasi * {oto("tanggal")}</span>
           <Input type="date" required value={b.tanggal} max={isoTanggal(new Date())} className="h-9" onChange={(e) => ubah({ tanggal: e.target.value, galat: undefined })} />
         </label>
         <label className={L}><span>Berlaku sampai {oto("berlaku")}{!b.berlakuManual && b.berlaku && <span className="text-teal-700"> (otomatis)</span>}</span>
@@ -125,7 +130,8 @@ function UbahKalibrasi({ k, peta, label, interval, selesai }: { k: CatatanKalibr
   return (
     <form onSubmit={kirim} className="grid gap-2 bg-muted/30 p-3 sm:grid-cols-2 lg:grid-cols-4">
       <label className={cn(L, "sm:col-span-2 lg:col-span-4")}>Alat *<PilihAlat peta={peta} label={label} nilai={alatId} onPilih={setAlatId} /></label>
-      <label className={L}>Tanggal kalibrasi *<Input type="date" required value={tanggal} max={isoTanggal(new Date())} className="h-9" onChange={(e) => { setTanggal(e.target.value); if (!berlakuManual) setBerlaku(berlakuOtomatis(e.target.value, interval)); }} /></label>
+      <label className={L}>Jenis<Select name="jenis" defaultValue={k.jenis === "Pengujian" ? "Pengujian" : "Kalibrasi"} className="h-9">{JENIS_UJI.map((j) => <option key={j} value={j}>{j}</option>)}</Select></label>
+      <label className={L}>Tanggal uji/kalibrasi *<Input type="date" required value={tanggal} max={isoTanggal(new Date())} className="h-9" onChange={(e) => { setTanggal(e.target.value); if (!berlakuManual) setBerlaku(berlakuOtomatis(e.target.value, interval)); }} /></label>
       <label className={L}><span>Berlaku sampai{!berlakuManual && <span className="text-teal-700"> (otomatis +{interval} bln)</span>}</span><Input type="date" value={berlaku} min={tanggal || undefined} className="h-9" onChange={(e) => { setBerlaku(e.target.value); setBerlakuManual(e.target.value !== ""); }} /></label>
       <label className={L}>Lembaga kalibrator *<Input name="kalibrator" required maxLength={160} defaultValue={k.kalibrator} className="h-9" /></label>
       <label className={L}>Nomor sertifikat<Input name="nomorSertifikat" maxLength={120} defaultValue={k.nomorSertifikat ?? ""} className="h-9" /></label>
@@ -190,7 +196,7 @@ function Riwayat({ data, bolehKelola, peta, label, interval }: { data: CatatanKa
                 const m = statusKalibrasi(k);
                 return [
                   <TableRow key={k.id}>
-                    <TableCell className="whitespace-nowrap text-xs">{tglIndo(k.tanggal)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-xs">{tglIndo(k.tanggal)}<div className="text-muted-foreground">{k.jenis}</div></TableCell>
                     <TableCell><div className="font-medium text-navy-800">{k.alat.nama}</div><div className="font-mono text-xs text-muted-foreground">{k.alat.kode} · {k.alat.unitKerja.nama}</div></TableCell>
                     <TableCell className="hidden text-xs md:table-cell">{k.kalibrator}{k.metode ? <div className="text-muted-foreground">{k.metode}</div> : null}</TableCell>
                     <TableCell className="text-xs">
@@ -230,7 +236,7 @@ function Riwayat({ data, bolehKelola, peta, label, interval }: { data: CatatanKa
  * CMS Kalibrasi: unggah sertifikat (boleh banyak sekaligus) → isian dibaca otomatis dari PDF (tanggal, berlaku,
  * nomor, lembaga, hasil, alat lewat nomor seri/kode) → periksa → simpan. Masa berlaku kosong = tanggal + interval.
  */
-export function KalibrasiManager({ data, alat, perlu, bolehKelola }: { data: CatatanKalibrasi[]; alat: AlatPilihan[]; perlu: PerluPerhatian[]; bolehKelola: boolean }) {
+export function KalibrasiManager({ data, alat, perlu, bolehKelola, alatAwal = null }: { data: CatatanKalibrasi[]; alat: AlatPilihan[]; perlu: PerluPerhatian[]; bolehKelola: boolean; alatAwal?: number | null }) {
   const router = useRouter();
   const peta = useMemo(() => new Map(alat.map((a) => [a.id, a])), [alat]);
   const label = useMemo(() => new Map(alat.map((a) => [labelAlat(a), a.id])), [alat]);
@@ -243,11 +249,18 @@ export function KalibrasiManager({ data, alat, perlu, bolehKelola }: { data: Cat
   const masukan = useRef<HTMLInputElement>(null);
   const kotakInput = useRef<HTMLDivElement>(null);
 
+  const sudahAwal = useRef(false);
   useEffect(() => {
     const i = Number(bacaLokal(KUNCI_INTERVAL));
     if ((PILIHAN_INTERVAL as readonly number[]).includes(i)) setIntervalBulan(i);
-    setLembagaTerakhir(bacaLokal(KUNCI_LEMBAGA) ?? "");
-  }, []);
+    const lembaga = bacaLokal(KUNCI_LEMBAGA) ?? "";
+    setLembagaTerakhir(lembaga);
+    // Dibuka dari halaman detail alat (?alat=<id>): langsung siapkan satu baris untuk alat itu.
+    if (alatAwal && bolehKelola && !sudahAwal.current && alat.some((a) => a.id === alatAwal)) {
+      sudahAwal.current = true;
+      setBaris((bs) => [...bs, { kunci: kunciBaru(), berkasKunci: null, alatId: alatAwal, jenis: "Kalibrasi", tanggal: "", berlaku: "", berlakuManual: false, kalibrator: lembaga, nomor: "", laik: true, otomatis: [] }]);
+    }
+  }, [alatAwal, bolehKelola, alat]);
 
   const ubahBaris = (kunci: string, p: Partial<Baris>) => setBaris((bs) => bs.map((b) => {
     if (b.kunci !== kunci) return b;
@@ -259,7 +272,7 @@ export function KalibrasiManager({ data, alat, perlu, bolehKelola }: { data: Cat
     setIntervalBulan(i); tulisLokal(KUNCI_INTERVAL, String(i));
     setBaris((bs) => bs.map((b) => (b.berlakuManual ? b : { ...b, berlaku: berlakuOtomatis(b.tanggal, i) })));
   };
-  const barisKosong = (p: Partial<Baris> = {}): Baris => ({ kunci: kunciBaru(), berkasKunci: null, alatId: null, tanggal: "", berlaku: "", berlakuManual: false, kalibrator: lembagaTerakhir, nomor: "", laik: true, otomatis: [], ...p });
+  const barisKosong = (p: Partial<Baris> = {}): Baris => ({ kunci: kunciBaru(), berkasKunci: null, alatId: null, jenis: "Kalibrasi", tanggal: "", berlaku: "", berlakuManual: false, kalibrator: lembagaTerakhir, nomor: "", laik: true, otomatis: [], ...p });
   const tambahManual = (alatId: number | null = null) => {
     setBaris((bs) => [...bs, barisKosong({ alatId })]);
     setHasil(null);
@@ -283,9 +296,9 @@ export function KalibrasiManager({ data, alat, perlu, bolehKelola }: { data: Cat
       if ("error" in j) { const pesan = j.error; setBerkas((b) => b.map((x) => (x.kunci === f.kunci ? { ...x, status: "galat", pesan } : x))); continue; }
       const hb = j;
       const s = hb.saran;
-      const otomatis = [s.tanggal && "tanggal", s.berlakuSampai && "berlaku", s.nomorSertifikat && "nomor", s.kalibrator && "lembaga", s.laik !== null && "hasil"].filter(Boolean) as string[];
+      const otomatis = [s.jenis && "jenis", s.tanggal && "tanggal", s.berlakuSampai && "berlaku", s.nomorSertifikat && "nomor", s.kalibrator && "lembaga", s.laik !== null && "hasil"].filter(Boolean) as string[];
       const tanggal = s.tanggal ?? "";
-      const dasar = { berkasKunci: f.kunci, tanggal, berlaku: s.berlakuSampai ?? berlakuOtomatis(tanggal, interval), berlakuManual: Boolean(s.berlakuSampai), kalibrator: s.kalibrator ?? lembagaTerakhir, nomor: s.nomorSertifikat ?? "", laik: s.laik ?? true };
+      const dasar = { berkasKunci: f.kunci, jenis: s.jenis ?? "Kalibrasi" as JenisUji, tanggal, berlaku: s.berlakuSampai ?? berlakuOtomatis(tanggal, interval), berlakuManual: Boolean(s.berlakuSampai), kalibrator: s.kalibrator ?? lembagaTerakhir, nomor: s.nomorSertifikat ?? "", laik: s.laik ?? true };
       const baru = hb.alat.length
         ? hb.alat.map((a) => barisKosong({ ...dasar, alatId: a.id, via: a.via, otomatis: [...otomatis, "alat"] }))
         : [barisKosong({ ...dasar, otomatis })];
@@ -320,7 +333,7 @@ export function KalibrasiManager({ data, alat, perlu, bolehKelola }: { data: Cat
       const fd = new FormData();
       const f = bk ? berkas.find((x) => x.kunci === bk) : null;
       if (f) fd.set("file", f.file);
-      fd.set("baris", JSON.stringify(isi.map((b) => ({ alatId: b.alatId, tanggal: b.tanggal, berlakuSampai: b.berlaku || null, kalibrator: b.kalibrator.trim(), nomorSertifikat: b.nomor.trim() || null, laik: b.laik }))));
+      fd.set("baris", JSON.stringify(isi.map((b) => ({ alatId: b.alatId, jenis: b.jenis, tanggal: b.tanggal, berlakuSampai: b.berlaku || null, kalibrator: b.kalibrator.trim(), nomorSertifikat: b.nomor.trim() || null, laik: b.laik }))));
       try {
         const res = await fetch("/api/admin/kalibrasi", { method: "POST", body: fd });
         const j = await res.json().catch(() => ({ error: `Galat ${res.status}` }));
@@ -396,7 +409,7 @@ export function KalibrasiManager({ data, alat, perlu, bolehKelola }: { data: Cat
                     <FileText className="size-4 shrink-0 text-teal-700" />
                     <span className="min-w-0 flex-1 truncate text-sm font-medium text-navy-800" title={f.file.name}>{f.file.name}</span>
                     {f.status === "membaca" && <span className="flex items-center gap-1 text-xs text-muted-foreground"><Loader2 className="size-3.5 animate-spin" /> Membaca sertifikat…</span>}
-                    {f.status === "siap" && <Button type="button" variant="ghost" size="sm" onClick={() => setBaris((bs) => [...bs, barisKosong({ berkasKunci: f.kunci, tanggal: isi[0]?.tanggal ?? "", berlaku: isi[0]?.berlaku ?? "", berlakuManual: isi[0]?.berlakuManual ?? false, kalibrator: isi[0]?.kalibrator ?? lembagaTerakhir, nomor: isi[0]?.nomor ?? "", laik: isi[0]?.laik ?? true })])}><Plus /> Alat lain di sertifikat ini</Button>}
+                    {f.status === "siap" && <Button type="button" variant="ghost" size="sm" onClick={() => setBaris((bs) => [...bs, barisKosong({ berkasKunci: f.kunci, jenis: isi[0]?.jenis ?? "Kalibrasi", tanggal: isi[0]?.tanggal ?? "", berlaku: isi[0]?.berlaku ?? "", berlakuManual: isi[0]?.berlakuManual ?? false, kalibrator: isi[0]?.kalibrator ?? lembagaTerakhir, nomor: isi[0]?.nomor ?? "", laik: isi[0]?.laik ?? true })])}><Plus /> Alat lain di sertifikat ini</Button>}
                     <Button type="button" variant="ghost" size="icon" onClick={() => buangBerkas(f.kunci)} title="Buang berkas ini" aria-label={`Buang berkas ${f.file.name}`}><X className="size-4" /></Button>
                   </div>
                   {f.pesan && <p className={cn("text-xs", f.status === "galat" ? "text-red-700" : f.teksTerbaca ? "text-teal-800" : "text-amber-700")}>{f.pesan}</p>}

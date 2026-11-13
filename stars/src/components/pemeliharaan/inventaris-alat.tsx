@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDown, ArrowUp, ArrowUpDown, Boxes, Search } from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpDown, Boxes, FileText, Search } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -10,8 +10,10 @@ import { Pagination } from "@/components/dashboard/pagination";
 import { badgeKondisi, JENIS_ALAT, KONDISI_ALAT } from "@/lib/pemeliharaan";
 import { FILTER_KALIBRASI, tglIndo } from "@/lib/kalibrasi";
 import type { BarisInventaris, KolomInventaris } from "@/lib/inventaris";
+import { JUMLAH_SLOT_DOKUMEN, urlDetailAlat } from "@/lib/dokumen-alat";
 import { cn } from "@/lib/utils";
 import { QrAlat } from "./qr-alat";
+import { FotoKecilAlat } from "./cari-alat";
 
 export const JANGKAR_INVENTARIS = "inventaris";
 
@@ -54,8 +56,8 @@ export function InventarisAlat({ hasil, p, unitOpsi, kunci, bolehLabel }: {
       <div className="mb-3">
         <h2 id="judul-inventaris" className="flex items-center gap-2 text-xl font-bold text-navy-800"><Boxes className="size-5 text-teal-700" aria-hidden /> Inventaris Alat Kesehatan</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Daftar alat aktif{kunci ? ` unit ${kunci}` : " RSUD Cipayung"} beserta kondisi dan status kalibrasinya. Setiap alat punya QR sendiri:
-          klik QR untuk memperbesar, atau scan QR pada alat untuk melapor kerusakan.
+          Daftar alat aktif{kunci ? ` unit ${kunci}` : " RSUD Cipayung"} beserta foto, kondisi, status kalibrasi, dan dokumennya. Setiap alat punya QR sendiri:
+          scan QR pada alat (atau klik nama alat) untuk membuka detail inventaris dan melapor kerusakan.
         </p>
       </div>
       <Card className="overflow-hidden">
@@ -65,7 +67,7 @@ export function InventarisAlat({ hasil, p, unitOpsi, kunci, bolehLabel }: {
           <div className="flex gap-2">
             <div className="relative min-w-0 flex-1">
               <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
-              <Input name="q" defaultValue={p.q} placeholder="Cari nama alat, merek, kode, nomor seri, ruangan…" className="pl-9" aria-label="Cari alat" />
+              <Input name="q" defaultValue={p.q} placeholder="Cari nama alat, merek, nomor seri (SN), ruangan…" className="pl-9" aria-label="Cari alat" />
             </div>
             <Button type="submit"><Search /> Cari</Button>
             {adaFilter && <Button variant="outline" asChild><Link href={`/pemeliharaan#${JANGKAR_INVENTARIS}`} scroll={false}>Reset</Link></Button>}
@@ -96,41 +98,67 @@ export function InventarisAlat({ hasil, p, unitOpsi, kunci, bolehLabel }: {
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
-              <KepalaUrut kolom="kode" label="Kode" p={p} className="hidden sm:table-cell" />
+              <KepalaUrut kolom="sn" label="Nomor Seri (SN)" p={p} className="hidden whitespace-nowrap sm:table-cell" />
               <TableHead className="w-14 px-2 text-center sm:px-4">QR</TableHead>
+              <TableHead className="hidden w-16 px-2 text-center sm:table-cell">Foto</TableHead>
               <KepalaUrut kolom="nama" label="Nama Alat" p={p} />
-              <KepalaUrut kolom="unit" label="Unit Kerja" p={p} className="hidden md:table-cell" />
-              <KepalaUrut kolom="kondisi" label="Kondisi" p={p} className="hidden sm:table-cell" />
+              <KepalaUrut kolom="unit" label="Unit Kerja" p={p} className="hidden lg:table-cell" />
+              <KepalaUrut kolom="kondisi" label="Kondisi" p={p} className="hidden md:table-cell" />
               <KepalaUrut kolom="kalibrasi" label="Kalibrasi" p={p} />
+              <KepalaUrut kolom="dokumen" label="Dokumen" p={p} className="hidden md:table-cell" />
             </TableRow>
           </TableHeader>
           <TableBody>
             {hasil.data.length === 0 && (
-              <TableRow><TableCell colSpan={6} className="py-10 text-center text-muted-foreground">{adaFilter ? "Tidak ada alat yang cocok dengan pencarian/filter ini." : "Belum ada alat terdaftar."}</TableCell></TableRow>
+              <TableRow><TableCell colSpan={8} className="py-10 text-center text-muted-foreground">{adaFilter ? "Tidak ada alat yang cocok dengan pencarian/filter ini." : "Belum ada alat terdaftar."}</TableCell></TableRow>
             )}
             {hasil.data.map((a) => {
               const lokasi = `${a.unit}${a.ruangan ? ` · ${a.ruangan}` : ""}`;
               return (
                 <TableRow key={a.id}>
-                  <TableCell className="hidden max-w-[9rem] break-all font-mono text-xs text-muted-foreground sm:table-cell">{a.kode}</TableCell>
+                  <TableCell className="hidden max-w-[10rem] break-all font-mono text-xs sm:table-cell">
+                    {a.nomorSeri ? <span className="text-navy-800">{a.nomorSeri}</span> : <span className="text-muted-foreground" title="Nomor seri belum diisi">—</span>}
+                    {a.nomorSeri !== a.kode && <span className="mt-0.5 block text-[11px] text-muted-foreground" title="Kode inventaris">{a.kode}</span>}
+                  </TableCell>
                   <TableCell className="px-2 text-center sm:px-4">
-                    <span className="inline-flex"><QrAlat kode={a.kode} nama={a.nama} keterangan={lokasi} labelHref={bolehLabel ? `/api/admin/alat/label?id=${a.id}&ukuran=kecil` : undefined} /></span>
+                    <span className="inline-flex flex-col items-center gap-1.5">
+                      <QrAlat kode={a.kode} nama={a.nama} keterangan={lokasi} labelHref={bolehLabel ? `/api/admin/alat/label?id=${a.id}&ukuran=kecil` : undefined} />
+                      {/* ponsel: foto di bawah QR agar kolom nama tetap lega */}
+                      <Link href={urlDetailAlat(a.kode)} className="sm:hidden" aria-label={`Foto & detail ${a.nama}`}><FotoKecilAlat foto={a.foto} nama={a.nama} ukuran={40} /></Link>
+                    </span>
+                  </TableCell>
+                  <TableCell className="hidden px-2 text-center sm:table-cell">
+                    <Link href={urlDetailAlat(a.kode)} className="inline-flex rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400" aria-label={`Foto & detail ${a.nama}`}>
+                      <FotoKecilAlat foto={a.foto} nama={a.nama} ukuran={44} />
+                    </Link>
                   </TableCell>
                   <TableCell className="max-w-md sm:min-w-[12rem]">
-                    <span className="block break-all font-mono text-[11px] text-muted-foreground sm:hidden">{a.kode}</span>
-                    <span className="font-medium text-navy-800">{a.nama}</span>
-                    {(a.merek || a.model) && <span className="block text-xs text-muted-foreground">{[a.merek, a.model].filter(Boolean).join(" ")}</span>}
-                    <span className="block text-xs text-muted-foreground">
-                      {a.nomorSeri && a.nomorSeri !== a.kode ? <>SN <span className="font-mono">{a.nomorSeri}</span> • </> : null}{a.jenis}
-                      <span className="md:hidden"> • {lokasi}</span>
-                    </span>
-                    <Badge variant={badgeKondisi[a.kondisi] ?? "outline"} className="mt-1 sm:hidden">{a.kondisi}</Badge>
+                    <div className="flex items-start gap-2.5">
+                      <div className="min-w-0">
+                        <Link href={urlDetailAlat(a.kode)} className="font-medium text-navy-800 hover:text-teal-700 hover:underline">{a.nama}</Link>
+                        {(a.merek || a.model) && <span className="block text-xs text-muted-foreground">{[a.merek, a.model].filter(Boolean).join(" ")}</span>}
+                        <span className="block text-xs text-muted-foreground">
+                          <span className="sm:hidden">{a.nomorSeri ? <>SN <span className="font-mono">{a.nomorSeri}</span> • </> : null}</span>{a.jenis}
+                          <span className="lg:hidden"> • {lokasi}</span>
+                        </span>
+                        <span className="mt-1 flex flex-wrap gap-1 md:hidden">
+                          <Badge variant={badgeKondisi[a.kondisi] ?? "outline"}>{a.kondisi}</Badge>
+                          {a.dokumen.slot > 0 && <Badge variant="outline" className="gap-1"><FileText className="size-3" />{a.dokumen.slot} dok</Badge>}
+                        </span>
+                      </div>
+                    </div>
                   </TableCell>
-                  <TableCell className="hidden md:table-cell">{a.unit}{a.ruangan && <span className="block text-xs text-muted-foreground">{a.ruangan}</span>}</TableCell>
-                  <TableCell className="hidden sm:table-cell"><Badge variant={badgeKondisi[a.kondisi] ?? "outline"}>{a.kondisi}</Badge></TableCell>
+                  <TableCell className="hidden lg:table-cell">{a.unit}{a.ruangan && <span className="block text-xs text-muted-foreground">{a.ruangan}</span>}</TableCell>
+                  <TableCell className="hidden md:table-cell"><Badge variant={badgeKondisi[a.kondisi] ?? "outline"}>{a.kondisi}</Badge></TableCell>
                   <TableCell className="whitespace-nowrap pl-1 sm:pl-4">
                     <Badge variant={a.status.variant}>{a.status.label}</Badge>
                     {a.kalibrasi && <span className="mt-0.5 block text-xs text-muted-foreground">{a.kalibrasi.berlakuSampai ? `s/d ${tglIndo(a.kalibrasi.berlakuSampai)}` : `kal. ${tglIndo(a.kalibrasi.tanggal)}`}</span>}
+                  </TableCell>
+                  <TableCell className="hidden whitespace-nowrap md:table-cell">
+                    <Link href={`${urlDetailAlat(a.kode)}#dokumen`} title={`${a.dokumen.slot} dari ${JUMLAH_SLOT_DOKUMEN} jenis dokumen tersedia (${a.dokumen.berkas} berkas)`}
+                      className={cn("inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs font-medium transition hover:border-teal-400 hover:bg-teal-50", a.dokumen.slot ? "text-teal-800" : "text-muted-foreground")}>
+                      <FileText className="size-3.5" aria-hidden /> {a.dokumen.slot}/{JUMLAH_SLOT_DOKUMEN}
+                    </Link>
                   </TableCell>
                 </TableRow>
               );

@@ -3,13 +3,15 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
 import { statusKalibrasi, type StatusKalibrasi } from "./kalibrasi";
 
-export const KOLOM_INVENTARIS = ["kode", "nama", "unit", "kondisi", "kalibrasi"] as const;
+export const KOLOM_INVENTARIS = ["sn", "nama", "unit", "kondisi", "kalibrasi", "dokumen"] as const;
 export type KolomInventaris = (typeof KOLOM_INVENTARIS)[number];
 export const adalahKolomInventaris = (v: unknown): v is KolomInventaris => typeof v === "string" && (KOLOM_INVENTARIS as readonly string[]).includes(v);
 
 export type BarisInventaris = {
-  id: number; kode: string; nama: string; merek: string | null; model: string | null; nomorSeri: string | null; jenis: string; kondisi: string;
+  id: number; kode: string; nama: string; merek: string | null; model: string | null; nomorSeri: string | null; jenis: string; kondisi: string; foto: string | null;
   unit: string; ruangan: string | null; kalibrasi: { tanggal: Date; berlakuSampai: Date | null; laik: boolean } | null; status: StatusKalibrasi;
+  /** Jumlah slot dokumen terisi (File Penerimaan + Pendukung, termasuk sertifikat kalibrasi) & jumlah berkas seluruhnya. */
+  dokumen: { slot: number; berkas: number };
 };
 
 export type OpsiInventaris = {
@@ -29,31 +31,42 @@ export async function getInventaris(o: OpsiInventaris) {
     ...(o.kondisi ? { kondisi: o.kondisi } : {}),
     ...(o.q ? { OR: [{ nama: { contains: o.q } }, { kode: { contains: o.q } }, { merek: { contains: o.q } }, { model: { contains: o.q } }, { nomorSeri: { contains: o.q } }, { ruangan: { nama: { contains: o.q } } }] } : {}),
   };
-  const mentah = await prisma.alat.findMany({
-    where,
-    select: {
-      id: true, kode: true, nama: true, merek: true, model: true, nomorSeri: true, jenis: true, kondisi: true,
-      unitKerja: { select: { nama: true, urut: true } }, ruangan: { select: { nama: true } },
-      kalibrasi: { orderBy: [{ tanggal: "desc" }, { id: "desc" }], take: 1, select: { tanggal: true, berlakuSampai: true, laik: true } },
-    },
-  });
+  const [mentah, dok, sertifikat] = await Promise.all([
+    prisma.alat.findMany({
+      where,
+      select: {
+        id: true, kode: true, nama: true, merek: true, model: true, nomorSeri: true, jenis: true, kondisi: true, foto: true,
+        unitKerja: { select: { nama: true, urut: true } }, ruangan: { select: { nama: true } },
+        kalibrasi: { orderBy: [{ tanggal: "desc" }, { id: "desc" }], take: 1, select: { tanggal: true, berlakuSampai: true, laik: true } },
+      },
+    }),
+    prisma.dokumenAlat.groupBy({ by: ["alatId", "jenis"], _count: { _all: true } }),
+    prisma.kalibrasi.groupBy({ by: ["alatId"], where: { berkas: { not: null } }, _count: { _all: true } }),
+  ]);
+  const hitungDok = new Map<number, { slot: number; berkas: number }>();
+  const ambil = (id: number) => hitungDok.get(id) ?? (hitungDok.set(id, { slot: 0, berkas: 0 }), hitungDok.get(id)!);
+  for (const d of dok) { const h = ambil(d.alatId); h.berkas += d._count._all; if (d.jenis !== "LAINNYA") h.slot++; }
+  for (const k of sertifikat) { const h = ambil(k.alatId); h.slot++; h.berkas += k._count._all; }
   const kini = Date.now();
   let rows = mentah.map((a) => {
     const k = a.kalibrasi[0] ?? null;
     return {
-      id: a.id, kode: a.kode, nama: a.nama, merek: a.merek, model: a.model, nomorSeri: a.nomorSeri, jenis: a.jenis, kondisi: a.kondisi,
+      id: a.id, kode: a.kode, nama: a.nama, merek: a.merek, model: a.model, nomorSeri: a.nomorSeri, jenis: a.jenis, kondisi: a.kondisi, foto: a.foto,
       unit: a.unitKerja.nama, urutUnit: a.unitKerja.urut, ruangan: a.ruangan?.nama ?? null, kalibrasi: k, status: statusKalibrasi(k, kini),
+      dokumen: hitungDok.get(a.id) ?? { slot: 0, berkas: 0 },
     };
   });
   if (o.kal) rows = rows.filter((r) => r.status.kunci === o.kal);
 
   const banding: Record<KolomInventaris, (a: (typeof rows)[number], b: (typeof rows)[number]) => number> = {
-    kode: (a, b) => kolasi.compare(a.kode, b.kode),
+    // tanpa nomor seri → paling akhir (urut naik)
+    sn: (a, b) => Number(!a.nomorSeri) - Number(!b.nomorSeri) || kolasi.compare(a.nomorSeri ?? a.kode, b.nomorSeri ?? b.kode),
     nama: (a, b) => kolasi.compare(a.nama, b.nama) || kolasi.compare(a.kode, b.kode),
     unit: (a, b) => a.urutUnit - b.urutUnit || kolasi.compare(a.unit, b.unit) || kolasi.compare(a.nama, b.nama),
     kondisi: (a, b) => (URUT_KONDISI[a.kondisi] ?? 9) - (URUT_KONDISI[b.kondisi] ?? 9) || kolasi.compare(a.nama, b.nama),
     // paling mendesak dulu: tidak laik/kedaluwarsa → segera habis → berlaku → tanpa batas → belum ada data
     kalibrasi: (a, b) => a.status.peringkat - b.status.peringkat || (a.kalibrasi?.berlakuSampai?.getTime() ?? Infinity) - (b.kalibrasi?.berlakuSampai?.getTime() ?? Infinity) || kolasi.compare(a.nama, b.nama),
+    dokumen: (a, b) => a.dokumen.slot - b.dokumen.slot || a.dokumen.berkas - b.dokumen.berkas || kolasi.compare(a.nama, b.nama),
   };
   const f = banding[o.urut];
   rows.sort((a, b) => (o.arah === "asc" ? f(a, b) : f(b, a)));
@@ -61,7 +74,10 @@ export async function getInventaris(o: OpsiInventaris) {
   const total = rows.length;
   const pages = Math.max(1, Math.ceil(total / o.pageSize));
   const page = Math.min(Math.max(1, o.page), pages);
-  const data: BarisInventaris[] = rows.slice((page - 1) * o.pageSize, page * o.pageSize).map((r) => ({ id: r.id, kode: r.kode, nama: r.nama, merek: r.merek, model: r.model, nomorSeri: r.nomorSeri, jenis: r.jenis, kondisi: r.kondisi, unit: r.unit, ruangan: r.ruangan, kalibrasi: r.kalibrasi, status: r.status }));
+  const data: BarisInventaris[] = rows.slice((page - 1) * o.pageSize, page * o.pageSize).map((r) => ({
+    id: r.id, kode: r.kode, nama: r.nama, merek: r.merek, model: r.model, nomorSeri: r.nomorSeri, jenis: r.jenis, kondisi: r.kondisi, foto: r.foto,
+    unit: r.unit, ruangan: r.ruangan, kalibrasi: r.kalibrasi, status: r.status, dokumen: r.dokumen,
+  }));
   return { data, total, page, pages, pageSize: o.pageSize };
 }
 

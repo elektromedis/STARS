@@ -1,11 +1,12 @@
 /**
  * Label QR alat siap cetak (PDF A4). Tiap QR berisi tautan STARS ke SATU alat:
- * <alamat publik>/lapor?alat=<kode> → dibuka kamera HP atau tombol Scan QR → formulir lapor terisi.
+ * <alamat publik>/alat?kode=<kode> → dibuka kamera HP atau tombol Scan QR → detail inventaris alat + tombol Lapor Kerusakan.
+ * (Label lama berisi /lapor?alat=<kode> tetap berfungsi.)
  * QR digambar vektor (kotak-kotak), bukan gambar, agar tajam di printer apa pun.
  */
 import { jsPDF } from "jspdf";
 import QRCode from "qrcode";
-import { tautanLapor } from "./alamat";
+import { tautanAlat } from "./alamat";
 
 /** Tata letak mengikuti lembar stiker A4 standar (setara Avery L7160 & L7165). Satuan mm. */
 export const UKURAN_LABEL = {
@@ -16,7 +17,7 @@ export type UkuranLabel = keyof typeof UKURAN_LABEL;
 
 export type DataLabel = { kode: string; nama: string; merek: string | null; model: string | null; nomorSeri: string | null; unit: string; ruangan: string | null };
 
-export const tautanLabel = tautanLapor;
+export const tautanLabel = tautanAlat;
 
 function gambarQr(doc: jsPDF, isi: string, x: number, y: number, sisi: number) {
   const qr = QRCode.create(isi, { errorCorrectionLevel: "M" });
@@ -59,12 +60,12 @@ function satuLabel(doc: jsPDF, d: DataLabel, alamat: string, x: number, y: numbe
   tulis(d.nama, besar ? 13 : 8, "bold", [11, 37, 69], besar ? 3 : 2);
   const tipe = [d.merek, d.model].filter(Boolean).join(" ");
   if (tipe) tulis(tipe, besar ? 9 : 6, "normal", [71, 85, 105], 1);
-  tulis(`Kode: ${d.kode}${d.nomorSeri && d.nomorSeri !== d.kode ? `  •  SN: ${d.nomorSeri}` : ""}`, besar ? 8.5 : 5.6, "normal", [51, 65, 85], 2);
+  tulis(d.nomorSeri && d.nomorSeri !== d.kode ? `SN: ${d.nomorSeri}  •  Kode: ${d.kode}` : `SN/Kode: ${d.kode}`, besar ? 8.5 : 5.6, "normal", [51, 65, 85], 2);
   tulis([d.unit, d.ruangan].filter(Boolean).join(" • "), besar ? 8.5 : 5.6, "normal", [51, 65, 85], 2);
   // ajakan di dasar label, dilipat agar tetap di dalam lebar teks
   const ukuranAjak = besar ? 8.5 : 5.6;
   doc.setFont("helvetica", "bold").setFontSize(ukuranAjak).setTextColor(13, 148, 136);
-  const ajak = doc.splitTextToSize("Scan QR untuk lapor kerusakan", lebar) as string[];
+  const ajak = doc.splitTextToSize("Scan QR: info alat & lapor kerusakan", lebar) as string[];
   doc.text(ajak, tx, y + u.h - pad - (besar ? 0.5 : 0.2) - (ajak.length - 1) * ukuranAjak * 0.3528 * 1.12);
 }
 

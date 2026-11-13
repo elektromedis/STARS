@@ -72,14 +72,28 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
   Viewer ber-unit hanya bisa membuka dokumen unitnya. Operator yang dibatasi unit hanya mengelola dokumen unitnya.
 - **Label QR alat:** Admin → *Daftar Alat* → *Cetak label QR alat* (per unit/ruangan) atau *Cetak label QR*
   di baris satu alat. Tiap QR menunjuk tepat ke satu alat; dipindai kamera HP (atau tombol Scan QR) →
-  *Lapor Kerusakan* terisi otomatis. Isi kolom alamat dengan alamat **https publik** STARS (mis. Tailscale) —
+  halaman **detail inventaris** alat itu (berisi tombol *Lapor Kerusakan*). Label lama (berisi `/lapor?alat=`)
+  tetap berfungsi. Isi kolom alamat dengan alamat **https publik** STARS (mis. Tailscale) —
   alamat `localhost`/`http://192.168…` tidak bisa dibuka dari HP. Agar tidak perlu diisi tiap kali, Admin
   server bisa menambahkan `STARS_URL_PUBLIK=https://…` di `deploy\.env` lalu menjalankan ulang `server-rs.bat`.
   Cetak di kertas stiker A4 pada skala 100% (ukuran sebenarnya).
 - **Inventaris Alat Kesehatan (publik):** menu **Pemeliharaan** → bagian *Inventaris Alat Kesehatan*. Siapa pun
   (tanpa login) bisa mencari alat, menyaring per unit/jenis/kondisi/status kalibrasi, dan mengurutkan kolom.
-  QR tiap alat tampil di antara kode dan nama alat (juga di Admin → *Daftar Alat*): klik untuk memperbesar,
-  *Unduh* gambar QR, *Lapor kerusakan*, atau (bila login) *Cetak label*. Viewer ber-unit hanya melihat alat unitnya.
+  Kolom: **Nomor Seri (SN)** · QR · **Foto** · Nama Alat · Unit · Kondisi · Kalibrasi · **Dokumen** (n/12 jenis
+  dokumen tersedia). Klik QR untuk memperbesar → *Detail inventaris*, *Lapor kerusakan*, *Unduh QR*, atau (bila
+  login) *Cetak label*. Viewer ber-unit hanya melihat alat unitnya.
+- **Detail inventaris alat** (klik nama/foto alat, atau scan QR-nya): identitas ala Trilux (SN, merk, tipe, tahun,
+  lokasi, pelayanan), data teknis, riwayat pengujian & kalibrasi, riwayat pemeliharaan, jadwal preventif, QR, dan
+  **File Penerimaan** (Kontrak, BA Penerimaan, AKD/AKL, BA Uji Fungsi, BA Uji Coba) serta **File Pendukung**
+  (Garansi, Sertifikat Kalibrasi, SOP, User Manual, Service Manual, SP Pemeliharaan, SP Perbaikan) + File Lainnya.
+  Kotak ⦸ = belum ada. Daftar dokumen bisa dilihat publik, tetapi **membuka berkas wajib login**; data
+  *Pendanaan* hanya tampil untuk petugas yang login.
+- **Foto & dokumen alat (Operator):** buka detail alat → *Pasang foto* (foto diperkecil otomatis; tampil publik,
+  jadi **jangan ada pasien/wajah** di foto) dan *Unggah dokumen* / klik kotak dokumen yang masih ⦸ (PDF/JPG/PNG/
+  DOCX/XLSX, maks 30 MB). Untuk User Manual, Service Manual, SOP, dan AKD/AKL tersedia centang **"Terapkan juga
+  ke alat lain dengan nama, merek & tipe sama"** — satu berkas langsung tertaut ke semua alat sejenis.
+  Hapus dokumen bisa dari alat ini saja atau dari semua alat yang memakainya. Sertifikat Kalibrasi diambil
+  otomatis dari CMS Kalibrasi. Dari Admin → *Daftar Alat*, tautan *Foto, dokumen & detail* membuka halaman ini.
 - **CMS Kalibrasi (Operator):** Admin → *Kalibrasi* → *Unggah sertifikat* (PDF/JPG/PNG, boleh banyak sekaligus).
   Dari **PDF berteks** STARS mengisi otomatis tanggal kalibrasi, masa berlaku, nomor sertifikat, lembaga, hasil
   (laik/tidak), dan alatnya (dicocokkan lewat **nomor seri/kode** yang tercantum; ikon ✦ = terisi otomatis).
@@ -89,10 +103,30 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
   6/24/36 bulan). **Periksa isian sebelum menekan Simpan.** Mengunggah ulang sertifikat untuk alat & tanggal
   yang sama memperbarui catatan (tidak dobel). Klik alat di *Perlu perhatian* untuk langsung mencatat
   kalibrasinya; riwayat bisa dicari, diubah (ganti tanggal/sertifikat), dan dihapus. Membuka sertifikat wajib login.
+  Setiap catatan punya **Jenis: Kalibrasi atau Pengujian** (dikenali otomatis dari judul sertifikat bila jelas).
+  Dari detail alat, tombol *Catat kalibrasi* membuka CMS dengan alat itu sudah terpilih.
+- **Pengujian dan Kalibrasi (menu publik):** cakupan berlaku, jumlah kedaluwarsa/tidak laik, jatuh tempo 12 bulan ke
+  depan (untuk perencanaan anggaran), lembaga penguji, catatan per tahun, rekap per unit, dan tabel data lengkap
+  (*Per alat* = status terkini, *Seluruh riwayat* = semua catatan) dengan filter unit/status/jenis/lembaga/tahun.
+  Tombol **Unduh Excel** mengikuti filter yang sedang dipakai.
 - **Urutkan tabel paket:** klik judul kolom (Kode, Nama Paket, Unit Kerja, Nilai, Serapan); klik lagi untuk membalik.
-- **Scan QR (tombol bulat kanan bawah):** QR STARS membuka halamannya; QR lama Trilux & QR berisi kode alat
-  membuka *Lapor Kerusakan* yang sudah terisi data alatnya. Kamera hanya jalan lewat alamat **https**
-  (mis. alamat Tailscale); lewat alamat http di jaringan lokal gunakan *Ambil / pilih foto QR*.
+- **Menu bawah** (gaya aplikasi bank): **Beranda · Riwayat · [Scan QR] · Notifikasi · Akun Saya** — di HP
+  menempel di dasar layar, di komputer mengambang di tengah bawah.
+  - **Scan QR** (tombol bulat di tengah): layar kamera penuh dengan bingkai pindai, tombol *Galeri* (pilih foto QR)
+    dan *Senter*, serta tab *Ketik Kode* (ketik nomor seri/kode/nama alat). Setelah terbaca muncul kartu alat
+    dengan tombol **Detail Inventaris** dan **Lapor Kerusakan**. QR lama Trilux & label lama tetap dikenali.
+    Kamera hanya jalan lewat alamat **https** (mis. Tailscale); lewat http lokal gunakan *Galeri* atau *Ketik Kode*.
+  - **Riwayat:** laporan yang dikirim dari HP/komputer ini beserta tahapnya (Terkirim → Ditinjau → Diproses →
+    Selesai), alat yang pernah dipindai, dan (bila login) aktivitas akun. Riwayat laporan & scan disimpan di
+    browser perangkat itu, bukan di akun.
+  - **Notifikasi:** pelapor mendapat kabar saat laporannya ditinjau/diproses/selesai (lencana merah di menu).
+    Petugas yang login juga mendapat: laporan kerusakan baru, perintah kerja yang ditugaskan, preventif jatuh
+    tempo, dan kalibrasi kedaluwarsa/segera habis.
+  - **Akun Saya:** profil, peran & unit, pintasan Admin, **ganti sandi sendiri**, dan Keluar.
+- **Lapor Kerusakan:** kolom *Nama alat*, *Unit kerja*, dan *Rincian lokasi* menampilkan pilihan otomatis saat
+  diketik (alat terdaftar RSUD Cipayung, daftar unit, ruangan unit itu). Memilih alat langsung mengisi unit &
+  lokasinya. Lampiran: **foto** (JPG/PNG maks 5 MB, foto HP besar diperkecil otomatis) dan **video**
+  (MP4/MOV/WEBM maks 20 MB, ±10–20 detik). Foto/video hanya bisa dilihat petugas (Admin → Pemeliharaan).
 - **Membersihkan data lama (Admin):** Admin → Sistem → *Hapus data paket per tahun / tahap*. Centang
   tahun/tahap, ketik `HAPUS`, lalu tekan *Hapus permanen*. Salinan basis data dibuat otomatis sebelum
   menghapus (di server: folder `cadangan` di samping basis data); tetap disarankan unduh cadangan dulu.

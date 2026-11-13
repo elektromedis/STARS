@@ -380,7 +380,7 @@ Bila Docker belum boleh dipasang, alternatif sementara: `jalankan-produksi.bat` 
 
 **Yang belum bisa diuji di sini dan harus diuji di server:** build image Docker, sertifikat HTTPS Caddy, akses dari LAN RS, pulih dari cadangan. Jalankan `docker compose ... up -d --build` di server uji dulu; bila gagal pada tahap Prisma, periksa log `entrypoint` dan pastikan `binaryTargets` di `schema.prisma` memuat `linux-musl-openssl-3.0.x`.
 
-**Catatan keamanan yang masih terbuka (masuk Tahap 4):** pembatas login berbasis IP memakai header `x-forwarded-for`, jadi di belakang Caddy bekerja per pengguna, tetapi di intranet tanpa proxy semua pengguna di satu NAT berbagi jatah; Content-Security-Policy belum dipasang; belum ada 2FA; alur "lupa sandi" lewat Admin (belum self-service).
+**Catatan keamanan yang masih terbuka (masuk Tahap 4):** pembatas login berbasis IP memakai header `x-forwarded-for`, jadi di belakang Caddy bekerja per pengguna, tetapi di intranet tanpa proxy semua pengguna di satu NAT berbagi jatah; Content-Security-Policy belum dipasang; belum ada 2FA; alur "lupa sandi" lewat Admin (belum self-service) — sejak 13 Nov 2026 pengguna bisa **mengganti sandinya sendiri** di menu *Akun Saya* (wajib sandi lama, dibatasi 5 percobaan/15 menit).
 
 ---
 

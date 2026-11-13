@@ -2,7 +2,7 @@
 
 import { useActionState, useEffect, useState } from "react";
 import Link from "next/link";
-import { AlertTriangle, CheckCircle2, ChevronDown, DoorOpen, Loader2, Plus, Printer, QrCode, XCircle } from "lucide-react";
+import { AlertTriangle, CheckCircle2, ChevronDown, DoorOpen, FolderOpen, Loader2, Plus, Printer, QrCode, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { badgeKondisi, JENIS_ALAT, KONDISI_ALAT, RISIKO_ALAT } from "@/lib/pemeliharaan";
 import { buatAlat, buatRuangan, ubahAlat, type StatusAksi } from "@/app/admin/alat/actions";
+import { urlDetailAlat } from "@/lib/dokumen-alat";
 import { QrAlat } from "./qr-alat";
 
 type Unit = { id: number; nama: string };
@@ -90,6 +91,11 @@ function TautanLabel({ href }: { href: string }) {
   return <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:underline"><QrCode className="size-3.5" /> Cetak label QR</a>;
 }
 
+/** Foto & dokumen alat dikelola di halaman detail inventaris. */
+function TautanDetail({ kode }: { kode: string }) {
+  return <Link href={urlDetailAlat(kode)} className="inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:underline"><FolderOpen className="size-3.5" /> Foto, dokumen &amp; detail</Link>;
+}
+
 function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat; units: Unit[]; ruangan: RuanganRingkas[]; bolehKelola: boolean; label: string; alamat: string }) {
   const [st, aksi, pend] = useActionState<StatusAksi, FormData>(ubahAlat, undefined);
   return (
@@ -108,7 +114,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
           <input type="hidden" name="id" value={a.id} />
           <Medan a={a} units={units} ruangan={ruangan} />
           <div className="flex items-center justify-between gap-2">
-            <span className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">{a._count.permintaan} laporan · {a._count.perintah} perintah kerja <TautanLabel href={label} /></span>
+            <span className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">{a._count.permintaan} laporan · {a._count.perintah} perintah kerja <TautanLabel href={label} /> <TautanDetail kode={a.kode} /></span>
             <div className="flex items-center gap-3"><Pesan status={st} /><Button type="submit" size="sm" variant="teal" disabled={pend}>{pend ? <Loader2 className="animate-spin" /> : null} Simpan perubahan</Button></div>
           </div>
         </form>
@@ -118,7 +124,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
           <p><span className="text-muted-foreground">Kategori:</span> {a.kategori ?? "—"} · <span className="text-muted-foreground">Risiko:</span> {a.risiko ?? "—"}</p>
           <p><span className="text-muted-foreground">Perolehan:</span> {a.tahunPerolehan ?? "—"} · <span className="text-muted-foreground">Usia teknis:</span> {a.usiaTeknis ?? "—"} th</p>
           <p><span className="text-muted-foreground">Garansi sampai:</span> {a.garansiSampai ? new Date(a.garansiSampai).toLocaleDateString("id-ID") : "—"}</p>
-          <p className="sm:col-span-2"><TautanLabel href={label} /></p>
+          <p className="flex flex-wrap gap-3 sm:col-span-2"><TautanLabel href={label} /> <TautanDetail kode={a.kode} /></p>
         </div>
       )}
     </details>

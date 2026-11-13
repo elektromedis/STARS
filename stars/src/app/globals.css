@@ -48,3 +48,9 @@
   .stars-cincin, .stars-pendar, .stars-ekg, .stars-titik, .qr-garis { animation: none; }
   .stars-ekg { stroke-dasharray: none; }
 }
+
+/*
+ * Cegah "grid blowout": isi panjang (tabel, teks satu baris, nama alat panjang) tidak lagi melebarkan halaman di ponsel —
+ * anak grid boleh menyempit dan isinya menggulir/terpotong di dalam kartu. :where() = spesifisitas 0, jadi kelas min-w-* tetap berlaku.
+ */
+:where(.grid > *) { min-width: 0; }

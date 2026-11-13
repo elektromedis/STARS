@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { CheckCircle2, ChevronDown, ClipboardList, ImageIcon, Loader2, XCircle } from "lucide-react";
+import { CheckCircle2, ChevronDown, ClipboardList, ImageIcon, Loader2, Video, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
@@ -13,7 +13,7 @@ import { buatPerintahDariPermintaan, ubahStatusPermintaan, type StatusAksi } fro
 type Teknisi = { id: number; nama: string };
 export type Permintaan = {
   id: number; nomor: string; namaAlat: string; unitKerja: { nama: string } | null; lokasi: string | null;
-  pelapor: string; kontak: string | null; keluhan: string; prioritas: string; foto: string | null;
+  pelapor: string; kontak: string | null; keluhan: string; prioritas: string; foto: string | null; video?: string | null;
   status: string; catatanPetugas: string | null; createdAt: string | Date; perintah: { nomor: string } | null;
 };
 
@@ -47,7 +47,23 @@ function Baris({ p, teknisi, bolehKelola }: { p: Permintaan; teknisi: Teknisi[];
           <p><span className="text-muted-foreground">Pelapor:</span> {p.pelapor}{p.kontak ? ` · ${p.kontak}` : ""}</p>
           {p.lokasi && <p><span className="text-muted-foreground">Lokasi:</span> {p.lokasi}</p>}
           <p className="text-xs text-muted-foreground">Masuk {tgl(p.createdAt)}</p>
-          {p.foto && <a href={`/api/pemeliharaan/foto/${p.foto}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:underline"><ImageIcon className="size-3.5" /> Lihat foto</a>}
+          {(p.foto || p.video) && (
+            <div className="flex flex-wrap items-start gap-3 pt-1">
+              {p.foto && (
+                <a href={`/api/pemeliharaan/foto/${p.foto}`} target="_blank" rel="noopener noreferrer" className="group grid gap-1 text-xs font-medium text-teal-700">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- foto laporan (terproteksi login) */}
+                  <img src={`/api/pemeliharaan/foto/${p.foto}`} alt={`Foto laporan ${p.nomor}`} loading="lazy" className="h-24 w-32 rounded-md border object-cover transition group-hover:ring-2 group-hover:ring-teal-300" />
+                  <span className="inline-flex items-center gap-1 group-hover:underline"><ImageIcon className="size-3.5" /> Buka foto</span>
+                </a>
+              )}
+              {p.video && (
+                <div className="grid gap-1 text-xs">
+                  <video src={`/api/pemeliharaan/foto/${p.video}`} controls playsInline preload="metadata" className="h-24 w-40 rounded-md border bg-black object-contain" aria-label={`Video laporan ${p.nomor}`} />
+                  <a href={`/api/pemeliharaan/foto/${p.video}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-medium text-teal-700 hover:underline"><Video className="size-3.5" /> Buka / unduh video</a>
+                </div>
+              )}
+            </div>
+          )}
           {p.catatanPetugas && <p className="rounded bg-amber-50 p-2 text-xs text-amber-900"><span className="font-medium">Catatan petugas:</span> {p.catatanPetugas}</p>}
           {p.perintah && <p className="text-xs">Perintah kerja: <span className="font-mono font-medium text-navy-800">{p.perintah.nomor}</span></p>}
         </div>

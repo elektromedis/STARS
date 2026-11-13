@@ -10,7 +10,8 @@ import { KalibrasiManager, type PerluPerhatian } from "@/components/pemeliharaan
 export const metadata: Metadata = { title: "Kalibrasi" };
 export const dynamic = "force-dynamic";
 
-export default async function KalibrasiPage() {
+export default async function KalibrasiPage({ searchParams }: { searchParams: Promise<{ alat?: string }> }) {
+  const alatAwal = Number((await searchParams).alat) || null;
   const s = await sesiHalaman("Viewer");
   const bolehKelola = cukup(s.user.peran, "Operator") && process.env.STARS_MODE !== "internet";
   const kunci = await unitTerkunci();
@@ -19,7 +20,7 @@ export default async function KalibrasiPage() {
     prisma.kalibrasi.findMany({
       where: kunci ? { alat: u } : {}, orderBy: [{ tanggal: "desc" }, { id: "desc" }], take: 2000,
       select: {
-        id: true, alatId: true, tanggal: true, kalibrator: true, petugas: true, metode: true, laik: true, nomorSertifikat: true, berlakuSampai: true, keterangan: true,
+        id: true, alatId: true, tanggal: true, jenis: true, kalibrator: true, petugas: true, metode: true, laik: true, nomorSertifikat: true, berlakuSampai: true, keterangan: true,
         berkas: true, namaBerkas: true, alat: { select: { kode: true, nama: true, unitKerja: { select: { nama: true } } } },
       },
     }),
@@ -52,6 +53,7 @@ export default async function KalibrasiPage() {
         perlu={perlu}
         alat={alat.map((a) => ({ id: a.id, kode: a.kode, nama: a.nama, nomorSeri: a.nomorSeri, unit: a.unitKerja.nama, ruangan: a.ruangan?.nama ?? null }))}
         bolehKelola={bolehKelola}
+        alatAwal={alatAwal}
       />
     </div>
   );
