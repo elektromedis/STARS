@@ -9,13 +9,15 @@ export const runtime = "nodejs";
 
 /**
  * GET /api/alat/foto/<uuid>.jpg | <uuid>-kecil.jpg — foto alat, PUBLIK (tampil di Inventaris & detail alat).
+ * Juga melayani foto produk HTA (disimpan di folder yang sama).
  * Nama berkas berganti setiap foto diganti, sehingga boleh di-cache lama oleh browser.
  */
 export async function GET(_req: Request, { params }: { params: Promise<{ nama: string }> }) {
   const { nama } = await params;
   if (!POLA_FOTO_ALAT.test(nama)) return NextResponse.json({ error: "Nama berkas tidak valid." }, { status: 400 });
   const utama = nama.replace(/-kecil(\.\w+)$/, "$1");
-  if (!(await prisma.alat.findFirst({ where: { foto: utama }, select: { id: true } }))) return NextResponse.json({ error: "Foto tidak ditemukan." }, { status: 404 });
+  const ada = (await prisma.alat.findFirst({ where: { foto: utama }, select: { id: true } })) ?? (await prisma.produkHta.findFirst({ where: { foto: utama }, select: { id: true } }));
+  if (!ada) return NextResponse.json({ error: "Foto tidak ditemukan." }, { status: 404 });
   try {
     const buf = await readFile(join(folderFotoAlat(), nama));
     return new NextResponse(new Uint8Array(buf), {

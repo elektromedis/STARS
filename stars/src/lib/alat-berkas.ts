@@ -50,10 +50,10 @@ export async function simpanFotoAlat(besar: File, kecil: File | null): Promise<{
   return { foto };
 }
 
-/** Hapus berkas foto bila tak ada alat lain yang memakainya. */
+/** Hapus berkas foto bila tak ada alat / produk HTA lain yang memakainya. */
 export async function hapusFotoAlat(foto: string | null | undefined) {
   if (!foto || !POLA_FOTO_ALAT.test(foto)) return;
-  if ((await prisma.alat.count({ where: { foto } })) > 0) return;
+  if ((await prisma.alat.count({ where: { foto } })) > 0 || (await prisma.produkHta.count({ where: { foto } })) > 0) return;
   await unlink(join(folderFotoAlat(), foto)).catch(() => {});
   await unlink(join(folderFotoAlat(), namaFotoKecil(foto))).catch(() => {});
 }

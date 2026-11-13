@@ -399,6 +399,11 @@ Perangkat tahap ini sudah disiapkan (11 Nov 2026): rencana uji **`docs/UAT.md`**
 
 ---
 
+**Tambahan 13 Nov 2026:** menu **HTA** (perbandingan merek & tipe alat ala versus.com: skor berbobot 5 domain dari data
+operasional STARS + data produk/spesifikasi yang diisi tim; model `ProdukHta`) dan tab **Cetak RKBU** (editor dokumen
+RKBU/RKPBU ber-kop dengan pratinjau A4, isi dari data Paket, tanda tangan, lampiran gambar, simpan, cetak/PDF, Excel;
+model `DokumenRkbu`, gambar di `UPLOAD_DIR/rkbu`). Migrasi `20261113120000_rkbu_hta`.
+
 ## Ringkasan urutan kerja minggu per minggu (perkiraan 8–10 minggu)
 
 | Minggu | Pekerjaan |

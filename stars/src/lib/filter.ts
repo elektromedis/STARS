@@ -1,11 +1,8 @@
 import { prisma } from "./prisma";
-import { SEMUA_TAHAP } from "./tahap";
+import { SEMUA_TAHAP, TAHAP_URUT } from "./tahap";
 import { unitTerkunci } from "./akses";
 
-export { SEMUA_TAHAP, labelTahap, labelFilter, labelNilai } from "./tahap";
-
-/** Urutan tahap anggaran dari paling awal ke paling akhir. */
-export const TAHAP_URUT = ["Ranwal", "Penetapan", "Pergeseran", "Perubahan", "Perubahan II"] as const;
+export { SEMUA_TAHAP, TAHAP_URUT, labelTahap, labelFilter, labelNilai } from "./tahap";
 
 export type SearchParams = Record<string, string | string[] | undefined>;
 export type Filter = {

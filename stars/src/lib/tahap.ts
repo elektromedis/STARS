@@ -13,3 +13,6 @@ export const labelFilter = (f: { tahap: string; tahun: number }) => `${labelTaha
 /** Label untuk angka total: saat "Semua Tahapan" menyebut tahap pagu final yang dipakai. */
 export const labelNilai = (f: { tahap: string; tahun: number; tahapFinal?: string }) =>
   f.tahap === SEMUA_TAHAP ? `Pagu final ${f.tahapFinal ?? ""} ${f.tahun}`.replace(/\s+/g, " ") : labelFilter(f);
+
+/** Urutan tahap anggaran dari paling awal ke paling akhir. */
+export const TAHAP_URUT = ["Ranwal", "Penetapan", "Pergeseran", "Perubahan", "Perubahan II"] as const;

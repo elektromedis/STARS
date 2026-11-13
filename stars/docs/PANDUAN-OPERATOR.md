@@ -127,6 +127,36 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
   diketik (alat terdaftar RSUD Cipayung, daftar unit, ruangan unit itu). Memilih alat langsung mengisi unit &
   lokasinya. Lampiran: **foto** (JPG/PNG maks 5 MB, foto HP besar diperkecil otomatis) dan **video**
   (MP4/MOV/WEBM maks 20 MB, ±10–20 detik). Foto/video hanya bisa dilihat petugas (Admin → Pemeliharaan).
+- **Cetak RKBU / RKPBU** (Perencanaan-Pengadaan → tab *Cetak RKBU*, perlu login): pilih jenis (RKPBU
+  Pemeliharaan / RKBU Pengadaan), tahun & tahap, unit, dan rekening → *Buat & buka editor*. Tabel 15 kolom
+  (No · Kode Rekening · Barang/Jasa · Uraian · Lokasi · Kode Barang · Vol 1 · Satuan · x · Vol 2 · Satuan ·
+  Harga Satuan · Jumlah · Prioritas · Keterangan) terisi dari data **Paket**; PPN dideteksi otomatis (11 %/12 %).
+  - Panel kiri: *Tabel kebutuhan* (tambah/gandakan/geser/hapus baris, *Ambil dari data Paket*), *Judul &
+    identitas*, *Kop surat* (unggah **logo** sekali), *Tanda tangan* (jabatan, nama, NIP, tempat & tanggal),
+    *Catatan kaki*, *Lampiran* (gambar, 2 per halaman tegak), *Judul kolom*, *Pengaturan cetak* (A4/F4,
+    lanskap/tegak, ukuran huruf, nomor halaman, jaga baris utuh). **Klik baris di pratinjau** untuk mengubahnya.
+  - Jumlah = Vol 1 × Vol 2 × Harga satuan × (1 + PPN); bisa diganti **manual** per baris. Mengubah baris di
+    dokumen **tidak** mengubah data Paket.
+  - **Simpan** (Operator; Ctrl+S) → dokumen tersimpan di daftar dan bisa dibuka/diubah kapan saja. Kop, nama
+    & NIP penandatangan cukup diisi sekali: dokumen baru menyalin dari dokumen terakhir. Tombol *Salin* di
+    daftar membuat dokumen baru dari dokumen lama (mis. untuk tahap berikutnya).
+  - **Cetak / Simpan PDF** membuka dialog cetak browser (pilih *Simpan sebagai PDF*; matikan *Header dan
+    footer* browser). Kepala tabel berulang tiap halaman, tanda tangan di akhir tabel. **Excel** mengunduh
+    tabel yang sama (.xlsx) untuk diolah lanjut. Viewer bisa membuka & mencetak, tetapi tidak menyimpan.
+- **HTA — bandingkan alat kesehatan** (menu *HTA*, perlu login): ketik jenis/merek/tipe → pilih 2–3 produk →
+  *Bandingkan*. Produk = **merek + tipe** alat di Inventaris (data dihitung otomatis dari semua unit sejenis)
+  atau **produk kandidat** pengadaan (mis. dari e-Katalog) yang ditambah Operator lewat *Tambah produk kandidat*.
+  - Halaman perbandingan: **skor 0–100** tiap produk, daftar *"Mengapa A lebih unggul dari B?"* (mis. "2,7x
+    lebih jarang dilaporkan rusak"), skor per domain, dan rincian kriteria: **Keselamatan & Mutu** (uji/kalibrasi
+    laik, kalibrasi berlaku, AKL/AKD), **Keandalan** (laporan kerusakan/unit/tahun, lama perbaikan, kondisi
+    baik — 24 bulan terakhir), **Ekonomi** (harga per unit, biaya pemeliharaan & perbaikan/unit/tahun, garansi,
+    umur teknis), **Spesifikasi Teknis** (diisi tim), **Dukungan & Kebijakan** (kelengkapan dokumen, manual, TKDN).
+  - Kriteria yang datanya kosong pada salah satu produk **tidak dihitung** (adil untuk kandidat yang belum
+    dimiliki). Bobot tiap domain bisa diatur (0–5) dan tersimpan di perangkat.
+  - Operator: *Lengkapi data HTA* / *Ubah data HTA* untuk mengisi harga, garansi, umur teknis, TKDN, AKL, negara
+    asal, distributor, tautan e-Katalog, catatan, foto, dan **spesifikasi teknis** (parameter + nilai + satuan +
+    arah "lebih tinggi/lebih rendah lebih baik"). Pakai **nama parameter yang sama** di tiap produk agar bisa
+    dibandingkan. Hasil HTA adalah alat bantu keputusan, bukan pengganti kajian klinis/Komite.
 - **Membersihkan data lama (Admin):** Admin → Sistem → *Hapus data paket per tahun / tahap*. Centang
   tahun/tahap, ketik `HAPUS`, lalu tekan *Hapus permanen*. Salinan basis data dibuat otomatis sebelum
   menghapus (di server: folder `cadangan` di samping basis data); tetap disarankan unduh cadangan dulu.
