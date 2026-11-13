@@ -162,11 +162,11 @@ echo         https://login.tailscale.com/admin/machines lalu jawab Y di bawah.
 :tawar_laptop
 choice /C YN /M "Nyalakan lagi STARS di laptop sementara"
 if errorlevel 2 goto jeda
-docker compose -f docker-compose.yml --env-file .env start app
+docker compose -f docker-compose.yml --env-file .env up -d
 goto jeda
 :gagal_kemas
 echo [GAGAL] Gagal mengemas data. STARS di laptop dinyalakan lagi.
-docker compose -f docker-compose.yml --env-file .env start app
+docker compose -f docker-compose.yml --env-file .env up -d
 goto jeda
 :belum_siap
 echo [GAGAL] VPS belum disiapkan atau tidak terjangkau. Jalankan menu 1 dulu.
