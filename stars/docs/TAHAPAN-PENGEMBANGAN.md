@@ -318,6 +318,10 @@ Lindungi rute dengan `src/middleware.ts`: semua `/admin/*` dan `/api/admin/*` wa
 
 ### 3.3 Dua lokasi, satu paket deploy
 
+> **Pembaruan 13 Nov 2026 — satu server di cloud:** agar laptop boleh dimatikan, server utama dipindah ke VPS
+> (`STARS_MODE=intranet`, alamat `.ts.net` sama sehingga label QR tetap jalan) memakai `deploy\vps.bat` + `deploy/pasang-vps.sh`.
+> Langkah lengkap: [PINDAH-KE-CLOUD.md](PINDAH-KE-CLOUD.md). Bagian di bawah ini (dua lokasi + sinkron) tetap berlaku bila kelak RS memakai server internet terpisah.
+
 Berkas sudah dibuat di folder `deploy/` (belum diuji karena Docker belum terpasang di komputer ini):
 
 | Berkas | Fungsi |

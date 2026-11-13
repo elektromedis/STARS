@@ -13,3 +13,4 @@ next-env.d.ts
 
 # Salinan Trilux CAMS (kode pihak ketiga, referensi) - tidak ikut Git
 trilux_cams/
+deploy/vps-alamat.txt

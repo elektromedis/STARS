@@ -51,6 +51,9 @@ Mematikan akses internet (dashboard tetap jalan di LAN): `tailscale funnel reset
 | DuckDNS + port forwarding | ✅ | ✅ `nama.duckdns.org` | Butuh akses router/IP publik — biasanya tidak diizinkan di jaringan RS |
 | Domain resmi RS + VPS (Tahap 3 profil `internet`) | ❌ (±Rp 150–300 rb/thn + VPS) | ✅ | Tujuan akhir; Caddy sudah siap memberi HTTPS otomatis |
 
+> **Ingin laptop boleh dimatikan?** Pindahkan server ke VPS dengan alamat `.ts.net` yang sama
+> (label QR tetap jalan): lihat [PINDAH-KE-CLOUD.md](PINDAH-KE-CLOUD.md).
+
 ## Ringkasan arsitektur saat ini
 
 ```

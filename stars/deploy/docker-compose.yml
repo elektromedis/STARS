@@ -1,10 +1,12 @@
 # ============================================================
 # STARS - docker-compose (Tahap 3)
-# Satu berkas yang sama dipakai untuk DUA lokasi:
+# Satu berkas yang sama dipakai untuk beberapa lokasi:
 #   1. Server intranet RS : `docker compose -f deploy/docker-compose.yml --env-file deploy/.env up -d --build`
 #                           akses http://<ip-server>:3000 ; STARS_MODE=intranet (operator mengunggah di sini)
 #   2. Server internet    : tambah `--profile internet` → layanan caddy memberi HTTPS otomatis
 #                           STARS_MODE=internet (baca saja, menerima `npm run sync` dari intranet)
+#   3. Server cloud (VPS)  : satu-satunya server, STARS_MODE=intranet, APP_PORT=127.0.0.1:3000 + Tailscale Funnel.
+#                           Dipasang & dirawat oleh deploy/pasang-vps.sh (lewat deploy\vps.bat) - lihat docs/PINDAH-KE-CLOUD.md
 #
 # Basis data: SQLite di volume `stars_data` (cukup untuk skala RS; cadangan lewat Admin → Sistem).
 # Salin deploy/.env.example → deploy/.env lalu isi nilainya SEBELUM up.
