@@ -21,7 +21,8 @@ services:
       DATABASE_URL: file:/app/data/stars.db
       UPLOAD_DIR: /app/uploads
       AUTH_SECRET: ${AUTH_SECRET:?isi AUTH_SECRET di deploy/.env}
-      AUTH_URL: ${APP_URL:-http://localhost:3000}
+      # AUTH_URL sengaja TIDAK diisi: STARS dibuka dari beberapa alamat sekaligus (localhost, IP LAN,
+      # https Tailscale/domain). Alamat diambil dari header permintaan (AUTH_TRUST_HOST).
       AUTH_TRUST_HOST: "true"
       SUPERADMIN_EMAIL: ${SUPERADMIN_EMAIL:?isi SUPERADMIN_EMAIL}
       SUPERADMIN_PASSWORD: ${SUPERADMIN_PASSWORD:?isi SUPERADMIN_PASSWORD}

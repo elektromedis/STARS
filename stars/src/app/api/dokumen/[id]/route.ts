@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { unitTerkunci } from "@/lib/akses";
+import { urlLogin } from "@/lib/alamat";
 import { TIPE_DOKUMEN } from "@/lib/dokumen";
 import { folderDokumen } from "@/lib/dokumen-data";
 
@@ -17,11 +18,7 @@ export const runtime = "nodejs";
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const s = await auth();
-  if (!s?.user) {
-    const masuk = new URL("/login", req.nextUrl.origin);
-    masuk.searchParams.set("callbackUrl", `/api/dokumen/${encodeURIComponent(id)}`);
-    return NextResponse.redirect(masuk);
-  }
+  if (!s?.user) return NextResponse.redirect(urlLogin(req.headers, `/api/dokumen/${encodeURIComponent(id)}`, req.nextUrl.origin));
   const n = Number(id);
   if (!Number.isInteger(n) || n <= 0) return NextResponse.json({ error: "ID tidak valid." }, { status: 400 });
   const dok = await prisma.dokumenPaket.findUnique({ where: { id: n } });

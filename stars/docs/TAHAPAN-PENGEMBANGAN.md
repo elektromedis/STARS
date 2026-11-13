@@ -332,7 +332,7 @@ Berkas sudah dibuat di folder `deploy/` (belum diuji karena Docker belum terpasa
 ```bash
 sudo apt install docker.io docker-compose-v2 git
 git clone <repo-stars> && cd stars
-cp deploy/.env.example deploy/.env && nano deploy/.env    # APP_URL=https://stars.domain-rs, STARS_MODE=internet
+cp deploy/.env.example deploy/.env && nano deploy/.env    # STARS_MODE=internet, STARS_DOMAIN=stars.domain-rs (AUTH_URL tidak perlu)
 docker compose -f deploy/docker-compose.yml --env-file deploy/.env --profile internet up -d --build
 ```
 

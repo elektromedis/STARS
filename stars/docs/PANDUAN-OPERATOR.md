@@ -16,6 +16,10 @@ Susunan materi = urutan sesi pelatihan. Rekam layar saat sesi berlangsung untuk 
 2. Peran Anda **Operator**: boleh mengunggah dan mengekspor data **unit Anda sendiri** saja.
 3. Salah sandi 5× = diblokir sementara (±15 menit). Lupa sandi → hubungi Admin (Elektromedik).
 4. Sesi habis setelah 8 jam — login ulang adalah hal normal.
+5. Login dan menu **Admin** bisa dipakai dari mana saja: komputer RS (`http://<IP-server>:3000`) maupun
+   HP/rumah lewat alamat **https STARS** (mis. `https://….ts.net`). Login berlaku per alamat — bila pindah
+   alamat, login sekali lagi. Membuka dokumen paket tanpa login akan diarahkan ke halaman Masuk,
+   lalu dokumen langsung terbuka setelah berhasil masuk.
 
 ## Menit 20–40 · Latihan inti: unduh template → isi → unggah
 

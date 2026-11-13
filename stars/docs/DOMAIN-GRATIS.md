@@ -30,6 +30,11 @@ Mematikan akses internet (dashboard tetap jalan di LAN): `tailscale funnel reset
 - Arsitektur Tahap 3 (server internet terpisah yang *baca saja* + sinkron harian) tetap jadi
   tujuan akhir bila RS menyediakan VPS + domain resmi; Funnel adalah jalan cepat yang sah
   selama masa itu belum tiba.
+- Login, halaman **Admin**, dan tautan dokumen bekerja dari alamat mana pun yang dipakai — `localhost`,
+  `http://<IP-laptop>:3000`, maupun `https://….ts.net` — karena STARS mengikuti alamat yang sedang dibuka.
+  Karena itu **jangan** mengisi `AUTH_URL` di `.env`/`deploy\.env`: nilai itu memaksa semua login kembali
+  ke satu alamat (dulu `http://localhost:3000`, sehingga Admin tidak bisa dipakai dari HP).
+- Sesi login berlaku per alamat: masuk lewat `localhost` tidak otomatis membuat Anda masuk di alamat `.ts.net`.
 - Bila login lewat alamat `.ts.net` ditolak terus pada mode **tanpa Docker**
   (`jalankan-produksi.bat`), tambahkan baris `AUTH_TRUST_HOST=true` di berkas `.env` aplikasi
   lalu jalankan ulang. (Mode Docker sudah menyetel ini otomatis.)

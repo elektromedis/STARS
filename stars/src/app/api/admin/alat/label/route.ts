@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { sesiApi } from "@/lib/sesi";
 import { unitTerkunci } from "@/lib/akses";
 import { audit, ipDari } from "@/lib/audit";
+import { asalPermintaan } from "@/lib/alamat";
 import { pdfLabelQr, UKURAN_LABEL, type UkuranLabel } from "@/lib/label-qr";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +17,7 @@ function alamatPublik(req: NextRequest) {
     if (!calon) continue;
     try { const u = new URL(calon); if (u.protocol === "https:" || u.protocol === "http:") return `${u.origin}${u.pathname.replace(/\/+$/, "")}`; } catch { /* abaikan */ }
   }
-  return req.nextUrl.origin;
+  return asalPermintaan(req.headers, req.nextUrl.origin);
 }
 
 /**
