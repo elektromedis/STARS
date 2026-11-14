@@ -271,6 +271,10 @@ perbarui() {
   baru=$(git -C "$DIR" rev-parse --short HEAD)
   if [ "$lama" = "$baru" ] && [ "${1:-}" != "paksa" ]; then
     ok "Sudah versi terbaru ($baru: $(git -C "$DIR" log -1 --format=%s)). Sudah klik Sync Changes di laptop?"
+    # tetap terapkan perubahan deploy/.env (mis. SMTP_*): compose membuat ulang kontainer hanya bila pengaturannya berubah
+    info "Menerapkan pengaturan deploy/.env..."
+    dc up -d
+    tunggu_app
     return 0
   fi
   info "Mencadangkan data sebelum memperbarui..."
