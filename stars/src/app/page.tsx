@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Activity, ArrowRight, ClipboardList } from "lucide-react";
+import { Activity, ArrowRight, ClipboardList, Thermometer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatCard } from "@/components/dashboard/stat-card";
@@ -16,6 +16,8 @@ import { filterToQuery, labelNilai, resolveFilter, SEMUA_TAHAP, type SearchParam
 import { PerbandinganTahap } from "@/components/dashboard/perbandingan-tahap";
 import { getNilaiPerKategori, getNilaiPerTahun, getNilaiPerUnit, getPaketList, getPerbandinganTahap, getRingkasan } from "@/lib/queries";
 import { getRingkasanPemeliharaan } from "@/lib/pemeliharaan-ringkasan";
+import { ringkasanMonitoring } from "@/lib/monitoring-data";
+import { unitTerkunci } from "@/lib/akses";
 import { formatRupiah, formatNumber } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -35,7 +37,7 @@ function JudulBagian({ icon: Icon, judul, keterangan, href, tautan }: { icon: ty
 export default async function DashboardPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const sp = await searchParams;
   const { filter, options } = await resolveFilter(sp);
-  const [ringkasan, perTahun, perKategori, perUnit, terbesar, pml, perTahap] = await Promise.all([
+  const [ringkasan, perTahun, perKategori, perUnit, terbesar, pml, perTahap, mon] = await Promise.all([
     getRingkasan(filter),
     getNilaiPerTahun(filter),
     getNilaiPerKategori(filter),
@@ -43,6 +45,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     getPaketList({ filter, pageSize: 5, hanyaFinal: true }),
     getRingkasanPemeliharaan(filter.unitTerkunci ? filter.unit : null),
     filter.tahap === SEMUA_TAHAP ? getPerbandinganTahap(filter) : Promise.resolve([]),
+    unitTerkunci().then((k) => ringkasanMonitoring(k?.id ?? null)),
   ]);
   const q = filterToQuery(filter);
   const kpis = [
@@ -56,6 +59,12 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     { label: "Laporan kerusakan terbuka", value: formatNumber(pml.laporanTerbuka), hint: `${formatNumber(pml.laporanBaru)} baru · ${formatNumber(pml.woAktif)} perintah kerja aktif` },
     { label: "Preventif jatuh tempo", value: formatNumber(pml.preventifTempo), hint: `${formatNumber(pml.preventif30)} lagi dalam 30 hari` },
     { label: "Kalibrasi kedaluwarsa / tidak laik", value: formatNumber(pml.kalKedaluwarsa), hint: `${formatNumber(pml.kalSegera)} habis ≤30 hari · ${formatNumber(pml.kalLaik)} berlaku` },
+  ];
+  const kpiMonitoring = [
+    { label: "Titik dipantau", value: formatNumber(mon.total), hint: "kulkas, freezer, ruang alat bersensor" },
+    { label: "Normal", value: formatNumber(mon.normal), hint: "dalam batas & sensor terhubung" },
+    { label: "Alarm aktif", value: formatNumber(mon.alarm), hint: `${formatNumber(mon.belumDiakui)} alarm belum diakui (30 hari)` },
+    { label: "Terputus / belum ada data", value: formatNumber(mon.terputus), hint: `${formatNumber(mon.luar)} lainnya di luar batas` },
   ];
   // Akses cepat ke seluruh menu: sub-menu Perencanaan-Pengadaan + menu utama lain (kecuali Dashboard dan menu gabungan itu sendiri).
   const pintasan = [...PERENCANAAN_TABS, ...NAV_ITEMS.filter((n) => n.href !== "/" && !n.match)];
@@ -123,6 +132,15 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       <section aria-label="Indikator pemeliharaan" className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {kpiPemeliharaan.map((k) => <StatCard key={k.label} {...k} />)}
       </section>
+
+      {mon.total > 0 && (
+        <>
+          <JudulBagian icon={Thermometer} judul="Live Monitoring Lingkungan" keterangan="Suhu & kelembapan alat kesehatan dari sensor IoT, diperbarui real time" href="/monitoring" tautan="Buka live monitoring" />
+          <section aria-label="Indikator monitoring lingkungan" className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {kpiMonitoring.map((k) => <StatCard key={k.label} {...k} />)}
+          </section>
+        </>
+      )}
 
       <h2 className="mb-4 text-lg font-bold text-navy-800">Akses cepat seluruh menu</h2>
       <section aria-label="Pintasan menu" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

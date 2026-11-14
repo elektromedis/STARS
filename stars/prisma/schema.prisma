@@ -14,14 +14,15 @@ datasource db {
 
 /// 28 unit kerja RSUD Cipayung (master). "TIDAK ADA" dipakai bila lokasi tidak cocok.
 model UnitKerja {
-  id         Int               @id @default(autoincrement())
-  nama       String            @unique
-  urut       Int               @default(0)
-  paket      Paket[]
-  pengguna   Pengguna[]
-  alat       Alat[]
-  permintaan PermintaanKerja[]
-  ruangan    Ruangan[]
+  id          Int               @id @default(autoincrement())
+  nama        String            @unique
+  urut        Int               @default(0)
+  paket       Paket[]
+  pengguna    Pengguna[]
+  alat        Alat[]
+  permintaan  PermintaanKerja[]
+  ruangan     Ruangan[]
+  titikPantau LokasiPantau[]
 }
 
 /// Ruangan/lokasi fisik alat (mis. "PERINA Lt. 2"), di bawah satu unit kerja.
@@ -158,6 +159,7 @@ model Alat {
   jadwal           JadwalPreventif[]
   kalibrasi        Kalibrasi[]
   dokumen          DokumenAlat[]
+  titikPantau      LokasiPantau[]
 
   @@index([unitKerjaId])
   @@index([kondisi])
@@ -374,4 +376,112 @@ model ProdukHta {
   diubahOleh   String?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+}
+
+// ============================================================
+// Live Medical Device Environmental Monitoring (suhu & kelembapan dari sensor IoT)
+// Konsep mengikuti LogTag Online: "Lokasi" = titik yang dipantau (kulkas vaksin, freezer,
+// ruang alat); sensor boleh diganti tanpa memutus riwayat bacaan lokasi itu.
+// ============================================================
+
+model LokasiPantau {
+  id              Int              @id @default(autoincrement())
+  kode            String           @unique // mis. LP-001 (dipakai di URL /monitoring/<kode>)
+  nama            String
+  jenis           String           @default("Kulkas") // Kulkas | Kulkas darah | Freezer | Ruangan | Ruang operasi | Inkubator | Lainnya
+  deskripsi       String?
+  unitKerja       UnitKerja?       @relation(fields: [unitKerjaId], references: [id])
+  unitKerjaId     Int?
+  alat            Alat?            @relation(fields: [alatId], references: [id], onDelete: SetNull)
+  alatId          Int? // alat inventaris yang dipantau (mis. kulkas vaksin), opsional
+  suhuMin         Float?
+  suhuMaks        Float?
+  lembapMin       Float?
+  lembapMaks      Float?
+  tundaAlarm      Int              @default(2) // alarm setelah N bacaan berturut-turut di luar batas
+  batasPutusMenit Int              @default(15) // tanpa bacaan selama ini = "terputus"; 0 = tidak dipantau
+  penanggungJawab String?
+  aktif           Boolean          @default(true)
+  // ringkasan bacaan terakhir (diperbarui saat data masuk; dashboard tidak perlu memindai tabel bacaan)
+  terakhirWaktu   DateTime?
+  terakhirSuhu    Float?
+  terakhirLembap  Float?
+  dibuatOleh      String?
+  diubahOleh      String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  sensor          SensorIot?
+  bacaan          BacaanSensor[]
+  alarm           AlarmPantau[]
+  inspeksi        InspeksiPantau[]
+
+  @@index([unitKerjaId])
+}
+
+model SensorIot {
+  id                Int           @id @default(autoincrement())
+  serial            String        @unique // nomor seri / ID perangkat
+  nama              String?
+  model             String? // mis. ESP32 + SHT31, LogTag UTRED30-WiFi
+  lokasi            LokasiPantau? @relation(fields: [lokasiId], references: [id], onDelete: SetNull)
+  lokasiId          Int?          @unique // satu sensor aktif per lokasi
+  tokenHash         String?       @unique // SHA-256 token API (token asli hanya ditampilkan sekali)
+  tokenPetunjuk     String? // 4 karakter terakhir token, untuk dikenali
+  terakhirTerhubung DateTime?
+  baterai           Float? // persen
+  sinyal            Int? // RSSI dBm
+  aktif             Boolean       @default(true)
+  dibuatOleh        String?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
+
+model BacaanSensor {
+  lokasi   LokasiPantau @relation(fields: [lokasiId], references: [id], onDelete: Cascade)
+  lokasiId Int
+  waktu    DateTime
+  suhu     Float?
+  lembap   Float?
+  serial   String? // sensor yang merekam (riwayat tetap utuh walau sensor diganti)
+  sumber   String       @default("api") // api | impor | uji
+
+  @@id([lokasiId, waktu])
+}
+
+model AlarmPantau {
+  id         Int          @id @default(autoincrement())
+  lokasi     LokasiPantau @relation(fields: [lokasiId], references: [id], onDelete: Cascade)
+  lokasiId   Int
+  jenis      String // suhu-tinggi | suhu-rendah | lembap-tinggi | lembap-rendah | putus
+  mulai      DateTime
+  selesai    DateTime? // null = masih berlangsung
+  puncak     Float? // nilai paling ekstrem selama ekskursi
+  batas      Float? // batas yang dilanggar
+  // pengakuan + catatan insiden (Troubleshooting Record ala LogTag)
+  diakuiOleh String?
+  diakuiPada DateTime?
+  tindakan   String?
+  dampak     String? // produk/alat terdampak & keputusannya
+  pencegahan String?
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  @@index([lokasiId, mulai])
+  @@index([selesai])
+}
+
+model InspeksiPantau {
+  id        Int          @id @default(autoincrement())
+  lokasi    LokasiPantau @relation(fields: [lokasiId], references: [id], onDelete: Cascade)
+  lokasiId  Int
+  tanggal   String // YYYY-MM-DD (WIB)
+  sesi      String // Pagi | Sore
+  suhu      Float?
+  lembap    Float?
+  waktuBaca DateTime?
+  oleh      String
+  catatan   String?
+  createdAt DateTime     @default(now())
+
+  @@unique([lokasiId, tanggal, sesi])
 }

@@ -408,6 +408,13 @@ operasional STARS + data produk/spesifikasi yang diisi tim; model `ProdukHta`) d
 RKBU/RKPBU ber-kop dengan pratinjau A4, isi dari data Paket, tanda tangan, lampiran gambar, simpan, cetak/PDF, Excel;
 model `DokumenRkbu`, gambar di `UPLOAD_DIR/rkbu`). Migrasi `20261113120000_rkbu_hta`.
 
+**Tambahan 14 Nov 2026:** menu **Live Monitoring** (Live Medical Device Environmental Monitoring System, acuan LogTag
+Online): lokasi pantau + sensor ber-token, API `POST /api/iot/bacaan`, alarm batas atas/bawah dengan penundaan N bacaan,
+deteksi putus koneksi, pengakuan alarm + catatan insiden, inspeksi pagi/sore, ringkasan harian, statistik (MKT, durasi
+di luar batas), grafik, ekspor CSV/Excel, impor ekspor data logger (LogTag CSV/TXT/Excel). Model `LokasiPantau`,
+`SensorIot`, `BacaanSensor`, `AlarmPantau`, `InspeksiPantau`; migrasi `20261114090000_monitoring_lingkungan`.
+Panduan sensor: `docs/MONITORING-IOT.md`.
+
 ## Ringkasan urutan kerja minggu per minggu (perkiraan 8–10 minggu)
 
 | Minggu | Pekerjaan |

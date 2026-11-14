@@ -16,16 +16,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:p-2">
         Lewati ke konten
       </a>
-      <Sidebar />
+      <div className="contents print:hidden"><Sidebar /></div>
       <MobileNav open={open} onClose={close} />
-      <div className="flex min-h-screen flex-col md:pl-[72px] lg:pl-64">
-        <Header onMenuClick={() => setOpen(true)} />
-        <main id="main" className="mx-auto w-full max-w-[1360px] flex-1 px-4 pb-10 pt-6 md:px-6 md:pb-10 md:pt-8">
+      <div className="flex min-h-screen flex-col md:pl-[72px] lg:pl-64 print:pl-0">
+        <div className="contents print:hidden"><Header onMenuClick={() => setOpen(true)} /></div>
+        <main id="main" className="mx-auto w-full max-w-[1360px] flex-1 px-4 pb-10 pt-6 md:px-6 md:pb-10 md:pt-8 print:max-w-none print:p-0">
           {children}
         </main>
-        <Footer />
+        <div className="contents print:hidden"><Footer /></div>
       </div>
-      <MenuBawah />
+      <div className="contents print:hidden"><MenuBawah /></div>
       <QrScan />
     </div>
   );

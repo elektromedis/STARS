@@ -157,6 +157,25 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
     asal, distributor, tautan e-Katalog, catatan, foto, dan **spesifikasi teknis** (parameter + nilai + satuan +
     arah "lebih tinggi/lebih rendah lebih baik"). Pakai **nama parameter yang sama** di tiap produk agar bisa
     dibandingkan. Hasil HTA adalah alat bantu keputusan, bukan pengganti kajian klinis/Komite.
+- **Live Monitoring — suhu & kelembapan alat** (menu *Live Monitoring* = Live Medical Device Environmental
+  Monitoring System; dashboard terbuka untuk umum, pengaturan di Admin → *Monitoring*):
+  - **Siapkan sekali (Operator):** Admin → Monitoring → *Tambah lokasi* (mis. "Kulkas Vaksin Farmasi"; pilih
+    jenis → batas contoh terisi otomatis: Kulkas 2–8 °C, Kulkas darah 2–6 °C, Freezer ≤ −15 °C, Ruangan 15–25 °C
+    & 30–70 %RH — **sesuaikan SOP RS & pabrikan**). Lalu tab *Sensor* → *Daftarkan sensor* → **token** tampil
+    sekali: salin & tanam di perangkat. Cara menyambungkan sensor: `docs/MONITORING-IOT.md`.
+  - **Dashboard** memperbarui sendiri tiap 15 detik: kartu tiap titik (nilai terkini, meter batas, grafik 24 jam),
+    panel *Perlu tindakan*, dan tombol *Notifikasi aktif* (bunyi + notifikasi browser selama halaman terbuka).
+  - **Status:** *Normal*; *Di luar batas* (nilai terakhir keluar batas, belum alarm); **Alarm** (keluar batas
+    N bacaan berturut-turut — N diatur per lokasi, bawaan 2); *Terputus* (tidak ada data melebihi batas menit).
+  - **Saat alarm (Operator):** buka lokasi → *Riwayat alarm* → **Akui** → isi tindakan, produk/alat terdampak,
+    dan pencegahan. Pengakuan tercatat dengan nama & waktu (log audit).
+  - **Inspeksi harian:** di *Ringkasan harian*, tekan *Catat inspeksi pagi/sore* (memakai bacaan sensor terkini).
+    Kalender menandai hari beralarm (garis merah) dan inspeksi P/S.
+  - **Laporan:** pilih rentang (24 jam/7/30 hari/1 tahun atau tanggal) → statistik min/maks/rata-rata/**MKT**,
+    % waktu dalam batas, durasi di luar batas; *CSV*/*Excel* untuk data mentah; *Cetak laporan* untuk PDF.
+  - **Logger tanpa WiFi** (mis. LogTag USB): ekspor CSV dari LogTag Analyzer/LogTag Online → Admin → Monitoring →
+    *Impor data logger* → *Pratinjau* (periksa contoh waktu) → *Impor*. Impor ulang berkas yang sama aman.
+  - *Integrasi & uji* → *Kirim bacaan uji* untuk latihan tanpa sensor; Admin bisa menghapus bacaan uji sekaligus.
 - **Membersihkan data lama (Admin):** Admin → Sistem → *Hapus data paket per tahun / tahap*. Centang
   tahun/tahap, ketik `HAPUS`, lalu tekan *Hapus permanen*. Salinan basis data dibuat otomatis sebelum
   menghapus (di server: folder `cadangan` di samping basis data); tetap disarankan unduh cadangan dulu.

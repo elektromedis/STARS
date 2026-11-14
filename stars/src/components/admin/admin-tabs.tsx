@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { Upload, Download, History, Users, Settings, Wrench, Box, CalendarClock, BadgeCheck, FileText, ShieldX, type LucideIcon } from "lucide-react";
+import { Upload, Download, History, Users, Settings, Wrench, Box, CalendarClock, BadgeCheck, FileText, ShieldX, Thermometer, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const IKON: Record<string, LucideIcon> = { upload: Upload, download: Download, history: History, users: Users, settings: Settings, wrench: Wrench, box: Box, calendar: CalendarClock, badge: BadgeCheck, file: FileText };
+const IKON: Record<string, LucideIcon> = { upload: Upload, download: Download, history: History, users: Users, settings: Settings, wrench: Wrench, box: Box, calendar: CalendarClock, badge: BadgeCheck, file: FileText, thermometer: Thermometer };
 export type TabAdmin = { href: string; label: string; icon: keyof typeof IKON };
 
 export function AdminTabs({ tabs }: { tabs: TabAdmin[] }) {
