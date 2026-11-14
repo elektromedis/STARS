@@ -23,7 +23,7 @@ const ALIAS_KOLOM: Record<string, KolomTemplate> = {
   tahap_anggaran: "tahap",
   sumber_anggaran: "sumber_dana", sumber: "sumber_dana",
   rekening: "nama_rekening", nama_rek: "nama_rekening",
-  barang_jasa: "nama_paket", nama_barang_jasa: "nama_paket", paket: "nama_paket", nama_pekerjaan: "nama_paket",
+  barang_jasa: "nama_paket", nama_barang_jasa: "nama_paket", nama_komponen: "nama_paket", komponen: "nama_paket", paket: "nama_paket", nama_pekerjaan: "nama_paket",
   uraian_pemeliharaan: "uraian", rincian: "uraian",
   unit: "unit_kerja", nama_unit_kerja: "unit_kerja", nama_unit: "unit_kerja", lokasi: "unit_kerja", lokasi_barang: "unit_kerja",
   vol_1: "vol1", volume_1: "vol1", volume: "vol1", vol_2: "vol2", volume_2: "vol2",
@@ -148,7 +148,7 @@ export function validasi(baris: Partial<Record<KolomTemplate, unknown>>[], dafta
     if (!jenis) e("jenis", `Jenis harus Pemeliharaan atau Pengadaan; ditemukan "${jenisTeks}"`);
 
     const namaPaket = teks(r.nama_paket);
-    if (!namaPaket) e("nama_paket", "Nama paket kosong");
+    if (!namaPaket) e("nama_paket", "Nama komponen kosong");
 
     const unitTeks = teks(r.unit_kerja);
     const cocok = cocokkanUnit(unitTeks, daftarUnit);

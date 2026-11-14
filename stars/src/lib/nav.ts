@@ -1,4 +1,4 @@
-import { Activity, ClipboardList, Database, Gauge, Info, LayoutDashboard, PackageSearch, Printer, Scale, Settings, Thermometer, Wallet, Wrench, type LucideIcon } from "lucide-react";
+import { Activity, Bot, ClipboardList, Database, Gauge, Info, LayoutDashboard, PackageSearch, Printer, Scale, Settings, Thermometer, Wallet, Wrench, type LucideIcon } from "lucide-react";
 
 export type NavItem = {
   label: string; href: string; icon: LucideIcon; description: string;
@@ -17,13 +17,14 @@ export const PERENCANAAN_TABS: NavItem[] = [
 export const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard, description: "Ringkasan seluruh menu: perencanaan-pengadaan, pemeliharaan alat, dan laporan kerusakan" },
   { label: "Perencanaan-Pengadaan", href: "/nilai", icon: ClipboardList, match: PERENCANAAN_TABS.map((t) => t.href), description: "Nilai anggaran, daftar paket, unduhan data, dan cetak dokumen RKPBU/RKBU dalam satu menu" },
+  { label: "HTA", href: "/hta", icon: Scale, description: "Health Technology Assessment: bandingkan merek & tipe alat kesehatan (keselamatan, keandalan, biaya, spesifikasi) — perlu login" },
   { label: "Pemeliharaan", href: "/pemeliharaan", icon: Activity, match: ["/pemeliharaan", "/alat"], description: "Kondisi alat, Inventaris Alat Kesehatan (nomor seri, QR, foto, dokumen tiap alat), laporan kerusakan, perintah kerja, dan jadwal preventif" },
   { label: "Pengujian dan Kalibrasi", href: "/kalibrasi", icon: Gauge, description: "Data lengkap pengujian & kalibrasi alat: status berlaku, jatuh tempo, per unit, per lembaga, riwayat & sertifikat" },
-  { label: "Live Monitoring", href: "/monitoring", icon: Thermometer, description: "Live Medical Device Environmental Monitoring System: suhu & kelembapan alat kesehatan (kulkas vaksin, kulkas darah, freezer, ruang alat) secara real time dari sensor IoT — alarm, ringkasan harian, dan laporan" },
-  { label: "HTA", href: "/hta", icon: Scale, description: "Health Technology Assessment: bandingkan merek & tipe alat kesehatan (keselamatan, keandalan, biaya, spesifikasi) — perlu login" },
   { label: "Lapor Kerusakan", href: "/lapor", icon: Wrench, description: "Laporkan alat kesehatan atau sarana yang rusak — tanpa perlu akun" },
-  { label: "About STARS", href: "/about", icon: Info, description: "Tentang aplikasi, sumber data, dan cara kerja STARS" },
   { label: "Admin", href: "/admin", icon: Settings, description: "Impor/ekspor Excel, pemeliharaan, daftar alat, pengguna, dan log (perlu login)" },
+  { label: "Live Monitoring", href: "/monitoring", icon: Thermometer, description: "Live Medical Device Environmental Monitoring System: suhu & kelembapan alat kesehatan (kulkas vaksin, kulkas darah, freezer, ruang alat) secara real time dari sensor IoT — alarm, ringkasan harian, dan laporan" },
+  { label: "ALLIES", href: "/allies", icon: Bot, description: "Agen pengelolaan alat medik: siklus alat dari Analisa Kebutuhan s.d. Penghapusan (Pre-Market → Post-Market), rekomendasi penggantian, dan tanya-jawab dari data STARS" },
+  { label: "About STARS", href: "/about", icon: Info, description: "Tentang aplikasi, sumber data, dan cara kerja STARS" },
 ];
 
 export function menuAktif(item: NavItem, pathname: string) {

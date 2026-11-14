@@ -90,6 +90,22 @@ Mulai sekarang **laptop boleh dimatikan**.
 | Sebulan sekali | Pembaruan Ubuntu | `ssh root@IP`, lalu `apt update && apt upgrade -y && reboot`. STARS dan Funnel hidup lagi sendiri. |
 | Bila ada keluhan | Cek keadaan | `vps.bat` **menu 5**: kontainer, versi, alamat, disk, cadangan, dan log. |
 
+### Mengaktifkan email "Lupa sandi" (opsional, sekali)
+
+1. Buat/akses akun Gmail khusus STARS → aktifkan **Verifikasi 2 Langkah** → buat **App Password** di
+   `myaccount.google.com/apppasswords` (16 huruf).
+2. `ssh root@IP`, lalu `nano /opt/STARS/stars/deploy/.env` dan tambahkan (jangan kirim isinya lewat chat):
+   ```
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=465
+   SMTP_USER=akun-stars@gmail.com
+   SMTP_PASS=<App Password 16 huruf>
+   SMTP_FROM=STARS RSUD Cipayung <akun-stars@gmail.com>
+   ```
+   Pastikan `STARS_URL_PUBLIK` sudah berisi alamat https STARS (tautan di email memakai alamat ini).
+3. `vps.bat` **menu 3** (atau di VPS: `bash pasang-vps.sh perbarui`) agar pengaturan terbaca.
+4. Uji: halaman Masuk → **Lupa sandi?** → email akun Anda. Bila gagal, lihat *Admin → Sistem → Audit log* (`sandi.lupa.gagal`).
+
 ### Memulihkan dari cadangan
 
 ```

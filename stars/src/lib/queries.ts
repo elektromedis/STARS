@@ -65,9 +65,13 @@ export async function getNilaiPerKategori(f: Filter) {
 }
 
 /** Total nilai per tahun dan tahap (untuk grafik perbandingan antar tahun). */
+/**
+ * Nilai per tahun & tahap. Tiap tahap juga membawa pecahan serapan:
+ * `<tahap>` = pagu total, `<tahap>__serap` = nilai paket terserap, `<tahap>__selisih` = pagu − serapan (belum terserap).
+ */
 export async function getNilaiPerTahun(f: Pick<Filter, "unit" | "kategori">) {
   const g = await prisma.paket.groupBy({
-    by: ["tahun", "tahap"],
+    by: ["tahun", "tahap", "serapan"],
     where: { ...(f.unit ? { unitKerja: { nama: f.unit } } : {}), ...(f.kategori ? { kategori: f.kategori } : {}) },
     _sum: { nilai: true },
     orderBy: [{ tahun: "asc" }],
@@ -76,8 +80,17 @@ export async function getNilaiPerTahun(f: Pick<Filter, "unit" | "kategori">) {
   const rows = new Map<number, Record<string, number | string>>();
   for (const x of g) {
     const r = rows.get(x.tahun) ?? { tahun: String(x.tahun) };
-    r[x.tahap] = x._sum.nilai ?? 0;
+    const v = x._sum.nilai ?? 0;
+    r[x.tahap] = Number(r[x.tahap] ?? 0) + v;
+    if (x.serapan) r[`${x.tahap}__serap`] = Number(r[`${x.tahap}__serap`] ?? 0) + v;
     rows.set(x.tahun, r);
+  }
+  for (const r of rows.values()) {
+    for (const t of tahapKeys) {
+      if (r[t] == null) continue;
+      r[`${t}__serap`] = Number(r[`${t}__serap`] ?? 0);
+      r[`${t}__selisih`] = Number(r[t]) - Number(r[`${t}__serap`]);
+    }
   }
   return { data: [...rows.values()], tahapKeys: [...tahapKeys] };
 }

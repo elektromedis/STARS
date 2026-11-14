@@ -57,7 +57,7 @@ export async function ubahPengguna(_prev: StatusAksi, fd: FormData): Promise<Sta
   // tidak dikirim browser — akun sendiri selalu dianggap tetap aktif.
   const aktif = sayaSendiri ? true : d.aktif;
   if (sayaSendiri && !cukup(d.peran as Peran, "Admin")) return { error: "Anda tidak dapat menurunkan peran akun sendiri." };
-  await prisma.pengguna.update({ where: { id: d.id }, data: { nama: d.nama, email: d.email, peran: d.peran, unitKerjaId: d.unitKerjaId ?? null, aktif, ...(aktif ? { terkunciSampai: null, gagalLogin: 0 } : {}) } });
+  await prisma.pengguna.update({ where: { id: d.id }, data: { nama: d.nama, email: d.email, peran: d.peran, unitKerjaId: d.unitKerjaId ?? null, aktif, ...(aktif ? { terkunciSampai: null, gagalLogin: 0, menunggu: false } : {}) } });
   await audit("pengguna.ubah", { email: s.user.email, ip: await ip(), objek: d.email, detail: `peran ${d.peran}, aktif ${aktif}, unit ${d.unitKerjaId ?? "semua"}` });
   revalidatePath("/admin/pengguna");
   return { ok: `Pengguna ${d.email} diperbarui.` };
@@ -74,4 +74,33 @@ export async function setelUlangSandi(_prev: StatusAksi, fd: FormData): Promise<
   await audit("pengguna.sandi", { email: s.user.email, ip: await ip(), objek: target.email });
   revalidatePath("/admin/pengguna");
   return { ok: `Sandi ${target.email} disetel ulang.` };
+}
+
+const skemaSetujui = z.object({ id: z.coerce.number().int().positive(), peran: z.enum(PERAN), unitKerjaId: z.coerce.number().int().positive().nullable().optional() });
+
+/** Menyetujui pendaftar mandiri (/daftar): aktifkan dengan peran & batas unit pilihan Admin. */
+export async function setujuiPendaftar(_prev: StatusAksi, fd: FormData): Promise<StatusAksi> {
+  const parsed = skemaSetujui.safeParse({ id: fd.get("id"), peran: fd.get("peran"), unitKerjaId: fd.get("unitKerjaId") || null });
+  if (!parsed.success) return { error: pesanZod(parsed.error) };
+  const { s, error } = await pemeriksa(parsed.data.peran);
+  if (!s) return { error: error! };
+  const t = await prisma.pengguna.findUnique({ where: { id: parsed.data.id } });
+  if (!t || !t.menunggu) return { error: "Pendaftar tidak ditemukan atau sudah diproses." };
+  await prisma.pengguna.update({ where: { id: t.id }, data: { aktif: true, menunggu: false, peran: parsed.data.peran, unitKerjaId: parsed.data.unitKerjaId ?? null, gagalLogin: 0, terkunciSampai: null } });
+  await audit("pengguna.setujui", { email: s.user.email, ip: await ip(), objek: t.email, detail: `peran ${parsed.data.peran}, unit ${parsed.data.unitKerjaId ?? "semua"}` });
+  revalidatePath("/admin/pengguna");
+  return { ok: `${t.email} disetujui sebagai ${parsed.data.peran}.` };
+}
+
+/** Menolak pendaftar mandiri: akun yang belum pernah aktif dihapus. */
+export async function tolakPendaftar(_prev: StatusAksi, fd: FormData): Promise<StatusAksi> {
+  const id = Number(fd.get("id"));
+  const { s, error } = await pemeriksa();
+  if (!s) return { error: error! };
+  const t = Number.isInteger(id) && id > 0 ? await prisma.pengguna.findUnique({ where: { id } }) : null;
+  if (!t || !t.menunggu) return { error: "Pendaftar tidak ditemukan atau sudah diproses." };
+  await prisma.pengguna.delete({ where: { id: t.id } });
+  await audit("pengguna.tolak", { email: s.user.email, ip: await ip(), objek: t.email });
+  revalidatePath("/admin/pengguna");
+  return { ok: `Pendaftaran ${t.email} ditolak & dihapus.` };
 }

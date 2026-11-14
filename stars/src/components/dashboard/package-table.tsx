@@ -29,8 +29,8 @@ function KepalaUrut({ kolom, label, pengurutan, className }: { kolom: KolomUrut;
 }
 
 /**
- * `ringkas` = untuk kartu sempit (dashboard): kolom Kode, Unit & Kategori dilipat ke bawah nama paket.
- * `dokumen` = tampilkan 5 kolom dokumen pendukung (kategori pindah ke bawah nama paket agar muat).
+ * `ringkas` = untuk kartu sempit (dashboard): kolom Kode, Unit & Kategori dilipat ke bawah nama komponen.
+ * `dokumen` = tampilkan 5 kolom dokumen pendukung (kategori pindah ke bawah nama komponen agar muat).
  * `pengurutan` = header dapat diklik untuk mengurutkan (panah kecil).
  */
 export function PackageTable({ rows, kosong = "Tidak ada paket untuk filter ini.", tampilTahap = false, ringkas = false, dokumen = false, pengurutan }: {
@@ -43,7 +43,7 @@ export function PackageTable({ rows, kosong = "Tidak ada paket untuk filter ini.
       <TableHeader>
         <TableRow className="hover:bg-transparent">
           {!ringkas && <KepalaUrut kolom="kode" label="Kode" pengurutan={pengurutan} />}
-          <KepalaUrut kolom="nama" label="Nama Paket" pengurutan={pengurutan} />
+          <KepalaUrut kolom="nama" label="Nama Komponen" pengurutan={pengurutan} />
           {!ringkas && <KepalaUrut kolom="unit" label="Unit Kerja" pengurutan={pengurutan} className="hidden md:table-cell" />}
           {tampilKategori && <KepalaUrut kolom="kategori" label="Kategori" pengurutan={pengurutan} className="hidden lg:table-cell" />}
           <KepalaUrut kolom="nilai" label="Nilai" pengurutan={pengurutan} className="text-right" />

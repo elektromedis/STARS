@@ -62,7 +62,7 @@ export default async function DokumenPage({ searchParams }: { searchParams: Prom
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
-              <TableHead>Kode</TableHead><TableHead>Nama Paket</TableHead><TableHead className="hidden md:table-cell">Unit</TableHead>
+              <TableHead>Kode</TableHead><TableHead>Nama Komponen</TableHead><TableHead className="hidden md:table-cell">Unit</TableHead>
               <TableHead className="hidden text-right lg:table-cell">Nilai</TableHead><TableHead>Dokumen</TableHead><TableHead />
             </TableRow>
           </TableHeader>

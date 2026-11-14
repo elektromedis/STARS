@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   darkMode: ["class"],
@@ -34,6 +35,11 @@ const config: Config = {
       boxShadow: { card: "0 1px 2px rgba(11,37,69,0.04), 0 4px 16px rgba(11,37,69,0.05)" },
     },
   },
-  plugins: [animate],
+  plugins: [
+    animate,
+    // varian `short:` = layar pendek (ponsel/tablet mendatar): menu cepat diperkecil. Sengaja plugin, bukan `screens`,
+    // agar varian bawaan min-[…]/max-[…] tetap berfungsi.
+    plugin(({ addVariant }) => addVariant("short", "@media (max-height: 560px)")),
+  ],
 };
 export default config;

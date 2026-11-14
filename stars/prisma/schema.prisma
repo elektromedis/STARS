@@ -53,9 +53,27 @@ model Pengguna {
   gagalLogin     Int             @default(0)
   terkunciSampai DateTime?
   terakhirLogin  DateTime?
+  /// true = mendaftar sendiri lewat /daftar dan belum disetujui Admin (selalu aktif=false sampai disetujui)
+  menunggu       Boolean         @default(false)
+  /// isian pendaftar: jabatan/keperluan (dibaca Admin saat menyetujui)
+  catatanDaftar  String?
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @updatedAt
   perintahKerja  PerintahKerja[] @relation("TeknisiPerintah")
+  tokenSandi     TokenSandi[]
+}
+
+/// Token sekali pakai "lupa sandi" (dikirim lewat email). Yang disimpan hanya sidik SHA-256; berlaku 30 menit.
+model TokenSandi {
+  id          Int       @id @default(autoincrement())
+  pengguna    Pengguna  @relation(fields: [penggunaId], references: [id], onDelete: Cascade)
+  penggunaId  Int
+  hash        String    @unique
+  kedaluwarsa DateTime
+  dipakai     DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([penggunaId])
 }
 
 /// Jejak aktivitas keamanan & administrasi (login, impor, kelola pengguna, cadangan, sinkron).

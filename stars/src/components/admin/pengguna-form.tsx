@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { buatPengguna, setelUlangSandi, ubahPengguna, type StatusAksi } from "@/app/admin/pengguna/actions";
+import { buatPengguna, setelUlangSandi, setujuiPendaftar, tolakPendaftar, ubahPengguna, type StatusAksi } from "@/app/admin/pengguna/actions";
 
 type Unit = { id: number; nama: string };
 
@@ -94,6 +94,32 @@ export function BarisPengguna({ pengguna: p, units, peranBoleh, sayaSendiri }: {
           <Pesan status={stSandi} />
         </form>
       )}
+    </div>
+  );
+}
+
+/** Satu pendaftar mandiri yang menunggu persetujuan: pilih peran & unit lalu Setujui, atau Tolak. */
+export function BarisPendaftar({ p, units, peranBoleh }: {
+  p: { id: number; nama: string; email: string; unitKerjaId: number | null; unitKerja: string | null; catatan: string | null; dibuat: string };
+  units: Unit[]; peranBoleh: string[];
+}) {
+  const [stS, aksiS, pS] = useActionState<StatusAksi, FormData>(setujuiPendaftar, undefined);
+  const [stT, aksiT, pT] = useActionState<StatusAksi, FormData>(tolakPendaftar, undefined);
+  const tgl = new Intl.DateTimeFormat("id-ID", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Jakarta" }).format(new Date(p.dibuat));
+  return (
+    <div className="rounded-lg border border-amber-200 bg-amber-50/50 p-3">
+      <div className="font-medium text-navy-800">{p.nama} <Badge variant="warning" className="ml-1">Menunggu</Badge></div>
+      <div className="text-xs text-muted-foreground">{p.email} • daftar {tgl}{p.unitKerja ? ` • unit ${p.unitKerja}` : ""}</div>
+      {p.catatan && <p className="mt-1 text-sm text-navy-800">&ldquo;{p.catatan}&rdquo;</p>}
+      <form action={aksiS} className="mt-3 grid gap-3 border-t pt-3 sm:grid-cols-3 sm:items-end">
+        <input type="hidden" name="id" value={p.id} />
+        <PilihanPeranUnit units={units} peranBoleh={peranBoleh.length ? peranBoleh : ["Viewer"]} peran="Viewer" unitKerjaId={p.unitKerjaId} />
+        <div className="flex flex-wrap gap-2">
+          <Button type="submit" size="sm" disabled={pS || pT}>{pS ? <Loader2 className="animate-spin" /> : <CheckCircle2 />} Setujui</Button>
+          <Button type="submit" size="sm" variant="outline" formAction={aksiT} disabled={pS || pT} className="text-red-700">{pT ? <Loader2 className="animate-spin" /> : <XCircle />} Tolak</Button>
+        </div>
+      </form>
+      <div className="mt-2"><Pesan status={stS ?? stT} /></div>
     </div>
   );
 }

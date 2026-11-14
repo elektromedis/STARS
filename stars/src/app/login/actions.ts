@@ -17,7 +17,7 @@ export async function masuk(_sebelumnya: StatusLogin, formData: FormData): Promi
     await signIn("credentials", { email: formData.get("email"), password: formData.get("password"), redirect: false });
   } catch (e) {
     if (e instanceof AuthError) {
-      return { error: "Email atau sandi salah, akun nonaktif/terkunci, atau terlalu banyak percobaan. Coba lagi dalam beberapa menit." };
+      return { error: "Email atau sandi salah, akun belum disetujui Admin/nonaktif/terkunci, atau terlalu banyak percobaan. Coba lagi dalam beberapa menit." };
     }
     throw e;
   }

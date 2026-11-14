@@ -54,3 +54,51 @@
  * anak grid boleh menyempit dan isinya menggulir/terpotong di dalam kartu. :where() = spesifisitas 0, jadi kelas min-w-* tetap berlaku.
  */
 :where(.grid > *) { min-width: 0; }
+
+/* Bilah serapan pada ringkasan selisih (charts/tahun-chart.tsx): tumbuh dari kiri */
+.selisih-isi { transform-origin: left; animation: selisih-tumbuh 1.1s cubic-bezier(.22,1,.36,1) .4s both; }
+@keyframes selisih-tumbuh { from { transform: scaleX(0); } }
+
+/* Lencana "Data Tersinkron" (layout/status-sinkron.tsx): titik berdenyut + kilat saat waktu berganti */
+.sinkron-denyut { animation: sinkron-denyut 2s ease-out infinite; }
+@keyframes sinkron-denyut { 0% { box-shadow: 0 0 0 0 rgba(22,163,74,.55); } 70%, 100% { box-shadow: 0 0 0 7px rgba(22,163,74,0); } }
+.sinkron-kilat { animation: sinkron-kilat 1.2s ease-out; }
+@keyframes sinkron-kilat { 0% { background-color: #bbf7d0; transform: scale(1.04); } 100% { transform: scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .selisih-isi, .sinkron-denyut, .sinkron-kilat { animation: none; }
+}
+
+/* ALLIES — diagram siklus (components/allies/diagram-siklus.tsx) */
+.allies-orbit { transform-box: view-box; transform-origin: 320px 320px; animation: stars-putar 18s linear infinite; }
+.allies-denyut { transform-box: fill-box; transform-origin: center; animation: allies-denyut 6s ease-in-out infinite; }
+@keyframes allies-denyut { 0%, 12%, 100% { transform: scale(1); opacity: .18; } 6% { transform: scale(1.35); opacity: .45; } }
+.allies-alir { animation: allies-alir 1.4s linear infinite; }
+@keyframes allies-alir { to { stroke-dashoffset: -36; } }
+@media (prefers-reduced-motion: reduce) {
+  .allies-orbit, .allies-denyut, .allies-alir { animation: none; }
+}
+
+/*
+ * Animasi halaman gaya apple.com:
+ * - .halaman-masuk (app/template.tsx): tiap pindah halaman konten naik & memudar masuk (fill "backwards" → setelah selesai
+ *   tidak menyisakan transform, jadi elemen fixed/sticky di dalam halaman tetap normal).
+ * - .muncul: kartu & judul bagian muncul saat digulir ke layar memakai scroll-driven animation (CSS murni, tanpa JS).
+ *   Peramban yang belum mendukung animation-timeline langsung menampilkan isi apa adanya.
+ */
+.halaman-masuk { animation: halaman-masuk .6s cubic-bezier(.22,1,.36,1) backwards; }
+@keyframes halaman-masuk { from { opacity: 0; transform: translateY(16px); } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .muncul { animation: muncul-naik linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; }
+  }
+}
+@keyframes muncul-naik { from { opacity: 0; transform: translateY(36px) scale(.98); } to { opacity: 1; transform: none; } }
+.hero-cahaya { animation: hero-cahaya 12s ease-in-out infinite alternate; }
+@keyframes hero-cahaya { from { transform: translate(0, 0) scale(1); } to { transform: translate(-80px, 60px) scale(1.25); } }
+@media (prefers-reduced-motion: reduce) {
+  .halaman-masuk, .muncul, .hero-cahaya { animation: none; }
+}
+@media print {
+  .halaman-masuk, .muncul { animation: none !important; opacity: 1 !important; transform: none !important; }
+}

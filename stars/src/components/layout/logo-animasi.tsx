@@ -46,16 +46,20 @@ export function LogoIkon({ className }: { className?: string }) {
   );
 }
 
-/** Logo STARS lengkap untuk latar gelap (hero dashboard): ikon + nama sistem, tanpa kotak putih. */
-export function LogoAnimasi({ className }: { className?: string }) {
+/**
+ * Logo STARS lengkap beranimasi: ikon + nama sistem, tanpa kotak putih.
+ * Bawaan untuk latar gelap (hero dashboard); `terang` = teks navy untuk latar putih (halaman Masuk/Daftar).
+ */
+export function LogoAnimasi({ className, terang = false }: { className?: string; terang?: boolean }) {
+  const [judul, sub, slogan] = terang ? ["#0B2545", "#25507F", "#0E8089"] : ["#FFFFFF", "#D6E2F0", "#5CD0D5"];
   return (
     <svg viewBox="0 0 1260 420" className={cn("stars-logo h-auto font-sans", className)} role="img" aria-labelledby="stars-logo-judul">
       <title id="stars-logo-judul">STARS — Sistem Terintegrasi Alat Kesehatan Rumah Sakit</title>
       <IkonStars />
-      <text x="468" y="236" fill="#FFFFFF" fontSize="124" fontWeight="800" letterSpacing="6">STARS</text>
+      <text x="468" y="236" fill={judul} fontSize="124" fontWeight="800" letterSpacing="6">STARS</text>
       <rect x="474" y="266" width="76" height="9" rx="4.5" fill={TEAL} />
-      <text x="470" y="330" fill="#D6E2F0" fontSize="33" fontWeight="500">Sistem Terintegrasi Alat Kesehatan Rumah Sakit</text>
-      <text x="472" y="386" fill="#5CD0D5" fontSize="19" fontWeight="700" letterSpacing="4.5">MONITOR • ANALYZE • CONNECT</text>
+      <text x="470" y="330" fill={sub} fontSize="33" fontWeight="500">Sistem Terintegrasi Alat Kesehatan Rumah Sakit</text>
+      <text x="472" y="386" fill={slogan} fontSize="19" fontWeight="700" letterSpacing="4.5">MONITOR • ANALYZE • CONNECT</text>
     </svg>
   );
 }

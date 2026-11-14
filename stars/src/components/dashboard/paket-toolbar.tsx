@@ -33,7 +33,7 @@ export function PaketToolbar({ q, status }: { q: string; status: string }) {
     >
       <div className="relative flex-1">
         <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
-        <Input value={teks} onChange={(e) => setTeks(e.target.value)} placeholder="Cari nama paket, uraian, rekening, atau kode…" className="pl-9" aria-label="Cari paket" />
+        <Input value={teks} onChange={(e) => setTeks(e.target.value)} placeholder="Cari nama komponen, uraian, rekening, atau kode…" className="pl-9" aria-label="Cari paket" />
       </div>
       <div className="sm:w-48">
         <Select value={status} onChange={(e) => apply({ status: e.target.value })} aria-label="Status serapan">

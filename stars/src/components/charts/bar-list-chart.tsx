@@ -6,7 +6,7 @@ import { formatAxis, formatRupiah } from "@/lib/utils";
 export function BarListChart({ data, label = "Grafik batang nilai per unit kerja" }: { data: { name: string; value: number }[]; label?: string }) {
   if (data.length === 0) return <p className="flex h-72 items-center justify-center text-sm text-muted-foreground">Tidak ada data untuk filter ini.</p>;
   return (
-    <div className="h-72 w-full" role="img" aria-label={label}>
+    <div className="h-72 w-full overflow-x-clip" role="img" aria-label={label}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} layout="vertical" margin={{ top: 0, right: 16, left: 8, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" horizontal={false} />

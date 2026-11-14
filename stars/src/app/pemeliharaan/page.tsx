@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatCard } from "@/components/dashboard/stat-card";
+import { BatangHitung } from "@/components/dashboard/batang-hitung";
 import { PageHeader } from "@/components/dashboard/page-header";
 import { formatNumber } from "@/lib/utils";
 import { batasUnit, getRingkasanPemeliharaan } from "@/lib/pemeliharaan-ringkasan";
@@ -17,23 +18,6 @@ import { InventarisAlat, type ParamInventaris } from "@/components/pemeliharaan/
 
 export const metadata: Metadata = { title: "Pemeliharaan & Inventaris Alat Kesehatan" };
 export const dynamic = "force-dynamic";
-
-/** Daftar batang sederhana (tanpa JS) untuk hitungan. */
-function Batang({ data, warna = "bg-teal-500" }: { data: { label: string; nilai: number }[]; warna?: string }) {
-  const maks = Math.max(1, ...data.map((d) => d.nilai));
-  if (data.every((d) => d.nilai === 0)) return <p className="py-6 text-center text-sm text-muted-foreground">Belum ada data.</p>;
-  return (
-    <ul className="space-y-2">
-      {data.map((d) => (
-        <li key={d.label} className="grid grid-cols-[7rem_1fr_2.5rem] items-center gap-2 text-sm">
-          <span className="truncate text-muted-foreground">{d.label}</span>
-          <span className="h-3 overflow-hidden rounded-full bg-muted"><span className={`block h-full rounded-full ${warna}`} style={{ width: `${(d.nilai / maks) * 100}%` }} /></span>
-          <span className="text-right tabular-nums font-medium text-navy-800">{formatNumber(d.nilai)}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 type Sp = Record<string, string | string[] | undefined>;
 const satu = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v)?.trim() ?? "";
@@ -80,9 +64,9 @@ export default async function PemeliharaanPublikPage({ searchParams }: { searchP
         <StatCard label="Kalibrasi kedaluwarsa / tidak laik" value={formatNumber(r.kalKedaluwarsa)} hint={`${formatNumber(r.kalSegera)} habis ≤30 hari · ${formatNumber(r.kalLaik)} berlaku`} />
       </section>
       <section className="mb-6 grid gap-4 lg:grid-cols-3">
-        <Card><CardHeader><CardTitle>Kondisi alat</CardTitle><CardDescription>{formatNumber(r.alatMedik + r.alatNon)} alat aktif terdaftar</CardDescription></CardHeader><CardContent><Batang data={kond} /></CardContent></Card>
-        <Card><CardHeader><CardTitle>Laporan kerusakan</CardTitle><CardDescription>Menurut status</CardDescription></CardHeader><CardContent><Batang data={permintaan} warna="bg-amber-500" /></CardContent></Card>
-        <Card><CardHeader><CardTitle>Perintah kerja</CardTitle><CardDescription>Menurut status</CardDescription></CardHeader><CardContent><Batang data={perintah} warna="bg-navy-700" /></CardContent></Card>
+        <Card><CardHeader><CardTitle>Kondisi alat</CardTitle><CardDescription>{formatNumber(r.alatMedik + r.alatNon)} alat aktif terdaftar</CardDescription></CardHeader><CardContent><BatangHitung data={kond} /></CardContent></Card>
+        <Card><CardHeader><CardTitle>Laporan kerusakan</CardTitle><CardDescription>Menurut status</CardDescription></CardHeader><CardContent><BatangHitung data={permintaan} warna="bg-amber-500" /></CardContent></Card>
+        <Card><CardHeader><CardTitle>Perintah kerja</CardTitle><CardDescription>Menurut status</CardDescription></CardHeader><CardContent><BatangHitung data={perintah} warna="bg-navy-700" /></CardContent></Card>
       </section>
       <section className="grid gap-4 md:grid-cols-2">
         <Card><CardHeader><CardTitle className="flex items-center gap-2"><Activity className="size-4 text-teal-700" /> Waktu tanggap rata-rata</CardTitle><CardDescription>Dari laporan masuk sampai perintah kerja dibuat ({formatNumber(woSelesaiTautan.length)} WO selesai)</CardDescription></CardHeader><CardContent><p className="text-3xl font-bold text-navy-800">{jam(rataRespon)}</p></CardContent></Card>

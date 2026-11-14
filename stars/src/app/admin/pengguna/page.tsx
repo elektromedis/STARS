@@ -3,22 +3,37 @@ import { prisma } from "@/lib/prisma";
 import { sesiHalaman } from "@/lib/sesi";
 import { PERAN, PERAN_KETERANGAN } from "@/lib/peran";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { FormPenggunaBaru, BarisPengguna } from "@/components/admin/pengguna-form";
+import { FormPenggunaBaru, BarisPengguna, BarisPendaftar } from "@/components/admin/pengguna-form";
 
 export const metadata: Metadata = { title: "Pengguna" };
 export const dynamic = "force-dynamic";
 
 export default async function PenggunaPage() {
   const s = await sesiHalaman("Admin");
-  const [pengguna, units] = await Promise.all([
-    prisma.pengguna.findMany({ orderBy: [{ aktif: "desc" }, { nama: "asc" }], include: { unitKerja: { select: { nama: true } } } }),
+  const [pengguna, units, pendaftar] = await Promise.all([
+    prisma.pengguna.findMany({ where: { menunggu: false }, orderBy: [{ aktif: "desc" }, { nama: "asc" }], include: { unitKerja: { select: { nama: true } } } }),
     prisma.unitKerja.findMany({ orderBy: { urut: "asc" }, select: { id: true, nama: true } }),
+    prisma.pengguna.findMany({ where: { menunggu: true }, orderBy: { createdAt: "asc" }, include: { unitKerja: { select: { nama: true } } } }),
   ]);
   const superAdmin = s.user.peran === "Super Admin";
   const peranBoleh = superAdmin ? [...PERAN] : PERAN.filter((p) => p !== "Super Admin");
 
   return (
     <div className="grid gap-4">
+      {pendaftar.length > 0 && (
+        <Card className="border-amber-300">
+          <CardHeader>
+            <CardTitle>Menunggu persetujuan ({pendaftar.length})</CardTitle>
+            <CardDescription>Pendaftaran mandiri dari halaman Daftar. Periksa identitasnya, tentukan peran & unit, lalu Setujui. Tolak = data pendaftar dihapus.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-3">
+            {pendaftar.map((p) => (
+              <BarisPendaftar key={p.id} units={units} peranBoleh={peranBoleh}
+                p={{ id: p.id, nama: p.nama, email: p.email, unitKerjaId: p.unitKerjaId, unitKerja: p.unitKerja?.nama ?? null, catatan: p.catatanDaftar, dibuat: p.createdAt.toISOString() }} />
+            ))}
+          </CardContent>
+        </Card>
+      )}
       <Card>
         <CardHeader>
           <CardTitle>Tambah pengguna</CardTitle>

@@ -87,7 +87,7 @@ async function pdfDataset(slug: string, filter: Filter) {
     const kolom: KolomPdf[] = [
       { kunci: "no", label: "No", lebar: 9, rata: "center" },
       { kunci: "kode", label: gabungan ? "Kode / Tahap" : "Kode", lebar: 27 },
-      { kunci: "nama_paket", label: "Nama Paket" },
+      { kunci: "nama_paket", label: "Nama Komponen" },
       { kunci: "unit", label: "Unit", lebar: 24 },
       { kunci: "kategori", label: "Kategori", lebar: 30 },
       { kunci: "vol", label: "Volume", lebar: 24 },

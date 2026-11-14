@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { tujuanAman } from "@/lib/alamat";
-import { LogoFull } from "@/components/layout/logo";
+import { BingkaiAkun } from "@/components/akun/bingkai-akun";
 import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = { title: "Masuk" };
@@ -13,12 +13,8 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   const { callbackUrl } = await searchParams;
   if (s?.user) redirect(tujuanAman(callbackUrl)); // sudah login (mis. tab lain) → langsung ke tujuan
   return (
-    <div className="mx-auto max-w-md py-8">
-      <div className="mb-6 flex justify-center"><LogoFull width={260} /></div>
+    <BingkaiAkun catatan={<>Akun baru aktif setelah disetujui Admin STARS. Setelah 10 kali sandi salah, akun terkunci 15 menit.</>}>
       <LoginForm callbackUrl={tujuanAman(callbackUrl)} />
-      <p className="mt-4 text-center text-xs text-muted-foreground">
-        Akun dibuat oleh Admin STARS. Lupa sandi? Hubungi Admin untuk disetel ulang. Setelah 10 kali sandi salah, akun terkunci 15 menit.
-      </p>
-    </div>
+    </BingkaiAkun>
   );
 }

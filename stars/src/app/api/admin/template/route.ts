@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
   if (req.nextUrl.searchParams.get("format") === "pdf") {
     const kolom: KolomPdf[] = [
       { kunci: "no", label: "No", lebar: 8, rata: "center" },
-      { kunci: "nama_paket", label: "Nama Paket / Pekerjaan" },
+      { kunci: "nama_paket", label: "Nama Komponen / Pekerjaan" },
       { kunci: "uraian", label: "Uraian", lebar: 30 },
       { kunci: "unit_kerja", label: "Unit Kerja", lebar: 24 },
       { kunci: "vol1", label: "Vol", lebar: 10, rata: "center" },

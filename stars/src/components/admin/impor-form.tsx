@@ -128,7 +128,7 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
               <div className="overflow-hidden rounded-lg border">
                 <p className="border-b bg-muted/50 px-4 py-2 text-xs font-medium text-muted-foreground">Pratinjau {hasil.pratinjau.length} baris pertama yang valid</p>
                 <Table>
-                  <TableHeader><TableRow className="hover:bg-transparent"><TableHead>Kode</TableHead><TableHead>Status</TableHead><TableHead>Tahun/Tahap</TableHead><TableHead>Nama Paket</TableHead><TableHead>Unit</TableHead><TableHead className="hidden md:table-cell">Kategori</TableHead><TableHead className="text-right">Nilai</TableHead></TableRow></TableHeader>
+                  <TableHeader><TableRow className="hover:bg-transparent"><TableHead>Kode</TableHead><TableHead>Status</TableHead><TableHead>Tahun/Tahap</TableHead><TableHead>Nama Komponen</TableHead><TableHead>Unit</TableHead><TableHead className="hidden md:table-cell">Kategori</TableHead><TableHead className="text-right">Nilai</TableHead></TableRow></TableHeader>
                   <TableBody>
                     {hasil.pratinjau.map((p) => (
                       <TableRow key={p.kode}>

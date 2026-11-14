@@ -14,7 +14,12 @@ Susunan materi = urutan sesi pelatihan. Rekam layar saat sesi berlangsung untuk 
 
 1. Klik **Masuk** → isi email + sandi yang diberikan Admin.
 2. Peran Anda **Operator**: boleh mengunggah dan mengekspor data **unit Anda sendiri** saja.
-3. Salah sandi 5× = diblokir sementara (±15 menit). Lupa sandi → hubungi Admin (Elektromedik).
+3. Salah sandi 5× = diblokir sementara (±15 menit). Ketuk ikon **mata** di kolom sandi untuk melihat isian.
+   - **Lupa sandi?** (di atas kolom sandi): isi email → tautan *buat sandi baru* dikirim ke email (berlaku 30 menit,
+     sekali pakai). Bila server email belum diatur, permintaan dicatat dan Admin menyetel ulang sandi.
+   - **Belum punya akun?** → *Daftar akun baru*: isi nama, email, unit, jabatan/keperluan, dan sandi.
+     Akun baru **aktif setelah disetujui Admin** (Admin → Pengguna → *Menunggu persetujuan* → pilih peran & unit →
+     **Setujui** atau **Tolak**).
 4. Sesi habis setelah 8 jam — login ulang adalah hal normal.
 5. Login dan menu **Admin** bisa dipakai dari mana saja: komputer RS (`http://<IP-server>:3000`) maupun
    HP/rumah lewat alamat **https STARS** (mis. `https://….ts.net`). Login berlaku per alamat — bila pindah
@@ -189,3 +194,20 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
 | "nilai ≠ vol × harga" (peringatan) | Perkalian tidak pas (sering karena PPN) | Boleh lanjut bila memang begitu di kertas kerja |
 | "bukan unit Anda (baris N)" | Operator hanya boleh unit sendiri | Hapus baris itu / minta operator unit ybs. |
 | Tombol Simpan tidak aktif | Masih ada error merah | Perbaiki semua error, Periksa ulang |
+
+## ALLIES — agen pengelolaan alat medik
+
+Menu **ALLIES** membantu siklus alat dari **Analisa Kebutuhan** sampai **Penghapusan**, lalu mengulang siklus
+Pre-Market → Post-Market untuk alat penggantinya. ALLIES **tidak memakai AI eksternal**: semua jawaban dihitung
+dari data STARS (inventaris, perintah kerja, kalibrasi, dokumen alat), dan pertanyaan tidak disimpan.
+
+- **Diagram siklus 10 tahap**: angka di tiap simpul adalah jumlah alat yang sedang berada di tahap itu.
+- **Tanya ALLIES**: ketik nama/kode alat, "kalibrasi jatuh tempo", "alat yang perlu diganti", atau nama tahap
+  (mis. "pengadaan", "penghapusan").
+- **Kartu siklus alat**: posisi satu alat di tahap 1–10, skor kelayakan penghapusan (0–100) beserta alasannya, dan saran tindakan.
+- **Skor penghapusan** = umur vs umur teknis (maks 35) + kondisi (maks 40) + biaya perbaikan kumulatif vs harga perolehan (maks 25)
+  + perbaikan korektif 12 bulan (maks 20) + hasil kalibrasi (maks 15).
+  ≥ 70 usulkan penghapusan, ≥ 45 rencanakan penggantian, ≥ 25 pantau ketat.
+  Skor hanya alat bantu telaah; keputusan tetap lewat telaah teknis & prosedur BMD.
+- Agar penilaian akurat, lengkapi **tahun perolehan**, **harga perolehan**, dan **umur teknis** alat (umur teknis kosong = asumsi 8 tahun),
+  serta isi **biaya** di setiap perintah kerja.

@@ -32,6 +32,11 @@ services:
       STARS_MODE: ${STARS_MODE:-intranet}
       SYNC_TOKEN: ${SYNC_TOKEN:-}
       STARS_URL_PUBLIK: ${STARS_URL_PUBLIK:-}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-}
     volumes:
       - stars_data:/app/data
       - stars_uploads:/app/uploads

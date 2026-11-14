@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Logo } from "./logo";
+import { StatusSinkron } from "./status-sinkron";
 
 export function Header({ onMenuClick }: { onMenuClick: () => void }) {
   return (
@@ -22,7 +23,8 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
       </form>
 
       <div className="ml-auto flex items-center gap-2">
-        <Badge variant="teal" className="hidden sm:inline-flex"><Database className="mr-1 size-3" /> Data RKPBU BLUD</Badge>
+        <StatusSinkron className="hidden sm:inline-flex" />
+        <Badge variant="teal" className="hidden 2xl:inline-flex"><Database className="mr-1 size-3" /> Data RKPBU BLUD</Badge>
         <Button variant="ghost" size="icon" className="sm:hidden" aria-label="Cari" asChild><a href="/paket"><Search className="size-5" /></a></Button>
         <Button variant="outline" size="sm" asChild title="Masuk ke area administrasi"><Link href="/admin"><LogIn /> Masuk</Link></Button>
       </div>
