@@ -503,3 +503,11 @@ model InspeksiPantau {
 
   @@unique([lokasiId, tanggal, sesi])
 }
+
+/// Pengaturan sistem sederhana (kunci-nilai), mis. nomor WhatsApp admin untuk laporan kerusakan.
+model Pengaturan {
+  kunci      String   @id
+  nilai      String
+  diubahOleh String?
+  updatedAt  DateTime @updatedAt
+}

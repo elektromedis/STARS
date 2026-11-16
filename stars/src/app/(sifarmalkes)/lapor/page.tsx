@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Wrench } from "lucide-react";
 import { prisma } from "@/lib/prisma";
+import { KUNCI, bacaPengaturan } from "@/lib/pengaturan";
 import { LaporForm, type AlatQr, type SaranLokasi } from "./lapor-form";
 
 export const metadata: Metadata = { title: "Lapor Kerusakan Alat" };
@@ -70,7 +71,7 @@ export default async function LaporPage({ searchParams }: { searchParams: Promis
           <p className="mt-1 text-sm text-navy-100">Laporkan alat kesehatan atau sarana yang rusak/bermasalah. Tidak perlu akun — cukup isi formulir di bawah, atau scan QR pada alat.</p>
         </div>
       </section>
-      <LaporForm units={units} lokasi={lokasi} kandidat={qr.kandidat} pesanQr={qr.pesan} />
+      <LaporForm waAdmin={await bacaPengaturan(KUNCI.waAdminLapor)} units={units} lokasi={lokasi} kandidat={qr.kandidat} pesanQr={qr.pesan} />
     </div>
   );
 }

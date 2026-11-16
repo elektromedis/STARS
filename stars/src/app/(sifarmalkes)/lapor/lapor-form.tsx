@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { Building2, Camera, CheckCircle2, ExternalLink, History, Loader2, MapPin, ScanQrCode, Search, Send, Video, X, XCircle } from "lucide-react";
+import { Building2, Camera, ExternalLink, Loader2, MapPin, ScanQrCode, Search, Send, Video, X, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -13,6 +13,7 @@ import { MAKS_FOTO_LAPOR, MAKS_VIDEO_LAPOR, TERIMA_FOTO_LAPOR, TERIMA_VIDEO_LAPO
 import { urlDetailAlat } from "@/lib/dokumen-alat";
 import { bukaScan, tambahLaporanSaya } from "@/lib/lokal";
 import { cn } from "@/lib/utils";
+import { SuksesLapor, type RingkasanLapor } from "./sukses-lapor";
 
 type Unit = { id: number; nama: string };
 export type SaranLokasi = { teks: string; unitKerjaId: number; gedung: string | null };
@@ -37,9 +38,9 @@ async function perkecilFoto(f: File): Promise<File> {
   } catch { return f; }
 }
 
-type Kirim = { tahap: "isi" | "kirim" | "selesai"; persen: number; error: string | null; nomor?: string };
+type Kirim = { tahap: "isi" | "kirim" | "selesai"; persen: number; error: string | null; nomor?: string; ringkasan?: RingkasanLapor };
 
-export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr = null }: { units: Unit[]; lokasi: SaranLokasi[]; kandidat?: AlatQr[]; pesanQr?: string | null }) {
+export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr = null, waAdmin = null }: { units: Unit[]; lokasi: SaranLokasi[]; kandidat?: AlatQr[]; pesanQr?: string | null; waAdmin?: string | null }) {
   const awal = kandidat.length === 1 ? kandidat[0] : null;
   const [alat, setAlat] = useState<AlatQr | null>(awal);
   const [namaAlat, setNamaAlat] = useState(awal?.nama ?? kandidat[0]?.nama ?? "");
@@ -125,7 +126,13 @@ export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr 
       try { data = JSON.parse(xhr.responseText); } catch { /* bukan JSON */ }
       if (xhr.status === 200 && data.nomor && data.kodeLacak) {
         tambahLaporanSaya({ nomor: data.nomor, kode: data.kodeLacak, namaAlat: String(fd.get("namaAlat") ?? ""), waktu: new Date().toISOString() });
-        setKirim({ tahap: "selesai", persen: 100, error: null, nomor: data.nomor });
+        const t = (k: string) => String(fd.get(k) ?? "").trim() || null;
+        const ringkasan: RingkasanLapor = {
+          nomor: data.nomor, kode: data.kodeLacak, namaAlat: t("namaAlat") ?? "-", kodeAlat: alat?.kode ?? null,
+          unit: units.find((u) => String(u.id) === unitId)?.nama ?? null, lokasi: t("lokasi"),
+          pelapor: t("pelapor") ?? "-", kontak: t("kontak"), prioritas: t("prioritas") ?? "Normal", keluhan: t("keluhan") ?? "-", waktu: new Date().toISOString(),
+        };
+        setKirim({ tahap: "selesai", persen: 100, error: null, nomor: data.nomor, ringkasan });
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else setKirim({ tahap: "isi", persen: 0, error: data.error ?? `Gagal mengirim (kode ${xhr.status}).` });
     };
@@ -133,22 +140,7 @@ export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr 
     xhr.send(fd);
   }
 
-  if (kirim.tahap === "selesai" && kirim.nomor) {
-    return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-center">
-        <CheckCircle2 className="mx-auto size-12 text-emerald-600" aria-hidden />
-        <h2 className="mt-3 text-lg font-bold text-navy-800">Laporan terkirim. Terima kasih!</h2>
-        <p className="mt-1 text-sm text-muted-foreground">Nomor laporan Anda — simpan untuk menanyakan status ke petugas:</p>
-        <p className="mt-2 inline-block rounded-lg border border-emerald-300 bg-white px-4 py-2 font-mono text-lg font-bold text-emerald-700">{kirim.nomor}</p>
-        <p className="mt-4 text-sm text-muted-foreground">Status laporan bisa dipantau di menu <strong>Riwayat</strong> dan <strong>Notifikasi</strong> pada perangkat ini. Untuk kerusakan darurat, tetap hubungi petugas secara langsung.</p>
-        <div className="mt-5 flex flex-wrap justify-center gap-2">
-          <Button variant="teal" asChild><Link href="/riwayat"><History /> Lacak di Riwayat</Link></Button>
-          <Button variant="outline" asChild><a href="/lapor">Lapor lagi</a></Button>
-          <Button variant="outline" asChild><Link href="/">Kembali ke beranda</Link></Button>
-        </div>
-      </div>
-    );
-  }
+  if (kirim.tahap === "selesai" && kirim.ringkasan) return <SuksesLapor r={kirim.ringkasan} waAdmin={waAdmin} />;
 
   const mengirim = kirim.tahap === "kirim";
   return (
@@ -231,8 +223,8 @@ export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr 
           <Input name="pelapor" required maxLength={120} placeholder="Nama Anda" autoComplete="name" />
         </label>
         <label className={L}>
-          Kontak (HP/ekstensi)
-          <Input name="kontak" maxLength={120} placeholder="mis. 0812xxxx / ext. 123" autoComplete="tel" inputMode="tel" />
+          No. WhatsApp / kontak
+          <Input name="kontak" maxLength={120} placeholder="mis. 0812xxxxxxx (untuk salinan laporan via WA)" autoComplete="tel" inputMode="tel" />
         </label>
         <label className={cn(L, "sm:col-span-2")}>
           Uraian keluhan / kerusakan <span className="text-red-600">*</span>

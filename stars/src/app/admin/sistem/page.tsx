@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DatabaseBackup, Globe, Server, Trash2 } from "lucide-react";
+import { DatabaseBackup, Globe, MessageCircle, Server, Trash2 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { sesiHalaman } from "@/lib/sesi";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +9,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { formatNumber } from "@/lib/utils";
 import { getDatasets } from "@/lib/queries";
 import { HapusDataPaket } from "@/components/admin/hapus-data-paket";
+import { AturWaAdmin } from "@/components/admin/atur-wa-admin";
+import { KUNCI, bacaPengaturan } from "@/lib/pengaturan";
 import pkg from "../../../../package.json";
 
 export const metadata: Metadata = { title: "Sistem" };
@@ -27,6 +29,7 @@ export default async function SistemPage() {
     prisma.auditLog.findMany({ orderBy: { waktu: "desc" }, take: 50 }),
     getDatasets(),
   ]);
+  const waAdmin = await bacaPengaturan(KUNCI.waAdminLapor);
   const db = (process.env.DATABASE_URL ?? "").startsWith("file:") ? "SQLite" : "PostgreSQL";
 
   return (
@@ -52,6 +55,14 @@ export default async function SistemPage() {
           <CardContent><Button asChild><a href="/api/admin/cadangan"><DatabaseBackup /> Unduh cadangan sekarang</a></Button></CardContent>
         </Card>
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2"><MessageCircle className="size-5 text-teal-700" /> WhatsApp laporan kerusakan</CardTitle>
+          <CardDescription>Penerima pesan WhatsApp ketika ada laporan kerusakan baru (dikirim pelapor lewat tombol, tanpa layanan berbayar).</CardDescription>
+        </CardHeader>
+        <CardContent><AturWaAdmin awal={waAdmin} /></CardContent>
+      </Card>
 
       <Card className="border-red-200">
         <CardHeader>

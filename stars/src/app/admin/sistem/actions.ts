@@ -54,3 +54,20 @@ export async function hapusDataPaket(_prev: StatusAksi, fd: FormData): Promise<S
   revalidatePath("/", "layout");
   return { ok: `${hasil.count} paket dihapus (${ringkas}). Cadangan sebelum hapus: ${berkas}` };
 }
+
+/** Simpan nomor WhatsApp admin penerima laporan kerusakan (Admin+). Kosongkan untuk menonaktifkan tombol WA admin. */
+export async function simpanWaAdmin(_prev: StatusAksi, fd: FormData): Promise<StatusAksi> {
+  const { sesi, tolak } = await sesiApi("Admin");
+  if (tolak) return { error: "Memerlukan peran Admin." };
+  if (process.env.STARS_MODE === "internet") return { error: "Server mode internet bersifat baca saja." };
+  const { normalWa } = await import("@/lib/wa");
+  const { KUNCI, simpanPengaturan } = await import("@/lib/pengaturan");
+  const mentah = String(fd.get("wa") ?? "").trim();
+  const nomor = mentah ? normalWa(mentah) : null;
+  if (mentah && !nomor) return { error: "Nomor WhatsApp tidak valid. Contoh: 0812xxxxxxx atau +62812xxxxxxx." };
+  await simpanPengaturan(KUNCI.waAdminLapor, nomor, sesi.user.email ?? null);
+  await audit("pengaturan.wa-admin", { email: sesi.user.email, ip: ipDari(await headers()), detail: nomor ? `diatur (…${nomor.slice(-4)})` : "dikosongkan" });
+  revalidatePath("/admin/sistem");
+  revalidatePath("/lapor");
+  return { ok: nomor ? `Tersimpan. Laporan kerusakan akan diarahkan ke WhatsApp ${nomor}.` : "Nomor dikosongkan. Tombol 'Kirim ke WA admin' disembunyikan." };
+}

@@ -164,3 +164,68 @@ export function lembarKerjaPdf(wo: {
   doc.setFontSize(7.5).setTextColor(130).text(`Dicetak ${tanggalCetak()} - STARS`, m, doc.internal.pageSize.getHeight() - 6);
   return Buffer.from(doc.output("arraybuffer"));
 }
+
+/** Bukti laporan kerusakan (A4 tegak): identitas laporan, alat, pelapor, uraian keluhan, foto (bila JPG/PNG), dan status. */
+export function laporanKerusakanPdf(l: {
+  nomor: string; createdAt: Date; status: string; prioritas: string; namaAlat: string; kodeAlat?: string | null; nomorSeri?: string | null;
+  unit?: string | null; lokasi?: string | null; pelapor: string; kontak?: string | null; keluhan: string; adaVideo?: boolean;
+  foto?: { data: Buffer; jenis: "JPEG" | "PNG" } | null; alamatLacak?: string | null;
+}): Buffer {
+  const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
+  const W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight();
+  const m = 14;
+  const waktu = l.createdAt.toLocaleString("id-ID", { timeZone: "Asia/Jakarta", day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" }).replace(/\./g, ":");
+
+  doc.setFont("helvetica", "bold").setFontSize(15).setTextColor(...NAVY).text("LAPORAN KERUSAKAN ALAT", m, 17);
+  doc.setFont("helvetica", "normal").setFontSize(9).setTextColor(90).text("STARS - RSUD Cipayung - Instalasi Elektromedik / IPSRS", m, 22);
+  doc.setFont("helvetica", "bold").setFontSize(13).setTextColor(...NAVY).text(l.nomor, W - m, 17, { align: "right" });
+  doc.setFont("helvetica", "normal").setFontSize(9).setTextColor(90).text(`${waktu} WIB`, W - m, 22, { align: "right" });
+  doc.setDrawColor(...TEAL).setLineWidth(0.6).line(m, 25, W - m, 25);
+
+  const info: [string, string][] = [
+    ["Nomor laporan", l.nomor],
+    ["Tanggal & jam lapor", `${waktu} WIB`],
+    ["Prioritas", l.prioritas],
+    ["Status saat ini", l.status],
+    ["Nama alat", l.namaAlat],
+    ["Kode alat / No. seri", [l.kodeAlat, l.nomorSeri ? `SN ${l.nomorSeri}` : null].filter(Boolean).join(" / ") || "-"],
+    ["Unit kerja", l.unit ?? "-"],
+    ["Lokasi / ruangan", l.lokasi ?? "-"],
+    ["Nama pelapor", l.pelapor],
+    ["Kontak pelapor", l.kontak ?? "-"],
+    ["Lampiran", [l.foto ? "foto" : null, l.adaVideo ? "video (lihat di STARS)" : null].filter(Boolean).join(", ") || "-"],
+  ];
+  autoTable(doc, {
+    startY: 29, margin: { left: m, right: m }, theme: "grid", body: info,
+    styles: { font: "helvetica", fontSize: 9.5, cellPadding: 2.2, lineColor: [203, 213, 225], lineWidth: 0.15, textColor: 30 },
+    columnStyles: { 0: { cellWidth: 50, fontStyle: "bold", fillColor: [241, 245, 249] } },
+  });
+  let y = (doc as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable.finalY + 7;
+
+  doc.setFont("helvetica", "bold").setFontSize(11).setTextColor(...NAVY).text("Uraian keluhan / kerusakan", m, y); y += 5;
+  doc.setFont("helvetica", "normal").setFontSize(10).setTextColor(30);
+  const uraian = doc.splitTextToSize(l.keluhan, W - m * 2) as string[];
+  doc.text(uraian, m, y); y += uraian.length * 4.6 + 6;
+
+  if (l.foto) {
+    try {
+      const p = doc.getImageProperties(l.foto.data);
+      const maksL = W - m * 2, maksT = Math.max(40, Math.min(110, H - y - 40));
+      const s = Math.min(maksL / p.width, maksT / p.height);
+      if (y + p.height * s > H - 30) { doc.addPage(); y = 20; }
+      doc.setFont("helvetica", "bold").setFontSize(11).setTextColor(...NAVY).text("Foto kerusakan", m, y); y += 3;
+      doc.addImage(l.foto.data, l.foto.jenis, m, y, p.width * s, p.height * s); y += p.height * s + 6;
+    } catch { /* foto rusak/tak terbaca: lewati */ }
+  }
+
+  if (y > H - 45) { doc.addPage(); y = 20; }
+  doc.setFont("helvetica", "normal").setFontSize(9).setTextColor(60);
+  const tt = (x: number, label: string) => { doc.text(label, x, y); doc.line(x, y + 22, x + 60, y + 22); };
+  doc.setDrawColor(120).setLineWidth(0.2);
+  tt(m, "Pelapor,"); tt(W - m - 60, "Diterima petugas elektromedik,");
+  doc.text(l.pelapor, m, y + 27);
+
+  doc.setFontSize(8).setTextColor(120);
+  doc.text(`Dokumen dibuat otomatis oleh STARS${l.alamatLacak ? ` - pantau status: ${l.alamatLacak}` : ""}`, m, H - 10);
+  return Buffer.from(doc.output("arraybuffer"));
+}
