@@ -6,17 +6,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { StatCard } from "@/components/dashboard/stat-card";
 import { ChartCard } from "@/components/dashboard/chart-card";
 import { FilterBar } from "@/components/dashboard/filter-bar";
-import { LaporCta } from "@/components/dashboard/lapor-cta";
 import { PackageTable } from "@/components/dashboard/package-table";
 import { BatangHitung } from "@/components/dashboard/batang-hitung";
 import { TahunChart } from "@/components/charts/tahun-chart";
 import { CategoryDonut } from "@/components/charts/category-donut";
 import { BarListChart } from "@/components/charts/bar-list-chart";
 import { BatangStatus, KolomSatuSeri } from "@/components/kalibrasi/grafik";
-import { DiagramSiklus } from "@/components/allies/diagram-siklus";
-import { StatusSinkron } from "@/components/layout/status-sinkron";
-import { NAV_ITEMS, PERENCANAAN_TABS } from "@/lib/nav";
-import { LogoAnimasi } from "@/components/layout/logo-animasi";
+import { NAV_ITEMS, PERENCANAAN_TABS, SIFARMALKES_TABS } from "@/lib/nav";
+import { Panggung } from "@/components/beranda/panggung";
 import { filterToQuery, labelNilai, resolveFilter, SEMUA_TAHAP, type SearchParams } from "@/lib/filter";
 import { PerbandinganTahap } from "@/components/dashboard/perbandingan-tahap";
 import { getNilaiPerKategori, getNilaiPerTahun, getNilaiPerUnit, getPaketList, getPerbandinganTahap, getRingkasan } from "@/lib/queries";
@@ -97,36 +94,20 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     { label: "Terputus / belum ada data", value: formatNumber(mon.terputus), hint: `${formatNumber(mon.luar)} lainnya di luar batas` },
   ];
   // Akses cepat ke seluruh menu: sub-menu Perencanaan-Pengadaan + menu utama lain (kecuali Dashboard dan menu gabungan itu sendiri).
-  const pintasan = [...PERENCANAAN_TABS, ...NAV_ITEMS.filter((n) => n.href !== "/" && !n.match)];
+  const pintasan = [...PERENCANAAN_TABS, ...SIFARMALKES_TABS, ...NAV_ITEMS.filter((n) => n.href !== "/" && !n.match)];
   const denganFilter = new Set(PERENCANAAN_TABS.map((t) => t.href));
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative mb-6 overflow-hidden rounded-3xl bg-gradient-to-br from-navy-900 via-navy-700 to-teal-800 p-6 text-white shadow-card md:p-12">
-        <div aria-hidden className="hero-cahaya pointer-events-none absolute -right-24 -top-24 size-96 rounded-full bg-teal-400/20 blur-3xl" />
-        <div className="relative flex items-center justify-between gap-8">
-          <div>
-            <div className="mb-4 flex flex-wrap items-center gap-2 animate-in fade-in duration-700 motion-reduce:animate-none">
-              <p className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-teal-100">STARS • RSUD Cipayung • Tahun anggaran {filter.tahun}</p>
-              <StatusSinkron className="sm:hidden" />
-            </div>
-            <h1 className="max-w-3xl text-3xl font-extrabold tracking-tight animate-in fade-in slide-in-from-bottom-6 fill-mode-both delay-100 duration-1000 motion-reduce:animate-none md:text-5xl">
-              Sistem Terintegrasi Alat Kesehatan Rumah Sakit<span className="block bg-gradient-to-r from-teal-200 to-teal-400 bg-clip-text text-transparent">RSUD Cipayung</span>
-            </h1>
-            <p className="mt-4 max-w-2xl text-navy-100 animate-in fade-in slide-in-from-bottom-4 fill-mode-both delay-300 duration-1000 motion-reduce:animate-none md:text-lg">
-              Satu tempat untuk perencanaan, HTA, pemeliharaan, kalibrasi, laporan kerusakan, monitoring lingkungan, dan agen ALLIES — seluruh siklus alat kesehatan.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3 animate-in fade-in slide-in-from-bottom-2 fill-mode-both delay-500 duration-1000 motion-reduce:animate-none">
-              <Button variant="teal" size="lg" asChild><Link href={`/nilai${q}`}><ClipboardList /> Perencanaan-Pengadaan <ArrowRight /></Link></Button>
-              <Button size="lg" className="bg-white/10 text-white hover:bg-white/20" asChild><Link href="/allies"><Bot /> Tanya ALLIES</Link></Button>
-            </div>
-          </div>
-          <div className="hidden shrink-0 animate-in fade-in zoom-in-90 duration-1000 motion-reduce:animate-none xl:block">
-            <LogoAnimasi className="w-[360px]" />
-          </div>
-        </div>
-      </section>
+      <Panggung d={{
+        pagu: ringkasan.totalNilai, serapanPersen: ringkasan.realisasiPersen, paket: ringkasan.jumlahPaket,
+        alat: pml.alatMedik + pml.alatNon, laporanTerbuka: pml.laporanTerbuka, woAktif: pml.woAktif, cakupanKal: lintas.kalibrasi.cakupan,
+        titikPantau: mon.total, alarm: mon.alarm, produkHta: lintas.hta.produk, jenisHta: lintas.hta.jenis,
+        kandidat: allies.kandidat.length, perTahap: allies.perTahap,
+      }} />
+
+      <h2 className="muncul mb-3 mt-4 text-center text-3xl font-semibold tracking-tight text-[#1d1d1f] md:text-5xl">Data lengkap.</h2>
+      <p className="mb-6 text-center text-lg text-muted-foreground">Angka & grafik dari setiap menu, diperbarui langsung.</p>
 
       {/* Navigasi bagian (lengket di bawah header, gaya apple.com) */}
       <nav aria-label="Bagian dashboard" className="sticky top-16 z-10 -mx-4 mb-6 border-b bg-background/85 px-4 py-2 backdrop-blur md:mx-0 md:rounded-full md:border md:px-2 print:hidden">
@@ -134,8 +115,6 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
           {BAGIAN.map((b) => <li key={b.id}><a href={`#${b.id}`} className="block whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium text-navy-700 transition-colors hover:bg-teal-50 hover:text-teal-800">{b.label}</a></li>)}
         </ul>
       </nav>
-
-      <LaporCta />
 
       {/* 1. Perencanaan-Pengadaan */}
       <JudulBagian id="perencanaan" icon={ClipboardList} judul="Perencanaan-Pengadaan" keterangan="Nilai anggaran, serapan & selisih, dan paket RKPBU/RKBU alat kesehatan" href={`/nilai${q}`} tautan="Buka menu" />
@@ -245,8 +224,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       {/* 8. ALLIES */}
       <JudulBagian id="allies" icon={Bot} judul="ALLIES" keterangan="Agen pengelolaan alat medik — posisi alat dalam siklus Pre-Market → Post-Market" href="/allies" tautan="Buka ALLIES" />
-      <section className="mb-12 grid gap-4 lg:grid-cols-[1.1fr_1fr] [&>*]:min-w-0">
-        <Card className="flex items-center justify-center p-2"><DiagramSiklus jumlah={allies.perTahap} /></Card>
+      <section className="mb-12 grid gap-4 [&>*]:min-w-0">
         <Card>
           <CardHeader><CardTitle>Kandidat penggantian / penghapusan</CardTitle><CardDescription>{formatNumber(allies.kandidat.length)} alat · {formatNumber(allies.kalibrasi.length)} alat medik perlu tindakan kalibrasi</CardDescription></CardHeader>
           <CardContent>
@@ -272,7 +250,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         {pintasan.map((s) => (
           <Link key={s.href} href={denganFilter.has(s.href) ? `${s.href}${q}` : s.href} className="group rounded-xl border bg-card p-5 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md">
             <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-teal-50 text-teal-700 transition-colors group-hover:bg-teal-600 group-hover:text-white"><s.icon className="size-5" /></div>
-            <h3 className="font-semibold text-navy-800">{denganFilter.has(s.href) ? `${s.label} · Perencanaan-Pengadaan` : s.label}</h3>
+            <h3 className="font-semibold text-navy-800">{denganFilter.has(s.href) ? `${s.label} · Perencanaan-Pengadaan` : SIFARMALKES_TABS.includes(s) ? `${s.label} · SIFARMALKES` : s.label}</h3>
             <p className="mt-1 text-sm text-muted-foreground">{s.description}</p>
             <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-teal-700">Buka <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></span>
           </Link>
