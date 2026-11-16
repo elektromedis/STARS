@@ -8,6 +8,7 @@ import { cukup } from "@/lib/peran";
 import { alamatQr } from "@/lib/alamat";
 import { keAlarmDaftar } from "@/lib/monitoring-data";
 import { HARI_MS, statusLokasi } from "@/lib/monitoring";
+import { TombolDemo } from "@/components/monitoring/tombol-demo";
 import { MonitoringManager } from "@/components/monitoring/monitoring-manager";
 
 export const metadata: Metadata = { title: "Monitoring" };
@@ -42,6 +43,7 @@ export default async function AdminMonitoringPage({ searchParams }: { searchPara
         <p className="flex items-start gap-2 rounded-lg border border-teal-200 bg-teal-50 p-3 text-sm text-teal-900"><Info className="mt-0.5 size-4 shrink-0" />
           <span>{internet ? "Server ini mode internet (baca saja)." : <>Peran <strong>{s.user.peran}</strong> hanya dapat melihat. Mengatur lokasi, sensor, impor data, dan mengakui alarm memerlukan peran Operator.</>}</span></p>
       )}
+      {bolehAdmin && <TombolDemo adaDemo={lokasi.some((l) => l.kode.startsWith("DEMO-"))} />}
       <MonitoringManager
         lokasi={lokasi.map((l) => ({
           id: l.id, kode: l.kode, nama: l.nama, jenis: l.jenis, deskripsi: l.deskripsi, unitKerjaId: l.unitKerjaId, unit: l.unitKerja?.nama ?? null, alatId: l.alatId, alat: l.alat,
