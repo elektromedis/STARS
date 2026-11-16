@@ -12,7 +12,7 @@ import { TahunChart } from "@/components/charts/tahun-chart";
 import { CategoryDonut } from "@/components/charts/category-donut";
 import { BarListChart } from "@/components/charts/bar-list-chart";
 import { BatangStatus, KolomSatuSeri } from "@/components/kalibrasi/grafik";
-import { NAV_ITEMS, PERENCANAAN_TABS, SIFARMALKES_TABS } from "@/lib/nav";
+import { NAV_ITEMS, PERENCANAAN_TABS, SIALKES_TABS, SIFARMALKES_TABS } from "@/lib/nav";
 import { Panggung } from "@/components/beranda/panggung";
 import { filterToQuery, labelNilai, resolveFilter, SEMUA_TAHAP, type SearchParams } from "@/lib/filter";
 import { PerbandinganTahap } from "@/components/dashboard/perbandingan-tahap";
@@ -30,14 +30,14 @@ export const dynamic = "force-dynamic";
 
 /** Urutan bagian = urutan menu di sidebar (About STARS tidak punya data). */
 const BAGIAN = [
+  { id: "allies", label: "ALLIES" },
   { id: "perencanaan", label: "Perencanaan-Pengadaan" },
   { id: "hta", label: "HTA" },
   { id: "pemeliharaan", label: "Pemeliharaan" },
   { id: "kalibrasi", label: "Pengujian & Kalibrasi" },
   { id: "lapor", label: "Lapor Kerusakan" },
-  { id: "admin", label: "Data & Admin" },
-  { id: "monitoring", label: "Live Monitoring" },
-  { id: "allies", label: "ALLIES" },
+  { id: "monitoring", label: "SI-LOGGER" },
+  { id: "admin", label: "Data & ADMIN" },
 ];
 
 function JudulBagian({ id, icon: Icon, judul, keterangan, href, tautan }: { id: string; icon: typeof Activity; judul: string; keterangan: string; href: string; tautan: string }) {
@@ -94,7 +94,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     { label: "Terputus / belum ada data", value: formatNumber(mon.terputus), hint: `${formatNumber(mon.luar)} lainnya di luar batas` },
   ];
   // Akses cepat ke seluruh menu: sub-menu Perencanaan-Pengadaan + menu utama lain (kecuali Dashboard dan menu gabungan itu sendiri).
-  const pintasan = [...PERENCANAAN_TABS, ...SIFARMALKES_TABS, ...NAV_ITEMS.filter((n) => n.href !== "/" && !n.match)];
+  const pintasan = [...PERENCANAAN_TABS, SIALKES_TABS[1], ...SIFARMALKES_TABS, ...NAV_ITEMS.filter((n) => n.href !== "/" && !n.match)];
   const denganFilter = new Set(PERENCANAAN_TABS.map((t) => t.href));
 
   return (
@@ -250,7 +250,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         {pintasan.map((s) => (
           <Link key={s.href} href={denganFilter.has(s.href) ? `${s.href}${q}` : s.href} className="group rounded-xl border bg-card p-5 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md">
             <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-teal-50 text-teal-700 transition-colors group-hover:bg-teal-600 group-hover:text-white"><s.icon className="size-5" /></div>
-            <h3 className="font-semibold text-navy-800">{denganFilter.has(s.href) ? `${s.label} · Perencanaan-Pengadaan` : SIFARMALKES_TABS.includes(s) ? `${s.label} · SIFARMALKES` : s.label}</h3>
+            <h3 className="font-semibold text-navy-800">{denganFilter.has(s.href) ? `${s.label} · SI-ALKES` : SIFARMALKES_TABS.includes(s) ? `${s.label} · SI-FARMALKES` : s === SIALKES_TABS[1] ? `${s.label} · SI-ALKES` : s.label}</h3>
             <p className="mt-1 text-sm text-muted-foreground">{s.description}</p>
             <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-teal-700">Buka <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></span>
           </Link>

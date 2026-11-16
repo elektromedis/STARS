@@ -81,8 +81,8 @@ export function Panggung({ d }: { d: DataPanggung }) {
 
       {/* 3. Kisi ubin */}
       <div className="grid gap-3 lg:grid-cols-2">
-        <section aria-label="Perencanaan-Pengadaan" className="muncul flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-[#f5f5f7] pb-10 pt-12">
-          <Teks kecil judul="Perencanaan-Pengadaan" sub="Pagu, serapan, dan selisih — setiap tahap anggaran.">
+        <section aria-label="SI-ALKES" className="muncul flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-[#f5f5f7] pb-10 pt-12">
+          <Teks kecil judul="SI-ALKES" sub="Perencanaan-Pengadaan &amp; HTA. Pagu, serapan, dan selisih — setiap tahap anggaran.">
             <Pil href="/nilai">Lihat nilai</Pil><Pil href="/rkbu" varian="garis">Cetak RKBU</Pil>
           </Teks>
           <div className="panggung-visual mt-8 grid grid-cols-3 gap-2 px-6">
@@ -90,8 +90,8 @@ export function Panggung({ d }: { d: DataPanggung }) {
           </div>
         </section>
 
-        <section aria-label="SIFARMALKES" className="muncul flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-b from-navy-900 to-navy-700 pb-10 pt-12">
-          <Teks kecil gelap judul="SIFARMALKES" sub="Pemeliharaan, pengujian & kalibrasi, dan lapor kerusakan.">
+        <section aria-label="SI-FARMALKES" className="muncul flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-b from-navy-900 to-navy-700 pb-10 pt-12">
+          <Teks kecil gelap judul="SI-FARMALKES" sub="Pemeliharaan, pengujian & kalibrasi, dan lapor kerusakan.">
             <Pil href="/pemeliharaan">Buka</Pil><Pil href="/lapor" varian="garis" gelap>Lapor kerusakan</Pil>
           </Teks>
           <div className="panggung-visual mt-8 grid grid-cols-3 gap-2 px-6">
@@ -99,8 +99,8 @@ export function Panggung({ d }: { d: DataPanggung }) {
           </div>
         </section>
 
-        <section aria-label="Live Monitoring" className="muncul flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-b from-teal-50 to-[#f5f5f7] pb-10 pt-12">
-          <Teks kecil judul="Live Monitoring" sub="Suhu & kelembapan kulkas vaksin, darah, dan ruang alat. Real time.">
+        <section aria-label="SI-LOGGER" className="muncul flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-b from-teal-50 to-[#f5f5f7] pb-10 pt-12">
+          <Teks kecil judul="SI-LOGGER" sub="Suhu & kelembapan kulkas vaksin, darah, dan ruang alat. Real time.">
             <Pil href="/monitoring">Pantau</Pil><Pil href="/admin/monitoring" varian="garis">Atur sensor</Pil>
           </Teks>
           <div className="panggung-visual mt-8 flex items-end justify-center gap-10 px-6">
@@ -113,8 +113,8 @@ export function Panggung({ d }: { d: DataPanggung }) {
           </div>
         </section>
 
-        <section aria-label="Live Tracking" className="muncul flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-black pb-10 pt-12">
-          <Teks kecil gelap judul="Live Tracking" sub="Sampai mana setiap pekerjaan. Dari laporan masuk sampai selesai.">
+        <section aria-label="SI-TRACKING" className="muncul flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-black pb-10 pt-12">
+          <Teks kecil gelap judul="SI-TRACKING" sub="Sampai mana setiap pekerjaan. Dari laporan masuk sampai selesai.">
             <Pil href="/tracking">Lacak</Pil><Pil href="/riwayat" varian="garis" gelap>Laporan saya</Pil>
           </Teks>
           <ol className="panggung-visual mx-auto mt-8 flex w-[min(30rem,90%)] items-center" aria-hidden>

@@ -1,4 +1,4 @@
-import { Activity, Bot, Radar, ClipboardList, Database, Gauge, Info, LayoutDashboard, PackageSearch, Printer, Scale, Settings, Thermometer, Wallet, Wrench, type LucideIcon } from "lucide-react";
+import { Activity, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, Thermometer, Wallet, Wrench, type LucideIcon } from "lucide-react";
 
 export type NavItem = {
   label: string; href: string; icon: LucideIcon; description: string;
@@ -21,16 +21,21 @@ export const SIFARMALKES_TABS: NavItem[] = [
   { label: "Lapor Kerusakan", href: "/lapor", icon: Wrench, description: "Laporkan alat kesehatan atau sarana yang rusak — tanpa perlu akun" },
 ];
 
-export const NAV_ITEMS: NavItem[] = [
-  { label: "Dashboard", href: "/", icon: LayoutDashboard, description: "Ringkasan seluruh menu: perencanaan-pengadaan, pemeliharaan alat, dan laporan kerusakan" },
+/** Sub-menu SI-ALKES (Perencanaan-Pengadaan, HTA); tampil sebagai tab di atas halamannya. */
+export const SIALKES_TABS: NavItem[] = [
   { label: "Perencanaan-Pengadaan", href: "/nilai", icon: ClipboardList, match: PERENCANAAN_TABS.map((t) => t.href), description: "Nilai anggaran, daftar paket, unduhan data, dan cetak dokumen RKPBU/RKBU dalam satu menu" },
   { label: "HTA", href: "/hta", icon: Scale, description: "Health Technology Assessment: bandingkan merek & tipe alat kesehatan (keselamatan, keandalan, biaya, spesifikasi) — perlu login" },
-  { label: "SIFARMALKES", href: "/pemeliharaan", icon: Activity, match: ["/pemeliharaan", "/alat", "/kalibrasi", "/lapor"], description: "Pemeliharaan alat & inventaris, Pengujian dan Kalibrasi, serta Lapor Kerusakan dalam satu menu" },
-  { label: "Admin", href: "/admin", icon: Settings, description: "Impor/ekspor Excel, pemeliharaan, daftar alat, pengguna, dan log (perlu login)" },
-  { label: "Live Monitoring", href: "/monitoring", icon: Thermometer, description: "Live Medical Device Environmental Monitoring System: suhu & kelembapan alat kesehatan (kulkas vaksin, kulkas darah, freezer, ruang alat) secara real time dari sensor IoT — alarm, ringkasan harian, dan laporan" },
-  { label: "Live Tracking", href: "/tracking", icon: Radar, description: "Sampai mana proses kerja di setiap menu: paket, laporan kerusakan, perintah kerja, preventif, kalibrasi, alarm, dan siklus alat — diperbarui otomatis; lacak nomor WR/WO" },
+];
+
+export const NAV_ITEMS: NavItem[] = [
+  { label: "Dashboard", href: "/", icon: LayoutDashboard, description: "Ringkasan seluruh menu: perencanaan-pengadaan, pemeliharaan alat, dan laporan kerusakan" },
   { label: "ALLIES", href: "/allies", icon: Bot, description: "Agen pengelolaan alat medik: siklus alat dari Analisa Kebutuhan s.d. Penghapusan (Pre-Market → Post-Market), rekomendasi penggantian, dan tanya-jawab dari data STARS" },
-  { label: "About STARS", href: "/about", icon: Info, description: "Tentang aplikasi, sumber data, dan cara kerja STARS" },
+  { label: "SI-ALKES", href: "/nilai", icon: Boxes, match: [...PERENCANAAN_TABS.map((t) => t.href), "/hta"], description: "Perencanaan-Pengadaan (nilai, paket, data, cetak RKBU) dan HTA dalam satu menu" },
+  { label: "SI-FARMALKES", href: "/pemeliharaan", icon: Activity, match: ["/pemeliharaan", "/alat", "/kalibrasi", "/lapor"], description: "Pemeliharaan alat & inventaris, Pengujian dan Kalibrasi, serta Lapor Kerusakan dalam satu menu" },
+  { label: "SI-LOGGER", href: "/monitoring", icon: Thermometer, description: "Live Monitoring — Live Medical Device Environmental Monitoring System: suhu & kelembapan alat kesehatan (kulkas vaksin, kulkas darah, freezer, ruang alat) secara real time dari sensor IoT — alarm, ringkasan harian, dan laporan" },
+  { label: "SI-TRACKING", href: "/tracking", icon: Radar, description: "Live Tracking — Sampai mana proses kerja di setiap menu: paket, laporan kerusakan, perintah kerja, preventif, kalibrasi, alarm, dan siklus alat — diperbarui otomatis; lacak nomor WR/WO" },
+  { label: "ADMIN", href: "/admin", icon: Settings, description: "Impor/ekspor Excel, pemeliharaan, daftar alat, pengguna, dan log (perlu login)" },
+  { label: "Dukungan", href: "/about", icon: LifeBuoy, description: "Bantuan, tentang aplikasi, sumber data, dan cara kerja STARS" },
 ];
 
 export function menuAktif(item: NavItem, pathname: string) {

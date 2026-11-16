@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { LogoFull } from "@/components/layout/logo";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const metadata: Metadata = { title: "About STARS" };
+export const metadata: Metadata = { title: "Dukungan" };
 
 const STACK = ["Next.js 15", "TypeScript", "Tailwind CSS", "shadcn/ui", "Recharts", "Prisma", "SQLite (dev) / PostgreSQL (prod)", "SheetJS"];
 const ROLES = ["Public", "Viewer", "Operator", "Admin", "Super Admin"];
@@ -12,7 +12,7 @@ const ROLES = ["Public", "Viewer", "Operator", "Admin", "Super Admin"];
 export default function AboutPage() {
   return (
     <>
-      <PageHeader title="About STARS" description="Sistem Terintegrasi Alat Kesehatan Rumah Sakit — Monitor • Analyze • Connect." />
+      <PageHeader title="Dukungan — About STARS" description="Sistem Terintegrasi Alat Kesehatan Rumah Sakit — Monitor • Analyze • Connect." />
       <div className="grid gap-4 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <CardHeader><CardTitle>Tentang Sistem</CardTitle></CardHeader>

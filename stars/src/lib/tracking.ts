@@ -91,7 +91,7 @@ export async function dataTracking(unit: { id: number | null; nama: string } | n
       ],
     },
     {
-      id: "monitoring", menu: "Live Monitoring", judul: "Alarm suhu & kelembapan (30 hari)", href: "/monitoring", satuan: "alarm",
+      id: "monitoring", menu: "SI-LOGGER", judul: "Alarm suhu & kelembapan (30 hari)", href: "/monitoring", satuan: "alarm",
       tahapan: [
         { label: "Berlangsung", jumlah: alarmBuka, nada: "bahaya" },
         { label: "Belum diakui", jumlah: alarmBelumAkui, nada: "awas" },
@@ -109,7 +109,7 @@ export async function dataTracking(unit: { id: number | null; nama: string } | n
     ...evLapor.map((l) => ({ waktu: l.updatedAt.toISOString(), menu: "Lapor Kerusakan", teks: `${l.nomor} · ${l.namaAlat} → ${l.status}`, href: "/riwayat", nada: (l.status === "Selesai" ? "selesai" : l.status === "Baru" ? "awas" : "proses") as Tahapan["nada"] })),
     ...evWo.map((w) => ({ waktu: w.updatedAt.toISOString(), menu: "Pemeliharaan", teks: `${w.nomor} ${w.jenis}${w.alat ? ` · ${w.alat.nama}` : ""} → ${w.status}`, href: "/pemeliharaan", nada: (w.status === "Selesai" ? "selesai" : "proses") as Tahapan["nada"] })),
     ...evKal.map((k) => ({ waktu: k.createdAt.toISOString(), menu: "Pengujian dan Kalibrasi", teks: `${k.jenis} ${k.alat.nama} (${k.alat.kode}) → ${k.laik ? "laik" : "TIDAK LAIK"}`, href: `/alat?kode=${encodeURIComponent(k.alat.kode)}`, nada: (k.laik ? "selesai" : "bahaya") as Tahapan["nada"] })),
-    ...evAlarm.map((a) => ({ waktu: a.updatedAt.toISOString(), menu: "Live Monitoring", teks: `${a.lokasi.nama}: alarm ${a.jenis} → ${a.selesai ? "selesai" : "berlangsung"}${a.diakuiPada ? ", diakui" : ""}`, href: `/monitoring/${a.lokasi.kode}`, nada: (a.selesai ? "selesai" : "bahaya") as Tahapan["nada"] })),
+    ...evAlarm.map((a) => ({ waktu: a.updatedAt.toISOString(), menu: "SI-LOGGER", teks: `${a.lokasi.nama}: alarm ${a.jenis} → ${a.selesai ? "selesai" : "berlangsung"}${a.diakuiPada ? ", diakui" : ""}`, href: `/monitoring/${a.lokasi.kode}`, nada: (a.selesai ? "selesai" : "bahaya") as Tahapan["nada"] })),
     ...evPaket.map((p) => ({ waktu: p.updatedAt.toISOString(), menu: "Perencanaan-Pengadaan", teks: `${p.namaPaket.slice(0, 80)} → ${p.serapan ? "terserap" : "direncanakan"}`, href: "/paket", nada: (p.serapan ? "selesai" : "proses") as Tahapan["nada"] })),
   ].sort((a, b) => Date.parse(b.waktu) - Date.parse(a.waktu)).slice(0, 20);
 

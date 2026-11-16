@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import { menuAktif, SIFARMALKES_TABS } from "@/lib/nav";
 import { cn } from "@/lib/utils";
 
-/** Tab menu gabungan SIFARMALKES: Pemeliharaan | Pengujian dan Kalibrasi | Lapor Kerusakan (URL tetap). */
+/** Tab menu gabungan SI-FARMALKES: Pemeliharaan | Pengujian dan Kalibrasi | Lapor Kerusakan (URL tetap). */
 export function SifarmalkesTabs() {
   const pathname = usePathname();
   return (
-    <nav aria-label="Menu SIFARMALKES" className="mb-6 flex gap-1 overflow-x-auto rounded-xl border bg-card p-1 shadow-card print:hidden">
+    <nav aria-label="Menu SI-FARMALKES" className="mb-6 flex gap-1 overflow-x-auto rounded-xl border bg-card p-1 shadow-card print:hidden">
       {SIFARMALKES_TABS.map((t) => {
         const active = menuAktif(t, pathname);
         const Icon = t.icon;

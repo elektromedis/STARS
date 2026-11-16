@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { SegarkanOtomatis } from "@/components/tracking/segarkan-otomatis";
 import { cn, formatNumber } from "@/lib/utils";
 
-export const metadata: Metadata = { title: "Live Tracking" };
+export const metadata: Metadata = { title: "SI-TRACKING" };
 export const dynamic = "force-dynamic";
 
 const WARNA: Record<NonNullable<Tahapan["nada"]>, string> = { selesai: "#0ca30c", proses: "#14A0A8", awas: "#fab219", bahaya: "#d03b3b", netral: "#94a3b8" };
@@ -52,7 +52,7 @@ export default async function TrackingPage({ searchParams }: { searchParams: Pro
   return (
     <>
       <PageHeader
-        title="Live Tracking"
+        title="SI-TRACKING — Live Tracking"
         description={`Pantau sampai mana proses kerja di setiap menu STARS${kunci ? ` (unit ${kunci.nama})` : ""} — perencanaan, laporan kerusakan, perintah kerja, preventif, kalibrasi, alarm monitoring, dan siklus alat ALLIES. Diperbarui otomatis.`}
         actions={<SegarkanOtomatis waktuServer={new Date().toISOString()} />}
       />
