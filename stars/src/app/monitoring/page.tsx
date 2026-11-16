@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BellRing, Filter, Settings2, Thermometer } from "lucide-react";
+import { BellRing, CheckCircle2, Cloud, Filter, Settings2, Siren, Thermometer, TriangleAlert } from "lucide-react";
 import { auth } from "@/auth";
 import { unitTerkunci } from "@/lib/akses";
 import { alarmPerluTindakan, dataDashboard } from "@/lib/monitoring-data";
@@ -11,13 +11,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Select } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { PageHeader } from "@/components/dashboard/page-header";
-import { StatCard } from "@/components/dashboard/stat-card";
+import { JamLangsung } from "@/components/monitoring/jam-langsung";
 import { KartuLokasiPantau } from "@/components/monitoring/kartu-lokasi";
 import { PemantauLangsung, type AlarmPemberitahuan } from "@/components/monitoring/pemantau-langsung";
 import { LencanaStatus } from "@/components/monitoring/grafik";
 import { formatNumber } from "@/lib/utils";
 
-export const metadata: Metadata = { title: "Live Medical Device Environmental Monitoring System" };
+export const metadata: Metadata = { title: "SI-LOGGER" };
 export const dynamic = "force-dynamic";
 
 type Sp = Record<string, string | string[] | undefined>;
@@ -44,23 +44,35 @@ export default async function MonitoringPage({ searchParams }: { searchParams: P
   ];
   const bolehKelola = cukup(sesi?.user?.peran, "Viewer");
   const adaFilter = Boolean(fStatus || fJenis || fUnit);
+  const putus = kartu.filter((k) => k.status.putus).length + hitung("belum");
+  const masalah = kartu.length - hitung("normal") - hitung("nonaktif");
 
   return (
     <>
       <PageHeader
-        title="Live Medical Device Environmental Monitoring System"
-        description={`Pemantauan suhu & kelembapan alat kesehatan${kunci ? ` unit ${kunci.nama}` : " RSUD Cipayung"} secara real time dari sensor IoT — kulkas vaksin/obat, kulkas darah, freezer, dan ruang alat. Alarm berbunyi bila nilai keluar batas beberapa bacaan berturut-turut; sensor yang berhenti mengirim data ditandai terputus.`}
+        title="SI-LOGGER"
+        description={`Live Medical Device Environmental Monitoring System — suhu & kelembapan alat kesehatan${kunci ? ` unit ${kunci.nama}` : " RSUD Cipayung"} secara real time dari sensor IoT.`}
         actions={<Button variant="teal" asChild><Link href="/admin/monitoring"><Settings2 /> {bolehKelola ? "Kelola" : "Kelola (login)"}</Link></Button>}
       />
 
-      <PemantauLangsung waktuServer={new Date(kini).toISOString()} alarm={pemberitahuan} />
-
-      <section aria-label="Indikator" className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard label="Titik dipantau" value={formatNumber(kartu.length)} hint={`${formatNumber(kartu.filter((k) => k.sensor).length)} bersensor`} />
-        <StatCard label="Normal" value={formatNumber(hitung("normal"))} hint="dalam batas & sensor terhubung" />
-        <StatCard label="Alarm aktif" value={formatNumber(alarmAktif)} hint={`${formatNumber(hitung("luar"))} lainnya di luar batas (menunggu konfirmasi)`} />
-        <StatCard label="Terputus / belum ada data" value={formatNumber(kartu.filter((k) => k.status.putus).length + hitung("belum"))} hint="sensor tidak mengirim data" />
+      <section aria-label="Status sistem" className="mb-4 overflow-hidden rounded-2xl bg-navy-900 text-white shadow-card">
+        <div className="flex items-center justify-between gap-3 px-5 py-4">
+          <p className="flex items-center gap-2.5 text-lg font-medium">
+            {masalah === 0 ? <CheckCircle2 className="size-6 text-green-400" aria-hidden /> : alarmAktif > 0 ? <Siren className="size-6 animate-pulse text-red-400 motion-reduce:animate-none" aria-hidden /> : <TriangleAlert className="size-6 text-amber-300" aria-hidden />}
+            {kartu.length === 0 ? "Belum ada titik pantau" : masalah === 0 ? "Semua sistem normal" : `${formatNumber(masalah)} titik perlu perhatian`}
+          </p>
+          <span className="flex items-center gap-3 text-white/90"><Cloud className="size-5" aria-hidden /><JamLangsung awal={new Date(kini).toISOString()} /></span>
+        </div>
+        <div className="mx-3 mb-3 flex flex-wrap items-center gap-x-5 gap-y-1 rounded-xl bg-white px-4 py-3 text-sm text-navy-800">
+          <span className="font-medium">{kartu.length === 0 ? "Tambahkan lokasi di Admin → Monitoring" : hitung("normal") === kartu.length ? `Semua ${formatNumber(kartu.length)} titik pantau dalam batas` : `${formatNumber(hitung("normal"))} dari ${formatNumber(kartu.length)} titik pantau dalam batas`}</span>
+          {alarmAktif > 0 && <span className="text-red-700">● {formatNumber(alarmAktif)} alarm aktif</span>}
+          {hitung("luar") > 0 && <span className="text-amber-700">● {formatNumber(hitung("luar"))} di luar batas</span>}
+          {putus > 0 && <span className="text-orange-700">● {formatNumber(putus)} terputus / belum ada data</span>}
+          <span className="ml-auto text-xs text-muted-foreground">{formatNumber(kartu.filter((k) => k.sensor).length)} bersensor</span>
+        </div>
       </section>
+
+      <PemantauLangsung waktuServer={new Date(kini).toISOString()} alarm={pemberitahuan} />
 
       {kartu.length > 0 && (
         <form method="get" className="mb-6 flex flex-wrap items-end gap-3 print:hidden" aria-label="Saring titik pantau">
@@ -87,6 +99,22 @@ export default async function MonitoringPage({ searchParams }: { searchParams: P
           <Button type="submit" variant="outline"><Filter /> Terapkan</Button>
           {adaFilter && <Button variant="ghost" asChild><Link href="/monitoring">Reset</Link></Button>}
         </form>
+      )}
+
+      {kartu.length === 0 ? (
+        <Card>
+          <CardContent className="grid place-items-center gap-3 py-14 text-center">
+            <Thermometer className="size-10 text-teal-600" aria-hidden />
+            <p className="max-w-md text-sm text-muted-foreground">Belum ada titik pantau. Tambahkan lokasi (mis. kulkas vaksin farmasi), daftarkan sensornya, lalu sensor mengirim data ke STARS — atau impor berkas ekspor data logger.</p>
+            <Button variant="teal" asChild><Link href="/admin/monitoring">Atur di Admin → Monitoring</Link></Button>
+          </CardContent>
+        </Card>
+      ) : tampil.length === 0 ? (
+        <p className="rounded-lg border bg-card p-6 text-center text-sm text-muted-foreground">Tidak ada titik pantau yang cocok dengan saringan. <Link href="/monitoring" className="font-medium text-teal-700 underline">Tampilkan semua</Link></p>
+      ) : (
+        <section aria-label="Titik pantau" className="grid gap-4 mb-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          {tampil.map((k) => <KartuLokasiPantau key={k.id} k={k} />)}
+        </section>
       )}
 
       {alarm.length > 0 && (
@@ -130,22 +158,6 @@ export default async function MonitoringPage({ searchParams }: { searchParams: P
           </div>
           {alarm.length > 15 && <p className="border-t px-4 py-2 text-xs text-muted-foreground">+{alarm.length - 15} alarm lain — lihat Admin → Monitoring → Alarm.</p>}
         </Card>
-      )}
-
-      {kartu.length === 0 ? (
-        <Card>
-          <CardContent className="grid place-items-center gap-3 py-14 text-center">
-            <Thermometer className="size-10 text-teal-600" aria-hidden />
-            <p className="max-w-md text-sm text-muted-foreground">Belum ada titik pantau. Tambahkan lokasi (mis. kulkas vaksin farmasi), daftarkan sensornya, lalu sensor mengirim data ke STARS — atau impor berkas ekspor data logger.</p>
-            <Button variant="teal" asChild><Link href="/admin/monitoring">Atur di Admin → Monitoring</Link></Button>
-          </CardContent>
-        </Card>
-      ) : tampil.length === 0 ? (
-        <p className="rounded-lg border bg-card p-6 text-center text-sm text-muted-foreground">Tidak ada titik pantau yang cocok dengan saringan. <Link href="/monitoring" className="font-medium text-teal-700 underline">Tampilkan semua</Link></p>
-      ) : (
-        <section aria-label="Titik pantau" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {tampil.map((k) => <KartuLokasiPantau key={k.id} k={k} />)}
-        </section>
       )}
 
       <p className="mt-6 text-xs text-muted-foreground">
