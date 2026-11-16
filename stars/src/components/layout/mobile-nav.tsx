@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { X } from "lucide-react";
+import Link from "next/link";
 import { Logo } from "./logo";
 import { SidebarNav } from "./sidebar-nav";
 import { cn } from "@/lib/utils";
@@ -19,7 +20,7 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
   }, [open, onClose]);
 
   return (
-    <div className={cn("fixed inset-0 z-50 md:hidden", !open && "pointer-events-none")} aria-hidden={!open}>
+    <div className={cn("fixed inset-0 z-50 print:hidden", !open && "pointer-events-none")} aria-hidden={!open}>
       <div className={cn("absolute inset-0 bg-navy-950/60 transition-opacity", open ? "opacity-100" : "opacity-0")} onClick={onClose} />
       <aside
         role="dialog"
@@ -31,7 +32,7 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
         )}
       >
         <div className="flex h-16 items-center justify-between border-b border-white/10 px-5">
-          <Logo />
+          <Link href="/" onClick={onClose} aria-label="STARS — ke Beranda" className="rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-300"><Logo /></Link>
           <button onClick={onClose} aria-label="Tutup menu" className="rounded-md p-2 text-navy-200 hover:bg-white/10">
             <X className="size-5" />
           </button>

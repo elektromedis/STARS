@@ -11,10 +11,12 @@ import { StatusSinkron } from "./status-sinkron";
 export function Header({ onMenuClick }: { onMenuClick: () => void }) {
   return (
     <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b bg-card/90 px-4 backdrop-blur md:px-6">
-      <Button variant="ghost" size="icon" className="md:hidden" onClick={onMenuClick} aria-label="Buka menu">
-        <Menu className="size-5" />
+      <Button variant="ghost" size="icon" onClick={onMenuClick} aria-label="Buka menu" aria-haspopup="dialog" title="Menu" className="size-11 [&_svg]:size-7">
+        <Menu className="size-6" />
       </Button>
-      <Logo className="text-navy-800 md:hidden" showText={false} />
+      <Link href="/" aria-label="STARS — ke Beranda" title="Ke Beranda" className="shrink-0 rounded-md text-navy-800 transition-opacity hover:opacity-80">
+        <Logo subClassName="hidden lg:block" />
+      </Link>
 
       {/* Pencarian global: form GET biasa ke halaman Paket, bekerja tanpa JavaScript. */}
       <form action="/paket" method="get" role="search" className="relative hidden max-w-md flex-1 sm:block">

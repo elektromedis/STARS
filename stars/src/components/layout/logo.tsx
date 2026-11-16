@@ -3,14 +3,14 @@ import { cn } from "@/lib/utils";
 import { LogoIkon } from "./logo-animasi";
 
 /** Ikon STARS vektor beranimasi (tanpa latar putih) + nama sistem. */
-export function Logo({ className, showText = true }: { className?: string; showText?: boolean }) {
+export function Logo({ className, showText = true, subClassName }: { className?: string; showText?: boolean; subClassName?: string }) {
   return (
     <div className={cn("flex items-center gap-3", className)}>
       <LogoIkon className="size-11" />
       {showText && (
         <div className="leading-tight">
           <div className="text-lg font-bold tracking-tight">STARS</div>
-          <div className="max-w-[10.5rem] text-[10px] leading-snug opacity-70">Sistem Terintegrasi Alat Kesehatan Rumah Sakit</div>
+          <div className={cn("max-w-[10.5rem] text-[10px] leading-snug opacity-70", subClassName)}>Sistem Terintegrasi Alat Kesehatan Rumah Sakit</div>
         </div>
       )}
     </div>
