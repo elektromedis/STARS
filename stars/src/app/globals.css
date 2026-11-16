@@ -145,3 +145,9 @@
   @keyframes vr-maju { to { background-position: 0 40px, 0 0; } }
   @keyframes vr-melayang { 50% { transform: translateY(-10px) rotate(-3deg); } }
 }
+
+/* Beranda: logo STARS muncul pertama — membesar & memudar masuk saat halaman dibuka */
+@media (prefers-reduced-motion: no-preference) {
+  .panggung-logo { animation: panggung-logo-masuk 1.1s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes panggung-logo-masuk { from { opacity: 0; transform: scale(.88); filter: blur(6px); } }
+}

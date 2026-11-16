@@ -57,19 +57,23 @@ const miliar = (x: number) => (x >= 1e9 ? `Rp ${(x / 1e9).toFixed(1).replace("."
 export function Panggung({ d }: { d: DataPanggung }) {
   return (
     <div className="panggung mb-10 grid gap-3">
-      {/* 1. Hero terang */}
-      <section aria-label="STARS" className="muncul relative overflow-hidden rounded-3xl bg-[#f5f5f7] pb-10 pt-12 md:pt-16">
-        <div className="mb-4 flex justify-center"><StatusSinkron /></div>
+      {/* 1. Logo STARS beranimasi — tampil pertama */}
+      <section aria-label="Logo STARS" className="muncul relative grid min-h-[min(70vh,34rem)] place-items-center overflow-hidden rounded-3xl bg-[#f5f5f7] px-4 py-12">
+        <div className="panggung-logo w-[min(720px,92%)]"><LogoAnimasi terang className="w-full" /></div>
+        <div className="absolute inset-x-0 bottom-5 flex justify-center"><StatusSinkron /></div>
+      </section>
+
+      {/* 2. Judul STARS */}
+      <section aria-label="STARS" className="muncul relative overflow-hidden rounded-3xl bg-white py-14 ring-1 ring-slate-200 md:py-20">
         <div className="panggung-masuk">
-          <Teks utama judul={<span className="text-[56px] md:text-[96px]">STARS</span>} sub="Seluruh siklus alat kesehatan RSUD Cipayung. Satu sistem.">
+          <Teks utama judul={<span className="text-[56px] md:text-[96px]">STARS</span>} sub={<>Seluruh Siklus Alat Kesehatan.<br />Satu Sistem. Satu Pintu.</>}>
             <Pil href="#perencanaan">Lihat data</Pil>
             <Pil href="/allies" varian="garis">Tanya ALLIES</Pil>
           </Teks>
         </div>
-        <div className="panggung-visual mx-auto mt-8 w-[min(640px,88%)]"><LogoAnimasi terang className="w-full" /></div>
       </section>
 
-      {/* 2. ALLIES — panel gelap */}
+      {/* 3. ALLIES — panel gelap */}
       <section aria-label="ALLIES" className="muncul relative overflow-hidden rounded-3xl bg-black pb-8 pt-12 md:pt-14">
         <Teks gelap judul={<>ALLIES<span className="bg-gradient-to-r from-teal-300 to-[#a99bff] bg-clip-text text-transparent">.</span></>} sub="Agen alat medik. Dari analisa kebutuhan sampai penghapusan — lalu mulai lagi.">
           <Pil href="/allies#tanya">Tanya sekarang</Pil>
@@ -79,7 +83,14 @@ export function Panggung({ d }: { d: DataPanggung }) {
         <p className="mt-4 text-center text-sm text-white/70">{formatNumber(d.kandidat)} alat direkomendasikan untuk diganti atau dihapus.</p>
       </section>
 
-      {/* 3. Kisi ubin */}
+      {/* 4. Lapor kerusakan — tepat setelah ALLIES */}
+      <section aria-label="Lapor Kerusakan" className="muncul flex min-h-[18rem] flex-col justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-teal-600 to-navy-800 py-12">
+          <Teks kecil gelap judul="Alat bermasalah?" sub="Laporkan dalam satu menit — tanpa akun. Scan QR di alat untuk mengisi otomatis.">
+            <Pil href="/lapor">Lapor kerusakan</Pil>
+          </Teks>
+        </section>
+
+      {/* 5. Kisi ubin */}
       <div className="grid gap-3 lg:grid-cols-2">
         <section aria-label="SI-ALKES" className="muncul flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-[#f5f5f7] pb-10 pt-12">
           <Teks kecil judul="SI-ALKES" sub="Perencanaan-Pengadaan &amp; HTA. Pagu, serapan, dan selisih — setiap tahap anggaran.">
@@ -130,18 +141,13 @@ export function Panggung({ d }: { d: DataPanggung }) {
           </ol>
         </section>
 
-        <section aria-label="HTA" className="muncul flex min-h-[22rem] flex-col justify-between overflow-hidden rounded-3xl bg-[#f5f5f7] pb-10 pt-12">
+        <section aria-label="HTA" className="muncul lg:col-span-2 flex min-h-[22rem] flex-col justify-between overflow-hidden rounded-3xl bg-[#f5f5f7] pb-10 pt-12">
           <Teks kecil judul="HTA" sub="Bandingkan merek & tipe sebelum membeli.">
             <Pil href="/hta">Bandingkan</Pil>
           </Teks>
           <div className="panggung-visual mt-6 grid grid-cols-2 gap-2 px-6"><Angka nilai={formatNumber(d.produkHta)} label="produk" /><Angka nilai={formatNumber(d.jenisHta)} label="jenis alat" /></div>
         </section>
 
-        <section aria-label="Lapor Kerusakan" className="muncul flex min-h-[22rem] flex-col justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-teal-600 to-navy-800 py-12">
-          <Teks kecil gelap judul="Alat bermasalah?" sub="Laporkan dalam satu menit — tanpa akun. Scan QR di alat untuk mengisi otomatis.">
-            <Pil href="/lapor">Lapor kerusakan</Pil>
-          </Teks>
-        </section>
       </div>
     </div>
   );
