@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Glasses } from "lucide-react";
 import { LogoAnimasi } from "@/components/layout/logo-animasi";
 import { StatusSinkron } from "@/components/layout/status-sinkron";
 import { DiagramSiklus } from "@/components/allies/diagram-siklus";
@@ -73,7 +73,14 @@ export function Panggung({ d }: { d: DataPanggung }) {
         </div>
       </section>
 
-      {/* 3. ALLIES — panel gelap */}
+      {/* 3. Lapor kerusakan */}
+      <section aria-label="Lapor Kerusakan" className="muncul flex min-h-[18rem] flex-col justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-teal-600 to-navy-800 py-12">
+          <Teks kecil gelap judul="Alat bermasalah?" sub="Laporkan dalam satu menit — tanpa akun. Scan QR di alat untuk mengisi otomatis.">
+            <Pil href="/lapor">Lapor kerusakan</Pil>
+          </Teks>
+        </section>
+
+      {/* 4. ALLIES — panel gelap */}
       <section aria-label="ALLIES" className="muncul relative overflow-hidden rounded-3xl bg-black pb-8 pt-12 md:pt-14">
         <Teks gelap judul={<>ALLIES<span className="bg-gradient-to-r from-teal-300 to-[#a99bff] bg-clip-text text-transparent">.</span></>} sub="Agen alat medik. Dari analisa kebutuhan sampai penghapusan — lalu mulai lagi.">
           <Pil href="/allies#tanya">Tanya sekarang</Pil>
@@ -82,13 +89,6 @@ export function Panggung({ d }: { d: DataPanggung }) {
         <div className="panggung-visual mx-auto mt-6 w-[min(720px,94%)] rounded-2xl bg-white p-2"><DiagramSiklus jumlah={d.perTahap} /></div>
         <p className="mt-4 text-center text-sm text-white/70">{formatNumber(d.kandidat)} alat direkomendasikan untuk diganti atau dihapus.</p>
       </section>
-
-      {/* 4. Lapor kerusakan — tepat setelah ALLIES */}
-      <section aria-label="Lapor Kerusakan" className="muncul flex min-h-[18rem] flex-col justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-teal-600 to-navy-800 py-12">
-          <Teks kecil gelap judul="Alat bermasalah?" sub="Laporkan dalam satu menit — tanpa akun. Scan QR di alat untuk mengisi otomatis.">
-            <Pil href="/lapor">Lapor kerusakan</Pil>
-          </Teks>
-        </section>
 
       {/* 5. Kisi ubin */}
       <div className="grid gap-3 lg:grid-cols-2">
@@ -141,11 +141,23 @@ export function Panggung({ d }: { d: DataPanggung }) {
           </ol>
         </section>
 
-        <section aria-label="HTA" className="muncul lg:col-span-2 flex min-h-[22rem] flex-col justify-between overflow-hidden rounded-3xl bg-[#f5f5f7] pb-10 pt-12">
+        <section aria-label="HTA" className="muncul flex min-h-[22rem] flex-col justify-between overflow-hidden rounded-3xl bg-[#f5f5f7] pb-10 pt-12">
           <Teks kecil judul="HTA" sub="Bandingkan merek & tipe sebelum membeli.">
             <Pil href="/hta">Bandingkan</Pil>
           </Teks>
           <div className="panggung-visual mt-6 grid grid-cols-2 gap-2 px-6"><Angka nilai={formatNumber(d.produkHta)} label="produk" /><Angka nilai={formatNumber(d.jenisHta)} label="jenis alat" /></div>
+        </section>
+
+        <section aria-label="AVICENNA" className="muncul relative flex min-h-[22rem] flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-[#2b1f6b] pb-10 pt-12">
+          <div className="vr-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+          <div className="relative">
+            <Teks kecil gelap judul="AVICENNA" sub="Virtual Reality untuk alat kesehatan. Latih dulu di dunia virtual.">
+              <Pil href="/avicenna#simulasi">Coba simulasi</Pil><Pil href="/avicenna" varian="garis" gelap>Pelajari</Pil>
+            </Teks>
+          </div>
+          <div className="panggung-visual relative mt-6 flex justify-center" aria-hidden>
+            <span className="vr-melayang grid size-16 place-items-center rounded-2xl bg-gradient-to-br from-teal-400 to-[#7a6bff] text-white shadow-2xl"><Glasses className="size-8" /></span>
+          </div>
         </section>
 
       </div>
