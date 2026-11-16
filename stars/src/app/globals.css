@@ -130,3 +130,18 @@
   @keyframes logger-masuk { from { opacity: 0; transform: translateY(10px); } }
 }
 @media print { .logger-kartu { animation: none !important; } }
+
+/* AVICENNA: kisi perspektif ala ruang VR + ikon melayang */
+.vr-grid {
+  background-image: linear-gradient(rgba(94,234,212,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(94,234,212,.35) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to top, black, transparent 75%);
+  transform: perspective(500px) rotateX(55deg) translateY(35%) scale(1.6);
+  transform-origin: bottom;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vr-grid { animation: vr-maju 6s linear infinite; }
+  .vr-melayang { animation: vr-melayang 4s ease-in-out infinite; }
+  @keyframes vr-maju { to { background-position: 0 40px, 0 0; } }
+  @keyframes vr-melayang { 50% { transform: translateY(-10px) rotate(-3deg); } }
+}
