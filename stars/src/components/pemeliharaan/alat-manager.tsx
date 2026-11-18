@@ -11,6 +11,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ALASAN_TIDAK_OPERASI, badgeKondisi, DAYA_LISTRIK, JENIS_ALAT, KONDISI_ALAT, PENGGUNA_ALAT, RISIKO_ALAT, STATUS_OPERASI } from "@/lib/pemeliharaan";
 import { buatAlat, buatRuangan, ubahAlat, type StatusAksi } from "@/app/admin/alat/actions";
 import { urlDetailAlat } from "@/lib/dokumen-alat";
+import { AMBANG_EM, FUNGSI_ALAT, hitungSkor, KEBUTUHAN_PEMELIHARAAN, prioritasEmr, RISIKO_FISIK } from "@/lib/risiko-who";
+import { cn } from "@/lib/utils";
 import { QrAlat } from "./qr-alat";
 
 type Unit = { id: number; nama: string };
@@ -29,6 +31,7 @@ export type Alat = {
   hasilUjiTerima: string | null; penyediaServis: string | null; kontrakServis: string | null; kontrakServisSampai: string | Date | null;
   persyaratanOperasi: string | null; aksesori: string | null; penggunaAlat: string | null; riwayatRecall: string | null;
   pembuanganKhusus: boolean; tanggalInventarisasi: string | Date | null;
+  emFungsi: number | null; emRisiko: number | null; emPemeliharaan: number | null; emrMisiKritis: number | null; emrUtilisasi: number | null;
 };
 
 const tglInput = (d: string | Date | null | undefined) => (d ? new Date(d).toISOString().slice(0, 10) : "");
@@ -84,6 +87,7 @@ function Medan({ a, units, ruangan }: { a?: Alat; units: Unit[]; ruangan: Ruanga
       <label className={L}>Distributor<Input name="distributor" defaultValue={a?.distributor ?? ""} maxLength={160} className="h-9" /></label>
       <label className={`${L} sm:col-span-3 lg:col-span-2`}>Catatan<Input name="catatan" defaultValue={a?.catatan ?? ""} maxLength={1000} className="h-9" /></label>
       <DataWho a={a} />
+      <SkorRisikoWho a={a} />
       {a && (a.instalasi || a.pelayanan || a.teknologi || a.kelasRisiko || a.umurPemakaian || a.noUrutAset) && (
         <p className="text-xs text-muted-foreground sm:col-span-3 lg:col-span-4">
           <span className="font-medium">Data impor Trilux:</span> {[a.instalasi && `Instalasi ${a.instalasi}`, a.pelayanan && `Pelayanan ${a.pelayanan}`, a.noUrutAset && `No urut aset ${a.noUrutAset}`, a.tahunPembelian && `Beli ${a.tahunPembelian}`, a.tahunPembukuan && `Buku ${a.tahunPembukuan}`, a.teknologi && `Teknologi ${a.teknologi}`, a.kelasRisiko && `Kelas risiko ${a.kelasRisiko}`, a.umurPemakaian && `Umur pakai ${a.umurPemakaian}`].filter(Boolean).join(" · ")}
@@ -140,6 +144,40 @@ function DataWho({ a }: { a?: Alat }) {
   );
 }
 
+/** Skor risiko inklusi WHO (Lampiran A): EM Fennigkoh–Smith & EMR Wang–Levenson, dihitung langsung saat memilih. */
+function SkorRisikoWho({ a }: { a?: Alat }) {
+  const L = "grid gap-1 text-xs text-muted-foreground";
+  const [v, setV] = useState({ emFungsi: a?.emFungsi ?? null, emRisiko: a?.emRisiko ?? null, emPemeliharaan: a?.emPemeliharaan ?? null, emrMisiKritis: a?.emrMisiKritis ?? null, emrUtilisasi: a?.emrUtilisasi ?? null });
+  const s = hitungSkor(v);
+  const p = prioritasEmr(s.emr);
+  const ubah = (k: keyof typeof v) => (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => setV((x) => ({ ...x, [k]: e.target.value === "" ? null : Number(e.target.value) }));
+  return (
+    <details className="group rounded-lg border bg-slate-50/60 sm:col-span-3 lg:col-span-4" open={s.lengkapEm}>
+      <summary className="cursor-pointer select-none px-3 py-2 text-sm font-medium text-navy-800">Skor risiko inklusi (WHO) {s.em != null ? <Badge variant={s.masuk ? "danger" : "outline"} className="ml-1">EM {s.em} · {s.masuk ? "masuk program" : "di bawah ambang"}</Badge> : <span className="font-normal text-muted-foreground">— Fennigkoh–Smith (EM) & Wang–Levenson (EMR)</span>}</summary>
+      <div className="grid gap-3 border-t p-3 sm:grid-cols-3 lg:grid-cols-5 [&>*]:min-w-0">
+        <label className={`${L} lg:col-span-2`}>Fungsi alat (2–10)
+          <Select name="emFungsi" value={v.emFungsi ?? ""} onChange={ubah("emFungsi")} className="h-9"><option value="">— belum —</option>
+            {["Terapeutik", "Diagnostik", "Analitik", "Lain-lain"].map((g) => <optgroup key={g} label={g}>{FUNGSI_ALAT.filter((x) => x.grup === g).map((x) => <option key={x.nilai} value={x.nilai}>{x.nilai} — {x.label}</option>)}</optgroup>)}
+          </Select>
+        </label>
+        <label className={L}>Risiko fisik penggunaan (1–5)
+          <Select name="emRisiko" value={v.emRisiko ?? ""} onChange={ubah("emRisiko")} className="h-9"><option value="">— belum —</option>{RISIKO_FISIK.map((x) => <option key={x.nilai} value={x.nilai}>{x.nilai} — {x.label}</option>)}</Select>
+        </label>
+        <label className={`${L} lg:col-span-2`}>Kebutuhan pemeliharaan (1–5)
+          <Select name="emPemeliharaan" value={v.emPemeliharaan ?? ""} onChange={ubah("emPemeliharaan")} className="h-9"><option value="">— belum —</option>{KEBUTUHAN_PEMELIHARAAN.map((x) => <option key={x.nilai} value={x.nilai}>{x.nilai} — {x.label}</option>)}</Select>
+        </label>
+        <label className={L}>Misi kritis (1–10)<Input name="emrMisiKritis" type="number" min={1} max={10} value={v.emrMisiKritis ?? ""} onChange={ubah("emrMisiKritis")} className="h-9" placeholder="10 = paling kritis" /></label>
+        <label className={L}>Utilisasi (0–100 %)<Input name="emrUtilisasi" type="number" min={0} max={100} value={v.emrUtilisasi ?? ""} onChange={ubah("emrUtilisasi")} className="h-9" placeholder="mis. 80" /></label>
+        <div className="grid grid-cols-3 gap-2 sm:col-span-3 lg:col-span-3" aria-live="polite">
+          <div className="rounded-lg border bg-white p-2 text-center"><p className="text-[11px] text-muted-foreground">EM = F + R + P</p><p className="text-xl font-bold tabular-nums text-navy-800">{s.em ?? "—"}</p><p className={cn("text-[11px] font-medium", s.masuk ? "text-red-700" : "text-muted-foreground")}>{s.em == null ? "lengkapi F, R, P" : s.masuk ? `≥ ${AMBANG_EM}: masuk program` : `< ${AMBANG_EM}: opsional`}</p></div>
+          <div className="rounded-lg border bg-white p-2 text-center"><p className="text-[11px] text-muted-foreground">EMR = MK + 2R + 2P</p><p className="text-xl font-bold tabular-nums text-navy-800">{s.emr ?? "—"}<span className="text-xs font-normal text-muted-foreground">/30</span></p><p className="text-[11px] font-medium text-muted-foreground">{p.label}</p></div>
+          <div className="rounded-lg border bg-white p-2 text-center"><p className="text-[11px] text-muted-foreground">EMR tersesuaikan</p><p className="text-xl font-bold tabular-nums text-navy-800">{s.emrSesuai ?? "—"}</p><p className="text-[11px] text-muted-foreground">(MK + 2P) × U + 2R</p></div>
+        </div>
+      </div>
+    </details>
+  );
+}
+
 function TautanLabel({ href }: { href: string }) {
   return <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:underline"><QrCode className="size-3.5" /> Cetak label QR</a>;
 }
@@ -162,6 +200,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
         <Badge variant={a.jenis === "Medik" ? "teal" : "outline"}>{a.jenis}</Badge>
         <Badge variant={badgeKondisi[a.kondisi] ?? "outline"}>{a.kondisi}</Badge>
         {a.statusOperasi === "Tidak beroperasi" && <Badge variant="danger" title={a.alasanTidakOperasi ?? undefined}>Tidak beroperasi</Badge>}
+        {(() => { const sk = hitungSkor(a); return sk.em != null ? <Badge variant={sk.masuk ? "warning" : "outline"} title={`Skor EM WHO ${sk.em}${sk.emr != null ? ` · EMR ${sk.emr}/30` : ""}`}>EM {sk.em}</Badge> : null; })()}
       </summary>
       {bolehKelola ? (
         <form action={aksi} className="grid gap-2 bg-muted/20 px-4 py-4">

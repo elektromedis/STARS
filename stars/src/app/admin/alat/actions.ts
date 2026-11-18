@@ -38,6 +38,8 @@ function bacaForm(fd: FormData) {
     aksesori: fd.get("aksesori") || undefined, penggunaAlat: fd.getAll("penggunaAlat").map(String).filter(Boolean).join(", ") || undefined,
     riwayatRecall: fd.get("riwayatRecall") || undefined, pembuanganKhusus: fd.get("pembuanganKhusus") === "on",
     tanggalInventarisasi: fd.get("tanggalInventarisasi") || null,
+    emFungsi: fd.get("emFungsi") || null, emRisiko: fd.get("emRisiko") || null, emPemeliharaan: fd.get("emPemeliharaan") || null,
+    emrMisiKritis: fd.get("emrMisiKritis") || null, emrUtilisasi: fd.get("emrUtilisasi") || null,
   });
 }
 
@@ -54,6 +56,9 @@ function rapikan(d: DataAlat) {
     tanggalInstalasi: d.tanggalInstalasi ?? null, hasilUjiTerima: d.hasilUjiTerima || null, penyediaServis: d.penyediaServis || null, kontrakServis: d.kontrakServis || null,
     kontrakServisSampai: d.kontrakServisSampai ?? null, persyaratanOperasi: d.persyaratanOperasi || null, aksesori: d.aksesori || null, penggunaAlat: d.penggunaAlat || null,
     riwayatRecall: d.riwayatRecall || null, tanggalInventarisasi: d.tanggalInventarisasi ?? null,
+    emFungsi: d.emFungsi ?? null, emRisiko: d.emRisiko ?? null, emPemeliharaan: d.emPemeliharaan ?? null,
+    emrMisiKritis: d.emrMisiKritis ?? null, emrUtilisasi: d.emrUtilisasi ?? null,
+    emDinilaiPada: d.emFungsi != null && d.emRisiko != null && d.emPemeliharaan != null ? new Date() : null,
   };
 }
 

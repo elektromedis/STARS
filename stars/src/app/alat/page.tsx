@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AMBANG_EM, FUNGSI_ALAT, hitungSkor, KEBUTUHAN_PEMELIHARAAN, labelPilihan, prioritasEmr, RISIKO_FISIK } from "@/lib/risiko-who";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowLeft, Banknote, Boxes, CalendarClock, ChevronRight, ClipboardList, Cpu, FileSearch, Gauge, Info, Lock, Printer, QrCode, Send, ShieldAlert } from "lucide-react";
@@ -187,6 +188,34 @@ export default async function DetailAlatPage({ searchParams }: { searchParams: P
           </CardContent>
         </Card>
       </div>
+
+      {/* Skor risiko inklusi WHO */}
+      {(() => {
+        const sk = hitungSkor(a); const pr = prioritasEmr(sk.emr);
+        return (
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2"><ShieldAlert className="size-4 text-teal-700" /> Skor Risiko Inklusi (WHO)</CardTitle>
+              <CardDescription>EM Fennigkoh–Smith = Fungsi + Risiko + Pemeliharaan (≥ {AMBANG_EM} masuk program pemeliharaan) · EMR Wang–Levenson = Misi kritis + 2×Risiko + 2×Pemeliharaan.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              {sk.em == null ? <p className="text-sm text-muted-foreground">Belum dinilai.{masuk ? " Isi di ADMIN › Daftar Alat › Skor risiko inklusi (WHO)." : ""}</p> : (
+                <div className="grid gap-4 md:grid-cols-[repeat(3,minmax(0,1fr))_minmax(0,1.6fr)]">
+                  <div className="rounded-xl border p-3 text-center"><p className="text-xs text-muted-foreground">Skor EM</p><p className="text-3xl font-bold tabular-nums text-navy-800">{sk.em}<span className="text-sm font-normal text-muted-foreground">/20</span></p><Badge variant={sk.masuk ? "danger" : "outline"}>{sk.masuk ? "Masuk program pemeliharaan" : "Di bawah ambang"}</Badge></div>
+                  <div className="rounded-xl border p-3 text-center"><p className="text-xs text-muted-foreground">Skor EMR</p><p className="text-3xl font-bold tabular-nums text-navy-800">{sk.emr ?? "—"}<span className="text-sm font-normal text-muted-foreground">/30</span></p><Badge variant={pr.nada}>{pr.label}</Badge></div>
+                  <div className="rounded-xl border p-3 text-center"><p className="text-xs text-muted-foreground">EMR tersesuaikan utilisasi</p><p className="text-3xl font-bold tabular-nums text-navy-800">{sk.emrSesuai ?? "—"}</p><p className="text-xs text-muted-foreground">utilisasi {a.emrUtilisasi != null ? `${a.emrUtilisasi}%` : "—"}</p></div>
+                  <dl className="overflow-hidden rounded-lg border text-sm">
+                    <Baris label="Fungsi">{a.emFungsi} · {labelPilihan(FUNGSI_ALAT, a.emFungsi)}</Baris>
+                    <Baris label="Risiko fisik">{a.emRisiko} · {labelPilihan(RISIKO_FISIK, a.emRisiko)}</Baris>
+                    <Baris label="Pemeliharaan">{a.emPemeliharaan} · {labelPilihan(KEBUTUHAN_PEMELIHARAAN, a.emPemeliharaan)}</Baris>
+                    <Baris label="Misi kritis">{a.emrMisiKritis ?? "—"}{a.emDinilaiPada ? <span className="block text-muted-foreground">dinilai {tglIndo(a.emDinilaiPada)}</span> : null}</Baris>
+                  </dl>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        );
+      })()}
 
       {/* Inventaris standar WHO: operasional, servis, aksesori, recall */}
       <Card>

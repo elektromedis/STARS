@@ -188,6 +188,13 @@ model Alat {
   riwayatRecall         String? // recall / peringatan bahaya dari produsen/regulator
   pembuanganKhusus      Boolean   @default(false)
   tanggalInventarisasi  DateTime? // terakhir diverifikasi fisik (audit inventaris)
+  // --- skor risiko inklusi (WHO, Lampiran A): EM Fennigkoh–Smith & EMR Wang–Levenson ---
+  emFungsi              Int? // 2..10
+  emRisiko              Int? // 1..5
+  emPemeliharaan        Int? // 1..5
+  emrMisiKritis         Int? // 1..10
+  emrUtilisasi          Int? // 0..100 (%)
+  emDinilaiPada         DateTime?
   // --- foto alat (publik): UPLOAD_DIR/alat/<uuid>.jpg + gambar kecil <uuid>-kecil.jpg ---
   foto             String?
   createdAt        DateTime          @default(now())

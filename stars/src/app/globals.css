@@ -152,29 +152,6 @@
   @keyframes panggung-logo-masuk { from { opacity: 0; transform: scale(.88); filter: blur(6px); } }
 }
 
-/* ───────── Tema utama STARS: latar heksagon molekul (seluruh aplikasi) ─────────
- * Gambar dipasang pada lapisan tetap di belakang konten; bergeser & berdenyut sangat pelan.
- * Hanya transform/opacity (dipercepat GPU) agar ringan di HP. Mati saat cetak & reduced-motion. */
-body { background-color: #f6f9fc; }
-body::before {
-  content: ""; position: fixed; inset: -4%; z-index: -1; pointer-events: none;
-  background: url("/tema/latar-heksagon.webp") center / cover no-repeat;
-  opacity: .85;
-}
-body::after {
-  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background: radial-gradient(60% 50% at 50% 40%, rgba(255,255,255,.75), rgba(255,255,255,0) 70%);
-}
-@media (prefers-reduced-motion: no-preference) {
-  body::before { animation: tema-melayang 38s ease-in-out infinite alternate; will-change: transform; }
-  @keyframes tema-melayang {
-    0%   { transform: translate3d(0, 0, 0) scale(1); opacity: .8; }
-    50%  { transform: translate3d(-1.2%, 1%, 0) scale(1.025); opacity: .95; }
-    100% { transform: translate3d(1%, -1.2%, 0) scale(1.04); opacity: .85; }
-  }
-}
-@media print { body::before, body::after { display: none; } body { background: #fff; } }
-
 /* Ilustrasi isometrik di beranda: melayang naik-turun bergantian + membesar halus saat disorot */
 .tema-ubin { transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s; }
 .tema-ubin:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 40px rgba(15, 60, 110, .18); }
@@ -202,31 +179,57 @@ body::after {
   @keyframes tema-label-masuk { from { opacity: 0; transform: translateY(8px); } }
 }
 
-/* ───────── Latar slideshow STARS (menggantikan latar heksagon tunggal) ─────────
- * 4 adegan: heksagon → jaringan → ikan → dua ikan, berulang 48 detik. Tiap adegan ±12 dtk + crossfade 3 dtk,
- * dengan gerak "Ken Burns" sangat pelan. Hanya opacity + transform (GPU) agar ringan; tanpa JavaScript. */
-body::before { display: none; }
-.latar-tema { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; background: #f8fbff; }
-.latar-tema > span {
-  position: absolute; inset: -5%; background-position: center; background-size: cover; background-repeat: no-repeat;
-  opacity: 0; will-change: opacity, transform;
-}
-.latar-tema > span:nth-child(1) { background-image: url("/tema/latar-heksagon.webp"); opacity: 1; }
-.latar-tema > span:nth-child(2) { background-image: url("/tema/latar-jaringan.webp"); }
-.latar-tema > span:nth-child(3) { background-image: url("/tema/latar-ikan.webp"); }
-.latar-tema > span:nth-child(4) { background-image: url("/tema/latar-ikan-dua.webp"); }
+/* ───────── Latar STARS: "langit kehidupan" ─────────
+ * Dasar putih hangat + rasi bintang yang bergeser pelan + bintang berkelip (2 lapis bergantian)
+ * + 3 ikan cahaya yang berenang melintas (gerak lintasan + naik-turun + kibasan ekor).
+ * Total gambar ±255 KB, sekali unduh lalu tersimpan di cache; animasi hanya transform/opacity (GPU), tanpa JavaScript.
+ * Mati otomatis bila "kurangi gerakan" aktif, dan tidak ikut tercetak. */
+body { background-color: #fbfcfe; }
+.langit { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none;
+  background: #fbfcfe url("/tema/langit-dasar.webp") center / cover no-repeat; }
+.langit::after { content: ""; position: absolute; inset: 0;
+  background: radial-gradient(70% 60% at 50% 42%, rgba(255,255,255,.72), rgba(255,255,255,.15) 70%, rgba(255,255,255,0)); }
+.langit-rasi, .langit-bintang { position: absolute; inset: -6%; background-position: center; background-size: cover; background-repeat: no-repeat; will-change: transform, opacity; }
+.langit-rasi { background-image: url("/tema/langit-rasi.webp"); opacity: .55; }
+.langit-bintang.a { background-image: url("/tema/langit-bintang-a.webp"); opacity: .55; }
+.langit-bintang.b { background-image: url("/tema/langit-bintang-b.webp"); opacity: .35; }
+.ikan { position: absolute; left: 0; top: 0; width: var(--l, 220px); opacity: .72; will-change: transform; }
+.ikan img { display: block; width: 100%; height: auto; transform-origin: 30% 50%; }
+.ikan.satu { --l: clamp(150px, 16vw, 240px); top: 18%; }
+.ikan.dua  { --l: clamp(130px, 13vw, 200px); top: 58%; }
+.ikan.tiga { --l: clamp(120px, 12vw, 190px); top: 74%; }
 @media (prefers-reduced-motion: no-preference) {
-  .latar-tema > span { animation: latar-adegan 48s linear infinite; }
-  .latar-tema > span:nth-child(1) { animation-delay: -3s; }
-  .latar-tema > span:nth-child(2) { animation-delay: 9s; }
-  .latar-tema > span:nth-child(3) { animation-delay: 21s; }
-  .latar-tema > span:nth-child(4) { animation-delay: 33s; }
-  @keyframes latar-adegan {
-    0%   { opacity: 0; transform: scale(1.02) translate3d(0, 0, 0); }
-    6.25% { opacity: 1; }
-    25%  { opacity: 1; }
-    31.25% { opacity: 0; transform: scale(1.09) translate3d(-1.5%, -1%, 0); }
-    100% { opacity: 0; transform: scale(1.09) translate3d(-1.5%, -1%, 0); }
+  .langit-rasi { animation: langit-geser 90s ease-in-out infinite alternate, langit-pendar 14s ease-in-out infinite alternate; }
+  .langit-bintang.a { animation: langit-kelip 5.5s ease-in-out infinite alternate; }
+  .langit-bintang.b { animation: langit-kelip 7s ease-in-out -3s infinite alternate-reverse; }
+  .ikan.satu { animation: renang-kanan 46s linear infinite; }
+  .ikan.dua  { animation: renang-kanan 58s linear -24s infinite; }
+  .ikan.tiga { animation: renang-kiri 52s linear -11s infinite; }
+  .ikan img { animation: ikan-ayun 3.2s ease-in-out infinite; }
+  .ikan.dua img { animation-duration: 2.6s; }
+  .ikan.tiga img { animation-duration: 2.9s; }
+  @keyframes langit-geser { from { transform: translate3d(-1.5%, 1%, 0) scale(1.02); } to { transform: translate3d(1.5%, -1.2%, 0) scale(1.06); } }
+  @keyframes langit-pendar { from { opacity: .4; } to { opacity: .65; } }
+  @keyframes langit-kelip { from { opacity: .15; } to { opacity: .7; } }
+  /* lintasan: masuk dari luar layar, bergelombang naik-turun, keluar di sisi lain */
+  @keyframes renang-kanan {
+    0%   { transform: translate3d(-30vw, 0, 0) rotate(-4deg); }
+    25%  { transform: translate3d(20vw, -5vh, 0) rotate(3deg); }
+    50%  { transform: translate3d(50vw, 3vh, 0) rotate(-3deg); }
+    75%  { transform: translate3d(80vw, -4vh, 0) rotate(4deg); }
+    100% { transform: translate3d(115vw, 2vh, 0) rotate(-2deg); }
+  }
+  @keyframes renang-kiri {
+    0%   { transform: translate3d(115vw, 0, 0) scaleX(-1) rotate(3deg); }
+    30%  { transform: translate3d(70vw, -6vh, 0) scaleX(-1) rotate(-4deg); }
+    60%  { transform: translate3d(35vw, 2vh, 0) scaleX(-1) rotate(3deg); }
+    100% { transform: translate3d(-30vw, -3vh, 0) scaleX(-1) rotate(-3deg); }
+  }
+  /* tubuh mengayun & ekor mengibas */
+  @keyframes ikan-ayun {
+    0%, 100% { transform: rotate(-2.5deg) skewY(1.5deg) scaleX(1); }
+    50%      { transform: rotate(2.5deg) skewY(-1.5deg) scaleX(.97); }
   }
 }
-@media print { .latar-tema { display: none; } }
+@media (prefers-reduced-motion: reduce) { .ikan { display: none; } }
+@media print { .langit { display: none; } body { background: #fff; } }

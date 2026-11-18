@@ -98,6 +98,12 @@ export const skemaAlat = z.object({
   riwayatRecall: z.string().trim().max(2000).optional(),
   pembuanganKhusus: z.boolean().default(false),
   tanggalInventarisasi: z.coerce.date().nullable().optional(),
+  // skor risiko inklusi WHO
+  emFungsi: z.coerce.number().int().min(2).max(10).nullable().optional(),
+  emRisiko: z.coerce.number().int().min(1).max(5).nullable().optional(),
+  emPemeliharaan: z.coerce.number().int().min(1).max(5).nullable().optional(),
+  emrMisiKritis: z.coerce.number().int().min(1).max(10).nullable().optional(),
+  emrUtilisasi: z.coerce.number().int().min(0).max(100).nullable().optional(),
 }).superRefine((d, ctx) => {
   if (d.statusOperasi === "Tidak beroperasi" && !d.alasanTidakOperasi) ctx.addIssue({ code: "custom", message: "Pilih alasan alat tidak beroperasi", path: ["alasanTidakOperasi"] });
 });
