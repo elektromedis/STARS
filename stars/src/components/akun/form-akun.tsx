@@ -30,7 +30,7 @@ export function FormDaftar({ units }: { units: { id: number; nama: string }[] })
             {/* jebakan bot: disembunyikan dari manusia */}
             <input type="text" name="situs" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
             <Label>Nama lengkap<Input name="nama" required minLength={2} maxLength={100} autoComplete="name" /></Label>
-            <Label>Email<Input name="email" type="email" required autoComplete="email" placeholder="nama@rsudcipayung.go.id" /></Label>
+            <Label>Email<Input name="email" type="email" required autoComplete="email" placeholder="nama@gmail.com" /></Label>
             <Label>Unit kerja
               <Select name="unitKerjaId" defaultValue="">
                 <option value="">— pilih unit (opsional) —</option>
@@ -63,7 +63,7 @@ export function FormLupa() {
       </CardHeader>
       <CardContent>
         <form action={aksi} className="grid gap-4">
-          <Label>Email<Input name="email" type="email" required autoComplete="username" placeholder="nama@rsudcipayung.go.id" /></Label>
+          <Label>Email<Input name="email" type="email" required autoComplete="username" placeholder="nama@gmail.com" /></Label>
           <PesanAkun status={st} />
           <Button type="submit" disabled={pending} className="w-full">{pending ? <Loader2 className="animate-spin" /> : <Mail />} Kirim tautan</Button>
         </form>

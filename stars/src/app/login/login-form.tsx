@@ -22,7 +22,7 @@ export function LoginForm({ callbackUrl }: { callbackUrl?: string }) {
           <input type="hidden" name="callbackUrl" value={callbackUrl ?? "/admin"} />
           <label className="grid gap-1.5 text-sm font-medium">
             Email
-            <Input name="email" type="email" autoComplete="username" required placeholder="nama@rsudcipayung.go.id" />
+            <Input name="email" type="email" autoComplete="username" required placeholder="nama@gmail.com" />
           </label>
           <div className="grid gap-1.5">
             <div className="flex items-center justify-between">
