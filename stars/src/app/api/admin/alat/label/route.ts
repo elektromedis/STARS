@@ -13,7 +13,7 @@ let logoCache: LogoLabel | null = null;
 async function logoLabel(): Promise<LogoLabel> {
   if (logoCache) return logoCache;
   const baca = async (f: string) => { try { return `data:image/png;base64,${(await readFile(join(process.cwd(), "public", "label", f))).toString("base64")}`; } catch { return null; } };
-  logoCache = { rsud: await baca("logo-rsud.png"), stars: await baca("logo-stars.png") };
+  logoCache = { rsud: await baca("logo-rsud.png"), stars: await baca("logo-stars.png"), paripurna: await baca("logo-paripurna.png"), penghargaan: await baca("logo-penghargaan.png") };
   return logoCache;
 }
 
@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
     orderBy: [{ unitKerja: { urut: "asc" } }, { ruangan: { nama: "asc" } }, { nama: "asc" }, { kode: "asc" }],
     take: MAKS + 1,
     select: {
-      kode: true, nama: true, merek: true, model: true, nomorSeri: true, lokasi: true, noUrutAset: true, kodeAspak: true, tahunPerolehan: true, tahunPembelian: true,
+      kode: true, nama: true, merek: true, model: true, nomorSeri: true, lokasi: true, noUrutAset: true, kodeAspak: true, pendanaan: true, tahunPerolehan: true, tahunPembelian: true,
       unitKerja: { select: { nama: true } }, ruangan: { select: { nama: true } },
       kalibrasi: { orderBy: [{ tanggal: "desc" }, { id: "desc" }], take: 1, select: { berlakuSampai: true } },
     },
@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
   const buf = pdfLabelQr(
     alat.map((a) => ({
       kode: a.kode, nama: a.nama, merek: a.merek, model: a.model, nomorSeri: a.nomorSeri, unit: a.unitKerja.nama, ruangan: a.ruangan?.nama ?? a.lokasi,
-      noAset: a.noUrutAset, tahun: a.tahunPerolehan ?? a.tahunPembelian, kalibrasiSampai: a.kalibrasi[0]?.berlakuSampai ?? null, lot: a.kodeAspak,
+      noAset: a.noUrutAset, tahun: a.tahunPerolehan ?? a.tahunPembelian, kalibrasiSampai: a.kalibrasi[0]?.berlakuSampai ?? null, lot: a.kodeAspak, pendanaan: a.pendanaan,
     })),
     { alamat, ukuran, mulai: Number(sp.get("mulai")) || 1, logo: await logoLabel() },
   );

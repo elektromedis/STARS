@@ -17,7 +17,7 @@ export type UkuranLabel = keyof typeof UKURAN_LABEL;
 
 export type DataLabel = {
   kode: string; nama: string; merek: string | null; model: string | null; nomorSeri: string | null; unit: string; ruangan: string | null;
-  noAset?: string | null; tahun?: number | null; kalibrasiSampai?: Date | null; lot?: string | null;
+  noAset?: string | null; tahun?: number | null; kalibrasiSampai?: Date | null; lot?: string | null; pendanaan?: string | null;
 };
 
 export const tautanLabel = tautanAlat;
@@ -42,8 +42,9 @@ function gambarQr(doc: jsPDF, isi: string, x: number, y: number, sisi: number) {
 }
 
 export const ALAMAT_RS = "Jl. Mini III, RT.4/RW.3, Bambu Apus, Kec. Cipayung, Kota Jakarta Timur. 13890";
-export type LogoLabel = { rsud: string | null; stars: string | null }; // data URL PNG
+export type LogoLabel = { rsud: string | null; stars: string | null; paripurna?: string | null; penghargaan?: string | null }; // data URL PNG
 const HITAM: [number, number, number] = [17, 24, 39];
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const tglPendek = (d: Date | null | undefined) => (d ? `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-${String(d.getUTCDate()).padStart(2, "0")}` : "-");
 
 /** Tulis teks satu baris yang dikecilkan sampai muat (min `kecil` pt), lalu dipotong "…" bila tetap kepanjangan. */
@@ -101,60 +102,74 @@ function ikonSimbol(doc: jsPDF, x: number, y: number, s: number) {
   [-0.35, 0, 0.35].forEach((dx) => doc.line(px + dx * s, y - s * 0.15, px + dx * s - 0.15, y + s * 0.05));
 }
 
-/** Label BESAR: tata letak lengkap ala label alat kesehatan (logo RS | nama & model / alamat | STARS | merek / unit kerja, REF, SN, tanggal, LOT, QR eIFU). */
+const kodeInventaris = (d: DataLabel) => [d.pendanaan, d.tahun, d.lot].filter((x) => x != null && String(x).trim() !== "").join("-") || d.kode;
+const mrkModel = (d: DataLabel) => `MEREK: ${(d.merek || "-").toUpperCase()}  •  MODEL/TIPE: ${(d.model || "-").toUpperCase()}`;
+
+/** Deret logo (STARS besar di kiri, lalu LARS DHP Paripurna & Penghargaan Nakes Teladan). Kembalikan lebar terpakai. */
+function deretLogo(doc: jsPDF, logo: LogoLabel, x: number, y: number, tinggiMaks: number, lebarMaks = Infinity) {
+  // lebar total ≈ tinggi × (STARS 2,74 + Paripurna 0,95 + Penghargaan 1,2 + celah 0,36)
+  const tinggi = Math.min(tinggiMaks, lebarMaks / 5.25);
+  y += (tinggiMaks - tinggi) / 2;
+  let cx = x;
+  const pasang = (data: string | null | undefined, alias: string, rasio: number, skala = 1) => {
+    if (!data) return;
+    const h = tinggi * skala, w = h * rasio;
+    doc.addImage(data, "PNG", cx, y + (tinggi - h) / 2, w, h, alias, "FAST");
+    cx += w + tinggi * 0.18;
+  };
+  pasang(logo.stars, "logo-stars", 900 / 329);
+  pasang(logo.paripurna, "logo-paripurna", 453 / 500, 1.05);
+  pasang(logo.penghargaan, "logo-penghargaan", 340 / 297, 1.05);
+  return cx - x;
+}
+
+/** Label BESAR: logo RS | nama + merek & model/tipe / alamat | logo STARS-Paripurna-Penghargaan | unit pelayanan / nama ruangan, UDI, REF (kode inventaris), SN, LOT, QR eIFU. */
 function labelBesar(doc: jsPDF, d: DataLabel, alamat: string, x0: number, y0: number, u: (typeof UKURAN_LABEL)["besar"], logo: LogoLabel) {
   const m = 2.2, X = x0 + m, Y = y0 + m, W = u.w - m * 2, H = u.h - m * 2;
   doc.setDrawColor(...HITAM).setLineWidth(0.35).roundedRect(X, Y, W, H, 2.2, 2.2, "S");
   doc.setTextColor(...HITAM);
-  // Baris 1: logo RSUD | NAMA ALAT | MODEL
-  const r1 = 10.5, logoW = 19;
+  // Baris 1: logo RSUD | NAMA ALAT / MEREK • MODEL/TIPE
+  const r1 = 11.5, logoW = 19;
   gambarLogo(doc, logo.rsud, "logo-rsud", X + 1.2, Y + 1, logoW - 2, r1 - 2, 606 / 367);
   doc.setLineWidth(0.3).line(X + logoW, Y + 1.5, X + logoW, Y + r1 - 1.5);
-  pas(doc, `${d.nama.toUpperCase()} | MODEL: ${(d.model || "-").toUpperCase()}`, X + logoW + 2, Y + r1 / 2 + 1.4, W - logoW - 3.5, 9.5, "bold", 5.5);
+  pas(doc, d.nama.toUpperCase(), X + logoW + 2, Y + 5, W - logoW - 3.5, 9.5, "bold", 5.5);
+  pas(doc, mrkModel(d), X + logoW + 2, Y + 9.2, W - logoW - 3.5, 6.4, "normal", 4.2);
   doc.setLineWidth(0.35).line(X, Y + r1, X + W, Y + r1);
-  // Baris 2: alamat | logo STARS | MEREK
-  const y2 = Y + r1, r2 = 12.5, c1 = 33, c2 = 27;
-  doc.setTextColor(...HITAM);
-  paragraf(doc, ALAMAT_RS, X + 1.8, y2 + 3.2, c1 - 3, 5.6, 4);
+  // Baris 2: alamat | deret logo | Unit Pelayanan
+  const y2 = Y + r1, r2 = 12.5, c1 = 27, c3 = 25, c2 = W - c1 - c3;
+  paragraf(doc, ALAMAT_RS, X + 1.6, y2 + 3, c1 - 2.6, 5, 4);
   doc.setLineWidth(0.3).line(X + c1, y2 + 1.2, X + c1, y2 + r2 - 1.2);
-  gambarLogo(doc, logo.stars, "logo-stars", X + c1 + 1.2, y2 + 1.5, c2 - 2.4, r2 - 3, 900 / 329);
+  deretLogo(doc, logo, X + c1 + 1.5, y2 + 1.6, r2 - 3.2, c2 - 3);
   doc.line(X + c1 + c2, y2 + 1.2, X + c1 + c2, y2 + r2 - 1.2);
-  doc.setFont("helvetica", "bold").setFontSize(8.5).text("MEREK", X + c1 + c2 + 2, y2 + 4.6);
-  pas(doc, (d.merek || "-").toUpperCase(), X + c1 + c2 + 2, y2 + 9.2, W - c1 - c2 - 3.5, 9.5, "bold", 5.5);
+  doc.setFont("helvetica", "bold").setFontSize(6.4).text("Unit Pelayanan:", X + c1 + c2 + 1.6, y2 + 4.4);
+  paragraf(doc, d.unit.toUpperCase(), X + c1 + c2 + 1.6, y2 + 8.2, c3 - 2.6, 7.4, 2, "bold");
   doc.setLineWidth(0.35).line(X, y2 + r2, X + W, y2 + r2);
-  // Area bawah: kiri (UDI, unit kerja, REF/SN, tanggal, LOT) | kanan (QR eIFU)
+  // Area bawah
   const y3 = y2 + r2, kiriW = W * 0.64, kanX = X + kiriW;
   doc.setLineWidth(0.3).line(kanX, y3 + 1.2, kanX, Y + H - 1.2);
   let ty = y3 + 3.6;
   doc.setFont("helvetica", "bold").setFontSize(6.6).text("UDI:", X + 1.8, ty);
   pas(doc, `${d.kode}${d.noAset && d.noAset !== d.kode ? `  •  ${d.noAset}` : ""}`, X + 7.6, ty, kiriW - 9.5, 6.6, "normal", 4.5);
-  // pengganti barcode: UNIT KERJA (besar) + ruangan, dan kotak kode kecil
   const qrKecil = 9.6, bx = X + 1.8, bw = kiriW - qrKecil - 5.2;
   ty += 1.6;
   doc.setFillColor(241, 245, 249).rect(bx, ty, bw, 8.2, "F");
-  pas(doc, d.unit.toUpperCase(), bx + bw / 2, ty + 4.6, bw - 2, 9, "bold", 5.2, { align: "center" });
-  doc.setFont("helvetica", "normal").setFontSize(5);
-  pas(doc, d.ruangan ? `UNIT KERJA • ${d.ruangan}` : "UNIT KERJA", bx + bw / 2, ty + 7.4, bw - 2, 4.6, "normal", 3.6, { align: "center" });
+  pas(doc, (d.ruangan || "-").toUpperCase(), bx + bw / 2, ty + 4.6, bw - 2, 9, "bold", 5, { align: "center" });
+  pas(doc, "NAMA RUANGAN", bx + bw / 2, ty + 7.4, bw - 2, 4.6, "normal", 3.6, { align: "center" });
   gambarQr(doc, d.kode, X + kiriW - qrKecil - 1.6, ty - 1.4, qrKecil);
   doc.setFont("helvetica", "normal").setFontSize(3.8).text("KODE ALAT", X + kiriW - qrKecil / 2 - 1.6, ty + qrKecil - 0.6, { align: "center" });
   ty += 12.2;
-  // REF + SN
   let wx = X + 1.8;
   wx += kotakSimbol(doc, "REF", wx, ty, 6.2) + 1.2;
-  const snX = X + kiriW * 0.5;
-  pas(doc, d.noAset || d.kode, wx, ty, snX - wx - 1.2, 6.6, "normal", 4);
-  wx = snX;
+  pas(doc, kodeInventaris(d), wx, ty, kiriW - (wx - X) - 1.5, 6.6, "normal", 4);
+  ty += 4.2;
+  wx = X + 1.8;
   wx += kotakSimbol(doc, "SN", wx, ty, 6.2) + 1.2;
-  pas(doc, d.nomorSeri || "-", wx, ty, kiriW - (wx - X) - 1.5, 6.6, "normal", 4.6);
-  // Tanggal + simbol
+  pas(doc, d.nomorSeri || "-", wx, ty, kiriW * 0.62 - (wx - X), 6.6, "normal", 4.2);
+  ikonSimbol(doc, X + kiriW - 13.5, ty - 2.6, 3.2);
   ty += 3.4;
-  ikonJamPasir(doc, X + 1.9, ty - 0.2, 2.4);
-  doc.setFont("helvetica", "normal").setFontSize(4.8);
-  doc.text(`Tahun Perolehan: ${d.tahun ?? "-"}`, X + 5.2, ty + 0.8);
-  doc.text(`Kalibrasi s/d: ${tglPendek(d.kalibrasiSampai)}`, X + 5.2, ty + 2.8);
-  ikonSimbol(doc, X + kiriW - 13.5, ty - 0.3, 3.2);
-  // LOT, QTY, MD
-  ty += 6.4;
+  ikonJamPasir(doc, X + 1.9, ty - 0.6, 2.2);
+  doc.setFont("helvetica", "normal").setFontSize(4.8).text(`Tahun Perolehan: ${d.tahun ?? "-"}`, X + 5.2, ty + 1);
+  ty += 4.6;
   wx = X + 1.8;
   wx += kotakSimbol(doc, "LOT", wx, ty, 6.2) + 1.2;
   pas(doc, d.lot || "-", wx, ty, 14, 6.6, "normal", 4.6);
@@ -181,30 +196,28 @@ function labelKecil(doc: jsPDF, d: DataLabel, alamat: string, x0: number, y0: nu
   gambarLogo(doc, logo.rsud, "logo-rsud", X + 0.8, Y + 0.7, logoW - 1.4, r1 - 1.4, 606 / 367);
   doc.setLineWidth(0.25).line(X + logoW, Y + 1, X + logoW, Y + r1 - 1);
   pas(doc, d.nama.toUpperCase(), X + logoW + 1.3, Y + 3.1, W - logoW - 2.2, 6.6, "bold", 4.2);
-  pas(doc, `MODEL: ${(d.model || "-").toUpperCase()}`, X + logoW + 1.3, Y + 5.8, W - logoW - 2.2, 4.6, "normal", 3.4);
+  pas(doc, mrkModel(d), X + logoW + 1.3, Y + 5.8, W - logoW - 2.2, 4.4, "normal", 3);
   doc.setLineWidth(0.3).line(X, Y + r1, X + W, Y + r1);
   const sisi = H - r1 - 5.2, kanX = X + W - sisi - 1.6, kiriW = kanX - X - 1;
   const tautan = tautanLabel(alamat, d.kode);
   gambarQr(doc, tautan, kanX, Y + r1 + 0.8, sisi);
   doc.setFont("helvetica", "bold").setFontSize(4.6).text("SCAN FOR eIFU", kanX + sisi / 2, Y + H - 1.6, { align: "center" });
-  let ty = Y + r1 + 3.2;
-  doc.setFont("helvetica", "bold").setFontSize(4.6).text("MEREK", X + 1.4, ty);
-  pas(doc, (d.merek || "-").toUpperCase(), X + 8.4, ty, kiriW - 8, 4.8, "bold", 3.4);
-  ty += 1.4;
+  let ty = Y + r1 + 3.1;
+  doc.setFont("helvetica", "bold").setFontSize(4.4).text("Unit Pelayanan:", X + 1.4, ty);
+  pas(doc, d.unit.toUpperCase(), X + 13.4, ty, kiriW - 13, 4.8, "bold", 3.2);
+  ty += 1.3;
   doc.setFillColor(241, 245, 249).rect(X + 1.4, ty, kiriW - 1.6, 5.4, "F");
-  pas(doc, d.unit.toUpperCase(), X + 1.4 + (kiriW - 1.6) / 2, ty + 3.2, kiriW - 2.6, 6, "bold", 3.6, { align: "center" });
-  pas(doc, d.ruangan ? `UNIT KERJA • ${d.ruangan}` : "UNIT KERJA", X + 1.4 + (kiriW - 1.6) / 2, ty + 4.9, kiriW - 2.6, 3.2, "normal", 2.6, { align: "center" });
-  ty += 8.4;
+  pas(doc, (d.ruangan || "-").toUpperCase(), X + 1.4 + (kiriW - 1.6) / 2, ty + 3.2, kiriW - 2.6, 6, "bold", 3.4, { align: "center" });
+  pas(doc, "NAMA RUANGAN", X + 1.4 + (kiriW - 1.6) / 2, ty + 4.9, kiriW - 2.6, 3.2, "normal", 2.6, { align: "center" });
+  ty += 8.2;
   let wx = X + 1.4;
   wx += kotakSimbol(doc, "SN", wx, ty, 4.4) + 0.8;
   pas(doc, d.nomorSeri || "-", wx, ty, kiriW - (wx - X) - 0.6, 4.6, "normal", 3.2);
-  ty += 3;
+  ty += 2.9;
   wx = X + 1.4;
   wx += kotakSimbol(doc, "REF", wx, ty, 4.4) + 0.8;
-  pas(doc, d.noAset || d.kode, wx, ty, kiriW - (wx - X) - 0.6, 4.6, "normal", 3.2);
-  ty += 2.9;
-  doc.setFont("helvetica", "normal").setFontSize(3.6).text(`Kalibrasi s/d: ${tglPendek(d.kalibrasiSampai)}`, X + 1.4, ty);
-  gambarLogo(doc, logo.stars, "logo-stars", X + kiriW - 12, Y + H - 4.4, 11.5, 3.6, 900 / 329);
+  pas(doc, kodeInventaris(d), wx, ty, kiriW - (wx - X) - 0.6, 4.6, "normal", 3);
+  deretLogo(doc, logo, X + 1.4, Y + H - 6.4, 5.4, kiriW - 1.6);
 }
 
 /** PDF lembar label. `mulai` = posisi label pertama (1-based) agar lembar stiker yang sudah terpakai sebagian bisa dipakai lagi. */
