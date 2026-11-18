@@ -195,6 +195,11 @@ model Alat {
   emrMisiKritis         Int? // 1..10
   emrUtilisasi          Int? // 0..100 (%)
   emDinilaiPada         DateTime?
+  // --- klasifikasi IKATEMI No. 1/2023 (tingkat teknologi & risiko alat elektromedik) ---
+  ikatemiNama           String? // nama baku pada lampiran
+  ikatemiFungsi         String? // Bedah dan Anestesi | Diagnostik | Laboratorium | Life Support | Radiologi | Terapi
+  ikatemiTeknologi      String? // Sederhana | Menengah | Tinggi
+  ikatemiRisiko         String? // Rendah | Menengah | Tinggi
   // --- foto alat (publik): UPLOAD_DIR/alat/<uuid>.jpg + gambar kecil <uuid>-kecil.jpg ---
   foto             String?
   createdAt        DateTime          @default(now())
@@ -205,6 +210,7 @@ model Alat {
   kalibrasi        Kalibrasi[]
   dokumen          DokumenAlat[]
   titikPantau      LokasiPantau[]
+  auditItem        AuditItem[]
 
   @@index([unitKerjaId])
   @@index([kondisi])
@@ -537,4 +543,71 @@ model Pengaturan {
   nilai      String
   diubahOleh String?
   updatedAt  DateTime @updatedAt
+}
+
+/// Inventaris pendukung (WHO): suku cadang, bahan habis pakai (BHP), alat kerja & alat uji bengkel.
+model BarangStok {
+  id              Int          @id @default(autoincrement())
+  kode            String       @unique
+  nama            String
+  jenis           String // Suku cadang | BHP | Alat kerja | Alat uji
+  satuan          String       @default("pcs")
+  stok            Int          @default(0)
+  stokMinimum     Int          @default(0) // titik pesan ulang
+  lokasi          String?
+  nomorLot        String?
+  kedaluwarsa     DateTime?
+  kalibrasiSampai DateTime? // khusus alat uji
+  harga           Float?
+  alatTerkait     String? // alat yang memakai (nama / model)
+  pemasok         String?
+  catatan         String?
+  aktif           Boolean      @default(true)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  mutasi          MutasiStok[]
+
+  @@index([jenis])
+}
+
+model MutasiStok {
+  id          Int        @id @default(autoincrement())
+  barang      BarangStok @relation(fields: [barangId], references: [id], onDelete: Cascade)
+  barangId    Int
+  jenis       String // Masuk | Keluar | Penyesuaian
+  jumlah      Int
+  stokSetelah Int
+  keterangan  String?
+  oleh        String?
+  waktu       DateTime   @default(now())
+
+  @@index([barangId, waktu])
+}
+
+/// Audit inventaris tahunan (WHO): verifikasi fisik tiap alat per ruangan.
+model AuditInventaris {
+  id          Int         @id @default(autoincrement())
+  tahun       Int
+  nama        String
+  status      String      @default("Berjalan") // Berjalan | Selesai
+  dibuatOleh  String?
+  createdAt   DateTime    @default(now())
+  selesaiPada DateTime?
+  item        AuditItem[]
+}
+
+model AuditItem {
+  id            Int             @id @default(autoincrement())
+  audit         AuditInventaris @relation(fields: [auditId], references: [id], onDelete: Cascade)
+  auditId       Int
+  alat          Alat            @relation(fields: [alatId], references: [id], onDelete: Cascade)
+  alatId        Int
+  ditemukan     Boolean
+  kondisiSesuai Boolean         @default(true)
+  lokasiSesuai  Boolean         @default(true)
+  catatan       String?
+  oleh          String?
+  waktu         DateTime        @default(now())
+
+  @@unique([auditId, alatId])
 }

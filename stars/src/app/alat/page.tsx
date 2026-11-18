@@ -173,7 +173,8 @@ export default async function DetailAlatPage({ searchParams }: { searchParams: P
               <Baris label="Kondisi alat"><Badge variant={badgeKondisi[a.kondisi] ?? "outline"}>{a.kondisi}</Badge></Baris>
               <Baris label="Jenis">{a.jenis}{a.kategori ? <span className="text-muted-foreground"> · {a.kategori}</span> : null}</Baris>
               <Baris label="Kelompok teknologi">{isi(a.teknologi)}</Baris>
-              <Baris label="Kelas risiko">{isi(a.kelasRisiko ?? a.risiko)}</Baris>
+              <Baris label="Klasifikasi IKATEMI">{a.ikatemiNama ? <><span className="block">{a.ikatemiNama}</span><span className="block text-muted-foreground">{a.ikatemiFungsi} · teknologi {a.ikatemiTeknologi}</span></> : "—"}</Baris>
+              <Baris label="Tingkat risiko">{a.ikatemiRisiko ? <Badge variant={a.ikatemiRisiko === "Tinggi" ? "danger" : a.ikatemiRisiko === "Menengah" ? "warning" : "success"}>{a.ikatemiRisiko} (IKATEMI)</Badge> : isi(a.kelasRisiko ?? a.risiko)}</Baris>
               <Baris label="Izin edar (AKL)" mono>{isi(a.akl)}</Baris>
               <Baris label="Produsen">{isi(a.produsen)}</Baris>
               <Baris label="Distributor">{isi(a.distributor)}</Baris>

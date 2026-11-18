@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { AlertTriangle, CheckCircle2, ChevronDown, DoorOpen, FolderOpen, Loader2, Plus, Printer, QrCode, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ALASAN_TIDAK_OPERASI, badgeKondisi, DAYA_LISTRIK, JENIS_ALAT, KONDISI_ALAT, PENGGUNA_ALAT, RISIKO_ALAT, STATUS_OPERASI } from "@/lib/pemeliharaan";
 import { buatAlat, buatRuangan, ubahAlat, type StatusAksi } from "@/app/admin/alat/actions";
 import { urlDetailAlat } from "@/lib/dokumen-alat";
+import { cariIkatemi, KLASIFIKASI_IKATEMI, labelKelompok, tebakIkatemi } from "@/lib/klasifikasi-ikatemi";
 import { AMBANG_EM, FUNGSI_ALAT, hitungSkor, KEBUTUHAN_PEMELIHARAAN, prioritasEmr, RISIKO_FISIK } from "@/lib/risiko-who";
 import { cn } from "@/lib/utils";
 import { QrAlat } from "./qr-alat";
@@ -31,6 +32,7 @@ export type Alat = {
   hasilUjiTerima: string | null; penyediaServis: string | null; kontrakServis: string | null; kontrakServisSampai: string | Date | null;
   persyaratanOperasi: string | null; aksesori: string | null; penggunaAlat: string | null; riwayatRecall: string | null;
   pembuanganKhusus: boolean; tanggalInventarisasi: string | Date | null;
+  ikatemiNama: string | null; ikatemiFungsi: string | null; ikatemiTeknologi: string | null; ikatemiRisiko: string | null;
   emFungsi: number | null; emRisiko: number | null; emPemeliharaan: number | null; emrMisiKritis: number | null; emrUtilisasi: number | null;
 };
 
@@ -86,6 +88,7 @@ function Medan({ a, units, ruangan }: { a?: Alat; units: Unit[]; ruangan: Ruanga
       <label className={L}>Produsen<Input name="produsen" defaultValue={a?.produsen ?? ""} maxLength={160} className="h-9" /></label>
       <label className={L}>Distributor<Input name="distributor" defaultValue={a?.distributor ?? ""} maxLength={160} className="h-9" /></label>
       <label className={`${L} sm:col-span-3 lg:col-span-2`}>Catatan<Input name="catatan" defaultValue={a?.catatan ?? ""} maxLength={1000} className="h-9" /></label>
+      <KlasifikasiIkatemi a={a} />
       <DataWho a={a} />
       <SkorRisikoWho a={a} />
       {a && (a.instalasi || a.pelayanan || a.teknologi || a.kelasRisiko || a.umurPemakaian || a.noUrutAset) && (
@@ -98,6 +101,36 @@ function Medan({ a, units, ruangan }: { a?: Alat; units: Unit[]; ruangan: Ruanga
 }
 
 /** Kolom inventaris standar WHO (Tabel 1 & Lampiran B), dilipat agar form tetap ringkas. */
+/** Klasifikasi IKATEMI No. 1/2023: pilih nama baku → fungsi, tingkat teknologi & risiko terisi otomatis. */
+function KlasifikasiIkatemi({ a }: { a?: Alat }) {
+  const [nama, setNama] = useState(a?.ikatemiNama ?? "");
+  const [info, setInfo] = useState<string | null>(null);
+  const k = cariIkatemi(nama);
+  const grup = useMemo(() => {
+    const m = new Map<string, typeof KLASIFIKASI_IKATEMI>();
+    for (const x of KLASIFIKASI_IKATEMI) { const g = labelKelompok(x); m.set(g, [...(m.get(g) ?? []), x]); }
+    return [...m.entries()];
+  }, []);
+  return (
+    <div className="grid gap-2 rounded-lg border border-teal-200 bg-teal-50/40 p-3 sm:col-span-3 lg:col-span-4 sm:grid-cols-[minmax(0,2fr)_auto_minmax(0,1.4fr)] sm:items-end">
+      <label className="grid gap-1 text-xs text-muted-foreground">Klasifikasi IKATEMI No. 1/2023 (nama baku alat elektromedik)
+        <Select name="ikatemiNama" value={nama} onChange={(e) => { setNama(e.target.value); setInfo(null); }} className="h-9">
+          <option value="">— belum diklasifikasikan —</option>
+          {grup.map(([g, xs]) => <optgroup key={g} label={g}>{xs.map((x) => <option key={`${x.no}-${x.nama}`} value={x.nama}>{x.nama} · risiko {x.risiko}</option>)}</optgroup>)}
+        </Select>
+      </label>
+      <Button type="button" variant="outline" size="sm" className="h-9" onClick={(e) => {
+        const namaAlat = (e.currentTarget.form?.elements.namedItem("nama") as HTMLInputElement | null)?.value ?? "";
+        const t = tebakIkatemi(namaAlat);
+        if (t) { setNama(t.nama); setInfo(`Cocok: ${t.nama}`); } else setInfo("Tidak ditemukan padanan otomatis — pilih manual.");
+      }}>Tebak dari nama</Button>
+      <p className="text-xs text-navy-800" aria-live="polite">
+        {k ? <>Kelompok <b>{k.fungsi}</b> · Teknologi <b>{k.teknologi}</b> · Risiko <Badge variant={k.risiko === "Tinggi" ? "danger" : k.risiko === "Menengah" ? "warning" : "success"}>{k.risiko}</Badge></> : <span className="text-muted-foreground">{info ?? "Kolom Risiko (EM) ikut disetel dari klasifikasi ini."}</span>}
+      </p>
+    </div>
+  );
+}
+
 function DataWho({ a }: { a?: Alat }) {
   const L = "grid gap-1 text-xs text-muted-foreground";
   const [status, setStatus] = useState(a?.statusOperasi ?? "Beroperasi");
@@ -200,6 +233,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
         <Badge variant={a.jenis === "Medik" ? "teal" : "outline"}>{a.jenis}</Badge>
         <Badge variant={badgeKondisi[a.kondisi] ?? "outline"}>{a.kondisi}</Badge>
         {a.statusOperasi === "Tidak beroperasi" && <Badge variant="danger" title={a.alasanTidakOperasi ?? undefined}>Tidak beroperasi</Badge>}
+        {a.ikatemiRisiko && <Badge variant={a.ikatemiRisiko === "Tinggi" ? "danger" : a.ikatemiRisiko === "Menengah" ? "warning" : "success"} title={`IKATEMI: ${a.ikatemiNama} · ${a.ikatemiFungsi} · teknologi ${a.ikatemiTeknologi}`} className="hidden lg:inline-flex">Risiko {a.ikatemiRisiko}</Badge>}
         {(() => { const sk = hitungSkor(a); return sk.em != null ? <Badge variant={sk.masuk ? "warning" : "outline"} title={`Skor EM WHO ${sk.em}${sk.emr != null ? ` · EMR ${sk.emr}/30` : ""}`}>EM {sk.em}</Badge> : null; })()}
       </summary>
       {bolehKelola ? (

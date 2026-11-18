@@ -5,6 +5,7 @@ import { sesiHalaman } from "@/lib/sesi";
 import { unitTerkunci } from "@/lib/akses";
 import { cukup } from "@/lib/peran";
 import { AlatManager } from "@/components/pemeliharaan/alat-manager";
+import { TombolIkatemi } from "@/components/pemeliharaan/tombol-ikatemi";
 
 export const metadata: Metadata = { title: "Daftar Alat" };
 export const dynamic = "force-dynamic";
@@ -27,6 +28,7 @@ export default async function AlatPage() {
           <span>{process.env.STARS_MODE === "internet" ? "Server ini mode internet (baca saja)." : <>Peran <strong>{s.user.peran}</strong> hanya dapat melihat. Menambah/mengubah alat memerlukan peran Operator.</>}</span>
         </p>
       )}
+      {bolehKelola && <TombolIkatemi total={data.filter((a) => a.aktif).length} belum={data.filter((a) => a.aktif && !a.ikatemiNama).length} />}
       <AlatManager data={data} units={units} ruangan={ruangan} bolehKelola={bolehKelola} alamatPublik={process.env.STARS_URL_PUBLIK ?? ""} />
     </div>
   );

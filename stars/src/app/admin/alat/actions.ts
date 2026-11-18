@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
+import { cariIkatemi, tebakIkatemi } from "@/lib/klasifikasi-ikatemi";
 import { sesiApi } from "@/lib/sesi";
 import { audit, ipDari } from "@/lib/audit";
 import { skemaAlat, skemaRuangan } from "@/lib/pemeliharaan";
@@ -40,14 +41,41 @@ function bacaForm(fd: FormData) {
     tanggalInventarisasi: fd.get("tanggalInventarisasi") || null,
     emFungsi: fd.get("emFungsi") || null, emRisiko: fd.get("emRisiko") || null, emPemeliharaan: fd.get("emPemeliharaan") || null,
     emrMisiKritis: fd.get("emrMisiKritis") || null, emrUtilisasi: fd.get("emrUtilisasi") || null,
+    ikatemiNama: fd.get("ikatemiNama") || undefined,
   });
 }
 
 type DataAlat = ReturnType<typeof bacaForm> extends { success: true; data: infer D } | { success: false } ? D : never;
+/** Klasifikasi IKATEMI dari nama baku; risiko STARS (Tinggi/Sedang/Rendah) ikut disetel bila dipilih. */
+function dataIkatemi(nama: string | undefined, risikoLama: string | null) {
+  const k = cariIkatemi(nama);
+  return {
+    ikatemiNama: k?.nama ?? null, ikatemiFungsi: k?.fungsi ?? null, ikatemiTeknologi: k?.teknologi ?? null, ikatemiRisiko: k?.risiko ?? null,
+    risiko: k ? (k.risiko === "Menengah" ? "Sedang" : k.risiko) : risikoLama,
+  };
+}
+
+/** Klasifikasikan otomatis (IKATEMI No. 1/2023) semua alat aktif yang belum berklasifikasi, berdasarkan nama alat. */
+export async function klasifikasiOtomatis(): Promise<StatusAksi> {
+  const { sesi, pesan } = await penjaga();
+  if (!sesi) return { error: pesan ?? "Tidak diizinkan." };
+  const alat = await prisma.alat.findMany({ where: { aktif: true, ikatemiNama: null }, select: { id: true, nama: true, risiko: true } });
+  let n = 0;
+  for (const a of alat) {
+    const k = tebakIkatemi(a.nama);
+    if (!k) continue;
+    await prisma.alat.update({ where: { id: a.id }, data: dataIkatemi(k.nama, a.risiko) });
+    n++;
+  }
+  await audit("alat.ikatemi.otomatis", { email: sesi.user.email, ip: ipDari(await headers()), detail: `${n} dari ${alat.length} alat diklasifikasikan` });
+  revalidatePath("/admin/alat");
+  return { ok: `${n} dari ${alat.length} alat belum berklasifikasi berhasil dicocokkan dengan klasifikasi IKATEMI. Sisanya pilih manual di form alat.` };
+}
+
 function rapikan(d: DataAlat) {
   return {
     ...d, merek: d.merek || null, model: d.model || null, nomorSeri: d.nomorSeri || null, ruanganId: d.ruanganId ?? null,
-    lokasi: d.lokasi || null, kategori: d.kategori || null, risiko: d.risiko ?? null, tahunPerolehan: d.tahunPerolehan ?? null,
+    lokasi: d.lokasi || null, kategori: d.kategori || null, tahunPerolehan: d.tahunPerolehan ?? null,
     hargaPerolehan: d.hargaPerolehan ?? null, usiaTeknis: d.usiaTeknis ?? null, garansiSampai: d.garansiSampai ?? null, catatan: d.catatan || null,
     kodeAspak: d.kodeAspak || null, pendanaan: d.pendanaan || null, akl: d.akl || null, produsen: d.produsen || null, distributor: d.distributor || null,
     tanggalUjiFungsi: d.tanggalUjiFungsi ?? null,
@@ -58,6 +86,7 @@ function rapikan(d: DataAlat) {
     riwayatRecall: d.riwayatRecall || null, tanggalInventarisasi: d.tanggalInventarisasi ?? null,
     emFungsi: d.emFungsi ?? null, emRisiko: d.emRisiko ?? null, emPemeliharaan: d.emPemeliharaan ?? null,
     emrMisiKritis: d.emrMisiKritis ?? null, emrUtilisasi: d.emrUtilisasi ?? null,
+    ...dataIkatemi(d.ikatemiNama, d.risiko ?? null),
     emDinilaiPada: d.emFungsi != null && d.emRisiko != null && d.emPemeliharaan != null ? new Date() : null,
   };
 }
