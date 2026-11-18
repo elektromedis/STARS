@@ -168,6 +168,26 @@ model Alat {
   distributor      String?
   tanggalUjiFungsi DateTime?
   umurPemakaian    String?
+  // --- data inventaris standar WHO (Introduction to medical equipment inventory management, 2011 — Tabel 1 & Lampiran B) ---
+  statusOperasi         String    @default("Beroperasi") // Beroperasi | Tidak beroperasi
+  alasanTidakOperasi    String? // Menunggu kalibrasi | Menunggu pemeliharaan | Dalam perbaikan | Menunggu suku cadang | Rusak tidak dapat diperbaiki | Lainnya
+  dayaListrik           String? // 220 V | 110 V | 380 V / 3 fase | Baterai | Tanpa listrik
+  versiPerangkatLunak   String? // software / firmware
+  negaraAsal            String?
+  tahunProduksi         Int?
+  penanggungJawab       String? // pemilik / penanggung jawab di ruangan
+  kontakPenanggungJawab String?
+  tanggalInstalasi      DateTime?
+  hasilUjiTerima        String? // hasil uji terima (acceptance test) saat instalasi
+  penyediaServis        String? // vendor / bengkel servis
+  kontrakServis         String? // nomor & ringkasan kontrak servis
+  kontrakServisSampai   DateTime?
+  persyaratanOperasi    String? // kebutuhan khusus operasi / servis (gas medik, ruang khusus, dll.)
+  aksesori              String? // aksesori, BHP & suku cadang terkait (satu per baris)
+  penggunaAlat          String? // Dokter, Perawat, Analis lab, … (dipisah koma)
+  riwayatRecall         String? // recall / peringatan bahaya dari produsen/regulator
+  pembuanganKhusus      Boolean   @default(false)
+  tanggalInventarisasi  DateTime? // terakhir diverifikasi fisik (audit inventaris)
   // --- foto alat (publik): UPLOAD_DIR/alat/<uuid>.jpg + gambar kecil <uuid>-kecil.jpg ---
   foto             String?
   createdAt        DateTime          @default(now())

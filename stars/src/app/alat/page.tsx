@@ -168,6 +168,7 @@ export default async function DetailAlatPage({ searchParams }: { searchParams: P
           <CardHeader><CardTitle className="flex items-center gap-2"><Cpu className="size-4 text-teal-700" /> Data Teknis</CardTitle></CardHeader>
           <CardContent>
             <dl className="overflow-hidden rounded-lg border">
+              <Baris label="Status operasi">{a.statusOperasi === "Tidak beroperasi" ? <><Badge variant="danger">Tidak beroperasi</Badge>{a.alasanTidakOperasi ? <span className="ml-1.5 text-muted-foreground">{a.alasanTidakOperasi}</span> : null}</> : <Badge variant="success">Beroperasi</Badge>}</Baris>
               <Baris label="Kondisi alat"><Badge variant={badgeKondisi[a.kondisi] ?? "outline"}>{a.kondisi}</Badge></Baris>
               <Baris label="Jenis">{a.jenis}{a.kategori ? <span className="text-muted-foreground"> · {a.kategori}</span> : null}</Baris>
               <Baris label="Kelompok teknologi">{isi(a.teknologi)}</Baris>
@@ -178,10 +179,35 @@ export default async function DetailAlatPage({ searchParams }: { searchParams: P
               <Baris label="Garansi sampai">{a.garansiSampai ? tglIndo(a.garansiSampai) : "—"}</Baris>
               <Baris label="Uji fungsi">{a.tanggalUjiFungsi ? tglIndo(a.tanggalUjiFungsi) : "—"}</Baris>
               {a.kodeAspak && <Baris label="Kode ASPAK" mono>{a.kodeAspak}</Baris>}
+              <Baris label="Kebutuhan daya">{isi(a.dayaListrik)}</Baris>
+              <Baris label="Software / firmware" mono>{isi(a.versiPerangkatLunak)}</Baris>
+              <Baris label="Negara asal · produksi">{[a.negaraAsal, a.tahunProduksi].filter(Boolean).join(" · ") || "—"}</Baris>
+              <Baris label="Instalasi">{a.tanggalInstalasi ? tglIndo(a.tanggalInstalasi) : "—"}{a.hasilUjiTerima ? <span className="block text-muted-foreground">Uji terima: {a.hasilUjiTerima}</span> : null}</Baris>
             </dl>
           </CardContent>
         </Card>
       </div>
+
+      {/* Inventaris standar WHO: operasional, servis, aksesori, recall */}
+      <Card>
+        <CardHeader><CardTitle className="flex items-center gap-2"><ClipboardList className="size-4 text-teal-700" /> Operasional &amp; Servis</CardTitle><CardDescription>Data inventaris alat sesuai panduan WHO (Medical equipment inventory management).</CardDescription></CardHeader>
+        <CardContent className="grid gap-4 lg:grid-cols-2 [&>*]:min-w-0">
+          <dl className="overflow-hidden rounded-lg border">
+            <Baris label="Penanggung jawab">{isi(a.penanggungJawab)}{masuk && a.kontakPenanggungJawab ? <span className="block text-muted-foreground">{a.kontakPenanggungJawab}</span> : null}</Baris>
+            <Baris label="Pengguna alat">{isi(a.penggunaAlat)}</Baris>
+            <Baris label="Penyedia servis">{isi(a.penyediaServis)}</Baris>
+            {masuk && <Baris label="Kontrak servis">{isi(a.kontrakServis)}{a.kontrakServisSampai ? <span className="block text-muted-foreground">berlaku s/d {tglIndo(a.kontrakServisSampai)}</span> : null}</Baris>}
+            <Baris label="Pembuangan khusus">{a.pembuanganKhusus ? <Badge variant="warning">Ya (B3/radioaktif)</Badge> : "Tidak"}</Baris>
+            <Baris label="Terakhir diinventarisasi">{a.tanggalInventarisasi ? tglIndo(a.tanggalInventarisasi) : "—"}</Baris>
+          </dl>
+          <div className="grid content-start gap-3 text-sm">
+            <div><p className="font-medium text-navy-800">Persyaratan khusus operasi / servis</p><p className="whitespace-pre-line text-muted-foreground">{a.persyaratanOperasi || "—"}</p></div>
+            <div><p className="font-medium text-navy-800">Aksesori, BHP &amp; suku cadang terkait</p>
+              {a.aksesori ? <ul className="list-disc pl-5 text-muted-foreground">{a.aksesori.split(/\n+/).filter(Boolean).map((x, i) => <li key={i}>{x}</li>)}</ul> : <p className="text-muted-foreground">—</p>}</div>
+            <div><p className="font-medium text-navy-800">Riwayat recall / peringatan bahaya</p><p className={a.riwayatRecall ? "whitespace-pre-line text-red-800" : "text-muted-foreground"}>{a.riwayatRecall || "Tidak ada catatan."}</p></div>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Pengujian & kalibrasi */}
       <Card>

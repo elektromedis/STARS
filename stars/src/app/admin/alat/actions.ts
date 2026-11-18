@@ -30,6 +30,14 @@ function bacaForm(fd: FormData) {
     catatan: fd.get("catatan") || undefined, kodeAspak: fd.get("kodeAspak") || undefined, pendanaan: fd.get("pendanaan") || undefined,
     akl: fd.get("akl") || undefined, produsen: fd.get("produsen") || undefined, distributor: fd.get("distributor") || undefined,
     tanggalUjiFungsi: fd.get("tanggalUjiFungsi") || null,
+    statusOperasi: fd.get("statusOperasi") || "Beroperasi", alasanTidakOperasi: fd.get("statusOperasi") === "Tidak beroperasi" ? fd.get("alasanTidakOperasi") || null : null,
+    dayaListrik: fd.get("dayaListrik") || null, versiPerangkatLunak: fd.get("versiPerangkatLunak") || undefined, negaraAsal: fd.get("negaraAsal") || undefined,
+    tahunProduksi: fd.get("tahunProduksi") || null, penanggungJawab: fd.get("penanggungJawab") || undefined, kontakPenanggungJawab: fd.get("kontakPenanggungJawab") || undefined,
+    tanggalInstalasi: fd.get("tanggalInstalasi") || null, hasilUjiTerima: fd.get("hasilUjiTerima") || undefined, penyediaServis: fd.get("penyediaServis") || undefined,
+    kontrakServis: fd.get("kontrakServis") || undefined, kontrakServisSampai: fd.get("kontrakServisSampai") || null, persyaratanOperasi: fd.get("persyaratanOperasi") || undefined,
+    aksesori: fd.get("aksesori") || undefined, penggunaAlat: fd.getAll("penggunaAlat").map(String).filter(Boolean).join(", ") || undefined,
+    riwayatRecall: fd.get("riwayatRecall") || undefined, pembuanganKhusus: fd.get("pembuanganKhusus") === "on",
+    tanggalInventarisasi: fd.get("tanggalInventarisasi") || null,
   });
 }
 
@@ -41,6 +49,11 @@ function rapikan(d: DataAlat) {
     hargaPerolehan: d.hargaPerolehan ?? null, usiaTeknis: d.usiaTeknis ?? null, garansiSampai: d.garansiSampai ?? null, catatan: d.catatan || null,
     kodeAspak: d.kodeAspak || null, pendanaan: d.pendanaan || null, akl: d.akl || null, produsen: d.produsen || null, distributor: d.distributor || null,
     tanggalUjiFungsi: d.tanggalUjiFungsi ?? null,
+    alasanTidakOperasi: d.alasanTidakOperasi ?? null, dayaListrik: d.dayaListrik ?? null, versiPerangkatLunak: d.versiPerangkatLunak || null,
+    negaraAsal: d.negaraAsal || null, tahunProduksi: d.tahunProduksi ?? null, penanggungJawab: d.penanggungJawab || null, kontakPenanggungJawab: d.kontakPenanggungJawab || null,
+    tanggalInstalasi: d.tanggalInstalasi ?? null, hasilUjiTerima: d.hasilUjiTerima || null, penyediaServis: d.penyediaServis || null, kontrakServis: d.kontrakServis || null,
+    kontrakServisSampai: d.kontrakServisSampai ?? null, persyaratanOperasi: d.persyaratanOperasi || null, aksesori: d.aksesori || null, penggunaAlat: d.penggunaAlat || null,
+    riwayatRecall: d.riwayatRecall || null, tanggalInventarisasi: d.tanggalInventarisasi ?? null,
   };
 }
 

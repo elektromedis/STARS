@@ -12,6 +12,11 @@ export const JENIS_PERINTAH = ["Korektif", "Preventif"] as const;
 export const KONDISI_ALAT = ["Baik", "Rusak Ringan", "Rusak Berat", "Afkir"] as const;
 export const JENIS_ALAT = ["Medik", "Non Medik"] as const;
 export const RISIKO_ALAT = ["Tinggi", "Sedang", "Rendah"] as const;
+/** Status operasi & alasan "out of service" (WHO, Tabel 1). */
+export const STATUS_OPERASI = ["Beroperasi", "Tidak beroperasi"] as const;
+export const ALASAN_TIDAK_OPERASI = ["Menunggu kalibrasi", "Menunggu pemeliharaan preventif", "Dalam perbaikan", "Menunggu suku cadang", "Rusak tidak dapat diperbaiki", "Lainnya"] as const;
+export const DAYA_LISTRIK = ["220 V", "110 V", "380 V / 3 fase", "Baterai", "Tanpa listrik"] as const;
+export const PENGGUNA_ALAT = ["Dokter", "Perawat", "Bidan", "Analis lab", "Radiografer", "Fisioterapis", "Teknisi", "Lainnya"] as const;
 export const INTERVAL_PRESET = [
   { label: "Harian (1 hari)", hari: 1 }, { label: "Mingguan (7 hari)", hari: 7 }, { label: "Bulanan (30 hari)", hari: 30 },
   { label: "Triwulan (90 hari)", hari: 90 }, { label: "Semester (180 hari)", hari: 180 }, { label: "Tahunan (365 hari)", hari: 365 },
@@ -73,6 +78,28 @@ export const skemaAlat = z.object({
   produsen: z.string().trim().max(160).optional(),
   distributor: z.string().trim().max(160).optional(),
   tanggalUjiFungsi: z.coerce.date().nullable().optional(),
+  // data inventaris standar WHO
+  statusOperasi: z.enum(STATUS_OPERASI).default("Beroperasi"),
+  alasanTidakOperasi: z.enum(ALASAN_TIDAK_OPERASI).nullable().optional(),
+  dayaListrik: z.enum(DAYA_LISTRIK).nullable().optional(),
+  versiPerangkatLunak: z.string().trim().max(120).optional(),
+  negaraAsal: z.string().trim().max(80).optional(),
+  tahunProduksi: z.coerce.number().int().min(1950).max(2100).nullable().optional(),
+  penanggungJawab: z.string().trim().max(120).optional(),
+  kontakPenanggungJawab: z.string().trim().max(120).optional(),
+  tanggalInstalasi: z.coerce.date().nullable().optional(),
+  hasilUjiTerima: z.string().trim().max(500).optional(),
+  penyediaServis: z.string().trim().max(160).optional(),
+  kontrakServis: z.string().trim().max(300).optional(),
+  kontrakServisSampai: z.coerce.date().nullable().optional(),
+  persyaratanOperasi: z.string().trim().max(1000).optional(),
+  aksesori: z.string().trim().max(2000).optional(),
+  penggunaAlat: z.string().trim().max(300).optional(),
+  riwayatRecall: z.string().trim().max(2000).optional(),
+  pembuanganKhusus: z.boolean().default(false),
+  tanggalInventarisasi: z.coerce.date().nullable().optional(),
+}).superRefine((d, ctx) => {
+  if (d.statusOperasi === "Tidak beroperasi" && !d.alasanTidakOperasi) ctx.addIssue({ code: "custom", message: "Pilih alasan alat tidak beroperasi", path: ["alasanTidakOperasi"] });
 });
 
 export const skemaRuangan = z.object({

@@ -1,0 +1,20 @@
+-- Data inventaris standar WHO pada tabel Alat
+ALTER TABLE "Alat" ADD COLUMN "statusOperasi" TEXT NOT NULL DEFAULT 'Beroperasi';
+ALTER TABLE "Alat" ADD COLUMN "alasanTidakOperasi" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "dayaListrik" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "versiPerangkatLunak" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "negaraAsal" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "tahunProduksi" INTEGER;
+ALTER TABLE "Alat" ADD COLUMN "penanggungJawab" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "kontakPenanggungJawab" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "tanggalInstalasi" DATETIME;
+ALTER TABLE "Alat" ADD COLUMN "hasilUjiTerima" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "penyediaServis" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "kontrakServis" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "kontrakServisSampai" DATETIME;
+ALTER TABLE "Alat" ADD COLUMN "persyaratanOperasi" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "aksesori" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "penggunaAlat" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "riwayatRecall" TEXT;
+ALTER TABLE "Alat" ADD COLUMN "pembuanganKhusus" BOOLEAN NOT NULL DEFAULT false;
+ALTER TABLE "Alat" ADD COLUMN "tanggalInventarisasi" DATETIME;

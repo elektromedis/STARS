@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { badgeKondisi, JENIS_ALAT, KONDISI_ALAT, RISIKO_ALAT } from "@/lib/pemeliharaan";
+import { ALASAN_TIDAK_OPERASI, badgeKondisi, DAYA_LISTRIK, JENIS_ALAT, KONDISI_ALAT, PENGGUNA_ALAT, RISIKO_ALAT, STATUS_OPERASI } from "@/lib/pemeliharaan";
 import { buatAlat, buatRuangan, ubahAlat, type StatusAksi } from "@/app/admin/alat/actions";
 import { urlDetailAlat } from "@/lib/dokumen-alat";
 import { QrAlat } from "./qr-alat";
@@ -24,6 +24,11 @@ export type Alat = {
   kodeAspak: string | null; noUrutAset: string | null; instalasi: string | null; pelayanan: string | null; tahunPembelian: number | null; tahunPembukuan: number | null;
   pendanaan: string | null; teknologi: string | null; kelasRisiko: string | null; akl: string | null; produsen: string | null; distributor: string | null;
   tanggalUjiFungsi: string | Date | null; umurPemakaian: string | null;
+  statusOperasi: string; alasanTidakOperasi: string | null; dayaListrik: string | null; versiPerangkatLunak: string | null; negaraAsal: string | null;
+  tahunProduksi: number | null; penanggungJawab: string | null; kontakPenanggungJawab: string | null; tanggalInstalasi: string | Date | null;
+  hasilUjiTerima: string | null; penyediaServis: string | null; kontrakServis: string | null; kontrakServisSampai: string | Date | null;
+  persyaratanOperasi: string | null; aksesori: string | null; penggunaAlat: string | null; riwayatRecall: string | null;
+  pembuanganKhusus: boolean; tanggalInventarisasi: string | Date | null;
 };
 
 const tglInput = (d: string | Date | null | undefined) => (d ? new Date(d).toISOString().slice(0, 10) : "");
@@ -78,12 +83,60 @@ function Medan({ a, units, ruangan }: { a?: Alat; units: Unit[]; ruangan: Ruanga
       <label className={L}>Produsen<Input name="produsen" defaultValue={a?.produsen ?? ""} maxLength={160} className="h-9" /></label>
       <label className={L}>Distributor<Input name="distributor" defaultValue={a?.distributor ?? ""} maxLength={160} className="h-9" /></label>
       <label className={`${L} sm:col-span-3 lg:col-span-2`}>Catatan<Input name="catatan" defaultValue={a?.catatan ?? ""} maxLength={1000} className="h-9" /></label>
+      <DataWho a={a} />
       {a && (a.instalasi || a.pelayanan || a.teknologi || a.kelasRisiko || a.umurPemakaian || a.noUrutAset) && (
         <p className="text-xs text-muted-foreground sm:col-span-3 lg:col-span-4">
           <span className="font-medium">Data impor Trilux:</span> {[a.instalasi && `Instalasi ${a.instalasi}`, a.pelayanan && `Pelayanan ${a.pelayanan}`, a.noUrutAset && `No urut aset ${a.noUrutAset}`, a.tahunPembelian && `Beli ${a.tahunPembelian}`, a.tahunPembukuan && `Buku ${a.tahunPembukuan}`, a.teknologi && `Teknologi ${a.teknologi}`, a.kelasRisiko && `Kelas risiko ${a.kelasRisiko}`, a.umurPemakaian && `Umur pakai ${a.umurPemakaian}`].filter(Boolean).join(" · ")}
         </p>
       )}
     </div>
+  );
+}
+
+/** Kolom inventaris standar WHO (Tabel 1 & Lampiran B), dilipat agar form tetap ringkas. */
+function DataWho({ a }: { a?: Alat }) {
+  const L = "grid gap-1 text-xs text-muted-foreground";
+  const [status, setStatus] = useState(a?.statusOperasi ?? "Beroperasi");
+  const pengguna = new Set((a?.penggunaAlat ?? "").split(",").map((x) => x.trim()).filter(Boolean));
+  const ta = "flex w-full rounded-md border border-input bg-card px-3 py-2 text-sm";
+  return (
+    <details className="group rounded-lg border bg-slate-50/60 sm:col-span-3 lg:col-span-4" open={a?.statusOperasi === "Tidak beroperasi"}>
+      <summary className="cursor-pointer select-none px-3 py-2 text-sm font-medium text-navy-800">Data inventaris (standar WHO) <span className="font-normal text-muted-foreground">— status operasi, daya, firmware, instalasi, servis, aksesori, recall</span></summary>
+      <div className="grid gap-3 border-t p-3 sm:grid-cols-3 lg:grid-cols-4 [&>*]:min-w-0">
+        <label className={L}>Status operasi
+          <Select name="statusOperasi" value={status} onChange={(e) => setStatus(e.target.value)} className="h-9">{STATUS_OPERASI.map((x) => <option key={x} value={x}>{x}</option>)}</Select>
+        </label>
+        {status === "Tidak beroperasi" && (
+          <label className={L}>Alasan tidak beroperasi *
+            <Select name="alasanTidakOperasi" defaultValue={a?.alasanTidakOperasi ?? ""} required className="h-9"><option value="" disabled>— pilih —</option>{ALASAN_TIDAK_OPERASI.map((x) => <option key={x} value={x}>{x}</option>)}</Select>
+          </label>
+        )}
+        <label className={L}>Kebutuhan daya
+          <Select name="dayaListrik" defaultValue={a?.dayaListrik ?? ""} className="h-9"><option value="">— belum —</option>{DAYA_LISTRIK.map((x) => <option key={x} value={x}>{x}</option>)}</Select>
+        </label>
+        <label className={L}>Versi software / firmware<Input name="versiPerangkatLunak" defaultValue={a?.versiPerangkatLunak ?? ""} maxLength={120} className="h-9" /></label>
+        <label className={L}>Negara asal<Input name="negaraAsal" defaultValue={a?.negaraAsal ?? ""} maxLength={80} className="h-9" placeholder="mis. Jerman" /></label>
+        <label className={L}>Tahun produksi<Input name="tahunProduksi" type="number" min={1950} max={2100} defaultValue={a?.tahunProduksi ?? ""} className="h-9" /></label>
+        <label className={L}>Penanggung jawab ruangan<Input name="penanggungJawab" defaultValue={a?.penanggungJawab ?? ""} maxLength={120} className="h-9" /></label>
+        <label className={L}>Kontak penanggung jawab<Input name="kontakPenanggungJawab" defaultValue={a?.kontakPenanggungJawab ?? ""} maxLength={120} className="h-9" placeholder="HP / ext." /></label>
+        <label className={L}>Tanggal instalasi<Input name="tanggalInstalasi" type="date" defaultValue={tglInput(a?.tanggalInstalasi)} className="h-9" /></label>
+        <label className={`${L} sm:col-span-2`}>Hasil uji terima (acceptance test)<Input name="hasilUjiTerima" defaultValue={a?.hasilUjiTerima ?? ""} maxLength={500} className="h-9" placeholder="mis. Lulus, sesuai spesifikasi" /></label>
+        <label className={L}>Penyedia servis<Input name="penyediaServis" defaultValue={a?.penyediaServis ?? ""} maxLength={160} className="h-9" placeholder="vendor / IPSRS" /></label>
+        <label className={L}>Kontrak servis<Input name="kontrakServis" defaultValue={a?.kontrakServis ?? ""} maxLength={300} className="h-9" placeholder="nomor / ringkasan" /></label>
+        <label className={L}>Kontrak servis sampai<Input name="kontrakServisSampai" type="date" defaultValue={tglInput(a?.kontrakServisSampai)} className="h-9" /></label>
+        <label className={L}>Terakhir diinventarisasi<Input name="tanggalInventarisasi" type="date" defaultValue={tglInput(a?.tanggalInventarisasi)} className="h-9" /></label>
+        <fieldset className={`${L} sm:col-span-3 lg:col-span-4`}>
+          <legend className="mb-1">Pengguna alat</legend>
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-navy-800">
+            {PENGGUNA_ALAT.map((x) => <label key={x} className="inline-flex items-center gap-1.5"><input type="checkbox" name="penggunaAlat" value={x} defaultChecked={pengguna.has(x)} className="size-4 accent-teal-600" />{x}</label>)}
+          </div>
+        </fieldset>
+        <label className={`${L} sm:col-span-3 lg:col-span-2`}>Persyaratan khusus operasi / servis<textarea name="persyaratanOperasi" defaultValue={a?.persyaratanOperasi ?? ""} maxLength={1000} rows={2} className={ta} placeholder="mis. butuh gas O₂ sentral, UPS, ruang berpelindung radiasi" /></label>
+        <label className={`${L} sm:col-span-3 lg:col-span-2`}>Aksesori, BHP & suku cadang terkait<textarea name="aksesori" defaultValue={a?.aksesori ?? ""} maxLength={2000} rows={2} className={ta} placeholder="satu per baris, mis. Probe SpO₂ dewasa (P/N 989803)" /></label>
+        <label className={`${L} sm:col-span-3 lg:col-span-3`}>Riwayat recall / peringatan bahaya<textarea name="riwayatRecall" defaultValue={a?.riwayatRecall ?? ""} maxLength={2000} rows={2} className={ta} placeholder="tanggal, sumber (produsen/Kemenkes/FDA), tindakan" /></label>
+        <label className="inline-flex items-center gap-2 self-end text-sm text-navy-800"><input type="checkbox" name="pembuanganKhusus" defaultChecked={a?.pembuanganKhusus ?? false} className="size-4 accent-teal-600" />Perlu pembuangan khusus (B3/radioaktif)</label>
+      </div>
+    </details>
   );
 }
 
@@ -108,6 +161,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
         <span className="hidden text-xs text-muted-foreground md:block">{a.unitKerja.nama}{a.ruangan ? ` · ${a.ruangan.nama}` : ""}</span>
         <Badge variant={a.jenis === "Medik" ? "teal" : "outline"}>{a.jenis}</Badge>
         <Badge variant={badgeKondisi[a.kondisi] ?? "outline"}>{a.kondisi}</Badge>
+        {a.statusOperasi === "Tidak beroperasi" && <Badge variant="danger" title={a.alasanTidakOperasi ?? undefined}>Tidak beroperasi</Badge>}
       </summary>
       {bolehKelola ? (
         <form action={aksi} className="grid gap-2 bg-muted/20 px-4 py-4">
