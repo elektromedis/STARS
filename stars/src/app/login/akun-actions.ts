@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma";
 import { audit, ipDari } from "@/lib/audit";
 import { batasi } from "@/lib/rate-limit";
 import { emailSiap, kirimEmail } from "@/lib/email";
+import { notifAdminPendaftar } from "@/lib/notif-akun";
 import { asalPermintaan, normalAlamat } from "@/lib/alamat";
 import { cekToken, sidik } from "@/lib/token-sandi";
 
@@ -52,6 +53,8 @@ export async function daftar(_p: StatusAkun, fd: FormData): Promise<StatusAkun> 
       data: { nama: d.nama, email: d.email, sandiHash: await bcrypt.hash(d.sandi, 12), peran: "Viewer", unitKerjaId: d.unitKerjaId, aktif: false, menunggu: true, catatanDaftar: d.catatan },
     });
     await audit("pengguna.daftar", { email: d.email, ip, detail: d.catatan });
+    const unit = d.unitKerjaId ? (await prisma.unitKerja.findUnique({ where: { id: d.unitKerjaId }, select: { nama: true } }))?.nama ?? null : null;
+    await notifAdminPendaftar({ nama: d.nama, email: d.email, unit, catatan: d.catatan ?? null }, alamatDasar(await headers()));
   }
   return { ok: "Pendaftaran terkirim. Admin STARS akan memeriksa dan mengaktifkan akun Anda; setelah disetujui, masuk memakai email & sandi tadi." };
 }

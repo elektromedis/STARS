@@ -8,6 +8,8 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { audit, ipDari } from "@/lib/audit";
 import { PERAN, cukup, type Peran } from "@/lib/peran";
+import { notifHasilPendaftaran } from "@/lib/notif-akun";
+import { normalAlamat } from "@/lib/alamat";
 
 export type StatusAksi = { ok?: string; error?: string } | undefined;
 
@@ -88,6 +90,7 @@ export async function setujuiPendaftar(_prev: StatusAksi, fd: FormData): Promise
   if (!t || !t.menunggu) return { error: "Pendaftar tidak ditemukan atau sudah diproses." };
   await prisma.pengguna.update({ where: { id: t.id }, data: { aktif: true, menunggu: false, peran: parsed.data.peran, unitKerjaId: parsed.data.unitKerjaId ?? null, gagalLogin: 0, terkunciSampai: null } });
   await audit("pengguna.setujui", { email: s.user.email, ip: await ip(), objek: t.email, detail: `peran ${parsed.data.peran}, unit ${parsed.data.unitKerjaId ?? "semua"}` });
+  await notifHasilPendaftaran({ nama: t.nama, email: t.email, disetujui: true, peran: parsed.data.peran }, normalAlamat(process.env.STARS_URL_PUBLIK));
   revalidatePath("/admin/pengguna");
   return { ok: `${t.email} disetujui sebagai ${parsed.data.peran}.` };
 }
@@ -101,6 +104,7 @@ export async function tolakPendaftar(_prev: StatusAksi, fd: FormData): Promise<S
   if (!t || !t.menunggu) return { error: "Pendaftar tidak ditemukan atau sudah diproses." };
   await prisma.pengguna.delete({ where: { id: t.id } });
   await audit("pengguna.tolak", { email: s.user.email, ip: await ip(), objek: t.email });
+  await notifHasilPendaftaran({ nama: t.nama, email: t.email, disetujui: false }, null);
   revalidatePath("/admin/pengguna");
   return { ok: `Pendaftaran ${t.email} ditolak & dihapus.` };
 }

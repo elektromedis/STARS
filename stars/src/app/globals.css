@@ -201,3 +201,32 @@ body::after {
   @keyframes tema-kilau { to { background-position: -250% 0; } }
   @keyframes tema-label-masuk { from { opacity: 0; transform: translateY(8px); } }
 }
+
+/* ───────── Latar slideshow STARS (menggantikan latar heksagon tunggal) ─────────
+ * 4 adegan: heksagon → jaringan → ikan → dua ikan, berulang 48 detik. Tiap adegan ±12 dtk + crossfade 3 dtk,
+ * dengan gerak "Ken Burns" sangat pelan. Hanya opacity + transform (GPU) agar ringan; tanpa JavaScript. */
+body::before { display: none; }
+.latar-tema { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; background: #f8fbff; }
+.latar-tema > span {
+  position: absolute; inset: -5%; background-position: center; background-size: cover; background-repeat: no-repeat;
+  opacity: 0; will-change: opacity, transform;
+}
+.latar-tema > span:nth-child(1) { background-image: url("/tema/latar-heksagon.webp"); opacity: 1; }
+.latar-tema > span:nth-child(2) { background-image: url("/tema/latar-jaringan.webp"); }
+.latar-tema > span:nth-child(3) { background-image: url("/tema/latar-ikan.webp"); }
+.latar-tema > span:nth-child(4) { background-image: url("/tema/latar-ikan-dua.webp"); }
+@media (prefers-reduced-motion: no-preference) {
+  .latar-tema > span { animation: latar-adegan 48s linear infinite; }
+  .latar-tema > span:nth-child(1) { animation-delay: -3s; }
+  .latar-tema > span:nth-child(2) { animation-delay: 9s; }
+  .latar-tema > span:nth-child(3) { animation-delay: 21s; }
+  .latar-tema > span:nth-child(4) { animation-delay: 33s; }
+  @keyframes latar-adegan {
+    0%   { opacity: 0; transform: scale(1.02) translate3d(0, 0, 0); }
+    6.25% { opacity: 1; }
+    25%  { opacity: 1; }
+    31.25% { opacity: 0; transform: scale(1.09) translate3d(-1.5%, -1%, 0); }
+    100% { opacity: 0; transform: scale(1.09) translate3d(-1.5%, -1%, 0); }
+  }
+}
+@media print { .latar-tema { display: none; } }

@@ -21,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="id" className={inter.variable}>
       <body className="font-sans">
+        <div className="latar-tema" aria-hidden><span /><span /><span /><span /></div>
         <AppShell>{children}</AppShell>
       </body>
     </html>
