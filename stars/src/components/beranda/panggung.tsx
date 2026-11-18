@@ -52,10 +52,10 @@ function Angka({ nilai, label, gelap }: { nilai: string; label: string; gelap?: 
 }
 
 const TEMA = [
-  { src: "/tema/medicine.webp", alt: "Ilustrasi Medicine: kotak P3K, monitor jantung, obat, dan alat medis" },
-  { src: "/tema/hospital.webp", alt: "Ilustrasi Hospital: gedung rumah sakit 24 jam, ambulans, dokter, dan radiologi" },
-  { src: "/tema/distance-diagnostics.webp", alt: "Ilustrasi Distance Diagnostics: pemantauan jarak jauh lewat laptop dan ponsel" },
-  { src: "/tema/lab-analysis.webp", alt: "Ilustrasi Lab Analysis: mikroskop, tabung reaksi, dan analisis molekul" },
+  { label: "HIS-SIMRS", href: "https://rsudcipayung.jakarta.go.id/rsudcipayung/index.php", luar: true, src: "/tema/hospital.webp", alt: "Ilustrasi rumah sakit: gedung 24 jam, ambulans, dokter, dan radiologi" },
+  { label: "TELEMEDICINE", href: "/dalam-pengembangan?fitur=telemedicine", luar: false, src: "/tema/distance-diagnostics.webp", alt: "Ilustrasi pemantauan pasien jarak jauh lewat laptop dan ponsel" },
+  { label: "TELEFARMA", href: "/dalam-pengembangan?fitur=telefarma", luar: false, src: "/tema/medicine.webp", alt: "Ilustrasi farmasi: kotak P3K, obat, dan alat medis" },
+  { label: "LIS", href: "/dalam-pengembangan?fitur=lis", luar: false, src: "/tema/lab-analysis.webp", alt: "Ilustrasi laboratorium: mikroskop, tabung reaksi, dan analisis molekul" },
 ];
 
 const persen = (x: number) => `${x.toFixed(1).replace(".", ",")}%`;
@@ -81,8 +81,12 @@ export function Panggung({ d }: { d: DataPanggung }) {
         <ul className="mx-auto mt-10 grid w-[min(1040px,92%)] grid-cols-2 gap-3 md:grid-cols-4" aria-label="Cakupan STARS">
           {TEMA.map((t) => (
             <li key={t.src} className="tema-ubin overflow-hidden rounded-2xl ring-1 ring-slate-900/5">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={t.src} alt={t.alt} width={720} height={720} loading="lazy" decoding="async" className="block aspect-square w-full object-cover" />
+              <a href={t.href} {...(t.luar ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="relative block focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal-300" aria-label={`${t.label}${t.luar ? " (situs RSUD Cipayung, tab baru)" : " — dalam pengembangan"}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={t.src} alt={t.alt} width={720} height={720} loading="lazy" decoding="async" className="block aspect-square w-full object-cover" />
+                <span className="tema-label absolute inset-x-0 top-[5.5%] text-center text-[clamp(13px,1.9vw,22px)] font-extrabold tracking-[0.08em] text-white">{t.label}</span>
+                {!t.luar && <span className="absolute bottom-2 right-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-navy-800 shadow-sm">Segera hadir</span>}
+              </a>
             </li>
           ))}
         </ul>

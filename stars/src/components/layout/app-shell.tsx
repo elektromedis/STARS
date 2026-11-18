@@ -6,6 +6,7 @@ import { MobileNav } from "./mobile-nav";
 import { Footer } from "./footer";
 import { QrScan } from "./qr-scan";
 import { MenuBawah } from "./menu-bawah";
+import { FaviconAnimasi } from "./favicon-animasi";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -25,6 +26,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </div>
       <div className="contents print:hidden"><MenuBawah /></div>
       <QrScan />
+      <FaviconAnimasi />
     </div>
   );
 }
