@@ -1,10 +1,21 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sesiApi } from "@/lib/sesi";
 import { unitTerkunci } from "@/lib/akses";
 import { audit, ipDari } from "@/lib/audit";
 import { alamatQr } from "@/lib/alamat";
-import { pdfLabelQr, UKURAN_LABEL, type UkuranLabel } from "@/lib/label-qr";
+import { pdfLabelQr, UKURAN_LABEL, type LogoLabel, type UkuranLabel } from "@/lib/label-qr";
+
+/** Logo RSUD & STARS untuk label (public/label/*.png), dibaca sekali lalu disimpan di memori. */
+let logoCache: LogoLabel | null = null;
+async function logoLabel(): Promise<LogoLabel> {
+  if (logoCache) return logoCache;
+  const baca = async (f: string) => { try { return `data:image/png;base64,${(await readFile(join(process.cwd(), "public", "label", f))).toString("base64")}`; } catch { return null; } };
+  logoCache = { rsud: await baca("logo-rsud.png"), stars: await baca("logo-stars.png") };
+  return logoCache;
+}
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -37,15 +48,22 @@ export async function GET(req: NextRequest) {
     },
     orderBy: [{ unitKerja: { urut: "asc" } }, { ruangan: { nama: "asc" } }, { nama: "asc" }, { kode: "asc" }],
     take: MAKS + 1,
-    select: { kode: true, nama: true, merek: true, model: true, nomorSeri: true, lokasi: true, unitKerja: { select: { nama: true } }, ruangan: { select: { nama: true } } },
+    select: {
+      kode: true, nama: true, merek: true, model: true, nomorSeri: true, lokasi: true, noUrutAset: true, kodeAspak: true, tahunPerolehan: true, tahunPembelian: true,
+      unitKerja: { select: { nama: true } }, ruangan: { select: { nama: true } },
+      kalibrasi: { orderBy: [{ tanggal: "desc" }, { id: "desc" }], take: 1, select: { berlakuSampai: true } },
+    },
   });
   if (alat.length === 0) return NextResponse.json({ error: "Tidak ada alat aktif untuk pilihan ini." }, { status: 404 });
   if (alat.length > MAKS) return NextResponse.json({ error: `Terlalu banyak (lebih dari ${MAKS} label). Pilih per unit kerja.` }, { status: 400 });
 
   const alamat = alamatPublik(req);
   const buf = pdfLabelQr(
-    alat.map((a) => ({ kode: a.kode, nama: a.nama, merek: a.merek, model: a.model, nomorSeri: a.nomorSeri, unit: a.unitKerja.nama, ruangan: a.ruangan?.nama ?? a.lokasi })),
-    { alamat, ukuran, mulai: Number(sp.get("mulai")) || 1 },
+    alat.map((a) => ({
+      kode: a.kode, nama: a.nama, merek: a.merek, model: a.model, nomorSeri: a.nomorSeri, unit: a.unitKerja.nama, ruangan: a.ruangan?.nama ?? a.lokasi,
+      noAset: a.noUrutAset, tahun: a.tahunPerolehan ?? a.tahunPembelian, kalibrasiSampai: a.kalibrasi[0]?.berlakuSampai ?? null, lot: a.kodeAspak,
+    })),
+    { alamat, ukuran, mulai: Number(sp.get("mulai")) || 1, logo: await logoLabel() },
   );
   await audit("alat.label", { email: sesi.user.email, ip: ipDari(req.headers), objek: ids.length === 1 ? alat[0].kode : unit ?? kunci?.nama ?? "semua unit", detail: `${alat.length} label ${UKURAN_LABEL[ukuran].nama}; ${alamat}` });
   const nama = `STARS_label_QR_${ids.length === 1 ? alat[0].kode : (unit ?? kunci?.nama ?? "semua").replace(/[^\w-]+/g, "_")}.pdf`;
