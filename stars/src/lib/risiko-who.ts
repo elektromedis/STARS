@@ -59,3 +59,25 @@ export function prioritasEmr(emr: number | null): { label: string; nada: "danger
 }
 
 export const labelPilihan = (daftar: Pilihan[], n: number | null | undefined) => daftar.find((p) => p.nilai === n)?.label ?? "—";
+
+/**
+ * WHO Medical equipment maintenance programme overview (2011), Lampiran A.1 — faktor riwayat kejadian
+ * dari frekuensi kerusakan rata-rata (dihitung otomatis dari laporan kerusakan 30 bulan terakhir).
+ */
+export function faktorRiwayat(jumlahKerusakan30Bulan: number): { nilai: number; label: string } {
+  const n = jumlahKerusakan30Bulan;
+  if (n > 5) return { nilai: 2, label: "Signifikan: > 1 kali per 6 bulan" };
+  if (n >= 4) return { nilai: 1, label: "Sedang: 1 kali per 6–9 bulan" };
+  if (n >= 2) return { nilai: 0, label: "Rata-rata: 1 kali per 9–18 bulan" };
+  if (n === 1) return { nilai: -1, label: "Minimal: 1 kali per 18–30 bulan" };
+  return { nilai: -2, label: "Tidak berarti: tidak ada dalam 30 bulan" };
+}
+
+/** Interval inspeksi & pemeliharaan preventif (Lampiran A.1). */
+export function intervalWho(emTotal: number | null, pemeliharaan: number | null | undefined) {
+  if (emTotal == null) return null;
+  const masuk = emTotal >= AMBANG_EM;
+  const inspeksiBulan = !masuk ? null : emTotal >= 19 ? 4 : emTotal >= 15 ? 6 : 12;
+  const pmBulan = !masuk || pemeliharaan == null ? null : pemeliharaan >= 4 ? 6 : 12;
+  return { masuk, inspeksiBulan, pmBulan };
+}

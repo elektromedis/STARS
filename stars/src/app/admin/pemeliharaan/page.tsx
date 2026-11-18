@@ -28,6 +28,10 @@ export default async function PemeliharaanPage() {
     prisma.perintahKerja.count({ where: { ...b.perintah, status: { in: ["Terbuka", "Dikerjakan"] } } }),
     prisma.perintahKerja.count({ where: { ...b.perintah, status: "Selesai" } }),
   ]);
+  const nomorWr = perintah.map((w) => w.permintaan?.nomor).filter((x): x is string => !!x);
+  const ttd = nomorWr.length ? await prisma.tandaTangan.findMany({ where: { nomor: { in: nomorWr } }, select: { nomor: true, peran: true, nama: true, waktu: true } }) : [];
+  const ambil = (n: string, p: string) => { const t = ttd.find((x) => x.nomor === n && x.peran === p); return t ? { nama: t.nama, waktu: t.waktu.toISOString() } : null; };
+  const perintahTte = perintah.map((w) => ({ ...w, tte: w.permintaan ? { teknisi: ambil(w.permintaan.nomor, "Teknisi"), pelapor: ambil(w.permintaan.nomor, "Pelapor") } : undefined }));
 
   return (
     <div className="grid gap-6">
@@ -46,7 +50,7 @@ export default async function PemeliharaanPage() {
       </section>
 
       <PermintaanPanel data={permintaan} teknisi={teknisi} bolehKelola={bolehKelola} />
-      <PerintahPanel data={perintah} teknisi={teknisi} bolehKelola={bolehKelola} />
+      <PerintahPanel data={perintahTte} teknisi={teknisi} bolehKelola={bolehKelola} />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import type { ItemNotif } from "@/lib/notifikasi-jenis";
 export type StatusLaporanSaya = {
   nomor: string; namaAlat: string; status: string; prioritas: string; unit: string | null; kodeAlat: string | null;
   dibuat: string; diperbarui: string; perintah: { nomor: string; status: string } | null;
+  tte?: { teknisi: { nama: string; waktu: string } | null; pelapor: { nama: string; waktu: string } | null };
 };
 
 export async function lacakLaporanSaya(): Promise<StatusLaporanSaya[]> {

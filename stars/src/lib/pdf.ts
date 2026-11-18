@@ -3,6 +3,7 @@
  * dengan kop STARS, tanggal cetak, dan nomor halaman.
  */
 import { jsPDF } from "jspdf";
+import { gambarQr } from "./label-qr";
 import autoTable, { type CellDef, type RowInput } from "jspdf-autotable";
 
 export type KolomPdf = { kunci: string; label: string; lebar?: number; rata?: "left" | "right" | "center" };
@@ -166,10 +167,14 @@ export function lembarKerjaPdf(wo: {
 }
 
 /** Bukti laporan kerusakan (A4 tegak): identitas laporan, alat, pelapor, uraian keluhan, foto (bila JPG/PNG), dan status. */
+export type TtePdf = { nama: string; waktu: Date; url: string; token: string };
+
 export function laporanKerusakanPdf(l: {
   nomor: string; createdAt: Date; status: string; prioritas: string; namaAlat: string; kodeAlat?: string | null; nomorSeri?: string | null;
   unit?: string | null; lokasi?: string | null; pelapor: string; kontak?: string | null; keluhan: string; adaVideo?: boolean;
   foto?: { data: Buffer; jenis: "JPEG" | "PNG" } | null; alamatLacak?: string | null;
+  wo?: { nomor: string; status: string; tindakan: string | null; teknisi: string | null; tanggalSelesai: Date | null } | null;
+  tte?: { teknisi: TtePdf | null; pelapor: TtePdf | null };
 }): Buffer {
   const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
   const W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight();
@@ -218,12 +223,43 @@ export function laporanKerusakanPdf(l: {
     } catch { /* foto rusak/tak terbaca: lewati */ }
   }
 
-  if (y > H - 45) { doc.addPage(); y = 20; }
-  doc.setFont("helvetica", "normal").setFontSize(9).setTextColor(60);
-  const tt = (x: number, label: string) => { doc.text(label, x, y); doc.line(x, y + 22, x + 60, y + 22); };
-  doc.setDrawColor(120).setLineWidth(0.2);
-  tt(m, "Pelapor,"); tt(W - m - 60, "Diterima petugas elektromedik,");
-  doc.text(l.pelapor, m, y + 27);
+  // Hasil perintah kerja (WHO: catat tindakan, waktu, teknisi — "return to service")
+  if (l.wo) {
+    if (y > H - 70) { doc.addPage(); y = 20; }
+    doc.setFont("helvetica", "bold").setFontSize(11).setTextColor(...NAVY).text("Hasil perbaikan", m, y); y += 2;
+    autoTable(doc, {
+      startY: y, margin: { left: m, right: m }, theme: "grid",
+      body: [["Perintah kerja", `${l.wo.nomor} - ${l.wo.status}`], ["Teknisi", l.wo.teknisi ?? "-"], ["Selesai", l.wo.tanggalSelesai ? l.wo.tanggalSelesai.toLocaleString("id-ID", { timeZone: "Asia/Jakarta", day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" }).replace(/\./g, ":") + " WIB" : "-"], ["Tindakan", l.wo.tindakan ?? "-"]],
+      styles: { font: "helvetica", fontSize: 9.5, cellPadding: 2.2, lineColor: [203, 213, 225], lineWidth: 0.15, textColor: 30 },
+      columnStyles: { 0: { cellWidth: 50, fontStyle: "bold", fillColor: [241, 245, 249] } },
+    });
+    y = (doc as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable.finalY + 7;
+  }
+
+  // Kotak TTE: QR verifikasi + nama + waktu; kosong bila belum ditandatangani
+  if (y > H - 62) { doc.addPage(); y = 20; }
+  const lebar = (W - m * 2 - 8) / 2;
+  const kotak = (x: number, judul: string, t: TtePdf | null | undefined, ket: string) => {
+    doc.setDrawColor(203, 213, 225).setLineWidth(0.3).roundedRect(x, y, lebar, 46, 2, 2, "S");
+    doc.setFont("helvetica", "bold").setFontSize(9.5).setTextColor(...NAVY).text(judul, x + 3, y + 5.5);
+    doc.setFont("helvetica", "normal").setFontSize(7.5).setTextColor(90).text(ket, x + 3, y + 9.5);
+    if (t) {
+      gambarQr(doc, t.url, x + 3, y + 12, 30);
+      const tx = x + 36;
+      doc.setFont("helvetica", "bold").setFontSize(8).setTextColor(13, 148, 136).text("DITANDATANGANI SECARA", tx, y + 16).text("ELEKTRONIK (TTE STARS)", tx, y + 19.5);
+      doc.setFont("helvetica", "bold").setFontSize(9.5).setTextColor(30);
+      doc.text(doc.splitTextToSize(t.nama, lebar - 38) as string[], tx, y + 26);
+      doc.setFont("helvetica", "normal").setFontSize(7.5).setTextColor(90);
+      doc.text(t.waktu.toLocaleString("id-ID", { timeZone: "Asia/Jakarta", day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" }).replace(/\./g, ":") + " WIB", tx, y + 35);
+      doc.text(`ID: ${t.token.slice(0, 10)}…`, tx, y + 39);
+      doc.setFontSize(6.5).text("Pindai QR untuk verifikasi", tx, y + 43);
+    } else {
+      doc.setFont("helvetica", "italic").setFontSize(8.5).setTextColor(150).text("Belum ditandatangani", x + lebar / 2, y + 30, { align: "center" });
+    }
+  };
+  kotak(m, "Teknisi penyelesai", l.tte?.teknisi, "Menyatakan perbaikan selesai & alat laik pakai");
+  kotak(m + lebar + 8, "Pelapor", l.tte?.pelapor, "Menyetujui hasil perbaikan (serah terima)");
+  y += 52;
 
   doc.setFontSize(8).setTextColor(120);
   doc.text(`Dokumen dibuat otomatis oleh STARS${l.alamatLacak ? ` - pantau status: ${l.alamatLacak}` : ""}`, m, H - 10);

@@ -30,6 +30,8 @@ export async function POST(req: NextRequest) {
     },
   });
   const kodeDari = new Map(daftar.map((d) => [d.nomor, d.kode]));
+  const ttd = await prisma.tandaTangan.findMany({ where: { nomor: { in: rows.map((r) => r.nomor) } }, select: { nomor: true, peran: true, nama: true, waktu: true } });
+  const tteDari = (n: string, p: string) => { const t = ttd.find((x) => x.nomor === n && x.peran === p); return t ? { nama: t.nama, waktu: t.waktu.toISOString() } : null; };
   const laporan = rows
     .filter((r) => r.kodeLacak && r.kodeLacak === kodeDari.get(r.nomor))
     .map((r) => {
@@ -38,6 +40,7 @@ export async function POST(req: NextRequest) {
         nomor: r.nomor, namaAlat: r.namaAlat, status: r.status, prioritas: r.prioritas, unit: r.unitKerja?.nama ?? null, kodeAlat: r.alat?.kode ?? null,
         dibuat: r.createdAt.toISOString(), diperbarui: terakhir.toISOString(),
         perintah: r.perintah ? { nomor: r.perintah.nomor, status: r.perintah.status } : null,
+        tte: { teknisi: tteDari(r.nomor, "Teknisi"), pelapor: tteDari(r.nomor, "Pelapor") },
       };
     });
   return NextResponse.json({ laporan }, { headers: { "Cache-Control": "no-store" } });

@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ClipboardList, FileSearch, History, Loader2, ScanQrCode, Send, ShieldCheck, Trash2 } from "lucide-react";
+import { ClipboardList, FileDown, FileSearch, History, Loader2, PenLine, ScanQrCode, Send, ShieldCheck, Trash2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -82,6 +83,7 @@ export function RiwayatKlien({ aktivitas, masuk }: { aktivitas: Aktivitas[]; mas
                       </p>
                       {st?.perintah && <p className="text-xs">Perintah kerja <span className="font-mono font-medium">{st.perintah.nomor}</span>: <strong>{st.perintah.status}</strong></p>}
                       <Langkah status={st?.status} wo={st?.perintah?.status} />
+                      <SerahTerima nomor={l.nomor} kode={l.kode} st={st} onSelesai={() => lacakLaporanSaya().then((d) => setStatus(new Map(d.map((x) => [x.nomor, x]))))} />
                       {st?.kodeAlat && <Link href={urlDetailAlat(st.kodeAlat)} className="text-xs font-medium text-teal-700 hover:underline">Lihat detail alat →</Link>}
                     </CardContent></Card>
                   </li>
@@ -132,6 +134,46 @@ export function RiwayatKlien({ aktivitas, masuk }: { aktivitas: Aktivitas[]; mas
           </ul>
         )
       )}
+    </div>
+  );
+}
+
+/** Serah terima: unduh PDF (TTE) dan, bila teknisi sudah menandatangani, pelapor menyetujui hasil perbaikan dengan TTE. */
+function SerahTerima({ nomor, kode, st, onSelesai }: { nomor: string; kode: string; st?: StatusLaporanSaya; onSelesai: () => void }) {
+  const [buka, setBuka] = useState(false);
+  const [nama, setNama] = useState("");
+  const [setuju, setSetuju] = useState(false);
+  const [pesan, setPesan] = useState<{ ok?: string; error?: string } | null>(null);
+  const [jalan, setJalan] = useState(false);
+  const pdf = `/api/lapor/${encodeURIComponent(nomor)}/pdf?kode=${encodeURIComponent(kode)}`;
+  const t = st?.tte;
+  const kirim = async () => {
+    setJalan(true);
+    const r = await fetch(`/api/lapor/${encodeURIComponent(nomor)}/setujui`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kode, nama }) });
+    setPesan(await r.json().catch(() => ({ error: "Gagal." }))); setJalan(false);
+    if (r.ok) { setBuka(false); onSelesai(); }
+  };
+  return (
+    <div className="grid gap-2 border-t pt-2 text-xs">
+      <div className="flex flex-wrap items-center gap-2">
+        <Button size="sm" variant="outline" asChild><a href={`${pdf}&unduh=1`}><FileDown /> Unduh PDF</a></Button>
+        {t?.teknisi && !t.pelapor && !buka && <Button size="sm" variant="teal" onClick={() => setBuka(true)}><PenLine /> Setujui hasil perbaikan (TTE)</Button>}
+        {t?.pelapor && <span className="font-medium text-emerald-700">✓ Disetujui {t.pelapor.nama} · TTE lengkap</span>}
+        {t?.teknisi && !t.pelapor && <span className="text-muted-foreground">Teknisi {t.teknisi.nama} telah menandatangani penyelesaian.</span>}
+      </div>
+      {buka && (
+        <div className="grid gap-2 rounded-lg border border-teal-200 bg-teal-50/60 p-3">
+          <p className="text-navy-800">Pastikan alat sudah diperiksa dan berfungsi baik. Dengan menyetujui, Anda menandatangani berita acara serah terima secara elektronik.</p>
+          <Input value={nama} onChange={(e) => setNama(e.target.value)} placeholder="Nama lengkap Anda" maxLength={120} className="h-9 bg-white" aria-label="Nama lengkap penanda tangan" />
+          <label className="inline-flex items-start gap-2"><input type="checkbox" checked={setuju} onChange={(e) => setSetuju(e.target.checked)} className="mt-0.5 size-4 accent-teal-600" /> Saya menyatakan alat telah diterima kembali dalam keadaan berfungsi baik.</label>
+          <div className="flex gap-2">
+            <Button size="sm" variant="teal" disabled={jalan || !setuju || nama.trim().length < 2} onClick={kirim}>{jalan ? <Loader2 className="animate-spin" /> : <PenLine />} Tandatangani & setujui</Button>
+            <Button size="sm" variant="ghost" onClick={() => setBuka(false)}>Batal</Button>
+          </div>
+        </div>
+      )}
+      {pesan?.ok && <p className="text-emerald-700" role="status">{pesan.ok}</p>}
+      {pesan?.error && <p className="text-red-700" role="alert">{pesan.error}</p>}
     </div>
   );
 }

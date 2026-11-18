@@ -22,7 +22,7 @@ export type DataLabel = {
 
 export const tautanLabel = tautanAlat;
 
-function gambarQr(doc: jsPDF, isi: string, x: number, y: number, sisi: number) {
+export function gambarQr(doc: jsPDF, isi: string, x: number, y: number, sisi: number) {
   const qr = QRCode.create(isi, { errorCorrectionLevel: "M" });
   const n = qr.modules.size;
   const tepi = 2; // zona hening (modul)

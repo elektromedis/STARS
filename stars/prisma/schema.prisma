@@ -611,3 +611,21 @@ model AuditItem {
 
   @@unique([auditId, alatId])
 }
+
+/// Tanda tangan elektronik (TTE) dokumen STARS — mis. serah terima laporan kerusakan (teknisi & pelapor).
+/// QR di PDF memuat tautan /verifikasi?t=<token>; hashIsi = SHA-256 isi dokumen saat ditandatangani.
+model TandaTangan {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  dokumen   String // "Laporan Kerusakan"
+  nomor     String // nomor dokumen, mis. WR-2026-0001
+  peran     String // Teknisi | Pelapor
+  nama      String
+  identitas String? // email teknisi / kontak pelapor (disamarkan)
+  hashIsi   String
+  ip        String?
+  waktu     DateTime @default(now())
+
+  @@unique([nomor, peran])
+  @@index([nomor])
+}

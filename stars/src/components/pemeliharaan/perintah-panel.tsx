@@ -1,7 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
-import { CheckCircle2, ChevronDown, Loader2, Printer, XCircle } from "lucide-react";
+import { useActionState, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+import { CheckCircle2, ChevronDown, Loader2, PenLine, Printer, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
@@ -17,7 +18,35 @@ export type Perintah = {
   teknisiId: number | null; teknisi: { nama: string } | null; tindakan: string | null; sukuCadang: string | null;
   biaya: number; tanggalMulai: string | Date | null; tanggalSelesai: string | Date | null;
   permintaan: { nomor: string } | null; alat: { kode: string; nama: string } | null; createdAt: string | Date;
+  tte?: { teknisi: { nama: string; waktu: string } | null; pelapor: { nama: string; waktu: string } | null };
 };
+
+/** TTE serah terima laporan kerusakan: teknisi menandatangani penyelesaian; status persetujuan pelapor. */
+function KotakTte({ wo, bolehKelola }: { wo: Perintah; bolehKelola: boolean }) {
+  const router = useRouter();
+  const [pesan, setPesan] = useState<{ ok?: string; error?: string } | null>(null);
+  const [jalan, mulai] = useTransition();
+  if (!wo.permintaan) return null;
+  const t = wo.tte;
+  const tandatangani = () => mulai(async () => {
+    const r = await fetch("/api/admin/tte", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ woId: wo.id }) });
+    setPesan(await r.json().catch(() => ({ error: "Gagal." })));
+    router.refresh();
+  });
+  return (
+    <div className="grid gap-1.5 rounded-lg border border-teal-200 bg-teal-50/50 p-3 text-xs">
+      <p className="flex items-center gap-1.5 font-semibold text-navy-800"><PenLine className="size-3.5" /> Tanda tangan elektronik {wo.permintaan.nomor}</p>
+      <p>Teknisi: {t?.teknisi ? <span className="text-emerald-700">✓ {t.teknisi.nama} · {tgl(t.teknisi.waktu)}</span> : <span className="text-muted-foreground">belum</span>}</p>
+      <p>Pelapor (serah terima): {t?.pelapor ? <span className="text-emerald-700">✓ {t.pelapor.nama} · {tgl(t.pelapor.waktu)}</span> : <span className="text-muted-foreground">{t?.teknisi ? "menunggu persetujuan pelapor (lewat menu Riwayat)" : "setelah teknisi menandatangani"}</span>}</p>
+      <div className="flex flex-wrap items-center gap-2 pt-1">
+        {bolehKelola && !t?.teknisi && <Button size="sm" variant="teal" onClick={tandatangani} disabled={jalan || wo.status !== "Selesai"} title={wo.status !== "Selesai" ? "Tandai Selesai dan isi tindakan dulu" : undefined}>{jalan ? <Loader2 className="animate-spin" /> : <PenLine />} Tandatangani penyelesaian (TTE)</Button>}
+        <a href={`/api/lapor/${encodeURIComponent(wo.permintaan.nomor)}/pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-medium text-teal-700 hover:underline"><Printer className="size-3.5" /> PDF laporan + TTE</a>
+      </div>
+      {pesan?.ok && <p className="text-emerald-700" role="status">{pesan.ok}</p>}
+      {pesan?.error && <p className="text-red-700" role="alert">{pesan.error}</p>}
+    </div>
+  );
+}
 
 const tgl = (d: string | Date | null) => (d ? new Date(d).toLocaleString("id-ID", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" }) : "—");
 
@@ -32,6 +61,7 @@ function Baris({ wo, teknisi, bolehKelola }: { wo: Perintah; teknisi: Teknisi[];
         <span className="hidden text-xs text-muted-foreground sm:block">{wo.teknisi?.nama ?? "—"}</span>
         <Badge variant={badgePrioritas[wo.prioritas] ?? "outline"}>{wo.prioritas}</Badge>
         <Badge variant={badgeStatusPerintah[wo.status] ?? "default"}>{wo.status}</Badge>
+        {wo.permintaan && wo.status === "Selesai" && <Badge variant={wo.tte?.pelapor ? "success" : wo.tte?.teknisi ? "warning" : "outline"} className="hidden md:inline-flex">{wo.tte?.pelapor ? "TTE lengkap" : wo.tte?.teknisi ? "Menunggu pelapor" : "Belum TTE"}</Badge>}
       </summary>
 
       <div className="grid gap-4 bg-muted/20 px-4 py-4 md:grid-cols-2">
@@ -45,6 +75,7 @@ function Baris({ wo, teknisi, bolehKelola }: { wo: Perintah; teknisi: Teknisi[];
           {wo.biaya > 0 && <p><span className="text-muted-foreground">Biaya:</span> {formatRupiah(wo.biaya)}</p>}
           <p className="text-xs text-muted-foreground">Mulai {tgl(wo.tanggalMulai)} · Selesai {tgl(wo.tanggalSelesai)}</p>
           <a href={`/api/pemeliharaan/wo/${wo.id}/pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 pt-1 text-xs font-medium text-teal-700 hover:underline"><Printer className="size-3.5" /> Cetak lembar kerja (PDF)</a>
+          <KotakTte wo={wo} bolehKelola={bolehKelola} />
         </div>
 
         {bolehKelola ? (

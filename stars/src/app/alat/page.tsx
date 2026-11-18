@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AMBANG_EM, FUNGSI_ALAT, hitungSkor, KEBUTUHAN_PEMELIHARAAN, labelPilihan, prioritasEmr, RISIKO_FISIK } from "@/lib/risiko-who";
+import { faktorRiwayat, intervalWho, AMBANG_EM, FUNGSI_ALAT, hitungSkor, KEBUTUHAN_PEMELIHARAAN, labelPilihan, prioritasEmr, RISIKO_FISIK } from "@/lib/risiko-who";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowLeft, Banknote, Boxes, CalendarClock, ChevronRight, ClipboardList, Cpu, FileSearch, Gauge, Info, Lock, Printer, QrCode, Send, ShieldAlert } from "lucide-react";
@@ -89,6 +89,7 @@ export default async function DetailAlatPage({ searchParams }: { searchParams: P
   const umur = tahun ? new Date().getFullYear() - tahun : null;
   const rasioSisa = umur !== null && a.usiaTeknis ? Math.max(0, 1 - umur / a.usiaTeknis) : null;
   const laporanTerbuka = a.permintaan.filter((p) => ["Baru", "Ditinjau", "Diproses"].includes(p.status)).length;
+  const kerusakan30 = await prisma.permintaanKerja.count({ where: { alatId: a.id, createdAt: { gte: new Date(Date.now() - 913 * 86_400_000) } } });
   const tipe = [a.merek, a.model].filter(Boolean).join(" ");
 
   const dokumen: DokumenRingkas[] = a.dokumen.map((d) => ({
@@ -193,6 +194,7 @@ export default async function DetailAlatPage({ searchParams }: { searchParams: P
       {/* Skor risiko inklusi WHO */}
       {(() => {
         const sk = hitungSkor(a); const pr = prioritasEmr(sk.emr);
+        const h = faktorRiwayat(kerusakan30); const emH = sk.em != null ? sk.em + h.nilai : null; const iv = intervalWho(emH, a.emPemeliharaan);
         return (
           <Card>
             <CardHeader>
@@ -210,6 +212,8 @@ export default async function DetailAlatPage({ searchParams }: { searchParams: P
                     <Baris label="Risiko fisik">{a.emRisiko} · {labelPilihan(RISIKO_FISIK, a.emRisiko)}</Baris>
                     <Baris label="Pemeliharaan">{a.emPemeliharaan} · {labelPilihan(KEBUTUHAN_PEMELIHARAAN, a.emPemeliharaan)}</Baris>
                     <Baris label="Misi kritis">{a.emrMisiKritis ?? "—"}{a.emDinilaiPada ? <span className="block text-muted-foreground">dinilai {tglIndo(a.emDinilaiPada)}</span> : null}</Baris>
+                    <Baris label="Riwayat kejadian">{h.nilai > 0 ? "+" : ""}{h.nilai} · {h.label} ({kerusakan30} laporan/30 bln) → <b>EM {emH}</b></Baris>
+                    <Baris label="Interval (WHO)">{iv?.masuk ? <>Inspeksi tiap <b>{iv.inspeksiBulan} bulan</b>{iv.pmBulan ? <> · PM tiap <b>{iv.pmBulan} bulan</b></> : null}</> : "Di luar program — perbaikan saja (repair-only)"}</Baris>
                   </dl>
                 </div>
               )}

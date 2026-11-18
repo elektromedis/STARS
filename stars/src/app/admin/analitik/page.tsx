@@ -75,6 +75,21 @@ export default async function AnalitikPage() {
   // 9.3 staf: kompleksitas teknologi
   const tek = TEKNOLOGI_IKATEMI.map((t) => [t, alat.filter((a) => a.ikatemiTeknologi === t).length] as const);
   const stokPerlu = stok.filter((b) => statusBarang(b)[0].kunci !== "aman").length;
+  // WHO maintenance programme overview §5.4 — indikator kinerja (12 bulan)
+  const [wo12, auditAkhir] = await Promise.all([
+    prisma.perintahKerja.findMany({ where: { createdAt: { gte: new Date(kini - 365 * HARI) }, ...(kunci ? { alat: { unitKerja: { nama: kunci.nama } } } : {}) }, select: { status: true, createdAt: true, tanggalMulai: true, tanggalSelesai: true, biaya: true, jenis: true, permintaan: { select: { createdAt: true } } } }),
+    prisma.auditInventaris.findFirst({ orderBy: { createdAt: "desc" }, include: { item: { select: { ditemukan: true } } } }),
+  ]);
+  const rata = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
+  const jam = (ms: number | null) => (ms == null ? "—" : ms < 2 * 86_400_000 ? `${Math.round(ms / 3_600_000)} jam` : `${(ms / 86_400_000).toFixed(1).replace(".", ",")} hari`);
+  const respons = rata(wo12.filter((w) => w.permintaan).map((w) => w.createdAt.getTime() - w.permintaan!.createdAt.getTime()));
+  const perbaikan = rata(wo12.filter((w) => w.tanggalMulai && w.tanggalSelesai).map((w) => w.tanggalSelesai!.getTime() - w.tanggalMulai!.getTime()));
+  const terlambat = wo12.filter((w) => (w.status === "Terbuka" || w.status === "Dikerjakan") && kini - w.createdAt.getTime() > 30 * HARI).length;
+  const pm = wo12.filter((w) => w.jenis === "Preventif");
+  const pmSelesai = pm.length ? Math.round((pm.filter((w) => w.status === "Selesai").length / pm.length) * 100) : null;
+  const biaya12 = wo12.reduce((n, w) => n + (w.biaya ?? 0), 0);
+  const rasioBiaya = nilaiPerolehan ? (biaya12 / nilaiPerolehan) * 100 : null;
+  const lokasi = auditAkhir && auditAkhir.item.length ? Math.round((auditAkhir.item.filter((i) => i.ditemukan).length / auditAkhir.item.length) * 100) : null;
 
   return (
     <div className="grid gap-5">
@@ -86,6 +101,22 @@ export default async function AnalitikPage() {
         <Card><CardContent className="pt-5"><p className="text-xs text-muted-foreground">Kandidat penggantian</p><p className="text-2xl font-bold text-navy-800">{formatNumber(ganti.length)}</p></CardContent></Card>
         <Card><CardContent className="pt-5"><p className="text-xs text-muted-foreground">Stok perlu tindakan</p><p className="text-2xl font-bold text-navy-800"><Link href="/admin/stok" className="hover:underline">{formatNumber(stokPerlu)}</Link></p></CardContent></Card>
       </div>
+
+      <Card>
+        <CardHeader><CardTitle className="flex items-center gap-2"><Wrench className="size-5 text-teal-700" /> Indikator kinerja pemeliharaan (WHO 5.4)</CardTitle><CardDescription>12 bulan terakhir. Target WHO: penyelesaian IPM &gt; 90%, perintah kerja tidak terlambat &gt; 30 hari, rasio biaya servis 5–10% (negara maju; awal program boleh lebih tinggi).</CardDescription></CardHeader>
+        <CardContent className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
+          {[
+            ["Penyelesaian PM", pmSelesai == null ? "—" : `${pmSelesai}%`, pmSelesai != null && pmSelesai < 90],
+            ["Waktu respons rata-rata", jam(respons), false],
+            ["Waktu perbaikan rata-rata", jam(perbaikan), false],
+            ["Perintah kerja terlambat > 30 hari", String(terlambat), terlambat > 0],
+            ["Tingkat ditemukan (audit terakhir)", lokasi == null ? "—" : `${lokasi}%`, lokasi != null && lokasi < 95],
+            ["Rasio biaya servis", rasioBiaya == null ? "—" : `${rasioBiaya.toFixed(1).replace(".", ",")}%`, false],
+          ].map(([k, v, buruk]) => (
+            <div key={String(k)} className="rounded-xl border bg-white p-3"><p className="text-xs text-muted-foreground">{k}</p><p className={`text-2xl font-bold tabular-nums ${buruk ? "text-red-700" : "text-navy-800"}`}>{v}</p></div>
+          ))}
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader><CardTitle className="flex items-center gap-2"><Banknote className="size-5 text-teal-700" /> Anggaran & penggantian (9.1, 9.9)</CardTitle>
