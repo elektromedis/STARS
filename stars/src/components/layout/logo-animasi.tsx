@@ -63,3 +63,20 @@ export function LogoAnimasi({ className, terang = false }: { className?: string;
     </svg>
   );
 }
+
+/**
+ * Logo STARS tegak (ikon di tengah atas, nama di bawah, semua rata tengah) — untuk panel pembuka beranda.
+ * Sama-sama beranimasi (cincin berputar, EKG berjalan) lewat kelas CSS yang sama.
+ */
+export function LogoTegak({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 700 690" className={cn("stars-logo h-auto font-sans", className)} role="img" aria-labelledby="stars-logo-tegak">
+      <title id="stars-logo-tegak">STARS — Sistem Terintegrasi Alat Kesehatan Rumah Sakit</title>
+      <g transform="translate(150 0)"><IkonStars /></g>
+      <text x="350" y="548" textAnchor="middle" fill="#0B2545" fontSize="118" fontWeight="800" letterSpacing="10">STARS</text>
+      <rect x="312" y="574" width="76" height="9" rx="4.5" fill={TEAL} />
+      <text x="350" y="630" textAnchor="middle" fill="#25507F" fontSize="27" fontWeight="500">Sistem Terintegrasi Alat Kesehatan Rumah Sakit</text>
+      <text x="350" y="676" textAnchor="middle" fill="#0E8089" fontSize="19" fontWeight="700" letterSpacing="5">MONITOR • ANALYZE • CONNECT</text>
+    </svg>
+  );
+}

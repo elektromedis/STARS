@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ChevronRight, Glasses } from "lucide-react";
-import { LogoAnimasi } from "@/components/layout/logo-animasi";
+import { LogoTegak } from "@/components/layout/logo-animasi";
 import { StatusSinkron } from "@/components/layout/status-sinkron";
 import { DiagramSiklus } from "@/components/allies/diagram-siklus";
 import type { IdTahap } from "@/lib/allies-siklus";
@@ -65,9 +65,9 @@ export function Panggung({ d }: { d: DataPanggung }) {
   return (
     <div className="panggung mb-10 grid gap-3">
       {/* 1. Logo STARS beranimasi — tampil pertama */}
-      <section aria-label="Logo STARS" className="muncul relative grid min-h-[min(70vh,34rem)] place-items-center overflow-hidden rounded-3xl bg-white/55 px-4 py-12 ring-1 ring-sky-100 backdrop-blur-[2px]">
-        <div className="panggung-logo w-[min(720px,92%)]"><LogoAnimasi terang className="w-full" /></div>
-        <div className="absolute inset-x-0 bottom-5 flex justify-center"><StatusSinkron /></div>
+      <section aria-label="Logo STARS" className="muncul relative flex flex-col items-center justify-center gap-6 overflow-hidden rounded-3xl bg-white/60 px-4 py-10 ring-1 ring-sky-100 backdrop-blur-[2px] md:py-14">
+        <div className="panggung-logo w-[min(400px,78%)]"><LogoTegak className="w-full" /></div>
+        <StatusSinkron />
       </section>
 
       {/* 2. Judul STARS */}

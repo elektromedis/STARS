@@ -6,6 +6,7 @@ import { unitTerkunci } from "@/lib/akses";
 import { cukup } from "@/lib/peran";
 import { statusKalibrasi } from "@/lib/kalibrasi";
 import { KalibrasiManager, type PerluPerhatian } from "@/components/pemeliharaan/kalibrasi-manager";
+import { ImporSertifikat } from "@/components/pemeliharaan/impor-sertifikat";
 
 export const metadata: Metadata = { title: "Kalibrasi" };
 export const dynamic = "force-dynamic";
@@ -48,6 +49,7 @@ export default async function KalibrasiPage({ searchParams }: { searchParams: Pr
         <p className="flex items-start gap-2 rounded-lg border border-teal-200 bg-teal-50 p-3 text-sm text-teal-900"><Info className="mt-0.5 size-4 shrink-0" />
           <span>{process.env.STARS_MODE === "internet" ? "Server ini mode internet (baca saja)." : <>Peran <strong>{s.user.peran}</strong> hanya dapat melihat. Mencatat kalibrasi & mengunggah sertifikat memerlukan peran Operator.</>}</span></p>
       )}
+      {bolehKelola && <ImporSertifikat />}
       <KalibrasiManager
         data={data}
         perlu={perlu}
