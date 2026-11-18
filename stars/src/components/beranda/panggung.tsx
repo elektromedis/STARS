@@ -51,6 +51,13 @@ function Angka({ nilai, label, gelap }: { nilai: string; label: string; gelap?: 
   );
 }
 
+const TEMA = [
+  { src: "/tema/medicine.webp", alt: "Ilustrasi Medicine: kotak P3K, monitor jantung, obat, dan alat medis" },
+  { src: "/tema/hospital.webp", alt: "Ilustrasi Hospital: gedung rumah sakit 24 jam, ambulans, dokter, dan radiologi" },
+  { src: "/tema/distance-diagnostics.webp", alt: "Ilustrasi Distance Diagnostics: pemantauan jarak jauh lewat laptop dan ponsel" },
+  { src: "/tema/lab-analysis.webp", alt: "Ilustrasi Lab Analysis: mikroskop, tabung reaksi, dan analisis molekul" },
+];
+
 const persen = (x: number) => `${x.toFixed(1).replace(".", ",")}%`;
 const miliar = (x: number) => (x >= 1e9 ? `Rp ${(x / 1e9).toFixed(1).replace(".", ",")} M` : `Rp ${Math.round(x / 1e6).toLocaleString("id-ID")} jt`);
 
@@ -58,19 +65,27 @@ export function Panggung({ d }: { d: DataPanggung }) {
   return (
     <div className="panggung mb-10 grid gap-3">
       {/* 1. Logo STARS beranimasi — tampil pertama */}
-      <section aria-label="Logo STARS" className="muncul relative grid min-h-[min(70vh,34rem)] place-items-center overflow-hidden rounded-3xl bg-[#f5f5f7] px-4 py-12">
+      <section aria-label="Logo STARS" className="muncul relative grid min-h-[min(70vh,34rem)] place-items-center overflow-hidden rounded-3xl bg-white/55 px-4 py-12 ring-1 ring-sky-100 backdrop-blur-[2px]">
         <div className="panggung-logo w-[min(720px,92%)]"><LogoAnimasi terang className="w-full" /></div>
         <div className="absolute inset-x-0 bottom-5 flex justify-center"><StatusSinkron /></div>
       </section>
 
       {/* 2. Judul STARS */}
-      <section aria-label="STARS" className="muncul relative overflow-hidden rounded-3xl bg-white py-14 ring-1 ring-slate-200 md:py-20">
+      <section aria-label="STARS" className="muncul relative overflow-hidden rounded-3xl bg-white/80 py-14 ring-1 ring-slate-200 backdrop-blur-sm md:py-20">
         <div className="panggung-masuk">
           <Teks utama judul={<span className="text-[56px] md:text-[96px]">STARS</span>} sub={<>Seluruh Siklus Alat Kesehatan.<br />Satu Sistem. Satu Pintu.</>}>
             <Pil href="#perencanaan">Lihat data</Pil>
             <Pil href="/allies" varian="garis">Tanya ALLIES</Pil>
           </Teks>
         </div>
+        <ul className="mx-auto mt-10 grid w-[min(1040px,92%)] grid-cols-2 gap-3 md:grid-cols-4" aria-label="Cakupan STARS">
+          {TEMA.map((t) => (
+            <li key={t.src} className="tema-ubin overflow-hidden rounded-2xl ring-1 ring-slate-900/5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={t.src} alt={t.alt} width={720} height={720} loading="lazy" decoding="async" className="block aspect-square w-full object-cover" />
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* 3. Lapor kerusakan */}
