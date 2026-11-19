@@ -33,7 +33,7 @@ export default async function VerifikasiPage({ searchParams }: { searchParams: P
               ["Dokumen", `${t.dokumen} ${t.nomor}`],
               ["Alat", wr ? `${wr.namaAlat}${wr.unitKerja ? ` · ${wr.unitKerja.nama}` : ""}` : pj ? pj.alat : "—"],
               ["Perintah kerja", wr?.perintah?.nomor ?? "—"],
-              ["Ditandatangani sebagai", ({ Teknisi: "Teknisi penyelesai perbaikan", Pelapor: "Pelapor — menyetujui hasil perbaikan", Pemberi: "Unit pemilik — menyetujui peminjaman", Penerima: "Peminjam — menerima alat", Pengembalian: "Unit pemilik — menerima kembali alat" } as Record<string, string>)[t.peran] ?? t.peran],
+              ["Ditandatangani sebagai", ({ Teknisi: "Teknisi penyelesai perbaikan", Pelapor: "Pelapor — menyetujui hasil perbaikan", Pemberi: "Unit pemilik — menyetujui peminjaman", Penerima: "Peminjam — menerima alat", Pengembalian: "Unit pemilik — menerima kembali alat", KepalaRuangan: "Kepala Ruangan / PJ Unit", PjAlkes: "Penanggung Jawab Alat Kesehatan", PengurusBarang: "Pengurus Barang", Direktur: "Direktur RSUD" } as Record<string, string>)[t.peran] ?? t.peran],
               ["Nama", t.nama],
               ["Identitas", t.identitas ?? "—"],
               ["Waktu", `${waktu(t.waktu)} WIB`],
