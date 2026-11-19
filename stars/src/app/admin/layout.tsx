@@ -24,6 +24,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     { href: "/admin/kalibrasi", label: "Kalibrasi", icon: "badge" as const, tampil: true },
     { href: "/admin/stok", label: "Stok & BHP", icon: "package" as const, tampil: true },
     { href: "/admin/audit", label: "Audit Inventaris", icon: "audit" as const, tampil: true },
+    { href: "/admin/htm", label: "HTM WHO 2025", icon: "htm" as const, tampil: true },
     { href: "/admin/bobot", label: "Pembobotan", icon: "bobot" as const, tampil: true },
     { href: "/admin/regulasi", label: "Regulasi", icon: "scale" as const, tampil: true },
     { href: "/admin/kir", label: "KIR Ruangan", icon: "kir" as const, tampil: true },

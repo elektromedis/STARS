@@ -21,6 +21,12 @@ async function dataWr(nomor: string) {
 
 /** Sidik dokumen apa pun berdasarkan awalan nomor: PJ- = peminjaman, selain itu laporan kerusakan. */
 export async function sidikDokumen(nomor: string): Promise<string | null> {
+  if (nomor.startsWith("HPS-")) {
+    const h = await prisma.penghapusan.findUnique({ where: { nomor } });
+    if (!h) return null;
+    const isi = [h.nomor, h.alatId, h.alasan, h.keterangan ?? "", h.dekontaminasi, h.dataDihapus, h.tujuan, h.kategoriLimbah ?? ""].join("\u241e");
+    return createHash("sha256").update(isi, "utf8").digest("hex");
+  }
   if (nomor.startsWith("KIR-")) {
     const { isiKanonikKir } = await import("./kir");
     const isi = await isiKanonikKir(nomor);
@@ -49,7 +55,7 @@ export async function buatTte(o: { nomor: string; peran: PeranTte; nama: string;
   const hashIsi = await sidikDokumen(o.nomor);
   if (!hashIsi) throw new Error("Dokumen tidak ditemukan.");
   return prisma.tandaTangan.create({
-    data: { token: randomBytes(16).toString("base64url"), dokumen: o.nomor.startsWith("PJ-") ? "Peminjaman Alat" : o.nomor.startsWith("KIR-") ? "Kartu Inventaris Ruangan" : "Laporan Kerusakan", nomor: o.nomor, peran: o.peran, nama: o.nama.slice(0, 120), identitas: o.identitas, hashIsi, ip: o.ip },
+    data: { token: randomBytes(16).toString("base64url"), dokumen: o.nomor.startsWith("PJ-") ? "Peminjaman Alat" : o.nomor.startsWith("KIR-") ? "Kartu Inventaris Ruangan" : o.nomor.startsWith("HPS-") ? "Berita Acara Penghapusan Alat" : "Laporan Kerusakan", nomor: o.nomor, peran: o.peran, nama: o.nama.slice(0, 120), identitas: o.identitas, hashIsi, ip: o.ip },
   });
 }
 

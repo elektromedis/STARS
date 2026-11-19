@@ -27,7 +27,7 @@ export type Alat = {
   kodeAspak: string | null; noUrutAset: string | null; instalasi: string | null; pelayanan: string | null; tahunPembelian: number | null; tahunPembukuan: number | null;
   pendanaan: string | null; teknologi: string | null; kelasRisiko: string | null; akl: string | null; produsen: string | null; distributor: string | null;
   tanggalUjiFungsi: string | Date | null; umurPemakaian: string | null;
-  statusOperasi: string; alasanTidakOperasi: string | null; dayaListrik: string | null; versiPerangkatLunak: string | null; negaraAsal: string | null;
+  statusOperasi: string; alasanTidakOperasi: string | null; dayaListrik: string | null; versiPerangkatLunak: string | null; emdnKode?: string | null; gmdnKode?: string | null; udi?: string | null; dayaWatt?: number | null; kategoriLimbah?: string | null; negaraAsal: string | null;
   tahunProduksi: number | null; penanggungJawab: string | null; kontakPenanggungJawab: string | null; tanggalInstalasi: string | Date | null;
   hasilUjiTerima: string | null; penyediaServis: string | null; kontrakServis: string | null; kontrakServisSampai: string | Date | null;
   persyaratanOperasi: string | null; aksesori: string | null; penggunaAlat: string | null; riwayatRecall: string | null;
@@ -151,6 +151,13 @@ function DataWho({ a }: { a?: Alat }) {
         <label className={L}>Kebutuhan daya
           <Select name="dayaListrik" defaultValue={a?.dayaListrik ?? ""} className="h-9"><option value="">— belum —</option>{DAYA_LISTRIK.map((x) => <option key={x} value={x}>{x}</option>)}</Select>
         </label>
+        <label className={L}>Kode EMDN<Input name="emdnKode" defaultValue={a?.emdnKode ?? ""} maxLength={30} className="h-9 font-mono" placeholder="mis. Z12030101" /></label>
+        <label className={L}>Kode GMDN<Input name="gmdnKode" defaultValue={a?.gmdnKode ?? ""} maxLength={30} className="h-9 font-mono" placeholder="mis. 35190" /></label>
+        <label className={L}>UDI (dari label alat)<Input name="udi" defaultValue={a?.udi ?? ""} maxLength={120} className="h-9 font-mono" placeholder="(01)…(21)…" /></label>
+        <label className={L}>Daya nominal (Watt)<Input name="dayaWatt" type="number" min={0} step="any" defaultValue={a?.dayaWatt ?? ""} className="h-9" /></label>
+        <label className={L}>Kategori limbah saat dihapus
+          <Select name="kategoriLimbah" defaultValue={a?.kategoriLimbah ?? ""} className="h-9"><option value="">— belum —</option>{["Limbah elektronik", "Mengandung baterai", "Mengandung merkuri", "Radioaktif", "Infeksius", "Umum"].map((x) => <option key={x}>{x}</option>)}</Select>
+        </label>
         <label className={L}>Versi software / firmware<Input name="versiPerangkatLunak" defaultValue={a?.versiPerangkatLunak ?? ""} maxLength={120} className="h-9" /></label>
         <label className={L}>Negara asal<Input name="negaraAsal" defaultValue={a?.negaraAsal ?? ""} maxLength={80} className="h-9" placeholder="mis. Jerman" /></label>
         <label className={L}>Tahun produksi<Input name="tahunProduksi" type="number" min={1950} max={2100} defaultValue={a?.tahunProduksi ?? ""} className="h-9" /></label>
@@ -241,7 +248,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
           <input type="hidden" name="id" value={a.id} />
           <Medan a={a} units={units} ruangan={ruangan} />
           <div className="flex items-center justify-between gap-2">
-            <span className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">{a._count.permintaan} laporan · {a._count.perintah} perintah kerja <TautanLabel href={label} /> <TautanDetail kode={a.kode} /></span>
+            <span className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">{a._count.permintaan} laporan · {a._count.perintah} perintah kerja <TautanLabel href={label} /> <TautanDetail kode={a.kode} /> <a href={`/api/admin/htm/uji-terima/${a.id}`} target="_blank" rel="noopener noreferrer" className="font-medium text-teal-700 hover:underline">Lembar uji terima</a></span>
             <div className="flex items-center gap-3"><Pesan status={st} /><Button type="submit" size="sm" variant="teal" disabled={pend}>{pend ? <Loader2 className="animate-spin" /> : null} Simpan perubahan</Button></div>
           </div>
         </form>
@@ -251,7 +258,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
           <p><span className="text-muted-foreground">Kategori:</span> {a.kategori ?? "—"} · <span className="text-muted-foreground">Risiko:</span> {a.risiko ?? "—"}</p>
           <p><span className="text-muted-foreground">Perolehan:</span> {a.tahunPerolehan ?? "—"} · <span className="text-muted-foreground">Usia teknis:</span> {a.usiaTeknis ?? "—"} th</p>
           <p><span className="text-muted-foreground">Garansi sampai:</span> {a.garansiSampai ? new Date(a.garansiSampai).toLocaleDateString("id-ID") : "—"}</p>
-          <p className="flex flex-wrap gap-3 sm:col-span-2"><TautanLabel href={label} /> <TautanDetail kode={a.kode} /></p>
+          <p className="flex flex-wrap gap-3 sm:col-span-2"><TautanLabel href={label} /> <TautanDetail kode={a.kode} /> <a href={`/api/admin/htm/uji-terima/${a.id}`} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-teal-700 hover:underline">Lembar uji terima</a></p>
         </div>
       )}
     </details>

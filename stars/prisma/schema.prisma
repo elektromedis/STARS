@@ -189,6 +189,12 @@ model Alat {
   penggunaAlat          String? // Dokter, Perawat, Analis lab, … (dipisah koma)
   riwayatRecall         String? // recall / peringatan bahaya dari produsen/regulator
   pembuanganKhusus      Boolean   @default(false)
+  // --- WHO 2025: nomenklatur & keberlanjutan ---
+  emdnKode              String? // European Medical Device Nomenclature
+  gmdnKode              String? // Global Medical Device Nomenclature
+  udi                   String? // Unique Device Identification (DI+PI)
+  dayaWatt              Float? // konsumsi daya nominal (W)
+  kategoriLimbah        String? // Limbah elektronik | Mengandung baterai | Mengandung merkuri | Radioaktif | Infeksius | Umum
   tanggalInventarisasi  DateTime? // terakhir diverifikasi fisik (audit inventaris)
   // --- skor risiko inklusi (WHO, Lampiran A): EM Fennigkoh–Smith & EMR Wang–Levenson ---
   emFungsi              Int? // 2..10
@@ -653,5 +659,24 @@ model Peminjaman {
   updatedAt      DateTime  @updatedAt
 
   @@index([status])
+  @@index([alatId])
+}
+
+/// Penghapusan alat (WHO Decommissioning medical devices 2019; WHO 2025 7.10–7.13). Nomor HPS-YYYY-NNNN.
+model Penghapusan {
+  id            Int      @id @default(autoincrement())
+  nomor         String   @unique
+  alatId        Int
+  alasan        String // Rusak berat | Usang/obsolete | Tidak ekonomis | Tidak aman | Lainnya
+  keterangan    String?
+  dekontaminasi Boolean  @default(false)
+  dataDihapus   Boolean  @default(false) // data pasien dihapus aman
+  tujuan        String // Dibuang | Didonasikan | Dijual | Tukar tambah | Dialihkan internal
+  kategoriLimbah String?
+  status        String   @default("Diajukan") // Diajukan | Diverifikasi | Disetujui | Ditolak
+  pengusul      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
   @@index([alatId])
 }

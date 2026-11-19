@@ -184,6 +184,9 @@ export default async function DetailAlatPage({ searchParams }: { searchParams: P
               {a.kodeAspak && <Baris label="Kode ASPAK" mono>{a.kodeAspak}</Baris>}
               <Baris label="Kebutuhan daya">{isi(a.dayaListrik)}</Baris>
               <Baris label="Software / firmware" mono>{isi(a.versiPerangkatLunak)}</Baris>
+              {(a.emdnKode || a.gmdnKode) && <Baris label="Nomenklatur EMDN · GMDN" mono>{[a.emdnKode, a.gmdnKode].filter(Boolean).join(" · ")}</Baris>}
+              {a.udi && <Baris label="UDI" mono>{a.udi}</Baris>}
+              {a.dayaWatt != null && <Baris label="Daya nominal">{a.dayaWatt} W</Baris>}
               <Baris label="Negara asal · produksi">{[a.negaraAsal, a.tahunProduksi].filter(Boolean).join(" · ") || "—"}</Baris>
               <Baris label="Instalasi">{a.tanggalInstalasi ? tglIndo(a.tanggalInstalasi) : "—"}{a.hasilUjiTerima ? <span className="block text-muted-foreground">Uji terima: {a.hasilUjiTerima}</span> : null}</Baris>
             </dl>
