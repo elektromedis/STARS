@@ -22,12 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="id" className={inter.variable}>
       <body className="font-sans">
         <div className="langit" aria-hidden>
-          <div className="langit-rasi" /><div className="langit-bintang a" /><div className="langit-bintang b" />
-          {/* eslint-disable @next/next/no-img-element */}
-          <div className="ikan satu"><img src="/tema/ikan-1.webp" alt="" width={340} height={210} decoding="async" /></div>
-          <div className="ikan dua"><img src="/tema/ikan-2.webp" alt="" width={320} height={210} decoding="async" /></div>
-          <div className="ikan tiga"><img src="/tema/ikan-3.webp" alt="" width={320} height={260} decoding="async" /></div>
-          {/* eslint-enable @next/next/no-img-element */}
+          <div className="adegan biru" /><div className="adegan ungu" /><div className="adegan emas" /><div className="adegan rasi" /><div className="adegan perak" />
         </div>
         <AppShell>{children}</AppShell>
       </body>

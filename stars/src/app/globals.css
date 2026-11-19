@@ -179,57 +179,47 @@
   @keyframes tema-label-masuk { from { opacity: 0; transform: translateY(8px); } }
 }
 
-/* ───────── Latar STARS: "langit kehidupan" ─────────
- * Dasar putih hangat + rasi bintang yang bergeser pelan + bintang berkelip (2 lapis bergantian)
- * + 3 ikan cahaya yang berenang melintas (gerak lintasan + naik-turun + kibasan ekor).
- * Total gambar ±255 KB, sekali unduh lalu tersimpan di cache; animasi hanya transform/opacity (GPU), tanpa JavaScript.
+/* ───────── Latar STARS: "langit kehidupan" (dasar putih) ─────────
+ * Satu skenario 60 detik yang berulang mulus, dirangkai dari 5 gambar unggahan yang warna latarnya dibuang
+ * (hanya unsur cahayanya, transparan di atas putih):
+ *   0–12 dtk  bintang biru muncul pelan (fajar malam)
+ *  12–24 dtk  bintang ungu berkilau
+ *  24–36 dtk  bokeh emas naik melayang
+ *  36–48 dtk  bintang saling terhubung jadi rasi jaringan
+ *  48–60 dtk  bintang perak, lalu kembali ke awal.
+ * Tiap adegan bersilang-pudar 3 dtk dengan adegan berikutnya. 5 berkas WebP ±315 KB total (1920 px),
+ * dimuat setelah halaman (tidak menghambat), animasi hanya transform/opacity (GPU), tanpa JavaScript.
  * Mati otomatis bila "kurangi gerakan" aktif, dan tidak ikut tercetak. */
-body { background-color: #fbfcfe; }
-.langit { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none;
-  background: #fbfcfe url("/tema/langit-dasar.webp") center / cover no-repeat; }
+body { background-color: #fff; }
+.langit { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; background: #fff; }
 .langit::after { content: ""; position: absolute; inset: 0;
-  background: radial-gradient(70% 60% at 50% 42%, rgba(255,255,255,.72), rgba(255,255,255,.15) 70%, rgba(255,255,255,0)); }
-.langit-rasi, .langit-bintang { position: absolute; inset: -6%; background-position: center; background-size: cover; background-repeat: no-repeat; will-change: transform, opacity; }
-.langit-rasi { background-image: url("/tema/langit-rasi.webp"); opacity: .55; }
-.langit-bintang.a { background-image: url("/tema/langit-bintang-a.webp"); opacity: .55; }
-.langit-bintang.b { background-image: url("/tema/langit-bintang-b.webp"); opacity: .35; }
-.ikan { position: absolute; left: 0; top: 0; width: var(--l, 220px); opacity: .72; will-change: transform; }
-.ikan img { display: block; width: 100%; height: auto; transform-origin: 30% 50%; }
-.ikan.satu { --l: clamp(150px, 16vw, 240px); top: 18%; }
-.ikan.dua  { --l: clamp(130px, 13vw, 200px); top: 58%; }
-.ikan.tiga { --l: clamp(120px, 12vw, 190px); top: 74%; }
+  background: radial-gradient(70% 60% at 50% 42%, rgba(255,255,255,.6), rgba(255,255,255,0) 75%); }
+.adegan { position: absolute; inset: -5%; background: center / cover no-repeat; opacity: 0; will-change: transform, opacity; }
+.adegan.biru  { background-image: url("/tema/latar-bintang-biru.webp"); }
+.adegan.ungu  { background-image: url("/tema/latar-bintang-ungu.webp"); }
+.adegan.emas  { background-image: url("/tema/latar-bokeh-emas.webp"); }
+.adegan.rasi  { background-image: url("/tema/latar-rasi-jaringan.webp"); }
+.adegan.perak { background-image: url("/tema/latar-bintang-perak.webp"); }
 @media (prefers-reduced-motion: no-preference) {
-  .langit-rasi { animation: langit-geser 90s ease-in-out infinite alternate, langit-pendar 14s ease-in-out infinite alternate; }
-  .langit-bintang.a { animation: langit-kelip 5.5s ease-in-out infinite alternate; }
-  .langit-bintang.b { animation: langit-kelip 7s ease-in-out -3s infinite alternate-reverse; }
-  .ikan.satu { animation: renang-kanan 46s linear infinite; }
-  .ikan.dua  { animation: renang-kanan 58s linear -24s infinite; }
-  .ikan.tiga { animation: renang-kiri 52s linear -11s infinite; }
-  .ikan img { animation: ikan-ayun 3.2s ease-in-out infinite; }
-  .ikan.dua img { animation-duration: 2.6s; }
-  .ikan.tiga img { animation-duration: 2.9s; }
-  @keyframes langit-geser { from { transform: translate3d(-1.5%, 1%, 0) scale(1.02); } to { transform: translate3d(1.5%, -1.2%, 0) scale(1.06); } }
-  @keyframes langit-pendar { from { opacity: .4; } to { opacity: .65; } }
-  @keyframes langit-kelip { from { opacity: .15; } to { opacity: .7; } }
-  /* lintasan: masuk dari luar layar, bergelombang naik-turun, keluar di sisi lain */
-  @keyframes renang-kanan {
-    0%   { transform: translate3d(-30vw, 0, 0) rotate(-4deg); }
-    25%  { transform: translate3d(20vw, -5vh, 0) rotate(3deg); }
-    50%  { transform: translate3d(50vw, 3vh, 0) rotate(-3deg); }
-    75%  { transform: translate3d(80vw, -4vh, 0) rotate(4deg); }
-    100% { transform: translate3d(115vw, 2vh, 0) rotate(-2deg); }
+  .adegan { animation: adegan 60s linear infinite, kelip 6s ease-in-out infinite alternate; }
+  .adegan.biru  { animation-delay: 0s, 0s; }
+  .adegan.ungu  { animation-delay: -48s, -2s; }
+  .adegan.emas  { animation-delay: -36s, -36s; animation-name: adegan, naik; animation-duration: 60s, 60s; animation-timing-function: linear, linear; animation-direction: normal, normal; }
+  .adegan.rasi  { animation-delay: -24s, -24s; animation-name: adegan, rasi; animation-duration: 60s, 60s; animation-timing-function: linear, ease-in-out; animation-direction: normal, normal; }
+  .adegan.perak { animation-delay: -12s, -4s; }
+  /* jendela tampil 15 dtk (12 dtk + 3 dtk silang-pudar) dari siklus 60 dtk */
+  @keyframes adegan {
+    0%   { opacity: 0; }
+    5%   { opacity: .62; }
+    20%  { opacity: .62; }
+    25%  { opacity: 0; }
+    100% { opacity: 0; }
   }
-  @keyframes renang-kiri {
-    0%   { transform: translate3d(115vw, 0, 0) scaleX(-1) rotate(3deg); }
-    30%  { transform: translate3d(70vw, -6vh, 0) scaleX(-1) rotate(-4deg); }
-    60%  { transform: translate3d(35vw, 2vh, 0) scaleX(-1) rotate(3deg); }
-    100% { transform: translate3d(-30vw, -3vh, 0) scaleX(-1) rotate(-3deg); }
-  }
-  /* tubuh mengayun & ekor mengibas */
-  @keyframes ikan-ayun {
-    0%, 100% { transform: rotate(-2.5deg) skewY(1.5deg) scaleX(1); }
-    50%      { transform: rotate(2.5deg) skewY(-1.5deg) scaleX(.97); }
-  }
+  @keyframes kelip { from { transform: translate3d(-1%, .6%, 0) scale(1.02); filter: brightness(1); } to { transform: translate3d(1%, -.6%, 0) scale(1.05); filter: brightness(1.15); } }
+  /* bokeh naik pelan selama jendelanya tampil */
+  @keyframes naik { 0% { transform: translate3d(0, 6%, 0) scale(1.04); } 25% { transform: translate3d(0, -4%, 0) scale(1.08); } 100% { transform: translate3d(0, -4%, 0) scale(1.08); } }
+  /* rasi mendekat seolah bintang saling menyambung */
+  @keyframes rasi { 0% { transform: scale(1.12) rotate(-1.5deg); } 25% { transform: scale(1.02) rotate(0deg); } 100% { transform: scale(1.02) rotate(0deg); } }
 }
-@media (prefers-reduced-motion: reduce) { .ikan { display: none; } }
+@media (prefers-reduced-motion: reduce) { .adegan.ungu { opacity: .45; } }
 @media print { .langit { display: none; } body { background: #fff; } }
