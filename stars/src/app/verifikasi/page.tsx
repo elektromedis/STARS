@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BadgeCheck, ShieldAlert, ShieldX } from "lucide-react";
 import { prisma } from "@/lib/prisma";
-import { sidikWr } from "@/lib/tte";
+import { sidikDokumen } from "@/lib/tte";
 
 export const metadata: Metadata = { title: "Verifikasi Tanda Tangan Elektronik" };
 export const dynamic = "force-dynamic";
@@ -14,7 +14,8 @@ export default async function VerifikasiPage({ searchParams }: { searchParams: P
   const token = String((await searchParams).t ?? "").slice(0, 60);
   const t = token ? await prisma.tandaTangan.findUnique({ where: { token } }) : null;
   const wr = t ? await prisma.permintaanKerja.findUnique({ where: { nomor: t.nomor }, select: { namaAlat: true, unitKerja: { select: { nama: true } }, perintah: { select: { nomor: true } } } }) : null;
-  const utuh = t ? (await sidikWr(t.nomor)) === t.hashIsi : false;
+  const pj = t?.nomor.startsWith("PJ-") ? await prisma.peminjaman.findUnique({ where: { nomor: t.nomor } }).then(async (p) => p ? { alat: (await prisma.alat.findUnique({ where: { id: p.alatId }, select: { nama: true } }))?.nama ?? "—" } : null) : null;
+  const utuh = t ? (await sidikDokumen(t.nomor)) === t.hashIsi : false;
   return (
     <div className="mx-auto grid max-w-lg gap-4 rounded-2xl border bg-white/90 p-6 text-center shadow-card">
       {!t ? (
@@ -30,9 +31,9 @@ export default async function VerifikasiPage({ searchParams }: { searchParams: P
           <dl className="grid gap-2 text-left text-sm">
             {[
               ["Dokumen", `${t.dokumen} ${t.nomor}`],
-              ["Alat", wr ? `${wr.namaAlat}${wr.unitKerja ? ` · ${wr.unitKerja.nama}` : ""}` : "—"],
+              ["Alat", wr ? `${wr.namaAlat}${wr.unitKerja ? ` · ${wr.unitKerja.nama}` : ""}` : pj ? pj.alat : "—"],
               ["Perintah kerja", wr?.perintah?.nomor ?? "—"],
-              ["Ditandatangani sebagai", t.peran === "Teknisi" ? "Teknisi penyelesai perbaikan" : "Pelapor — menyetujui hasil perbaikan"],
+              ["Ditandatangani sebagai", ({ Teknisi: "Teknisi penyelesai perbaikan", Pelapor: "Pelapor — menyetujui hasil perbaikan", Pemberi: "Unit pemilik — menyetujui peminjaman", Penerima: "Peminjam — menerima alat", Pengembalian: "Unit pemilik — menerima kembali alat" } as Record<string, string>)[t.peran] ?? t.peran],
               ["Nama", t.nama],
               ["Identitas", t.identitas ?? "—"],
               ["Waktu", `${waktu(t.waktu)} WIB`],

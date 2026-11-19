@@ -7,8 +7,7 @@
 import { createHash, randomBytes } from "node:crypto";
 import { prisma } from "./prisma";
 
-export const PERAN_TTE = ["Teknisi", "Pelapor"] as const;
-export type PeranTte = (typeof PERAN_TTE)[number];
+export type PeranTte = "Teknisi" | "Pelapor" | "Pemberi" | "Penerima" | "Pengembalian";
 
 async function dataWr(nomor: string) {
   return prisma.permintaanKerja.findUnique({
@@ -18,6 +17,17 @@ async function dataWr(nomor: string) {
       perintah: { select: { nomor: true, status: true, tindakan: true, tanggalSelesai: true, teknisi: { select: { nama: true } } } },
     },
   });
+}
+
+/** Sidik dokumen apa pun berdasarkan awalan nomor: PJ- = peminjaman, selain itu laporan kerusakan. */
+export async function sidikDokumen(nomor: string): Promise<string | null> {
+  if (nomor.startsWith("PJ-")) {
+    const p = await prisma.peminjaman.findUnique({ where: { nomor } });
+    if (!p) return null;
+    const isi = [p.nomor, p.alatId, p.dariUnitId, p.keUnitId, p.peminjam, p.keperluan, p.tanggalPinjam.toISOString(), p.rencanaKembali.toISOString()].join("\u241e");
+    return createHash("sha256").update(isi, "utf8").digest("hex");
+  }
+  return sidikWr(nomor);
 }
 
 /** Isi kanonik yang ditandatangani: identitas laporan + hasil perintah kerja. */
@@ -31,10 +41,10 @@ export async function sidikWr(nomor: string): Promise<string | null> {
 export const samarkan = (s: string | null | undefined) => (s ? s.replace(/(?<=.{3}).(?=.{2})/g, "•") : null);
 
 export async function buatTte(o: { nomor: string; peran: PeranTte; nama: string; identitas: string | null; ip: string | null }) {
-  const hashIsi = await sidikWr(o.nomor);
-  if (!hashIsi) throw new Error("Laporan tidak ditemukan.");
+  const hashIsi = await sidikDokumen(o.nomor);
+  if (!hashIsi) throw new Error("Dokumen tidak ditemukan.");
   return prisma.tandaTangan.create({
-    data: { token: randomBytes(16).toString("base64url"), dokumen: "Laporan Kerusakan", nomor: o.nomor, peran: o.peran, nama: o.nama.slice(0, 120), identitas: o.identitas, hashIsi, ip: o.ip },
+    data: { token: randomBytes(16).toString("base64url"), dokumen: o.nomor.startsWith("PJ-") ? "Peminjaman Alat" : "Laporan Kerusakan", nomor: o.nomor, peran: o.peran, nama: o.nama.slice(0, 120), identitas: o.identitas, hashIsi, ip: o.ip },
   });
 }
 

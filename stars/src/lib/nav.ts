@@ -1,4 +1,4 @@
-import { Activity, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, Thermometer, Wallet, Wrench, type LucideIcon } from "lucide-react";
+import { Activity, ArrowLeftRight, CalendarDays, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, Thermometer, Wallet, Wrench, type LucideIcon } from "lucide-react";
 
 export type NavItem = {
   label: string; href: string; icon: LucideIcon; description: string;
@@ -19,6 +19,8 @@ export const SIFARMALKES_TABS: NavItem[] = [
   { label: "Pemeliharaan", href: "/pemeliharaan", icon: Activity, match: ["/pemeliharaan", "/alat"], description: "Kondisi alat, Inventaris Alat Kesehatan (nomor seri, QR, foto, dokumen tiap alat), laporan kerusakan, perintah kerja, dan jadwal preventif" },
   { label: "Pengujian dan Kalibrasi", href: "/kalibrasi", icon: Gauge, description: "Data lengkap pengujian & kalibrasi alat: status berlaku, jatuh tempo, per unit, per lembaga, riwayat & sertifikat" },
   { label: "Lapor Kerusakan", href: "/lapor", icon: Wrench, description: "Laporkan alat kesehatan atau sarana yang rusak — tanpa perlu akun" },
+  { label: "Kalender", href: "/kalender", icon: CalendarDays, description: "Kalender pemeliharaan & perbaikan bergaya Google Calendar — bisa ditautkan ke Google Calendar email Anda" },
+  { label: "Peminjaman", href: "/peminjaman", icon: ArrowLeftRight, description: "Peminjaman alat antar unit kerja dengan persetujuan TTE; pelacakan RFID (dalam pengembangan)" },
 ];
 
 /** Sub-menu SI-ALKES (Perencanaan-Pengadaan, HTA); tampil sebagai tab di atas halamannya. */
@@ -31,7 +33,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard, description: "Ringkasan seluruh menu: perencanaan-pengadaan, pemeliharaan alat, dan laporan kerusakan" },
   { label: "ALLIES", href: "/allies", icon: Bot, description: "Agen pengelolaan alat medik: siklus alat dari Analisa Kebutuhan s.d. Penghapusan (Pre-Market → Post-Market), rekomendasi penggantian, dan tanya-jawab dari data STARS" },
   { label: "SI-ALKES", href: "/nilai", icon: Boxes, match: [...PERENCANAAN_TABS.map((t) => t.href), "/hta"], description: "Perencanaan-Pengadaan (nilai, paket, data, cetak RKBU) dan HTA dalam satu menu" },
-  { label: "SI-FARMALKES", href: "/pemeliharaan", icon: Activity, match: ["/pemeliharaan", "/alat", "/kalibrasi", "/lapor"], description: "Pemeliharaan alat & inventaris, Pengujian dan Kalibrasi, serta Lapor Kerusakan dalam satu menu" },
+  { label: "SI-FARMALKES", href: "/pemeliharaan", icon: Activity, match: ["/pemeliharaan", "/alat", "/kalibrasi", "/lapor", "/kalender", "/peminjaman"], description: "Pemeliharaan alat & inventaris, Pengujian dan Kalibrasi, serta Lapor Kerusakan dalam satu menu" },
   { label: "SI-LOGGER", href: "/monitoring", icon: Thermometer, description: "Live Monitoring — Live Medical Device Environmental Monitoring System: suhu & kelembapan alat kesehatan (kulkas vaksin, kulkas darah, freezer, ruang alat) secara real time dari sensor IoT — alarm, ringkasan harian, dan laporan" },
   { label: "SI-TRACKING", href: "/tracking", icon: Radar, description: "Live Tracking — Sampai mana proses kerja di setiap menu: paket, laporan kerusakan, perintah kerja, preventif, kalibrasi, alarm, dan siklus alat — diperbarui otomatis; lacak nomor WR/WO" },
   { label: "AVICENNA", href: "/avicenna", icon: Glasses, description: "Virtual Reality untuk alat kesehatan: pelatihan & simulasi pengoperasian alat, edukasi keselamatan, dan uji kompetensi tenaga kesehatan" },

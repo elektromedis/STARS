@@ -57,6 +57,8 @@ model Pengguna {
   menunggu       Boolean         @default(false)
   /// isian pendaftar: jabatan/keperluan (dibaca Admin saat menyetujui)
   catatanDaftar  String?
+  /// token rahasia umpan kalender (.ics) pribadi untuk Google Calendar "Dari URL"
+  tokenKalender  String?         @unique
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @updatedAt
   perintahKerja  PerintahKerja[] @relation("TeknisiPerintah")
@@ -628,4 +630,28 @@ model TandaTangan {
 
   @@unique([nomor, peran])
   @@index([nomor])
+}
+
+/// Peminjaman alat antar unit kerja dengan persetujuan TTE (unit pemilik) & serah terima; RFID dalam pengembangan.
+model Peminjaman {
+  id             Int       @id @default(autoincrement())
+  nomor          String    @unique // PJ-2026-0001
+  alatId         Int
+  dariUnitId     Int // unit pemilik alat
+  keUnitId       Int // unit peminjam
+  peminjam       String // nama pengaju
+  pemohonEmail   String?
+  keperluan      String
+  tanggalPinjam  DateTime
+  rencanaKembali DateTime
+  tanggalKembali DateTime?
+  status         String    @default("Diajukan") // Diajukan | Disetujui | Ditolak | Dipinjam | Dikembalikan
+  kondisiKembali String?
+  catatan        String?
+  rfidTag        String? // [dalam pengembangan]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([status])
+  @@index([alatId])
 }

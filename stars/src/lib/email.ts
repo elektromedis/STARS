@@ -10,7 +10,8 @@ export function emailSiap() {
   return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
 }
 
-export async function kirimEmail(ke: string, subjek: string, teks: string, html?: string) {
+export type LampiranEmail = { filename: string; content: string | Buffer; contentType?: string };
+export async function kirimEmail(ke: string, subjek: string, teks: string, html?: string, lampiran?: LampiranEmail[], icalEvent?: { method: string; content: string }) {
   if (!emailSiap()) throw new Error("SMTP belum diatur");
   const port = Number(process.env.SMTP_PORT || 465);
   const t = nodemailer.createTransport({
@@ -23,5 +24,5 @@ export async function kirimEmail(ke: string, subjek: string, teks: string, html?
     greetingTimeout: 15_000,
     socketTimeout: 20_000,
   });
-  await t.sendMail({ from: process.env.SMTP_FROM || process.env.SMTP_USER, to: ke, subject: subjek, text: teks, html });
+  await t.sendMail({ from: process.env.SMTP_FROM || process.env.SMTP_USER, to: ke, subject: subjek, text: teks, html, attachments: lampiran, icalEvent });
 }
