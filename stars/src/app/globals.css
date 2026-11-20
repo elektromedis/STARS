@@ -248,3 +248,15 @@ html.a11y-diam .langit { display: none; }
 html.a11y-tanpa-gambar body :where(img, picture, video, .langit):not([data-a11y-panel] *) { visibility: hidden !important; }
 html.a11y-fokus body *:focus, html.a11y-fokus body *:focus-visible { outline: 4px solid #f59e0b !important; outline-offset: 2px !important; }
 .a11y-panel, .a11y-panel * { filter: none; }
+
+/* ── Slideshow presentasi dashboard ── */
+@keyframes slide-masuk { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+.slide-isi .muncul { animation: none !important; opacity: 1 !important; transform: none !important; }
+.slide-cetak { display: none; }
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  body.mencetak-slide > *:not(#presentasi-root) { display: none !important; }
+  body.mencetak-slide #presentasi-root { position: static !important; background: white !important; display: block !important; }
+  body.mencetak-slide .slide-cetak { display: block; }
+  body.mencetak-slide .slide-halaman { width: 1280px; height: 720px; overflow: hidden; break-after: page; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

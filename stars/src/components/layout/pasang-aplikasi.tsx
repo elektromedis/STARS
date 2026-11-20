@@ -36,12 +36,12 @@ export function PasangAplikasi() {
 
   return (
     <>
-      <Button variant="teal" size="sm" title="Pasang STARS di layar utama perangkat ini"
+      <Button variant="teal" size="sm" title="Pasang STARS di layar utama perangkat ini" aria-label="Pasang aplikasi" className="h-10 rounded-full px-3 xl:px-4"
         onClick={async () => {
           if (prompt) { await prompt.prompt(); await prompt.userChoice.catch(() => null); setPrompt(null); }
           else setPetunjuk(true);
         }}>
-        <Download /> <span className="hidden sm:inline">Pasang aplikasi</span><span className="sm:hidden">Pasang</span>
+        <Download /> <span className="hidden xl:inline">Pasang aplikasi</span>
       </Button>
       {petunjuk && (
         <div className="fixed inset-0 z-[60] grid items-end bg-navy-950/60 p-4 sm:place-items-center" role="dialog" aria-modal="true" aria-label="Cara memasang STARS di iPhone" onClick={() => setPetunjuk(false)}>

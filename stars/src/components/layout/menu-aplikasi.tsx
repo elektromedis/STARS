@@ -23,7 +23,7 @@ export function MenuAplikasi() {
   return (
     <div ref={ref} className="relative">
       <button type="button" onClick={() => setBuka(!buka)} aria-expanded={buka} aria-haspopup="true" title={t("Aplikasi", "Apps")}
-        className={`flex h-9 items-center gap-1.5 rounded-full px-3 text-sm font-medium text-navy-800 hover:bg-slate-100 ${buka ? "bg-slate-100" : ""}`}>
+        className={`flex h-10 items-center gap-1.5 rounded-full px-3 text-sm font-medium text-navy-800 hover:bg-slate-100 ${buka ? "bg-slate-100" : ""}`}>
         <LayoutGrid className="size-4" aria-hidden /><span className="hidden lg:inline">{t("Aplikasi", "Apps")}</span><ChevronDown className={`hidden size-3.5 transition-transform lg:block ${buka ? "rotate-180" : ""}`} aria-hidden />
       </button>
       {buka && (

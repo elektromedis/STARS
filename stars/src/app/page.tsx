@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatCard } from "@/components/dashboard/stat-card";
+import { TombolPresentasi } from "@/components/dashboard/presentasi";
 import { ChartCard } from "@/components/dashboard/chart-card";
 import { FilterBar } from "@/components/dashboard/filter-bar";
 import { PackageTable } from "@/components/dashboard/package-table";
@@ -107,7 +108,8 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       }} />
 
       <h2 className="muncul mb-3 mt-4 text-center text-3xl font-semibold tracking-tight text-[#1d1d1f] md:text-5xl">Data lengkap.</h2>
-      <p className="mb-6 text-center text-lg text-muted-foreground">Angka & grafik dari setiap menu, diperbarui langsung.</p>
+      <p className="mb-4 text-center text-lg text-muted-foreground">Angka & grafik dari setiap menu, diperbarui langsung.</p>
+      <div className="mb-6 flex justify-center"><TombolPresentasi bagian={BAGIAN} /></div>
 
       {/* Navigasi bagian (lengket di bawah header, gaya apple.com) */}
       <nav aria-label="Bagian dashboard" className="sticky top-16 z-10 -mx-4 mb-6 border-b bg-background/85 px-4 py-2 backdrop-blur md:mx-0 md:rounded-full md:border md:px-2 print:hidden">
@@ -119,11 +121,11 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       {/* 1. Perencanaan-Pengadaan */}
       <JudulBagian id="perencanaan" icon={ClipboardList} judul="Perencanaan-Pengadaan" keterangan="Nilai anggaran, serapan & selisih, dan paket RKPBU/RKBU alat kesehatan" href={`/nilai${q}`} tautan="Buka menu" />
       <FilterBar filter={filter} options={options} />
-      <section aria-label="Indikator perencanaan-pengadaan" className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section data-slide="Indikator utama" aria-label="Indikator perencanaan-pengadaan" className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {kpis.map((k) => <StatCard key={k.label} {...k} />)}
       </section>
-      {filter.tahap === SEMUA_TAHAP && <PerbandinganTahap data={perTahap} tahun={filter.tahun} />}
-      <section className="mb-6 grid gap-4 lg:grid-cols-5 [&>*]:min-w-0">
+      {filter.tahap === SEMUA_TAHAP && <div data-slide="Perbandingan per tahap"><PerbandinganTahap data={perTahap} tahun={filter.tahun} /></div>}
+      <section data-slide="Anggaran per tahun & kategori" className="mb-6 grid gap-4 lg:grid-cols-5 [&>*]:min-w-0">
         <ChartCard className="lg:col-span-3" title="Nilai Anggaran per Tahun dan Tahap" description={`Pagu, serapan, dan selisih (pagu − serapan) · ${filter.unit ? `unit ${filter.unit}` : "seluruh unit kerja"}, semua tahun yang tercatat`}>
           <TahunChart data={perTahun.data} tahapKeys={perTahun.tahapKeys} />
         </ChartCard>
@@ -131,7 +133,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
           <CategoryDonut data={perKategori} />
         </ChartCard>
       </section>
-      <section className="mb-12 grid gap-4 xl:grid-cols-5 [&>*]:min-w-0">
+      <section data-slide="Nilai per unit kerja" className="mb-12 grid gap-4 xl:grid-cols-5 [&>*]:min-w-0">
         <ChartCard className="xl:col-span-2" title="Nilai per Unit Kerja" description="8 unit kerja dengan nilai tertinggi">
           <BarListChart data={perUnit} />
         </ChartCard>
@@ -149,7 +151,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       {/* 2. HTA */}
       <JudulBagian id="hta" icon={Scale} judul="HTA" keterangan="Health Technology Assessment — perbandingan merek & tipe alat kesehatan" href="/hta" tautan="Buka HTA (login)" />
-      <section aria-label="Indikator HTA" className="mb-12 grid grid-cols-2 gap-4 xl:grid-cols-4">
+      <section data-slide="Indikator HTA" aria-label="Indikator HTA" className="mb-12 grid grid-cols-2 gap-4 xl:grid-cols-4">
         <StatCard label="Produk (merek & tipe)" value={formatNumber(lintas.hta.produk)} hint="model di inventaris + kandidat" />
         <StatCard label="Jenis alat" value={formatNumber(lintas.hta.jenis)} hint="kelompok jenis alat kesehatan" />
         <StatCard label="Siap dibandingkan" value={formatNumber(lintas.hta.bisaBanding)} hint="jenis dengan ≥ 2 merek/tipe" />
@@ -158,30 +160,30 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       {/* 3. Pemeliharaan */}
       <JudulBagian id="pemeliharaan" icon={Activity} judul="Pemeliharaan Alat" keterangan="Kondisi alat, laporan kerusakan, perintah kerja, dan jadwal preventif" href="/pemeliharaan" tautan="Buka dashboard pemeliharaan" />
-      <section aria-label="Indikator pemeliharaan" className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section data-slide="Indikator pemeliharaan" aria-label="Indikator pemeliharaan" className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {kpiPemeliharaan.map((k) => <StatCard key={k.label} {...k} />)}
       </section>
-      <section className="mb-12 grid gap-4 md:grid-cols-2">
+      <section data-slide="Kondisi alat & status laporan" className="mb-12 grid gap-4 md:grid-cols-2">
         <Card><CardHeader><CardTitle>Kondisi alat</CardTitle><CardDescription>Alat aktif terdaftar di inventaris</CardDescription></CardHeader><CardContent><BatangHitung data={lintas.kondisi} /></CardContent></Card>
         <Card><CardHeader><CardTitle>Laporan kerusakan menurut status</CardTitle><CardDescription>{formatNumber(lintas.lapor.total)} laporan tercatat</CardDescription></CardHeader><CardContent><BatangHitung data={lintas.lapor.status} warna="bg-amber-500" /></CardContent></Card>
       </section>
 
       {/* 4. Pengujian & Kalibrasi */}
       <JudulBagian id="kalibrasi" icon={Gauge} judul="Pengujian dan Kalibrasi" keterangan="Status sertifikat, cakupan, dan jatuh tempo pengujian & kalibrasi alat" href="/kalibrasi" tautan="Buka menu" />
-      <section aria-label="Indikator kalibrasi" className="mb-4 grid grid-cols-2 gap-4 xl:grid-cols-4">
+      <section data-slide="Indikator kalibrasi" aria-label="Indikator kalibrasi" className="mb-4 grid grid-cols-2 gap-4 xl:grid-cols-4">
         <StatCard label="Alat wajib uji/kalibrasi" value={formatNumber(kal.total)} hint={`${formatNumber(kal.catatan)} catatan · ${formatNumber(kal.sertifikat)} bersertifikat digital`} />
         <StatCard label="Cakupan berlaku" value={`${(kal.cakupan * 100).toFixed(1).replace(".", ",")}%`} hint="alat dengan catatan yang masih berlaku" />
         <StatCard label="Kedaluwarsa / tidak laik" value={formatNumber(kal.hitung.bermasalah)} hint={`${formatNumber(kal.hitung.belum)} belum pernah diuji`} />
         <StatCard label="Jatuh tempo ≤ 90 hari" value={formatNumber(kal.jatuhTempo90)} hint={`${formatNumber(kal.hitung.segera)} di antaranya ≤ 30 hari`} />
       </section>
-      <section className="mb-12 grid gap-4 lg:grid-cols-2 [&>*]:min-w-0">
+      <section data-slide="Status & jatuh tempo kalibrasi" className="mb-12 grid gap-4 lg:grid-cols-2 [&>*]:min-w-0">
         <Card><CardHeader><CardTitle>Status kalibrasi alat</CardTitle><CardDescription>Dari catatan terbaru tiap alat</CardDescription></CardHeader><CardContent><BatangStatus hitung={kal.hitung} total={kal.total} /></CardContent></Card>
         <Card><CardHeader><CardTitle>Jatuh tempo 12 bulan ke depan</CardTitle><CardDescription>Jumlah alat yang masa berlakunya habis per bulan</CardDescription></CardHeader><CardContent className="pt-4"><KolomSatuSeri data={lintas.kalibrasiBulan} satuan="alat" tinggi={140} /></CardContent></Card>
       </section>
 
       {/* 5. Lapor Kerusakan */}
       <JudulBagian id="lapor" icon={Wrench} judul="Lapor Kerusakan" keterangan="Laporan alat rusak dari seluruh unit (tanpa data pelapor)" href="/lapor" tautan="Buat laporan" />
-      <section className="mb-12 grid gap-4 lg:grid-cols-2 [&>*]:min-w-0">
+      <section data-slide="Tren laporan kerusakan" className="mb-12 grid gap-4 lg:grid-cols-2 [&>*]:min-w-0">
         <Card><CardHeader><CardTitle>Laporan masuk 6 bulan terakhir</CardTitle><CardDescription>Jumlah laporan per bulan (WIB)</CardDescription></CardHeader><CardContent className="pt-4"><KolomSatuSeri data={lintas.lapor.perBulan} satuan="laporan" tinggi={140} /></CardContent></Card>
         <Card>
           <CardHeader><CardTitle>Laporan terbaru</CardTitle><CardDescription>5 laporan terakhir</CardDescription></CardHeader>
@@ -202,7 +204,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       {/* 6. Admin / data */}
       <JudulBagian id="admin" icon={Settings} judul="Data & Admin" keterangan="Isi basis data STARS dan kapan terakhir diperbarui" href="/admin" tautan="Buka Admin (login)" />
-      <section aria-label="Indikator data" className="mb-12 grid grid-cols-2 gap-4 xl:grid-cols-4">
+      <section data-slide="Isi basis data STARS" aria-label="Indikator data" className="mb-12 grid grid-cols-2 gap-4 xl:grid-cols-4">
         <StatCard label="Paket RKPBU/RKBU" value={formatNumber(lintas.data.paket)} hint="seluruh tahun & tahap" />
         <StatCard label="Alat di inventaris" value={formatNumber(lintas.data.alat)} hint="termasuk nonaktif" />
         <StatCard label="Dokumen alat" value={formatNumber(lintas.data.dokumenAlat)} hint="BA, kontrak, manual, SOP, dll." />
@@ -212,7 +214,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       {/* 7. Live Monitoring */}
       <JudulBagian id="monitoring" icon={Thermometer} judul="Live Monitoring Lingkungan" keterangan="Suhu & kelembapan alat kesehatan dari sensor IoT, diperbarui real time" href="/monitoring" tautan="Buka live monitoring" />
       {mon.total > 0 ? (
-        <section aria-label="Indikator monitoring lingkungan" className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <section data-slide="Indikator monitoring lingkungan" aria-label="Indikator monitoring lingkungan" className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {kpiMonitoring.map((k) => <StatCard key={k.label} {...k} />)}
         </section>
       ) : (
@@ -224,7 +226,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       {/* 8. ALLIES */}
       <JudulBagian id="allies" icon={Bot} judul="ALLIES" keterangan="Agen pengelolaan alat medik — posisi alat dalam siklus Pre-Market → Post-Market" href="/allies" tautan="Buka ALLIES" />
-      <section className="mb-12 grid gap-4 [&>*]:min-w-0">
+      <section data-slide="Siklus alat Pre-Market → Post-Market" className="mb-12 grid gap-4 [&>*]:min-w-0">
         <Card>
           <CardHeader><CardTitle>Kandidat penggantian / penghapusan</CardTitle><CardDescription>{formatNumber(allies.kandidat.length)} alat · {formatNumber(allies.kalibrasi.length)} alat medik perlu tindakan kalibrasi</CardDescription></CardHeader>
           <CardContent>
