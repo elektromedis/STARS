@@ -735,3 +735,55 @@ model Peraturan {
 
   @@index([jenis, tahun])
 }
+
+/// Template lembar kerja IPM per jenis alat — Pedoman Pengoperasian & Pemeliharaan Peralatan Kesehatan (Kemenkes 2021), Bab IV.
+model TemplateLembarKerja {
+  id         Int      @id @default(autoincrement())
+  nama       String   @unique // jenis alat, mis. "Infusion Pump"
+  kataKunci  String? // pencocok nama alat inventaris, dipisah koma
+  halaman    Int? // halaman pedoman
+  kualitatif String // satu butir per baris
+  kuantitatif String // "Parameter | kriteria" per baris
+  preventif  String // satu butir per baris
+  lengkap    Boolean  @default(false) // butir sudah disalin dari pedoman
+  aktif      Boolean  @default(true)
+  updatedAt  DateTime @updatedAt
+}
+
+/// Lembar kerja Pemantauan Fungsi/Inspeksi & Pemeliharaan Preventif (Permenkes 15/2023 Pasal 3) + persetujuan TTE.
+model LembarKerja {
+  id           Int      @id @default(autoincrement())
+  nomor        String   @unique // LK-2026-0001
+  kegiatan     String // Inspeksi | Preventif
+  tipeInspeksi String   @default("Terjadwal") // Acceptance | Terjadwal
+  alatId       Int
+  template     String?
+  tanggal      DateTime
+  hasil        String // Lolos | Memerlukan pemeliharaan | Preventable problem | KTD
+  perhatian    String?
+  data         String // JSON: apparatus, kualitatif, kuantitatif, preventif
+  catatan      String?
+  status       String   @default("Draf") // Draf | Diajukan | Disetujui | Ditolak
+  pemeriksa    String
+  emailPemeriksa String?
+  alasanTolak  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([alatId])
+  @@index([kegiatan, status])
+}
+
+/// Pemeliharaan promotif: petunjuk penggunaan/pengoperasian alat kepada pengguna (Pasal 3 ayat 3).
+model KegiatanPromotif {
+  id        Int      @id @default(autoincrement())
+  tanggal   DateTime
+  alatId    Int?
+  namaAlat  String
+  unit      String?
+  materi    String
+  pemateri  String
+  peserta   Int      @default(0)
+  catatan   String?
+  createdAt DateTime @default(now())
+}

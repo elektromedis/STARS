@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { KEGIATAN } from "@/lib/lembar-kerja";
 import { Activity, Send, Wrench } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
@@ -57,6 +58,17 @@ export default async function PemeliharaanPublikPage({ searchParams }: { searchP
         description={`Ringkasan kondisi alat, laporan kerusakan, perintah kerja, jadwal preventif, dan kalibrasi${kunci ? ` untuk unit ${kunci.nama}` : ""}, beserta Inventaris Alat Kesehatan dan QR tiap alat. Data pelapor tidak ditampilkan.`}
         actions={<div className="flex gap-2"><Button variant="teal" asChild><Link href="/lapor"><Send /> Lapor Kerusakan</Link></Button><Button variant="outline" asChild><Link href="/admin/pemeliharaan"><Wrench /> Kelola (login)</Link></Button></div>}
       />
+      <section aria-labelledby="judul-kegiatan" className="mb-6 rounded-2xl border bg-card p-4">
+        <h2 id="judul-kegiatan" className="font-semibold text-navy-900">Kegiatan Pemeliharaan Alat Kesehatan</h2>
+        <p className="mb-3 text-xs text-muted-foreground">Permenkes 15/2023 Pasal 3 ayat (1) · lembar kerja format Pedoman Pengoperasian dan Pemeliharaan Peralatan Kesehatan (Kemenkes 2021)</p>
+        <ol className="grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
+          {KEGIATAN.map((k) => (
+            <li key={k.kode}><Link href={k.href} className="flex h-full gap-2 rounded-xl border p-3 transition hover:border-teal-600 hover:bg-teal-50">
+              <span className="grid size-7 shrink-0 place-items-center rounded-full bg-teal-700 text-sm font-bold text-white">{k.huruf}</span>
+              <span><span className="block font-semibold text-navy-900">{k.judul}</span><span className="text-xs text-muted-foreground">{k.ket}</span></span>
+            </Link></li>))}
+        </ol>
+      </section>
       <section aria-label="Indikator" className="mb-6 grid grid-cols-2 gap-4 xl:grid-cols-4">
         <StatCard label="Alat medik" value={formatNumber(r.alatMedik)} hint={`${formatNumber(r.alatNon)} alat non-medik`} />
         <StatCard label="Laporan belum selesai" value={formatNumber(r.laporanTerbuka)} hint={`${formatNumber(r.laporanBaru)} baru belum ditinjau`} />

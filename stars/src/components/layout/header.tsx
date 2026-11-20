@@ -44,7 +44,7 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
       </form>
 
       {/* Kanan: aksi + identitas rumah sakit */}
-      <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:ml-0 md:gap-2">
+      <div className="ml-auto flex min-w-0 items-center gap-1.5 sm:ml-0 md:gap-2">
         <Button variant="ghost" size="icon" className="hidden size-10 rounded-full min-[420px]:inline-flex sm:hidden" aria-label="Cari" asChild><a href="/paket"><Search className="size-5" /></a></Button>
         <MenuAplikasi />
         <StatusSinkron className="hidden 2xl:inline-flex" />
@@ -54,7 +54,7 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
         </Button>
         <span className="mx-1 hidden h-8 w-px bg-slate-200 sm:block" aria-hidden />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={urlLogoRsud(info)} alt="RSUD Cipayung" className="h-7 w-auto min-w-0 max-w-[5.5rem] object-contain sm:h-9 sm:max-w-[9.5rem] lg:h-10 lg:max-w-[12rem]" />
+        <img src={urlLogoRsud(info)} alt="RSUD Cipayung" className="h-7 w-auto min-w-0 max-w-[5.5rem] shrink object-contain sm:h-9 sm:max-w-[9.5rem] lg:h-10 lg:max-w-[12rem]" />
       </div>
     </header>
   );

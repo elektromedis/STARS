@@ -19,6 +19,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     { href: "/admin/ekspor", label: "Ekspor & Template", icon: "download" as const, tampil: true },
     { href: "/admin/dokumen", label: "Dokumen Paket", icon: "file" as const, tampil: true },
     { href: "/admin/pemeliharaan", label: "Pemeliharaan", icon: "wrench" as const, tampil: true },
+    { href: "/admin/lembar-kerja", label: "Lembar Kerja", icon: "audit" as const, tampil: true },
     { href: "/admin/alat", label: "Daftar Alat", icon: "box" as const, tampil: true },
     { href: "/admin/jadwal", label: "Jadwal Preventif", icon: "calendar" as const, tampil: true },
     { href: "/admin/kalibrasi", label: "Kalibrasi", icon: "badge" as const, tampil: true },
