@@ -52,6 +52,13 @@ Aturan validasi lengkap ada di sheet `petunjuk` pada template (`GET /api/admin/t
   `docker compose -f deploy/docker-compose.yml --env-file deploy/.env up -d --build` (tambah `--profile internet` di VPS untuk HTTPS otomatis via Caddy). Basis data SQLite tersimpan di volume `stars_data`. *Belum diuji di mesin pengembang.*
 - **Sinkronisasi:** di server intranet isi `SYNC_URL` + `SYNC_TOKEN` lalu `npm run sync` (jadwal harian: `deploy/sinkron-harian.ps1`). Server internet (`STARS_MODE=internet`) bersifat baca saja.
 
+## Integrasi SMART MFK (bridging dua arah)
+
+- Menu **SMART MFK** (`/smart-mfk`): nilai bab & standar MFK, risiko area alat medis, recall terbuka, insiden alat, program fasilitas — dibaca langsung dari SMART MFK (`GET {SMARTMFK_URL}/api/integrasi/ringkasan`); tombol **Sinkron ke SMART MFK** (Operator+).
+- SMART MFK menarik `GET /api/integrasi/alat` (inventaris) & `/api/integrasi/kegiatan` (kalibrasi/pengujian + perintah kerja selesai) sebagai bukti MFK 7, otomatis tiap 60 menit.
+- Laporan kerusakan alat di SMART MFK masuk sebagai Permintaan Kerja lewat `POST /api/integrasi/permintaan` (keluhan diawali `[SMART MFK LPR-…]`, idempoten); status dibaca balik dengan `GET /api/integrasi/permintaan?nomor=`.
+- Semua memakai `Authorization: Bearer <INTEGRASI_TOKEN>` (sama di kedua aplikasi). Env STARS: `INTEGRASI_TOKEN`, `SMARTMFK_URL`, `SMARTMFK_URL_PUBLIK`. Di VPS kontainer SMART MFK bergabung ke jaringan `stars_default`.
+
 ## API publik (hanya baca)
 
 | Endpoint | Keterangan |
