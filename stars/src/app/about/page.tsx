@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { BookOpen } from "lucide-react";
 import { PageHeader } from "@/components/dashboard/page-header";
 import { Badge } from "@/components/ui/badge";
 import { LogoFull } from "@/components/layout/logo";
@@ -13,6 +15,9 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader title="TENTANG SAYA" description="Sistem Terintegrasi Alat Kesehatan Rumah Sakit — Monitor • Analyze • Connect." />
+      <Link href="/about/pedoman" className="mb-4 flex items-center gap-3 rounded-xl border border-teal-200 bg-teal-50 p-4 text-teal-900 hover:bg-teal-100">
+        <BookOpen className="size-6 shrink-0" /><span><b>Pedoman Penggunaan STARS</b><br /><span className="text-sm">Dasar hukum, SOP/alur penggunaan, dan referensi setiap fitur — dapat diunduh PDF/Word.</span></span>
+      </Link>
       <div className="grid gap-4 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <CardHeader><CardTitle>Tentang Sistem</CardTitle></CardHeader>
