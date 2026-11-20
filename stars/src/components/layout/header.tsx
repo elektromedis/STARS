@@ -21,9 +21,6 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
       <Link href="/" aria-label="STARS — ke Beranda" title="Ke Beranda" className="shrink-0 rounded-md text-navy-800 transition-opacity hover:opacity-80">
         <Logo subClassName="hidden lg:block" />
       </Link>
-      <span className="hidden h-9 w-px shrink-0 bg-border min-[400px]:block" aria-hidden />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={urlLogoRsud(info)} alt="RSUD Cipayung" className="h-8 w-auto min-w-0 shrink object-contain sm:h-11 sm:max-w-[13rem]" />
 
       {/* Pencarian global: form GET biasa ke halaman Paket, bekerja tanpa JavaScript. */}
       <form action="/paket" method="get" role="search" className="relative hidden max-w-md flex-1 sm:block">
@@ -35,8 +32,11 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
         <MenuAplikasi />
         <StatusSinkron className="hidden sm:inline-flex" />
         <PasangAplikasi />
-        <Button variant="ghost" size="icon" className="sm:hidden" aria-label="Cari" asChild><a href="/paket"><Search className="size-5" /></a></Button>
+        <Button variant="ghost" size="icon" className="hidden min-[440px]:inline-flex sm:hidden" aria-label="Cari" asChild><a href="/paket"><Search className="size-5" /></a></Button>
         <Button variant="outline" size="sm" asChild title="Masuk ke area administrasi"><Link href="/admin" aria-label="Masuk"><LogIn /><span className="hidden sm:inline">Masuk</span></Link></Button>
+        <span className="hidden h-9 w-px shrink-0 bg-border sm:block" aria-hidden />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={urlLogoRsud(info)} alt="RSUD Cipayung" className="h-7 w-auto min-w-0 max-w-[6.5rem] shrink object-contain sm:h-11 sm:max-w-[13rem]" />
       </div>
     </header>
   );

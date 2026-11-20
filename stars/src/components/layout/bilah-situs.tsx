@@ -41,10 +41,10 @@ export function KontakSitus() {
         <div className="grid content-start gap-3 text-sm">
           <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={urlLogoRsud(info)} alt="RSUD Cipayung" className="h-10 w-auto rounded bg-white px-2 py-1" />
+            <img src={urlLogoRsud(info)} alt="RSUD Cipayung" className="h-10 w-auto brightness-0 invert" />
             <span className="h-10 w-px bg-white/40" aria-hidden />
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/stars-icon.png" alt="STARS" className="size-10 rounded bg-white p-1" />
+            <img src="/stars-icon.png" alt="STARS" className="size-10 [filter:grayscale(1)_brightness(1.9)_contrast(1.2)]" />
             <span className="font-bold leading-tight">STARS<br /><span className="text-xs font-normal opacity-80">RSUD Cipayung</span></span>
           </div>
           <p className="mt-2 font-semibold">{t("Alamat", "Address")}</p>
