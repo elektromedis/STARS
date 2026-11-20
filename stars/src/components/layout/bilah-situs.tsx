@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { ChevronRight, ChevronUp, Mail, MapPin, MessageCircle, Phone, X } from "lucide-react";
 import { PilihBahasa, useBahasa } from "@/lib/bahasa";
 import { useSitus } from "./use-situs";
+import { urlLogoRsud } from "@/lib/situs";
 
 /** Bilah atas tipis: alamat · telepon · pilihan bahasa. */
 export function BilahAtas() {
@@ -40,7 +41,7 @@ export function KontakSitus() {
         <div className="grid content-start gap-3 text-sm">
           <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/label/logo-rsud.png" alt="RSUD Cipayung" className="h-10 w-auto rounded bg-white p-1" />
+            <img src={urlLogoRsud(info)} alt="RSUD Cipayung" className="h-10 w-auto rounded bg-white px-2 py-1" />
             <span className="h-10 w-px bg-white/40" aria-hidden />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/stars-icon.png" alt="STARS" className="size-10 rounded bg-white p-1" />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Accessibility, RotateCcw, X } from "lucide-react";
+import { Accessibility, RotateCcw, X, PersonStanding } from "lucide-react";
 import { PilihBahasa, useBahasa } from "@/lib/bahasa";
 
 type Opsi = { teks: number; baris: number; huruf: number; kontras: "" | "tinggi" | "gelap" | "terbalik" | "abu"; tautan: boolean; mudahBaca: boolean; kursor: boolean; animasi: boolean; gambar: boolean; pemandu: boolean; suara: boolean; fokus: boolean; rataKiri: boolean };
@@ -53,8 +53,8 @@ export function Aksesibilitas() {
   return (
     <>
       <button type="button" onClick={() => setBuka(true)} aria-label={t("Menu aksesibilitas (Alt+A)", "Accessibility menu (Alt+A)")} aria-expanded={buka}
-        className="fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-3 z-40 grid size-12 place-items-center rounded-full bg-blue-700 text-white shadow-lg ring-2 ring-white hover:bg-blue-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-400 print:hidden md:bottom-5">
-        <Accessibility className="size-7" aria-hidden />
+        className="fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-3 z-40 grid size-14 place-items-center rounded-full bg-blue-600 p-[3px] text-white shadow-lg shadow-blue-900/40 transition hover:scale-105 hover:bg-blue-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-400 print:hidden md:bottom-5">
+        <span className="grid size-full place-items-center rounded-full border-[3px] border-white bg-[#1e3a8a]"><PersonStanding className="size-7" strokeWidth={2.5} aria-hidden /></span>
       </button>
       {o.pemandu && <div aria-hidden className="pointer-events-none fixed inset-x-0 z-[80] h-10 border-y-4 border-amber-400 bg-amber-200/20" style={{ top: y - 20 }} />}
       {buka && (

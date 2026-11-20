@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { sesiHalaman } from "@/lib/sesi";
 import { audit, ipDari } from "@/lib/audit";
-import { folderSitus, simpanGambarSitus } from "@/lib/situs-server";
+import { bacaInfoSitus, folderSitus, simpanGambarSitus } from "@/lib/situs-server";
 import type { GrupTautan, InfoSitus } from "@/lib/situs";
 
 const balik = (q: string): never => redirect(`/admin/situs?${q}`);
@@ -29,12 +29,19 @@ function uraiGrup(t: string): GrupTautan[] {
 
 export async function simpanInfo(fd: FormData) {
   const se = await sesiHalaman("Admin");
+  const lama = await bacaInfoSitus();
+  let logoRsud = lama.logoRsud;
+  const lf = fd.get("logoRsud");
+  if (lf instanceof File && lf.size > 0) { const r = await simpanGambarSitus(lf); if (typeof r !== "string") return balik("error=" + encodeURIComponent("Logo: " + r.error)); logoRsud = r; }
+  else if (fd.get("logoBawaan") === "on") logoRsud = undefined;
+  if (lama.logoRsud && lama.logoRsud !== logoRsud) await unlink(join(folderSitus(), lama.logoRsud)).catch(() => {});
   const info: InfoSitus = {
     alamat: s(fd, "alamat"), telepon: s(fd, "telepon", 40), whatsapp: s(fd, "whatsapp", 20).replace(/[^\d]/g, ""), email: s(fd, "email", 120), peta: url(s(fd, "peta", 600)),
     sosial: { facebook: url(s(fd, "facebook")), instagram: url(s(fd, "instagram")), x: url(s(fd, "x")), youtube: url(s(fd, "youtube")), tiktok: url(s(fd, "tiktok")) },
     aplikasiAndroid: url(s(fd, "aplikasiAndroid")), aplikasiIos: url(s(fd, "aplikasiIos")),
     grup: uraiGrup(String(fd.get("grup") ?? "")), bantuanTeks: s(fd, "bantuanTeks", 30) || "Bantuan?", tampilBilahAtas: fd.get("tampilBilahAtas") === "on",
-    visi: s(fd, "visi", 120), visiEn: s(fd, "visiEn", 120), subAkreditasi: s(fd, "subAkreditasi", 250), subMitra: s(fd, "subMitra", 250),
+    visi: s(fd, "visi", 120), visiEn: s(fd, "visiEn", 120), subAkreditasi: s(fd, "subAkreditasi", 250), subMitra: s(fd, "subMitra", 250), logoRsud,
+    aplikasi: String(fd.get("aplikasi") ?? "").split(/\r?\n/).map((b) => b.split("|").map((x) => x.trim())).filter((p) => p[0] && url(p[p.length - 1])).slice(0, 20).map((p) => ({ label: p[0].slice(0, 60), labelEn: p.length > 2 ? p[1].slice(0, 60) : undefined, href: url(p[p.length - 1]) })),
   };
   await prisma.pengaturanSitus.upsert({ where: { kunci: "info" }, create: { kunci: "info", nilai: JSON.stringify(info) }, update: { nilai: JSON.stringify(info) } });
   await audit("situs.info", { email: se.user.email, ip: ipDari(await headers()) });

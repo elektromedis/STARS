@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { urlLogoRsud } from "@/lib/situs";
 import { Award, Handshake, Megaphone, PanelTop } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { sesiHalaman } from "@/lib/sesi";
@@ -79,6 +80,14 @@ export default async function SitusPage({ searchParams }: { searchParams: Promis
           <CardDescription>Bilah atas (alamat · telepon), bagian kontak di bawah halaman dengan peta, media sosial, unduh aplikasi, grup tautan lipat, dan tombol Bantuan (WhatsApp).</CardDescription></CardHeader>
         <CardContent>
           <form action={simpanInfo} className="grid gap-3 sm:grid-cols-2">
+            <div className="flex flex-wrap items-end gap-3 rounded-lg bg-slate-50 p-3 sm:col-span-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={urlLogoRsud(info)} alt="Logo RS saat ini" className="h-11 w-auto rounded border bg-white px-2 py-1" />
+              <label className={L}>Logo rumah sakit (header & kaki; PNG transparan landskap, ≤ 3 MB — tinggi otomatis disamakan dengan logo STARS)<input name="logoRsud" type="file" accept="image/jpeg,image/png,image/webp" className="text-sm" /></label>
+              {info.logoRsud && <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="logoBawaan" /> Kembalikan logo bawaan</label>}
+            </div>
+            <label className={`${L} sm:col-span-2`}>Menu &quot;Aplikasi&quot; di header — satu baris per aplikasi: <code>Nama | Nama EN (opsional) | https://tautan</code>
+              <textarea name="aplikasi" rows={6} defaultValue={(info.aplikasi ?? []).map((a) => [a.label, a.labelEn, a.href].filter(Boolean).join(" | ")).join("\n")} className="rounded-md border px-2 py-1 font-mono text-xs" /></label>
             <label className={`${L} sm:col-span-2`}>Alamat<input name="alamat" defaultValue={info.alamat} className={inp} /></label>
             <label className={L}>Telepon<input name="telepon" defaultValue={info.telepon} className={inp} placeholder="(021) …" /></label>
             <label className={L}>WhatsApp (angka, awali 62)<input name="whatsapp" defaultValue={info.whatsapp} className={inp} placeholder="62812…" /></label>

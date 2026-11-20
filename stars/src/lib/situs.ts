@@ -9,6 +9,10 @@ export type InfoSitus = {
   bantuanTeks: string;
   tampilBilahAtas: boolean;
   /** Etalase & kaki halaman */
+  /** Nama berkas logo RS unggahan CMS (kosong = /logo-rsud.png). */
+  logoRsud?: string;
+  /** Menu "Aplikasi" di header (dropdown). */
+  aplikasi?: TautanSitus[];
   visi?: string; visiEn?: string;
   subAkreditasi?: string; subMitra?: string;
 };
@@ -22,9 +26,11 @@ export const INFO_BAWAAN: InfoSitus = {
   ],
   bantuanTeks: "Bantuan?",
   tampilBilahAtas: true,
+  aplikasi: ["NPiS", "Plasing", "aFiles+", "Com Based-Test", "aPortal+", "aStun+"].map((label) => ({ label, href: "https://rsudcipayung.jakarta.go.id/rsudcipayung/index.php" })),
   visi: "Alat kesehatan aman, laik pakai, dan siap melayani", visiEn: "Safe, fit-for-use medical devices, ready to serve",
   subAkreditasi: "Komitmen kami terhadap mutu dan keselamatan pasien.",
   subMitra: "Kami berkolaborasi dengan berbagai pihak untuk layanan alat kesehatan yang aman dan andal.",
 };
 export type PengumumanPublik = { id: number; judul: string; gambar: string | null; tautan: string | null };
+export const urlLogoRsud = (i: { logoRsud?: string }) => (i.logoRsud ? `/api/situs/gambar/${i.logoRsud}` : "/logo-rsud.png");
 export type ItemSitusPublik = { id: number; jenis: string; judul: string; judulEn: string | null; gambar: string | null; tautan: string | null };
