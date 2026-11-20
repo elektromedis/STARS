@@ -8,29 +8,30 @@ const BIRU = "#2B6FCA";
  * Animasi CSS ringan di globals.css (hanya transform, opacity, stroke-dashoffset — tanpa JavaScript),
  * otomatis mati bila pengguna memilih "kurangi gerakan".
  */
-function IkonStars() {
+function IkonStars({ putih = false }: { putih?: boolean }) {
+  const [T, B, G] = putih ? ["#FFFFFF", "#FFFFFF", "#0F766E"] : [TEAL, BIRU, "#0B1A2E"];
   return (
     <>
       {/* pendar lembut di belakang ikon */}
-      <circle className="stars-pendar" cx="200" cy="210" r="150" fill={TEAL} opacity="0.12" />
+      <circle className="stars-pendar" cx="200" cy="210" r="150" fill={T} opacity={putih ? 0 : 0.12} />
       {/* cincin: empat busur berselang warna + simpul, berputar pelan */}
       <g className="stars-cincin" fill="none" strokeWidth="26" strokeLinecap="round">
-        <path d="M 35 210 A 165 165 0 0 1 200 45" stroke={TEAL} />
-        <path d="M 200 45 A 165 165 0 0 1 365 210" stroke={BIRU} />
-        <path d="M 365 210 A 165 165 0 0 1 200 375" stroke={TEAL} />
-        <path d="M 200 375 A 165 165 0 0 1 35 210" stroke={BIRU} />
-        <circle cx="200" cy="45" r="25" fill={TEAL} />
-        <circle cx="365" cy="210" r="25" fill={BIRU} />
-        <circle cx="200" cy="375" r="25" fill={TEAL} />
-        <circle cx="35" cy="210" r="25" fill={BIRU} />
+        <path d="M 35 210 A 165 165 0 0 1 200 45" stroke={T} />
+        <path d="M 200 45 A 165 165 0 0 1 365 210" stroke={B} />
+        <path d="M 365 210 A 165 165 0 0 1 200 375" stroke={T} />
+        <path d="M 200 375 A 165 165 0 0 1 35 210" stroke={B} />
+        <circle cx="200" cy="45" r="25" fill={T} />
+        <circle cx="365" cy="210" r="25" fill={B} />
+        <circle cx="200" cy="375" r="25" fill={T} />
+        <circle cx="35" cy="210" r="25" fill={B} />
       </g>
       {/* monitor + garis EKG */}
-      <rect x="100" y="155" width="200" height="110" rx="22" fill={TEAL} />
-      <g fill="none" stroke="#0B1A2E" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="100" y="155" width="200" height="110" rx="22" fill={T} />
+      <g fill="none" stroke={G} strokeWidth="11" strokeLinecap="round" strokeLinejoin="round">
         <path opacity="0.3" d="M 96 210 L 152 210 L 164 203 L 176 226 L 196 158 L 218 248 L 240 192 L 256 210 L 300 210" />
         <path className="stars-ekg" d="M 96 210 L 152 210 L 164 203 L 176 226 L 196 158 L 218 248 L 240 192 L 256 210 L 300 210" />
       </g>
-      <g fill={BIRU}>
+      <g fill={B}>
         {[186, 210, 234].map((cy, i) => <circle key={cy} className="stars-titik" style={{ animationDelay: `${i * 0.2}s` }} cx="324" cy={cy} r="8" />)}
       </g>
     </>
@@ -38,10 +39,10 @@ function IkonStars() {
 }
 
 /** Ikon STARS saja (sidebar, header ponsel): transparan, tajam di ukuran berapa pun. */
-export function LogoIkon({ className }: { className?: string }) {
+export function LogoIkon({ className, putih }: { className?: string; putih?: boolean }) {
   return (
     <svg viewBox="0 0 400 420" className={cn("shrink-0", className)} role="img" aria-label="Logo STARS">
-      <IkonStars />
+      <IkonStars putih={putih} />
     </svg>
   );
 }

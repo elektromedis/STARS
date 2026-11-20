@@ -7,6 +7,7 @@ import { ChevronRight, ChevronUp, Mail, MapPin, MessageCircle, Phone, X } from "
 import { PilihBahasa, useBahasa } from "@/lib/bahasa";
 import { useSitus } from "./use-situs";
 import { urlLogoRsud } from "@/lib/situs";
+import { LogoIkon } from "./logo-animasi";
 
 /** Bilah atas tipis: alamat · telepon · pilihan bahasa. */
 export function BilahAtas() {
@@ -36,15 +37,14 @@ export function KontakSitus() {
   const { info } = useSitus();
   const { bhs, setBhs, t } = useBahasa();
   return (
-    <section aria-label={t("Informasi kontak", "Contact information")} className="bg-[#1e3a5f] px-4 pb-6 pt-8 text-white md:px-6 print:hidden">
+    <section aria-label={t("Informasi kontak", "Contact information")} className="bg-teal-700 px-4 pb-6 pt-8 text-white md:px-6 print:hidden">
       <div className="mx-auto grid max-w-[1360px] gap-8 sm:grid-cols-2 lg:grid-cols-[1.2fr_repeat(var(--k),1fr)_1.1fr]" style={{ ["--k" as string]: Math.max(1, info.grup.length) }}>
         <div className="grid content-start gap-3 text-sm">
           <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={urlLogoRsud(info)} alt="RSUD Cipayung" className="h-10 w-auto brightness-0 invert" />
             <span className="h-10 w-px bg-white/40" aria-hidden />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/stars-icon.png" alt="STARS" className="size-10 [filter:grayscale(1)_brightness(1.9)_contrast(1.2)]" />
+            <LogoIkon putih className="h-11 w-auto" />
             <span className="font-bold leading-tight">STARS<br /><span className="text-xs font-normal opacity-80">RSUD Cipayung</span></span>
           </div>
           <p className="mt-2 font-semibold">{t("Alamat", "Address")}</p>
@@ -72,9 +72,9 @@ export function KontakSitus() {
       </div>
       <div className="mx-auto mt-8 grid max-w-[1360px] justify-items-center gap-4 border-t border-white/20 pt-6 text-sm">
         <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1"><span className="opacity-80">{t("Bantuan bahasa tersedia:", "Language assistance available:")}</span>
-          {(["id", "en"] as const).map((k) => <button key={k} type="button" onClick={() => setBhs(k)} aria-pressed={bhs === k} className={`rounded px-2 py-0.5 underline-offset-2 ${bhs === k ? "bg-white font-semibold text-[#1e3a5f]" : "underline hover:bg-white/10"}`}>{k === "id" ? "Bahasa Indonesia" : "English"}</button>)}</p>
+          {(["id", "en"] as const).map((k) => <button key={k} type="button" onClick={() => setBhs(k)} aria-pressed={bhs === k} className={`rounded px-2 py-0.5 underline-offset-2 ${bhs === k ? "bg-white font-semibold text-teal-800" : "underline hover:bg-white/10"}`}>{k === "id" ? "Bahasa Indonesia" : "English"}</button>)}</p>
         {SOSIAL.some(([k]) => info.sosial[k]) && <div className="flex gap-3">{SOSIAL.filter(([k]) => info.sosial[k]).map(([k, n, d]) => (
-          <a key={k} href={info.sosial[k]} target="_blank" rel="noopener noreferrer" aria-label={n} className="grid size-10 place-items-center rounded-full border-2 border-white/80 hover:bg-white hover:text-[#1e3a5f]"><svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden><path d={d} /></svg></a>))}</div>}
+          <a key={k} href={info.sosial[k]} target="_blank" rel="noopener noreferrer" aria-label={n} className="grid size-10 place-items-center rounded-full border-2 border-white/80 hover:bg-white hover:text-teal-800"><svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden><path d={d} /></svg></a>))}</div>}
         {(info.visi || info.visiEn) && <p className="text-center text-lg font-bold uppercase tracking-wide text-emerald-200">{bhs === "en" && info.visiEn ? info.visiEn : info.visi}</p>}
       </div>
     </section>
