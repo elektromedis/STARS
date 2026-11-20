@@ -680,3 +680,23 @@ model Penghapusan {
 
   @@index([alatId])
 }
+
+/// Pengaturan situs (CMS bilah info, footer, kontak, tautan) — satu baris per kunci, nilai JSON.
+model PengaturanSitus {
+  kunci     String   @id
+  nilai     String
+  updatedAt DateTime @updatedAt
+}
+
+/// Iklan/pengumuman pop-up di beranda.
+model Pengumuman {
+  id        Int       @id @default(autoincrement())
+  judul     String
+  gambar    String? // nama berkas di UPLOAD_DIR/situs
+  tautan    String?
+  aktif     Boolean   @default(true)
+  mulai     DateTime?
+  selesai   DateTime?
+  urut      Int       @default(0)
+  createdAt DateTime  @default(now())
+}

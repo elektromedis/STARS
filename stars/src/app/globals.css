@@ -223,3 +223,28 @@ body { background-color: #fff; }
 }
 @media (prefers-reduced-motion: reduce) { .adegan.ungu { opacity: .45; } }
 @media print { .langit { display: none; } body { background: #fff; } }
+
+/* ───────── Widget aksesibilitas (components/layout/aksesibilitas.tsx) ───────── */
+.a11y-ubin { display: flex; min-height: 4.2rem; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; border-radius: .75rem; border: 1px solid #e2e8f0; background: #f8fafc; padding: .4rem; text-align: center; font-size: .75rem; font-weight: 600; line-height: 1.15; color: #0b2545; }
+.a11y-ubin:hover { border-color: #1d4ed8; }
+.a11y-ubin.aktif { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+html.a11y-teks { font-size: calc(100% * var(--a11y-teks)); }
+html.a11y-teks body :where(p, li, td, th, label, a, span, button, input, select, textarea, dd, dt, summary) { font-size: max(1em, calc(0.875rem * var(--a11y-teks))); }
+html.a11y-baris body :where(p, li, td, label, span, dd, a) { line-height: var(--a11y-baris) !important; }
+html.a11y-huruf body { letter-spacing: var(--a11y-huruf) !important; word-spacing: calc(var(--a11y-huruf) * 2) !important; }
+html.a11y-mudah-baca body, html.a11y-mudah-baca body * { font-family: Verdana, Tahoma, "Comic Sans MS", Arial, sans-serif !important; letter-spacing: .04em; word-spacing: .12em; }
+html.a11y-rata-kiri body * { text-align: left !important; }
+html.a11y-kontras-tinggi body { filter: contrast(1.6); }
+html.a11y-kontras-gelap body { background: #000 !important; }
+html.a11y-kontras-gelap body :where(*:not(img):not(svg):not(video):not(iframe)) { background-color: #000 !important; color: #ffff00 !important; border-color: #ffff00 !important; }
+html.a11y-kontras-gelap body a { color: #00ffff !important; }
+html.a11y-terbalik body { filter: invert(1) hue-rotate(180deg); }
+html.a11y-terbalik body :where(img, video, iframe) { filter: invert(1) hue-rotate(180deg); }
+html.a11y-abu body { filter: grayscale(1); }
+html.a11y-tautan body a { text-decoration: underline !important; text-underline-offset: 3px; outline: 2px solid #f59e0b; outline-offset: 1px; background: #fef3c7; color: #7c2d12 !important; }
+html.a11y-kursor, html.a11y-kursor * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l16 9-7 2-3 7z' fill='%23000' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E") 4 2, auto !important; }
+html.a11y-diam *, html.a11y-diam *::before, html.a11y-diam *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+html.a11y-diam .langit { display: none; }
+html.a11y-tanpa-gambar body :where(img, picture, video, .langit):not([data-a11y-panel] *) { visibility: hidden !important; }
+html.a11y-fokus body *:focus, html.a11y-fokus body *:focus-visible { outline: 4px solid #f59e0b !important; outline-offset: 2px !important; }
+.a11y-panel, .a11y-panel * { filter: none; }

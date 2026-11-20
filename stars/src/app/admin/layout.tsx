@@ -32,6 +32,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     { href: "/admin/analitik", label: "Analitik WHO", icon: "chart" as const, tampil: true },
     { href: "/admin/monitoring", label: "Monitoring", icon: "thermometer" as const, tampil: true },
     { href: "/admin/log", label: "Log Impor", icon: "history" as const, tampil: cukup(u.peran, "Operator") },
+    { href: "/admin/situs", label: "CMS Situs", icon: "situs" as const, tampil: cukup(u.peran, "Admin") },
     { href: "/admin/pengguna", label: "Pengguna", icon: "users" as const, tampil: cukup(u.peran, "Admin") },
     { href: "/admin/sistem", label: "Sistem", icon: "settings" as const, tampil: cukup(u.peran, "Admin") },
   ].filter((t) => t.tampil);

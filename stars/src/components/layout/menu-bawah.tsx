@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Bell, History, Home, ScanQrCode, UserRound, type LucideIcon } from "lucide-react";
 import { bukaScan } from "@/lib/lokal";
 import { cn } from "@/lib/utils";
+import { NAV_EN, useBahasa } from "@/lib/bahasa";
 import { useNotifikasi } from "./use-notifikasi";
 
 const KIRI: { label: string; href: string; ikon: LucideIcon }[] = [
@@ -25,6 +26,7 @@ const KANAN: { label: string; href: string; ikon: LucideIcon }[] = [
 export function MenuBawah() {
   const pathname = usePathname();
   const { belum } = useNotifikasi();
+  const { bhs } = useBahasa();
   const aktif = (href: string) => (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`));
 
   const Tautan = ({ label, href, ikon: Ikon }: { label: string; href: string; ikon: LucideIcon }) => {
@@ -40,7 +42,7 @@ export function MenuBawah() {
           <Ikon className={cn("size-6 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-active:scale-90 motion-reduce:transition-none md:size-[clamp(1.1rem,1.35vw,1.4rem)] short:size-5", a && "fill-teal-100")} strokeWidth={a ? 2.2 : 1.8} aria-hidden />
           {lencana && <span className="absolute -right-2 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-600 px-1 text-[10px] font-bold leading-none text-white ring-2 ring-white" aria-hidden>{belum > 99 ? "99+" : belum}</span>}
         </span>
-        <span className="max-w-full truncate text-center leading-tight">{label}</span>
+        <span className="max-w-full truncate text-center leading-tight">{bhs === "en" && NAV_EN[href] ? NAV_EN[href][0] : label}</span>
         {a && <span className="absolute inset-x-5 -top-px h-0.5 rounded-full bg-teal-600 md:hidden" aria-hidden />}
       </Link>
     );

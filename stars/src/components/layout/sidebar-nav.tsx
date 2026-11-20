@@ -5,15 +5,19 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { menuAktif, NAV_ITEMS, type NavItem } from "@/lib/nav";
+import { NAV_EN, useBahasa } from "@/lib/bahasa";
 import { cn } from "@/lib/utils";
 
-type Tip = { label: string; description: string; top: number; left: number };
+type Tip = { href: string; label: string; description: string; top: number; left: number };
 
 /**
  * `compact` = sidebar desktop/tablet (hanya ikon di md, label penuh di lg) dengan pop-up keterangan menu.
  * Drawer mobile memakai versi non-compact tanpa pop-up (perangkat sentuh).
  */
 export function SidebarNav({ compact = false, onNavigate }: { compact?: boolean; onNavigate?: () => void }) {
+  const { bhs } = useBahasa();
+  const lbl = (it: { href: string; label: string }) => (bhs === "en" && NAV_EN[it.href] ? NAV_EN[it.href][0] : it.label);
+  const ket = (it: { href: string; description: string }) => (bhs === "en" && NAV_EN[it.href]?.[1] ? NAV_EN[it.href][1] : it.description);
   const pathname = usePathname();
   const idDasar = useId();
   const [tip, setTip] = useState<Tip | null>(null);
@@ -34,7 +38,7 @@ export function SidebarNav({ compact = false, onNavigate }: { compact?: boolean;
     // Saat pop-up sudah terlihat, berpindah menu = geser halus; saat belum, muncul di tempat tanpa meluncur dari posisi lama.
     const sudahTampil = tampilRef.current;
     setGeser(sudahTampil);
-    setTip({ label: item.label, description: item.description, top: r.top + r.height / 2, left: r.right + 12 });
+    setTip({ href: item.href, label: item.label, description: item.description, top: r.top + r.height / 2, left: r.right + 12 });
     if (!sudahTampil) timer.current = setTimeout(() => atur(true), 150);
   }
 
@@ -73,8 +77,8 @@ export function SidebarNav({ compact = false, onNavigate }: { compact?: boolean;
             )}
           >
             <Icon className={cn("size-5 shrink-0 transition-colors duration-200", active ? "text-teal-300" : "text-navy-300 group-hover:text-teal-300")} aria-hidden />
-            <span className={cn("leading-tight", compact && "hidden lg:inline")}>{item.label}</span>
-            <span id={`${idDasar}-ket-${i}`} className="sr-only">{item.description}</span>
+            <span className={cn("leading-tight", compact && "hidden lg:inline")}>{lbl(item)}</span>
+            <span id={`${idDasar}-ket-${i}`} className="sr-only">{ket(item)}</span>
           </Link>
         );
       })}
@@ -91,8 +95,8 @@ export function SidebarNav({ compact = false, onNavigate }: { compact?: boolean;
           )}
         >
           <span className="absolute -left-1 top-1/2 size-2.5 -translate-y-1/2 rotate-45 bg-navy-950" />
-          <p className="relative text-sm font-semibold">{tip.label}</p>
-          <p className="relative mt-0.5 text-xs leading-snug text-navy-200">{tip.description}</p>
+          <p className="relative text-sm font-semibold">{lbl(tip)}</p>
+          <p className="relative mt-0.5 text-xs leading-snug text-navy-200">{ket(tip)}</p>
         </div>,
         document.body
       )}
