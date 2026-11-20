@@ -12,6 +12,7 @@ export const NAV_EN: Record<string, [string, string]> = {
   "/allies": ["ALLIES", "Medical equipment management agent: device life cycle from needs analysis to disposal"],
   "/nilai": ["SI-ALKES", "Planning-procurement (value, packages, data, RKBU print) and HTA"],
   "/pemeliharaan": ["SI-FARMALKES", "Equipment maintenance & inventory, testing and calibration, fault reports"],
+  "/jdih": ["JDIH", "Legal Documentation & Information Network: regulations on medical devices, procurement, assets, staffing, e-signature"],
   "/monitoring": ["SI-LOGGER", "Live Medical Device Environmental Monitoring: real-time temperature & humidity"],
   "/tracking": ["SI-TRACKING", "Live tracking of work progress in every menu"],
   "/avicenna": ["AVICENNA", "Virtual reality for medical device training and simulation"],

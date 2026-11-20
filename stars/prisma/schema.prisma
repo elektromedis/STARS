@@ -715,3 +715,23 @@ model ItemSitus {
 
   @@index([jenis, aktif])
 }
+
+/// JDIH — Jaringan Dokumentasi dan Informasi Hukum (produk hukum terkait alat kesehatan & STARS).
+model Peraturan {
+  id         Int      @id @default(autoincrement())
+  jenis      String // UU, PP, Perpres, Permenkes, Kepmenkes, Permendagri, PermenPAN-RB, Pergub, Kepdir, SOP, Pedoman WHO, dll.
+  nomor      String
+  tahun      Int
+  judul      String // "tentang …"
+  pemrakarsa String?
+  subjek     String? // Alat Kesehatan, Pengadaan, Barang Milik Daerah, SDM, Data & TTE, Mutu & Akreditasi
+  status     String   @default("Berlaku") // Berlaku | Diubah | Dicabut
+  keterangan String?
+  tautan     String?
+  berkas     String? // PDF di UPLOAD_DIR/jdih
+  aktif      Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([jenis, tahun])
+}

@@ -1,4 +1,4 @@
-import { Activity, ArrowLeftRight, CalendarDays, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, Thermometer, Wallet, Wrench, type LucideIcon } from "lucide-react";
+import { Activity, Landmark, ArrowLeftRight, CalendarDays, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, Thermometer, Wallet, Wrench, type LucideIcon } from "lucide-react";
 
 export type NavItem = {
   label: string; href: string; icon: LucideIcon; description: string;
@@ -38,6 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "SI-TRACKING", href: "/tracking", icon: Radar, description: "Live Tracking — Sampai mana proses kerja di setiap menu: paket, laporan kerusakan, perintah kerja, preventif, kalibrasi, alarm, dan siklus alat — diperbarui otomatis; lacak nomor WR/WO" },
   { label: "AVICENNA", href: "/avicenna", icon: Glasses, description: "Virtual Reality untuk alat kesehatan: pelatihan & simulasi pengoperasian alat, edukasi keselamatan, dan uji kompetensi tenaga kesehatan" },
   { label: "ADMIN", href: "/admin", icon: Settings, description: "Impor/ekspor Excel, pemeliharaan, daftar alat, pengguna, dan log (perlu login)" },
+  { label: "JDIH", href: "/jdih", icon: Landmark, description: "Jaringan Dokumentasi dan Informasi Hukum: peraturan alat kesehatan, pengadaan, BMD, SDM elektromedis, TTE — cari, saring, unduh PDF, tautan JDIH BPK" },
   { label: "TENTANG SAYA", href: "/about", icon: LifeBuoy, description: "Bantuan, tentang aplikasi, sumber data, dan cara kerja STARS" },
 ];
 

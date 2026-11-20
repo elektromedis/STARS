@@ -21,7 +21,7 @@ export const INFO_BAWAAN: InfoSitus = {
   telepon: "", whatsapp: "", email: "", peta: "",
   sosial: {},
   grup: [
-    { judul: "Untuk Pengunjung", judulEn: "For Visitors", tautan: [{ label: "Lapor Kerusakan Alat", labelEn: "Report Equipment Fault", href: "/lapor" }, { label: "Riwayat Laporan", labelEn: "Report History", href: "/riwayat" }, { label: "Pedoman STARS", labelEn: "STARS Guide", href: "/about/pedoman" }] },
+    { judul: "Untuk Pengunjung", judulEn: "For Visitors", tautan: [{ label: "Lapor Kerusakan Alat", labelEn: "Report Equipment Fault", href: "/lapor" }, { label: "Riwayat Laporan", labelEn: "Report History", href: "/riwayat" }, { label: "Pedoman STARS", labelEn: "STARS Guide", href: "/about/pedoman" }, { label: "JDIH (Peraturan)", labelEn: "Regulations (JDIH)", href: "/jdih" }] },
     { judul: "Untuk Profesional", judulEn: "For Professionals", tautan: [{ label: "Kalender Pemeliharaan", labelEn: "Maintenance Calendar", href: "/kalender" }, { label: "Peminjaman Alat", labelEn: "Equipment Loan", href: "/peminjaman" }, { label: "Admin", labelEn: "Admin", href: "/admin" }] },
   ],
   bantuanTeks: "Bantuan?",
