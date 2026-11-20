@@ -1,5 +1,6 @@
 "use client";
 
+import { AmbilGsheet } from "@/components/admin/ambil-gsheet";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -78,6 +79,7 @@ export function ImporForm({ bolehSimpan: izin = true }: { bolehSimpan?: boolean 
             </Button>
           </div>
         </CardContent>
+        <CardContent className="pt-0"><AmbilGsheet kunci="paket" nama="Google_Sheets_RKPBU_RKBU" onFile={pilih} /></CardContent>
         <CardContent className="pt-0">
           <label className={`flex cursor-pointer items-start gap-2 rounded-lg border p-3 text-sm ${ganti ? "border-red-300 bg-red-50 text-red-900" : "text-muted-foreground"}`}>
             <input type="checkbox" className="mt-0.5 accent-red-600" checked={ganti}

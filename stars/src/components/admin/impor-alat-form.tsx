@@ -1,5 +1,6 @@
 "use client";
 
+import { AmbilGsheet } from "@/components/admin/ambil-gsheet";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -58,6 +59,7 @@ export function ImporAlatForm({ bolehSimpan: izin = true }: { bolehSimpan?: bool
             <Button onClick={() => kirim("validasi")} disabled={!file || sibuk !== ""}>{sibuk === "validasi" ? <Loader2 className="animate-spin" /> : <SearchCheck />} Periksa</Button>
           </div>
         </CardContent>
+        <CardContent className="pt-0"><AmbilGsheet kunci="alat" nama="Google_Sheets_Inventaris_CMMS" onFile={(f) => { setFile(f); setHasil(null); setPesan(null); }} /></CardContent>
       </Card>
 
       {pesan && !tersimpan && <div role="alert" className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800"><XCircle className="mt-0.5 size-4 shrink-0" /> {pesan}</div>}
