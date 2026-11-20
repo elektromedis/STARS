@@ -20,6 +20,11 @@ export async function pengumumanAktif() {
   }).catch(() => []);
 }
 
+export async function etalaseAktif() {
+  return prisma.itemSitus.findMany({ where: { aktif: true }, orderBy: [{ urut: "asc" }, { id: "asc" }], take: 60,
+    select: { id: true, jenis: true, judul: true, judulEn: true, gambar: true, tautan: true } }).catch(() => []);
+}
+
 const TANDA: [string, number[]][] = [["jpg", [0xff, 0xd8, 0xff]], ["png", [0x89, 0x50, 0x4e, 0x47]], ["webp", [0x52, 0x49, 0x46, 0x46]]];
 /** Simpan gambar pop-up (maks 3 MB, dikenali dari isi). */
 export async function simpanGambarSitus(f: File): Promise<string | { error: string }> {

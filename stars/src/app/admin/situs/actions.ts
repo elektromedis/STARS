@@ -34,6 +34,7 @@ export async function simpanInfo(fd: FormData) {
     sosial: { facebook: url(s(fd, "facebook")), instagram: url(s(fd, "instagram")), x: url(s(fd, "x")), youtube: url(s(fd, "youtube")), tiktok: url(s(fd, "tiktok")) },
     aplikasiAndroid: url(s(fd, "aplikasiAndroid")), aplikasiIos: url(s(fd, "aplikasiIos")),
     grup: uraiGrup(String(fd.get("grup") ?? "")), bantuanTeks: s(fd, "bantuanTeks", 30) || "Bantuan?", tampilBilahAtas: fd.get("tampilBilahAtas") === "on",
+    visi: s(fd, "visi", 120), visiEn: s(fd, "visiEn", 120), subAkreditasi: s(fd, "subAkreditasi", 250), subMitra: s(fd, "subMitra", 250),
   };
   await prisma.pengaturanSitus.upsert({ where: { kunci: "info" }, create: { kunci: "info", nilai: JSON.stringify(info) }, update: { nilai: JSON.stringify(info) } });
   await audit("situs.info", { email: se.user.email, ip: ipDari(await headers()) });
@@ -62,6 +63,31 @@ export async function ubahPengumuman(fd: FormData) {
   if (!p) return balik("error=Tidak+ditemukan");
   if (aksi === "hapus") { await prisma.pengumuman.delete({ where: { id } }); if (p.gambar) await unlink(join(folderSitus(), p.gambar)).catch(() => {}); }
   else await prisma.pengumuman.update({ where: { id }, data: { aktif: !p.aktif } });
+  revalidatePath("/admin/situs");
+  balik("ok=" + encodeURIComponent(aksi === "hapus" ? "Dihapus." : p.aktif ? "Dinonaktifkan." : "Diaktifkan."));
+}
+
+export async function tambahItem(fd: FormData) {
+  const se = await sesiHalaman("Admin");
+  const jenis = fd.get("jenis") === "mitra" ? "mitra" : "akreditasi";
+  const judul = s(fd, "judul", 120);
+  if (!judul) return balik("error=" + encodeURIComponent("Nama wajib diisi."));
+  const f = fd.get("gambar");
+  let gambar: string | null = null;
+  if (f instanceof File && f.size > 0) { const r = await simpanGambarSitus(f); if (typeof r !== "string") return balik("error=" + encodeURIComponent(r.error)); gambar = r; }
+  await prisma.itemSitus.create({ data: { jenis, judul, judulEn: s(fd, "judulEn", 120) || null, gambar, tautan: url(s(fd, "tautan", 500)) || null, urut: Number(fd.get("urut")) || 0 } });
+  await audit("situs.etalase", { email: se.user.email, ip: ipDari(await headers()), objek: `${jenis}: ${judul}` });
+  revalidatePath("/admin/situs");
+  balik("ok=" + encodeURIComponent(jenis === "mitra" ? "Mitra ditambahkan." : "Akreditasi/penghargaan ditambahkan."));
+}
+
+export async function ubahItem(fd: FormData) {
+  await sesiHalaman("Admin");
+  const id = Number(fd.get("id")) || 0, aksi = String(fd.get("aksi"));
+  const p = await prisma.itemSitus.findUnique({ where: { id } });
+  if (!p) return balik("error=Tidak+ditemukan");
+  if (aksi === "hapus") { await prisma.itemSitus.delete({ where: { id } }); if (p.gambar) await unlink(join(folderSitus(), p.gambar)).catch(() => {}); }
+  else await prisma.itemSitus.update({ where: { id }, data: { aktif: !p.aktif } });
   revalidatePath("/admin/situs");
   balik("ok=" + encodeURIComponent(aksi === "hapus" ? "Dihapus." : p.aktif ? "Dinonaktifkan." : "Diaktifkan."));
 }

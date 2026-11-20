@@ -700,3 +700,18 @@ model Pengumuman {
   urut      Int       @default(0)
   createdAt DateTime  @default(now())
 }
+
+/// Etalase situs (CMS): akreditasi & penghargaan, mitra kami.
+model ItemSitus {
+  id        Int      @id @default(autoincrement())
+  jenis     String // "akreditasi" | "mitra"
+  judul     String
+  judulEn   String?
+  gambar    String? // nama berkas di UPLOAD_DIR/situs
+  tautan    String?
+  aktif     Boolean  @default(true)
+  urut      Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([jenis, aktif])
+}

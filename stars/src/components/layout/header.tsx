@@ -10,13 +10,16 @@ import { PasangAplikasi } from "./pasang-aplikasi";
 
 export function Header({ onMenuClick }: { onMenuClick: () => void }) {
   return (
-    <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b bg-card/90 px-4 backdrop-blur md:px-6">
+    <header className="sticky top-0 z-20 flex h-16 items-center gap-2 sm:gap-3 border-b bg-card/90 px-4 backdrop-blur md:px-6">
       <Button variant="ghost" size="icon" onClick={onMenuClick} aria-label="Buka menu" aria-haspopup="dialog" title="Menu" className="size-11 [&_svg]:size-7">
         <Menu className="size-6" />
       </Button>
       <Link href="/" aria-label="STARS — ke Beranda" title="Ke Beranda" className="shrink-0 rounded-md text-navy-800 transition-opacity hover:opacity-80">
         <Logo subClassName="hidden lg:block" />
       </Link>
+      <span className="hidden h-9 w-px shrink-0 bg-border min-[400px]:block" aria-hidden />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/label/logo-rsud.png" alt="RSUD Cipayung" className="h-7 w-auto min-w-0 shrink sm:h-10" />
 
       {/* Pencarian global: form GET biasa ke halaman Paket, bekerja tanpa JavaScript. */}
       <form action="/paket" method="get" role="search" className="relative hidden max-w-md flex-1 sm:block">

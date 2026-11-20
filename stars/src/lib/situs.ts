@@ -8,6 +8,9 @@ export type InfoSitus = {
   grup: GrupTautan[];
   bantuanTeks: string;
   tampilBilahAtas: boolean;
+  /** Etalase & kaki halaman */
+  visi?: string; visiEn?: string;
+  subAkreditasi?: string; subMitra?: string;
 };
 export const INFO_BAWAAN: InfoSitus = {
   alamat: "Jl. Mini III, RT.4/RW.3, Bambu Apus, Kec. Cipayung, Jakarta Timur 13890",
@@ -19,5 +22,9 @@ export const INFO_BAWAAN: InfoSitus = {
   ],
   bantuanTeks: "Bantuan?",
   tampilBilahAtas: true,
+  visi: "Alat kesehatan aman, laik pakai, dan siap melayani", visiEn: "Safe, fit-for-use medical devices, ready to serve",
+  subAkreditasi: "Komitmen kami terhadap mutu dan keselamatan pasien.",
+  subMitra: "Kami berkolaborasi dengan berbagai pihak untuk layanan alat kesehatan yang aman dan andal.",
 };
 export type PengumumanPublik = { id: number; judul: string; gambar: string | null; tautan: string | null };
+export type ItemSitusPublik = { id: number; jenis: string; judul: string; judulEn: string | null; gambar: string | null; tautan: string | null };
