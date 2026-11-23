@@ -40,9 +40,9 @@ export function LogoBergantian({ info }: { info: InfoSitus }) {
       onMouseLeave={() => setTahan(false)}
       onFocus={() => setTahan(true)}
       onBlur={() => setTahan(false)}
-      className="grid h-12 w-[7.5rem] shrink-0 overflow-hidden rounded-md text-navy-800 sm:w-[9.5rem] 2xl:w-[15rem]"
+      className="grid h-14 w-[7.5rem] shrink-0 overflow-hidden rounded-md text-navy-800 sm:w-[9.5rem] 2xl:w-[19rem]"
     >
-      {urutan.includes("stars") && <span className={kelas("stars")} aria-hidden={tampil !== "stars"}><Logo subClassName="hidden 2xl:block" /></span>}
+      {urutan.includes("stars") && <span className={kelas("stars")} aria-hidden={tampil !== "stars"}><Logo subClassName="hidden 2xl:block 2xl:max-w-[15.5rem] 2xl:whitespace-nowrap" /></span>}
       {urutan.includes("rsud") && (
         <span className={kelas("rsud")} aria-hidden={tampil !== "rsud"}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
