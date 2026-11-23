@@ -5,11 +5,13 @@ import { Moon, Sun } from "lucide-react";
 import { useBahasa } from "@/lib/bahasa";
 import { KUNCI_TAMPILAN } from "@/lib/tampilan-skrip";
 
-type Tampilan = { gelap: boolean; latar: 1 | 2 };
+type Latar = 1 | 2 | 3;
+const berikut = (x: Latar): Latar => (x === 3 ? 1 : (x + 1) as Latar);
+type Tampilan = { gelap: boolean; latar: Latar };
 
 function baca(): Tampilan {
   const d = document.documentElement;
-  return { gelap: d.classList.contains("dark"), latar: d.dataset.latar === "2" ? 2 : 1 };
+  return { gelap: d.classList.contains("dark"), latar: d.dataset.latar === "3" ? 3 : d.dataset.latar === "2" ? 2 : 1 };
 }
 
 function terapkan(t: Tampilan) {
@@ -38,8 +40,8 @@ export function TombolTampilan() {
   const kelas = "flex h-8 min-w-8 items-center justify-center rounded-full px-1.5 text-xs font-bold text-navy-800 transition-colors hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-600";
   return (
     <div className="flex shrink-0 items-center rounded-full bg-slate-100 p-0.5" role="group" aria-label={t("Pengaturan tampilan", "Display settings")}>
-      <button type="button" className={kelas} onClick={() => terapkan({ gelap, latar: latar === 1 ? 2 : 1 })}
-        aria-label={t(`Latar Tema ${latar}. Ganti ke Tema ${latar === 1 ? 2 : 1}`, `Background Theme ${latar}. Switch to Theme ${latar === 1 ? 2 : 1}`)} title={t(`Tema ${latar}`, `Theme ${latar}`)}>
+      <button type="button" className={kelas} onClick={() => terapkan({ gelap, latar: berikut(latar) })}
+        aria-label={t(`Latar Tema ${latar}. Ganti ke Tema ${berikut(latar)}`, `Background Theme ${latar}. Switch to Theme ${berikut(latar)}`)} title={t(`Tema ${latar}`, `Theme ${latar}`)}>
         T{latar}
       </button>
       <button type="button" className={kelas} onClick={() => terapkan({ gelap: !gelap, latar })} aria-pressed={gelap}
@@ -143,4 +145,30 @@ export function LatarGalaksi() {
   }, [gelap, latar]);
 
   return <div ref={wadah} id="latar-galaksi" className="latar-galaksi" aria-hidden />;
+}
+
+const kabel = (x: number) => 292 + 228 * (1 - ((x - 800) / 330) ** 2);
+const GANTUNGAN = Array.from({ length: 33 }, (_, i) => 480 + i * 20);
+
+/** Tema 3: pemandangan jembatan senja buatan STARS, dengan kabut bergerak halus. */
+export function LatarGerbang() {
+  return (
+    <div className="latar-gerbang" aria-hidden>
+      <div className="gg-matahari" />
+      <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+        <path className="gg-bukit-jauh" d="M0 610C180 500 320 540 470 590S760 610 930 585 1240 480 1600 570V900H0Z" />
+        <path className="gg-bukit" d="M0 680C170 610 300 625 420 665S640 690 760 680 1180 650 1600 690V900H0Z" />
+        <g className="gg-jembatan">
+          <path d="M0 596H1600" strokeWidth="12" />
+          <path d="M-40 560C160 520 340 430 470 292M1130 292C1260 430 1440 520 1640 560" strokeWidth="5" />
+          <path d={`M470 292${GANTUNGAN.map((x) => `L${x} ${kabel(x).toFixed(1)}`).join("")}L1130 292`} strokeWidth="5" />
+          <path d={GANTUNGAN.map((x) => `M${x} ${kabel(x).toFixed(1)}V596`).join("")} strokeWidth="1.4" />
+          {[470, 1130].flatMap((x) => [-15, 15].map((d) => <path key={`${x}${d}`} d={`M${x + d} 260V735`} strokeWidth="14" />))}
+          {[470, 1130].flatMap((x) => [310, 390, 470, 545, 650].map((y) => <path key={`${x}-${y}`} d={`M${x - 15} ${y}H${x + 15}`} strokeWidth="9" />))}
+        </g>
+        <rect className="gg-air" y="700" width="1600" height="200" />
+      </svg>
+      <div className="gg-kabut gg-kabut-a" /><div className="gg-kabut gg-kabut-b" />
+    </div>
+  );
 }

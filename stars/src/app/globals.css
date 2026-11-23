@@ -268,6 +268,54 @@ html.a11y-tanpa-gambar .latar-galaksi { visibility: hidden; }
   .dark .a11y-ubin { background: #182235; border-color: #334158; color: #e6edf7; }
 }
 
+/* ───────── Tema 3: Golden Gate, kaca bening dan jembatan senja ───────── */
+.latar-gerbang { display: none; position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; background: linear-gradient(180deg, #7fb2dc 0%, #c9d8e4 34%, #f8d3a8 58%, #f29a62 76%, #c9604a 100%); }
+html[data-latar="3"] .langit { display: none; }
+html[data-latar="3"] .latar-gerbang { display: block; }
+.latar-gerbang svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.gg-matahari { position: absolute; left: 62%; top: 43%; width: 34vmin; height: 34vmin; border-radius: 50%; background: radial-gradient(circle, rgba(255,239,190,.95), rgba(255,190,120,.35) 45%, transparent 70%); }
+.gg-bukit-jauh { fill: #a9788a; opacity: .62; } .gg-bukit { fill: #6c4a5f; opacity: .78; } .gg-air { fill: #41627f; opacity: .72; }
+.gg-jembatan { fill: none; stroke: #c0391f; }
+.gg-kabut { position: absolute; left: -35%; width: 170%; height: 24%; top: 52%; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,255,255,.72), transparent); filter: blur(14px); }
+.gg-kabut-b { top: 64%; left: -10%; opacity: .62; }
+@media (prefers-reduced-motion: no-preference) {
+  .gg-kabut-a { animation: kabut 46s ease-in-out infinite alternate; } .gg-kabut-b { animation: kabut 62s ease-in-out infinite alternate-reverse; }
+  @keyframes kabut { from { transform: translate3d(-9%, 0, 0); } to { transform: translate3d(11%, -5%, 0); } }
+  html[data-latar="3"] main > * { animation: jendela-gg .42s cubic-bezier(.22,1,.36,1) both; }
+  @keyframes jendela-gg { from { opacity: 0; transform: translateY(10px) scale(.992); } to { opacity: 1; transform: none; } }
+}
+html.a11y-diam .gg-kabut { display: none; }
+html.a11y-tanpa-gambar .latar-gerbang { visibility: hidden; }
+@media screen {
+  html[data-latar="3"] { --radius: .75rem; --ring: 12 72% 45%; --primary: 12 72% 42%; --primary-foreground: 0 0% 100%; --accent: 24 90% 92%; --accent-foreground: 12 70% 30%; }
+  html[data-latar="3"] body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-sans), system-ui, sans-serif; background-color: #f4c9a0; }
+  html[data-latar="3"] :is(header.sticky, .bg-card, .panggung section, #bilah-cepat) { border-color: rgb(255 255 255 / .55); background-color: rgb(255 255 255 / .76); box-shadow: 0 10px 34px rgb(62 35 30 / .18), inset 0 1px 0 rgb(255 255 255 / .7); -webkit-backdrop-filter: blur(22px) saturate(1.5); backdrop-filter: blur(22px) saturate(1.5); }
+  html[data-latar="3"] .panggung section { background-image: none; border-radius: 1.1rem; }
+  html[data-latar="3"] .panggung section:not(#slideshow-beranda) :is(h2, p, .text-white, [class*="text-white/"]):not([class*="bg-"]) { color: #231c22; }
+  html[data-latar="3"] .panggung section:not(#slideshow-beranda) .text-teal-300 { color: #a93219; --tw-ring-color: #c0391f; }
+  html[data-latar="3"] .panggung section:not(#slideshow-beranda) .text-teal-300:hover { color: #fff; background-color: #c0391f; }
+  html[data-latar="3"] #slideshow-beranda { border-radius: 1.1rem; }
+  html[data-latar="3"] :is(.bg-teal-600, .bg-navy-800) { background-color: #c0391f; }
+  html[data-latar="3"] :is(.hover\:bg-teal-700, .hover\:bg-navy-900):hover { background-color: #a42f18; }
+  html[data-latar="3"] :is(.text-teal-600, .text-teal-700) { color: #a93219; }
+  html[data-latar="3"] .ring-teal-600 { --tw-ring-color: #c0391f; }
+  html[data-latar="3"] #bilah-cepat { border-radius: 1.5rem; }
+  html.dark[data-latar="3"] { --primary: 14 78% 56%; --primary-foreground: 0 0% 100%; --ring: 14 78% 56%; --accent: 14 35% 22%; --accent-foreground: 24 90% 86%; }
+  html.dark[data-latar="3"] body { background-color: #151320; }
+  html.dark .latar-gerbang { background: linear-gradient(180deg, #0d1430 0%, #27264e 42%, #693a55 62%, #a8503f 76%, #291d2d 100%); }
+  html.dark .gg-matahari { opacity: .42; } html.dark .gg-bukit-jauh { fill: #33284a; opacity: .9; } html.dark .gg-bukit { fill: #1b1729; opacity: .95; } html.dark .gg-air { fill: #111a2f; opacity: .9; }
+  html.dark .gg-jembatan { stroke: #e0553a; } html.dark .gg-kabut { opacity: .16; }
+  html.dark[data-latar="3"] :is(header.sticky, .bg-card, .panggung section, #bilah-cepat) { border-color: rgb(255 255 255 / .13); background-color: rgb(24 23 38 / .78); box-shadow: 0 10px 34px rgb(0 0 0 / .38), inset 0 1px 0 rgb(255 255 255 / .1); }
+  html.dark[data-latar="3"] .panggung section:not(#slideshow-beranda) :is(h2, p, .text-white, [class*="text-white/"]):not([class*="bg-"]) { color: #f3eff4; }
+  html.dark[data-latar="3"] .panggung section:not(#slideshow-beranda) .text-teal-300 { color: #ff9b7e; --tw-ring-color: #ff9b7e; }
+  html.dark[data-latar="3"] :is(.text-teal-600, .text-teal-700) { color: #ff9b7e; }
+}
+@media screen and (max-width: 767px) {
+  html[data-latar="3"] :is(.bg-card, .panggung section) { -webkit-backdrop-filter: none; backdrop-filter: none; background-color: rgb(255 255 255 / .9); }
+  html.dark[data-latar="3"] :is(.bg-card, .panggung section) { background-color: rgb(24 23 38 / .92); }
+}
+@media print { .latar-gerbang { display: none !important; } }
+
 /* ───────── Widget aksesibilitas (components/layout/aksesibilitas.tsx) ───────── */
 .a11y-ubin { display: flex; min-height: 4.2rem; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; border-radius: .75rem; border: 1px solid #e2e8f0; background: #f8fafc; padding: .4rem; text-align: center; font-size: .75rem; font-weight: 600; line-height: 1.15; color: #0b2545; }
 .a11y-ubin:hover { border-color: #1d4ed8; }
