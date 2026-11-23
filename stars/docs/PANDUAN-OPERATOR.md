@@ -203,6 +203,8 @@ dipasang, pengguna yang login dapat memakai **Karyawan AI** (Koordinator, Invent
 Pertanyaan dan data alat yang relevan dikirim ke penyedia AI; email, NIK/NIP, dan nomor telepon disaring otomatis, tetapi **nama orang dan data pasien
 jangan diketik**. Karyawan AI hanya membaca dan memberi saran. Tanpa kunci API atau tanpa login, ALLIES memakai mesin aturan lokal. STARS tidak menyimpan pertanyaan.
 
+- **Kantor AI** (`/allies/kantor`, wajib login): simulasi visual Karyawan AI; jumlah karyawan aktif dan angka ruangan mengikuti tugas nyata.
+- **Pengetahuan AI** (Admin): unggah pedoman, peraturan, SOP, atau manual; ALLIES menyebut judul dan halaman sumber. Hasil OCR wajib dicek ke dokumen asli.
 - **Diagram siklus 10 tahap**: angka di tiap simpul adalah jumlah alat yang sedang berada di tahap itu.
 - **Tanya ALLIES**: ketik nama/kode alat, "kalibrasi jatuh tempo", "alat yang perlu diganti", atau nama tahap
   (mis. "pengadaan", "penghapusan").

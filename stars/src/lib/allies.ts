@@ -4,6 +4,7 @@
  */
 import { prisma } from "./prisma";
 import { statusKalibrasi, type StatusKalibrasi } from "./kalibrasi";
+import { cariPengetahuan } from "./pengetahuan";
 import { keputusan, SIKLUS, TAHAP, UMUR_TEKNIS_BAWAAN, type IdTahap, type KunciKeputusan } from "./allies-siklus";
 
 const HARI = 86_400_000;
@@ -257,7 +258,13 @@ export async function jawabAllies(pesan: string, unitId?: number | null): Promis
     };
   }
 
-  // 7) ringkasan / sapaan / tidak dikenali
+  // 7) basis pengetahuan
+  if (!ada(t, ["halo", "hai", "selamat", "assalam", "bantu", "help", "ringkas"])) {
+    const kb = await cariPengetahuan(pesan, 3);
+    if (kb.length) return { blok: [{ jenis: "teks", isi: "Saya menemukan rujukan berikut di basis pengetahuan:" }, { jenis: "daftar", butir: kb.map((k) => ({ teks: `${k.judul}, hlm. ${k.halaman}`, sub: `${k.kutipan.slice(0, 260)}…` })) }], saran: SARAN_AWAL };
+  }
+
+  // 8) ringkasan / sapaan / tidak dikenali
   const sapa = ada(t, ["halo", "hai", "hi ", "selamat", "assalam", "pagi", "siang", "sore", "malam", "bantu", "help", "ringkas"]);
   return {
     blok: [

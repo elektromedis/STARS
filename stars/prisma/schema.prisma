@@ -787,3 +787,25 @@ model KegiatanPromotif {
   catatan   String?
   createdAt DateTime @default(now())
 }
+
+/// Basis pengetahuan ALLIES: dokumen rujukan yang dipotong per halaman agar jawaban bisa menyebut sumbernya.
+model DokumenPengetahuan {
+  id        Int                   @id @default(autoincrement())
+  judul     String
+  jenis     String                @default("Pedoman")
+  halaman   Int                   @default(0)
+  oleh      String?
+  createdAt DateTime              @default(now())
+  potongan  PotonganPengetahuan[]
+}
+
+model PotonganPengetahuan {
+  id        Int                @id @default(autoincrement())
+  dokumenId Int
+  halaman   Int
+  urut      Int
+  teks      String
+  dokumen   DokumenPengetahuan @relation(fields: [dokumenId], references: [id], onDelete: Cascade)
+
+  @@index([dokumenId, halaman])
+}

@@ -128,6 +128,11 @@ export default async function AlliesPage({ searchParams }: { searchParams: Promi
         </div>
       </section>
 
+      <Link href="/allies/kantor" className="mb-8 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-navy-800 to-teal-700 p-5 text-white shadow-card transition-transform hover:-translate-y-0.5 motion-reduce:transition-none">
+        <span className="flex items-center gap-3"><Bot className="size-8 shrink-0" aria-hidden /><span><span className="block text-lg font-bold">Masuk ke Kantor AI</span><span className="block text-sm text-teal-50">Lihat Karyawan AI bekerja sesuai tugas nyata di STARS</span></span></span>
+        <span className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-navy-800">Buka kantor <ArrowRight className="size-4" /></span>
+      </Link>
+
       <section aria-label="Indikator ALLIES" className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Alat dianalisis" value={formatNumber(r.aktif)} hint={`${formatNumber(r.total - r.aktif)} nonaktif · ${formatNumber(r.perTahap.operasional)} beroperasi normal`} />
         <StatCard label="Kandidat ganti / hapus" value={formatNumber(r.kandidat.length)} hint={`${formatNumber(r.perKeputusan.hapus)} usul hapus · ${formatNumber(r.perKeputusan.ganti)} rencana ganti`} />

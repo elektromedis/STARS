@@ -66,6 +66,11 @@ export function ObrolanAllies({ pembuka, saranAwal, ai = false }: { pembuka: Jaw
     if (k && pesan.length > 1) k.scrollTo({ top: k.scrollHeight, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }, [pesan]);
 
+  useEffect(() => {
+    const id = new URLSearchParams(location.search).get("karyawan");
+    if (KARYAWAN.some((k) => k.id === id)) setKaryawan(id as IdKaryawan);
+  }, []);
+
   async function tanya(q: string) {
     const isi = q.trim();
     if (!isi || sibuk) return;
