@@ -42,7 +42,7 @@ echo  4. Ambil cadangan terbaru dari VPS ke laptop
 echo  5. Lihat status VPS
 echo  6. Masuk VPS tanpa sandi - pasang kunci SSH laptop
 echo  7. Ganti alamat VPS
-echo  8. Aktifkan AI gratis - Hermes + n8n
+echo  8. Sambungkan AI gratis - Hermes di laptop + n8n
 echo  9. Keluar
 echo.
 choice /C 123456789 /N /M "Pilih nomor [1-9]: "
@@ -123,7 +123,7 @@ REM ---------------------------------------------------------- 8
 :aktifkan_ai
 echo.
 echo [INFO] Pastikan commit terbaru sudah dikirim ke GitHub.
-ssh -t %VPS% "cd /opt/STARS && git pull --ff-only && bash /opt/STARS/stars/deploy/aktifkan-ai.sh"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0sambung-hermes.ps1" -Vps "%VPS%"
 if errorlevel 1 goto gagal_vps
 echo.
 echo Membuka n8n: biarkan jendela SSH berikut terbuka, lalu buka http://localhost:5678
