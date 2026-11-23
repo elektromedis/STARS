@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
-import { createPortal } from "react-dom";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -20,8 +19,6 @@ export function SlideshowHero({ slide }: { slide: SlideHero[] }) {
   const ke = useCallback((i: number) => setAktif((i + n) % n), [n]);
   const gelap = Boolean(slide[aktif].gelap);
   const tenang = useReducedMotion();
-  const [slot, setSlot] = useState<HTMLElement | null>(null);
-  useEffect(() => { setSlot(document.getElementById("slot-slideshow")); }, []);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setPutar(false);
@@ -38,19 +35,6 @@ export function SlideshowHero({ slide }: { slide: SlideHero[] }) {
   }, [aktif]);
 
   const tombol = cn("flex size-10 items-center justify-center rounded-full shadow-sm backdrop-blur transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal-300", gelap ? "bg-white/15 text-white hover:bg-white/30" : "bg-white/90 text-navy-800 ring-1 ring-slate-200 hover:bg-white");
-
-  const kontrol = (
-    <div role="group" aria-label="Kontrol slideshow" className="flex items-center gap-0.5 px-1">
-      {slide.map((s, i) => (
-        <button key={s.label} type="button" onClick={() => ke(i)} aria-label={`Buka slide ${i + 1}: ${s.label}`} aria-current={i === aktif ? "true" : undefined} className="flex h-6 items-center px-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-current">
-          <span className={cn("block h-1.5 rounded-full bg-current transition-all motion-reduce:transition-none", i === aktif ? "w-5" : "w-1.5 opacity-50")} />
-        </button>
-      ))}
-      <button type="button" onClick={() => setPutar((p) => !p)} aria-label={putar ? "Jeda slideshow" : "Putar slideshow"} className="flex size-6 items-center justify-center rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-current">
-        {putar ? <Pause className="size-3" /> : <Play className="size-3" />}
-      </button>
-    </div>
-  );
 
   return (
     <section
@@ -80,7 +64,16 @@ export function SlideshowHero({ slide }: { slide: SlideHero[] }) {
       </div>
       <button type="button" onClick={() => ke(aktif - 1)} aria-label="Slide sebelumnya" className={cn(tombol, "absolute left-3 top-1/2 hidden -translate-y-1/2 md:flex")}><ChevronLeft className="size-5" /></button>
       <button type="button" onClick={() => ke(aktif + 1)} aria-label="Slide berikutnya" className={cn(tombol, "absolute right-3 top-1/2 hidden -translate-y-1/2 md:flex")}><ChevronRight className="size-5" /></button>
-      {slot ? createPortal(kontrol, slot) : <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-slate-900/70 text-white">{kontrol}</div>}
+      <div className={cn("absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full px-2 py-1 backdrop-blur", gelap ? "bg-white/15" : "bg-white/85 ring-1 ring-slate-200")}>
+        {slide.map((s, i) => (
+          <button key={s.label} type="button" onClick={() => ke(i)} aria-label={`Buka slide ${i + 1}: ${s.label}`} aria-current={i === aktif ? "true" : undefined} className="flex h-6 items-center px-1">
+            <span className={cn("block h-2 rounded-full transition-all", i === aktif ? "w-7" : "w-2", gelap ? (i === aktif ? "bg-white" : "bg-white/50") : (i === aktif ? "bg-teal-600" : "bg-slate-400"))} />
+          </button>
+        ))}
+        <button type="button" onClick={() => setPutar((p) => !p)} aria-label={putar ? "Jeda slideshow" : "Putar slideshow"} className={cn("flex size-6 items-center justify-center rounded-full", gelap ? "text-white" : "text-navy-800")}>
+          {putar ? <Pause className="size-3.5" /> : <Play className="size-3.5" />}
+        </button>
+      </div>
     </section>
   );
 }

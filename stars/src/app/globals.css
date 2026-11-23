@@ -260,9 +260,8 @@ html.a11y-tanpa-gambar .latar-galaksi { visibility: hidden; }
   .dark :is(.border-slate-200, .border-slate-300) { border-color: #334158; }
   .dark .ring-slate-200 { --tw-ring-color: #334158; }
   .dark .bg-navy-800 { background-color: #17406e; }
-  .dark .panggung-logo, .dark #logo-header { border-radius: .75rem; background: #fff; }
-  .dark #logo-header, .dark #logo-header *, .dark .panggung-logo, .dark .panggung-logo * { color: #0b2545; }
-  .dark main svg[aria-labelledby="stars-logo-judul"], .dark main img[src*="stars-logo"] { border-radius: .75rem; background: #fff; padding: .4rem; }
+  .dark .panggung-logo svg text, .dark main svg[aria-labelledby="stars-logo-judul"] text { fill: #e6edf7; }
+  .dark :is(img[src*="stars-logo"], img[src*="logo-rsud"], #logo-header img) { filter: invert(1) hue-rotate(180deg) brightness(1.15); }
   .dark #slideshow-beranda span.bg-white { background-color: #fff; }
   .dark :is(.text-teal-700, .text-teal-800):not([class*="bg-teal"]) { color: #5cd0d5; }
   .dark .a11y-ubin { background: #182235; border-color: #334158; color: #e6edf7; }
@@ -328,7 +327,6 @@ html.a11y-tanpa-gambar :is(.latar-gerbang, .latar-tahoe) { visibility: hidden; }
   html:is([data-latar="3"], [data-latar="4"]) :is(.ring-teal-300, .ring-teal-400, .ring-teal-600) { --tw-ring-color: var(--gg-aksen); }
   html:is([data-latar="3"], [data-latar="4"]) :is(.bg-teal-400, .lacak-titik) { background-color: #4a9cf0; }
   html.dark:is([data-latar="3"], [data-latar="4"]) #slideshow-beranda :is(.bg-white\/80, .bg-white\/90) { background-color: var(--gg-permukaan); }
-  html.dark:is([data-latar="3"], [data-latar="4"]) #logo-header, html.dark:is([data-latar="3"], [data-latar="4"]) .panggung-logo { background: #f5f5f7; }
 }
 @media screen and (prefers-reduced-transparency: reduce) {
   html:is([data-latar="3"], [data-latar="4"]) :is(header.sticky, #bilah-cepat, button.fixed.bg-emerald-600) { background-color: var(--gg-permukaan); -webkit-backdrop-filter: none; backdrop-filter: none; }
@@ -366,27 +364,46 @@ html.a11y-tanpa-gambar :is(.latar-gerbang, .latar-tahoe) { visibility: hidden; }
   html[data-latar="3"] { --gg-permukaan: #fff; --gg-kaca: #fff; --t4-sisi: #ececee; }
   html.dark[data-latar="3"] { --gg-permukaan: #24262d; --gg-kaca: #24262d; --t4-sisi: #2b2b2e; }
 }
-@media screen and (min-width: 1024px) {
-  html:is([data-latar="3"], [data-latar="4"]) .sidebar-t4 { display: block; }
-  html:is([data-latar="3"], [data-latar="4"]) .kolom-utama { padding-left: 16rem; }
-  html:is([data-latar="3"], [data-latar="4"]) header.sticky button[aria-haspopup="dialog"], html:is([data-latar="3"], [data-latar="4"]) #logo-header { display: none; }
-  html:is([data-latar="3"], [data-latar="4"]) #aksi-samar { left: 16.5rem; }
-  html:is([data-latar="3"], [data-latar="4"]) .sidebar-t4 aside.bg-navy-800 { width: 16rem; background: var(--t4-sisi); color: var(--gg-teks); border-right: 1px solid var(--gg-garis); }
-  html[data-latar="3"] .sidebar-t4 aside.bg-navy-800 { inset: .6rem auto .6rem .6rem; width: 15rem; border: 1px solid var(--gg-garis); border-radius: 1.4rem; box-shadow: 0 12px 36px rgb(15 35 70 / .2); -webkit-backdrop-filter: blur(26px) saturate(1.7); backdrop-filter: blur(26px) saturate(1.7); }
-  .sidebar-t4 aside > div { border-color: var(--gg-garis); }
-  .sidebar-t4 aside :is(p, span) { color: var(--gg-teks); }
-  .sidebar-t4 nav a { border-radius: .5rem; background: transparent; color: var(--gg-teks); font-size: .875rem; }
-  html[data-latar="3"] .sidebar-t4 nav a { border-radius: .85rem; }
-  .sidebar-t4 nav a svg { color: var(--t4-ikon); }
-  html[data-latar="4"] .sidebar-t4 nav a:nth-of-type(6n+1) svg { color: #0a84ff; }
-  html[data-latar="4"] .sidebar-t4 nav a:nth-of-type(6n+2) svg { color: #f59e0b; }
-  html[data-latar="4"] .sidebar-t4 nav a:nth-of-type(6n+3) svg { color: #22a06b; }
-  html[data-latar="4"] .sidebar-t4 nav a:nth-of-type(6n+4) svg { color: #8b5cf6; }
-  html[data-latar="4"] .sidebar-t4 nav a:nth-of-type(6n+5) svg { color: #ec4899; }
-  html[data-latar="4"] .sidebar-t4 nav a:nth-of-type(6n) svg { color: #14a3b8; }
-  .sidebar-t4 nav a:hover { background: rgb(127 127 127 / .14); color: var(--gg-teks); }
-  .sidebar-t4 nav a[aria-current="page"] { background: var(--t4-pilih); color: var(--gg-teks); font-weight: 600; box-shadow: none; }
+/* Menu T3 dan T4: dock kaca vertikal yang muncul saat kursor ke tepi kiri, panel kaca dari tombol menu. */
+@media screen {
+  html:is([data-latar="3"], [data-latar="4"]) aside[aria-label="Menu navigasi"].bg-navy-800 { inset: .6rem auto .6rem .6rem; width: min(18rem, calc(100vw - 1.2rem)); max-width: none; border: 1px solid var(--gg-garis); border-radius: 1.4rem; background: rgb(250 250 252 / .76); color: var(--gg-teks); box-shadow: 0 18px 54px rgb(0 0 0 / .28); -webkit-backdrop-filter: blur(28px) saturate(1.7); backdrop-filter: blur(28px) saturate(1.7); overflow: hidden; }
+  html.dark:is([data-latar="3"], [data-latar="4"]) aside[aria-label="Menu navigasi"].bg-navy-800 { background: rgb(30 32 40 / .78); }
+  html:is([data-latar="3"], [data-latar="4"]) aside[aria-label="Menu navigasi"].-translate-x-full { transform: translateX(calc(-100% - 1rem)); }
+  html:is([data-latar="3"], [data-latar="4"]) aside[aria-label="Menu navigasi"] > div { border-color: var(--gg-garis); }
+  html:is([data-latar="3"], [data-latar="4"]) aside[aria-label="Menu navigasi"] :is(a, span, p, button) { color: var(--gg-teks); background-color: transparent; }
+  html:is([data-latar="3"], [data-latar="4"]) aside[aria-label="Menu navigasi"] nav a { border-radius: .7rem; }
+  html:is([data-latar="3"], [data-latar="4"]) aside[aria-label="Menu navigasi"] nav a:hover { background-color: rgb(127 127 127 / .16); }
+  html:is([data-latar="3"], [data-latar="4"]) aside[aria-label="Menu navigasi"] nav a[aria-current="page"] { background-color: var(--t4-pilih); font-weight: 600; }
+  html:is([data-latar="3"], [data-latar="4"]) aside[aria-label="Menu navigasi"] nav a svg { color: var(--t4-ikon); }
 }
+@media screen and (min-width: 1024px) {
+  html:is([data-latar="3"], [data-latar="4"]) .sidebar-t4 { display: block; position: fixed; inset: 0 auto 0 0; z-index: 45; width: .75rem; }
+  html:is([data-latar="3"], [data-latar="4"]) .sidebar-t4 aside.bg-navy-800 { inset: 50% auto auto .6rem; width: 4.3rem; height: auto; max-height: calc(100vh - 1.2rem); border: 1px solid var(--gg-garis); border-radius: 1.55rem; background: var(--gg-kaca); color: var(--gg-teks); box-shadow: 0 16px 44px rgb(0 0 0 / .26), inset 0 1px 0 rgb(255 255 255 / .3); -webkit-backdrop-filter: blur(26px) saturate(1.7); backdrop-filter: blur(26px) saturate(1.7); opacity: 0; transform: translate(calc(-100% - 1rem), -50%); transition: transform .24s cubic-bezier(.22,1,.36,1), opacity .18s ease; }
+  html:is([data-latar="3"], [data-latar="4"]) .sidebar-t4:is(:hover, :focus-within) aside.bg-navy-800 { opacity: 1; transform: translate(0, -50%); }
+  .sidebar-t4 aside > div:first-child, .sidebar-t4 aside > div:last-child { display: none !important; }
+  .sidebar-t4 aside > div:nth-child(2) { flex: none; padding: .4rem; overflow: visible; }
+  .sidebar-t4 nav { gap: .05rem; }
+  .sidebar-t4 nav a { display: grid; width: 3.4rem; height: 2.9rem; padding: 0; place-items: center; border-radius: .9rem; background: transparent; color: var(--gg-teks); transform-origin: left center; transition: transform .16s ease-out, background-color .16s ease; }
+  .sidebar-t4 nav a > span:not(.sr-only) { display: none; }
+  .sidebar-t4 nav a svg { width: 1.55rem; height: 1.55rem; color: var(--t4-ikon); }
+  .sidebar-t4 nav a:nth-of-type(6n+1) svg { color: #0a84ff; }
+  .sidebar-t4 nav a:nth-of-type(6n+2) svg { color: #f59e0b; }
+  .sidebar-t4 nav a:nth-of-type(6n+3) svg { color: #22a06b; }
+  .sidebar-t4 nav a:nth-of-type(6n+4) svg { color: #8b5cf6; }
+  .sidebar-t4 nav a:nth-of-type(6n+5) svg { color: #ec4899; }
+  .sidebar-t4 nav a:nth-of-type(6n) svg { color: #14a3b8; }
+  .sidebar-t4 nav a:is(:hover, :focus-visible) { transform: scale(1.16); background: rgb(127 127 127 / .16); }
+  .sidebar-t4 nav a[aria-current="page"] { background: var(--t4-pilih); box-shadow: none; }
+}
+@media screen and (min-width: 1024px) and (max-height: 720px) {
+  .sidebar-t4 nav a { height: 2.35rem; }
+  .sidebar-t4 nav a svg { width: 1.3rem; height: 1.3rem; }
+}
+
+:root { --robot-aksen: #2dd4bf; }
+html[data-latar="2"] { --robot-aksen: #ff8a3d; }
+html[data-latar="3"] { --robot-aksen: #4aa8ff; }
+html[data-latar="4"] { --robot-aksen: #f4b942; }
 
 /* Robot login */
 @media (prefers-reduced-motion: no-preference) {

@@ -109,7 +109,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       <h2 className="muncul mb-3 mt-4 text-center text-3xl font-semibold tracking-tight text-[#1d1d1f] md:text-5xl">Data lengkap.</h2>
       <p className="mb-4 text-center text-lg text-muted-foreground">Angka & grafik dari setiap menu, diperbarui langsung.</p>
-      <div className="mb-6 flex justify-center"><TombolPresentasi bagian={BAGIAN} /></div>
+      <TombolPresentasi bagian={BAGIAN} />
 
       {/* Navigasi bagian (lengket di bawah header, gaya apple.com) */}
       <nav aria-label="Bagian dashboard" className="sticky top-16 z-10 -mx-4 mb-6 border-b bg-background/85 px-4 py-2 backdrop-blur md:mx-0 md:rounded-full md:border md:px-2 print:hidden">

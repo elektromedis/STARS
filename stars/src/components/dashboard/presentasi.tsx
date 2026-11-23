@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { ChevronLeft, ChevronRight, Grid3x3, Maximize, Minimize, Pause, Play, Presentation, Printer, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Grid3x3, Maximize, Minimize, Pause, Play, Printer, X } from "lucide-react";
 import { LogoIkon } from "@/components/layout/logo-animasi";
 import { useSitus } from "@/components/layout/use-situs";
 import { urlLogoRsud } from "@/lib/situs";
@@ -140,6 +140,13 @@ export function TombolPresentasi({ bagian, judul = "Dashboard STARS" }: { bagian
     setSlides(["sampul", ...susunSlide(bagian), "penutup"]); setI(0);
     requestAnimationFrame(() => akar.current?.requestFullscreen?.().catch(() => {}));
   }
+  const bukaPresentasi = useRef(mulai);
+  bukaPresentasi.current = mulai;
+  useEffect(() => {
+    const f = () => bukaPresentasi.current();
+    window.addEventListener("stars:presentasi", f);
+    return () => window.removeEventListener("stars:presentasi", f);
+  }, []);
   useEffect(() => {
     if (!slides) return;
     const uk = () => setUkuran({ w: window.innerWidth, h: window.innerHeight });
@@ -174,9 +181,6 @@ export function TombolPresentasi({ bagian, judul = "Dashboard STARS" }: { bagian
   const props = { n, judulLaporan: judul, tanggal, logoRsud: urlLogoRsud(info) };
   return (
     <>
-      <button type="button" onClick={mulai} className="inline-flex h-10 items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-navy-700 px-5 text-sm font-semibold text-white shadow-md transition hover:shadow-lg hover:brightness-110 print:hidden">
-        <Presentation className="size-4" aria-hidden /> Slideshow presentasi
-      </button>
       {slides && createPortal(
         <div ref={akar} id="presentasi-root" role="dialog" aria-modal="true" aria-label="Presentasi laporan dashboard" aria-roledescription="presentasi" className="fixed inset-0 z-[90] flex flex-col bg-slate-950 text-white">
           {cetak && <div className="slide-cetak">{slides.map((s, k) => <div key={k} className="slide-halaman"><KanvasSlide s={s} i={k} {...props} /></div>)}</div>}

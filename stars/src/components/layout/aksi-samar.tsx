@@ -6,7 +6,7 @@ import { useBahasa } from "@/lib/bahasa";
 import { cn } from "@/lib/utils";
 import { useSitus } from "./use-situs";
 
-const TOMBOL = "flex h-11 items-center whitespace-nowrap rounded-full border border-white/60 bg-white/80 p-1.5 text-sm font-semibold text-navy-800 shadow-lg ring-1 ring-slate-900/10 backdrop-blur-xl transition-colors duration-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-600 motion-reduce:transition-none";
+const TOMBOL = "flex h-11 flex-row-reverse items-center whitespace-nowrap rounded-full border border-white/60 bg-white/80 p-1.5 text-sm font-semibold text-navy-800 shadow-lg ring-1 ring-slate-900/10 backdrop-blur-xl transition-colors duration-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-600 motion-reduce:transition-none";
 
 /** Bantuan dan Aksesibilitas selalu terlihat samar; jelas saat kursor, fokus, atau ketukan pertama. */
 export function AksiSamar() {
@@ -39,7 +39,7 @@ export function AksiSamar() {
       onClickCapture={(e) => { if (ketukPertama.current) { ketukPertama.current = false; e.preventDefault(); e.stopPropagation(); } }}
       onFocusCapture={() => setAktif(true)}
       onBlurCapture={(e) => { if (!wadah.current?.contains(e.relatedTarget as Node)) setAktif(false); }}
-      className={cn("fixed bottom-[calc(6rem+env(safe-area-inset-bottom))] left-2 z-40 grid justify-items-start gap-2 transition-opacity duration-200 motion-reduce:transition-none print:hidden md:bottom-24", aktif ? "opacity-100" : "opacity-30")}>
+      className={cn("fixed right-2 top-[calc(6.25rem+env(safe-area-inset-top))] z-40 grid justify-items-end gap-2 transition-opacity duration-200 motion-reduce:transition-none print:hidden md:right-3", aktif ? "opacity-100" : "opacity-30")}>
       {info.whatsapp && (
         <a href={`https://wa.me/${info.whatsapp}?text=${encodeURIComponent(t("Halo, saya butuh bantuan terkait STARS.", "Hello, I need help with STARS."))}`} target="_blank" rel="noopener noreferrer" aria-label={teksBantuan} className={TOMBOL}>
           <span className="grid size-8 shrink-0 place-items-center rounded-full bg-teal-600 text-white"><MessageCircle className="size-4" aria-hidden /></span>{label(teksBantuan)}

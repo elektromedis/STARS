@@ -117,7 +117,7 @@ export function Panggung({ d }: { d: DataPanggung }) {
           </div>
         ) },
         { label: "Karyawan AI", isi: (
-          <div className="flex h-full flex-col gap-3 bg-white/90 px-4 pb-6 pt-4 md:px-16 lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-6 lg:pt-6">
+          <div className="flex h-full flex-col gap-3 bg-white/90 px-4 pb-14 pt-4 md:px-16 lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-6 lg:pt-6">
             <JudulHero judul="Karyawan AI" sub={<>Lima petugas virtual untuk pengelolaan alat kesehatan.<span className="mt-1 block text-xs opacity-75 md:text-sm">Hanya membaca data dan memberi saran.</span></>}>
               <Pil href="/login?callbackUrl=/allies/kantor">Masuk ke Kantor AI</Pil>
               <Pil href="/login?callbackUrl=/dashboard-3d" varian="garis">Dashboard 3D</Pil>

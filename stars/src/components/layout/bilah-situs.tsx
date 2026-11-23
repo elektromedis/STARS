@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronRight, ChevronUp, Mail, MapPin, MessageCircle, Phone, X } from "lucide-react";
+import { ChevronRight, ChevronUp, Mail, MapPin, MessageCircle, Phone, Presentation, X } from "lucide-react";
 import { PilihBahasa, useBahasa } from "@/lib/bahasa";
 import { useSitus } from "./use-situs";
 import { urlLogoRsud } from "@/lib/situs";
@@ -13,12 +13,20 @@ import { LogoIkon } from "./logo-animasi";
 export function BilahAtas() {
   const { info } = useSitus();
   const { t } = useBahasa();
+  const pathname = usePathname();
   return (
     <div className="bg-teal-700 text-white print:hidden">
       <div className="mx-auto flex max-w-[1360px] items-center gap-3 px-4 py-1 text-xs md:px-6">
         {info.tampilBilahAtas && <span className="flex min-w-0 items-center gap-1.5 truncate"><MapPin className="size-3.5 shrink-0" aria-hidden /><span className="truncate">{info.alamat}</span></span>}
         {info.tampilBilahAtas && info.telepon && <a href={`tel:${info.telepon.replace(/[^\d+]/g, "")}`} className="hidden shrink-0 items-center gap-1 font-semibold hover:underline sm:flex"><Phone className="size-3.5" aria-hidden /> {info.telepon}</a>}
-        <span className="ml-auto flex shrink-0 items-center gap-2"><span id="slot-slideshow" className="flex items-center empty:hidden" /><span className="sr-only">{t("Bahasa", "Language")}</span><PilihBahasa /></span>
+        <span className="ml-auto flex shrink-0 items-center gap-2">
+          {pathname === "/" && (
+            <button id="tombol-presentasi" type="button" onClick={() => window.dispatchEvent(new Event("stars:presentasi"))} aria-label={t("Slideshow presentasi", "Presentation slideshow")} title={t("Slideshow presentasi", "Presentation slideshow")}
+              className="inline-flex h-6 items-center gap-1 rounded-full border border-current px-2 font-semibold transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-current">
+              <Presentation className="size-3.5" aria-hidden /><span className="hidden sm:inline">{t("Slideshow presentasi", "Presentation slideshow")}</span>
+            </button>
+          )}
+          <span className="sr-only">{t("Bahasa", "Language")}</span><PilihBahasa /></span>
       </div>
     </div>
   );
