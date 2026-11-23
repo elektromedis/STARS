@@ -1,4 +1,4 @@
-import { Activity, Landmark, ArrowLeftRight, CalendarDays, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, ShieldCheck, Thermometer, Wallet, Wrench, type LucideIcon } from "lucide-react";
+import { Activity, Landmark, ArrowLeftRight, CalendarDays, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, ShieldCheck, Thermometer, Wallet, Wrench, type LucideIcon, Box } from "lucide-react";
 
 export type NavItem = {
   label: string; href: string; icon: LucideIcon; description: string;
@@ -31,6 +31,7 @@ export const SIALKES_TABS: NavItem[] = [
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard, description: "Ringkasan seluruh menu: perencanaan-pengadaan, pemeliharaan alat, dan laporan kerusakan" },
+  { label: "DASHBOARD 3D", href: "/dashboard-3d", icon: Box, description: "Dashboard alternatif: kantor 3D Karyawan AI dengan tugas terbuka tiap petugas (perlu login)" },
   { label: "ALLIES", href: "/allies", icon: Bot, description: "Agen pengelolaan alat medik: siklus alat dari Analisa Kebutuhan s.d. Penghapusan (Pre-Market → Post-Market), rekomendasi penggantian, dan tanya-jawab dari data STARS" },
   { label: "SI-ALKES", href: "/nilai", icon: Boxes, match: [...PERENCANAAN_TABS.map((t) => t.href), "/hta"], description: "Perencanaan-Pengadaan (nilai, paket, data, cetak RKBU) dan HTA dalam satu menu" },
   { label: "SI-FARMALKES", href: "/pemeliharaan", icon: Activity, match: ["/pemeliharaan", "/alat", "/kalibrasi", "/lapor", "/kalender", "/peminjaman"], description: "Pemeliharaan alat & inventaris, Pengujian dan Kalibrasi, serta Lapor Kerusakan dalam satu menu" },

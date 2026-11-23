@@ -388,6 +388,15 @@ html.a11y-tanpa-gambar :is(.latar-gerbang, .latar-tahoe) { visibility: hidden; }
   .sidebar-t4 nav a[aria-current="page"] { background: var(--t4-pilih); color: var(--gg-teks); font-weight: 600; box-shadow: none; }
 }
 
+/* Robot login */
+@media (prefers-reduced-motion: no-preference) {
+  .robot-kedip { transform-box: fill-box; transform-origin: center; animation: robot-kedip 4.6s infinite; }
+  @keyframes robot-kedip { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
+  .robot-geleng { animation: robot-geleng .5s ease-in-out; }
+  @keyframes robot-geleng { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 50% { transform: translateX(6px); } 75% { transform: translateX(-3px); } }
+}
+@media screen { .dark .tetap-putih.bg-white { background-color: #fff; color: #0f172a; } }
+
 /* ───────── Widget aksesibilitas (components/layout/aksesibilitas.tsx) ───────── */
 .a11y-ubin { display: flex; min-height: 4.2rem; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; border-radius: .75rem; border: 1px solid #e2e8f0; background: #f8fafc; padding: .4rem; text-align: center; font-size: .75rem; font-weight: 600; line-height: 1.15; color: #0b2545; }
 .a11y-ubin:hover { border-color: #1d4ed8; }

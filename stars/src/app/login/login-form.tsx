@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { Loader2, LogIn, UserPlus, XCircle } from "lucide-react";
+import { RobotLogin, type ModeRobot } from "@/components/akun/robot-login";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { InputSandi } from "@/components/ui/input-sandi";
@@ -11,14 +12,42 @@ import { masuk, type StatusLogin } from "./actions";
 
 export function LoginForm({ callbackUrl }: { callbackUrl?: string }) {
   const [status, aksi, pending] = useActionState<StatusLogin, FormData>(masuk, undefined);
+  const form = useRef<HTMLFormElement>(null);
+  const [fokus, setFokus] = useState<"email" | "sandi" | "intip" | null>(null);
+  const [arah, setArah] = useState(0);
+  const [salah, setSalah] = useState(false);
+
+  useEffect(() => {
+    if (!status?.error) return;
+    setSalah(true);
+    const t = setTimeout(() => setSalah(false), 1600);
+    return () => clearTimeout(t);
+  }, [status]);
+
+  /** Membaca jenis kolom yang aktif. Isi sandi tidak pernah dibaca. */
+  const baca = () => {
+    const f = form.current;
+    if (!f) return;
+    const aktif = document.activeElement;
+    const sandi = f.elements.namedItem("password") as HTMLInputElement | null;
+    const email = f.elements.namedItem("email") as HTMLInputElement | null;
+    const diSandi = !!sandi && !!aktif && !!sandi.parentElement?.contains(aktif);
+    if (aktif === email) { setFokus("email"); setArah(Math.min(1, (email?.value.length ?? 0) / 28)); }
+    else if (diSandi) setFokus(sandi?.type === "text" ? "intip" : "sandi");
+    else setFokus(null);
+  };
+  const nanti = () => setTimeout(baca, 0);
+  const mode: ModeRobot = pending ? "proses" : salah ? "salah" : fokus ?? "diam";
+
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Masuk ke STARS</CardTitle>
+      <CardHeader className="items-center text-center">
+        <RobotLogin mode={mode} arah={arah} />
+        <CardTitle className="pt-2">Masuk ke STARS</CardTitle>
         <CardDescription>Area administrasi data alat kesehatan RSUD Cipayung.</CardDescription>
       </CardHeader>
       <CardContent>
-        <form action={aksi} className="grid gap-4">
+        <form ref={form} action={aksi} className="grid gap-4" onFocusCapture={nanti} onBlurCapture={nanti} onInput={baca} onClickCapture={nanti}>
           <input type="hidden" name="callbackUrl" value={callbackUrl ?? "/admin"} />
           <label className="grid gap-1.5 text-sm font-medium">
             Email
