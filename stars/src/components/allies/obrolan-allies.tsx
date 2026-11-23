@@ -5,6 +5,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { ArrowRight, Bot, CheckCircle2, CircleAlert, Loader2, Send, TriangleAlert, UserRound } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { BlokJawaban, Jawaban } from "@/lib/allies";
+import { KARYAWAN, type IdKaryawan } from "@/lib/allies-karyawan";
 
 type Pesan = { dari: "saya"; teks: string } | { dari: "allies"; jawab: Jawaban };
 
@@ -39,7 +40,7 @@ function Blok({ b }: { b: BlokJawaban }) {
           const isi = (
             <span className="flex gap-2">
               {N ? <N.I className={cn("mt-0.5 size-4 shrink-0", N.c)} aria-hidden /> : <span className="mt-2 size-1.5 shrink-0 rounded-full bg-slate-400" aria-hidden />}
-              <span className="min-w-0"><span className="block">{x.teks}</span>{x.sub && <span className="block text-xs text-muted-foreground">{x.sub}</span>}</span>
+              <span className="min-w-0"><span className="block"><Teks isi={x.teks} /></span>{x.sub && <span className="block text-xs text-muted-foreground">{x.sub}</span>}</span>
             </span>
           );
           return <li key={i}>{x.href ? <Link href={x.href} className="block rounded-md px-1 py-0.5 hover:bg-white">{isi}</Link> : isi}</li>;
@@ -49,14 +50,16 @@ function Blok({ b }: { b: BlokJawaban }) {
   );
 }
 
-/** Panel obrolan "Tanya ALLIES": jawaban dihitung server dari data STARS (tanpa AI eksternal). */
-export function ObrolanAllies({ pembuka, saranAwal }: { pembuka: Jawaban; saranAwal: string[] }) {
+/** Panel obrolan "Tanya ALLIES": mode AI untuk pengguna login bila dikonfigurasi, selain itu mesin aturan lokal. */
+export function ObrolanAllies({ pembuka, saranAwal, ai = false }: { pembuka: Jawaban; saranAwal: string[]; ai?: boolean }) {
+  const [karyawan, setKaryawan] = useState<IdKaryawan>("umum");
   const [pesan, setPesan] = useState<Pesan[]>([{ dari: "allies", jawab: pembuka }]);
   const [teks, setTeks] = useState("");
   const [sibuk, setSibuk] = useState(false);
   const kotak = useRef<HTMLDivElement>(null);
   const terakhir = pesan[pesan.length - 1];
-  const saran = terakhir.dari === "allies" ? terakhir.jawab.saran : saranAwal;
+  const petugas = KARYAWAN.find((k) => k.id === karyawan) ?? KARYAWAN[0];
+  const saran = ai && pesan.length === 1 ? petugas.saran : terakhir.dari === "allies" ? terakhir.jawab.saran : saranAwal;
 
   useEffect(() => {
     const k = kotak.current;
@@ -66,11 +69,12 @@ export function ObrolanAllies({ pembuka, saranAwal }: { pembuka: Jawaban; saranA
   async function tanya(q: string) {
     const isi = q.trim();
     if (!isi || sibuk) return;
+    const riwayat = pesan.flatMap((m) => (m.dari === "saya" ? [{ peran: "user", teks: m.teks }] : m.jawab.asli ? [{ peran: "assistant", teks: m.jawab.asli }] : []));
     setPesan((p) => [...p, { dari: "saya", teks: isi }]);
     setTeks("");
     setSibuk(true);
     try {
-      const r = await fetch("/api/allies", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pesan: isi }) });
+      const r = await fetch("/api/allies", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pesan: isi, riwayat, karyawan }) });
       const j = await r.json();
       setPesan((p) => [...p, { dari: "allies", jawab: r.ok ? (j as Jawaban) : { blok: [{ jenis: "teks", isi: j.error ?? "Maaf, terjadi kesalahan." }], saran: [] } }]);
     } catch {
@@ -84,8 +88,13 @@ export function ObrolanAllies({ pembuka, saranAwal }: { pembuka: Jawaban; saranA
     <div className="flex h-[34rem] flex-col overflow-hidden rounded-2xl border bg-gradient-to-b from-slate-50 to-white shadow-card">
       <div className="flex items-center gap-3 border-b bg-white px-4 py-3">
         <span className="relative flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-navy-700 text-white"><Bot className="size-5" aria-hidden /><span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full bg-green-500 ring-2 ring-white" aria-hidden /></span>
-        <div className="leading-tight"><p className="font-semibold text-navy-800">Tanya ALLIES</p><p className="text-xs text-muted-foreground">Menjawab dari data STARS terkini · tanpa AI eksternal</p></div>
+        <div className="leading-tight"><p className="font-semibold text-navy-800">Tanya ALLIES</p><p className="text-xs text-muted-foreground">{ai ? `${petugas.nama} · AI cloud · data pribadi disaring` : "Menjawab dari data STARS terkini · mesin lokal"}</p></div>
       </div>
+      {ai && (
+        <div role="group" aria-label="Pilih Karyawan AI" className="flex gap-2 overflow-x-auto border-b bg-white px-3 py-2 [scrollbar-width:thin]">
+          {KARYAWAN.map((k) => <button key={k.id} type="button" aria-pressed={k.id === karyawan} title={k.bidang} onClick={() => setKaryawan(k.id)} className={cn("shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium", k.id === karyawan ? "border-teal-600 bg-teal-600 text-white" : "bg-slate-50 text-navy-800 hover:border-teal-300")}>{k.nama}</button>)}
+        </div>
+      )}
       <div ref={kotak} className="flex-1 space-y-4 overflow-y-auto p-4" aria-live="polite" aria-label="Percakapan dengan ALLIES">
         {pesan.map((m, i) => m.dari === "saya" ? (
           <div key={i} data-dari="saya" className="flex justify-end gap-2 animate-in fade-in slide-in-from-right-2 duration-300 motion-reduce:animate-none">
@@ -96,6 +105,7 @@ export function ObrolanAllies({ pembuka, saranAwal }: { pembuka: Jawaban; saranA
           <div key={i} data-dari="allies" className="flex gap-2 animate-in fade-in slide-in-from-bottom-2 duration-500 motion-reduce:animate-none">
             <Bot className="mt-1 size-5 shrink-0 text-teal-600" aria-hidden />
             <div className="grid max-w-[92%] gap-3 rounded-2xl rounded-tl-sm border bg-teal-50/60 px-3.5 py-3 text-sm text-navy-800">
+              {m.jawab.oleh && <p className="text-xs font-semibold text-teal-800">{m.jawab.oleh} · jawaban AI, periksa sebelum dipakai</p>}
               {m.jawab.blok.map((b, j) => <Blok key={j} b={b} />)}
             </div>
           </div>

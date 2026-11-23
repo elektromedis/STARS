@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Bot, CheckCircle2, ChevronDown, Circle, CircleAlert, CircleDot, Search, Sparkles } from "lucide-react";
+import { auth } from "@/auth";
+import { aiAktif } from "@/lib/allies-ai";
 import { prisma } from "@/lib/prisma";
 import { unitTerkunci } from "@/lib/akses";
 import { jawabAllies, ringkasanAllies, SARAN_PEMBUKA, type AnalisaAlat } from "@/lib/allies";
@@ -135,7 +137,7 @@ export default async function AlliesPage({ searchParams }: { searchParams: Promi
 
       {/* Tanya + Agenda */}
       <section id="tanya" className="mb-10 grid scroll-mt-24 gap-4 lg:grid-cols-[1.3fr_1fr]">
-        <ObrolanAllies pembuka={pembuka} saranAwal={SARAN_PEMBUKA} />
+        <ObrolanAllies pembuka={pembuka} saranAwal={SARAN_PEMBUKA} ai={aiAktif() && Boolean((await auth())?.user)} />
         <Card>
           <CardHeader><CardTitle className="flex items-center gap-2"><Sparkles className="size-4 text-amber-500" /> Agenda prioritas</CardTitle><CardDescription>Disusun otomatis dari data terkini; klik untuk melihat kartu siklus alat.</CardDescription></CardHeader>
           <CardContent>

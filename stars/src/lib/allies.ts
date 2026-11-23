@@ -152,7 +152,7 @@ export type BlokJawaban =
   | { jenis: "langkah"; judul: string; butir: string[] }
   | { jenis: "tautan"; butir: { label: string; href: string }[] };
 
-export type Jawaban = { blok: BlokJawaban[]; saran: string[] };
+export type Jawaban = { blok: BlokJawaban[]; saran: string[]; ai?: boolean; oleh?: string; asli?: string };
 
 const SARAN_AWAL = ["Alat mana yang sebaiknya dihapus/diganti?", "Kalibrasi apa yang jatuh tempo?", "Apa saja tahap siklus alat?", "Laporan kerusakan yang belum selesai", "Syarat pengadaan alat baru", "Cara melapor insiden alat"];
 
