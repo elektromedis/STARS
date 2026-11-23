@@ -41,6 +41,12 @@ export async function simpanInfo(fd: FormData) {
     aplikasiAndroid: url(s(fd, "aplikasiAndroid")), aplikasiIos: url(s(fd, "aplikasiIos")),
     grup: uraiGrup(String(fd.get("grup") ?? "")), bantuanTeks: s(fd, "bantuanTeks", 30) || "Bantuan?", tampilBilahAtas: fd.get("tampilBilahAtas") === "on",
     visi: s(fd, "visi", 120), visiEn: s(fd, "visiEn", 120), subAkreditasi: s(fd, "subAkreditasi", 250), subMitra: s(fd, "subMitra", 250), logoRsud,
+    logoHeader: {
+      mode: s(fd, "logoMode") === "stars" ? "stars" : s(fd, "logoMode") === "rsud" ? "rsud" : "slideshow",
+      urutan: s(fd, "logoUrutan") === "rsud-stars" ? "rsud-stars" : "stars-rsud",
+      durasi: Math.min(15, Math.max(2, Math.round(Number(fd.get("logoDurasi")) || 4))),
+      transisi: s(fd, "logoTransisi") === "geser" ? "geser" : "pudar",
+    },
     aplikasi: String(fd.get("aplikasi") ?? "").split(/\r?\n/).map((b) => b.split("|").map((x) => x.trim())).filter((p) => p[0] && url(p[p.length - 1])).slice(0, 20).map((p) => ({ label: p[0].slice(0, 60), labelEn: p.length > 2 ? p[1].slice(0, 60) : undefined, href: url(p[p.length - 1]) })),
   };
   await prisma.pengaturanSitus.upsert({ where: { kunci: "info" }, create: { kunci: "info", nilai: JSON.stringify(info) }, update: { nilai: JSON.stringify(info) } });

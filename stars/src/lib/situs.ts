@@ -1,6 +1,8 @@
 /** Konten bilah situs (CMS) — tipe & nilai bawaan. Aman dipakai di klien. */
 export type TautanSitus = { label: string; labelEn?: string; href: string };
 export type GrupTautan = { judul: string; judulEn?: string; tautan: TautanSitus[] };
+export type LogoHeader = { mode: "slideshow" | "stars" | "rsud"; urutan: "stars-rsud" | "rsud-stars"; durasi: number; transisi: "pudar" | "geser" };
+export const LOGO_HEADER_BAWAAN: LogoHeader = { mode: "slideshow", urutan: "stars-rsud", durasi: 4, transisi: "pudar" };
 export type InfoSitus = {
   alamat: string; telepon: string; whatsapp: string; email: string; peta: string;
   sosial: { facebook?: string; instagram?: string; x?: string; youtube?: string; tiktok?: string };
@@ -11,6 +13,8 @@ export type InfoSitus = {
   /** Etalase & kaki halaman */
   /** Nama berkas logo RS unggahan CMS (kosong = /logo-rsud.png). */
   logoRsud?: string;
+  /** Tampilan logo STARS dan RS di header. */
+  logoHeader?: Partial<LogoHeader>;
   /** Menu "Aplikasi" di header (dropdown). */
   aplikasi?: TautanSitus[];
   visi?: string; visiEn?: string;

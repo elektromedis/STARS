@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { urlLogoRsud } from "@/lib/situs";
+import { LOGO_HEADER_BAWAAN, urlLogoRsud } from "@/lib/situs";
 import { Award, Handshake, Megaphone, PanelTop } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { sesiHalaman } from "@/lib/sesi";
@@ -86,6 +86,13 @@ export default async function SitusPage({ searchParams }: { searchParams: Promis
               <label className={L}>Logo rumah sakit (header & kaki; PNG transparan landskap, ≤ 3 MB — tinggi otomatis disamakan dengan logo STARS)<input name="logoRsud" type="file" accept="image/jpeg,image/png,image/webp" className="text-sm" /></label>
               {info.logoRsud && <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="logoBawaan" /> Kembalikan logo bawaan</label>}
             </div>
+            <fieldset className="grid gap-3 rounded-lg bg-slate-50 p-3 sm:col-span-2 sm:grid-cols-4">
+              <legend className="px-1 text-sm font-semibold text-navy-800">Logo di header</legend>
+              <label className={L}>Tampilan<select name="logoMode" defaultValue={info.logoHeader?.mode ?? LOGO_HEADER_BAWAAN.mode} className={inp}><option value="slideshow">Slideshow STARS &amp; RS</option><option value="stars">Hanya STARS</option><option value="rsud">Hanya RS</option></select></label>
+              <label className={L}>Urutan<select name="logoUrutan" defaultValue={info.logoHeader?.urutan ?? LOGO_HEADER_BAWAAN.urutan} className={inp}><option value="stars-rsud">STARS lalu RS</option><option value="rsud-stars">RS lalu STARS</option></select></label>
+              <label className={L}>Durasi tiap logo (2–15 detik)<input name="logoDurasi" type="number" min={2} max={15} defaultValue={info.logoHeader?.durasi ?? LOGO_HEADER_BAWAAN.durasi} className={inp} /></label>
+              <label className={L}>Transisi<select name="logoTransisi" defaultValue={info.logoHeader?.transisi ?? LOGO_HEADER_BAWAAN.transisi} className={inp}><option value="pudar">Pudar halus</option><option value="geser">Geser halus</option></select></label>
+            </fieldset>
             <label className={`${L} sm:col-span-2`}>Menu &quot;Aplikasi&quot; di header — satu baris per aplikasi: <code>Nama | Nama EN (opsional) | https://tautan</code>
               <textarea name="aplikasi" rows={6} defaultValue={(info.aplikasi ?? []).map((a) => [a.label, a.labelEn, a.href].filter(Boolean).join(" | ")).join("\n")} className="rounded-md border px-2 py-1 font-mono text-xs" /></label>
             <label className={`${L} sm:col-span-2`}>Alamat<input name="alamat" defaultValue={info.alamat} className={inp} /></label>
