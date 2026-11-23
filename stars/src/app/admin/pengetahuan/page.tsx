@@ -31,6 +31,16 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
           <Button type="submit">Unggah</Button>
         </form>
       </CardContent></Card>
+      <Card><CardHeader><CardTitle>Tambah dari link web</CardTitle><CardDescription>Tempel link halaman atau PDF publik, satu per baris, maksimal 10 link. Pastikan sumbernya resmi dan boleh digunakan. Isi tidak diperbarui otomatis bila situsnya berubah.</CardDescription></CardHeader><CardContent>
+        <form id="form-link-web" action="/api/admin/pengetahuan/web" method="post" className="grid gap-3">
+          <textarea name="tautan" required rows={3} placeholder={"https://contoh.go.id/peraturan\nhttps://contoh.go.id/pedoman.pdf"} aria-label="Link web" className="w-full rounded-md border bg-white px-3 py-2 text-sm" />
+          <div className="grid gap-3 md:grid-cols-[1fr_10rem_auto]">
+            <Input name="judul" placeholder="Judul (opsional, untuk satu link)" aria-label="Judul link" maxLength={200} />
+            <select name="jenis" defaultValue="Pedoman" aria-label="Jenis sumber web" className="h-10 rounded-md border bg-white px-3 text-sm">{["Pedoman", "Peraturan", "SOP", "Manual Alat", "Lainnya"].map((x) => <option key={x}>{x}</option>)}</select>
+            <Button type="submit">Ambil dan simpan</Button>
+          </div>
+        </form>
+      </CardContent></Card>
       <Card><CardHeader><CardTitle>Dokumen ({dok.length})</CardTitle></CardHeader><CardContent>
         {dok.length ? <ul className="divide-y">{dok.map((d) => <li key={d.id} className="flex items-center justify-between gap-3 py-2"><span className="min-w-0"><span className="block font-medium text-navy-800">{d.judul}</span><span className="text-xs text-muted-foreground">{d.jenis} · {d.halaman} halaman · {d._count.potongan} potongan</span></span><form action={hapusDokumen}><input type="hidden" name="id" value={d.id} /><Button type="submit" variant="outline" size="sm">Hapus</Button></form></li>)}</ul> : <p className="text-sm text-muted-foreground">Belum ada dokumen.</p>}
       </CardContent></Card>
