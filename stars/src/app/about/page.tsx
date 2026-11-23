@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BookOpen } from "lucide-react";
 import { PageHeader } from "@/components/dashboard/page-header";
 import { Badge } from "@/components/ui/badge";
-import { LogoFull } from "@/components/layout/logo";
+import { LogoAnimasi } from "@/components/layout/logo-animasi";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = { title: "TENTANG SAYA" };
@@ -22,7 +22,7 @@ export default function AboutPage() {
         <Card className="lg:col-span-2">
           <CardHeader><CardTitle>Tentang Sistem</CardTitle></CardHeader>
           <CardContent className="space-y-4 text-sm leading-relaxed text-muted-foreground">
-            <LogoFull width={280} className="-ml-2" />
+            <LogoAnimasi terang className="w-full max-w-[22rem]" />
             <p>STARS adalah sistem terintegrasi untuk memantau perencanaan, pengadaan, dan pemeliharaan alat kesehatan di RSUD Cipayung, mulai dari ringkasan nilai, daftar paket, hingga dataset yang dapat diunduh.</p>
             <p>Sumber data adalah kertas kerja RKPBU (Rencana Kebutuhan Pemeliharaan Barang Unit) dan RKBU alat kesehatan BLUD RSUD Cipayung per tahun dan tahap anggaran (Ranwal, Penetapan, Pergeseran, Perubahan). Nilai yang ditampilkan sudah termasuk PPN sesuai kertas kerja.</p>
             <p>Struktur informasi (Dashboard, Perencanaan-Pengadaan: Nilai, Paket, Data) terinspirasi dari dashboard INAPROC. STARS dikembangkan secara independen dan bukan aplikasi resmi INAPROC maupun LKPP.</p>

@@ -25,8 +25,8 @@ export function LogoBergantian({ info }: { info: InfoSitus }) {
 
   const tampil = urutan[Math.min(aktif, urutan.length - 1)];
   const kelas = (id: string) => cn(
-    "col-start-1 row-start-1 flex items-center transition-all duration-700 ease-in-out motion-reduce:transition-none",
-    tampil === id ? "translate-x-0 opacity-100" : cn("opacity-0", atur.transisi === "geser" ? "-translate-x-4" : "scale-95"),
+    "col-start-1 row-start-1 flex items-center transition-all ease-in-out motion-reduce:transition-none",
+    tampil === id ? "translate-x-0 opacity-100 delay-300 duration-500" : cn("opacity-0 duration-300", atur.transisi === "geser" ? "-translate-x-4" : "scale-95"),
   );
 
   return (

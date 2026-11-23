@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Sistem Terintegrasi Alat Kesehatan Rumah Sakit - RSUD Cipayung: perencanaan-pengadaan dan pemeliharaan alat kesehatan.",
   applicationName: "STARS",
   appleWebApp: { capable: true, title: "STARS", statusBarStyle: "default" },
-  icons: { apple: "/apple-touch-icon.png" },
+  icons: { apple: "/apple-touch-icon.png?v=2" },
   formatDetection: { telephone: false },
 };
 

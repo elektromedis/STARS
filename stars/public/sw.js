@@ -4,7 +4,7 @@
  *                                      Halaman TIDAK disimpan di perangkat (data RS tidak tertinggal di HP bersama).
  * - API, admin, login, unggahan      : tidak pernah di-cache (selalu langsung ke server, data sensitif tidak disimpan).
  */
-const VERSI = "stars-v1";
+const VERSI = "stars-v2";
 const STATIS = `${VERSI}-statis`;
 const OFFLINE = "/offline.html";
 
