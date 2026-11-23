@@ -11,6 +11,7 @@ import { BahasaProvider, useBahasa } from "@/lib/bahasa";
 import { BilahAtas, EtalaseSitus, KembaliKeAtas, KontakSitus, PopupPengumuman } from "./bilah-situs";
 import { AksiSamar } from "./aksi-samar";
 import { Aksesibilitas } from "./aksesibilitas";
+import { LatarGalaksi } from "./tampilan";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   return <BahasaProvider><Shell>{children}</Shell></BahasaProvider>;
@@ -22,6 +23,7 @@ function Shell({ children }: { children: React.ReactNode }) {
   const close = useCallback(() => setOpen(false), []);
   return (
     <div className="min-h-screen">
+      <LatarGalaksi />
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:p-2">
         {t("Lewati ke konten", "Skip to content")}
       </a>

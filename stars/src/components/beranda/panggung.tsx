@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ChevronRight, Glasses } from "lucide-react";
 import { LogoTegak } from "@/components/layout/logo-animasi";
 import { StatusSinkron } from "@/components/layout/status-sinkron";
-import { DiagramSiklus } from "@/components/allies/diagram-siklus";
 import { GulirHalus } from "@/components/beranda/gulir-halus";
+import { RobotAllies } from "@/components/beranda/robot-allies";
 import { SlideshowHero } from "@/components/beranda/slideshow-hero";
 import type { IdTahap } from "@/lib/allies-siklus";
 import { cn, formatNumber } from "@/lib/utils";
@@ -112,7 +112,7 @@ export function Panggung({ d }: { d: DataPanggung }) {
               <Pil href="/allies#tanya">Tanya sekarang</Pil>
               <Pil href="/allies" varian="garis" gelap>Siklusnya</Pil>
             </JudulHero>
-            <div className="mx-auto flex min-h-0 w-full max-w-[32rem] flex-1 items-center justify-center rounded-2xl bg-white p-1.5 lg:h-[26rem] lg:flex-none [&>*]:h-full [&>*]:w-full [&>*]:max-w-none [&_svg]:h-full [&_svg]:w-full"><DiagramSiklus jumlah={d.perTahap} /></div>
+            <div className="mx-auto min-h-0 w-full max-w-[32rem] flex-1 lg:h-[26rem] lg:flex-none"><RobotAllies /></div>
           </div>
         ) },
       ]} />

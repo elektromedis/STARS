@@ -10,6 +10,7 @@ import { MenuAplikasi } from "./menu-aplikasi";
 import { useSitus } from "./use-situs";
 import { StatusSinkron } from "./status-sinkron";
 import { PasangAplikasi } from "./pasang-aplikasi";
+import { TombolTampilan } from "./tampilan";
 
 export function Header({ onMenuClick }: { onMenuClick: () => void }) {
   const { info } = useSitus();
@@ -43,6 +44,7 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
       {/* Kanan: aksi */}
       <div className="ml-auto flex min-w-0 items-center gap-1.5 sm:ml-0 md:gap-2">
         <Button variant="ghost" size="icon" className="hidden size-10 rounded-full min-[420px]:inline-flex sm:hidden" aria-label="Cari" asChild><a href="/paket"><Search className="size-5" /></a></Button>
+        <TombolTampilan />
         <MenuAplikasi />
         <StatusSinkron className="hidden 2xl:inline-flex" />
         <PasangAplikasi />

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppShell } from "@/components/layout/app-shell";
+import { SKRIP_TAMPILAN } from "@/lib/tampilan-skrip";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -19,7 +20,8 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, view
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={inter.variable}>
+    <html lang="id" className={inter.variable} data-latar="1" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: SKRIP_TAMPILAN }} /></head>
       <body className="font-sans">
         <div className="langit" aria-hidden>
           <div className="adegan biru" /><div className="adegan ungu" /><div className="adegan emas" /><div className="adegan rasi" /><div className="adegan perak" />

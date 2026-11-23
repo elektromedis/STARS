@@ -225,6 +225,49 @@ body { background-color: #fff; overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { .adegan.ungu { opacity: .45; } }
 @media print { .langit { display: none; } body { background: #fff; } }
 
+/* ───────── Tema latar dan mode gelap (components/layout/tampilan.tsx) ───────── */
+.latar-galaksi { display: none; position: fixed; inset: 0; z-index: -2; pointer-events: none; background: #fff; }
+html[data-latar="2"] .langit { display: none; }
+html[data-latar="2"] .latar-galaksi { display: block; }
+html.a11y-tanpa-gambar .latar-galaksi { visibility: hidden; }
+@media screen {
+  html.dark {
+    color-scheme: dark;
+    --background: 220 40% 7%; --foreground: 210 30% 93%;
+    --card: 220 34% 12%; --card-foreground: 210 30% 93%;
+    --primary: 183 62% 45%; --primary-foreground: 220 45% 8%;
+    --secondary: 220 26% 18%; --secondary-foreground: 210 30% 90%;
+    --muted: 220 26% 17%; --muted-foreground: 215 20% 72%;
+    --accent: 186 45% 20%; --accent-foreground: 180 60% 82%;
+    --border: 220 20% 24%; --input: 220 20% 28%; --ring: 183 62% 50%;
+  }
+  html.dark body { background-color: #090e18; }
+  html.dark .langit { background: #fff; filter: invert(1) hue-rotate(180deg) brightness(.92); }
+  html.dark .latar-galaksi { background: #05070f; }
+  .dark .bg-white, .dark .hover\:bg-white:hover, .dark .focus-visible\:bg-white:focus-visible, .dark .bg-\[\#f5f5f7\] { background-color: #151e2f; }
+  .dark .bg-white\/95 { background-color: rgb(17 25 40 / .95); }
+  .dark .bg-white\/90, .dark .bg-white\/85, .dark .bg-white\/80 { background-color: rgb(17 25 40 / .88); }
+  .dark .bg-white\/70 { background-color: rgb(30 41 59 / .78); }
+  .dark .bg-slate-50, .dark .bg-slate-50\/60, .dark .hover\:bg-slate-50:hover { background-color: #182235; }
+  .dark .bg-slate-100, .dark .hover\:bg-slate-100:hover { background-color: #1e2a40; }
+  .dark .bg-slate-200, .dark .hover\:bg-slate-200:hover { background-color: #2a3750; }
+  .dark .from-teal-50 { --tw-gradient-from: #10262e var(--tw-gradient-from-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+  .dark .to-\[\#f5f5f7\] { --tw-gradient-to: #151e2f var(--tw-gradient-to-position); }
+  .dark :is(.text-navy-700, .text-navy-800, .text-navy-900, .text-\[\#1d1d1f\], .text-slate-700):not([class*="bg-teal"], [class*="bg-amber"], [class*="bg-yellow"]) { color: #e6edf7; }
+  .dark .text-\[\#1d1d1f\]\/80 { color: rgb(230 237 247 / .82); }
+  .dark .text-\[\#1d1d1f\]\/60 { color: rgb(230 237 247 / .68); }
+  .dark :is(.text-slate-500, .text-slate-600) { color: #a9b6c9; }
+  .dark :is(.border-slate-200, .border-slate-300) { border-color: #334158; }
+  .dark .ring-slate-200 { --tw-ring-color: #334158; }
+  .dark .bg-navy-800 { background-color: #17406e; }
+  .dark .panggung-logo, .dark #logo-header { border-radius: .75rem; background: #fff; }
+  .dark #logo-header, .dark #logo-header *, .dark .panggung-logo, .dark .panggung-logo * { color: #0b2545; }
+  .dark main svg[aria-labelledby="stars-logo-judul"], .dark main img[src*="stars-logo"] { border-radius: .75rem; background: #fff; padding: .4rem; }
+  .dark #slideshow-beranda span.bg-white { background-color: #fff; }
+  .dark :is(.text-teal-700, .text-teal-800):not([class*="bg-teal"]) { color: #5cd0d5; }
+  .dark .a11y-ubin { background: #182235; border-color: #334158; color: #e6edf7; }
+}
+
 /* ───────── Widget aksesibilitas (components/layout/aksesibilitas.tsx) ───────── */
 .a11y-ubin { display: flex; min-height: 4.2rem; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; border-radius: .75rem; border: 1px solid #e2e8f0; background: #f8fafc; padding: .4rem; text-align: center; font-size: .75rem; font-weight: 600; line-height: 1.15; color: #0b2545; }
 .a11y-ubin:hover { border-color: #1d4ed8; }
