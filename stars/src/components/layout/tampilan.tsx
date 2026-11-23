@@ -147,28 +147,18 @@ export function LatarGalaksi() {
   return <div ref={wadah} id="latar-galaksi" className="latar-galaksi" aria-hidden />;
 }
 
-const kabel = (x: number) => 292 + 228 * (1 - ((x - 800) / 330) ** 2);
-const GANTUNGAN = Array.from({ length: 33 }, (_, i) => 480 + i * 20);
-
-/** Tema 3: pemandangan jembatan senja buatan STARS, dengan kabut bergerak halus. */
+/** Tema 3: latar kaca biru. Tema 4: lengkung emas. Keduanya gambar buatan STARS. */
 export function LatarGerbang() {
   return (
-    <div className="latar-gerbang" aria-hidden>
-      <div className="gg-matahari" />
-      <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
-        <path className="gg-bukit-jauh" d="M0 610C180 500 320 540 470 590S760 610 930 585 1240 480 1600 570V900H0Z" />
-        <path className="gg-bukit" d="M0 680C170 610 300 625 420 665S640 690 760 680 1180 650 1600 690V900H0Z" />
-        <g className="gg-jembatan">
-          <path d="M0 596H1600" strokeWidth="12" />
-          <path d="M-40 560C160 520 340 430 470 292M1130 292C1260 430 1440 520 1640 560" strokeWidth="5" />
-          <path d={`M470 292${GANTUNGAN.map((x) => `L${x} ${kabel(x).toFixed(1)}`).join("")}L1130 292`} strokeWidth="5" />
-          <path d={GANTUNGAN.map((x) => `M${x} ${kabel(x).toFixed(1)}V596`).join("")} strokeWidth="1.4" />
-          {[470, 1130].flatMap((x) => [-15, 15].map((d) => <path key={`${x}${d}`} d={`M${x + d} 260V735`} strokeWidth="14" />))}
-          {[470, 1130].flatMap((x) => [310, 390, 470, 545, 650].map((y) => <path key={`${x}-${y}`} d={`M${x - 15} ${y}H${x + 15}`} strokeWidth="9" />))}
-        </g>
-        <rect className="gg-air" y="700" width="1600" height="200" />
-      </svg>
-      <div className="gg-kabut gg-kabut-a" /><div className="gg-kabut gg-kabut-b" />
-    </div>
+    <>
+      <div className="latar-tahoe" aria-hidden><span /><span /></div>
+      <div className="latar-gerbang" aria-hidden>
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+          <path className="gg-a" d="M-80 760C260 280 640 180 930 330S1390 650 1700 250V980H-80Z" />
+          <path className="gg-b" d="M-80 900C330 500 690 410 960 520S1400 760 1700 480V980H-80Z" />
+          <path className="gg-c" d="M520 980C640 650 900 520 1120 590S1490 760 1700 650V980Z" />
+        </svg>
+      </div>
+    </>
   );
 }

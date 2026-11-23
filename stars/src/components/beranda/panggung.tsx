@@ -3,6 +3,7 @@ import { ChevronRight, Glasses } from "lucide-react";
 import { LogoTegak } from "@/components/layout/logo-animasi";
 import { StatusSinkron } from "@/components/layout/status-sinkron";
 import { GulirHalus } from "@/components/beranda/gulir-halus";
+import { KaryawanPublik } from "@/components/beranda/karyawan-publik";
 import { RobotAllies } from "@/components/beranda/robot-allies";
 import { SlideshowHero } from "@/components/beranda/slideshow-hero";
 import type { IdTahap } from "@/lib/allies-siklus";
@@ -113,6 +114,14 @@ export function Panggung({ d }: { d: DataPanggung }) {
               <Pil href="/allies" varian="garis" gelap>Siklusnya</Pil>
             </JudulHero>
             <div className="mx-auto min-h-0 w-full max-w-[32rem] flex-1 lg:h-[26rem] lg:flex-none"><RobotAllies /></div>
+          </div>
+        ) },
+        { label: "Karyawan AI", isi: (
+          <div className="flex h-full flex-col gap-3 bg-white/90 px-4 pb-6 pt-4 md:px-16 lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-6 lg:pt-6">
+            <JudulHero judul="Karyawan AI" sub={<>Lima petugas virtual untuk pengelolaan alat kesehatan.<span className="mt-1 block text-xs opacity-75 md:text-sm">Hanya membaca data dan memberi saran.</span></>}>
+              <Pil href="/allies/kantor">Masuk ke Kantor AI</Pil>
+            </JudulHero>
+            <KaryawanPublik />
           </div>
         ) },
       ]} />
