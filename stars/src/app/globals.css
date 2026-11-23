@@ -119,6 +119,7 @@
 @media (prefers-reduced-motion: reduce) {
   .panggung-masuk, .panggung-teks, .panggung-visual, .lacak-titik, .lacak-garis { animation: none; }
 }
+.slide-hero .panggung-teks { animation: none !important; opacity: 1; transform: none; }
 @media print { .panggung-teks, .panggung-visual { animation: none !important; opacity: 1 !important; transform: none !important; } }
 
 /* SI-LOGGER: kartu muncul bertahap, titik penggeser bergeser halus, jarum gauge berdenyut ringan */
