@@ -46,7 +46,7 @@ async function indeks() {
   const df = new Map<string, number>();
   let total = 0;
   const baris = rows.map((r) => {
-    const t = token(r.teks), f = new Map<string, number>();
+    const t = token(`${r.teks} ${r.dokumen.judul}`), f = new Map<string, number>();
     for (const w of t) f.set(w, (f.get(w) ?? 0) + 1);
     for (const w of f.keys()) df.set(w, (df.get(w) ?? 0) + 1);
     total += t.length;

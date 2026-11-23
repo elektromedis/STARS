@@ -1,0 +1,4085 @@
+=== Halaman 1 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                                    !
+                                        PEDOMAN!!
+     PENGELOLAAN!PERALATAN!KESEHATAN!
+       !DI!FASILITAS!PELAYANAN!KESEHATAN!
+!
+!
+!
+!
+!
+
+
+
+
+                                                                  !
+
+!
+
+!
+
+!
+
+!
+
+!
+
+    DIREKTORAT!BINA!PELAYANAN!PENUNJANG!MEDIK!DAN!SARANA!KESEHATAN!
+
+                    DIREKTORAT!JENDERAL!BINA!UPAYA!KESEHATAN!
+
+                                                    !
+                                                2015!
+
+
+                                                                      !
+=== Halaman 2 ===
+!
+                           KATA!PENGANTAR!
+                                     !
+                                     !
+                                     !
+                                     !
+Buku! Pedoman! Pengelolaan! Peralatan! Kesehatan! disusun! untuk! memenuhi!
+kebutuhan! akan! acuan! pengelolaan! peralatan! kesehatan! di! rumah! sakit,! yang!
+diharapkan!juga!dapat!digunakan!di!fasilitas!pelayanan!kesehatan!secara!umum.!
+!
+Buku!pedoman!ini!disusun!berdasarkan!referensi!yang!diterbitkan!oleh!World!Health!
+Organization!(WHO)!dan!buku!referensi!lain,!serta!mengikutsertakan!tim!yang!yang!
+berasal! dari! Organisasi! Profesi! Ikatan! Ahli! Teknik! Elektromedik! Indonesia!
+(IKATEMI),!perwakilan!dari!beberapa!rumah!sakit!di!Jakarta!dan!Bandung.!
+!
+Pada! buku! pedoman! ini! dibahas! mengenai! siklus! peralatan! kesehatan,! yaitu! preM
+market! dan! postMmarket.! Pengelolaan! pada! buku! pedoman! ini! adalah! pada! siklus!
+postMmarket! dimulai! dari! perencanaan! dan! pengadaan,! penerimaan! dan! instalasi,!
+pengoperasian,!    pemeliharaan!    dan!           perbaikan,!   postMmarket!   surveillance,!
+dekontaminasi,!penarikan!dan!penghapusan.!
+!
+Ucapan!terima!kasih!disampaikan!kepada!semua!pihak!atas!kesediaan!memberikan!
+masukan,! sumbangsih! waktu,! pikiran! dan! tenaga! yang! tercurah! ! sehingga! buku!
+pedoman!ini!dapat!diselesaikan.!Semoga!pedoman!ini!bermanfaat,!utamanya!dalam!
+upaya!meningkatkan!kualitas!peralatan!kesehatan!di!rumah!sakit.!
+!
+                                               !
+                                               !
+                                               !
+                                           Jakarta,!!!!!Nopember!2015!
+                                           !
+                                           !
+                                               !
+                                               !
+                                               !
+                                               !
+                                               !
+
+
+
+!                                                                                           i!
+=== Halaman 3 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                            PENYUSUN!
+                                                    !
+                           Dr.!KUNTJORO!ADI!PURJANTO,!M.Kes!
+                                 drg.!ANWARUL!AMIN,!MARS!
+                                   Ir.!NOVERITA!DEWAYANI!
+                                      Dra.!ZUHARINA,!Apt.!!
+                                  PINKAN!E.!R.!LANTANG,!ST!
+                                      SUGIARTO,!ST,!M!Si!
+                                       SUBADRI,!ST,!M.Si!
+                                       DINI!WIDIYANTI,!ST!
+                                   dr.!JUNITA!ROSA!TIURMA!!
+                                       IDA!CHILWATI,!SAP!
+                                     FAISAL!QURTUBI,!S.Si!
+                                    ASMARANTO!PRAJOKO!
+                                     AYU!NUR!LATIFAH,!ST!
+                                        !
+                                        !
+                                   KONTRIBUTOR!
+                                        !
+                          H.!SURYONO!NUGROHO,!BE,!ST,!MMT!
+                                   Ir.!SODIKIN!SADEK,!M.Kes!!
+                          Ir.!TORANG!P.!BATUBARA,!MARS,!MMR!
+                          K.!CHANDRA!MELIALA,!DIPL.!IM,!M.Kes!
+                                 RIKA!SRIKANDI,!SKM,!M.Kes!
+                                    LINA!HAIDA,!SKM,!M.Kes!!
+                                            IMAN!LUBIS!
+                                 AGUS!KOMARUDDIN,!ST,!MT!
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+
+
+
+
+                                                                  ! ii!
+=== Halaman 4 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                                        !
+                                               DAFTAR!ISI!
+KATA!PENGANTAR!
+                                                        !
+PENYUSUN!
+                                                        !
+KONTRIBUTOR!
+                                                 !
+BAB!I!PENDAHULUAN!…………………………………………………………!!                                                                1!
+1.1.! LATAR!BELAKANG!…………………………………………………….! !!                                                            1!
+1.2.! MAKSUD!DAN!TUJUAN!……………………………………………….! !                                                            3!
+1.3.! SASARAN!!………………………………………………………………! !                                                                3!
+1.4.! RUANG!LINGKUP!………………………………………………………! !                                                              4!
+1.5.! KEBIJAKAN!……………………………………………………………..! !                                                              4!
+!
+BAB!II!PERENCANAAN!DAN!PENGADAAN!…………………………………!!                                                          12!
+2.1.! PERENCANAAN!…………………………………………………………!!                                                                12!
+2.2.! PENGADAAN!(PROCUREMENT)!……………………………………! ..!                                                         18!
+!
+BAB!III!INSTALASI!DAN!PENERIMAAN!PERALATAN!MEDIS!………………!                                                  22!
+3.1.! INSTALASI!…………………………………………………………………!                                                                22.!
+3.2.! PENERIMAAN!.....................................................................................!   23!
+       !
+BAB!IV!PENGOPERASIAN!………………………………………………………!                                                               29!
+4.1.! PERSYARATAN!PENGOPERASIAN!PERALATAN!MEDIS!…………!                                                     29!!
+4.2.! PERSIAPAN!PENGOPERASIAN!PERALATAN!MEDIS!………………!                                                     31!
+4.3.! PELAKSANAAN!PENGOPERASIAN!PERALATAN!MEDIS!…………!                                                     31!
+4.4.! PENGEMASAN!/PENYIMPANAN!………………………………………!                                                            32!!
+4.5.! DEKONTAMINASI!………………………………………………………! !                                                              32!
+!
+
+BAB!!V!PEMELIHARAAN!!…………………………………………………………!                                                              35!
+5.1.! INSPEKSI!DAN!PEMELIHARAAN!PREVENTIF!(IPM)!…………………!                                                  36!
+5.2.! PELAPORAN!!………………………………………………………………!                                                                45!
+5.3.! PENGUJIAN!DAN!KALIBRASI!……………………………………………!                                                          45!
+5.4.! PELAKSANA!PEMELIHARAAN!………………………………………….!                                                           46!
+5.5.! BIAYA!PEMELIHARAAN!…………………………………………………!                                                             47!
+5.6.! PENYUSUNAN!PROGRAM!PEMELIHARAAN!…………………………!                                                         50!!!
+!
+
+BAB!VI!INVENTORI!DAN!DOKUMENTASI!PEMELIHARAAN!PERALATAN!MEDIS!
+6.1! LINGKUP!INVENTORI!……………………………………………………!!               52!!
+6.2! DATA!INVENTORI!…………………………………………………………!                 53!
+6.3! ASPAK!………………………………………………………………………!!                    56!
+!
+
+BAB!VII!POST!–!MARKET!SURVEILLANCE!DAN!VIGILANCE!PERALATAN!MEDIS!
+7.1! POST!MARKET!SURVEILLANCE!………………………………………!               60!
+7.2! VIGILANCE!…………………………………………………………………!                    61!
+
+
+                                                                                                          ! iii!
+=== Halaman 5 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+     !
+BAB!VIII!PENARIKAN!(RECALL)!!DAN!PENGHAPUSAN!PERALATAN!MEDIS!
+!
+8.1! PENARIKAN!(RECALL)!PERALATAN!MEDIS!……………………………!              67!!
+8.2! PENGHAPUSAN!PERALATAN!MEDIS!……………………………………!!                 68!
+!
+
+DAFTAR!PUSTAKA!
+!       !
+
+LAMPIRAN!M!LAMPIRAN!
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+                                                    !
+
+
+
+
+                                                                  ! iv!
+=== Halaman 6 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                             !
+                                             !
+                                           BAB!I!
+                                       PENDAHULUAN!!
+                                             !
+                                             !
+                                             !
+!
+1.1!!!!LATAR!BELAKANG!
+        !
+        Peralatan! kesehatan! merupakan! salah! satu! faktor! penting! dalam!
+penyelenggaraan! pelayanan! kesehatan,! baik! di! rumah! sakit! maupun! di! fasilitas!
+pelayanan! kesehatan! lainnya.! Guna! mencapai! kondisi! maupun! fungsi! peralatan!
+kesehatan! yang! baik! serta! dapat! mendukung! pelayanan! kesehatan! maka! perlu!
+adanya!pengelolaan!peralatan!kesehatan!yang!terpadu.!!
+!
+        Agar! peralatan! kesehatan! dapat! dikelola! dengan! baik! diperlukan! adanya!
+kebijakan! pemerintah! dalam! pengelolaan! peralatan! kesehatan! di! rumah! sakit! dan!
+fasilitas!pelayanan!kesehatan!lainnya.!!
+        !
+        Siklus!peralatan!kesehatan!dibedakan!sebelum!masuk!ke!fasilitas!pelayanan!
+kesehatan! (pre-market)! dan! setelah! masuk! ke! fasilitas! pelayanan! kesehatan! (post-
+market).! Pengelolaan! peralatan! kesehatan! di! fasilitas! pelayanan! kesehatan! (post-
+market),! diawali! sejak! perencanaan! (didahului! dengan! penilaian! teknologi! dan!
+evaluasi! peralatan! kesehatan! yang! ada),! pengadaan,! penerimaan,! pengoperasian,!
+pemeliharaan! dan! penghapusan.! Termasuk! di! dalamnya! adalah! ada! proses!
+inventarisasi,! dekontaminasi,! surveilens! dan! vigilance! serta! recall.! Hal! ini! dapat!
+dilihat! pada! Gambar! 1.1.! Semua! pihak! yang! terkait! dengan! pengelolaan! peralatan!
+kesehatan! diharapkan! dapat! memahami! dan! melaksanakannya! sesuai! dengan!
+bidang!tugas!masingMmasing.!
+                                                    !
+                                                    !
+        !
+
+
+
+
+                                                                                       ! 1!
+=== Halaman 7 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+
+
+
+
+                                                                                                      !
+                                                                Gambar!1.1.!Siklus!Alat!Kesehatan1!
+              !
+              Kementerian! Kesehatan! Republik! Indonesia! berperan! baik! pada! tahap! pre-
+market4 (antara! lain! izin! produksi,! izin! edar,! izin! distribusi! peralatan! kesehatan)!
+maupun!post-market!berupa!pengelolaan!peralatan!kesehatan!di!fasilitas!pelayanan!
+kesehatan.!
+              !
+              Agar! peralatan! kesehatan! dapat! dikelola! dengan! baik,! Kementerian!
+Kesehatan! Republik! Indonesia! yang! antara! lain! mempunyai! tugas! penyusunan!
+standar! teknis,! norma,! pedoman,! kriteria! dan! prosedur! di! bidang! peralatan!
+kesehatan! menyusun! “Pedoman! Pengelolaan! Peralatan! Kesehatan! DI! Fasilitas!
+Pelayanan!Kesehatan”.!!
+              !
+              Pedoman! ini! diharapkan! dapat! memberikan! arahan! dalam! pengelolaan!
+peralatan! kesehatan! sehingga! dapat! melaksanakan! pelayanan! kesehatan! secara!
+efektif! dan! efisien! yang! sesuai! dengan! kebutuhan! layanan! kesehatan! kepada!
+masyarakat! serta! memenuhi! kaidah! dan! standar! sebagai! pedoman! peralatan!
+kesehatan!yang!baik!dan!benar.!
+              !
+              !
+              !
+              !
+              !
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+1
+!WHO,!Medical(Device(Regulations,(Global(Overview(and(Guiding(Principles,!Genewa,!2003!
+
+
+
+
+                                                                                                          ! 2!
+=== Halaman 8 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+1.2!!!!!!MAKSUD!DAN!TUJUAN!
+!
+1.2.1! Maksud!
+        Maksud!penyusunan!“Pedoman!Pengelolaan!Peralatan!Kesehatan!di!Fasilitas!
+Pelayanan! Kesehatan”! ini! adalah! memberi! acuan! langkah! dan! tindakan! yang!
+diperlukan! dalam! pengelolaan! peralatan! kesehatan! mulai! dari! perencanaan,!
+pengadaan,!       instalasi!    dan!    penerimaan,!       penggunaan,!   pemeliharaan!   dan!
+penghapusan.!
+                                                    !
+1.2.2! Tujuan!
+!
+    Tujuan!dibuatnya!pedoman!ini!adalah!:!
+1.! Manajemen! dan! penanggungjawab/pengelola! unit! pelayanan,! teknisi! serta!
+    operator! di! rumah! sakit! mampu! melakukan! pengelolaan! peralatan! dengan! baik!
+    sesuai!dengan!peran!dan!tanggung!jawabnya!masingMmasing.!!
+2.! Memastikan!tersedianya!peralatan!kesehatan!yang!aman,!bermutu!dan!laik!pakai!
+    serta! efisien! di! rumah! sakit! sehingga! meminimalkan! risiko! yang! terkait! dengan!
+    penggunaan!peralatan!kesehatan!tersebut.!
+            !
+1.3!!!SASARAN!!
+    Sasaran!dari!penyusunan!pedoman!ini!adalah!:!
+1.! Penanggung! jawab! program! penyediaan! peralatan! kesehatan! di! Dinas!
+    Kesehatan!Kabupaten/Kota,!Dinas!Kesehatan!Provinsi!dan!Pusat.!!
+2.! Penanggung! jawab! program! pelayanan! kesehatan! di! Dinas! Kesehatan!
+    Kabupaten/Kota,!Dinas!Kesehatan!Provinsi!dan!Pusat.!
+3.! Perencana! peralatan! kesehatan! di! Dinas! Kesehatan! Kabupaten/Kota,! Dinas!
+    Kesehatan!Provinsi!dan!Pusat.!!
+4.! Perencana!peralatan!kesehatan!di!rumah!sakit!dan!fasilitas!pelayanan!kesehatan!
+    lainnya.!
+5.! Pihak!manajemen!rumah!sakit,!melakukan!pengelolaan!peralatan,!penangggung!
+    jawab!unit!pelayanan/instansi,!tenaga!operator/pengguna!alat,!teknisi!pelaksana!
+    pemeliharaan/elektromedis.!
+
+
+
+
+                                                                                          ! 3!
+=== Halaman 9 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+6.! Produsen! dan! penyalur! peralatan! kesehatan! yang! diharapkan! memahami! alur!
+    pengelolaan! peralatan! kesehatan,! sehingga! dapat! menyediakan! peralatan!
+    kesehatan!yang!bermutu,!aman!dan!laik!pakai.!!!
+!
+1.4!!!!RUANG!LINGKUP!!
+          Ruang! lingkup! buku! pedoman! ini! diperuntukkan! bagi! semua! peralatan!
+kesehatan! di! fasilitas! pelayanan! kesehatan,! khususnya! peralatan! medis! di! rumah!
+sakit.!
+!
+1.5!!!!KEBIJAKAN!
+1.! UU!No.!36!thn!2009!tentang!Kesehatan.!!
+2.! UU!No.!44!Tahun!2009!tentang!Rumah!Sakit.!
+3.! Peraturan! Pemerintah! Nomor! 72! tahun! 1998! tentang! Pengamanan! Sediaan!
+    Farmasi!dan!Alat!Kesehatan.!
+4.! Permenkes!No.!363!tahun!1998!tentang!Pengujian!dan!Kalibrasi!Alat!Kesehatan.!!
+5.! Peraturan! Menteri! Kesehatan! Nomor! 2351/MENKES/PER/2011! tentang!
+    Perubahan!           atas!        Peraturan!          Menteri!   Kesehatan!   Nomor!
+    530/MENKES/PER/IV/2007! tentang! Organisasi! dan! Tata! Kerja! Balai!
+    Pengamanan!Fasilitas!Kesehatan.!!
+6.! Peraturan! Menteri! Kesehatan! Nomor! 1189/MENKES/PER/VIII/2010! tentang!
+    Produksi!Alat!Kesehatan!dan!perbekalan!Kesehatan!Rumah!Tangga.!!
+7.! Peraturan! Menteri! Kesehatan! Nomor! 1190/MENKES/PER/VIII/2010! tentang! Izin!
+    Edar!Alat!Kesehatan!dan!Perbekalan!Kesehatan!Rumah!Tangga.!!
+8.! Peraturan! Menteri! Kesehatan! Nomor! 1191/MENKES/PER/VIII/2010! tentang!
+    Penyaluran!Alat!Kesehatan.!
+9.! Peraturan! Kepala! Badan! Pengawas! Tenaga! Nuklir! Nomor! ! 8/2011! tentang!!
+    Keselamatan!Radiasi!dalam!Penggunaan!Pesawat!!SinarMX!Radiologi!Diagnostik!
+    dan!Intervension.!
+10.!Peraturan! Kepala! Badan! Pengawas! Tenaga! Nuklir! Nomor! 9/2011! tentang! Uji!
+    Kesesuaian!Pesawat!SinarMx!Radiologi!Diagnostik!dan!Intervensional!!
+11.!Keputusan!Menteri!Kesehatan!No.!394!tahun!2001!tentang!Institusi!Penguji!
+12.!Keputusan! Menteri! Kesehatan! Nomor! 1184/MENKES/PER/X/2004! tentang!
+    Pengamanan!Alat!Kesehatan!dan!Perbekalan!Rumah!Tangga!
+
+
+
+                                                                                    ! 4!
+=== Halaman 10 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+13.!Keputusan! Menteri! Kesehatan! Nomor! 1144/MENKES/PER/XI/2010! tentang!
+       Organisasi!dan!Tata!Kerja!Kementerian!Kesehatan.!
+!
+1.6!!!!PENGERTIAN!
+        !
+1.6.1! Peralatan!Kesehatan!
+              Instrumen,! apparatus,4                           mesin!   dan/atau! implan! yang! tidak!
+mengandung! obat! yang! digunakan! untuk! mencegah,! mendiagnosis,!
+menyembuhkan! dan! meringankan! penyakit,! merawat! orang! sakit,!
+memulihkan!kesehatan!pada!manusia,!dan/atau!membentuk!struktur!dan!
+memperbaiki!fungsi!tubuh.!!
+              !
+1.6.2! Peralatan!Medis!
+              Peralatan! medis! sebagai! bagian! peralatan! kesehatan! pada!
+pedoman! ini! adalah! yang! memerlukan! kalibrasi,! pemeliharaan,!
+perbaikan,! pelatihan! pengguna,! dan! dekomisioning.! kegiatan! biasanya!
+dikelola! oleh! para! tenaga! teknis! (elektromedis/clinical! engineer).!
+Peralatan! medis! digunakan! untuk! tujuan! diagnosis! tertentu! dan!
+pengobatan! penyakit! atau! rehabilitasi! setelah! penyakit! atau! luka! yang!
+dapat! digunakan! baik! sendiri! atau! bersamaan! dengan! aksesori,! bahan!
+operasional,! atau! bagian! lain! dari! peralatan! medis.! Peralatan! medis! di!
+pedoman! ini! tidak! termasuk! implan,! peralatan! sekali! pakai! atau!
+disposabel.2!!
+              !
+              Peralatan!medis!adalah!peralatan!yang!digunakan!untuk!keperluan!
+terapi,! rehabilitasi! dan! penelitian! medik,! baik! secara! langseung! maupun!
+tidak!langsung3.!
+              !
+1.6.3! Penilaian!Teknologi!(Health'Technology'Management)!!
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2
+!WHO,!Medical!Equipment!Program!maintenance!Overview,!2011!
+
+!Undang@undang!Republik!Indonesia!No!44!Tahun!2009!tentang!Rumah!Sakit!
+3
+
+
+
+
+                                                                                                   ! 5!
+=== Halaman 11 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+        Analisa! untuk! menentukan! jenis! dan! teknologi! peralatan! kesehatan! yang!
+dipilih! di! antara! beberapa! pilihan! teknologi! peralatan! kesehatan! untuk! memenuhi!
+pelayanan!kesehatan!di!fasilitas!pelayanan!kesehatan.!!
+        !!
+1.6.4! Pemeliharaan!
+        Suatu! rangkaian! kegiatan! baik! preventif! maupun! korektif! yang! dilakukan!
+untuk!menjaga!peralatan!medis!bermutu,!aman!dan!laik!pakai.!
+!
+1.6.5! DePcommissioning/Penghapusan!
+        Tindakan! menghapus! Barang! Milik! Negara! dari! daftar! barang! dengan!
+menerbitkan! surat! keputusan! dari! pejabat! yang! berwenang! untuk! membebaskan!
+Pengguna! dan! atau! Kuasa! Pengguna! Barang! dan! atau! Pengelola! Barang! dari!
+tanggung!jawab!administrasi!dan!fisik!barang!yang!berada!dalam!penguasaannya.!
+        !
+1.6.6! Pengujian!
+        Keseluruhan! tindakan! yang! meliputi! pemeriksaan! fisik! dan! pengukuran! satu!
+atau! lebih! sifat,! karakteristik! dari! suatu! produk,! proses,! output! untuk!
+membandingkan!hasil!pengujian!dari!alat!ukur!dengan!standar!untuk!satuan!ukuran!
+yang! sesuai! guna! menetapkan! sifat! ukurnya! atau! menentukan! besaran! atau!
+kesalahan!pengukuran.!
+        !
+1.6.7! Kalibrasi!
+        Kalibrasi!adalah!memastikan!hubungan!antara!besaran!yang!ditunjukkan!oleh!
+suatu! alat! ukur! atau! sistem! pengukuran! atau! besaran! yang! diabadikan! pada! suatu!
+bahan!ukur!dengan!besaran!yang!sebenarnya!dari!besaran!yang!diukur.!
+        !
+1.6.8! Fasilitas!Pelayanan!Kesehatan!
+        Suatu!alat!dan!/atau!tempat!yang!digunakan!untuk!menyelenggarakan!upaya!
+kesehatan,! baik! promotif,! preventif,! kuratif! maupun! rehabilitatif! yang! dilakukan! oleh!
+Pemerintah,!Pemerintah!Daerah!dan/atau!masyarakat.!
+        !
+1.6.9! Standard!Prosedur!Operasional!
+
+
+
+
+                                                                                          ! 6!
+=== Halaman 12 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+        Suatu! set! instruksi! yang! memiliki! kekuatan! sebagai! suatu! petunjuk! yang!
+mencakup! halMhal! dari! operasi! yang! memiliki! prosedur! pasti! atau! terstandardisasi,!
+tanpa!kehilangan!keefektifannya.!
+        !
+1.6.10!Uji!Fungsi!
+        Pengujian! alat! kesehatan! secara! keseluruhan,! melalui! uji! bagianMbagian! alat!
+dengan! kemampuan! maksimum! (secara! teknis! saat! itu)! tanpa! beban! sebenarnya,!
+sehingga! dapat! diketahui! kinerja! dan! kemampuan! alat! dalam! hal! fungsi! komponen!
+dan! keluaran.! Uji! fungsi! dilaksanakan! sebelum! alat! diterima! oleh! Panitia! Penerima!
+Barang.!
+        !
+1.6.11!Uji!Keselamatan!
+        Uji! keselamatan! adalah! suatu! bentuk! pengujian! yang! dilakukan! terhadap!
+produk!untuk!memperoleh!kepastian!tidak!adanya!bahaya!yang!ditimbulkan!sebagai!
+akibat!penggunaan!produk!tersebut.!
+        !
+1.6.12!Uji!Coba!
+        Pengujian! alat! secara! keseluruhan,! melalui! uji! bagianMbagian! alat! dengan!
+beban!sebenarnya!(misalnya!pasien),!setelah!uji!fungsi!dilakukan!dengan!hasil!baik.!!
+Uji! coba! dilaksanakan! oleh! operator! yang! telah! dilatih,! untuk! membiasakan!
+penggunaan! alat! sesuai! prosedur! kerjanya! dalam! waktu! tertentu! atau! berdasarkan!
+jumlah!pemakaian.!!
+        !
+1.6.13!Recall!
+        Suatu! tindakan! yang! dilakukan! untuk! mengatasi! masalah! pada! suatu!
+peralatan! kesehatan,! bila! tidak! sesuai! dengan! peraturan! yang! berlaku! atau! dapat!
+menyebabkan! suatu! bahaya! pada! penggunaannya.! Suatu! produk! yang! ditarik! dari!
+peredaran,! akan! diteliti! ulang! oleh! produsen! sehingga! dapat! ditentukan! apakah!
+produk!tersebut!akan!diperbaiki!atau!di!musnahkan.!
+        !
+1.6.14!Izin!Produksi!
+        Izin! untuk! melakukan! kegiatan! atau! proses! menghasilkan,! menyiapkan,!
+mengolah,!dan/atau!mengubah!bentuk!alat!kesehatan.!
+!
+
+
+                                                                                       ! 7!
+=== Halaman 13 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+1.6.15!Izin!Edar!
+         Izin! yang! diberikan! kepada! perusahaan! untuk! produk! alat! kesehatan,! yang!
+akan! diimport,! digunakan! dan/atau! diedarkan! di! wilayah! Republik! Indonesia,!
+berdasarkan!penilaian!terhadap!mutu,!keamanan!dan!kemanfaatan.!!
+!
+1.6.16!Izin!Distribusi!
+         Izin! untuk! melakukan! kegiatan! distribusi! dan! pengendalian! mutu! yang!
+bertujuan! untuk! menjamin! agar! produk! alat! kesehatan! yang! didistribusikan!
+senantiasa!memenuhi!persyaratan!yang!ditetapkan!sesuai!tujuan!penggunaannya.!!!
+         !
+1.6.17!Teknologi!!Kesehatan!
+         Penerapan!pengetahuan!dan!keterampilan!dalam!bentuk!peralatn!kesehatan,!
+obatMobatan,! vaksin,! prosedur! dan! sistem! yang! dikembangkan! untuk! memecahkan!
+masalah!kesehatan!dan!meningkatkan!kualitas!kehidupan.!
+         !
+1.6.18!PraPinstalasi!
+         Penyiapan!material!dan!kelengkapan!yang!dibutuhkan!untuk!instalasi!alat.!
+!
+1.6.19!Instalasi!Alat!
+         Tahap! kegiatan! mulai! dari! penempatan/perletakan,! perakitan,! pemasangan,!
+penyetelan,!adjustmen,!pengukuran!keluaran!sampai!alat!berfungsi!baik.!
+         !
+1.6.20!Pemeriksaan!Fisik!
+         Kegiatan!yang!meliputi!penilaian!fisik!secara!visual,!kelengkapan!dan!kinerja!
+alat.!
+!
+1.6.21!Spesifikasi!
+         Data! yang! menguraikan! kemampuan,! kapasitas,! teknologi,! sistem,! fungsi,!
+aksesori,!keselamatan!dan!aspek!teknis!lainnya!dari!suatu!alat.!
+         !
+1.6.22!Penyedia/Rekanan!
+         Perusahaan! yang! ditunjuk! oleh! Pejabat! Pembuat! Komitmen! untuk!
+melaksanakan! pengadaan! barang! dan! jasa.! Perusahaan! tersebut! tidak! harus!
+menjadi!agen!peralatan!tetapi!mendapat!dukungan!dari!agen!tunggal!peralatan.!
+
+
+                                                                                     ! 8!
+=== Halaman 14 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+        !
+1.6.23!Sertifikat!Pengujian!(Test!Certificate)!dari!pabrik!
+        Sertifikat!yang!dikeluarkan!oleh!pabrik!pembuat!alat!sebagai!bukti!bahwa!alat!
+yang!diproduksi!telah!lulus!pengujian!pabrik,!meliputi!:!keluaran!(output),!fungsi!dan!
+keselamatan.!
+!
+1.6.24!Buku!Petunjuk!
+        Petunjuk! yang! harus! disertakan! pada! peralatan! kesehatan! yang!
+didistribusikan,! meliputi! :! petunjuk! operasional,! petunjuk! instalasi! dan! petunjuk!
+pemeliharaan! ! dalam! bahasa! Negara! pembuat,! bahasa! Inggris,! bahasa! Indonesia.!
+Petunjuk!yang!harus!disertakan!sesuai!jenis!peralatan.!
+!
+1.6.25!Rangkaian!Diagram!
+        Gambar! rangkaian! yang! menunjukkan! tata! letak! komponen! dan! hubungan!
+kabel/printed!circuit!anatr!komponen/blok!komponen!suatu!alat.!Dapat!dipergunakan!
+untuk! mengetahui! tingkat! teknologi! dan! melakukan! identifikasi/melacak! kerusakan!
+dan!perbaikan.!
+!
+1.6.26!Suku!Cadang!
+        Komponen!suatu!rekomendasi!pabrik!alat!yang!mengalami!kerusakan!setelah!
+jangka!waktu!tertentu!dan!direkomendasikan!harus!disediakan.!
+!
+1.6.27!Bagian/Komponen!utama!alat!
+        Bagian!dari!unit!utama!yang!secara!fungsi!tidak!dapat!dipisahkan.!
+!
+1.6.28!Aksesori!!
+        Kelengkapan! standar! yang! secara! fungsi! tidak! dapat! dipisahkan! dan! harus!
+lengkap!pada!saat!penyerahan!peralatan.!
+        !
+1.6.29!Aksesori!Tambahan!!
+        Kelengkapan!fungsi!tambahan!untuk!meningkatkan!kinerja!atau!fungsi!alat.!
+!
+1.6.30!Sarana!
+        Bangunan/ruangan!yang!diperlukan!untuk!penempatan!dan!instalasi!alat.!
+
+
+                                                                                     ! 9!
+=== Halaman 15 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+        !
+1.6.31!Prasarana!
+        Prasarana!Kesehatan!adalah!benda!maupun!jaringan/instalasi!yang!membuat!
+suatu! bangunan/ruangan! yang! ada! di! fasilitas! pelayanan! kesehatan! bisa! berfungsi!
+dengan!tujuan!yang!diharapkan.!!
+        !
+1.6.32!Dekontaminasi!
+        Dekontaminasi! adalah! upaya! mengurangi! dan/atau! menghilangkan!
+kontaminasi! oleh! mikroorganisme! pada! orang,! peralatan,! bahan! dan! ruang! melalui!
+pembersihan,!desinfeksi!dan!sterilisasi!dengan!cara!fisik!dan!kimiawi.!
+        !
+1.6.33!Pembersihan!
+        Sebuah! proses! yang! secara! fisik! menghilangkan! mikroorganisma! dan!
+bahan! organik! tapi! tidak! selalu! menghancurkan! sama! sekali.! Pengurangan!
+kontaminasi! mikroorganisma! tergantung! pada! banyak! faktor,! termasuk! efektivitas!
+dari! proses! pembersihan.! Pembersihan! penting! dilakukan! agar! proses! disinfeksi!
+atau!sterilisasi!efektif.!
+!
+1.6.34!Desinfeksi!!
+        Desinfeksi!     adalah!     upaya!     untuk!     mengurangi/menghilangkan!   jumlah!
+mikroorganisme! pathogen! penyebab! penyakit! (tidak! termasuk! spora)! dengan! fisik!
+dan!kimiawi!dengan!menggunakan!cairan!desinfektan.!
+!
+
+1.6.35!Desinfektan!!
+        Desinfektan! ! adalah! obat! ! pembasmi! kuman! penyakit! atau! bahan! kimia!
+bersifat! toksik! yang! digunakan! untuk! mencegah! terjadinya! infeksi! dan! memiliki!
+kemampuan!membunuh!mikroorganisme.!
+!
+1.6.36!Sterilisasi!!
+        Sterilisasi! adalah! upaya! untuk! menghilangkan! semua! mikroorganisme!
+termasuk! endospora! dengan! cara! fisik! dan! kimiawi! dengan! menggunakan! alat!
+sterilisator!
+!
+1.6.37!Kontaminasi!
+
+
+                                                                                         ! 10!
+=== Halaman 16 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+        Adanya!zat!pengotor!atau!pencemaran!benda!mati!atau!material!hidup!yang!
+merupakan! bahan! berbahaya,! yang! tidak! diinginkan! yang! berpotensi! menular! atau!
+lainnya.! Kemungkinan! besar! berupa! bahan! organik! dan! zat! menular,! juga! dapat!
+berupa!zatMzat!yang!tidak!diinginkan!lainnya!misalnya!residu!kimia,!bahan!radioaktif,!
+produk! degradasi,! bahan! kemasan! dll.! Kontaminasi! tersebut! menyebabkan!
+pengaruh! yang! merugikan! fungsi! perangkat! kesehatan! dan! dapat! ditularkan! ke!
+orang!selama!pemrosesan,!penggunaan!atau!penyimpanan!peralatan!kesehatan.!
+        !
+1.6.38!Panitia!Penerima!Barang!
+        Panitia! yang! dibentuk! pejabat! yang! berwenang,! yang! bertindak! untuk! dan!
+atas! nama! instansi! dalam! melakukan! kegiatan! pemeriksaan,! penelitian! dan!
+penerimaan!barang!sesuai!ketentuan!dalam!kontrak.!
+!
+1.6.39!Masa!pemeliharaan!peralatan!
+        Kegiatan!      yang!      dilaksanakan!        oleh!      teknisi!   penyedia!   peralatan!
+kesehatan/rekanan! dalam! jangka! waktu! tertentu! (sesuai! kontrak),! dengan! tujuan!
+agar!peralatan!selama!masa!pemeliharaan!selalu!dalam!kondisi!baik!dan!laik!pakai.!
+Jadwal! pemeliharaan! tiap! alat! mengikuti! petunjuk! pemeliharaan! dari! pabrik,!
+disesuaikan!dengan!jenis!dan!tingkat!teknologi!alat.!
+        !
+1.6.40!Masa!garansi!
+        Jangka! waktu! tertentu! sesuai! ketentuan! dalam! kontrak,! dimana! pihak!
+penyedia! peralatan! kesehatan/rekanan! masih! bertanggungjawab! terhadap!
+perbaikan/penggantian! peralatan! kesehatan! yang! mengalami! kerusakan! akibat!
+kesalahan!teknis!alat!dan!bukan!akibat!kesalahan!operator/user!dan!atau!kesalahan!
+catu!daya.!
+!
+1.6.41!Kondisi!fisik!!
+        Kondisi! alat! yang! dinilai! dari! keadaan! fisik! secara! visual,! meliputi! adanya!
+keretakan,!penyok,!bengkok,!lecet,!patah!dan!lainMlain.!!
+!!
+!
+!
+!
+
+
+                                                                                              ! 11!
+=== Halaman 17 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                               BAB!II!
+                        PERENCANAAN!DAN!PENGADAAN!
+                                                    !
+                                                    !
+                                                    !
+    Tujuan!perencanaan!dan!pengadaan!peralatan!medis!adalah!:!
+1.! Diperolehnya!kebutuhan!jenis,!spesifikasi!teknis!dan!jumlah!peralatan!medis.!!
+2.! Diperolehnya!perbandingan!spesifikasi!teknis,!fungsi,!aksesori.!
+3.! Diperolehnya!perbandingan!harga!peralatan!medis.!
+4.! Diperolehnya!perbandingan!biaya!pemeliharaan!selama!usia!teknis.!
+5.! Diperolehnya!peralatan!medis!yang!bermutu,!aman!dan!laik!pakai.!
+!
+    Untuk! menjamin! keselamatan! pasien,! ! manajemen! dituntut! dalam! proses!
+perencanaan! dan! pengadaan! peralatan! medis! yang! komprehensif! dan!
+berkesinambungan,! untuk! mendapatkan! perencanaan! dan! pengadaan! yang!
+berkesinabungan!dibutuhkan!komitmen!dalam!menerapkan!perencanaan.!
+!
+2.3.!   PERENCANAAN!
+        Perencanaan!adalah!suatu!proses!untuk!menentukan!kebutuhan!terkait!jenis,!
+spesifikasi!    dan!     jumlah!     peralatan!     medis!        sesuai!   dengan!   kemampuan!
+pelayanan/klasifikasi! rumah! sakit,! beban! pelayanan,! perkembangan! teknologi!
+kesehatan,! sumber! daya! manusia! yang! mengoperasikan! dan! memelihara! sarana!
+dan! prasarana.! Perencanaan! kebutuhan! peralatan! sangat! bermanfaat! untuk!
+penyediaan! anggaran,! pelaksanaan! pengadaan! peralatan! medis! secara! efektif,!
+efisien!dan!prosesnya!dapat!dipertanggungjawabkan.!
+        !
+        Pelaksanaan! perencanaan! peralatan! medis! membutuhkan! data! kinerja!
+peralatan! yang! telah! dimiliki! dan! informasi! terbaru! jenis! peralatan! medis! yang!
+beredar.! Kinerja! peralatan! yang! telah! dimiliki! diperoleh! dari! data! dokumentasi!
+pemanfaatan! dan! pemeliharaan! peralatan.! Informasi! peralatan! medis! yang! beredar!
+diperoleh!dari!referensi!dari!publikasi!produsen!atau!distributor,!website,!rumah!sakit!
+lain!yang!telah!menggunakan!peralatan.!Perlu!diperhatikan!ijin!edar!peralatan!medis!
+tersebut!dan!dipertimbangkan!pula!informasi!sertifikasi/pengakuan!dari!FDA!dan!CE,!
+
+
+                                                                                            ! 12!
+=== Halaman 18 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+spesifikasi,! aksesori,! fungsi! dan! keandalan,! pemeliharaan,! ketersediaan! suku!
+cadang,! harga,! jaminan! purna! jual! dan! legalitas! izin! edar! peralatan! medis! di!
+Indonesia.!
+!
+        Perencanaan! peralatan! medis! tertentu! membutuhkan! perencanaan!
+kebutuhan! ruangan! untuk! penempatan! peralatan! medis,! tenaga! medis! dan! pasien!
+serta!instalasi!medik!meliputi!kelistrikan,!gas!medik,!sarana.!Untuk!peralatan!tertentu!
+seperti! peralatan! radiologi,! radioterapi! dan! MRI! membutuhkan! kekhususan!
+perencanaan!ruangan!dan!instalasi!medik!sesuai!dengan!persyaratan!terkait!dengan!
+jenis! peralatan! dan! peraturan! perundangMundangan.! Dalam! merencanakan! desain!
+ruangan! dan! instalasi! medik! memperhatikan! kebutuhan! pengembangan! pelayanan!
+dan!pesatnya!kemajuan!teknologi!kesehatan.!
+        !
+        Perencanaan!peralatan!medis!di!fasilitas!pelayanan!kesehatan!membutuhkan!
+keterlibatan! tenaga! teknis! peralatan! medis,! tenaga! medis,! keperawatan,! tenaga!
+teknis!sarana!dan!prasarana!dan!manajemen.!Ruang!lingkup!kegiatan!perencanaan!
+meliputi!penilaian!kebutuhan,!penentuan!prioritas!pengadaan!dan!penganggaran.!
+        !
+2.1.1.! Penilaian!kebutuhan!!!
+!
+        Penilaian! kebutuhan! (need4 assessment)! ! adalah! proses! untuk! menentukan!
+dan!mengatasi!kesenjangan!antara!situasi!atau!kondisi!saat!ini!dengan!situasi!atau!
+kondisi! yang! diinginkan.! Penilaian! kebutuhan! adalah! kegiatan! strategis! dan!
+merupakan! bagian! dari! proses! perencanaan! peralatan! medis! yang! bertujuan! untuk!
+meningkatkan! kinerja! pelayanan! kesehatan! atau! memperbaiki! kekurangan!
+pelayanan!kesehatan.!!
+        !
+        Penilaian! kebutuhan! peralatan! medis! pada! dasarnya! dimaksudkan! untuk!
+pemenuhan! standar! peralatan! medis! sesuai! kemampuan/klasifikasi! rumah! sakit,!
+penggantian! peralatan! medis! dan! pengembangan! pelayanan! kesehatan! sesuai!
+kebutuhan!masyarakat!atau!perkembangan!teknologi.!
+        !
+        Penggantian!peralatan!medis!selain!dilakukan!karena!faktor:!
+1.! Perkembangan!teknologi!
+
+
+
+                                                                                   ! 13!
+=== Halaman 19 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+2.! Kesesuaian!terhadap!standard!keselamatan/regulasi!
+3.! Biaya!pemeliharaan!yang!tinggi!(batas!biaya!pemeliharaan)!
+4.! Ketersediaan!suku!cadang!
+5.! Kesesuaian!dengan!ilmu!kedokteran!
+!
+        Pelaksanaan! penilaian! kebutuhan! peralatan4 medis! diatur! dalam! standar!
+prosedur!operasional!memuat!:!!
+a)! Peran! para! pihak! terkait! pengguna! (dokter,! perawat,! keteknisian! medik! dan!
+    keterapian!fisik),!!tenaga!teknis!pemelihara!dan!manajemen!rumah!sakit.!!
+b)! Mekanisme! pengajuan! kebutuhan! dari! instalasi! rawat! inap! atau! rawat! jalan! dan!
+    instalasi!penunjang!medik!kepada!direktur!rumah!sakit!yang!bertanggung!jawab!
+    di!bidang!peralatan.!!
+c)! Proses! pengkajian! oleh! tim! perencanaan! kebutuhan! peralatan! medis! dan!
+    selanjutnya.!
+d)! Rekomendasi!pemenuhan!peralatan!medis.!!!
+!
+    Dalam! melakukan! penilaian! kebutuhan! peralatan! medis,! tim! perencanaan!
+kebutuhan!peralatan!membutuhkan!data!dan!informasi!sebagai!berikut!:!!!!
+!
+a.! Inventori! peralatan! medis! meliputi! jenis,! spesifikasi,! jumlah,! harga,! tahun!
+    pengadaan!dan!kondisi!peralatan!medis.!
+b.! Kualitas! peralatan:! data! pemeliharaan! meliputi! frekuensi! kerusakan,! lama!
+    perbaikan,!suku!cadang,!biaya!pemeliharaan.!
+c.! Kinerja!peralatan!:!data!pemanfaatan!dan!kapasitas!alat!sesuai!spesifikasi.!!
+d.! Keamanan! peralatan! :! data! vigillance! meliputi! frekuensi! insiden,! akibat! yang!
+    ditimbulkan,!publikasi!vigilance.!!
+e.! Sumber!daya!manusia!meliputi!!ketersediaan!tenaga!pengguna!dan!pemelihara!
+    serta!kompetensinya!pengguna!yang!akan!mengoperasikan.!
+f.! Informasi! harga! peralatan! medis! dengan! spesifikasi! yang! sama! dari! berbagai!
+    produsen/distributor! termasuk! biaya! pemeliharaan,! ketersediaan! suku! cadang!
+    dan!jaminan!purna!jual!(respond!time,!lama!perbaikan).!!!!!
+g.! Data!dan!informasi!penunjang!lainnya!seperti!kesiapan!ruangan,!listrik!dan!air.!
+!
+
+
+
+
+                                                                                      ! 14!
+=== Halaman 20 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+    Perhitungan!peralatan!medis!untuk!pemenuhan!sesuai!standar,!jenis!dan!jumlah!
+peralatan!medis!harus!memperhatikan!kemampuan!layanan!berdasarkan!klasifikasi!
+rumah! sakit! dan! ketersediaan! jumlah! dan! kompetensi! SDM! yang! dipersyaratkan!
+untuk!penyelenggaraan!jenis!dan!volume!pemanfaatan!pelayanan!kesehatan.!!!
+          !
+    Pada! rumah! sakit! yang! telah! operasional,! perhitungan! peralatan! untuk!
+pemenuhan! standar! dibutuhkan! data! inventarisasi! peralatan! tiap! unit! pelayanan!
+seperti! IGD,! ICU,! NICU,! Rawat! Jalan,! Rawat! Inap,! Penunjang! Medik! dan! unit!
+pelayanan!lainnya.!!
+    !
+    Jenis,! jumlah! yang! ada,! kapasitas! alat,! pemanfaatan,! estimasi! peningkatan!
+pelayanan,!kebutuhan.!
+a.! Menilai! dengan! melihat! data! utilisasi! /! penggunaan! peralatan! medis! setiap!
+        harinya!baik!dari!catatan!rekam!medik!atau!melalui!penelitian,!bilamana!utilisasi!
+        /! penggunaan! peralatan! medis! cukup! tinggi,! maka! diperlukan! tambahan!
+        peralatan!medis!baru.!!
+b.! Perencanaan! dengan! adanya! pengembangan! pelayanan! kesehatan,! artinya!
+        diperlukan!penambahan!peralatan!baru!dengan!teknologi!generasi!terbaru!untuk!
+        mendukung!pengembangan!pelayanan!kesehatan.!
+c.! Menelaah! ketersediaan! peralatan! medis! tersebut! apakah! sudah! tersedia! di!
+        fasilitas!kesehatan!atau!rumah!sakit!lain!yang!dekat!dengan!rumah!sakit.!
+d.! Penilaian!kebutuhan!untuk!pengembangan!pelayanan!kesehatan!dan!peralatan!
+        dengan! teknologi! generasi! lama.! Health! Technology! Management,! jumlah!
+        pasien,!perhitungan!ekonomi,!SDM!
+          !
+Adapun!contoh!perhitungan!peralatan!medis!untuk!pemenuhan!sesuai!standar!dapat!
+dilihat!pada!lampiran!A.2.!
+!
+Dalam! penilaian! teknologi! peralatan! perlu! dipertimbangkan! juga! Life4 cycle4 cost!
+(LCC)! sebagai! salah! satu! instrument! penilaian,! selain! Ijin! Edar! perlu! diperhatikan!
+adanya! persetujuan! Food4 and4 Drug! Administration! (FDA)! dari! Amerika! Serikat,!
+Conformité4Européenne!(CE)!dari!Uni!Eropa.!
+!
+
+
+
+
+                                                                                        ! 15!
+=== Halaman 21 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+Life4 cycle4 cost! (LCC)! adalah! total! biaya! keseluruhan! peralatan,! termasuk! biaya!
+pembelian,! pengoperasian,! pemeliharaan,! pengalihan! dan/atau! penghapusan.! LCC!
+adalah! total! perkiraan! biaya! dari! awal! sampai! penghapusan,! yang! dihitung! melalui!!
+biaya!per!tahun!serta!memperhatikan!nilai!waktu!dari!uang.!!
+Tujuan! LCC! analisis! adalah! pendekatan! memilih! biaya! yang! paling! efektif! dari!
+serangkaian! alternatif! untuk! menekan! biaya! pada! jangka! waktu! tertentu! peralatan.!
+LCC! merupakan! model! ekonomi! selama! masa! dari! peralatan! tersebut! dipakai,!
+dipelihara,! dihapus,! biasanya! sebesar! 2M20! kali! lebih! besar! dari! biaya! pengadaan!
+awal.! Keseimbangan! antara! unsurMunsur! biaya! dicapai! ketika! total! LCC! bisa!
+diminimalkan.!!
+!
+LCC!membantu!:!!
+1.! Bagian!perencanaan,!yang!ingin!meminimalkan!biaya!modal!
+2.! Bagian!Pemeliharaan,!yang!ingin!meminimalkan!lamanya!perbaikan!
+3.! Pengguna,! yang! ingin! memaksimalkan! waktu! operasional! peralatan! dan!
+    menghindari!kegagalan/insiden!peralatan!
+4.! Bagian! Keuangan,! yang! ingin! memaksimalkan! Net! Present! Value! (NPV,! Selisih!
+    antara!penerimaan!dengan!pengeluaran!/!biaya!selama!umur!investasi)!
+5.! Pemilik!Rumah!Sakit,!yang!ingin!meningkatkan!pendapatan!
+!
+2.1.2.! Penganggaran!
+!
+
+        Anggaran!       dan!     keuangan!       untuk!     pemenuhan,!   penggantian!   atau!
+pengembangan,! peralatan! medis! disesuaikan! dengan! kebutuhan! peralatan! medis.!
+Untuk!Fasyankes!milik!pemerintah,!!anggaran!bisa!bersumber!dari:!
+a.! Pendapatan!Nasional!Bukan!Pajak!(PNBP)!
+b.! Badan!Layanan!Umum!(BLU)!
+c.! Anggaran!Pendapatan!dan!Belanja!Negara!(APBN).!
+d.! Anggaran!Pendapatan!dan!Belanja!Daerah!(APBD).!
+e.! Anggaran!lain!sumber!(bantuan!hibah,!dan!lainMlain).!
+!
+
+
+
+
+                                                                                         ! 16!
+=== Halaman 22 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!   Seluruh! sumber! anggaran! di! atas,! untuk! memenuhi! kebutuhan! pemenuhan! dan!
+penggantian! peralatan! dalam! pelayanan! kesehatan! harus! masuk! di! dalam!
+perencanaan!atau!RAB!(rencana!anggaran!belanja)!Rumah!sakit!setiap!tahunnya.!
+!
+!   Apabila! anggaran! sumber! dari! pendapatan! rumah! sakit! memiliki! kemampuan!
+yang!!terbatas,!maka!perencanaannya!difokuskan!kepada!peralatan!medis!prioritas!
+yang! disesuaikan! dengan! kriteria! pada! setiap! rumah! sakit! diantaranya! tingkat!
+utilitas,!life!support,!branding!dan!pelayanan!unggulan.!!
+!
+2.1.3.! Prioritas!pemenuhan!kebutuhan!
+!
+!   Tidak! selamanya! hasil! dari! penilaian! kebutuhan! peralatan! medis! dapat!
+direalisasikan! semuanya,! keterbatasan! anggaran! menjadi! kendala! dalam!
+pemenuhan! tersebut! dikarenakan! pendapatan! rumah! sakit! memiliki! kemampuan!
+yang!!terbatas,!maka!perencanaannya!difokuskan!kepada!peralatan!medis!prioritas!
+yang! disesuaikan! dengan! kriteria! pada! setiap! rumah! sakit! diantaranya! adalah!
+sebagai!berikut:!!
+!
+1.! Tingkat!utilitas!
+    Merupakan! tingkat! penggunaan! atau! pemakaian! peralatan! medis! pada!
+    pelayanan.! Hal! ini! terkait! dengan! terhadap! banyaknya! kebutuhan! peralatan!
+    tersebut! sehingga! akan! berpengaruh! pada! tingkat! pelayanan! dan! penghasilan!
+    dari!rumah!sakit!
+2.! Brand4Image!rumah!sakit!
+    Beberapa! peralatan! medis! dapat! diasosiakan! terhadap! pencitraan! yang! positif!
+    oleh! masyarakat.! Peralatan! medis! dengan! jenis! tertentu,! canggih! dan! peralatan!
+    dengan!teknologi!terkini!diyakini!dapat!mendorong!nilai!jual!(marketable)!seperti!
+    CTMScan,!MRI,!USG!4!Dimensi,!dll.!
+3.! Pelayanan!unggulan!
+    Setiap!rumah!sakit!pasti!memiliki!program!pelayanan!unggulan!yang!merupakan!
+    suatu! kelebihan! dibanding! dengan! rumah! sakit! lainnya.! Pelayanan! unggulan!
+    tersebut! haruslah! didukung! dengan! ketersedian! peralatan! medis! yang! sesuai!
+    dengan!tuntutan!pelayanan!unggulan.!
+4.! Peralatan!Life!support!!
+
+
+                                                                                      ! 17!
+=== Halaman 23 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+        Merupakan! peralatan! yang! menopang! hidup! pasien,! tanpa! peralatan! ini! pasien!
+        akan! berdampak! pada! kematian! misalanya! peralatan! bantu! pernapasan! (alat!
+        resusitasi,! ventilator,! Mesin! Anaesthesi),! ! baby! incubator,! ! Peralatan! kriteria! ini!
+        haruslah! selalu! tersedia! oleh! rumah! sakit! karena! sangat! terkait! dengan!
+        keselamatan!pasien!
+5.! Kesiapan!bangunan/ruangan!dan!prasarana.!
+        Beberapa! peralatan! medis! di! rumah! sakit! memerlukan! ruangan/tempat! khusus!
+        dalam!operasionalnya.!Bangunan/ruangan!tempat!peralatan!medis!berada!harus!
+        sudah! dipersiapkan! dan! didesain! sedemikian! rupa! serta! dilengkapi! dengan!
+        prasarana!seperti!listrik,!air,!gas!medik,!pembumian,!sistem!komunikasi,!dan!lainM
+        lain! sesuai! persyaratan.! ! Hal! ini! agar! pelayanan! kesehatan! dapat! dilakukan!
+        dengan!baik!serta!untuk!keamanan!petugas,!pasien!serta!masyarakat!dari!risiko!
+        peralatan!medis,!bahaya!getaran,!panas,!bising!atau!radiasi.!
+     Generic
+    standards
+       and
+    examples
+
+                                               ·"Level"of"care
+                                       ·"Clinical"practice"guidelines
+                                            ·"Medical"device"lists
+                                                     ·"....
+
+
+
+
+                                                                                        Prioritisation
+
+
+
+
+                                 Analysing"/"interpreting               Overall"gap"/           Budgetary"and"HR       Prioritised
+                                                                           need                     situation             need
+
+
+
+
+                              ·"Epidemiological"needs"/disease"priorities
+                           ·"Population"data"(demography,"catchment"area,
+                                               patient"rate)
+                                 ·"Service"availability"and"accessibility
+                                        ·"Infrastructure"situation
+                                       ·"Medical"device"situation
+                                    ·"Human"resource"(HR)"situation
+
+
+     Baseline
+       data
+                                                                                                                                     !
+                                                                                                                   4
+                                 Gambar!2.1! Proses!analisa!kebutuhan!secara!umum !
+2.4.!         PENGADAAN!(PROCUREMENT)!
+!
+              Pengadaan! peralatan! medis! dilakukan! sesuai! dengan! peraturan! yang!
+berlaku.! Yang! perlu! diperhatikan! dalam! pengadaan! peralatan! medis! adalah!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+4
+    !WHO,(Need(Assessment(for(Medical(Device,(2011(
+
+
+
+                                                                                                                                     ! 18!
+=== Halaman 24 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+penyusunan! spesifikasi! alat! kesehatan,! Spesifikasi! harus! sesuai! kebutuhan!
+user/pelayanan.! Spesifikasi! yang! terlalu! tinggi! akan! mengakibatkan! biaya! yang!
+cukup! tinggi.! Spesifikasi! terlalu! rendah! bisa! mengakibatkan! pelayanan! tidak! bisa!
+berjalan!optimal.!
+!
+     HalMhal!yang!perlu!diperhatikan!:!
+M!   Ketersediaan!suku!cadang.!
+M!   Biaya!operasional!(listrik,!bahan!habis!pakai).!
+M!   Kebutuhan!praMinstalasi!(pekerjaan!sipil,!listrik!khusus,!perpipaan!dan!komponen!
+     pengaman/keselamatan).!
+M!   Kebutuhan!sarana!(bangunan/ruangan).!!
+M!   Kebutuhan!prasarana!(listrik,!air,!gas)!
+!
+2.4.1.! Penyiapan!Spesifikasi!
+!
+        Spesifikasi! peralatan! medis! disusun! memperhatikan! kebutuhan! pelayanan!
+kesehatan! di! rumah! sakit! dan! kesesuaian/perkembangan! teknologi.! Penyusunan!
+spesifikasi!juga!harus!mempertimbangkan!regulasi!alat!kesehatan!di!Indonesia,!yaitu!
+peralatan! medis! yang! beredar! di! Indonesia! serta! mempunyai! izin! edar! serta!
+kesesuaian! terhadap! Standar! Nasional! maupun! internasional.! Hal! ini! untuk!
+memastikan! peralatan! medis! yang! dipilih! memiliki! kualitas! yang! baik! serta! sesuai!
+dengan`ISO! 13485! untuk! pabrikan/produsen! alkes! baik! dalam! negeri! maupun! luar!
+negeri.! Sedangkan! khusus! untuk! alat! kesehatan! luar! negeri! perlu! dipertimbangkan!
+tambahan!persyaratan!yaitu!harus!sudah!compliance!dengan!CE!Mark!dan!FDA.!
+        !
+        Selain! beberapa! peralatan! medis! yang! beredar! di! Indonesia,! dapat! juga!
+menggunakan! perbandingan! spesifikasi! dari! lembaga! riset! independ! baik! nasional!
+maupun! internasional,! misalnya! HPCS! (Health4 Product4 Comparison4 System)! yang!
+dikeluarkan!oleh!ECRI!(emergency4care4research4institute).!
+!
+        Perbandingan! spesifikasi! dari! HPCS! sangat! membantu! dalam! menyusun!
+spesifikasi! sehingga! spesifikasi! yang! dihasilkan! tidak! mengarah! tetapi! sesuai!
+dengan!spesifikasi!yang!diharapkan.!!
+!
+
+
+                                                                                      ! 19!
+=== Halaman 25 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!
+!
+2.4.2.! Langkah!–!langkah!penyusunan!spesifikasi!
+1.! Lakukan! pengumpulan! data! spesifikasi! peralatan! medis! yang! beredar! di!
+        Indonesia.!
+2.! Sebagai! perbandingan! dapat! dibantu! dengan! referensi! dari! ! misalnya! HPCS!
+        (Health! Product! Comparison! System)! yang! dikeluarkan! oleh! ECRI! (emergency!
+        care!research!institute).!
+3.! Susun!parameter!spesifikasi!alat!kesehatan!yang!dibutuhkan!
+4.! Masukan!nilai!masingMmasing!parameter!untuk!setiap!jenis!alat!kesehatan!yang!
+        ditawarkan!sesuai!kebutuhan!pengguna.!
+5.! Nilai!parameter!dapat!dibuat!tetap!atau!dengan!nilai!tertentu!jika!memiliki!dasar!
+        yang!kuat!(justifikasi4klinis)!terhadap!pemilihan!parameter!tersebut.!
+6.! Hail!akhir!spesifikasi!yang!dibutuhkan.!
+!
+Contoh!spesifikasi!terdapat!ada!pada!lampiran!A.4.!
+!
+!
+2.4.3.! Penyusunan!HPS!
+!
+Harga! Perkiraan! Sendiri! (HPS)! atau! Owners4 Estimate4 (OE)! adalah! harga! barang!
+dan/atau! jasa! yang! dikalkulasi! secara! keahlian! dan! berdasarkan! data! yang! dapat!
+dipertanggung!jawabkan!meliputi:5!
+a)! Harga! pasar! setempat! yaitu! harga! barang/jasa! dilokasi! barang/jasa!
+        diproduksi/diserahkan/! dilaksanakan,! menjelang! dilaksanakannya! Pengadaan!
+        Barang/Jasak!
+b)! informasi! biaya! satuan! yang! dipublikasikan! secara! resmi! oleh! Badan! Pusat!
+        Statistik!(BPS)k!
+c)! informasi!biaya!satuan!yang!dipublikasikan!secara!resmi!oleh!asosiasi!terkait!dan!
+        sumber!data!lain!yang!dapat!dipertanggungjawabkank!
+d)! daftar!biaya/tarif!Barang/Jasa!yang!dikeluarkan!oleh!pabrikan/distributor!tunggalk!
+e)! biaya!                 Kontrak!                sebelumnya!   atau!   yang!   sedang!   berjalan!   dengan!
+        mempertimbangkan!faktor!perubahan!biayak!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+5
+    !Peraturan!Presiden!No.!70!Tahun!2012!
+
+
+
+                                                                                                          ! 20!
+=== Halaman 26 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+f)! !inflasi! tahun! sebelumnya,! suku! bunga! berjalan! dan/atau! kurs! tengah! Bank!
+    Indonesiak!
+g)! hasil!perbandingan!dengan!Kontrak!sejenis,!baik!yang!dilakukan!dengan!instansi!
+    lain!maupun!pihak!laink!
+h)! perkiraan! perhitungan! biaya! yang! dilakukan! oleh! konsultan! perencana!
+    (engineer’s!estimate)k!
+i)! norma!indeksk!dan/atau!
+j)! informasi!lain!yang!dapat!dipertanggungjawabkan.!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+
+                                                                                 ! 21!
+=== Halaman 27 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                              BAB!III!
+            INSTALASI!DAN!PENERIMAAN!PERALATAN!MEDIS!
+!
+
+!
+
+!
+
+        Instalasi! adalah! proses! pemasangan! peralatan! medis! ke! tempatnya.! Proses!
+terkait!lainnya!adalah!pengiriman,!penyimpanan!dan!penempatan!barang!yang!dibeli!
+ke!lokasi!yang!diinginkan.!
+        !
+        Untuk!mendukung!penggunaan!peralatanmedis!agar!dapat!digunakan!secara!
+efisien,!instalasiMinstalasi!tersebut!mutlak!harus!dilakukan!semaksimal!mungkin.!Hal!
+ini!dilakukan!juga!untuk!menjaga!asset!dan!keamanan!rumah!sakit!dimana!peralatan!!
+medis! digunakan! untuk! pelayanan! kesehatan! dan! juga! merupakan! barang! yang!
+cukup!mahal.!
+        !
+        Penerimaan! peralatan! medis/komisioning! adalah! proses! melalui! proses!
+penerimaan!secara!fisik!dan!administratif,!uji!coba!dan!uji!fungsi!untuk!memastikan!
+bahwa!peralatan!medis!itu!sesuai!dengan!spesifikasi!dan!kontrak,!berfungsi!dengan!
+baik!sebelum!digunakan!dalam!rangka!menjamin!tersedianya!peralatan!medis!yang!
+bermutu,!aman!dan!laik!pakai.!
+        !
+        Terdiri!dari!3!tahap!yaitu!pemeriksaan!fisik!peralatan!medis!setelah!diinstalasi!
+bagi! peralatan! medis! yang! mensyaratkan! instalasi,! uji! fungsi! dan! uji! coba! disertai!
+pelatihan! bagi! pengguna! dan! teknisi.! Hasil! penerimaan! peralatan! kesehatan!
+dituangkan! dalam! berita! acara! penerimaan! peralatan! medis! sesuai! dengan!
+ketentuan!yang!berlaku.!
+        !
+3.1!!!INSTALASI!
+!
+    Instalasi!peralatan!secara!umum!adalah!tahap!kegiatan!pekerjaan!pemasangan,!
+yang!meliputi:!
+    1.! pembukaan!peti/koli!(unpacking)!
+    2.! Penempatan!alat!pada!tempat!yang!sudah!ditentukan!!
+
+
+                                                                                         ! 22!
+=== Halaman 28 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+    3.! Perakitan!alat!dan!atau!peletakan!alat!pada!pondasi!atau!pada!ceiling!
+    4.! Penyambungan!alat!dengan!kelengkapan!dan!atau!material!praMinstalasi!yang!
+        telah!dipersiapkan!
+    5.! Pengaturan,!pengukuran!keluaran,!kalibrasi!dan!atau!pengujian!keselamatan!
+        kerja!
+!
+    Instalasi!peralaan!harus!mengacu!pada!petunjuk!instalasi!dan!gambar!instalasi!
+dari!pabrik!pembuat/distributor.!
+!
+    Beberapa!hal!yang!harus!diperhatikan!pada!waktu!instalasi!alat!adalah!sebagai!
+berikut:!
+1.! Tidak! menggangu! kegiatan! pelayanan! di! rumah! sakit! atau! instansi! kesehatan!
+    lainnya.!
+2.! Instalasi!dilakukan!oleh!tenaga!yang!profesional!dan!ahli!di!bidangnya.!
+3.! Kerusakan! pada! gedung,! kelengkapan! dan! atau! material! praMinstalasi! yang!
+    diakibatkan!oleh!instalasi!alat!harus!diperbaiki!oleh!pemasok/penyedia!sehingga!
+    kembali!ke!keadaan!semula.!
+4.! Pada! pelaksanaan! instalasi,! teknisi! pemasok/penyedia! harus! mengikutsertakan!
+    teknisi!rumah!sakit/fasilitas!pelayanan!kesehatan!sebagai!upaya!alih!teknologi.!
+        !
+3.2!!!!PENERIMAAN!
+        Penerimaan! peralatan! medis/komisioning! adalah! proses! melalui! proses!
+penerimaan!secara!fisik!dan!administratif,!uji!fungsi!dan!uji!coba!untuk!memastikan!
+bahwa! peralatan! medis! itu! sesuai! dengan! spesifikasi! dalam! kontrak,! berfungsi!
+dengan! baik! sebelum! digunakan! dalam! rangka! menjamin! tersedianya! peralatan!
+medis!yang!bermutu,!aman!dan!laik!pakai.!
+        !
+        Terdiri!dari!3!tahap!yaitu!pemeriksaan!fisik!peralatan!medis!setelah!diinstalasi!
+bagi! peralatan! medis! yang! mensyaratkan! instalasi,! uji! fungsi! dan! uji! coba! disertai!
+pelatihan!bagi!pengguna!dan!teknisi.!Hasil!penerimaan!peralatan!medis!dituangkan!
+dalam! berita! acara! penerimaan! peralatan! medis! sesuai! dengan! ketentuan! yang!
+berlaku.!
+    Peralatan!yang!diterima!harus!memenuhi!ketentuan!sebagai!berikut:!
+•! telah!selesai!diinstalasi!
+
+
+                                                                                         ! 23!
+=== Halaman 29 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+•! telah!dilakukan!pemeriksaan!fisik,!instalasi!dan!uji!fungsi!
+•! telah!melewati!masa!uji!coba!dengan!hasil!baik!
+•! telah!melewati!masa!pemeliharaan!peralatan!sesuai!program!
+!
+        Selain!ketentuan!diatas!pihak!penyedia!masih!bertanggung!jawab!terhadap!
+peralatan!selama!masa!garansi.!
+!
+3.2.1.! Panitia/Pejabat!Penerima!
+              !
+              Panitia/Pejabat! Penerima! Hasil! Pekerjaan! adalah! panitia/pejabat! yang!
+ditetapkan! oleh! PA/KPA! yang! bertugas! memeriksa! dan! menerima! hasil! pekerjaan.!
+Dalam! hal! pemeriksaan! Barang/Jasa! memerlukan! keahlian! teknis! khusus,! dapat!
+dibentuk! tim/tenaga! ahli! untuk! membantu! pelaksanaan! tugas! Panitia/Pejabat!
+Penerima!Hasil!Pekerjaan6.!
+              !
+              Keanggotaan! Panitia/Pejabat! Penerima! terdiri! dari! unsur! teknik,! pengguna!
+(user),!manajemen!dan!petugas!administrasi!barang.!
+!
+3.2.2.! Proses!Penerimaan!Peralatan!Medis!!
+              Proses!penerimaan!peralatan!medis!melalui!3!(tiga)!tahapan,!yaitu!:!
+              !
+1)! Pemeriksaan!Fisik!
+Kegiatan! yang! meliputi! penilaian! fisik! alat,! kelengkapan! alat.! Tujuan! dari!
+pemeriksaan!ini!adalah!untuk!mengecek!kesesuaian!:!
+        M!        Merk,!tipe/model,!jumlah!
+        M!        BagianMbagian!alat!
+        M!        Aksesori!yang!dipesan!
+        M!        Kelengkapan!dokumen!teknis!yang!terdiri!dari!:!
+                  1)! Certificate4of4Origin!
+                  2)! Test4Certificate!!
+                  3)! Manual!(operation,4service,4installation,4wiring/schematic4diagram)!
+              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+6
+    !Perpres!70!Tahun!2012!!
+
+
+
+                                                                                             ! 24!
+=== Halaman 30 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+2)! Uji!Fungsi!
+    Uji! fungsi! dilakukan! untuk! mengetahui! kinerja! alat! sesuai! dengan! yang!
+    diharapkan!atau!sesuai!dengan!standard!keamanan!dan!standard!dari!pabrikan.!
+    Pelaksanaan!uji!fungsi!sebagai!berikut!:!
+    a.!Pemeriksaan!fungsi!komponen/bagian!alat!(tombol,!saklar,!indikator,!putaran!
+        motor,!pengereman,!dll)!
+    b.! Kinerja!output!
+        Pada!tahap!ini!dilakukan!pengujian!terhadap!hasil!keluaran!dari!alat!(missal:!
+        XMray,!temperature,!putaran,!energy,!daya!hisap,!sistem!perekaman,!dll).!
+        Pada! pengujian! keluaran! ini,! supplier! harus! melakukan! pengukuran,! dengan!
+        menggunakan!alat!ukur!yang!sesuai!dengan!keluaran!yang!dihasilkan!setiap!
+        jenis!alat.!
+    c.! Pengujian!aspek!keselamatan,!meliputi!:!!
+        M! Arus!bocor!
+        M! Impedansi!kabel!pembumian!
+        M! Nilai!tahanan!hubungan!pembumian!!
+        M! Radiasi!bocor!dan!paparan!radiasi!
+        M! Anaesthesia!gas!scavenging!sistem!
+        M! Kesetimbangan/balancing!
+        M! Sistem!pengamanan!tertentu!!
+        Nilai!ambang!batas!parameter!keselamatan!dapat!dilihat!pada!lampiran!A.5.!
+    Dalam!pelaksanaan!uji!fungsi!pihak!penyedia!haruslah!menyediakan!!
+•! bahan!operasional!yang!diperlukan!untuk!uji!fungsi!
+•! alat!ukur!yang!diperlukan!dan!!
+•! tenaga!ahli!yang!mampu!untuk!melakukan!uji!fungsi!dan!peragaan!alat.!!
+!
+3)! Pelatihan!operator!dan!tenaga!teknik!(elektromedis)!
+Kegiatan!pelatihan!sebaiknya!dilakukan!setelah!uji!fungsi!dan!sebelum!kegiatan!uji!
+coba!dilakukan.!!
+!
+Pelatihan!operator!meliputi:!
+•! Prosedur!penggunaan!alat!yang!benar!dan!aman!
+•! Pengoperasian!peralatan!secara!optimal!
+
+
+
+                                                                                    ! 25!
+=== Halaman 31 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+•! Pemeliharaan!harian,!penyimpanan!alat!dan!penggantian!bahan!habis!pakai!
+•! Penyusunan!standard!operating!procedur!(SOP)!
+        !
+Pelatihan!teknisi/elektromedis!meliputi:!
+Cara!pengoperasian!peralatan!
+    •! Penjelasan!fungsi!masingMmasing!bagian!alat!
+    •! Mempelajari!schematic!diagram!
+    •! Trouble!shooting/mendeteksi!kerusakan!
+    •! Pengukuran!dan!kalibrasi!
+    •! Pemeliharaan!preventif!
+    •! Penggantian!suku!cadang!
+        !
+4)! Uji!Coba!
+    Uji! coba! adalah! kegiatan! pengujian! peralatan! dengan! melakukan! penggunaan!
+    langsung! pada! pasien! yang! dilaksanakan! setelah! melalui! proses! uji! fungsi!
+    dengan! baik.! Uji! coba! dilaksanakan! oleh! operator! yang! telah! dilatih! untuk!
+    mebiasakan! penggunaan! alat! sesuai! prosedur! kerjanya! dalam! waktu! tertentu!
+    atau!berdasarkan!jumlah!pemakaian.!
+!
+3.2.3.! Masa!pemeliharaan!peralatan!
+        !
+        Setelah! uji! fungsi! alat! mulai! tahap! masa! pemeliharaan.! Pemeliharaan! yang!
+dimaksud! terdiri! dari! pemeliharaan! berkala! dan! panggilan! setiap! saat! (on4 call4
+service),!yaitu!dalam!keadaan!mendesak!teknisi!penyedia/distributor!harus!bersedia!
+melakukan!perbaikan!setiap!saat!selama!masa!pemeliharaan.!!
+        !
+        Ketentuan! mengenai! pemeliharaan! pemeliharaan! meliputi! jangka! waktu!
+pemeliharaan,! periode! pemeliharaan! untuk! setiap! alat! dan! jenis! kegiatan!
+pemeliharaan.!
+        !
+        Masa! garansi! adalah! jangka! waktu! tertentu! sesuai! ketentuan! di! dalam!
+kontrak,! dimanapihak! penyedia! masih! bertanggung! jawab! terhadap! perbaikan! dan!
+penyediaan! suku! cadang! peralatan! yang! mengalami! kerusakan! akibat! kegagaln!
+
+
+
+                                                                                     ! 26!
+=== Halaman 32 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+peralatan! yang! bukan! diakibatkan! oleh! kesalahan! operator! dan! atau! kesealahan!
+pendukung! lainya! seperti! listrik! rumah! sakit.! Masa! garansi! dihitung! sejak! selesai!
+dilakukan!uji!fungsi!atau!sejak!ditandatangani!Berita!Acara!Penerimaan!peralatan.!
+!
+         Ketentuan! mengenai! penerimaan! alat! tersebut! dari! mulai! instalasi,! proses!
+penerimaan! (pemeriksaan! fisik,! uji! fungsi,! pelatihan,! uji! coba),! masa! pemeliharaan!
+dan! garansi! harus! dituangkan! dalam! dokumen! pengadaan! sehingga! akan! diatur!
+pada!dokumen!kontrak.!
+         !
+3.2.4.! LangkahPLangkah!setelah!Penerimaan!Alat!
+         !
+1.! Pencatatan!peralatan!medis.!
+     Semua!perangkat!baru!akan!ditempatkan!pada!daftar!aset!peralatan!oleh!
+     petugas!atau!staf!!yang!bertanggung!jawab!dan!ditunjuk.!
+     !
+2.! Pelabelan!dan!Pendokumentasian.!
+     Melampirkan! label! yang! sesuai,! sebagai! informasi! kepada! tenaga! kesehatan!
+     dan!tenaga!teknis!bahwa!perangkat!ini!peralatan!medis!dalam!kondisi!baru!atau!
+     baru! saja! diterima! dan! penyesuaian! oleh! pengguna! mungkin! diperlukan,!
+     memperingatkan! kepada! pengguna! bahwa! peralatan! medis! tidak! boleh!
+     digunakan!sampai!adanya!pelatihan!bagi!pengguna!dan!tenaga!teknis.!Salinan!
+     manual! penggunaan! peralatan! medis! baru! juga! akan! diberikan! kepada!
+     pengguna!dan!tenaga!teknis.!Selain!itu,!semua!catatan!mengenai!penerimaam!
+     peralatan! medis! baik! itu! asli! maupun! salinan! harus! didokumentasikan! secara!
+     terpusat.! Harus! ada! informasi! siapa! yang! harus! dihubungi! apabila! terjadi!
+     kerusakan!atau!insiden.!!
+     !
+3.! Perencanaan!pemeliharaan!Preventif.!
+     Semua! pengguna! dan! tenaga! teknis! diberitahu! tentang! prosedur! pemeliharaan!
+     yang!tepat,!termasuk!waktu!harus!dilakukan!pengujian,!kalibrasi!dan!perawatan!
+     peralatan!medis.!
+     !
+4.! Cara!Penanganan!peralatan!medis.!!!!
+
+
+
+                                                                                       ! 27!
+=== Halaman 33 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+     Informasi! untuk! pengguna! dan! tenaga! teknis! untuk! ! penanganan! dan!
+     penyimpanan!peralatan!medis,!pentingnya!memastikan!semua!aksesori!lengkap!
+     dan! tersedia! dan! bimbingan! tentang! bagaimana! baterai! internal! harus! diisi!
+     ulang.!
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+     !
+
+
+
+
+                                                                                   ! 28!
+=== Halaman 34 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                              BAB!IV!!
+                                      PENGOPERASIAN!
+!
+!
+!
+!
+             Dalam! kenyataan! sehariMhari! sering! dikeluhan! bahwa! alat! rusak! atau! tidak!
+dapat! digunakan! sebagaimana! mestinya,! namun! setelah! dilakukan! pemeriksaan!
+ternyata! kerusakan! atau! keluhan! bukan! disebabkan! karena! kerusakan! fungsi! alat!
+tetapi!adanya!setting!yang!tidak!sesuai!atau!kesalahan!operasional.!
+             !
+             Untuk! mengantisipasi! hal! tersebut,! maka! pemahaman! cara! pengoperasian!
+peralatan! medis! harus! benarMbenar! di! pahami! dan! pelajari,! sehingga! alat! dapat!
+digunakan!secara!benar!dan!mengurangi!keluhan!kerusakan!alat.!
+             !
+         Kesalahan!dalam!pengoperasian!suatu!peralatan!medis!dapat!mengakibatkan!
+kerusakan! peralatan,! hasil! pemeriksaan! tidak! seperti! yang! diharapkan! bahkan!
+terkadang! dikarenakan! kesalahan! pengoperasian,! harus! dilakukan! pemeriksaan!
+ulang!yang!berakibat!adanya!inefisiensi!dan!ketidakpuasan!pelanggan.!Agar!halMhal!
+yang! tidak! diinginkan! tersebut! terjadi,! maka! ada! beberapa! prasyaratan! yang! harus!
+dipenuhi!dalam!pengoperasian!suatu!peralatan!medis.!
+         !
+4.1!!!PERSYARATAN!PENGOPERASIAN!PERALATAN!MEDIS!!
+!
+
+     Peralatan! medis! dapat! berfungsi! dengan! baik! apabila! dioperasikan! dengan!
+benar! sesuai! dengan! prosedur,! pengoperasian! peralatan! medis! dengan! benar!
+diharapkan! dapat! memperpanjang! umur! peralatan! dan! mengurangi! tingkat!
+kerusakan!peralatan!serta!memperkecil!biaya!operasional.!
+     !
+     Prasyarat! pengopersasian! peralatan! medis! adalah! ketentuan! yang! harus! di!
+pertimbangkan! dan! menjadi! persyaratan! agar! peralatan! medis! dapat! dioperasikan!
+secara! aman! dan! benar.! Pengoperasian! peralatan! medis! adalah! langkahMlangkah!
+
+
+
+
+                                                                                          ! 29!
+=== Halaman 35 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+yang! dilakukan! agar! peralatan! medis! dapat! difungsikan! dengan! benar! sesuai!
+dengan!prosedur.!
+     !
+     Dalam! mengoperasikan! peralatan! medis! ada! beberapa! ketentuan! yang! harus!
+dipertimbangkan! dan! menjadi! persyaratan! agar! alat! dapat! dioperasikan! secara!
+aman! dan! benar.! Persyaratan! pengoperasian! mencakup! seluruh! aspek! yang!
+berhubungan!dengan!pengoperasian!peralatan!yang!terdiri!dari!:!
+     !
+     •! Sumber!daya!manusia!
+     •! Kelengkapan!alat/aksesori!
+     •! Bahan!operasional!
+     •! Sarana!pendukung!
+            !
+     Sumber!daya!yang!mengoperasikan!peralatan!harus!memiliki!pengetahuan!dan!
+ketrampilan! yang! cukup! untuk! mengoperasikan! peralatan! medis.! UU! No.44! Tahun!
+2009! tentang! Rumah! Sakit! pada! pasal! 11! ayat! 4! mengatakan! Pengoperasian! dan!
+pemeliharaan! prasarana! Rumah! Sakit! sebagaimana! dimaksud! pada! ayat! (1)! harus!
+dilakukan! oleh! petugas! yang! mempunyai! kompetensi! di! bidangnya.! Hal! ini! di!
+tegaskan! kembali! pada! pasal! 16! ayat! 5.! Untuk! mencapai! hal! tersebut! dapat!
+dilakukan!dengan!beberapa!cara,!antara!lain!:!
+     !
+•!   Mengikuti! pelatihan! pengoperasian! peralatan! medis! pada! saat! pengadaan!
+     (dilakukan!oleh!distributor/agen).!
+•!   Mengikuti! pelatihan! pengoperasian! peralatan! medis! yang! dilaksanakan! oleh!
+     instansi! lain! dan! pelatihan! yang! dilakukan! secara! internal! rumah! sakit! yang!
+     bersangkutan.!
+•!   Mempelajari!operasional!manual!dan!standar!prosedur!pengoperasian!peralatan!
+     medis.!!!
+!
+     Setiap! alat! dilengkapi! dengan! protap! (Standard4 Operation4 procedur4 /SOP),!
+Pengoperasian! alat! harus! sesuai! protap.! Selain! protap! pengoperasian! alat,! harus!
+dilengkapi! pula! dengan! protap! pelayanan! yang! dimengerti! dan! dipahami! oleh!
+
+
+
+
+                                                                                      ! 30!
+=== Halaman 36 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+   Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+   !
+   seluruh! petugas! yang! terlibat! dengan! kegiatan! di! unit! pelayanan! tersebut.! Contoh!
+   prosedur!tetap!pengoperasian!terdapat!pada!lampiran!A.6.!
+        !
+        Unit!pelayanan!yang!mengelola!alat!harus!menyiapkan!bahan!operasional!bagi!
+   setiap!     alat.!   Sehingga!     pengoperasian!        alat!    dapat!   dilaksanakan!   secara!
+   berkesinambungan.!
+        !
+        Sarana! pendukung! dalam! rangka! pengoperasian! suatu! alat! seperti! misalnya:!
+   gas! medis,! catu! daya! listrik! dll,! harus! tersedia! dan! memenuhi! persyaratan! yang!
+   ditetapkan!oleh!pabrikan!,!maupun!peraturan!yang!berlaku.!
+        !
+        Dalam! pengoperasian! peralatan! semua! prosedurMprosedur! yang! berhubungan!
+   dengan! pengoperasian! harus! menjadi! perhatian.! LangkahMlangkah! prosedur! harus!
+   diikuti! secara! berurutan! mulai! dari! awal! pengoperasian,! pada! saat! mulai! terpasang!
+   ke! pasien! sampai! alat! dilepas! dari! pasien! dan! alat! dikembalikan! ditempat! semula.!
+   Pengoperasian!Peralatan!medis!dilakukan!dengan!langkahMlangkah!sebagai!berikut!:!
+        !
+4.2! !!PERSIAPAN!PENGOPERASIAN!PERALATAN!MEDIS!!
+   !
+
+             Kegiatan!persiapan!pengoperasian!peralatan!medis!meliputi!kegiatan:!
+   •!   Pemeriksaan!kelengkapan!peralatan.!!
+   •!   Pemeriksaan!fasilitas!penunjang.!!
+   •!   Penyiapan!bahan!operasional.!!
+        Kegiatan! persiapan! dilakukan! sesuai! dengan! kebutuhan! masingMmasing!
+   peralatan! dan! kondisi! peralatan,! dengan! tujuan! melakukan! pengecekan!
+   kelengkapan! operasional! dan! fungsi! serta! untuk! memastikan! bahwa! pada! saat! itu!
+   peralatan!medis!siap!dan!laik!untuk!dioperasikan.!!
+        Sedangkan!untuk!kegiatan!pemanasan!peralatan!medis!meliputi:!
+   •!   Menghubungkan!alat!ke!catu!daya,!memeriksa!kondisi!baterai!
+   •!   Menghidupkan!alat!
+   •!   Memeriksa!peralatan!dan!tombolMtombol!
+   •!   Mengatur!posisi!pengoperasian!
+   !
+
+
+                                                                                                 ! 31!
+=== Halaman 37 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+   Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+     !
+4.3! !!PELAKSANAAN!PENGOPERASIAN!PERALATAN!MEDIS!
+   !
+
+        Dalam! pengoperasian! peralatan! medis,! semua! prosedurMprosedur! yang!
+   berhubungan! dengan! pengoperasian! harus! menjadi! perhatian.! LangkahMlangkah!
+   prosedur! harus! diikuti! secara! berurutan! mulai! dari! awal! pengoperasian,! pada! saat!
+   mulai!terpasang!ke!pasien!sampai!alat!dilepas!dari!pasien!dan!alat!dikembalikan!di!
+   tempat!semula.!
+        Dalam!pelaksanaan!pengoperasian!peralatan!medis,!perhatikan!:!
+        !
+   •!   Protap!pelayanan!yang!berlaku.!
+   •!   Hubungan!antara!peralatan!medis!dan!pasien.!
+   •!   Pengoperasian!alat!pada!saat!dilakukan!tindakan.!
+   •!   Pengawasan!terhadap!fungsi!dan!suplier!
+   !
+4.4! !!PENGEMASAN!/PENYIMPANAN!
+   !
+
+        Setelah!      peralatan!     medis!      selesai!     digunakan,!   dilakukan!   kegiatan!
+   pengemasan/perapian,! dimana! kegiatan! ini! sangat! berpengaruh! terhadap! usia!
+   peralatan!medis,!kegiatan!pengemasan/perapian!meliputi!:!
+        !
+   •!   Mematikan!peralatan!medis!sesuai!prosedur.!
+   •!   Melepaskan!hubungan!peralatan!medis!dari!catu!daya.!
+   •!   Membersihkan!peralatan!medis!maupun!aksesories!yang!habis!dipakai.!
+   •!   Meletakan!peralatan!medis!di!tempatnya.!
+   •!   Mencatat!beban!kerja!peralatan!medis.!
+   !
+        Pada! UndangMundang! Nomor! 44! tahun! 2009! Pasal! 11! ayat! 5! dikatakan! antara!
+   lain!pengoperasian!dan!pemeliharaan!prasarana!Rumah!Sakit!harus!didokumentasi!
+   dan! dievaluasi! secara! berkala! dan! berkesinambungan.! Hal! ini! pun! sejalan! dengan!
+   standar!dipersyaratkan!dalam!akreditasi!Rumah!Sakit.!
+        !
+        !
+
+
+
+
+                                                                                              ! 32!
+=== Halaman 38 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+   Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+     !
+4.5! !!DEKONTAMINASI!
+   !
+
+        Mikroorganisma! banyak! terdapat! di! lingkungan,! termasuk! di! sekitar! fasilitas!
+   pelayanan!      kesehatan.!      Hanya!      sedikit!    yang!      bersifat!   pathogen,!    dimana!
+   mikroorganisma! pathogen! tersebut! dapat! mempengaruhi! kesehatan! pada! tubuh!
+   yang! rentan.! Populasi! mikroorganisma! meningkat! dalam! kondisi! lembab,! meskipun!
+   ada!juga!yang!bisa!bertahan!pada!kondisi!kering.!!!!
+        !
+        Pasien! dan! tenaga! kesehatan! beresiko! mendapatkan! infeksi! jika! tidak!
+   melaksanakan!        tindakan!      pencegahan!         infeksi.!    Infeksi!   nosokomial!    dapat!
+   dicegah/diminimalkan! dengan! beberapa! strategi! pencegahan! infeksi! yang! tertuang!
+   dalam! Program! pengendalian! Infeksi! nosokomial! dan! dikelola! oleh! Tim! Pengendali!
+   Infeksi.!Salah!satu!strategi!pencegahan!infeksi!adalah!dekontaminasi.!!
+        !
+        Semua! peralatan! medis! yang! digunakan! baik! di! rumah! sakit! dapat!
+   terkontaminasi!secara!biologi,!kimia!atau!bahan!radioaktif!yang!dapat!menimbulkan!
+   resiko!bagi!petugas!dan!pasien.!Semua!peralatan!medis!dapat!yang!akan!digunakan!
+   kembali,!dipelihara,!!diperbaiki,!!atau!dimusnahkan!harus!menjalani!dekontaminasi.!
+   Hal! ini! diperlukan! untuk! memastikan! bahwa! mereka! berada! dalam! kondisi! yang!
+   membuat!mereka!aman!untuk!ditangani!oleh!semua!personel!yang!mungkin!datang!
+   ke!dalam!kontak!dengan!mereka!selama!transit!dan!penanganan!berikutnya.!!
+        !
+        !!!Tingkat! dekontaminasi! tergantung! pada! jenis! peralatan! medis! dan! prosedur!
+   tertentu.!Tingkat!dekontaminasi!adalah:!
+   1)! Pembersihan.!
+   2)! Pembersihan!diikuti!dengan!desinfeksi.!
+   3)! Pembersihan!diikuti!dengan!sterilisasi.!
+   !
+   Pilihan!metode!dekontaminasi!
+   Metode!dekontaminasi!yang!paling!tepat!tergantung!pada!banyak!faktor!termasuk:!
+   1)! Instruksi!dari!produsen,!instruksi!tersebut!diperoleh!pada!saat!acceptance!test.!
+   2)! Sifat!dari!kontaminan.!
+   3)! Penggunaan!maksimal!dari!masingMmasing!peralatan.!
+
+
+
+                                                                                                    ! 33!
+=== Halaman 39 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+4)! Toleransi!panas,!tekanan,!kelembaban!atau!kimia!masingMmasing!peralatan.!
+5)! Pengadaan!peralatan!pengolahan.!
+6)! Risiko!yang!terkait!dengan!proses!dekontaminasi.!
+7)! Sifat!fisik!dari!peralatan!tersebut,!misalnya!ukuran.!
+!
+      Klasifikasi! Resiko! Infeksi! dihubungkan! dengan! dekontaminasi! peralatan! medis!
+yang! dibutuhkan! teridiri! dari! risiko! tinggi,! sedang! dan! rendah! sebagaimana!
+tercantum!dalam!Tabel!4.1.!
+      !
+                                  Tabel!4.1!Klasifikasi!risiko!
+
+    Risiko!           Penerapan!pada!                             Rekomendasi!
+    Tinggi!           Alat!yang!digunakan!dekat!dengan!           Sterilisasi!
+                      kulit!yang!luka!atau!selaput!lendir.!
+                      Alat!yang!masuk!ke!tubuh!bagian!
+                      steril.!
+    Menengah!         Alat!yang!kontak!dengan!selaput!            Sterilisasi!atau!
+                      lendir!                                     desinfeksi!
+                      Terkontaminasi!dengan!organisme!            !
+                      berbahaya!atau!mudah!menular!
+                      sebelum!digunakan!pada!pasien!
+                      immunocompromised!
+    Rendah!           Alat!yang!kontak!dengan!kulit!              Pembersihan!
+                      yang!sehat!
+                      Alat!yang!tidak!kontak!dengan!
+                      pasien!
+!
+
+                                                    !
+
+                                                    !
+
+                                                    !
+
+                                                    !
+
+                                                    !
+
+                                                    !
+
+                                                    !
+
+                                                    !
+
+!
+
+
+
+                                                                                      ! 34!
+=== Halaman 40 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                                                   BAB!!V!
+                                                                PEMELIHARAAN!!
+!
+!
+!
+         Peralatan! medis! adalah! merupakan! investasi! yang! besar! di! fasilitas! pelayanan!
+kesehatan! serta! memerlukan! biaya! pemeliharaan.! Penting! bagi! fasilitas! pelayanan!
+kesehatan! memiliki! program! pemeliharaan! terencana! untuk! menjaga! peralatan!
+medis! agar! aman,! bermutu! dan! laik! pakai.! Adanya! pemeliharaan! peralatan! medis!
+diharapkan!juga!akan!memperpanjang!usia!pakai!peralatan!medis.!
+         !
+         Program! pemeliharaan! peralatan! medis! yang! efektif! terdiri! dari! perencanaan!
+yang! memadai,! manajemen! dan! pelaksanaan.! Perencanaan! mempertimbangkan!
+sumber! daya! keuangan,! fasilitas! dan! SDM! yang! memadai.! Program! pemeliharaan!
+peralatan!medis!harus!berkesinambungan!tak!terputus!dan!dikelola!agar!pelayanan!
+kesehatan!meningkat.!!
+         !
+         Adalakanya!dalam!masa!penggunaan,!!peralatan!medis!berkurang,!tidak!sesuai!
+lagi! kinerjanya! atau! tidak! dapat! digunakan,! diperlukan! adanya! perbaikan! untuk!
+mengembalikan!fungsi!peralatan!medis!tersebut.!!!
+         !
+         Pemeliharaan!peralatan!medis!dapat!dibagi!menjadi!dua!kategori!utama!yaitu7!
+•!            Inspeksi!dan!pemeliharaan!preventif!(IPM)!
+•!            pemeliharaan!korektif!/!Corrective4Maintenance!(CM)!!
+!
+         IPM! mencakup! semua! kegiatan! yang! dijadwalkan! untuk! memastikan! fungsi!
+peralatan! dan! mencegah! kerusakan! atau! kegagalan.! Inspeksi! adalah! kegiatan!
+terjadwal! yang! diperlukan! untuk! memastikan! peralatan! medis! berfungsi! dengan!
+benar.! Ini! mencakup! pemeriksaan! kinerja! dan! keselamatan.! Kegiatan! inspeksi!
+dapat!             dilakukan!                  bersamaan!         dengan!   kegiatan!   pemeliharaan!   preventif,!
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+7
+    !WHO,!Medical!Equipment!Program!maintenance!Overview,!2011!
+
+
+
+                                                                                                              ! 35!
+=== Halaman 41 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+pemeliharaan! korektif,! atau! kalibrasi,! tetapi! juga! dapat! dilakukan! tersendiri! yang!
+dijadwalkan!pada!interval!tertentu.!
+         !
+         Pemeliharaan! preventif! (PP)! adalah! ! kegiatan! pemeliharaan! yang! dilakukan!
+secara!terjadwal,!untuk!memperpanjang!umur!peralatan!dan!mencegah!kegagalan!
+(yaitu!dengan!kalibrasi,!penggantian!bagian,!pelumasan,!pembersihan,!dll).!
+         !
+         Pemeliharaan!Korektif!(CM)!meruapakan!kegiatan!perbaikan!terhadap!peralatan!
+dengan!tujuan!mengembalikan!fungsi!peralatan!sesuai!dengan!kondisi!awalnya.!Ciri!
+dari! kegiatan! CM! adalah! biasanya! tidak! terjadwal,! berdasarkan! permintaan! dari!
+pengguna! peralatan! atau! dari! personel! yang! melakukan! kegiatan! performing!
+maintenance.!
+         !
+5.1!!!INSPEKSI!DAN!PEMELIHARAAN!PREVENTIF!(IPM)!
+!
+
+         Penggunaan!prosedur!yang!benar!dan!tepat!untuk!pemeliharaan!peralatan!akan!
+dapat! meningkatkan! meningkatkan! kinerja! peralatan! yang! handal! dan! benar!
+berfungsi! baik.! Prosedur! yang! digunakan! dalam! melakukan! kegiatan! IPM! harus!
+dilakukan! sebelum! pelaksanaan! inspeksi! atau! pekerjaan! pemeliharaan! melalui!
+kajian!yang!cermat!dari!setiap!jenis!peralatan!(atau!model).!
+         !
+         Kebanyakan! prosedur! IPM! yang! dilengkapi! oleh! tenaga! teknik! dari! bagian!
+Elektromedik/IPSRS.!Dalam!beberapa!kasus,!bagaimanapun,!tugasMtugas!yang!rutin!
+dan! mudah! untuk! dilaksanakan,! diselesaikan! oleh! pengguna.! Hal! ini! menghemat!
+waktu! untuk! personil! teknis! dalam! melakukan! tugasMtugas! teknis! yang! lebih!
+kompleks!dan!kritis!dan!juga!membuat!pengguna!mempunyai!perasaan!memiliki.!
+         !
+         Jenis! inspeksi! yang! mungkin! dilakukan! pengguna! adalah! melakukan!
+pemeriksaan! sebelum! digunakan! atau! pemeriksaan! harian.! Contoh! jika!
+memungkinkan! adalah! kalibrasi! harian! monitor! glukosa! darah,! pengujian! harian!
+defibrillator! atau! memeriksa! kalibrasi! peralatan! laboratorium.! Ini! adalah! tanggung!
+jawab!bagian!Elektromedik/IPSRS.!untuk!melatih!pengguna!dalam!melakukan!tugas!
+ini.!!
+
+
+
+                                                                                       ! 36!
+=== Halaman 42 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+      Lampiran!A.6!memberikan!contoh!inspeksi!pemeliharaan!preventif.!
+      !
+      Ketika! pada! saat! kegiatan! IPM! terdapat! masalah! pada! peralatan,! perbaikan!
+peralatan!tersebut!dapat!dijadwalkan!untuk!dilakukan!perbaikan!tanpa!mengganggu!
+kegiatan! IPM! yang! dilakukan,! atau! perbaikan! tersebut! dapat! diselesaikan! sebagai!
+dari! bagian! proses! IPM.! Jika! kegiatan! IPM! atau! perbaikan! terkait! tidak! dapat!
+diselesaikan! dalam! perioda! yang! telah! ditentukan! sebelumnya,! permintaan! surat!
+perintah! perbaikan/pemeliharaan! ! (work4 order)! harus! tetap! ada,! dan! petugas!
+pemelihara! harus! memeriksa! atau! memperbaiki! peralatan! secepat! mungkin.!
+Peralatan! medis! yang! memiliki! prioritas! yang! lebih! tinggi! yang! sebelumnya! tidak!
+dilakukan!kegiatan!IPM!pada!periode!sebelumnya,!harus!dilakukan!terlebih!dahulu.!!
+      !
+      Rentang! waktu! inspeksi! dan! pemeliharaan! peralatan! kesehatan! didasarkan!
+pada!kriteria!yang!direkomendasikan!pabrikan!seperti!tingkat!risiko!dan!pengalaman!
+dari!rumah!sakit.!
+      !
+      Semua! peralatan! termasuk! dalam! program! ini! diperiksa! dan! diuji! sebelum!
+penggunaan! awal! dan! pada! interval! yang! ditetapkan,! biasanya! disebut! sebagai!
+perawatan!pencegahan!(PM).!
+      !
+    Jadwal! pemeliharaan! peralatan! kesehatan! yang! sistematis! menjamin! peralatan!
+tersebut! aman! digunakan! dan! memperoleh! pemanfaatan! maksimal! dengan! biaya!
+yang!wajar.!Keuntungan!lain!adalah!meminimalkan!risiko!klinis!dan!fisik.!
+!
+    Setiap!peralatan!kesehatan!mempunyai!klasifikasi!risiko!berdasarkan:!
+•! Fungsi!peralatan!kesehatan!:!penghantar!energi,!pemantau!pasien,!atau!peralatan!
+
+    untuk!kenyamanan!pasien.!!
+•! Risiko!fisik!
+
+•! Preventif!pemeliharaan!
+
+•! Riwayat!insiden!
+
+MasingMmasing! peralatan! kesehatan! mempunyai! bobot! pada! kategori! fungsi,! risiko!
+fisik!dan!kebutuhan!pemeliharaan.!
+!
+!
+
+
+                                                                                     ! 37!
+=== Halaman 43 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+     Tabel!5.1.!Kelompok!berdasarkan!Fungsi!Peralatan!Kesehatan!(FUNGSI).!
+Fungsi!peralatan!kesehatan!mempunyai!nilai!1!–!10.!
+!
+KATEGORI!!        NILAI!!    JENIS!                  DEFINISI!               CONTOH!
+Peralatan! untuk! 10!        Penunjang!              Peralatan!yang!         Defibrillator,!
+penyembuhan!                 Kehidupank!             digunakan!              ventilator,!
+                             Terapi!dengan!          menunjang!              pacemaker,!infant!
+                             radiasi.!               kehidupank!peralatan!   incubator!
+                             !
+                                                     untuk!terapi!dengan!
+                                                     radiasi.!
+!                 !9!        Peralatan!bedah!        Peralatan!untuk!        Electrosurgical!
+                             dan!Perawatan!          penyembuhan!tetapi!     unit,!
+                             Intensif.!              bukan!sebagai!          laser!!
+                             !                       penunjang!kehidupan!
+!                 !8!        Terapi!fisik!dan!       Peralatan!yang!         Dialysis!machine,!
+                             pengobatan!             digunakan!untuk!        infusion!pump,!
+                             !                       mengobati!pasien!       traction!unit,!
+                                                                             diathermy!
+Peralatan!        !7!        Monitoring!kegiatan!    Memonitor!kegiatan!     EEG!machine,!
+diagnostik!                  bedah!dan!              bedah!dan!              nonMinvasive!
+                             perawatan!intensifk!    perawatan!intensifk!    blood!
+                             system!radiologi!       Sistem!radiologi.!      pressure!monitor,!
+                             !
+                                                                             xMray!generator!
+!                 !6!        Monitoring!kondisi!     Peralatan!yang!tidak!   adult!scale,!
+                             fisik!dan!unit!         rutin!digunakan!di!     tympanic!
+                             ultrasonografi!untuk!   perawatan!intensif.!    thermometer,!
+                             diagnostik.!            !                       ultrasound!unit!
+                                                                             !
+Peralatan!        !5!        Analisa!di!          Peralatan!yang!            blood!gas!
+Analitis!                    laboratorium!        digunakan!di!              analyzer,!
+                                                  laboratorium!klinik!       clinical!chemistry!
+                                                  untuk!mendiagnosa!         analyzer,!cell!
+                                                  spesimen.!                 counter!
+!                 !4!        Aksesori!alat!       Peralatan!yang!            shaker,!centrifuge,!
+                             Laboratorium.!!      digunakan!untuk!           incubator,!
+                                                  mempersiapkan!             microtome!
+                                                  analisa!specimen.!
+!                 !3!        Komputer!            Peralatan!yang!            computer,!ticket!
+                             and!related!         digunakan!untuk!           printer,!QC!system!
+                             !                    menyimpan,!
+                                                  mencetak,!
+                                                  mengambil!atau!
+                                                  mendistribusikan!
+                                                  data.!
+LainMlain!        !2!        Yang!berhubungan! Peralatan!yang!               XMray!view!box,!
+                             dengan!pasien.!!     berhubungan!dengan!        sterilizer,!chair!lift!
+                                                  perawatan,!tapi!tidak!
+                                                  secara!langsung.!
+!                 !1!        Tidak!berhubungan! Peralatan!yang!tidak!        ECG!simulator,!
+                             dengan!pasienk!      berhubungan!dengan!        office!equipment,!
+                             peralatan!pengujian! pasien,!peralatan!         !
+                                                  dapur,!UPS.!
+!!
+
+
+
+                                                                                                       ! 38!
+=== Halaman 44 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!
+!
+!
+      Tabel!5.2.!Kelompok!berdasarkan!Risiko!Fisik!dan!Penggunaan!Klinis!
+                                  (RISIKO).!
+!
+Risiko!peralatan!kesehatan!mempunyai!nilai!1!–!5!
+!
+KATEGORI!!                 NILAI!!   JENIS!                               DEFINISI!
+Menyebabkan!               5!        Kegagalan!peralatan!kesehatan!       Defibrillator,!
+kematian!pasien!!                    dapat!menyebabkan!kematian!!         ventilator,!anesthesia!
+!                                    pasien.!                             !
+Menyebabkan!pasien!        4!!       Kegagalan!peralatan!kesehatan!       Hypo/hyperthermia!
+atau!operator!             !         tidak!menyebabkan!kematian!          unit,!laser,!
+peralatan!luka!!                     tetapi!luka.!!                       electrosurgical!unit!
+Menyebabkan!Terapi!        3!!       Kegagalan!peralatan!kesehatan!       ECG!machine,!blood!
+yang!tidak!tepat!dan!      !         menyebabkan!kesalahan!               gas!analyzer,!
+kesalahan!diagnose!!                 diagnose!atau!penangan!yang!         centrifuge!
+                                     tidak!tepat.!!
+Menyebabkan!Risiko!        2!!       Kegagalan!peralatan!yang!            Gel!warmer,!heat!
+minimal!!                  !         menyebabkan!penanganan!buruk!        sealer,!suction!pump!
+!                                    kepada!pasien!dan!
+                                     mempengaruhi!keamanan!pasien!
+                                     dan!operator.!!
+Tidak!menyebabkan!         1!!       Kegagalan!yang!tidak!                Exam!light,!computer!
+risiko!yang!signifikan!    !         menyebabkan!penanganan!pada!         terminal,!video!
+                                     pasien!dan!tidak!mempengaruhi!       printer!
+                                     keamanan!pasien!dan!operator.!!
+!
+!
+            Tabel!5.3.!Kelompok!berdasarkan!Persyaratan!Pemeliharaan!
+                                (PEMELIHARAAN).!
+!
+Persyaratan!pemeliharaan!kesehatan!mempunyai!nilai!1!–!5!
+!
+KATEGORI!!                 NILAI!!   JENIS!                               DEFINISI!
+Pemeliharaan!perlu!        5!!       Perangkat!yang!sebagian!besar!       Dialysis!machine,!
+perhatian!khusus!          !         berupa!mekanis,!pneumatik,!atau!     ventilator,!anesthesia!
+!                                    fluida.!                             machine,!xMray!table!
+Pemeliharaan!di!atas!      4!!       Peralatan!kesehatan!Devices!that!    Infant!incubator,!
+rataMrata!!                !         have!mechanical,!                    blood!warmer,!laser,!
+!                                    pneumatic,!or!fluidic!components,!   portable!xMray!system!
+                                     but!are!primarily!electronic!in!
+                                     nature!
+Pemeliharaan!rataM         3!!       Peralatan!kesehatan!yang!            Defibrillator,!infusion!
+rata!!                     !         membutuhkan!verifikasi!kinerja!      pump,!electrosurgical!
+!                                    dan!pengujian!keamanan,!yang!        unit,!traction!unit!
+                                     didukung!rangkaian!kelistrikan.!
+Pemeliharaan!di!           2!!       Peralatan!kesehatan!yang!            Lab!microscope,!
+bawah!rataMrata!!          !         membutuhkan!sedikit!pengujian!       scales,!general!
+!                                    kinerja.!!                           medical!device!
+Pemeliharaan!              1!!       Peralatan!kesehatan!yang!hanya!      Exam!light,!computer!
+minimal!!                  !         membutuhkan!inspeksi!secara!         terminal,!video!
+!                                    visual/pengamatan.!!                 camera!
+
+
+                                                                                              ! 39!
+=== Halaman 45 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!
+!
+!
+!
+  Tabel!5.4.!Kelompok!berdasarkan!Riwayat!Insiden!Peralatan!Kesehatan!(INSIDEN)!
+                                           !
+Persyaratan!Riwayat!Insiden!Peralatan!Kesehatan!mempunyai!nilai!+2!s.d!M2!
+!
+KATEGORI!                           NILAI!                 DEFINISI!
+Signifikan!                         +2!                    Lebih!dari!1!kali!insiden!setiap!
+                                                           6!bulan!
+Di!atas!rataMrata!                  +1!                    1!kali!insiden!setiap!!6–9!
+                                                           bulan!
+RataMrata!                          0!                     1!kali!insiden!setiap!9–18!
+                                                           bulan!
+Minimal!                            M1!                    1!kali!insiden!setiap!18–30!
+                                                           bulan!
+Tidak!bermakna/signifikan!          M2!                    Kurang!dari!1!kali!insiden!
+                                                           pada!kurun!waktu!30!bulan!
+!
+Dari!4!kelompok!di!atas!ditentukan/dihitung!pemeliharaan!preventif!yang!didasarkan!
+pada!EM!(Equipment!Management)!:!
+!
+EM!=!FUNGSI!+!RISIKO!+!PEMELIHARAAN!+!INSIDEN!
+        !
+Frekuensi!Inspeksi!:!!
+A!=!Annual! !           !(Dilakukan!1!tahun!sekali)!
+S!=!SemiMannual!        !(Dilakukan!6!bulan!sekali)!
+T!=!ThreeMyearly!!      !(Dilakukan!4!bulan!sekali)!!!
+!
+Nilai!EM!!!<!12!diinspeksi!sesuai!keperluan!
+Nilai!EM!!!12!M14!dijadwalkan!diinspeksi!setidaknya!setiap!setahun!sekali.!
+Nilai!EM!!!15!–!19!dijadwalkan!diinspeksi!setidaknya!setiap!enam!bulan!sekali.!
+Nilai!EM!!!≥!20!dijadwalkan!diinspeksi!setidaknya!setiap!empat!bulan!sekali.!
+!
+!
+!
+!
+!
+!
+!
+
+
+                                                                                               ! 40!
+=== Halaman 46 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!
+!
+                 Tabel!5.5.!Contoh!Perhitungan!Equipment!Management!(EM)!
+!
+NO!   NAMA!ALAT!                      FUNGSI!   RESIKO!   PEMELI!   RIWAYAT!    EM!     FREKUENSI!
+                                                KLINIS!   HARAAN!   INSIDEN!            INSPEKSI!
+1!    Anaesthesia!machine!!           10!       5!        5!        0!          20!     T!
+2!    Anaesthesia!vaporizer!          9!        5!        3!        M2!         15!     S!
+      (enflurane/ethrane)!
+3!    Arthroscopic!surgical!unit!!    9!        4!        2!        M2!         13!     A!
+4!    Breast!pump!!                   3!        4!        3!        M2!         8!      M!
+5!    Aspirator,!mobile!!             8!        5!        4!        M1!         16!     S!
+6!    Blood!warmer!!                  9!        4!        3!        M1!         15!     S!
+7!    Bone!saw!!                      9!        4!        2!        M2!         13!     A!
+8!    Blood!pressure!module!!         7!        3!        2!        0!          12!     A!
+9!    Camera,!video,!medical!!        6!        3!        3!        0!          12!     A!
+10!   Cast!cutter!!                   2!        4!        3!        M2!         7!      M!
+11!   Cast!cutter!vacuum!!            2!        2!        3!        M2!         5!      M!
+12!   Cardiac!output!computer!!       7!        3!        2!        0!          12!     A!
+13!   Computer,!micro!(pc)!!          3!        3!        1!        M2!         5!      M!
+14!   Cryosurgical!unit!!             9!        4!        3!        M1!         15!     S!
+15!   Defibrillator/monitor!!         9!        5!        4!        0!          18!     S!
+16!   Electrocardiograph,!3M          6!        3!        5!        2!          16!     S!
+      channel!!
+17!   Endoscopic!video!system!!    6!           3!        3!        0!          12!     A!
+18!   Electrosurgical!unit!!       9!           4!        3!        0!          16!     A!
+19!   Fetal!monitor!!              7!           3!        3!        0!          13!     A!
+20!   Humidifier,!heated!!         8!           3!        3!        1!          15!     S!
+21!   Hypo/hyperthermia!machine!! 9!            4!        5!        0!          18!     S!
+22!   Light,!surgical!portable!!   2!           4!        3!        @1!         8!      @!
+23!   Light!source,!fibre!optic!!  7!           3!        3!        @2!         11!     @!
+24!   Microscope,!ophthalmic!slit! 6!           3!        3!        @2!         10!     @!
+      lamp!!
+!
+!
+Dalam!         keadaan!        tertentu!    manajemen!     rumah!    sakit!    dapat!        membentuk!
+tim! inspeksi! interval! untuk! jenis! peralatan! kesehatan! tertentu,! terlepas! dari!
+perhitungan!Equipment!Management.!
+      !
+5.2!!!!PEMELIHARAAN!KOREKTIF!
+!
+5.2.1.! Perbaikan!dan!troubleshooting!!
+!
+      Perbaikan! peralatan! terjadi! ketika! pengguna! peralatan! telah! melaporkan!
+masalah! tentang! peralatan! tersebut.! Seperti! disebutkan! sebelumnya,! hal! tersebut!
+juga!dapat!terjadi!ketika!seorang!teknisi!di!bagian!IPSRS/Elektromedik!menemukan!
+bahwa!peralatan!tidak!memberikan!kinerja!seperti!yang!diharapkan!selama!IPM.!
+
+
+                                                                                                   ! 41!
+=== Halaman 47 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+           !
+           Untuk! mengembalikan! peralatan! ke! layanan! secepat! mungkin,! tindakan! yang!
+efektif! diperlukan! untuk! memverifikasi! kegagalan! dan! menentukan! penyebabnya.!
+Dalam! beberapa! kasus! teknisi! akan! menemukan! bahwa! peralatan! itu! sendiri! telah!
+gagal! dan! harus! diperbaiki.! Teknisi! itu! kemudian! menentukan! langkah! apa! yang!
+diperlukan!untuk!memperbaiki!masalah!dan!mengembalikan!fungsi!peralatan!secara!
+penuh.! Para! teknisi! mulai! melakukan! pemeliharaan! korektif,! melakukan! beberapa!
+langkah! sendiri! dan! bila! diperlukan! memanfaatkan! tenaga! ahli! dari! dalam! fasilitas!
+/in-house4expertise!atau!penyedia!layanan!eksternal.!Pemeliharaan!korektif!ini!dapat!
+dicapai!pada!berbagai!tingkatan8:!
+           !
+       a.! Tingkat! komponen,! troubleshooting! tingkat! komponen! dan! perbaikan!
+               mengisolasi! kegagalan! sampai! ke! komponen! tunggal! yang! diganti.! Dalam!
+               peralatan! elektrik! ,! peralatan! mekanik,! dan! untuk! komponen! pasif! dari!
+               peralatan! elektronik! (seperti! resistor! atau! kapasitor! dalam! suatu! rangkaian!
+               elektronik,!atau!sekering)!ini!sering!pendekatan!perbaikan!yang!paling!efektif.!
+               Dalam! kaitannya! dengan! peralatan! elektronik,! bagaimanapun,! komponenM
+               tingkat! perbaikan! dapat! memakan! waktu! dan! sulit.! Modul! (circuit4 board)!
+               elektronik!modern!(terutama!modul!digital)!sering!tidak!diperbaiki!pada!tingkat!
+               komponen.! Dalam! kasusMkasus! papanMtingkat! atau! bahkan! sistemMtingkat!
+               perbaikan!perlu!dipertimbangkan.!
+       b.! Tingkat!Modul!(board'level),!untuk!peralatan!elektronik,!adalah!umum!untuk!
+               mengisolasi! kegagalan! untuk! sebuah! modul! tertentu! dan! untuk! mengganti!
+               seluruh!modul!dari!pada!komponen!elektronik!yang!diberikan.!
+       c.! Tingkat! peralatan! atau! sistem.! Dalam! beberapa! kasus! bahkan! papanM
+               tingkat!pemecahan!masalah!dan!perbaikan!terlalu!sulit!atau!memakan!waktu.!
+               Dalam!kasus!seperti!itu!lebih!efektif!jika!mengganti!seluruh!peralatan!atau!sub!
+               sistem!tersebut.!
+       !
+           Sangat! penting! untuk! memilih! tingkat! pemeliharaan! yang! sesuai! untuk! setiap!
+situasi.!Ini!tergantung!pada!ketersediaan!sumber!daya!keuangan,!fisik!dan!manusia!
+serta!pada!tingkat!kepentingan!permintaan!perbaikan!tertentu.!Untuk!kasus!dengan!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+8
+    !WHO,!Medical!Equipment!Program!maintenance!Overview,!2011!
+
+
+
+                                                                                              ! 42!
+=== Halaman 48 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+prioritas! yang! tinggi,! misalnya,! perbaikan! tingkat! peralatan! atau! sistem! mungkin!
+lebih! dipilih.! Jika! lebih! banyak! waktu! tersedia,! perbaikan! tingkat! modul! atau!
+komponen! mungkin! layak! dilakukan.! Jika! perbaikan! tingkat! komponen! yang!
+diusulkan,! mungkin! diperlukan! penggantian! blok/bagian.! Untuk! pendekatan! ini,! ada!
+beberapa! pilihan! yang! dapat! diambil.! Penggantian! dapat! dilakukan! pada! bagian!
+khusus!dari!produsen,!pada!bagian!dengan!spesifikasi!yang!sama!atau!lebih!tinggi!
+(sekering! misalnya),! atau! dengan! menggunakan! suku! cadang! bekas! dari! peralatan!
+yang!nonMfungsional!(hanya!setelah!penilaian!risiko!menyeluruh!dan!ijin!dari!Kepala!
+Elektromedis/IPSRS)! dan! perlu! dilakukan! pengujian/kalibrasi! dari! pihak! BPFK! atau!
+pihak!lain!yang!kompeten.!
+     !
+     Dalam!beberapa!kasus,!teknisi!akan!menemukan!bahwa!peralatan!memberikan!
+kinerja! sesuai! desain! spesifikasi,! seperti! yang! ditentukan! oleh! pabrikan.! Dalam! hal!
+demikian,! perlu! untuk! berkomunikasi! dengan! pengguna! peralatan! dan! memeriksa!
+lingkungan!kerja!untuk!menentukan!mengapa!peralatan!tidak!berfungsi!seperti!yang!
+diharapkan.!!
+     !
+     Ketika! menyelidiki! kegagalan! yang! tidak! dapat! dijelaskan,! faktor! lingkungan!
+harus! dimasukkan! ke! dalam! pertimbangan.! Sebagai! contoh,! peralatan! medis! yang!
+membutuhkan! daya! listrik! dapat! terpengaruh! oleh! masalah! catu! daya.! Idealnya,!
+daya! listrik! harus! memiliki! tegangan! yang! stabil! (nilai! yang! sesuai)k! bebas! dari!
+distorsi! transien,! seperti! lonjakan! tegangan,! surge! atau! mati,! dan! dapat! diandalkan!
+dengan! hanya! kejadian! hilangnya! daya! yang! jarang! terjadi.! Tenaga! teknis! harus!
+berkolaborasi! dengan! mereka! yang! bertanggung! jawab! untuk! sistem! daya! listrik!
+dalam! organisasi! pelayanan! kesehatan! untuk! membantu! fungsi! sistem! seefektif!
+mungkin.! Ini! mungkin! termasuk! pembelian! regulator! tegangan,! menginstalasi! catu!
+daya! listrik! yang! tak! terputus! (UPS),! menggunakan! pelindung! lonjakan! gelombang!
+listrik,! dan! menghindari! sumber! daya! ! tambahan! yang! mengarah! ke! kabel/tusuk!
+kontak!secara!seri.!
+     !
+     Selanjutnya,! staf! elektromedik! harus! bekerja! dengan! staf! IPSRS! lainya! untuk!
+memastikan! bahwa! generator! cadangan! fungsional! bekerja! baik! dan! bahwa!
+peralihan! ke! sumber! daya! tambahan! disetel! di! bawah! 10! detik.! Alternatif! lain!
+mungkin! untuk! memilih! dan! membeli! peralatan! yang! dioperasikan! dengan! baterai.!
+
+
+                                                                                         ! 43!
+=== Halaman 49 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+Ketika! mempertimbangkan! untuk! memperoleh! peralatan! baru,! juga! penting! untuk!
+staf! elektromedik! untuk! memastikan! bahwa! sistem! daya! listrik! akan! mampu!
+mendukungnya.!
+     !
+     Demikian! pula,! staf! elektromedik! harus! menyadari! bagaimana! peralatan! medis!
+yang!berinteraksi!dengan!sistem!utilitas!lain!(misalnya!gas!medis!dan!sistem!vakum,!
+kontrol! temperatur! dan! sistem! ventilasi,! penyediaan! air,! teknologi! informasi! dan!
+infrastruktur! komunikasi,! dll).! Dan! sekali! lagi! mereka! harus! berkolaborasi! dengan!
+orang!lain!dalam!organisasi!untuk!mengoptimalkan!kemampuan!sistem!utilitas!untuk!
+mendukung!peralatan!medis.!
+     !
+     Aspek! yang! unik! dari! lingkungan! fisik,! seperti! suhu! tinggi! dan! kelembapan,!
+dapat!berpengaruh!buruk!pada!peralatan!medis!yang!dirancang!untuk!digunakan!di!
+daerah!beriklim!sedang!atau!lingkungan!terkendali.!
+     !
+     Usia! dan! kondisi! dari! fasilitas! layanan! kesehatan! juga! mungkin! memainkan!
+peran! dalam! kegagalan! peralatan! medis.! Seiring! waktu,! sistem! utilitas! akan!
+menurunkan! dan! mungkin! menjadi! kelebihan! beban! dan! /! atau! ketinggalan! jaman.!
+Fasilitas! yang! lebih! tua! pasti! telah! dibangun! berdasarkan! standar! yang! lebih! tua.!
+Bahkan! fasilitas! barupun! mungkin! tidak! memenuhi! semua! standar! yang! berlaku,!
+oleh!karena!itu,!perlu!dikaji!kesiapan!infrastruktur!utilitas!untuk!memastikan!fasilitas!
+tersebut!berfungsi!secara!memadai.!
+     !
+5.2.2.! Inspeksi!dan!penggunaan!pada!pelayanan!
+         !
+     Setelah! selesai! perbaikan,! melakukan! pemeriksaan! kinerja! dan! keselamatan!
+adalah! penting,! dan! dalam! beberapa! kasus! kalibrasi! ulang! mungkin! diperlukan.!
+Kegiatan! ini! akan! mengukur! kinerja! peralatan! dan! memungkinkan! untuk! setiap!
+pengaturan! yang! diperlukan! untuk! mengembalikan! fungsi! peralatan! secara! penuh.!
+Setelah! hal! ini! diselesaikan,! peralatan! dapat! dikembalikan! untuk! digunakan! dalam!
+layanan!pasien.!
+     !
+     !
+     !
+
+
+                                                                                        ! 44!
+=== Halaman 50 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+         !
+5.3!                PELAPORAN!!
+              !
+         Untuk! kegiatan! IPM,! teknisi! biasanya! memiliki! daftar! rinci! untuk! diikuti! guna!
+merekam!hasil.!Memiliki!checklist!seperti!itu!juga!berfungsi!sebagai!pengingat!untuk!
+setiap! langkah! dalam! proses! IPM! dan! dengan! demikian! membantu! menghindari!
+terlampaui!atau!dalam!menghadap!langkahMlangkah!tertentu.!Merekam!pengukuran!
+dan! mendokumentasikan! hasil! akhir! (baik! dengan! pernyataan! ‘laik/tidak! laik’! atau!
+dengan! skoring)! membantu! dalam! pelaksanaan! pekerjaan! pemeliharaan! di! masa!
+depan,! termasuk! perbaikan.! Untuk! kegiatan! perbaikan,! ! teknisi! mencatat! tindakan!
+apa!yang!telah!diambil,!termasuk!waktu!dan!biaya!untuk!tindakan!tersebut.!
+         !
+5.4!              PENGUJIAN!DAN!KALIBRASI!!
+!
+         Pengujian! alat! kesehatan! adalah! merupakan! keseluruhan! tindakan! meliputi!
+pemeriksaan! fisik! dan! pengukuran! untuk! menentukan! karakteristik! alat! kesehatan,!
+sehingga! dapat! dipastikan! kesesuaian! alat! kesehatan! terhadap! keselamatan! kerja!
+dan!spesifikasinya.!
+         !
+         Kalibrasi! alat! kesehatan! bertujuan! untuk! menjaga! kondisi! alat! kesehatan! agar!
+tetap! sesuai! dengan! 45upplier! besaran! pada! spesifikasinya.! Dengan! adanya!
+kalibrasi!maka!akurasi,!ketelitian!dan!keamanan!alat!kesehatan!dapat!dijamin!sesuai!
+besaranMbesaran!yang!tertera/diabadikan!pada!alat!kesehatan!yang!bersangkutan9.!
+         !
+         ! Pengujian! ! dan! kalibrasi! wajib! dilakukan! terhadap! alat! kesehatan! dengan!
+kriteria!:!
+a.! Belum!memiliki!sertifikat!dan!tanda!lulus!pengujian!atau!kalibrasi.!
+b.! Masa!berlaku!sertifikat!dan!tanda!lulus!pengujian!atau!kalibrasi!telah!habis.!
+c.! Diketahui!penunjukkannya!atau!keluarannya!atau!kinerjanya!atau!keamanannya!
+       tidak!sesuai!lagi,!walaupun!sertifikat!dan!tanda!masih!berlaku.!
+d.! Telah!mengalami!perbaikan,!walaupun!sertifikat!dan!tanda!masih!berlaku.!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+9
+    !Permenkes!Nomor!363!Tahun!1998!
+
+
+
+                                                                                            ! 45!
+=== Halaman 51 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+e.! Telah!dipindahkan!bagi!yang!memerlukan!instalasi,!walaupun!sertifikat!dan!tanda!
+     masi!berlaku.!
+f.! Atau! jika! tanda! laik! pakai! pada! alat! kesehatan! tersebut! hilang! atau! rusak,!
+     sehingga!tidak!dapat!memberikan!informasi!yang!sebenarnya.!
+           !
+       Pengujian!dan!kalibrasi!bertujuan!untuk!:!
+•!   Memastikan!kesesuaian!karakteristik!terhadap!spesifikasi!dari!suatu!bahan!ukur!
+     atau!instrument.!
+•!   Menentukan! deviasi! kebenaran! konvensional! nilai! penunjukan! suatu! besaran!
+     ukur!atau!deviasi!dimensi!nominal!yang!seharusnya!untuk!suatu!bahan!ukur.!
+•!   Menjamin! hasilMhasil! pengukuran! sesuai! dengan! standar! Nasional! maupun!
+     Internasional.!
+           !
+       ! Sedangkan! manfaat! yang! dapat! diperoleh! dari! kegiatan! pengujian! dan!
+kalibrasi! adalah! kondisi! alat! ukur! dan! bahan! ukur! tetap! terjaga! sesuai! dengan!
+spesifikasinya.!
+       !
+       ! Alat! kesehatan! yang! lulus! kalibrasi! akan! mendapatkan! Sertifikat! Kalibrasi!!
+serta! tanda! Laik! Pakai,! demikian! juga! alat! kesehatan! yang! lulus! uji! akan!
+mendapatkan!Sertifikat!Pengujian/Kalibrasi!dan!tanda!Laik!Pakai.!
+       !
+       Alat!kesehatan!yang!tidak!lulus!kalibrasi!dan/atau!uji!akan!mendapatkan!Tanda!
+Tidak!Laik!Pakai!dan!tidak!boleh!digunakan!di!pelayanan.!
+       !
+       ! Sertifikat,! Tanda! Laik! Pakai! dan! Tanda! Tidak! Laik! Pakai! dikeluarkan! oleh!
+Balai!Pengamanan!Fasilitas!Kesehatan,!Loka!Pengamanan!Fasilitas!Kesehatan!dan!
+institusi!pengujian!fasilitas!kesehatan!yang!berwenang.!
+!
+5.5!       PELAKSANA!PEMELIHARAAN!
+a.! Pemeliharaan!inPhouse!oleh!teknisi!yang!terlatih!
+       Sebagian! besar! masalah! pada! peralatan! medis! yang! relatif! sederhana! dan!
+dapat! diperbaiki! oleh! teknisi! yang! terlatih.! Inspeksi! dan! perbaikan! ringan!
+memerlukan!biaya!rendah.!Vendor!harus!menyediakan!pelatihan!untuk!teknisi!pada!
+saat!instalasi!dan!penerimaan!peralatan!medis.!
+
+
+                                                                                       ! 46!
+=== Halaman 52 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+       Ada!tiga!tingkat!pemeliharaan!yang!umum!dilakukan!:!
+       !
+1.!Level!1,!Pengguna!(lini!pertama)!
+       Pengguna!atau!teknisi!akan!membersihkan!filter,!periksa!sekering,!periksa!daya!
+dll!tanpa!membuka!unit!peralatan!medis!dan!tanpa!memindahkan!dari!tempatnya.!
+2.!Level!2,!Teknisi!
+       Dianjurkan!untuk!memanggil!teknisi!ketika!lini!pertama!pemeliharaan!tidak!dapat!
+menggunakan!alat!atau!ketika!cek!enam!bulanan!sekali.!
+3.!Level!3,!Teknisi!Khusus!
+       Peralatan! seperti! CT! Scanner,! MRI! dll! perlu! teknisi! khusus! yang! dilatih! untuk!
+peralatan! tersebut.! Mereka! umumnya! bekerja! di! pihak! ketiga! atau! perusahaan!
+vendor.!
+!
+b.! Pemeliharaan!oleh!produsen!atau!pihak!ketiga!
+       Untuk! peralatan! khusus! dan! canggih,! vendor! harus! menyediakan! jasa!
+pemeliharaan! melalui! kombinasi! jasa! onMcall! dan! kontrak! pemeliharaan! yang!
+dinegosiasikan!pada!saat!pembelian.!!
+!
+5.6!       BIAYA!PEMELIHARAAN!
+       Peralatan!dapat!terus!digunakan!pada!tingkat!kinerja!optimal!jika!secara!teratur!
+dilakukan! pemeliharaan.! Oleh! karena! itu! perlu! untuk! merencanakan! biaya! tahunan!
+untuk!pemeliharaan!untuk!peralatan!medis!baik!preventif!maupun!korektif.!
+!
+       Biaya!yang!dibutuhkan!untuk!melakukan!kegiatan!pemeliharaan!suatu!peralatan!
+medis! akan! meningkat! setiap! tahun,! sesuai! dengan! peningkatan! usia! pakai! dari!
+peralatan! bersangkutan.! Bagian! utama! dalam! merencanakan! kebutuhan! biaya!
+pemeliharaan!adalah!tersedianya!data!yang!sesuai!dengan!kebutuhan.!
+       !
+       Tujuan! dari! penyusunan! anggaran! pemeliharaan! adalah! untuk! memperkirakan!
+biaya! yang! dibutuhkan! untuk! memelihara! dan! memperbaiki! peralatan! medis,!!
+sehingga! dapat! memastikan! bahwa! peralatan! medis! dapat! berfungsi! dengan! baik.!
+Sangatlah!penting!dalam!membuat!perkiraan!yang!seefektif!mungkin!karena:!!
+
+
+
+
+                                                                                           ! 47!
+=== Halaman 53 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+     •! Anggaran! yang! terlalu! rendah! (under-estimate)! akan! menghasilkan!
+          pemeliharaan!yang!tidak!berjalan!dengan!baik!!
+     •! Anggaran! yang! terlalu! tinggi! (over-estimate)! akan! menjadi! tidak! efisien! dan!
+          bisa!menggangu!pelayanan!penting!lainnya!yang!memerlukan!anggaran.!
+           !
+      Perkiraan! biaya! pemeliharaan! selama! setahun! adalah! sekitar! 5%! sampai! 6%10!
+dari!nilai!investasi!peralatan!medis.!Biaya!pemeliharaan!juga!dapat!dihitung!dengan!
+cara! yang! lebih! spesifik! berdasarkan! kebutuhan! rutin! tahun! sebelumnya! serta!
+standar!kebutuhan!pemeliharaan!dari!setiap!peralatan.!Besaran!biaya!pemeliharaan!
+peralatan!medis!masingMmasing!rumah!sakit!bisa!berbeda.!
+      !
+      Annualized4 Investment4 Cost! atau! biaya! investasi! disetahunkan! adalah! suatu!
+metode! ! untuk! menghitung! “penggunaan”! biaya! investasi! pada! tahun! berjalan.!
+Metode! ini! seperti! menghitung! biaya! depresiasi! atau! penyusutan! pada! sistem!
+akunting!keuangan.!!
+      !
+      Annulized!Investment!Cost!menggunakan!prinsip!Nilai!Sekarang!(Present4Value4
+=4PV)!akan!lebih!rendah!dibanding!dengan!Nilai!Dimasa!Depan!(Future4Value4=4FV),!
+karena! adanya! infasi! nilai! uang! serta! dihitung! dengan! memperhatikan! usia! pakai!
+serta!usia!teknis!suatu!peralatan!kesehatan.!
+      !
+Maksimum!Biaya!Pemeliharaan!
+           !
+      Pelaksanaan!kegiatan!pemeliharaan!peralatan!medis!tentu!membutuhkan!biaya,!
+terutama! pada! saat! harus! melakukan! perbaikan! atas! bagian! yang! rusak.!
+Perhitungan! Batas! Maksimum! Biaya! Pemeliharaan4 (Maximum4 Maintenance4
+Expenditure4Limit!=!MMEL)!adalah!suatu!cara!untuk!menghitung!biaya!yang!masih!
+dapat!diterima!untuk!memperbaiki!atau!memelihara!suatu!peralatan!medis!di!rumah!
+sakit.!!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+10
+   !Caroline Temple-Bird, How to Manage’ Series for Healthcare Technology, Ziken International Consultants
+Ltd, Lewes, UK
+
+!
+
+
+
+                                                                                                        ! 48!
+=== Halaman 54 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+     MMEL! membutuhkan! beberapa! data! sebagai! dasar! perhitungan! batas!
+maksimum! biaya! pemeliharaan,! yaitu! usia! teknis! dan! harga! pengganti! dan! MEL!
+Factor.!!
+     Perhitungan!MMEL!dilakukan!sebagai!berikut.!
+     M! Pastikan! Usia! Pakai,! Usia! Teknis! dan! Harga! Pengganti! alat! kesehatan!
+        tersebut.!!
+     M! Usia! Pakai! dihitung! sejak! alat! kesehatan! tersebut! digunakan! sampai! saat!
+        perhitungan!dilakukan!dan!Harga!Pengganti!adalah!harga!alat!kesehatan!saat!
+        perhitungan!dilakukan!dengan!spesifikasi!setara.!
+     M! Tentukan!sisa!usia!manfaat!alat!kesehatan!tersebut.!
+      ! Sisa!Usia!Manfaat!=!Usia!Teknis!–!Usia!Pakai.!
+     M! Hitung!Persentasi!Manfaat.!
+            !                                    Sisa!Usia!Manfaat!
+                 Persentasi!Manfaat!=!
+            !                                       Usia!Teknis!
+            !
+     M! Tentukan!MEL!Faktor,!berikut!adalah!MEL!Faktor!yang!disusun!oleh!Logistik!
+        Tentara!Amerika!dan!di!kutip!oleh!American4Hospital4Association.!
+        Furniture!Rumah!Sakit!               !    :!80%!
+        Peralatan!Listrik!Dasar!             !    :!80%!
+        Peralatan!Mekanik!Dasar!             !    :!80%!
+        Peralatan!Listrikmekanik!dasar!           :!80%!
+        Peralatan!Khusus!                    !    :!90%!
+     M! Hitung!dengan!menggunakan!rumus!:!
+        MMEL!=!(MEL!Faktor)!x!(Persentasi!Usia!Manfaat)!x!(Harga!Pengganti)!
+      Contoh!Perhitungan!:!
+      Sebuah!alat!Defibrillator!yang!mulai!digunakan!sejak!tahun!2003!dengan!Usia!
+      Teknis! adalah! 8! tahun! atau! 16.064! Jam,! mengalami! kerusakan! pada! tahun!
+      2008! dengan! usia! pakai! adalah! 5! tahun! atau! 9.480! Jam.! Hitunglah! biaya!
+      maksimum! perbaikan! alat! Defibrilator! tersebut,! jika! harga! pengganti! dengan!
+      spesifikasi!yang!sama!adalah!Rp.!78.000.000,M!
+      Jawab!:!
+      Sisa!Usia!Manfaat!Defibrilator!:!Usia!Teknis!–!Usia!Pakai!=16.064!–!9.480!=!
+      5.584!Jam.!
+
+
+
+                                                                                     ! 49!
+=== Halaman 55 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+        !                             Sisa!Usia!Manfaat!
+        Persentasi!Manfaat!=!
+!                                         Usia!Teknis!
+                                  5.584!Jam!
+!                %!Manfaat!=!                   =!40,99!%!
+                                 16.064!Jam!
+!
+
+       MMEL!=!(MEL!Faktor)!x!(Persentasi!Usia!Manfaat)!x!(Harga!Pengganti)!
+       MMEL!=!90!%!x!40,99!%!x!Rp.!78.000.000,M!=!Rp.!28.772.211.M!
+       Berarti!jika!biaya!perbaikan!alat!defibrilator!tersebut!lebih!besar!dari!Rp.!
+       28.772.211,!maka!alat!defibrilator!tersebut!secara!ekonomi!tidak!layak!untuk!
+       diperbaiki!dan!lebih!tepat!jika!diganti!dengan!Alat!Defibrilator!yang!baru.!
+!
+5.7!        PENYUSUNAN!PROGRAM!PEMELIHARAAN!!
+!
+
+       Dalam! menyusun! perencanaan! IPSRS! harus! memiliki! daftar! inventaris!
+peralatan,!selain!itu!harus!memperhatikan!kemampuan!teknis!yang!meliputi!:!
+•! Sumber!Daya!Manusia!(Jumlah!teknisi,!kemampuan!teknis,!pelatihan!yang!
+      pernah!diikuti,!pengalaman!kerja).!!
+•! Fasilitas!kerja.!
+•! Dokumen!teknis.!
+            !
+Penyusunan!perencanaan!untuk!1!tahun!ke!depan!meliputi!:!
+•! Jadwal!pemantauan!fungsi!peralatan!medis.!
+•! Jadwal!pemeliharaan!berkala!peralatan!medis.!
+•! Penyiapan! bahan! pemeliharaan! yang! diperlukan! untuk! setiap! alat! selama! 1!
+      tahun.!
+•! Penyiapan! suku! cadang/aksesori! yang! diperlukan! untuk! perbaikan! peralatan!
+      medis!yang!mengalami!kerusakan!(pemeliharaan!korektif!terencana).!
+•! Penyiapan!usulan!rencana!anggaran.!!
+            !
+       Usulan! tersebut! dituangkan! ke! dalam! rencana! anggaran! dan! diusulkan! kepada!
+Manajemen!rumah!sakit!melalui!Kabag!Keuangan/Kabag!Sekretariat.!!
+1.!     Penyiapan!Fasilitas!Kerja.!
+        Fasilitas! kerja! penunjang! pelayanan! teknis,! meliputi! alat! kerja,! tool! set,! alat!
+        kerja! mekanik,! alat! ukur,! protap! pemantauan! fungsi! dan! lembar! kerja,! SPO!
+
+
+                                                                                             ! 50!
+=== Halaman 56 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+      pemeliharaan! dan! lembar! kerja,! SPO! perbaikan! dan! lembar! kerja,! operation!
+      manual,!service!manual,!schematic/wiring!manual,!formulir!laporan.!
+2.!   Pelaksanaan!pemeliharaan!
+      Pelaksanaan!pelayanan!teknis!terdiri!dari!:!
+      M!     Pemantauan!fungsi.!
+      M!     Pemeliharaan!berkala!(pemeliharaan!secara!internal,!pemeliharaan!secara!
+             out4sourching,!pemeliharaan!secara!KSO).!
+      M!     Perbaikan!alat!yang!mengikuti!protap!yang!telah!disusun.!
+3.!   Pelaporan!
+      Setiap! kegiatan! pelayanan! teknis! harus! dilengkapi! dengan! pelaporan! yang!
+      dapat! dimengerti,! baik! oleh! pemberi! tugas,! manajemen! rumah! sakit! maupun!
+      unit!pelayanan!terkait.!Jenis!laporan!antara!lain!:!
+      M!     Kartu!pemeliharaan!alat.!
+      M!     Catatan!pemeliharaan!alat.!
+      M!     Laporan!kerja!pemeliharaan!preventif.!
+      M!     Laporan!kerja!pemeliharaan!korektif.!
+      M!     Laporan!hasil!pemantauan!fungsi.!
+      M!     Laporan!penggunaan!bahan!pemeliharaan/suku!cadang.!
+4.!   Pembinaan!teknis!kepada!operator,!meliputi!:!
+      a.! Pemeliharaan!harian!
+             Salah!satu!jenis!pemeliharaan!berkala!adalah!pemeliharaan!harian.!Tugas!
+             ini! diserahkan! kepada! pengguna! berupa! melakukan! pembersihan! alat!
+             bagian! luar! dan! dilaksanakan! setiap! hari! sebelum! alat! digunakan! untuk!
+             pelayanan.!!
+           b.!Aspek!keselamatan!
+             Dalam! mengoperasikan! alat,! operator! harus! memperhatikan! keselamatan!
+             bagi! pasien,! petugas! dan! lingkungan! terhadap! segala! kemungkinan! yang!
+             dapat! terjadi,seperti! bahaya! listrik,! radiasi,! mekanik,! bahaya! akan! bahan!
+             kimia.!
+             !
+             !
+             !
+
+
+
+
+                                                                                          ! 51!
+=== Halaman 57 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                              BAB!VI!
+    INVENTORI!DAN!DOKUMENTASI!PEMELIHARAAN!PERALATAN!
+                                               MEDIS!
+!
+
+!
+
+                                                    !
+
+        Inventori!peralatan!medis!merupakan!data!detil!peralatan!medis!yang!berkaian!
+dengan! aspek! tenis! maupun! administrasi! setiap! tipe/model! peralatan! medis.!
+Inventori! harus! selalu! dikelola/update! sehingga! data! yang! terdapat! dalam! inventori!
+merupakan!kondisi!terkini!.!
+    Inventori!dapat!memberikan!informasi!!sebagai!berikut:!
+!
+1.! Technical4 assessment,! merek! dan! tipe! peralatan! beserta! jumlah! dan! status!
+    kondisi!peralatan.!
+2.! Memberikan! informasi! dasar! untuk! pengelolaan! aset,! termasuk! membantu!
+    penjadwalan!pemeliharaan!preventif,!penelusuran!pemeliharaan,!perbaikan,!dan!
+    penarikan!kembali/recall.!
+3.! Memberikan! infomasi! keuangan! guna! mendukungan! penilaian! budget! dan!
+    ekonomi.!
+         !
+6.1!!!LINGKUP!INVENTORI!!
+!
+    Untuk! pengelolaan! peralatan! medis! tidaklah! harus! semua! peralatan! medis!
+dimasukan! ke! dalam! inventori,! tetapi! sebaiknya! dilakukan! pembatasan/prioritas!
+itemMitem! peralatan! medis! yang! akan! dilakukan! inventarisasi.! Prioritas! tersebut!
+dapat! dilakukan! dengan! cara! berdasarkan! nilai! investasi! peralatan! medis,! usia!
+teknis,!berdasarkan!risiko!atau!kombinasi!dari!kriteria!tersebut.!
+    !
+    1.! Nilai!investasi!peralatan!medis!
+         Prioritas! ini! memperhitungkan! peralatan! medis! yang! akan! dilakukan!
+         inventarisasi!berdasarkan!harga!pada!saat!pembeliaan!yaitu!peralatan!medis!
+         dengan!harga!diatas!nominal!harga!tertentu.!
+
+
+
+                                                                                       ! 52!
+=== Halaman 58 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+    2.! Usia!teknis!
+         Inventori! pada! prinsipnya! adalah! menginventarisasi! data! peralatan! untuk!
+         digunakan! dalam! jangka! waktu! yang! supplier! lama,! sehingga! peralatan!
+         suplier/peralatan! dengan! usia! teknis! sangat! singkat! (kurang! dari! satu! tahun)!
+         sebaiknya!tidak!perlu!dilakukan!inventarisasi.!
+    3.! Berdasarkan!risiko!
+         Peralatan! medis! dalam! hal! penggunaanya! dapat! dikelompokan! berdasarkan!
+         risiko! yang! dapat! ditimbulkan! yaitu! risiko! tinggi/high! risk,! resiko!
+         sedang/medium! risk! dan! risiko! rendah/low! risk.! Inventori! dapat! dilakukan!
+         dengan! memprioritaskan! minimal! peralatan! yang! memiliki! risiko! sedang! dan!
+         tinggi.! Untuk! menentukan! risiko! dari! peralatan! dapat! digunakan! dengan!
+         menggunakan! ! Fennigkoh4 and4 Smith’s4 model! ! yaitu! suatu! algoritma! supplier!
+         untuk! mengevaluasi! perlatan! kesehatan! didasarkan! pada! fungsi! peralatan,!
+         risiko!dan!kebutuhan!pemeliharaan.!
+         !
+6.2!!!DATA!INVENTORI!
+!
+        Setiap! fasilitas! pelayanan! kesehatan! mungkin! memiliki! kebutuhan! inventori!
+yang! berbedaMbeda.! Tabel! 6.1! berikut! ini! menjelaskan! minimum! data! yang! perlu!
+dimasukan!dalam!menginventarisasi!peralatan!medis.!
+Inventori!dapat!terdiri!dari!beberapa!form!yaitu!berupa:!
+!
+    1.! Daftar!data!peralatan!medis,!!
+    2.! Daftar!pabrikan,!suplieror!atau!penyedia!
+    3.! Daftar!bahan!habis!pakai!dan!suku!cadang!
+         !
+    Inventarisasi!dari!data!tersebut!bersifat!relasional!antar!data/form!sehingga!lebih!
+mudah!dalam!melakukan!penelusuran!data.!
+    !
+    !
+    !
+    !
+    !
+
+
+
+                                                                                          ! 53!
+=== Halaman 59 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+    !
+    !
+    !
+                              Tabel!6.1!–!Contoh!data!inventori!
+    No!   Item!                         Keterangan!
+    1!    Kode!!                        Nomor!kode!alat,!dapat!menggunakan!kode!inventaris,!
+                                        tetapi!disarankan!memiliki!kode!tersendiri!agar!lebih!
+                                        memudahkan!dalam!inventarisasi!
+    2!    Merek/Tipe!                   Merek!dan!tipe!dari!peralatan!medis!
+    3!    Pabrikan/Distributor!         Nama!Pabrikan!atau!distributor!yang!mengageni!
+                                        peralatan!tersebut,!termasuk!alamat,!email!dan!kontak!
+                                        person!
+    4!    Serial!Number!                Kode!unik!setiap!item!peralatan!(dikeluarkan!oleh!
+                                        pabrikan),!pada!umunya!tertera!pada!peralatan!!
+    5!    Lokasi!!                      Tempat!peralatan!tersebut!digunakan!di!pelayanan!
+                                        (Departmen/bagian/ruangan)!
+    6!    Kondisi!                      Kondisi!peralatan(!Baik,!rusak!ringan,!rusak!berat)!
+    7!    Power!requirement!            Kebutuhan!akan!sumber!listrik!berupa!tegangan!(220!V,!
+                                        110V)!atau!power!consumption!(watt)!
+    8!    Data!inventori!updated!       Tanggal!terkair!updating!data!
+    9!    Harga!pembelian!        !     Nila!rupiah!peralatan!pada!saat!pembelian!
+    10!   Tanggal!pengadaan!            Tanggal!(bulan/tahun)!pengadaan!         !
+    11!   Masa!Garansi!                 Tanggal!berakhirnya!waktu!garansi!       !
+    12!   Tanggal!penerimaan!!          Tanggal!dilakukanya!penerimaan!alat!(instalasi,!uji!
+                                        fungsi!dan!uji!coba)!
+    13!   Usia!teknis!                  Batas!usia!yang!diharapkan!dapat!digunakan!di!
+                                        pelayanan!(tahun/jam/paparn)!
+!
+!
+
+
+
+
+                                                                                                 ! 54!
+=== Halaman 60 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+
+                                                                   Tabel&6.2&–&Inventarisasi&data&peralatan&medis&
+
+!
+
+Kode!           Nama!       Jenis!       Merek/Tipe!   S/N!       Pabrikan!      Usia!        Distributor/!        Tanggal!            Tanggal!      Lokasi!       Kondisi!           Petugas!         Harga!
+               Peralatan!                                                       Teknis!         Suplier!          Pengadaan!          Penerimaan!                                    pemelihara!
+
+!          !                !        !                 !      !                 !         !                   !                   !                  !             !             !                 !
+
+!          !                !        !                 !      !                 !         !                   !                   !                  !             !             !                 !
+
+!          !                !        !                 !      !                 !         !                   !                   !                  !             !             !                 !
+
+!          !                !        !                 !      !                 !         !                   !                   !                  !             !             !                 !
+
+!          !                !        !                 !      !                 !         !                   !                   !                  !             !             !                 !
+
+!          !                !        !                 !      !                 !         !                   !                   !                  !             !             !                 !
+
+!
+
+                                                                  Tabel&6.3&–&Data&Pabrikan,&Distributor&/&supplier&
+
+No!         Nama!                          Alamat!                            Email!                Telepon/Fax!          Pabrikan!         Usia!Teknis!               Distributor/!           Harga!
+          Perusahaan!                                                                                                                                                    Suplier!
+
+!     !                     !                                       !                           !                     !                 !                      !                           !
+
+!     !                     !                                       !                           !                     !                 !                      !                           !
+
+!     !                     !                                       !                           !                     !                 !                      !                           !
+
+!     !                     !                                       !                           !                     !                 !                      !                           !
+
+!     !                     !                                       !                           !                     !                 !                      !                           !
+
+!     !                     !                                       !                           !                     !                 !                      !                           !
+
+                                                                                                       !
+
+
+
+
+                                                                                                                                                                                                          ! 55!
+=== Halaman 61 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                       Tabel&6.4&–&Data&Bahan&pemeliharaan&dan&suku&cadang&
+
+    No!        Item!         Katalog!number!          Jumlah!         Distributor/!       Harga!
+                                                                        Suplier!
+
+    !      !             !                        !               !                   !
+
+    !      !             !                        !               !                   !
+
+    !      !             !                        !               !                   !
+
+    !      !             !                        !               !                   !
+
+    !      !             !                        !               !                   !
+
+    !      !             !                        !               !                   !
+
+    !      !             !                        !               !                   !
+
+                                                      !
+
+                                                      !
+
+6.3& ASPAK&
+!         ASPAK! merupakan! aplikasi! web$ based! sistem! informasi! data! sarana,!
+prasarana! dan! peralatan! kesehatan! secara! on*line.! Dengan! ASPAK! dimungkin!
+sarana! pelayanan! kesehatan! khususnya! rumah! sakit! milik! pemerintah! dapat!
+menyimpan! data! SPA! secara! langsung! di! server! ASPAK! sehingga! monitoring! data!
+peralatan! kesehatan! dapat! dengan! cepat! dilakukan.! ASPAK! dapat! diakses! secara!
+lagsung!         di!    alamat!    www.aspak.buk.depkes.go.id!                atau!       melalui!   situs!
+www.buk.depkes.go.id.!
+!
+!         ASPAK!bertujuan!untuk:!
+1.! Tersedianya! data! dan! informasi! sarana,! prasarana! dan! peralatan! kesehatan! di!
+        fasilitas!pelayanan!kesehatan!seluruh!Indonesia!
+2.! Terciptanya!Pemetaan!SPA!Di!Fasyankes.!
+3.! Supporting!untuk!perencanaan!SPA!
+!
+
+6.3.1.& !Data&apa&yang&ada&di&ASPAK&
+ASPAK!menyediakan!empat!kelompok!data!utama!sarana!pelayanan!kesehatan!
+
+1.! Data! umum,! mencakup! data! umum! sarana! pelayanan! kesehatan! yaitu! alamat,!
+        telp,!kapasitas,!kelas!rumah!sakit,!status!akreditasi,!dll.!
+
+
+
+
+                                                                                                      ! 56!
+=== Halaman 62 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+2.! Data! Sarana,! mencakup! data! dan! kondisi! gedung! berdasarkan! pelayanan!
+     kesehatan!yang!dilayani!
+3.! Data! Prasarana,! mencakup! data! prasarana! pelayana! kesehatan! seperti! data!
+     pengelolaan!limbah,!sumber!listrik,!air,!dll.!
+4.! Data!peralatan!kesehatan!yang!mencakup!jumlah,!kondisi!peralatan!kesehatan.!
+!!
+6.3.2.& Siapa&yang&dapat&mengakses&ASPAK&
+!
+
+!      ASPAK!dapat!diakses!oleh!Dinas!Kesehatan!Provinsi/Kab/Kota,!Rumah!Sakit,!
+BPFK! dan! Puskesmas! yang! kesemuanya! harus! memiliki! account! yang! disediakan!
+oleh!Direktorat!Bina!Pelayanan!Penunjang!Medik!dan!Sarana!Kesehatan.!
+!
+
+!
+
+
+
+
+                                                                             !
+
+!
+
+                                 Gambar&6.1&Halaman&utama&ASPAK&
+
+!
+
+!
+
+!
+
+
+
+
+                                                                                 ! 57!
+=== Halaman 63 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+
+
+
+
+                                                                        !
+
+                              Gambar&6.2&Contoh&tampilan&data&umum&
+
+!
+
+
+
+
+                                                                        !
+
+!
+
+                              Gambar&6.3&Tampilan&Sarana&rumah&sakit&
+
+!
+
+!
+
+
+
+                                                                            ! 58!
+=== Halaman 64 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+
+
+
+
+                                                                                &
+
+                                                    &
+
+                         Gambar&6.4&–&Tampilan&data&prasarana&rumah&sakit&
+
+&
+
+
+
+
+                                                                                &
+
+                     Gambar&6.5&Tampilan&dara&peralatan&medis&di&rumah&sakit&
+
+                                                    &
+
+
+
+
+                                                                                ! 59!
+=== Halaman 65 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                                                      BAB&VII&
+                                 POST&–&MARKET&SURVEILLANCE&DAN&&
+                                         VIGILANCE&PERALATAN&MEDIS&
+                                                                               &
+                                                                               &
+!
+            Seharusnya! pengawasan! oleh! produsen! terhadap! peralatan! medis! yang!
+sudah! digunakan! di! fasilitas! pelayanan! kesehatan! tidak! semata! mata! memenuhi!
+peraturan! yang! berlaku,! tetapi! juga! seharusnya! sudah! menjadi! bagian! dari! bisnis!
+yang! baik.! Hal! ini! membantu! produsen! peralatan! medis! memperoleh! pemahaman!
+mengenai! kinerja! peralatan! medis! yang! diproduksinya! dan! telah! digunakan! di!
+fasilitas! pelayanan! kesehatan.! Kegiatan! ini! akan! memberikan! umpan! balik! terus!
+menerus!yang!memungkinkan!produsen!mempertahankan!kualitas!peralatan!medis!
+yang!tinggi!serta!kepuasan!pengguna.!Juga!akan!membantu!meminimalkan!insiden!
+yang!timbul!karena!ada!evaluasi!terus!menerus,!sehingga!juga!akan!meminimalisir!
+adanya!penarikan!kembali!(Recall).!
+Kegiatan!postWmarket!dapat!dikategorikan!:!
+1.!      Proaktif,!yaitu!disebut!PostWMarket!Surveillance.!
+2.!      Reaktif,!yaitu!Vigilance.!!!
+            !!!!!!&!
+Posisi! postWmarket! surveillance! dan! vigilance! pada! preWmarket! dan! postWmarket!
+dijelaskan!melalui!diagram!berikut!ini.!!
+!
+Diagram!7.1.!Pre*Market,$On$Market,$Post*Market!Peralatan!Medis!
+
+!
+ CONCEPTION(                 MANUFACT                 PACKAGING(               ADVERTISING(                 SALE(          USE(          DISPOSAL(
+!   AND(                       URE(                      AND(
+DEVELOPMENT(                                          LABELLING(                                                           !
+!
+
+!
+!!!!!!!!!!!PREWMARKET!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!PLACING!ON!MARKET!!!!!!!!!!POSTWMARKET!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SURVEILLANCE/VIGILANCE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!
+!!!!!!!MANUFAKTURER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!VENDOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!USER!!
+
+
+
+
+                                                                                                                                                        ! 60!
+=== Halaman 66 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+7.1&!POST&MARKET&SURVEILLANCE&
+&
+          Dari! Global! Harmonization! Task! Force! dijelaskan! PostWMarket! Surveillance!
+adalah! kegiatan! pengumpulan! informasi! mengenai! kualitas,! keamanan! dan! kinerja!
+peralatan! kesehatan! secara! proaktif! setelah! ditempatkan! di! pasar! /! digunakan! di!
+fasilitas!pelayanan!kesehatan.!
+          !
+          Post! Market! Surveillance! merupakan! bagian! dari! manajemen! resiko.!
+Tanggung! jawab! pengawasan! peralatan! medis! postWmarket! adalah! pada!
+pemerintah,! Produsen,! Agen! Tunggal/Importir,! Penyalur! Alat! Kesehatan! dan!
+Pengguna.! Diperlukan! Skema! untuk! melakukan! mekanisme! untuk! melakukan!
+pengawasan!postWmarket!peralatan!medis.!
+          !
+     Tujuan! dilakukan! PostWMarket! Surveillance! adalah! agar! hasilnya! nanti!
+dievaluasi,!sebagai!masukan!produsen!untuk!mengambil!langkah!langkah,!seperti!:!
+•!   Meningkatkan!kualitas,!keamanan!dan!kinerja!peralatan!medis.!
+•!   Melakukan!recall!peralatan!medis!yaitu!:!memperbaiki!atau!mengganti!sebagian!
+     atau!menarik!sebagian!atau!seluruh!produksi!peralatan!medis!tersebut.&
+!
+     Produsen/Pabrikan!dapat!mencari!data!pendukung!PostWMarket!Surveillance!
+dari!:!
+•!   Keluhan!dari!konsumen!secara!langsung!maupun!tidak!langsung!
+•!   Studi!Penjualan!peralatan!medis.!
+•!   Studi!Kinerja!peralatan!medis.!
+•!   Studi!Klinis.!
+•!   Data!penggunaan!alat!oleh!pasien.!
+•!   Permintaan!pemeliharaan!dan!perbaikan!alat!kesehatan.!
+•!   Pernyataan/tanggapan!dari!konsumen.!
+•!   Studi!literature.!
+•!   Laporan!dari!pihak!yang!berwenang.!
+•!   Publikasi.!
+!
+
+
+
+
+                                                                                     ! 61!
+=== Halaman 67 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+     Untuk! memastikan! bahwa! postWmarket! surveillance! peralatan! medis!
+dilaksanakan! secara! efektif,! semua! pihak! yang! terlibat! harus! memahami! dan!
+menyadari!tanggung!jawab!dan!kewajiban!dalam!hal!ini.!
+!
+
+7.2&&&VIGILANCE&
+&
+        Vigilance! (kewaspadaan)! adalah! mengacu! pada! insiden! yang! dapat! terjadi!
+dengan! peralatan! ! medis,! ketika! peralatan! medis! tersebut! tidak! berfungsi!
+sebagaimanan! mestinya,! sehingga! dapat! menyebabkan! cedera! atau! kematian.! Hal!
+ini! memerlukan! ketepatan! waktu,! koordinasi! dan! penyampaian! informasi! antara!
+produsen! dan! pemerintah! terkaitan! dengan! insiden! peralatan! medis! tersebut.!
+Apabila! insiden! peralatan! medis! terjadi! di! fasilitas! pelayanan! kesehatan,! maka!
+fasilitas! pelayanan! tersebut! wajib! melaporkan! kepada! pemerintah! dan! produsen!
+serta!mendokumentasikannya,!sesuai!format!yang!telah!ditetapkan.!
+        !
+        Produsen!peralatan!medis!bertanggung!jawab!merespon!insiden!yang!terjadi!
+pada! alat! serta! wajib! mengambil! langkahWlangkah! perbaikan.! Apabila! insiden!
+melibatkan! lebih! dari! 1! alat! dengan! produsen! yang! berbeda,! masingWmasing!
+produsen! wajib! membuat! laporan! kepada! Badan! yang! berkompeten! yang! ditunjuk!
+pemerintah.!
+        !
+!       Badan! yang! berkompeten! memonitor! laporan! yang! dibuat! produsen.! Jika!
+diperlukan! melakukan! pendampingan! kepada! produsen! dalam! mengambil! tindakan!
+perbaikan.!Untuk!mengantisipasi!serta!meniminalkan!terjadinya!insiden!yang!serupa,!
+perlu!dilakukan!diseminasi!kepada!pihak!terkait.!
+!
+        Tujuan! vigilance! peralatan! medis! adalah! untuk! melindungi! peralatan! medis!
+dan! keselamatan! pasien! dan! petugas,! dievaluasi! untuk! mencegah! terulangnya!
+insiden,! ! menentukan! efektivitas! tindakan! perbaikan! dan! tindakan! pencegahan! dan!
+pemantauan.!
+        !
+!       Disarankan! adanya! informasi! mengenai! vigilance! peralatan! medis! secara!
+online,! yang! dapat! digunakan! sebagai! referensi! oleh! pengguna! peralatan! medis,!
+
+
+
+                                                                                    ! 62!
+=== Halaman 68 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+terutama! untuk! bahan! pertimbangan! penyediaan! peralatan! medis! di! fasilitas!
+pelayanan! kesehatan.! Fasilitas! pelayanan! kesehatan! wajib! melaporkan! terjadinya!
+insiden! peralatan! medis! kepada! produsen! atau! badan! yang! berwenang,! sesuai!
+dengan!peraturan!yang!berlaku.!
+!
+!       Kriteria! Laporan! Insiden! yang! harus! disampaikan! oleh! Produsen! kepada!
+Badan!yang!berwenang!:!
+1.! Hal!yang!terjadi!karena!:!
+     •! Terjadinya!kerusakan!atau!penurunan!karakteristik!atau!kinerja..!
+
+     •! Memberikan!bacaan!hasil!yang!tidak!akurat!
+
+     •! Menyebabkan!terjadnya!efek!samping!yang!tidak!diduga!sebelumnya.!
+
+     •! Menyebabkan!terapi!yang!tidak!tepat!
+
+     •! Terjadinya!kerusakan,!misal!adanya!kebakaran!di!peralatan!medis!tersebut.!
+
+     •! Adanya!     ketidaktepatan! penandaan,! instruksi! dan! atau! bahan! yang!
+        dipromosikan.!
+2.! Peralatan!medis!tersebut!diduga!sebagai!penyebab!insiden.!
+     •! Pendapat!dari!tenaga!kesehatan,!berdasarkan!bukti!yang!ada.!!
+
+     •! Hasil!penilaian!awal!oleh!Produsen!sendiri!terhadap!kejadian!tersebut.!!
+
+     •! Adanya!insiden!serupa!yang!terjadi!sebelumnya.!!
+
+     •! Adanya!data!kejadian!peralatan!medis!tersebut!yang!dimiliki!oleh!Produsen.!
+
+3.! Menyebabkan!halWhal!sebagai!berikut!:!
+     •! Menyebabkan!kematian!pasien,!pengguna,!atau!orang!lain.!
+
+     •! Menyebabkan!        cedera! yang! mempengaruhi! kondisi! kesehatan! pasien,!
+        pengguna!atau!orang!lain.!
+Laporan!insiden!biasanya!tidak!diperlukan!pada!kondisi!:!
+1.! Kondisi!peralatan!medis!yang!tidak!memadai!pada!saat!akan!digunakan,!misal!
+     sudah!terbuka!`!diketahui!dalam!kondisi!tidak!steril.!
+2.! Kondisi! kesehatan! pasien! yang! memang! sudah! bisa! diprediksikan,! sebelum!
+     peralatan! medis! tersebut! digunakan! pada! pasien.! Apabila! pasien! meninggal,!
+     harus!dipastikan!bahwa!bukan!disebabkan!peralatan!tersbut.!
+3.! Peralatan!medis!tersebut!melewati!usia!pakai!dan!usia!pemeliharaan.!
+4.! Adanya! pengamanan/alarm! peralatan! medis! yang! berfungsi! menginfomasikan!
+     tidak!berfungsinya!alat.!
+5.! Peralatan!medis!yang!akibat!sampingannya!sudah!bisa!diperkirakan.!
+
+
+                                                                                   ! 63!
+=== Halaman 69 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+             Tabel&7.1&Formulir&Laporan&Insiden&peralatan&medis&dari&Pabrikan&
+
+    1&Informasi&Administrasi!
+    Penerima&Laporan&&                           Nama,&Jabatan,&Tanda&Tangan,&Stempel&
+    Badan!Berkompeten!yang!ditunjuk!             (~&60&x&40&mm)&
+    pemerintah!!
+    !
+    Tanggal!laporan!
+    Nomor!Surat!Laporan!dari!pabrikan!
+    Tipe!laporan!
+    o! Laporan!awal!
+    o! Laporan!tindak!lanjut!dari!laporan!sebelumnya!!
+    o! Kombinasi!laporan!awal!dan!akhir!
+    o! Laporan!akhir!
+    Apakah!insiden!tersebut!menyebabkan!ancaman!serius!bagi!kesehatan!masyarakat!yang!
+    serius?!
+    o! Ya!
+    o! Tidak!
+    Klasifikasi!insiden!
+    o! kematian!
+    o! kerusakan! serius! yang! tidak! terduga! yang! menyebabkan! kemunduran! keadaan!
+         kesehatan!
+    o! sama!seperti!laporan!insiden!sebelumnya!
+    2&Informasi&Penyedia&Alat&Kesehatan!
+    Status!Penyedia!Alat!
+    o! Pabrikan!
+    o! Penyalur!Alat!Kesehatan!
+    o! Rekanan!!
+    3&Informasi&Pabrikan!
+    Nama!Pabrikan!
+    Kontak!Person!Pabrikan!
+    Alamat!
+    Kode!Pos!                                    Kota!
+    Telepon!                                     Fax!
+    EWmail!                                      Negara&
+    4&Informasi&Penyalur&Alat&Kesehatan&/&Agen&Tunggal!
+    Nama!Penyalur!Alat!Kesehatan!
+    Kontak!Person!Penyalur!Alat!Kesehatan!
+    Alamat!
+    Kode!Pos!                                    Kota!
+    Telepon!                                     Fax!
+    EWmail!                                      Negara!&
+    5&Informasi&Penyedia&Alat&Kesehatan!
+    NamaPenyedia!Alat!Kesehatan!
+    Nama!Kontak!person!
+    Alamat!
+    Kode!Pos!                                    Kota!
+    Telepon!                                     Fax!
+    EWmail!                                      Negara!2)&
+    6&Informasi&peralatan&medis!
+    Kelas!
+    o! Peralatan!medis!Kelas!III!
+    o! Peralatan!medis!Kelas!IIb!!
+    o! Peralatan!medis!Kelas!IIa!!
+    o! Peralatan!medis!Kelas!I!
+    Sistem!Nomenklatur!(lebih!baik!GMDN)!
+
+
+
+                                                                                          ! 64!
+=== Halaman 70 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+    Kode!Nomenklatur!
+    Penamaan!Nomenklatur!
+    Nama!komersial/!merek!
+    Nomor!Model!                                    Nomor!Katalog!
+    Nomor!Seri!(jika!ada)!                          Nomor!Lot/batch!(jika!ada)!
+    Nomor!Versi!Software!(jika!ada)!
+    Tanggal!diproduksi,!!                           Tanggal!Kadaluarsa!
+    Tanggal!Pemasangan!Implan!!(jika!alat!          Tanggal!Masa!Berlaku!Implant!(jika!alat!
+    kesehatan!berbentuk!Implan)!!                   kesehatan!berbentuk!Implan)!
+    Aksesori/!alat!terkait!(jika!ada)!
+    Nomor!ID!Notified!Body!(NB)!!
+    7&Informasi&Insiden&
+    Nomor!laporan!dari!fasilitas!pelayanan!kesehatan!(jika!ada)!!
+    Tanggal!ditanggapinya!insiden!oleh!pabrikan!
+    Tanggal!terjadi!insiden!
+    Narasi!deskripsi!insiden!
+    Jumlah!pasien!terkena!!                         Jumlah!peralatan!medis!yang!mengalami!
+                                                    insiden!
+    Lokasi!terjadinya!insiden!
+    Yang&mengoperasikan&Peralatan&medis&                 !
+    pada&saat&terjadi&insiden&(pilih&satu)&!             !
+    o! Tenaga!Kesehatan!                            o! pasien!
+    o! LainWlain!                                   !
+    Pemakaian&Peralatan&medis&(pilih&dari&          !
+    daftar&di&bawah&ini)&                           o! Penggunaan! kembali! dari! peralatan!
+    o! awal!penggunaan!                                    medis!sekali!pakai!
+    o! penggunaan! kembali! perangkat! medis! o! Alat!yang!diservice!ulang/dirakit!
+          dapat!digunakan!kembali!                  o! catatan!         masalah!   penggunaan!
+    o! LainWlain!(sebutkan)!!                              sebelumnya!
+    8&Informasi&Pasien&
+    Kondisi!pasien!setelah!insiden!
+    Tindakan!yang!!diambil!oleh!fasilitas!pelayanan!kesehatan!terhadap!pasien!yang!terkena!
+    insiden!!
+    Umur!pasien!pada!waktu!insiden!!
+    Jenis!kelamin,!jika!berlaku!                    !
+         o! Wanita!                                      o! Pria!
+    Berat!dalam!kg!
+    9&Informasi&Fasilitas&Pelayanan&Kesehatan!
+    Nama!fasilitas!Pelayanan!Kesehatan!
+    Kontak!person!fasilitas!pelayanan!kesehatan!
+    Alamat!
+    Kode!Pos!                                      Kota!
+    Telepon!                                       Fax!
+    EWmail!                                        Negara&
+    10&Tanggapan&dari&Pabrikan&&(Laporan&Awal/&Tindak&Lanjut)&
+    !
+    Analisa!awal!pabrikan!!
+    Tindakan!perbaikan/tindakan!pencegahan!yang!dilaksanakan!oleh!pabrikan!!
+    !
+    Laporan!lengkap!akan!diserahkan!pada!tanggal!
+    11&Hasil&investigasi&final&dari&produsen&(laporan&akhir)&
+    !
+
+
+                                                                                                 ! 65!
+=== Halaman 71 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+    Hasil!analisa!produsen!alat!
+    Tindakan!perbaikan/tindakan!pencegahan!/!tindakan!keselamatan!yang!akan!dilakukan!!
+    Jadwal!untuk!pelaksanaan!tindakan!perbaikan/tindakan!pencegahan.tindakan!keselamatan!
+    !                                            !
+    Tanggapan!final!dari!pabrikan!
+    Investigasi!selanjutnya!
+    Apakah!produsen!menyadari!insiden!serupa! !
+    dengan!jenis!perangkat!medis!dengan!akar!    !
+    yang!sama?!                                      o! Tidak!
+        o! Ya!
+    Jumlah!insiden!serupa!
+    10!Komentar!                                 !
+    !                                            !
+                                                    &
+                                                    &
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+
+
+
+                                                                                            ! 66!
+=== Halaman 72 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                             BAB&VIII&
+    PENARIKAN&(RECALL)&&DAN&PENGHAPUSAN&PERALATAN&MEDIS&
+!
+
+!
+
+!
+
+        Produksi! alat! kesehatan! tidak! berbeda! dengan! produksi! industri! lainnya,!
+walaupun! telah! melalui! quality$ control! (QC)! tetapi! tidak! menjamin! bahwa! produk!
+tersebut!sempurna.!
+        !
+        Suatu! kekurangan! pada! produk! alat! kesehatan! baik! pada! kualitas! maupun!
+keamanan! sehingga! tidak! sesuai! dengan! spesifikasi! atau! tujuannya,! dapat!
+menyebabkan! gangguan! bahkan! kegagalan! dalam! pelayanaan! kesehatan! yang!
+berdampak! pada! gangguan! kesehatan! bahkan! kematian.! Jika! kekurangan! tersebut!
+diketahui!setelah!dipasarkan!atau!digunakan!konsumen,!maka!produk!bersangkutan!
+akan! ditarik! oleh! perusahaan! yang! bertanggung! jawab! terhadap! peredaran! alat!
+tersebut.!
+        !
+8.1& PENARIKAN&(RECALL)&PERALATAN&MEDIS&&
+        !
+!    Recall! adalah! suatu! tindakan! yang! dilakukan! untuk! mengatasi! masalah! pada!
+suatu!peralatan!medis,!bila!tidak!sesuai!dengan!peraturan!yang!berlaku!atau!dapat!
+menyebabkan!suatu!bahaya!pada!penggunaannya.!!Suatu!produk!yang!ditarik!dari!
+peredaran,! akan! diteliti! ulang! oleh! produsen! sehingga! dapat! ditentukan! apakah!
+produk!tersebut!akan!diperbaiki!atau!di!musnahkan.!
+!
+!    Penarikan! peralatan! medis! tidak! selalu! berarti! bahwa! penggunaan! peralatan!
+tersebut! harus! dihentikan! dan! mengembalikan! peralatan! medis! ke! pabrikan.! suatu!
+recall! kadangWkadang! dapat! berarti! bahwa! peralatan! medis! perlu! diperiksa,!
+disesuaikan,! atau! diperbaiki.! Jika! peralatan! medis! yang! bersifat! implan! (misalnya,!
+alat!pacu!jantung!atau!pinggul!buatan)!di!recall,!tidak!selalu!peralatan!medis!tersebut!
+harus!dilepas!dari!pasien.!!
+!
+
+
+
+                                                                                       ! 67!
+=== Halaman 73 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!       Jika! sebuah! peralatan! medis! implan! memiliki! potensi! terjadi! kegagalan! tak!
+terduga,! perusahaan! sering! memberitahu! dokter! untuk! menghubungi! pasien! agar!
+mendiskusikan! risiko! melepas! peralatan! tersebut! dibandingkan! dengan! risiko! bila!
+tetap!menggunakannya.!
+!
+Contoh!jenisWjenis!tindakan!yang!dapat!dianggap!Recall!:!
+-! Memeriksa!peralatan!medis!terhadap!masalah!
+-! Perbaikan!peralatan!medis!
+-! Menyesuaikan!pengaturan!pada!peralatan!medis!
+-! Pelabelan!ulang!peralatan!medis!
+-! Menghancurkan!peralatan!medis!
+-! Memberitahukan!kepada!pengguna!tentang!masalah!pada!peralatan!medis.!
+-! Pemantauan!masalah!kesehatan!pasien!akibat!penggunaan!peralatan!medis.!
+          !
+    KadangWkadang!perusahaan!memiliki!kecurigaan!pada!sekelompok!produk,!tetapi!
+tidak! dapat! memprediksi! peralatan! medis! yang! bermasalah! secara! individu.! Untuk!
+menjamin! keamanan! penggunaan! alat! kesehatan,! perusahaan! dapat! melakukan!
+Recall!terhadap!seluruh!model,!atau!produk!sejenis.!
+    !
+          Recall! dapat! berupa! tindakan! koreksi! atau! removal! tergantung! tingkat!
+masalah!yang!terjadi.!Koreksi!adalah!mengatasi!!masalah!peralatan!medis!di!tempat!
+alat! kesehatan! tersebut! digunakan! atau! dijual.! Sedangkan! removal! adalah&
+mengatasi! masalah! peralatan! medis! dengan! menarik! alat! kesehatan! tersebut! dari!
+peredaran.!
+!
+    Mekanisme! pelaksanaan! recall! peralatan! medis! di! rumah! sakit! ditentukan! oleh!
+Standar!Prosedur!Operasional!yang!ditetapkan!oleh!masingWmasing!rumah!sakit.!
+    !
+8.2& PENGHAPUSAN&PERALATAN&MEDIS&&
+!
+    Peralatan! medis! yang! dimiliki! oleh! institusi! pemerintah! adalah! kekayaan! negara,!
+karena! itu! peralatan! medis! dicatat! pada! akuntansi! kekayaan! negara.! Setiap!
+penambahan! peralatan! medis! yang! memenuhi! persyaratan! akutansi,! akan!
+
+
+
+                                                                                        ! 68!
+=== Halaman 74 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+menambah! kekayaan! negara! demikian! juga! pada! saat! pengurangan! peralatan!
+medis,!akan!mengurangi!kekayaan!negara.!
+    Pengurangan!kekayaan!negara!dapat!dilakukan!dengan!melakukan!penghapusan!
+peralatan! medis! dari! daftar! kekayaan! negara! yang! harus! dilakukan! sesuai! dengan!
+ketentuan!yang!berlaku.!
+!
+    Penghapusan!peralatan!medis!agar!pemanfaatan!peralatan!medis!di!rumah!sakit!
+efektif! dan! efesien! serta! penatausahaan! peralatan! medis! akuntabel! serta!
+membebaskan! Pengguna! dan! atau! Kuasa! Pengguna! Barang! dari! tanggung! jawab!
+administrasi!dan!fisik!barang!yang!berada!dalam!penguasaannya.!
+        !
+    Peralatan!medis!dihapuskan!apabila!memenuhi!antara!lain!:!
+1.! Persyaratan!teknis:!
+     a.!! Secara! fisik! alat! kesehatan! tidak! dapat! digunakan! karena! rusak,! dan! tidak!
+            ekonomis!bila!diperbaiki`!
+     b.!! Secara!teknis!barang!tidak!dapat!digunakan!lagi!akibat!modernisasi`!
+     c.!! Alat!kesehatan!telah!melampaui!batas!usia!teknis!/!kadaluarsa`!
+     d.!! Alat!kesehatan!mengalami!perubahan!dalam!spesifikasi!karena!
+            penggunaan,!seperti!terkikis,!aus,!dan!lainWlain!sejenisnya`!
+2.! Secara! ekonomis! lebih! menguntungkan! bagi! negara! apabila! alat! kesehatan!
+     dihapus,!karena!biaya!operasional!dan!pemeliharaan!alat!kesehatan!lebih!besar!
+     dari!manfaat!yang!diperoleh.!
+3.! Alat!kesehatan!hilang,!atau!dalam!kondisi!kekurangan!perbendaharaan.!
+                !
+      Penghapusan! peralatan! medis! dari! daftar! barang! pengguna! dan/atau! daftar!
+barang! kuasa! pengguna! barang! dilakukan! sesuai! persyaratan! administrasi! dan!
+peraturan!yang!berlaku.!
+            !
+!
+
+!
+
+!
+
+!
+
+!
+
+
+                                                                                         ! 69!
+=== Halaman 75 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!
+
+                                          Daftar&Pustaka&
+!
+
+1.! ASHE,!Meintenance$management$for$Medical$Equipment,!AHA,!1996!
+2.! Depkes,!Petunjuk$Pemeriksaan$dan$Pengujian$Peralatan$Kesehatan,!Jakarta,!1997!
+3.! Depkes,!Pedoman$Pengujian$dan$Kalibrasi$Alat$Kesehatan,!Jakarta,!2001!
+4.!   Depkes,!Pedoman$Operasional$dan$Pemeliharaan$Peralatan$Kesehatan,!Jakarta,!1997!!
+5.!   Mudjisantosa,! Memahami$ Spesifikasi,$ HPS,$ dan$ Kerugian$ Negara,! Primaprint,!
+          Yogyakarta,!2013!
+6.! Peraturan! Presiden! Nomor! 70! Tahun! 2012! tentang! Perubahan! Kedua! atas! Peraturan!
+          Presiden!Nomor!54!tahun!2010!Tentang!Pengadaan!Barang/Jasa!Pemerintah!
+7.! SNI! IEC! 60601W1:2014! Peralatan! elektromedik! W! Bagian! 1! :! Persyaratan! umum!
+          keselamatan!dasar!dan!kinerja!esensial!(IEC!60601W1:!2005,!IDT)!!
+8.! Undang!Undang!Nmor!44!Tahu!2009!tentang!Rumah!Sakit!
+9.! WHO,!Introduction!to!medical!equipment!inventory!management,!Genewa,!2011!!
+10.! WHO,!Healthcare!technology!assessment!of!medical!device,!Genewa,!2011!!
+11.! WHO,!Medical$Equipment$Program$maintenance$Overview,!Genewa,!2011!!
+12.! WHO,!Need$Assessment$for$Medical$Device,$Genewa,!2011!
+13.! WHO,!Procuremen!process!resources!guide,!Genewa,!2011!!
+!
+
+!
+
+
+
+Introduction to medical
+equipment inventory
+management
+!
+
+!
+
+!
+
+!
+
+!
+
+
+
+                                                                                       ! 70!
+=== Halaman 76 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!
+
+                                    Lampiran&a&lampiran&
+                                           Lampiran&A& &
+                    Contoh&perhitungan&kebutuhan&peralatan&medis&
+!
+
+!
+
+      Tabel&A.2.1&–&Perhitungan&peralatan&medis&untuk&Pemenuhan&Standar&
+
+                                                                  Kebutuhan3     Kekuran
+            No            Jenis3Alat               Jumlah
+                                                                   Standar         gan
+            1                  2                       3              4             5
+            1
+            2
+            3
+            4
+            5
+            6
+            7
+            8
+            9                                                                              !
+!
+
+            Keterangan!
+            Kolom!1!      :! Jelas.!
+            Kolom!2!      :! Jenis!peralatan!medis!yang!dimiliki!per!unit!pelayanan.!
+            Kolom!3!      :! Jumlah!peralatan!medis!yang!dimiliki!berdasarkan!kolom!2.!
+            Kolom!4!!     :! Jumlah!peralatan!medis!sesuai!kemampuan!layanan!
+                             berdasarkan!klasifikasi!rumah!sakit.!
+            Kolom!5!!     :! Kolom!4!dikurangi!Kolom!3.!
+        !
+
+        Perhitungan! pemenuhan! kekurangan! untuk! penggantian! peralatan! dengan!
+        kondisi! rusak! berat! dan! atau! rusak! sedang! dapat! ditambahkan! kebutuhan!
+        peralatan! untuk! keperluan! cadangan! yang! akan! digunakan! untuk! menjaga!
+        kelangsungan! pelayanan! selama! alat! diperbaiki.! Data! kondisi! peralatan!
+        diperoleh! dari! inventarisasi! peralatan! yang! memuat! data! pemeliharaan!
+        preventif!dan!korektif.!!!!!
+        !
+        Adapun!contoh!perhitungan!penggantian!peralatan!medis!dapat!dilihat!tabel!
+        A.2.2!di!bawah!ini.!
+!
+
+
+                                                                                               ! 71!
+=== Halaman 77 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                    Tabel&A.1&a&&Perhitungan&Penggantian&peralatan&medis&
+
+                                                            Kondisi
+         No           Jenis9Alat            Jml                            KBTH   KR
+                                                  Baik      RR RS     RB
+          1                 2                 3    4         5   6     7    8     9
+          1
+          2
+          3
+          4
+          5
+          6
+          7
+          8
+          9                                                                            !
+           Keterangan!:!!!
+           Kolom!1!    ! Jelas!
+           Kolom!2!    :! Jenis!peralatan!medis!yang!dimiliki.!
+           Kolom!3!    :! Jumlah!peralatan!medis!yang!dimiliki.!
+           Kolom!4!! :! Jumlah!peralatan!medis!kondisi!baik.!
+           Kolom!5!! :! Jumlah!peralatan!medis!kondisi!rusak!ringan.!
+           Kolom!6!! :! Jumlah!peralatan!medis!kondisi!rusak!sedang.!
+           Kolom!7!! :! Jumlah!peralatan!medis!kondisi!rusak!berat.!
+           Kolom!8!    :! Jumlah!kebutuhan!untuk!penggantian!peralatan!dengan!
+                           kondisi!rusak!berat!dan!atau!rusak!sedang.!!
+           Kolom!9!    ! Jumlah!kebutuhan!pemenuhan!kekurangan!diperoleh!dari!
+                           kolom!3&dikurangi!kolom!8.!
+                                                        &
+         Tabel&A.2&a&Perhitungan&Penambahan&Peralatan&karena&Penambahan&Layanan&
+        a.& Perhitungan&Kebutuhan&Layanan&
+
+
+
+
+                                                                                               !
+
+
+                                                                                           ! 72!
+=== Halaman 78 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!
+
+         Keterangan!
+         Kolom!1!    :! Jelas.!
+         Kolom!2!    :! Jenis!peralatan!medis!yang!dimiliki!pada!tiap!pelayanan.!
+         Kolom!3!    :! Pelayanan!kesehatan!yang!dapat!dilayani!dengan!peralatan!medis!
+                        pada!saat!ini.!
+         Kolom!4!! :! Pelayanan!kesehatan!yang!harus!dirujuk!karena!keterbatasan!
+                        peralatan!medis.!
+         Kolom!5!! :! Besarnya!kebutuhan!pelayanan!diperoleh!dari!kolom!3!ditambah!
+                        kolom!4&!
+!
+
+         b.& Perhitungan&Kebutuhan&peralatan&medis&
+!
+
+!
+                                             Kapasitas6Layanan       Kebutuhan6
+    No      Jenis6Alat           Jumlah                                              Kekurangan
+!                                             Alat      Jumlah        Layanan
+    1           2                   3          4           5             6                7
+!1
+    2
+!3
+
+!4
+  5
+!dst
+
+!
+
+         Keterangan!
+         Kolom!1!    :!     Jelas!
+         Kolom!2!    :!     Jenis!peralatan!medis!yang!dimiliki!pada!tiap!pelayanan.!
+         Kolom!3!    :!     Jumlah!peralatan!medis!yang!dimiliki.!
+         Kolom!4!! :!       Kapasitas!Alat,!Kapasitas!pelayanan!masingWmasing!peralatan!
+                            medis.!
+         Kolom!5!!       :! Total!Kapasitas!Alat,!Kapasitas!Total!pelayanan!peralatan!medis,!!
+                            diperoleh!dari!kolom!3&dikalikan!kolom!4.!!!
+         Kolom!6!!       :! Kebutuhan!Pelayanan,!diperoleh!dari!a.!Perhitungan!Kebutuhan!
+                            Pelayanan.!
+         Kolom!7!!       :! Kekurangan!peralatan!medis,!diperoleh!dari!Kebutuhan!Pelayanan!
+                            dibagi!Kapasitas!peralatan!medis!dikurangi!dengan!peralatan!medis!
+                            yang!dimiliki.!
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+
+
+                                                                                                  ! 73!
+=== Halaman 79 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+            Tabel&A.3&a&Perhitungan&Penambahan&Karena&Penambahan&Pelayanan&
+
+!
+
+! Jenis-Alat-:
+
+!
+
+!                                                                              Jumlah+
+                                  Rujukan+Keluar+Rumah+ Kebutuhan+Layanan+
+     No          Unit+Pelayanan                                               Kebutuhan+
+!                                         Sakit               Baru
+                                                                               Layanan
+! 1              2                           3                     4              5
+  1 IGD                           10                              10
+!
+  2 ICU
+! 3 RAWAT-JALAN
+      ( Poli-…….
+!     ( Poli-…….
+!     ( Poli-…….
+  4 RAWAT-INAP
+!     ( Rawat-Inap-(((((((((((-
+      ( Rawat-Inap-(((((((((((-
+!
+      ( Rawat-Inap-(((((((((((-
+!
+
+           Keterangan!
+           Kolom!1!    :! Jelas!
+           Kolom!2!    :! Jenis!peralatan!kesehatan!yang!dimiliki!pada!tiap!pelayanan.!
+           Kolom!3!    :! Pelayanan! kesehatan! yang! harus! dirujuk! karena! keterbatasan!
+                          peralatan!kesehatan.!
+           Kolom!4!! :! Perkiraan!kebutuhan!pelayanan!kesehatan!karena!ada!penambahan!
+                          jenis!pelayanan!baru.!
+           Kolom!5!! :! Total! kebutuhan! pelayanan! kesehatan,! ! diperoleh! dari! kolom! 3&
+                          ditambah!kolom!4.!
+!!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+
+
+
+                                                                                                ! 74!
+=== Halaman 80 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                                       Lampiran&B&
+               Contoh&&form&pengumpulan&data&inventarisasi&peralatan&medis&
+&
+
+Kode!Inventori!__________________________________________________!
+
+Jenis!Peralatan!_________________________________________________!
+
+Pabrikan!_______________________________________________________!
+
+Merek/Tipe!___________________________!Serial!number!_____________!
+
+Negara!Asal!__________________________!Tahun!pembuatan!__________!
+
+Kebutuhan!Daya!___________________________!
+
+Kondisi! !!!!!!!!!!!!!!!!!!!!!!Baik!
+
+!          !           !!!!!!!Rusak!Ringan!!!___________________________________!
+
+!          !           !!!!!!!Rusak!Berat!___________________________________!
+
+!          !           !!!!!!!Tidak!digunakan!
+
+!          !           !!!!!!!!Membutuhkan!disposal!khusus!!!!!!!!!!!!!!Ya!!!!!!!!!!!!!!!!!Tidak!
+
+Manual!!               !!!!!!!!!!!!!!!Petunjuk!penggunaan!
+
+!          !           !          Petunjuk!Pemeliharaan!
+
+!          !           !          Dokumen!lain!
+
+Lokasi!Peralatan!!________________________________________________!
+
+Keterangan!_____________________________________________________!
+
+&
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+
+
+
+                                                                                                    ! 75!
+=== Halaman 81 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                                       Lampiran&C&
+                                       Contoh&Spesfikasi&Peralatan&Medis&
+!
+
+                                              Tabel&C.1&–&Infant&Inkubator&
+
+                                                                                                   SPESIFIKASI&
+                                                                                                 YANG&DIUSULKAN&
+                                                 PABRIKAN/MERK&INKUBATOR&
+                                  A!                  B!            C!
+              PARAMETER&
+
+
+
+
+    FDA&CLEARANCE&or&             Yes!                Yes!                 Yes!                  Yes!
+    COMPLIANCE&WITH&CE&
+    MARK&
+    TEMPERATURE&                  !!                  !!                   !!                    !!
+    CONTROL&
+
+    &&   RANGE,&°C&(°F)&          !!                  !!                   !!                    !!
+    &&   &&     Air&              20W39!(68W          20W37!(68W98.6),!    23W37!(77W98.6),!     23W37!(77W98.6),!
+                                  102.2),!0.1!        0.1!increments,!     override!to!39!       override!to!39!
+                                  increments!         override!to!37W      (102.2)!              (102.2)!
+                                                      39!(98.6W102.2)!
+
+    &&   &&     Skin&             34W38!(93.2W        35W37!(95W98.6),!    35W37.5!(95W99.5),!   35W37.5!(95W99.5),!
+                                  100.4),!0.1!        0.1!increments,!     override!to!39!       override!to!39!
+                                  increments!         override!to!37W      (102.2)!              (102.2)!
+                                                      37.5!(98.6W99.5)!
+
+    TEMPERATURE&                  !!                  !!                   !!                    !!
+    DISPLAY&
+    &&  Air,&display&type&        LCD!                Digital,!LED!        Digital!              Digital!!
+    &&   &&     Range,&°C&(°F)&   13W42!(55.4W        5W50!(41W122)!       20W42!(68W107.6)!     20W42!(68W107.6)!
+                                  107.6)!
+    &&   Skin,&display&type&      LCD!                Digital,!LED!        Digital!              Digital!
+    &&   &&     Range,&°C&(°F)&   13W43!(55.4W        22W42!(71.6W         30W42!(86W107.6)!     30W42!(86W107.6)!
+                                  109.4)!             107.6)!
+    ALARMS&                       !!                  !!                   !!                    !!
+    &&   High&air&temp&           Yes!                Yes!                 Yes!                  Yes!
+    &&   Low&air&temp&            Yes!                Yes!                 Yes!                  Yes!
+    &&   High&skin&temp&          Yes!                Yes!                 Yes!                  Yes!
+    &&   Low&skin&temp&           Yes!                Yes!                 Yes!                  Yes!
+    &&   Fan&failure&             Yes!                Yes!                 Yes!                  Yes!
+    &&   Sensor&failure&          Yes!                Yes!                 Yes!                  Yes!
+    &&   Power&failure&           Yes!                Yes!                 Yes!                  Yes!
+    BACKUP&THERMOSTAT&            Yes!                Yes!                 Yes!                  Yes!
+    HEATER&POWER&                 No!                 Vertical!lamp!bar!   10Wpoint!             10Wpoint!or!vertical!
+    INDICATOR&                                                                                   lamp!bar!
+    HAND&PORTS&                   6!                  6!                   5!                    Minimum!5!
+    TUBING&PORTS&                 13!                 4!                   2!                    minimum!2!
+    O2&SOURCE&                    !!                  !!                   !!                    !!
+    &&   Inlet&Ports&             ServoWcontrolled!   Yes!                 1!                    yes!
+    &&   Controllers&             Optional!           Separate!O2!         Not!specified!        optional!
+                                                      control!system!
+
+    SUPPLEMENTAL&                 Yes,!standard!      Yes!                 Yes!                  Yes!
+    HUMIDITY&
+    && Adjustable&                30W99%,!            Optional!servoW      Yes!                  Yes!
+                                  increments!of!      controlled!
+                                  1%!
+
+
+
+                                                                                                                         ! 76!
+=== Halaman 82 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+    PHOTOTHERAPY&               Optional!PT4000!      Optional!            Optional!              optional!
+    SCALE&                      Not!specified!        Not!specified!       Not!specified!         Not!specified!
+    INTERNAL&NOISE,&dB&         <47!with!active!      <60!                 <45!                   <45!
+                                air!current!
+
+    LINE&POWER,&VAC&            110/127/230/240!      100/120/220/24       100/120/220/230/2      220W240!
+                                                      0!                   40!
+
+    BATTERY,&TYPE&              LithiumWion!(for!     NA!                  NA!                    Optional!
+                                trend!data!back!
+                                up)!
+    DOUBLE&WALL&                Optional,!            Optional!            Yes!                   Yes!
+                                removable!
+                                double!wall,!
+                                external!
+                                accessible!
+    VERTICAL&HOODaTOa           38!(15)!              40!(15.7)!           37.5!(15)!             37.5!(15)!
+    MATTRESS&DISTANCE,&
+    cm&(in)&
+    SIZE&                       !!                    !!                   !!                     !!
+    &&   Incubator&with&        [122W152]!!x!109!     154!x!83.1!x!        132!x!92.5!x!58.5!     according!
+         stand,&H&x&W&x&D,&     x!68!([48W59.8]!!x!   61.5!(60.6!x!32.7!   (52!x!36.4!x!23)!      manufacture!
+         cm&(in)&               42.9!x!26.8)!         x!24.2)!                                    standard!
+
+    &&   Mattress,&W&x&D,&cm&   64.5!x!50!(25.4!x!    34.3!x!64.8!(13.5!   74!x!36!(30!x!14)!     according!
+         (in)&                  19.7)!                x!25.5)!                                    manufacture!
+                                                                                                  standard!
+    &&   Hood&access&door,&     22!x!64!(8.7!x!       30!x!7.5!(11.8!x!    35.5!x!84!(14!x!33)!   according!
+         H&x&W,&cm&(in)&        25.2)!                3)!                                         manufacture!
+                                                                                                  standard!
+    &&   Casters,&cm&(in)&      10!(3.9)!             7.6!(3)!             10!(4)!                Minimum!3"!or!
+                                                                                                  according!to!
+                                                                                                  manufacture!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+                                                                   &
+!
+
+
+
+
+                                                                                                                   ! 77!
+=== Halaman 83 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                                          Lampiran&D&
+                                     Paramater&Ambang&Batas&Keselamatan&
+!
+
+!
+
+                           Tabel&D.1&&&Nilai&arus&bocor&pasien&&yang&diijinkan&11&
+!                                                                          Arus!dalam!µA!
+
+                                                                              Bagian&            Bagian&
+                                                                               yang&              yang&          Bagian&yang&
+                                                     Sirkit&&
+       Arus&          Uraian&         Acuan&&                        &     diaplikasika       diaplikasika       diaplikasikan&
+                                                    Terukur&
+                                                                                 n&                 n&              Tipe&CF&
+                                                                              Tipe&B&           Tipe&BF&
+     Patient!                                                      d.c!     10!       50!      10!      50!        10!       50!
+                                                    Gambar!
+     Auxiliary!            !          8.7.4.8!
+                                                      19!          a.c!    100!      500!     100!      500!       10!       50!
+     Current!!
+                           !                                       d.c!     10!       50!      10!      50!        10!       50!
+                      Dari!titk!
+                       kontak!        8.7.4.7!      Gambar!
+                       pasien!!         a)!           15!          a.c!    100!      500!     100!      500!       10!       50!
+                      ke!bumi!
+                           !
+       Arus!
+                           !                                       d.c!     10!       50!      10!      50!        10!       50!
+      bocor!
+                    Disebabka
+      pasien!!
+                           n!
+                         oleh!        8.7.4.7!      Gambar!
+                     tegangan!           c)!          17!          a.c!    100!      500!     100!      500!       10!       50!
+                     luar!pada!
+                     SIP/SOP!
+                           !
+                           !
+                      Dengan!                                      d.c!     50!      100!      50!      100!       50!       100!
+                       Bagian!
+                                      8.7.4.7!
+                        yang!                       Gambar!
+                                        a)!
+                    diaplikasika                      15!
+                                         &!
+                           n!                         &!
+                                      8.7.4.7!
+                     tipe!yang!                     Gambar!        a.c!    500!     1000!     500!     1000!       50!       100!
+                                        h)!
+       Total!           sama!                         20!
+                                          !
+       Arus!        disambung!
+       bocor!         serentak!
+              a
+      pasien! !            !
+                    Disebabka
+                                      8.7.4.7!                     d.c!     50!      100!      50!      100!       50!       100!
+                           n!                       Gambar!
+                                         c)!
+                         oleh!                        17!
+                                         &!
+                     tegangan!                        &!
+                                      8.7.4.7!
+                     luar!pada!                     Gambar!        a.c!    500!     1000!     500!     1000!       50!       100!
+                                        h)!
+                     SIP/SOP!                         20!
+                                          !
+                           !
+!
+
+!
+
+!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+11
+   !SNI!IEC!60601K1:2014!Peralatan!elektromedik!K!Bagian!1!:!Persyaratan!umum!keselamatan!dasar!dan!kinerja!esensial!(IEC!60601K1:!
+2005,!IDT)!
+
+!
+
+
+
+                                                                                                                                    ! 78!
+=== Halaman 84 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!
+
+!
+
+        Tabel&D.2&a&Temperatur&maksimum&yang&diijinkan&pada&bagian&peralatan&
+                                                  elektromedik&yang&boleh&tersentuh12&
+!
+                                                                                                         a
+                                                                              Temperatur!maksimum !
+                                                                                          °C!
+     Peralatan!elektromedik!dan!bagiannya!                       Logam!         Kaca,!keramik,!              Besi!cor,!plastik,!
+                                                                dan!cairan!    bahan!transparan!                   karet,!
+                                                                                                                   kayu!
+Permukaan!luar!                                 t!<!1!s!           74!                  80!                         86!
+peralatan!                                 1!s!≤!t!<10!s!          56!                  66!                         71!
+elektromedik!yang!                      10!s!≤!t!<1!menit!         51!                  56!                         60!
+mungkin!tersentuh!                          !!1!menit!≤!t!         48!                  48!                         48!
+selama!waktu!“t”!
+a
+    ! Nilai! batas! temperatur! dapat! diberlakukan! untuk! sentuhan! dengan! kulit! sehat! orang!
+dewasa.! Nilai! tersebut! tidak! dapat! diberlakukan! pada! bidang! kulit! yang! luas! (10%! dari!
+total! permukaan! kulit! atau! lebih)! yang! mungkin! bersentuhan! dengan! bidang! yang!
+panas.! Hal! ini! juga! diberlakukan! dalam! hal! persentuhan! kulit! dengan! lebih! dari! 10%!
+permukaan! panas.! Bila! hal! ini! terjadi,! maka! batas! yang! aman! harus! ditetapkan! dan!
+didokumentasikan!dalam!file!manajemen!risiko.!
+&
+
+&
+
+&
+
+&
+
+&
+
+&
+
+&
+
+&
+
+&
+
+&
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+12
+  !SNI!IEC!60601K1:2014!Peralatan!elektromedik!K!Bagian!1!:!Persyaratan!umum!keselamatan!dasar!dan!kinerja!esensial!(IEC!60601K1:!
+2005,!IDT)!
+
+
+
+
+                                                                                                                                   ! 79!
+=== Halaman 85 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+&
+
+&
+
+         Tabel&D.3&a&Temperatur&maksimum&yang&diijinkan&dari&&bagian&peralatan&
+                                       elektromedik&yang&bersentuhan&dengan&kulit13&
+!
+                                                                                                          a!b
+                                                                                   Temperatur!maksimum !
+                                                                                            °C!
+           Bagian!yang!diaplikasikan!dari!
+                                                                 Kaca,!keramik,!       Kaca,!keramik,!          Besi!cor,!plastik,!
+                 peralatan!elektromedik!
+                                                                bahan!transparan!     bahan!transparan!               karet,!
+                                                                                                                      kayu!
+Bagian!yang!                                 t!<!1!menit!              51!                   56!                       60!
+diaplikasikan!                          1!menit.!≤!t!<!10!             48!                   48!                       48!
+bersentuhan!                                    menit.!
+dengan!pasien!                              10!menit!≤!t!              43!                   43!                       43!
+selama!waktu!“t”!
+a
+ ! Nilai! batas! temperatur! dapat! diberlakukan! untuk! sentuhan! dengan! kulit! sehat! orang!
+dewasa.! Nilai! tersebut! tidak! dapat! diberlakukan! pada! bidang! kulit! yang! luas! (10%! dari!
+total! permukaan! kulit! atau! lebih)! yang! mungkin! bersentuhan! dengan! bidang! yang!
+panas.! Hal! ini! tidak! diberlakukan! dalam! hal! persentuhan! kulit! dengan! lebih! dari! 10%!
+permukaan! panas.! Bila! hal! ini! terjadi,! maka! batas! yang! aman! harus! ditetapkan! dan!
+didokumentasikan!dalam!file!manajemen!risiko.!
+b!
+     Jika! diperlukan! untuk! memberikan! manfaat! klinis! bagian! yang! diaplikasikan! harus!
+     melampaui! temperatur! tersebut! pada! Tabel! 24,! file! manajemen! risiko! harus! memuat!
+     dokumentasi!yang!menunjukkan!bahwa!manfaat!yang!didapat!melebihi!kenaikan!risiko!
+     yang!menyertainya.!
+
+                                                                      2.& &
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+13
+  !SNI!IEC!60601K1:2014!Peralatan!elektromedik!K!Bagian!1!:!Persyaratan!umum!keselamatan!dasar!dan!kinerja!esensial!(IEC!60601K1:!
+2005,!IDT)!
+
+
+
+
+                                                                                                                                      ! 80!
+=== Halaman 86 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+!
+
+!
+
+                                            Lampiran&E&
+                      Contoh&Prosedur&Penggunaan/pemeliharaan&
+!
+
+!
+
+E.1&Prosedur&Pengoperasian&Inkubator&infant&
+&
+I.! Prasayarat!
+    a.! SDM!terlatih!
+    b.! Catu!daya/power!listrik!sesuai!kebutuhan!alat!
+    c.! Kotak!kontak!dilengkapi!dengan!sambungan!pembumian!(arde)!
+    d.! Alat!laik!pakai!
+    e.! Aksesori!lengkap!
+    f.! Bahan!operasional!tersedia!
+II.! Persiapan!
+    g.! Lepaskan!penutup!debu!
+    h.! Letakan!alat!pada!tempat!pelayanan!
+    i.! Pasang!aksesori!dengan!baik!dan!benar!
+    j.! Periksa! pengatur! posisi! kasur,! sungkup! pengontrol,! volume! air,! tabung!
+        oksigen!termasuk!flowmeter!dan!kondisi!filter,!skin!sensor!temperature!
+III.! Pemanasan!
+    k.! Sambungkat!alat!ke!daya/power!listrik!
+    l.! Hidupkan!alat!dengan!menekan/memutar!tombol!ON/OFF!ke!posisi!ON!
+    m.!Atur! dan! cek! temperature! selector,! humidity,! oksigen,! fan,! alarm! untuk!
+        mengetahui!kondisi!alat!
+    n.!Lakukan!pemanasan!secukupnya!
+IV.! Pelaksanaan!
+    o.!Perhatikan!prosedur!pelayanan!
+    p.!Atur!temperature!sesuai!keperluan!
+    q.!Atur!aliran!oksigen!sesuai!keperluan!
+    r.! Pasang!skin!sensor!temperature,!jika!ada!
+    s.! Lakukna!pelayanan!
+
+
+                                                                                  ! 81!
+=== Halaman 87 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+V.! Pengemasan/Penyimpanan!
+    t.! Tutup!regulator!oksigen!pada!tabung!oksigen!atau!outlet!oksigen!
+    u.!Matikan!alat!dengan!menekan/memutar!tombol!ON/OFF!ke!posisi!OFF!
+    v.! Lepaskan!sambungan!ke!catu!daya/power!listrik!
+    w.!Bersihkan!alat!
+    x.! Simpan!alat!pada!tempatnya!
+    y.! Catat!beban!kerja!alat!(pasien!perhari/per!bulan)!
+!
+E.2&& Contoh&Prosedur&Pemeliharaan&Preventif&Inkubator&Infant&
+&
+I.! Pendahuluan!
+    Inkubator! infant! adalah! suatu! alat! yang! digunakan! untuk! merawat! bayi!
+    premature! atau! berat! badan! lahir! rendag! (BBLR)! dengan! cara! memberikan!
+    temperature! dan! kelembaban! yang! stabil! sesuai! dengan! kondisi! kandungan!
+    dalam!kandungan!ibu.!
+II.! Prasyarat!
+    a.! SDM,!teknisi!terlatih!
+    b.! Peralatan!kerja!lengkap!
+    c.! Dokumen!teknis!!
+    d.! Bahan!pemeliharaan,!operasional!tersedia!
+    e.! Mekanisme!kerja!jelas!
+III.! Persiapan!
+    a.! Siapkan!perintah!kerja!
+    b.! Siapkan!formulir!laporan!kerja!
+    c.! Siapkan!dokumen!teknis!
+            i.! Service!manual!
+            ii.! Wiring!diagram!
+    d.! siapkan!peralatan!kerja!
+            i.! tool!set!electric!
+            ii.! multi!meter!
+           iii.! leakage!current!meter!(electrical!safety!analyser)!
+           iv.! Thermometer!
+           v.! Hygrometer!
+    e.! Siapakan!bahan!pemeliharaan,!bahan!operasional!dan!material!bantu!
+
+
+                                                                               ! 82!
+=== Halaman 88 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+               i.! Contact!cleaner!
+               ii.! Cairan!pembersih!
+           iii.! Kain!lap/kertas!tissue!
+           iv.! Kuas!
+               v.! Bakteri!filter!
+           vi.! Aquades!
+          vii.! Batterai!
+          viii.! Lampu!indicator!
+           ix.! Gas!oksigen!
+         f.!       Pemberitahuan!kepada!user!
+               i.! Pelaksanaan!
+IV.! Pencatatan!
+    a.! Isi!kartu!pemeliharaan!alat!
+    b.! Isi!formulir!laporan!kerja!
+    c.! User!menandatangani!laporan!kerja!dan!alat!diserhakan!ke!user!
+V.! Pengemasan!Alat!Kerja!dan!Dokumen!Teknis!Pendamping!
+    a.! Cek!alat!kerja!dan!sesuiakan!dengan!catatan!
+    b.! Cek!dan!rapihkan!dokumen!teknis!
+    c.! Kembalikan!alat!kerja!dan!dokumen!teknis!pada!tempatnya!
+VI.! Pelaporan!
+    a.! Laporkan!hasil!pekerjaan!kepada!atasan!atau!pemberi!tugas!
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+                                                    &
+
+
+                                                                         ! 83!
+=== Halaman 89 ===
+Pedoman(Pengelolaan(Peralatan(Kesehatan(
+Direktorat(Bina(Pelayanan(Penunjang(Medik(dan(Sarana(Kesehatan(
+!
+                                                    &
+                                                    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+
+
+                                                                                                                          ! 84!

@@ -1,0 +1,554 @@
+=== Halaman 1 ===
+LEMBAGA KEBIJAKAN PENGADAAN BARANG/JASA PEMERINTAH
+
+
+
+
+                               PERATURAN
+   LEMBAGA KEBIJAKAN PENGADAAN BARANG/JASA PEMERINTAH
+                        REPUBLIK INDONESIA
+                        NOMOR 9 TAHUN 2021
+                                 TENTANG
+              TOKO DARING DAN KATALOG ELEKTRONIK
+            DALAM PENGADAAN BARANG/JASA PEMERINTAH
+
+
+             DENGAN RAHMAT TUHAN YANG MAHA ESA
+
+
+KEPALA LEMBAGA KEBIJAKAN PENGADAAN BARANG/JASA PEMERINTAH,
+
+
+
+
+Menimbang   : bahwa untuk melaksanakan ketentuan Pasal 72 ayat (5) dan
+              Pasal 72A ayat (3) Peraturan Presiden Nomor 12 Tahun 2021
+              tentang Perubahan atas Peraturan Presiden Nomor 16 Tahun
+              2018 tentang Pengadaan Barang/Jasa Pemerintah, perlu
+              menetapkan   Peraturan        Lembaga      Kebijakan     Pengadaaan
+              Barang/Jasa Pemerintah tentang Toko Daring dan Katalog
+              Elektronik dalam Pengadaan Barang/Jasa Pemerintah;
+
+
+Mengingat   : 1.   Peraturan Presiden Nomor 106 Tahun 2007 tentang
+                   Lembaga Kebijakan Pengadaan Barang/Jasa Pemerintah
+                   sebagaimana telah diubah dengan Peraturan Presiden
+                   Nomor   157    Tahun      2014     tentang    Perubahan     atas
+                   Peraturan Presiden Nomor 106 Tahun 2007 tentang
+                   Lembaga Kebijakan Pengadaan Barang/Jasa Pemerintah
+                   (Lembaran     Negara    Republik     Indonesia    Tahun    2014
+                   Nomor 314);
+
+
+
+
+                            Paraf I       Paraf II   Paraf III   Paraf IV   Paraf V
+                                                                       jdih.lkpp.go.id
+=== Halaman 2 ===
+-2-
+
+
+
+              2.    Peraturan Presiden Nomor 16 Tahun 2018 tentang
+                    Pengadaan Barang/Jasa Pemerintah (Lembaran Negara
+                    Republik Indonesia Tahun 2018 Nomor 33) sebagaimana
+                    telah diubah dengan Peraturan Presiden Nomor 12 Tahun
+                    2021     tentang      Pengadaan       Barang/Jasa        Pemerintah
+                    (Lembaran     Negara      Republik      Indonesia       Tahun   2021
+                    Nomor 63);
+              3.    Peraturan Lembaga Kebijakan Pengadaan Barang/Jasa
+                    Pemerintah Nomor 1 Tahun 2021 tentang Organisasi dan
+                    Tata Kerja Lembaga Kebijakan Pengadaan Barang/Jasa
+                    Pemerintah (Berita Negara Republik Indonesia Tahun
+                    2021 Nomor 77);
+
+
+                             MEMUTUSKAN:
+Menetapkan   : PERATURAN          LEMBAGA               KEBIJAKAN        PENGADAAN
+              BARANG/JASA PEMERINTAH TENTANG TOKO DARING
+              DAN      KATALOG         ELEKTRONIK            DALAM          PENGADAAN
+              BARANG/JASA PEMERINTAH.
+
+
+                                               Pasal 1
+              Peraturan       Lembaga        ini    menjadi          pedoman        untuk
+              menyelenggarakan Pengadaan Barang/Jasa secara elektronik
+              bagi Kementerian/Lembaga/Pemerintah Daerah dan Penyedia
+              yang memanfaatkan            Toko Daring dan Katalog Elektronik
+              Pengadaan       Barang/Jasa          Pemerintah        agar     Pengadaan
+              Barang/Jasa:
+              a.    cepat;
+              b.    mudah;
+              c.    transparan; dan
+              d.    tercatat secara elektronik.
+
+
+                                               Pasal 2
+              Ruang lingkup Peraturan Lembaga ini meliputi:
+              a. Penyelenggaraan Toko Daring; dan
+              b. Penyelenggaraan Katalog Elektronik.
+
+
+
+
+                                Paraf I      Paraf II    Paraf III   Paraf IV     Paraf V
+                                                                                jdih.lkpp.go.id
+=== Halaman 3 ===
+-3-
+
+
+
+                                 Pasal 3
+(1)   Barang/jasa dalam Toko Daring memiliki kriteria yaitu:
+      a.   standar atau dapat distandarkan;
+      b.   memiliki sifat risiko rendah; dan
+      c.   harga sudah terbentuk di pasar.
+(2)   Barang/jasa sebagaimana dimaksud pada ayat (1) tidak
+      ditayangkan pada Katalog Elektronik dalam hal:
+      a.   spesifikasi yang sama;
+      b.   penjual/ penyedia yang sama;
+      c.   wilayah jual sama; dan
+      d.   syarat dan ketentuan yang sama.
+
+
+                                 Pasal 4
+(1)   Pelaku dalam penyelenggaraan Toko Daring terdiri atas:
+      a.   Kepala Lembaga Kebijakan Pengadaan Barang/Jasa
+           Pemerintah;
+      b.   Pejabat Pembuat Komitmen;
+      c.   Pejabat Pengadaan;
+      d.   Penyelenggara          Perdagangan          Melalui      Sistem
+           Elektronik (PPMSE); dan
+      e.   Pedagang.
+(2)   PPMSE sebagaimana dimaksud pada ayat (1) huruf d
+      dalam penyelenggaraan Toko Daring berupa:
+      a.   Marketplace; dan
+      b.   Ritel Daring.
+
+
+                                 Pasal 5
+(1)   Tugas     dan   kewenangan          Kepala   Lembaga        Kebijakan
+      Pengadaan         Barang/Jasa             Pemerintah           dalam
+      penyelenggaraan Toko Daring meliputi:
+      a.   pengembangan dan pembinaan Toko Daring;
+      b.   pengelolaan Toko Daring meliputi:
+           1.    menetapkan persyaratan barang/jasa, PPMSE,
+                 dan Pedagang;
+           2.    menetapkan PPMSE dalam penyelenggaraan
+                 Toko Daring; dan
+
+
+
+
+                  Paraf I      Paraf II    Paraf III   Paraf IV     Paraf V
+                                                                  jdih.lkpp.go.id
+=== Halaman 4 ===
+-4-
+
+
+
+           3.    mengenakan dan mencabut sanksi terhadap
+                 PPMSE dalam penyelenggaraan Toko Daring
+                 sesuai syarat dan ketentuan yang berlaku.
+      c.   menetapkan tata cara penyelenggaraan Toko Daring.
+(2)   Tugas     dan    kewenangan          Kepala   Lembaga        Kebijakan
+      Pengadaan        Barang/Jasa           Pemerintah      sebagaimana
+      dimaksud pada ayat (1) dapat dimandatkan sebagian
+      atau seluruhnya kepada pejabat pimpinan tinggi madya
+      di   lingkungan           Lembaga        Kebijakan        Pengadaan
+      Barang/Jasa Pemerintah.
+
+
+                                   Pasal 6
+(1)   Dalam penyelenggaraan Toko Daring, PPMSE memiliki
+      kewajiban meliputi:
+      a.   bertanggung            jawab       terhadap          pemenuhan
+           persyaratan Pedagang, dalam hal PPMSE berupa
+           marketplace;
+      b.   memastikan pemenuhan persyaratan barang/jasa;
+      c.   memastikan tindak lanjut pesanan atas pembelian
+           melalui PPMSE;
+      d.   mengenakan sanksi kepada Pedagang sesuai syarat
+           dan ketentuan masing-masing PPMSE, dalam hal
+           PPMSE berupa marketplace;
+      e.   mengembangkan            sistem     PPMSE      sesuai     dengan
+           kebutuhan Toko Daring; dan
+      f.   melakukan          integrasi    dan/atau     pertukaran        data
+           transaksi.
+(2)   Kewajiban       sebagaimana          dimaksud      pada      ayat    (1)
+      dilaksanakan oleh PPMSE sesuai dengan peraturan
+      perundang-undangan terkait perdagangan melalui sarana
+      elektronik.
+
+
+                                   Pasal 7
+(1)   Dalam penyelenggaraan Toko Daring, Pedagang memiliki
+      kewajiban meliputi:
+      a.   menyediakan          barang/jasa      sesuai    dengan         yang
+           tercantum dalam situs web PPMSE;
+
+
+                    Paraf I     Paraf II    Paraf III   Paraf IV     Paraf V
+                                                                   jdih.lkpp.go.id
+=== Halaman 5 ===
+-5-
+
+
+
+      b.   menjamin           pemenuhan      persyaratan         barang/jasa
+           yang      ditransaksikan        sesuai       dengan      peraturan
+           perundang-undangan;
+      c.   menjamin keaslian barang/jasa yang ditransaksikan
+           melalui PPMSE dan diserahkan kepada pembeli; dan
+      d.   menindaklanjuti pesanan atas pembelian melalui
+           PPMSE.
+(2)   Kewajiban       sebagaimana          dimaksud       pada      ayat    (1)
+      dilaksanakan oleh Pedagang sesuai dengan peraturan
+      perundang-undangan terkait perdagangan melalui sarana
+      elektronik.
+
+
+                                  Pasal 8
+Tahapan penetapan PPMSE dalam penyelenggaraan Toko
+Daring meliputi:
+a.    pengumuman;
+b.    pendaftaran;
+c.    pelaksanaan verifikasi;
+d.    penetapan; dan
+e.    integrasi sistem elektronik dan/atau pertukaran data
+      PPMSE dengan Toko Daring.
+
+
+                                  Pasal 9
+Pelaksanaan       pembelian       secara     elektronik      (E-purchasing)
+melalui Toko Daring dapat dilaksanakan dengan metode:
+a.    Pembelian Langsung;
+b.    Negosiasi Harga;
+c.    Permintaan Penawaran; dan/atau
+d.    Metode   lainnya         sesuai   dengan      proses    bisnis       yang
+      terdapat pada PPMSE.
+
+
+                                  Pasal 10
+(1)   Katalog Elektronik terdiri atas:
+      a.   Katalog Elektronik Nasional;
+      b.   Katalog Elektronik Sektoral; dan
+      c.   Katalog Elektronik Lokal.
+
+
+
+
+                    Paraf I     Paraf II    Paraf III    Paraf IV     Paraf V
+                                                                    jdih.lkpp.go.id
+=== Halaman 6 ===
+-6-
+
+
+
+(2)   Katalog Elektronik Nasional sebagaimana dimaksud pada
+      ayat (1) huruf a disusun dan dikelola oleh Lembaga
+      Kebijakan Pengadaan Barang/Jasa Pemerintah.
+(3)   Katalog Elektronik Sektoral sebagaimana dimaksud pada
+      ayat (1) huruf b dikelola oleh Kementerian/Lembaga.
+(4)   Katalog Elektronik Lokal sebagaimana dimaksud pada
+      ayat (1) huruf c dikelola oleh Pemerintah Daerah.
+
+
+                                  Pasal 11
+(1)   Katalog    Elektronik       Sektoral     sebagaimana         dimaksud
+      dalam Pasal 10 ayat (1) huruf b memuat informasi
+      barang/jasa umum dan inovasi.
+(2)   Informasi barang/jasa inovasi sebagaimana dimaksud
+      pada ayat (1)         tercantum dalam Katalog Elektronik
+      Sektoral inovasi.
+(3)   Ketentuan lebih lanjut mengenai pelaksanaan Katalog
+      Elektronik Sektoral inovasi dilaksanakan sesuai dengan
+      ketentuan peraturan perundang-undangan.
+
+
+                                  Pasal 12
+Pelaku dalam penyelenggaraan Katalog Elektronik terdiri atas:
+a.    Kepala    Lembaga         Kebijakan     Pengadaan      Barang/Jasa
+      Pemerintah;
+b.    Menteri/Pimpinan Lembaga/Kepala Daerah;
+c.    Pejabat Pembuat Komitmen;
+d.    Pejabat Pengadaan; dan
+e.    Penyedia Katalog.
+
+
+                                  Pasal 13
+(1)   Tugas     dan   kewenangan           Kepala   Lembaga        Kebijakan
+      Pengadaan         Barang/Jasa              Pemerintah           dalam
+      penyelenggaraan Katalog Elektronik meliputi:
+      a.   pengembangan dan pembinaan Katalog Elektronik;
+      b.   pengelolaan Katalog Elektronik Nasional meliputi:
+           1.    menetapkan         persyaratan         barang/jasa      dan
+                 Penyedia Katalog;
+           2.    menyetujui pencantuman barang/jasa;
+
+
+                  Paraf I       Paraf II    Paraf III   Paraf IV     Paraf V
+                                                                   jdih.lkpp.go.id
+=== Halaman 7 ===
+-7-
+
+
+
+           3.    mengenakan         dan     mencabut       sanksi     kepada
+                 Penyedia Katalog; dan
+           4.    melakukan monitoring dan evaluasi.
+      c.   pembinaan terhadap pengelolaan Katalog Elektronik
+           Sektoral dan Katalog Elektronik Lokal meliputi:
+           1.    memberikan persetujuan pengelolaan Katalog
+                 Elektronik Sektoral dan                Katalog Elektronik
+                 Lokal;
+           2.    memberikan pendampingan, monitoring dan
+                 evaluasi        terhadap        pengelolaan          Katalog
+                 Elektronik Sektoral dan                Katalog Elektronik
+                 Lokal; dan
+           3.    mengenakan sanksi terhadap pengelola Katalog
+                 Elektronik Sektoral dan                Katalog Elektronik
+                 Lokal.
+      d.   menetapkan        tata    cara     penyelenggaraan         Katalog
+           Elektronik.
+(2)   Tugas     dan   kewenangan           Kepala   Lembaga         Kebijakan
+      Pengadaan       Barang/Jasa           Pemerintah         sebagaimana
+      dimaksud pada ayat (1) dapat dimandatkan sebagian
+      atau seluruhnya kepada pejabat pimpinan tinggi madya
+      di        lingkungan        Lembaga       Kebijakan       Pengadaan
+      Barang/Jasa Pemerintah.
+
+
+                                  Pasal 14
+(1)   Tugas     dan   kewenangan           Menteri/Pimpinan           lembaga
+      dalam pengelolaan Katalog Elektronik Sektoral meliputi:
+      a.   menetapkan persyaratan barang/jasa dan Penyedia
+           Katalog;
+      b.   menyetujui pencantuman barang/jasa;
+      c.   mengenakan dan mencabut sanksi kepada Penyedia
+           Katalog; dan
+      d.   melakukan monitoring dan evaluasi.
+(2)   Tugas     dan   kewenangan           Menteri/Pimpinan           lembaga
+      sebagaimana         dimaksud          dalam       ayat    (1)     dapat
+      dimandatkan sebagian atau seluruhnya kepada pejabat
+      pimpinan tinggi madya yang mempunyai kewenangan
+
+
+                  Paraf I       Paraf II    Paraf III    Paraf IV     Paraf V
+                                                                    jdih.lkpp.go.id
+=== Halaman 8 ===
+-8-
+
+
+
+      pengelolaan pengadaan barang/jasa dan dilaksanakan
+      sesuai   dengan          ketentuan     peraturan      perundang-
+      undangan.
+
+
+                                 Pasal 15
+(1)   Tugas    dan      kewenangan          Kepala     Daerah       dalam
+      pengelolaan Katalog Elektronik Lokal meliputi:
+      a.   menetapkan persyaratan barang/jasa dan Penyedia
+           Katalog;
+      b.   menyetujui pencantuman barang/jasa;
+      c.   mengenakan dan mencabut sanksi kepada Penyedia
+           Katalog; dan
+      d.   melakukan monitoring dan evaluasi.
+(2)   Pelaksanaan tugas dan kewenangan Kepala Daerah
+      sebagaimana dimaksud pada ayat (1) dapat dimandatkan
+      sebagian atau seluruhnya:
+      a.   untuk provinsi kepada pimpinan tinggi madya; atau
+      b.   untuk      kabupaten/kota        kepada    pimpinan       tinggi
+           pratama,
+      yang mempunyai kewenangan pengelolaan pengadaan
+      barang/jasa dan dilaksanakan sesuai dengan ketentuan
+      peraturan perundang-undangan.
+
+
+                                 Pasal 16
+Penyedia Katalog sebagaimana dimaksud dalam Pasal 12
+huruf e bertanggung jawab atas:
+a.    seluruh informasi barang/jasa dan substansi lainnya
+      yang ditawarkan dan diunggah pada Katalog Elektronik;
+b.    pelaksanaan surat pesanan E-purchasing Katalog;
+c.    kesesuaian informasi barang/jasa yang diunggah pada
+      Katalog Elektronik dengan yang dikirimkan ke Pejabat
+      Pembuat Komitmen/Pejabat Pengadaan; dan
+d.    tindak lanjut laporan dan pengaduan barang/jasa yang
+      diunggah pada Katalog Elektronik dan dikirimkan ke
+      Pejabat Pembuat Komitmen/Pejabat Pengadaan.
+
+
+
+
+                Paraf I        Paraf II   Paraf III   Paraf IV     Paraf V
+                                                                 jdih.lkpp.go.id
+=== Halaman 9 ===
+-9-
+
+
+
+                                  Pasal 17
+Pengelolaan Katalog Elektronik meliputi aktivitas:
+a.    Pencantuman informasi Barang/Jasa;
+b.    Pembaruan Data; dan
+c.    Monitoring dan Evaluasi.
+
+
+                                  Pasal 18
+Pelaksanaan         pembelian     secara     elektronik        (E-purchasing)
+melalui      Katalog    Elektronik      dapat    dilaksanakan         dengan
+metode:
+a.    Negosiasi Harga;
+b.    Mini-Kompetisi; dan/atau
+c.    Competitive Catalogue.
+
+
+                                  Pasal 19
+(1)   Penyelenggaraan Toko Daring dan Katalog Elektronik
+      menggunakan         Sistem      Pengadaan         Secara    Elektronik
+      (SPSE) dan sistem pendukung.
+(2)   SPSE dan sistem pendukung dalam penyelenggaraan
+      Toko     Daring     dan     Katalog     Elektronik        sebagaimana
+      dimaksud       pada     ayat    (1)   diatur      dalam     Keputusan
+      mengenai:
+      a.     syarat dan ketentuan penggunaan SPSE dan sistem
+             pendukung; dan
+      b.     panduan penggunaan SPSE dan sistem pendukung.
+(3)   Ketentuan lebih lanjut mengenai syarat dan ketentuan
+      penggunaan SPSE dan sistem pendukung dan panduan
+      penggunaan SPSE dan sistem pendukung dimaksud pada
+      ayat    (2)   ditetapkan       oleh   Deputi      yang     membidangi
+      Monitoring-Evaluasi dan Pengembangan Sistem Informasi
+      Lembaga Kebijakan Pengadaan Barang/Jasa Pemerintah.
+
+
+                                  Pasal 20
+Pada saat Peraturan Lembaga ini mulai berlaku:
+a.    Proses pemilihan          penyedia     Katalog Elektronik          yang
+      sedang dilaksanakan sebelum Peraturan Lembaga ini
+      diundangkan dilanjutkan dengan tetap berpedoman pada
+
+
+                    Paraf I     Paraf II    Paraf III    Paraf IV     Paraf V
+                                                                    jdih.lkpp.go.id
+=== Halaman 10 ===
+-10-
+
+
+
+     Peraturan Lembaga Kebijakan Pengadaan Barang/Jasa
+     Pemerintah Nomor 11 Tahun 2018 tentang Katalog
+     Elektronik (Berita Negara Republik Indonesia Tahun 2018
+     Nomor 764) sebagaimana telah diubah dengan Peraturan
+     Lembaga Kebijakan Pengadaan Barang/Jasa Pemerintah
+     Nomor 7 Tahun 2020 tentang Perubahan atas Peraturan
+     Lembaga Kebijakan Pengadaan Barang/Jasa Pemerintah
+     Nomor 11 Tahun 2018 tentang Katalog Elektronik (Berita
+     Negara Republik Indonesia Tahun 2020 Nomor 873).
+b.   Barang/jasa     yang      masih     tercantum      pada      Katalog
+     Elektronik sebelum Peraturan Lembaga ini diundangkan
+     tetap berlaku hingga masa berakhirnya kontrak katalog.
+c.   Dalam hal para pihak sepakat melakukan perubahan
+     kontrak     katalog      untuk      barang/jasa     yang      masih
+     tercantum     dalam       Katalog     Elektronik    sebagaimana
+     dimaksud dalam huruf b, maka proses perubahan
+     kontrak katalog dilaksanakan menggunakan tata cara
+     yang diatur dalam Peraturan Lembaga ini.
+d.   PPMSE, produk, dan Pedagang yang telah dan sedang
+     diproses dengan Program Bela Pengadaan berdasarkan:
+     1.   Keputusan Kepala Lembaga Kebijakan Pengadaan
+          Barang/Jasa Pemerintah Nomor 155 Tahun 2020
+          tentang Penetapan Standar Operasional Prosedur
+          Penetapan        Penyelenggara      Perdagangan         Melalui
+          Sistem Elektronik atau E-marketplace Sebagai Mitra
+          Aplikasi Bela Pengadaan Di Lembaga Kebijakan
+          Pengadaan Barang/Jasa Pemerintah; dan
+     2.   Keputusan Kepala Lembaga Kebijakan Pengadaan
+          Barang/Jasa Pemerintah Nomor 200 Tahun 2020
+          tentang Program Bela Pengadaan,
+     menjadi bagian dari penyelenggaraan Toko Daring.
+e.   Pendaftaran PPMSE yang sedang dilaksanakan melalui
+     Program Bela Pengadaan sebelum Peraturan Lembaga ini
+     diundangkan dilanjutkan dengan tetap berpedoman pada
+     Surat Keputusan sebagaimana dimaksud dalam huruf d
+     sampai dengan ditetapkannya Keputusan Deputi.
+
+
+
+
+                 Paraf I      Paraf II   Paraf III   Paraf IV     Paraf V
+                                                                jdih.lkpp.go.id
+=== Halaman 11 ===
+-11-
+
+
+
+f.   PPMSE sebagaimana dimaksud dalam huruf d wajib
+     menyesuaikan         dengan           syarat      dan      ketentuan
+     sebagaimana diatur dalam Peraturan Lembaga ini paling
+     lambat 31 Desember 2021.
+
+
+                                 Pasal 21
+Pada saat Peraturan Lembaga ini mulai berlaku, Peraturan
+Lembaga     Kebijakan     Pengadaan         Barang/Jasa        Pemerintah
+Nomor 11 Tahun 2018 tentang Katalog Elektronik (Berita
+Negara    Republik      Indonesia         Tahun     2018     Nomor      764)
+sebagaimana     telah     diubah      dengan        Peraturan        Lembaga
+Kebijakan    Pengadaan          Barang/Jasa         Pemerintah        Nomor
+7 Tahun 2020 tentang Perubahan atas Peraturan Lembaga
+Kebijakan Pengadaan Barang/Jasa Pemerintah Nomor 11
+Tahun    2018   tentang        Katalog Elektronik          (Berita    Negara
+Republik Indonesia Tahun 2020 Nomor 873), dicabut dan
+dinyatakan tidak berlaku.
+
+
+                                 Pasal 22
+Peraturan    Lembaga       ini     mulai      berlaku      pada       tanggal
+diundangkan.
+
+
+
+
+                Paraf I        Paraf II    Paraf III   Paraf IV     Paraf V
+                                                                  jdih.lkpp.go.id
+=== Halaman 12 ===
+=D
+
+Agar setiap orang mengetahuinya, memerintahkan
+pengundangan Peraturan Lembaga ini dengan penempatannya
+
+dalam Berita Negara Republik Indonesia.
+Ditetapkan di Jakarta
+pada tanggal 4 Mei 2021
+KEPALA LEMBAGA KEBIJAKAN
+PENGADAAN BARANG/JASA
+PEMERINTAH REPUBLIK INDONESIA,
+ttd
+
+RONI DWI SUSANTO
+
+Diundangkan di Jakarta
+pada tanggal 6 Mei 2021
+
+DIREKTUR JENDERAL
+
+PERATURAN PERUNDANG-UNDANGAN
+KEMENTERIAN HUKUM DAN HAK ASASI MANUSIA
+REPUBLIK INDONESIA,
+
+ttd
+
+WIDODO EKATJAHJANA
+
+BERITA NEGARA REPUBLIK INDONESIA TAHUN 2021 NOMOR 491
+
+Salinan sesuai dengan aslinya
+Kepala-Biro Hukum, Organisasi dan
+Sumber'Daya Manusia LKPP,
+
+Prin
+
+idih.Ikpp.go.id

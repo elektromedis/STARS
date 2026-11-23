@@ -1,0 +1,202 @@
+=== Halaman 1 ===
+PEMELIHARAAN TIDAK TERENCANA ATAU PERBAIKAN ALAT
+KESEHATAN ELEKTROMEDIK
+
+Rumah Sehat + No. Dokumen
+Untuk Jakarta 027/SPO/03/RAD/CPY/II | No. Revisi Halaman
+RSUD Cipayung 01 1/5
+12019
+Tanggal Terbit Ditetapkan :
+
+21 Februari 2019 2 Direktur RSUD Cipayung
+
+AN
+
+STANDAR PROSEDUR / “YAI
+[penandatangan disaring]
+
+Perbaikan merupakan kegiatan untuk mengembalikan kondisi dan
+fungsi dari suatu alat elektromedik yang rusak akibat pemakaian
+PENGERTIAN alat tersebut pada kondisi semula, perbaikan memungkinkan untuk
+terjadinya penggantian suku cadang dengan beberapa alternatif
+
+terhadap mutu suku cadang.
+
+1. Memberikan acuan dalam penyelenggaraan pelayanan
+elektromedik yang bermutu dan dapat
+dipertanggungjawabkan;
+
+2. Memberikan acuan dalam pengembangan pelayanan
+elektromedik di fasilitas pelayanan kesehatan atau fasilitas
+kesehatan elektromedik lain:
+
+TUJUAN 3. Memberikan perlindungan dan kepastian hukum bagi
+elektromedis dalam menyelenggarakan — pelayanan
+elektromedik;
+
+4. Melindungi klien sebagai penerima pelayanan elektromedik;
+dan
+
+5. Menjamin persyaratan mutu, keamanan, keselamatan dan
+
+laik pakai alat elektromedik.
+=== Halaman 2 ===
+Peraturan Menteri Kesehatan Republik Indonesia Nomor 65 Tahun
+2016 Tentang Standar Pelayanan Elektromedik
+
+KEBIJAKAN
+
+Proses selengkapnya dapat dilihat pada diagram alur pada gambar
+
+3
+
+Informasi keluhan kerusakan
+
+Membuat Inporaz
+katiban kenakan
+
+Tidak
+
+PROSEDUR
+
+rand alat yang rusak
+dengan alat penggargi
+Garsup
+
+Melakukan analiza
+kerusakan
+
+Aa
+TT Apakah Mengajukan
+
+« ee penggantian in
+
+cadang alat yasg rusak
+
+Apalah pala “Ya,
+penggantian
+
+R3 cadang?
+
+Penggantian
+paka cacknz
+
+Selesai
+=== Halaman 3 ===
+Gambar 11. Diagram alur Perbaikan
+
+Penjelasan gambar 11:
+
+1.
+
+Informasi keluhan/kerusakan dapat berasal dari User ruang
+pelayanan ataupun berasal dari tenaga elektromedis yang
+
+melakukan inspeksi alat elektromedik.
+
+. Tenaga elektromedis Internal membuat laporan keluhan
+
+disetujui oleh pemberi informasi/keluhan.
+
+. Tenaga elektromedis internal melakukan pengecekan
+
+kondisi alat dan dilanjutkan dengan membuat analisis
+
+kerusakan.
+
+. Analisis kerusakan adalah langkah-langkah yang dilakukan
+
+untuk mencari, menganalisis kemungkinan kerusakan dan
+kemungkinan solusinya untuk mengembalikan fungsi alat
+sesuai spesifikasi standar dengan atau tanpa penggantian
+
+suku cadang.
+
+. Berdasarkan hasil analisis tenaga elektromedis internal
+
+membuat kesimpulan apakah bisa diperbaiki sendiri atau
+butuh pihak ke-3.
+
+Jika dapat dikerjakan oleh tenaga elektromedis internal
+maka dibuat kesimpulan lagi apakah perbaikan
+
+membutuhkan suku cadang pengganti atau tidak.
+
+. Jika tidak perlu suku cadang pengganti maka tenaga
+
+elektromedis internal segera melakukan perbaikan yang
+
+diperlukan.
+
+. Jika butuh suku cadang maka teknisi elektromedis
+
+mengajukan pembelian suku cadang pengganti dengan
+membuat usulan pembelian suku cadang kepada pimpinan.
+Usulan tersebut lengkap dengan informasi mengenai:
+
+a. Analisa kerusakan
+
+b. Suku cadang yang diperlukan
+
+c. Perkiraan harga suku cadang yang diperlukan
+=== Halaman 4 ===
+9. Jika usulan sudah disetujui pimpinan dan suku cadang telah
+tersedia maka tenaga elektromedis melakukan perbaikan.
+10. Tenaga elektromedis membuat laporan hasil perbaikan dan
+uji fungsi alat elektromedik pada saat perbaikan telah
+
+selesai.
+
+11. Informasi keluhan/kerusakan dapat berasal dari User ruang
+pelayanan ataupun berasal dari tenaga elektromedis yang
+melakukan inspeksi alat elektromedik.
+
+12.Tenaga elektromedis internal membuat laporan keluhan
+disetujui oleh pemberi informasi/keluhan.
+
+13.Tenaga elektromedis internal melakukan pengecekan
+kondisi alat dan dilanjutkan dengan membuat analisis
+kerusakan.
+
+14. Analisis kerusakan adalah langkah-langkah yang dilakukan
+untuk mencari, menganalisis kemungkinan kerusakan dan
+kemungkinan solusinya untuk mengembalikan fungsi alat
+sesuai spesifikasi standar dengan atau tanpa penggantian
+suku cadang.
+
+15.Berdasarkan hasil analisis tenaga elektromedis internai
+membuat kesimpulan apakah bisa diperbaiki sendiri atau
+butuh pihak ke-3.
+
+16.Jika dapat dikerjakan oleh tenaga elektromedis internal
+maka dibuat kesimpulan lagi apakah perbaikan
+membutuhkan suku cadang pengganti atau tidak.
+
+17.Jika tidak perlu suku cadang pengganti maka tenaga
+elektromedis internal segera melakukan perbaikan yang
+diperlukan.
+
+18.Jika butuh suku cadang maka teknisi elektromedis
+mengajukan pembelian suku cadang pengganti dengan
+membuat usulan pembelian suku cadang kepada pimpinan.
+Usulan tersebut lengkap dengan informasi mengenai:
+
+a. Analisa kerusakan
+
+b. Alasan tidak dapat diperbaiki oleh tenaga elektromedis
+internal
+
+c. Suku cadang yang diperlukan
+
+d. Perkiraan harga suku cadang yang diperlukan
+=== Halaman 5 ===
+e. Perkiraan jasa perbaikan
+19. Jika usulan sudah disetujui pimpinan dan suku cadang telah
+tersedia maka tenaga elektromedis melakukan perbaikan.
+20. Tenaga elektromedis membuat laporan hasil perbaikan dan
+uji fungsi alat elektromedik pada saat perbaikan telah
+selesai.
+
+UNIT TERKAIT
+
+Seluruh Unit Kerja di RSUD Cipayung

@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Bot, X } from "lucide-react";
+import { ArrowLeft, Bot } from "lucide-react";
+import { ObrolanAllies } from "@/components/allies/obrolan-allies";
+import type { Jawaban } from "@/lib/allies";
 import type { DivisiKantor } from "@/lib/allies-kantor";
 import type { IdKaryawan } from "@/lib/allies-karyawan";
 import { cn } from "@/lib/utils";
@@ -47,13 +49,17 @@ function orang(c: CanvasRenderingContext2D, a: Aktor, wkt: number, pilih: boolea
   c.restore();
 }
 
-export function KantorAI({ divisi }: { divisi: DivisiKantor[] }) {
+export function KantorAI({ divisi, pembuka, saranAwal, ai }: { divisi: DivisiKantor[]; pembuka: Jawaban; saranAwal: string[]; ai: boolean }) {
   const router = useRouter();
   const kanvas = useRef<HTMLCanvasElement>(null);
   const aktorRef = useRef<Aktor[]>([]);
-  const [pilih, setPilih] = useState<IdKaryawan | null>(null);
+  const [pilih, setPilih] = useState<IdKaryawan>("umum");
+  const [sibuk, setSibuk] = useState(false);
+  const aktif = pilih;
   const pilihRef = useRef(pilih);
   pilihRef.current = pilih;
+  const sibukRef = useRef(sibuk);
+  sibukRef.current = sibuk;
   const total = divisi.reduce((n, d) => n + (d.id === "umum" ? 0 : d.total), 0);
   const d = divisi.find((x) => x.id === pilih);
   const kunciData = divisi.map((x) => `${x.id}:${x.total}`).join();
@@ -124,6 +130,15 @@ export function KantorAI({ divisi }: { divisi: DivisiKantor[] }) {
         const p = iso(r.x + r.w / 2, r.y + r.h / 2, 34), dv = divisi.find((x) => x.id === r.id), teks = dv ? `${r.label} · ${dv.total}` : r.label, l = c.measureText(teks).width + 18;
         c.fillStyle = "rgba(8,15,30,.88)"; c.beginPath(); c.roundRect(p.x - l / 2, p.y - 15, l, 21, 10); c.fill(); c.strokeStyle = r.aksen; c.stroke(); c.fillStyle = "#f8fafc"; c.fillText(teks, p.x, p.y);
       }
+      if (sibukRef.current) {
+        const a = aktor.find((x) => x.lead && x.div === pilihRef.current);
+        if (a) {
+          const p = iso(a.x, a.y, 66);
+          c.fillStyle = "#fff"; c.beginPath(); c.roundRect(p.x - 25, p.y - 15, 50, 25, 10); c.fill();
+          c.beginPath(); c.moveTo(p.x - 5, p.y + 9); c.lineTo(p.x + 5, p.y + 9); c.lineTo(p.x, p.y + 16); c.fill();
+          for (let i = 0; i < 3; i++) { c.fillStyle = "#0f766e"; c.beginPath(); c.arc(p.x - 11 + i * 11, p.y - 2 + Math.sin(wkt * 7 + i) * 2, 3, 0, 7); c.fill(); }
+        }
+      }
     };
     const putar = (n: number) => { const dt = Math.min(.05, (n - lalu) / 1000); lalu = n; perbarui(dt); gambar(n / 1000); raf = requestAnimationFrame(putar); };
     if (gerak) raf = requestAnimationFrame(putar); else gambar(0);
@@ -146,27 +161,30 @@ export function KantorAI({ divisi }: { divisi: DivisiKantor[] }) {
         <div><Link href="/allies" className="mb-1 inline-flex items-center gap-1 text-sm text-teal-700 hover:underline"><ArrowLeft className="size-4" /> ALLIES</Link><h1 className="text-2xl font-bold text-navy-800">Kantor AI</h1><p className="text-sm text-muted-foreground">Simulasi kerja Karyawan AI. Jumlah orang dan angka tiap ruangan mengikuti tugas nyata di STARS.</p></div>
         <p className="rounded-full bg-navy-800 px-4 py-2 text-sm font-semibold text-white">{total} tugas terbuka</p>
       </div>
-      <div className="grid gap-4 lg:grid-cols-[1fr_20rem]">
-        <div className="overflow-hidden rounded-2xl border border-slate-700 bg-[#0b1324] shadow-card">
-          <canvas ref={kanvas} id="kantor-ai" onClick={klik} role="img" aria-label="Simulasi kantor isometrik Karyawan AI. Daftar petugas tersedia di samping." className="block h-auto w-full cursor-pointer" style={{ aspectRatio: `${W}/${H}` }} />
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_27rem]">
+        <div className="flex min-w-0 items-center overflow-hidden rounded-2xl border border-slate-700 bg-[#0b1324] shadow-card">
+          <canvas ref={kanvas} id="kantor-ai" onClick={klik} role="img" aria-label="Simulasi kantor isometrik Karyawan AI. Daftar petugas tersedia di bawah." className="block h-auto w-full cursor-pointer" style={{ aspectRatio: `${W}/${H}` }} />
         </div>
-        <aside className="grid content-start gap-2" aria-label="Daftar Karyawan AI">
-          {d ? (
-            <div className="rounded-2xl border bg-white p-4 shadow-card">
-              <div className="mb-3 flex items-start justify-between gap-2"><div><h2 className="font-semibold text-navy-800">{d.nama}</h2><p className="text-xs text-muted-foreground">{d.bidang} · {d.total} tugas</p></div><button type="button" aria-label="Tutup detail" onClick={() => setPilih(null)} className="rounded p-1 hover:bg-slate-100"><X className="size-4" /></button></div>
-              {d.tugas.length ? <ul className="mb-3 max-h-72 divide-y overflow-y-auto">{d.tugas.map((x, i) => <li key={i}><Link href={x.href} className="block py-1.5 text-sm hover:text-teal-700"><span className="block font-medium">{x.judul}</span><span className="block text-xs text-muted-foreground">{x.sub}</span></Link></li>)}</ul> : <p className="mb-3 text-sm text-muted-foreground">Tidak ada tugas terbuka.</p>}
-              {d.total > d.tugas.length && <p className="mb-3 text-xs text-muted-foreground">Menampilkan {d.tugas.length} dari {d.total}.</p>}
-              <Link href={`/allies?karyawan=${d.id}#tanya`} className="flex items-center justify-center gap-1 rounded-lg bg-teal-600 px-3 py-2 text-sm font-medium text-white hover:bg-teal-700">Tanya {d.nama} <ArrowRight className="size-4" /></Link>
-            </div>
-          ) : divisi.map((x) => (
-            <button key={x.id} type="button" onClick={() => setPilih(x.id)} className={cn("flex items-center gap-3 rounded-xl border bg-white p-3 text-left shadow-card hover:border-teal-300")}>
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-800"><Bot className="size-5" aria-hidden /></span>
-              <span className="min-w-0 flex-1"><span className="block text-sm font-semibold text-navy-800">{x.nama}</span><span className="block text-xs text-muted-foreground">{x.bidang}</span></span>
+        <ObrolanAllies pembuka={pembuka} saranAwal={saranAwal} ai={ai} karyawanAktif={aktif} onGanti={setPilih} onSibuk={setSibuk} className="h-[34rem]" />
+      </div>
+      <section className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_27rem]" aria-label="Daftar Karyawan AI">
+        <div className="grid content-start gap-2 sm:grid-cols-2 xl:grid-cols-3">
+          {divisi.map((x) => (
+            <button key={x.id} type="button" aria-pressed={x.id === aktif} onClick={() => setPilih(x.id)} className={cn("flex items-center gap-2 rounded-xl border bg-white p-3 text-left shadow-card hover:border-teal-300", x.id === aktif && "border-teal-600 ring-1 ring-teal-600")}>
+              <Bot className="size-5 shrink-0 text-teal-700" aria-hidden />
+              <span className="min-w-0 flex-1"><span className="block truncate text-sm font-semibold text-navy-800">{x.nama}</span><span className="block truncate text-xs text-muted-foreground">{x.bidang}</span></span>
               <span className="text-sm font-bold tabular-nums text-navy-800">{x.total}</span>
             </button>
           ))}
-        </aside>
-      </div>
+        </div>
+        {d && (
+          <div className="rounded-2xl border bg-white p-4 shadow-card">
+            <h2 className="font-semibold text-navy-800">Tugas {d.nama}</h2>
+            <p className="mb-2 text-xs text-muted-foreground">{d.total} tugas{d.total > d.tugas.length ? `, menampilkan ${d.tugas.length}` : ""}</p>
+            {d.tugas.length ? <ul className="max-h-56 divide-y overflow-y-auto">{d.tugas.map((x, i) => <li key={i}><Link href={x.href} className="block py-1.5 text-sm hover:text-teal-700"><span className="block font-medium">{x.judul}</span><span className="block text-xs text-muted-foreground">{x.sub}</span></Link></li>)}</ul> : <p className="text-sm text-muted-foreground">Tidak ada tugas terbuka.</p>}
+          </div>
+        )}
+      </section>
     </div>
   );
 }

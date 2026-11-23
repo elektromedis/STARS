@@ -1,0 +1,1681 @@
+=== Halaman 1 ===
+-1-
+
+      PERATURAN MENTERI KESEHATAN REPUBLIK INDONESIA
+                   NOMOR 54 TAHUN 2015
+
+                                TENTANG
+
+            PENGUJIAN DAN KALIBRASI ALAT KESEHATAN
+
+                DENGAN RAHMAT TUHAN YANG MAHA ESA
+
+            MENTERI KESEHATAN REPUBLIK INDONESIA,
+
+
+Menimbang   :    a. bahwa untuk menjamin tersedianya alat kesehatan
+                    sesuai standar pelayanan, persyaratan mutu,
+                    keamanan, manfaat, keselamatan, dan laik pakai,
+                    perlu dilakukan pengujian dan/atau kalibrasi;
+                 b. bahwa     Peraturan   Menteri Kesehatan    Nomor
+                    363/Menkes/Per/IV/1998 tentang Pengujian dan
+                    Kalibrasi Alat Kesehatan Pada Sarana Pelayanan
+                    Kesehatan dan Keputusan Menteri Kesehatan dan
+                    Kesejahteraan     Sosial   Nomor     394/Menkes-
+                    Kesos/SK/V/2001 tentang Institusi Penguji Alat
+                    Kesehatan sudah tidak sesuai dengan implementasi
+                    pengaturan penyelenggaraan pengujian dan kalibrasi
+                    alat kesehatan;
+                 c.   bahwa berdasarkan pertimbangan sebagaimana
+                      dimaksud dalam huruf a dan huruf b, perlu
+                      menetapkan Peraturan Menteri Kesehatan tentang
+                      Pengujian dan Kalibrasi Alat Kesehatan;
+
+Mengingat   :    1. Undang-Undang Nomor 39 Tahun 2008 tentang
+                    Kementerian Negara (Lembaran Negara Republik
+                    Indonesia Tahun 2008 Nomor 166, Tambahan
+                    Lembaran Negara Republik Indonesia Nomor 4916);
+                 2. Undang-Undang Nomor 36 Tahun 2009 tentang
+                    Kesehatan (Lembaran Negara Republik Indonesia
+                    Tahun 2009 Nomor 144, Tambahan Lembaran Negara
+                    Republik Indonesia Nomor 5063);
+                 3. Undang-Undang Nomor 44 Tahun 2009 tentang
+                    Rumah Sakit (Lembaran Negara Republik Indonesia
+                    Tahun 2009 Nomor 153, Tambahan Lembaran Negara
+                    Republik Indonesia Nomor 5072);
+
+
+
+                                                      4. Peraturan . . .
+=== Halaman 2 ===
+-2-
+
+                4. Keputusan       Menteri       Kesehatan      Nomor
+                   725/Menkes/SK/V/2003          tentang      Pedoman
+                   Penyelenggaraan Pelatihan di Bidang Kesehatan;
+                5. Peraturan        Menteri     Kesehatan        Nomor
+                   530/Menkes/Per/IV/2007 tentang Organisasi dan
+                   Tata Kerja Balai Pengamanan Fasilitas Kesehatan;
+                6. Peraturan        Menteri  Kesehatan     Nomor
+                   919/Menkes/Per/V/2011 tentang Loka Pengamanan
+                   Fasilitas Kesehatan;
+                7. Peraturan Kepala Badan Pengawas Tenaga Nuklir
+                   Nomor 9 Tahun 2011 tentang Uji Kesesuaian Pesawat
+                   Sinar-X Radiologi Diagnostik dan Intervensional
+                   (Berita Negara Republik Indonesia Tahun 2011 Nomor
+                   640);
+
+                             MEMUTUSKAN:
+
+Menetapkan :    PERATURAN    MENTERI     KESEHATAN    TENTANG
+                PENGUJIAN DAN KALIBRASI ALAT KESEHATAN.
+
+
+                               BAB I
+                          KETENTUAN UMUM
+
+                                 Pasal 1
+
+Dalam Peraturan Menteri ini yang dimaksud dengan:
+1.   Pengujian adalah keseluruhan tindakan yang meliputi pemeriksaan
+     fisik dan pengukuran untuk membandingkan alat yang diukur
+     dengan standar, atau untuk menentukan besaran atau kesalahan
+     pengukuran.
+2.   Kalibrasi adalah kegiatan peneraan untuk menentukan kebenaran
+     nilai penunjukkan alat ukur dan/atau bahan ukur.
+3.   Alat Kesehatan adalah instrumen, aparatus, mesin, perkakas,
+     dan/atau implan, reagen in vitro dan kalibratornya, perangkat lunak,
+     bahan atau material yang digunakan tunggal atau kombinasi, untuk
+     mencegah, mendiagnosis, menyembuhkan, dan meringankan
+     penyakit, merawat orang sakit, memulihkan kesehatan pada
+     manusia, dan/atau membentuk struktur dan memperbaiki fungsi
+     tubuh, menghalangi pembuahan, desinfeksi alat kesehatan, dan
+     pengujian in vitro terhadap spesimen dari tubuh manusia, dan dapat
+     mengandung obat yang tidak mencapai kerja utama pada tubuh
+     manusia melalui proses farmakologi, imunologi atau metabolisme
+     untuk dapat membantu fungsi/kinerja yang diinginkan.
+
+
+
+                                                          4. Fasilitas . . .
+=== Halaman 3 ===
+-3-
+
+4.   Fasilitas Pelayanan Kesehatan adalah suatu alat dan/atau tempat
+     yang digunakan untuk menyelenggarakan upaya kesehatan, baik
+     promotif, preventif, kuratif maupun rehabilitatif yang dilakukan oleh
+     pemerintah, pemerintah daerah dan/atau masyarakat.
+5.   Fasilitas Kesehatan adalah tempat menyelenggarakan keseluruhan
+     upaya kesehatan yang terdiri dari penyelenggaraan upaya kesehatan
+     tidak langsung yang mendukung penyelenggaraan upaya kesehatan
+     langsung.
+6.   Hasil Pengujian dan Kalibrasi adalah pernyataan tertulis yang
+     menerangkan bahwa alat kesehatan tersebut laik pakai atau tidak
+     laik pakai berdasarkan hasil pengujian dan kalibrasi.
+7.   Balai Pengujian Fasilitas Kesehatan adalah Unit Pelaksana Teknis
+     Kementerian Kesehatan atau Unit Pelaksana Teknis Daerah yang
+     melaksanakan tugas teknis operasional di bidang pengujian dan
+     kalibrasi prasarana dan alat kesehatan.
+8.   Institusi Pengujian Fasilitas Kesehatan adalah sarana yang
+     mempunyai tugas dan fungsi untuk melakukan pengujian dan
+     kalibrasi alat kesehatan.
+9.   Sertifikat  adalah    jaminan     tertulis  atau    tercetak   yang
+     diberikan/dikeluarkan      oleh       lembaga/laboratorium/institusi
+     pengujian dan kalibrasi yang telah terakreditasi untuk menyatakan
+     kelayakan pengujian dan kalibrasi.
+10. Label adalah segala bentuk tulisan dan/atau gambar yang dicetak
+    dan ditempelkan pada alat kesehatan untuk memberikan keterangan
+    laik/tidak laik.
+11. Uji Kesesuaian Pesawat Sinar-X Radiologi Diagnostik dan
+    Intervensional yang selanjutnya disebut Uji Kesesuaian Pesawat
+    Sinar-X adalah uji untuk memastikan Pesawat Sinar-X dalam kondisi
+    andal, baik untuk kegiatan Radiologi Diagnostik maupun
+    Intervensional dengan memenuhi peraturan perundang-undangan.
+12. Menteri   adalah    Menteri   yang       menyelenggarakan     urusan
+    pemerintahan di bidang kesehatan.
+13. Direktur Jenderal adalah Direktur Jenderal yang bertanggung jawab
+    di bidang pelayanan kesehatan.
+
+
+                                 Pasal 2
+
+Pengaturan Pengujian dan Kalibrasi Alat Kesehatan bertujuan untuk:
+a. memberikan acuan bagi pemerintah, pemerintah daerah, dan
+   masyarakat dalam pelaksanaan Pengujian dan/atau Kalibrasi Alat
+   Kesehatan;
+
+
+
+                                                         b. menjamin . . .
+=== Halaman 4 ===
+-4-
+
+b. menjamin tersedianya Alat Kesehatan yang sesuai standar pelayanan,
+   persyaratan mutu, keamanan, manfaat, keselamatan, dan laik pakai
+   di Fasilitas Pelayanan Kesehatan dan Fasilitas Kesehatan lainnya; dan
+c. meningkatkan akuntabilitas, dan mutu pelayanan Balai Pengujian
+   Fasilitas Kesehatan dan Institusi Pengujian Fasilitas Kesehatan dalam
+   Pengujian dan/atau Kalibrasi Alat Kesehatan.
+
+                                   Pasal 3
+Alat kesehatan yang dilakukan Pengujian dan/atau Kalibrasi merupakan
+peralatan yang digunakan untuk keperluan diagnosa, terapi, rehabilitasi
+dan penelitian medik baik secara langsung maupun tidak langsung dan
+memiliki parameter penunjukan, keluaran, atau kinerja.
+
+
+                             BAB II
+             PENYELENGGARAAN PENGUJIAN DAN KALIBRASI
+
+                               Bagian Kesatu
+                                  Umum
+
+                                   Pasal 4
+
+(1)   Setiap Alat Kesehatan yang digunakan di Fasilitas Pelayanan
+      Kesehatan dan Fasilitas Kesehatan lainnya harus dilakukan uji
+      dan/atau kalibrasi secara berkala oleh Balai Pengujian Fasilitas
+      Kesehatan atau Institusi Pengujian Fasilitas Kesehatan.
+(2)   Dalam melakukan Pengujian dan/atau Kalibrasi Alat Kesehatan,
+      Balai Pengujian Fasilitas Kesehatan atau Institusi Pengujian Fasilitas
+      Kesehatan harus mengacu pada metode kerja Pengujian dan/atau
+      Kalibrasi.
+(3)   Metode kerja sebagaimana dimaksud pada ayat (2) ditetapkan oleh
+      Direktur Jenderal.
+
+
+                                   Pasal 5
+(1)   Pengujian dan/atau Kalibrasi dilaksanakan atas permohonan pemilik
+      atau pimpinan Fasilitas Pelayanan Kesehatan atau Fasilitas
+      Kesehatan lainnya.
+(2)   Dikecualikan dari ketentuan sebagaimana dimaksud pada ayat (1)
+      terhadap Pengujian dan/atau Kalibrasi yang dilaksanakan oleh Balai
+      Pengujian Fasilitas Kesehatan milik pemerintah di daerah terpencil,
+      perbatasan, dan kepulauan, daerah bermasalah kesehatan, kantor
+      kesehatan haji Indonesia di Arab Saudi, dan rumah sakit yang
+      terkena bencana, sesuai dengan ketentuan peraturan perundang-
+      undangan.
+
+                                                                 Pasal 6 . . .
+=== Halaman 5 ===
+-5-
+
+                                 Pasal 6
+
+(1)   Pengujian Alat Kesehatan yang terdapat di Fasilitas Pelayanan
+      Kesehatan dan Fasilitas Kesehatan lainnya meliputi uji fungsi, uji
+      keselamatan, dan uji kinerja.
+(2)   Uji fungsi sebagaimana dimaksud pada ayat (1) merupakan Pengujian
+      secara keseluruhan melalui uji bagian-bagian Alat Kesehatan dengan
+      kemampuan maksimum tanpa beban sebenarnya, sehingga dapat
+      diketahui apakah secara keseluruhan Alat Kesehatan dapat
+      dioperasikan dengan baik sesuai fungsinya.
+(3)   Uji keselamatan sebagaimana dimaksud pada ayat (1) merupakan
+      Pengujian yang dilakukan terhadap Alat Kesehatan untuk
+      memperoleh kepastian tidak adanya bahaya yang ditimbulkan
+      sebagai akibat penggunaan Alat Kesehatan.
+(4)   Uji kinerja sebagaimana dimaksud pada ayat (1) merupakan
+      Pengujian untuk mengetahui seberapa besar kinerja dari suatu Alat
+      Kesehatan sehingga dapat digunakan sesuai dengan kebutuhan
+      spesifikasi.
+
+                             Bagian Kedua
+      Jenis dan Jangka Waktu Pengujian dan Kalibrasi Alat Kesehatan
+
+                                 Pasal 7
+
+(1) Jenis Alat Kesehatan yang wajib dilakukan Pengujian dan/atau
+    Kalibrasi tercantum dalam Lampiran I yang merupakan bagian tidak
+    terpisahkan dari Peraturan Menteri ini.
+(2) Direktur Jenderal dapat menetapkan jenis Alat Kesehatan selain
+    sebagaimana dimaksud pada ayat (1) untuk dilakukan Pengujian
+    dan/atau Kalibrasi.
+
+
+                                 Pasal 8
+
+(1)   Pengujian dan/atau Kalibrasi Alat Kesehatan dilakukan secara
+      berkala paling sedikit 1 (satu) kali dalam 1 (satu) tahun.
+(2)   Pengujian dan/atau Kalibrasi Pesawat Sinar-X tidak perlu dilakukan
+      apabila Pengujian dan/atau Kalibrasi jatuh pada tahun yang
+      bersamaan dengan Uji Kesesuaian Pesawat Sinar-X.
+(3)   Uji Kesesuaian Pesawat Sinar-X sebagaimana dimaksud pada ayat (2)
+      dilaksanakan sesuai dengan ketentuan peraturan perundang-
+      undangan di bidang ketenaganukliran.
+(4)   Dalam kondisi tertentu, Alat Kesehatan wajib diuji dan/atau
+      dikalibrasi sebelum jangka waktu 1 (satu) tahun sebagaimana
+      dimaksud pada ayat (1).
+
+                                                          (5) Kondisi . . .
+=== Halaman 6 ===
+-6-
+
+(5)   Kondisi tertentu sebagaimana dimaksud pada ayat (4) terdiri atas:
+      a. mengikuti petunjuk pemakaian Alat Kesehatan;
+      b. diketahui penunjukan atau keluarannya atau kinerjanya atau
+         keamanannya tidak sesuai lagi;
+      c. telah mengalami perbaikan;
+      d. telah dipindahkan bagi yang memerlukan instalasi;
+      e. telah dilakukan reinstalasi; dan/atau
+      f. belum memiliki Sertifikat Pengujian dan/atau Kalibrasi.
+
+
+                               Bagian Ketiga
+                            Sertifikat dan Label
+
+                                  Pasal 9
+
+(1)   Alat Kesehatan yang telah memenuhi standar berdasarkan hasil
+      Pengujian dan/atau Kalibrasi, harus diberikan Sertifikat dan Label
+      laik pakai.
+(2)   Alat Kesehatan yang tidak memenuhi standar berdasarkan hasil
+      Pengujian dan/atau Kalibrasi diberikan surat keterangan dan Label
+      tidak laik pakai.
+(3)   Sertifikat sebagaimana dimaksud pada ayat (1) paling sedikit memuat
+      keterangan:
+      a. uraian tentang Alat Kesehatan yang dilakukan Pengujian
+         dan/atau Kalibrasi;
+      b. tanggal pelaksanaan Pengujian dan/atau Kalibrasi;
+      c. nama Balai Pengujian Fasilitas Kesehatan atau institusi
+         pengujian Alat Kesehatan yang melakukan Pengujian dan/atau
+         Kalibrasi;
+      d. nama dan alamat Fasilitas Pelayanan Kesehatan atau Fasilitas
+         Kesehatan lainnya;
+      e. uraian kondisi dan identifikasi yang tidak meragukan dari barang
+         yang diuji atau dikalibrasi;
+      f. jangka waktu berlakunya Sertifikat;
+      g. hasil Pengujian dan/atau Kalibrasi serta tingkat ketelitiannya;
+      h. metode kerja yang dipakai; dan
+      i. tanda tangan dan nama jelas pejabat yang berwenang dari Balai
+         Pengujian Fasilitas Kesehatan atau institusi pengujian Alat
+         Kesehatan yang melakukan Pengujian dan/atau Kalibrasi.
+(4)   Label sebagaimana dimaksud pada ayat (1) dan ayat (2) paling sedikit
+      memuat keterangan:
+      a. nama Balai Pengujian Fasilitas Kesehatan atau institusi
+         pengujian Alat Kesehatan yang melakukan Pengujian dan/atau
+         Kalibrasi;
+      b. nama Fasilitas Pelayanan Kesehatan atau Fasilitas Kesehatan
+         lainnya;
+
+
+                                                             c. nomor . . .
+=== Halaman 7 ===
+-7-
+
+      c. nomor Sertifikat atau nomor surat keterangan;
+      d. nama dan nomor seri Alat Kesehatan yang dilakukan Pengujian
+         dan/atau Kalibrasi;
+      e. tanggal pelaksanaan Pengujian dan/atau Kalibrasi;
+      f. pernyataan laik pakai atau tidak laik pakai; dan
+      g. batas waktu Pengujian dan/atau Kalibrasi ulang.
+(5)   Label sebagaimana dimaksud pada ayat (4) harus ditempelkan pada
+      bagian Alat Kesehatan yang mudah terlihat dan tidak mudah lepas
+      atau rusak.
+(6)   Contoh Sertifikat dan Label sebagaimana dimaksud pada ayat (4) dan
+      ayat (5) tercantum dalam Lampiran II yang merupakan bagian tidak
+      terpisahkan dari Peraturan Menteri ini.
+
+
+                                  Pasal 10
+
+(1)   Sertifikat dan Label diterbitkan oleh Balai Pengujian Fasilitas
+      Kesehatan atau institusi pengujian Alat Kesehatan yang melakukan
+      Pengujian dan/atau Kalibrasi.
+(2)   Sertifikat untuk Alat Kesehatan yang diuji dan/atau dikalibrasi
+      instalasi/unit di rumah sakit diterbitkan oleh balai pengamanan
+      fasilitas kesehatan pengampunya.
+(3)   Label untuk Alat Kesehatan yang diuji dan/atau dikalibrasi
+      instalasi/unit di rumah sakit dapat diterbitkan oleh instalasi/unit di
+      rumah sakit yang melakukan Pengujian dan/atau Kalibrasi.
+(4)   Sertifikat dan Label sebagaimana dimaksud pada ayat (1) harus
+      mencantumkan nomor Sertifikat dan Label.
+(5)   Nomor Sertifikat dan Label sebagaimana dimaksud pada ayat (4)
+      dikeluarkan oleh Direktur Jenderal sesuai kodifikasi yang
+      ditentukan.
+(6)   Nomor Sertifikat dan Label sebagaimana dimaksud pada ayat (5)
+      diberikan sesuai permohonan yang diajukan oleh Balai Pengujian
+      Fasilitas Kesehatan atau institusi pengujian Alat Kesehatan.
+
+
+                              Bagian Keempat
+                     Tarif Pengujian dan/atau Kalibrasi
+
+                                  Pasal 11
+
+(1)   Pengujian dan/atau Kalibrasi yang dilaksanakan oleh Balai Pengujian
+      Fasilitas Kesehatan dan Institusi Pengujian Fasilitas Kesehatan milik
+      pemerintah atau pemerintah daerah dikenakan tarif sesuai dengan
+      ketentuan peraturan perundang-undangan.
+
+
+                                                           (2) Pengujian . . .
+=== Halaman 8 ===
+-8-
+
+(2)   Pengujian dan/atau Kalibrasi yang dilaksanakan oleh Institusi
+      Pengujian Fasilitas Kesehatan milik masyarakat/swasta dikenakan
+      tarif yang ditetapkan oleh masing-masing Institusi Pengujian Fasilitas
+      Kesehatan.
+
+
+                            BAB III
+ BALAI PENGUJIAN FASILITAS KESEHATAN DAN INSTITUSI PENGUJIAN
+                     FASILITAS KESEHATAN
+
+                               Bagian Kesatu
+               Jenis Balai Pengujian Fasilitas Kesehatan dan
+                  Institusi Pengujian Fasilitas Kesehatan
+
+                                  Pasal 12
+
+(1)   Pengujian dan/atau Kalibrasi Alat Kesehatan dilakukan oleh Balai
+      Pengujian Fasilitas Kesehatan atau Institusi Pengujian Fasilitas
+      Kesehatan.
+(2)   Balai Pengujian Fasilitas Kesehatan sebagaimana dimaksud pada
+      ayat (1) terdiri atas:
+      a. balai pengamanan fasilitas kesehatan; dan
+      b. loka pengamanan fasilitas kesehatan.
+(3)   Institusi Pengujian Fasilitas Kesehatan sebagaimana dimaksud pada
+      ayat (1) terdiri atas:
+      a. institusi pengujian Alat Kesehatan; dan
+      b. instalasi/unit di rumah sakit.
+(4)   Instalasi/unit di rumah sakit sebagaimana dimaksud pada ayat (3)
+      huruf b harus merupakan instalasi/unit di rumah sakit yang
+      ditetapkan sebagai rumah sakit rujukan sekaligus sebagai rumah
+      sakit pendidikan.
+
+
+                                  Pasal 13
+
+(1)   Balai Pengujian Fasilitas Kesehatan sebagaimana dimaksud dalam
+      Pasal 12 ayat (2) dikelola oleh pemerintah atau pemerintah daerah.
+(2)   Institusi pengujian Alat Kesehatan sebagaimana dimaksud dalam
+      Pasal 12 ayat (3) huruf a dikelola oleh pemerintah, pemerintah
+      daerah, atau swasta/masyarakat.
+(3)   Institusi pengujian Alat Kesehatan sebagaimana dimaksud pada ayat
+      (2) harus berbentuk badan hukum yang kegiatan usahanya bergerak
+      di bidang jasa Pengujian dan/atau Kalibrasi Alat Kesehatan.
+
+
+
+                                                               Pasal 14 . . .
+=== Halaman 9 ===
+-9-
+
+                                  Pasal 14
+
+(1)   Instalasi/unit di rumah sakit harus memiliki kemampuan untuk
+      melakukan Pengujian dan/atau Kalibrasi Alat Kesehatan secara
+      internal.
+(2)   Pengujian dan/atau Kalibrasi Alat Kesehatan secara internal
+      sebagaimana dimaksud pada ayat (1) merupakan penyelenggaraan
+      Pengujian dan/atau Kalibrasi Alat Kesehatan hanya untuk Alat
+      Kesehatan milik rumah sakit yang bersangkutan.
+(3)   Instalasi/unit di rumah sakit sebagaimana dimaksud pada ayat (1)
+      harus melakukan Pengujian dan/atau Kalibrasi Alat Kesehatan di
+      bawah pengampuan balai pengamanan fasilitas kesehatan sesuai
+      wilayah kerjanya.
+
+
+
+                                 Bagian Kedua
+             Klasifikasi Balai Pengujian Fasilitas Kesehatan dan
+                      Institusi Pengujian Alat Kesehatan
+
+
+                                  Pasal 15
+
+(1)   Balai Pengujian Fasilitas Kesehatan dan institusi pengujian Alat
+      Kesehatan diklasifikasikan menjadi:
+      a. Balai Pengujian Fasilitas Kesehatan atau institusi pengujian Alat
+         Kesehatan kelas A;
+      b. Balai Pengujian Fasilitas Kesehatan atau institusi pengujian Alat
+         Kesehatan kelas B;
+      c. Balai Pengujian Fasilitas Kesehatan atau institusi pengujian Alat
+         Kesehatan kelas C; dan
+      d. Balai Pengujian Fasilitas Kesehatan atau institusi pengujian Alat
+         Kesehatan kelas D.
+(2)   Balai Pengujian Fasilitas Kesehatan dan institusi pengujian Alat
+      Kesehatan sebagaimana dimaksud pada ayat (1) melakukan
+      Pengujian dan/atau Kalibrasi Alat Kesehatan sesuai dengan
+      kemampuan pelayanannya.
+(3)   Selain melakukan Pengujian dan/atau Kalibrasi Alat Kesehatan
+      sebagaimana dimaksud pada ayat (2), Balai Pengujian Fasilitas
+      Kesehatan atau institusi pengujian Alat Kesehatan kelas A dan kelas
+      B dapat melakukan pendampingan, pelatihan, advokasi, dan
+      penelitian.
+
+
+
+
+                                                               Pasal 16 . . .
+=== Halaman 10 ===
+- 10 -
+
+                                 Pasal 16
+
+(1)   Balai Pengujian Fasilitas Kesehatan dan institusi pengujian Alat
+      Kesehatan yang telah memenuhi persyaratan dan mampu melakukan
+      Pengujian dan/atau Kalibrasi Alat Kesehatan di atas kemampuan
+      pelayanannya, dapat meningkatkan kelasnya.
+(2)   Balai Pengujian Fasilitas Kesehatan dan institusi pengujian Alat
+      Kesehatan yang naik kelas harus memperbaharui izin operasional.
+
+
+                               Bagian Ketiga
+            Persyaratan Balai Pengujian Fasilitas Kesehatan dan
+                  Institusi Pengujian Fasilitas Kesehatan
+
+                                 Pasal 17
+
+Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+Kesehatan harus memenuhi persyaratan lokasi, bangunan, peralatan,
+dokumen, laboratorium, dan sumber daya manusia.
+
+
+                                 Pasal 18
+
+(1)   Lokasi Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian
+      Fasilitas Kesehatan harus memenuhi ketentuan mengenai kesehatan
+      dan keselamatan lingkungan.
+(2)   Ketentuan mengenai kesehatan dan keselamatan lingkungan
+      sebagaimana dimaksud pada ayat (1) dilakukan dengan memenuhi:
+      a. Surat Pernyataan Kesanggupan Pengelolaan dan Pemantauan
+         Lingkungan Hidup (SPPL); atau
+      b. dokumen Upaya Pengelolaan Lingkungan Hidup dan Upaya
+         Pemantauan Lingkungan Hidup (UKL-UPL) untuk Balai Pengujian
+         Fasilitas Kesehatan dan Institusi Pengujian Fasilitas Kesehatan
+         yang menggunakan bahan kimia berbahaya dalam melakukan
+         Pengujian dan/atau Kalibrasi.
+
+
+                                 Pasal 19
+
+(1)   Bangunan Balai Pengujian Fasilitas Kesehatan dan Institusi
+      Pengujian Fasilitas Kesehatan harus permanen dan tidak bergabung
+      dengan tempat tinggal.
+(2)   Bangunan instalasi/unit di rumah sakit dapat terintegrasi atau
+      terpisah dari instalasi/unit lainnya.
+
+
+
+
+                                                         (3) Bangunan . . .
+=== Halaman 11 ===
+- 11 -
+
+(3)   Bangunan Balai Pengujian Fasilitas Kesehatan dan Institusi
+      Pengujian Fasilitas Kesehatan harus memperhatikan fungsi,
+      keamanan, kenyamanan dan kemudahan dalam pemberian
+      pelayanan serta perlindungan dan keselamatan.
+(4)   Bangunan Balai Pengujian Fasilitas Kesehatan dan Institusi
+      Pengujian Fasilitas Kesehatan harus memiliki ruang paling sedikit
+      terdiri dari ruangan kerja/laboratorium, ruangan pelayanan, dan
+      ruangan manajemen.
+(5)   Ruang sebagaimana dimaksud pada ayat (4) harus dilengkapi dengan
+      prosedur keselamatan, monitoring lingkungan dan sanitasi serta
+      pembuangan limbah.
+
+
+                                  Pasal 20
+
+(1)   Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+      Kesehatan harus memiliki alat ukur/analyzer, alat uji, dan alat
+      Kalibrasi sesuai dengan jenis Pengujian dan/atau Kalibrasi Alat
+      Kesehatan.
+(2)   Alat ukur/analyzer, alat uji, dan alat Kalibrasi sebagaimana
+      dimaksud pada ayat (1) harus terkalibrasi secara berkala oleh Balai
+      Pengujian Fasilitas Kesehatan kelas A, kelas B, atau laboratorium uji
+      dan kalibrasi level 2 (dua) yang terakreditasi.
+(3)   Alat ukur/analyzer, alat uji, dan alat kalibrasi sebagaimana
+      dimaksud pada ayat (1) harus terpelihara dengan baik serta memiliki
+      petunjuk pemakaian dan pemeliharaan.
+
+
+                                  Pasal 21
+
+Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+Kesehatan harus mempunyai dokumen mutu yang terdiri dari:
+a. panduan mutu;
+b. prosedur mutu;
+c. lembar kerja; dan
+d. metode kerja sesuai yang ditetapkan oleh Direktur Jenderal,
+sesuai jenis Pengujian dan/atau Kalibrasi.
+
+
+                                  Pasal 22
+
+(1)   Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+      Kesehatan harus memiliki laboratorium sesuai dengan pelayanan
+      yang diberikan.
+(2)   Laboratorium sebagaimana dimaksud pada ayat (1) terdiri atas:
+      a. laboratorium pengujian dan kalibrasi;
+
+                                                       b. laboratorium . . .
+=== Halaman 12 ===
+- 12 -
+
+      b. laboratorium uji kesesuaian x-ray dan proteksi radiasi; dan/atau
+      c. laboratorium prasarana kesehatan;
+      d. laboratorium pengujian pemantauan dosis personal;
+      e. laboratorium pengujian alat ukur radiasi; dan/atau
+      f. laboratorium uji produk.
+
+                                  Pasal 23
+
+Sumber daya manusia dalam Pengujian dan/atau Kalibrasi Alat
+Kesehatan paling sedikit terdiri atas kepala Balai Pengujian Fasilitas
+Kesehatan atau Institusi Pengujian Fasilitas Kesehatan, penanggung
+jawab laboratorium, penanggung jawab mutu teknis dan manajemen
+pelayanan, tenaga pelaksana, dan tenaga administrasi.
+
+                                  Pasal 24
+
+(1)   Penanggung      jawab   laboratorium    Pengujian   dan    Kalibrasi,
+      laboratorium uji kesesuaian x-ray dan proteksi radiasi, laboratorium
+      pengujian alat ukur radiasi, dan laboratorium uji produk harus
+      memiliki kualifikasi:
+      a. pendidikan S1 Fisika, S1 Teknik Elektro, S1 Teknik Biomedika, S1
+         Teknik Fisika, atau D IV Teknik Elektromedik;
+      b. memiliki pengalaman kerja paling singkat 3 (tiga) tahun di
+         bidangnya/sesuai pendidikan; dan
+      c. memiliki sertifikat pelatihan di bidang Pengujian dan/atau
+         Kalibrasi Alat Kesehatan yang diperoleh dari pelatihan yang telah
+         terakreditasi sesuai dengan ketentuan peraturan perundang-
+         undangan.
+(2)   Penanggung jawab laboratorium prasarana kesehatan harus memiliki
+      kualifikasi:
+      a. pendidikan S1 Teknik Elektro, S1 Teknik Lingkungan, atau S1
+         Teknik Fisika;
+      b. memiliki pengalaman kerja paling singkat 3 (tiga) tahun di
+         bidangnya/sesuai pendidikan; dan
+      c. memiliki sertifikat pelatihan di bidang Pengujian dan/atau
+         Kalibrasi prasarana yang diperoleh dari pelatihan yang telah
+         terakreditasi sesuai dengan ketentuan peraturan perundang-
+         undangan.
+(2)   Penanggung jawab laboratorium Pengujian pemantauan dosis
+      personal harus memiliki kualifikasi:
+      a. pendidikan S1 Fisika, S1 Teknik Nuklir, S1 Teknik Biomedika, S1
+         Teknik Fisika, atau D IV Radiodiagnostik;
+      b. memiliki pengalaman kerja paling singkat 3 (tiga) tahun di
+         bidangnya/sesuai pendidikan; dan
+
+
+                                                            c. memiliki . . .
+=== Halaman 13 ===
+- 13 -
+
+      c. memiliki sertifikat pelatihan di bidang proteksi radiasi yang
+         diperoleh dari pelatihan yang telah terakreditasi sesuai dengan
+         ketentuan peraturan perundang-undangan.
+(3)   Penanggung jawab mutu teknis dan manajemen pelayanan harus
+      memiliki kualifikasi:
+      a. pendidikan S1 Teknik Elektro, S1 Teknik Lingkungan, S1 Teknik
+         Fisika, S1 Fisika, S1 Teknik Elektro, S1 Teknik Biomedika, S1
+         Teknik Mesin, S1 Teknik Industri, D IV Radiodiagnostik, atau D IV
+         Teknik Elektromedik;
+      b. memiliki pengalaman kerja paling singkat 3 (tiga) tahun di
+         bidangnya/sesuai pendidikan; dan
+      c. memiliki sertifikat pelatihan mutu yang diperoleh dari pelatihan
+         yang telah terakreditasi sesuai dengan ketentuan peraturan
+         perundang-undangan.
+(4)   Tenaga pelaksana teknis laboratorium Pengujian dan Kalibrasi dan
+      laboratorium uji kesesuaian x-ray dan proteksi radiasi harus memiliki
+      kualifikasi:
+      a. pendidikan S1 Fisika, S1 Teknik Elektro, S1 Teknik Biomedika, S1
+         Teknik Fisika, S1 Teknik Instrumentasi, D IV Teknik Elektromedik,
+         D III Teknik Elektromedik, atau D III Teknik Instrumentasi; dan
+      b. memiliki sertifikat pelatihan di bidang Pengujian dan/atau
+         Kalibrasi Alat Kesehatan yang diperoleh dari pelatihan yang telah
+         terakreditasi sesuai dengan ketentuan peraturan perundang-
+         undangan.
+(5)   Tenaga pelaksana teknis pemantauan dosis personal harus memiliki
+      kualifikasi:
+      a. Pendidikan S1 Fisika, S1 Teknik Nuklir, S1 Teknik Biomedika, S1
+         Teknik Fisika, D IV Radiodiagnostik, atau D III Radiografi; dan
+      b. memiliki sertifikat pelatihan di bidang proteksi radiasi yang
+         diperoleh dari pelatihan yang telah terakreditasi sesuai dengan
+         ketentuan peraturan perundang-undangan
+(6)   Pimpinan dan penanggung jawab laboratorium dapat merangkap
+      sebagai tenaga pelaksana dan tenaga administrasi.
+(7)   Penanggung jawab mutu teknis dan manajemen pelayanan tidak
+      dapat merangkap jabatan.
+
+
+                                  Pasal 25
+
+Ketentuan lebih lanjut mengenai persyaratan Balai Pengujian Fasilitas
+Kesehatan dan Institusi Pengujian Fasilitas Kesehatan berdasarkan
+klasifikasinya tercantum dalam Lampiran I yang merupakan bagian tidak
+terpisahkan dari Peraturan Menteri ini.
+
+
+
+                                                                Bagian . . .
+=== Halaman 14 ===
+- 14 -
+
+                             Bagian Keempat
+                          Kewajiban dan Larangan
+
+                                  Pasal 26
+
+Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+Kesehatan wajib:
+a. melakukan Pengujian dan/atau Kalibrasi Alat Kesehatan, berdasarkan
+   pedoman Pengujian dan/atau Kalibrasi Alat Kesehatan;
+b. melaksanakan dokumentasi kegiatan Pengujian dan/atau Kalibrasi
+   Alat Kesehatan;
+c. melaksanakan kegiatan evaluasi kinerja mutu Pengujian dan Kalibrasi
+   berkala secara internal dan eksternal meliputi interkomparasi, uji
+   profisiensi, atau uji banding;
+d. mempertahankan dan meningkatkan kompetensi sumber daya
+   manusia secara berkesinambungan;
+e. melakukan Kalibrasi alat kalibrator secara berkala;
+f. mengikuti perkembangan ilmu pengetahuan dan teknologi kesehatan;
+   dan
+g. melaksanakan pelaporan.
+
+                                  Pasal 27
+
+(1)   Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+      Kesehatan dilarang meminjamkan gedung dan peralatan Pengujian
+      dan/atau Kalibrasi Alat Kesehatan kepada Balai Pengujian Fasilitas
+      Kesehatan dan Institusi Pengujian Fasilitas Kesehatan lainnya.
+(2)   Penanggung jawab dan tenaga pelaksana Balai Pengujian Fasilitas
+      Kesehatan dan Institusi Pengujian Fasilitas Kesehatan dilarang
+      merangkap menjadi penanggung jawab dan tenaga pelaksana pada
+      Institusi Pengujian Fasilitas Kesehatan Balai Pengujian Fasilitas
+      Kesehatan dan Institusi Pengujian Fasilitas Kesehatan lainnya.
+
+                                  BAB IV
+                            IZIN OPERASIONAL
+
+                              Bagian Kesatu
+                         Prosedur Izin Operasional
+
+                                  Pasal 28
+
+(1)   Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+      Kesehatan harus memiliki izin operasional.
+(2)   Izin operasional sebagaimana dimaksud pada ayat (1) berlaku untuk
+      jangka waktu 5 (lima) tahun dan dapat diperpanjang kembali selama
+      masih memenuhi persyaratan.
+
+                                                                  Pasal . . .
+=== Halaman 15 ===
+- 15 -
+
+                                  Pasal 29
+
+(1)   Untuk memperoleh izin operasional Balai Pengujian Fasilitas
+      Kesehatan atau Institusi Pengujian Alat Kesehatan, Pimpinan Balai
+      Pengujian Fasilitas Kesehatan atau Institusi Pengujian Alat
+      Kesehatan mengajukan surat permohonan tertulis kepada Direktur
+      Jenderal dengan tembusan kepada Kepala Dinas Kesehatan Provinsi,
+      dengan melampirkan:
+      a. fotokopi bukti hak kepemilikan atau penggunaan tanah, izin
+         penggunaan bangunan untuk penyelenggaraan kegiatan, atau
+         surat kontrak minimal selama 5 (lima) tahun bagi yang menyewa
+         bangunan untuk penyelenggaraan kegiatan;
+      b. fotokopi akta pendirian badan hukum;
+      c. rekomendasi dari dinas kesehatan kabupaten/kota setempat;
+      d. profil Balai Pengujian Fasilitas Kesehatan atau Institusi Pengujian
+         Alat Kesehatan yang meliputi visi dan misi, lingkup pelayanan
+         atau jenis dan jumlah Alat Kesehatan yang dapat dilayani untuk
+         Pengujian dan/atau Kalibrasi, lokasi, bangunan, peralatan,
+         dokumen, sumber daya manusia, dan struktur organisasi; dan
+      e. persyaratan lain sesuai dengan ketentuan peraturan perundang-
+         undangan.
+(2)   Untuk memperoleh izin operasional instalasi/unit di rumah sakit,
+      Kepala atau Direktur Rumah Sakit mengajukan surat permohonan
+      tertulis kepada Direktur Jenderal dengan tembusan kepada Kepala
+      Dinas Kesehatan Provinsi, dengan melampirkan:
+      a. fotokopi/salinan izin operasional rumah sakit;
+      b. fotokopi/salinan penetapan sebagai rumah sakit rujukan
+         sekaligus sebagai rumah sakit pendidikan;
+      c. jenis dan jumlah peralatan Pengujian dan Kalibrasi yang dimiliki;
+      d. jenis dan jumlah Alat Kesehatan yang dapat dilayani untuk
+         Pengujian dan/atau Kalibrasi secara internal;
+      e. bukti pemenuhan persyaratan.
+
+
+                              Bagian Kedua
+                  Prosedur Perpanjangan Izin Operasional
+
+                                  Pasal 30
+
+(1)   Perpanjangan izin operasional Balai Pengujian Fasilitas Kesehatan
+      atau Institusi Pengujian Fasilitas Kesehatan harus dilakukan paling
+      lambat 6 (enam) bulan sebelum masa berlaku izin operasional
+      berakhir.
+
+
+
+                                                        (2) Permohonan . . .
+=== Halaman 16 ===
+- 16 -
+
+(2)   Permohonan perpanjangan izin operasional disampaikan secara
+      tertulis kepada Direktur Jenderal dengan tembusan kepada Kepala
+      Dinas Kesehatan Provinsi, dengan melampirkan:
+      a. salinan/fotokopi izin operasional yang lama;
+      b. kelengkapan persyaratan;
+      c. bukti akreditasi; dan
+      d. laporan penyelenggaraan pelayanan yang telah dilakukan.
+
+
+
+                              Bagian Ketiga
+                   Tata Cara Penerbitan Izin Operasional
+
+                                 Pasal 31
+
+(1)   Untuk melakukan penilaian terhadap permohonan izin operasional
+      dan perpanjangan izin operasional yang diajukan, Direktur Jenderal
+      membentuk Tim Penilai paling lama 7 (tujuh) hari kerja sejak berkas
+      permohonan izin diterima lengkap.
+(2)   Tim Penilai sebagaimana dimaksud pada ayat (1) melakukan
+      penilaian paling lama 14 (empat belas) hari kerja sejak penugasan.
+(3)   Dalam hal terdapat persyaratan yang belum dipenuhi, Tim Penilai
+      memberikan rekomendasi perbaikan dalam jangka waktu paling lama
+      5 (lima) hari kerja.
+(4)   Tim Penilai melaporkan hasil penilaian kepada Direktur Jenderal
+      paling lama 7 (tujuh) hari kerja sejak penilaian selesai dilakukan.
+(5)   Laporan hasil penilaian sebagaimana dimaksud pada ayat (4) disertai
+      kesimpulan dalam bentuk rekomendasi pemberian atau penolakan
+      izin operasional.
+(6)   Direktur Jenderal memberikan atau menolak permohonan izin
+      operasional dalam jangka waktu paling lama 14 (empat belas) hari
+      kerja sejak rekomendasi sebagaimana dimaksud pada ayat (5)
+      diterima.
+(7)   Dalam hal terdapat masalah yang tidak dapat diselesaikan dalam
+      kurun waktu sebagaimana dimaksud pada ayat (1), ayat (2), ayat (4),
+      dan ayat (6), pemberi izin dapat memperpanjang waktu pemrosesan
+      izin paling lama 14 (empat belas) hari kerja dengan menyampaikan
+      pemberitahuan tertulis kepada pemohon.
+(8)   Dalam hal Direktur Jenderal menolak permohonan izin operasional
+      sebagaimana dimaksud pada ayat (6), harus disertai dengan alasan
+      penolakan.
+
+
+
+
+                                                                Pasal . . .
+=== Halaman 17 ===
+- 17 -
+
+                                  Pasal 32
+
+(1)   Tim Penilai sebagaimana dimaksud dalam Pasal 31 ayat (1) terdiri
+      atas wakil dari Kementerian Kesehatan dan dinas kesehatan serta
+      dapat mengikutsertakan organisasi profesi terkait.
+(2)   Tim Penilai sebagaimana dimaksud pada ayat (1) bertugas melakukan
+      penilaian terhadap pemenuhan persyaratan Balai Pengujian Fasilitas
+      Kesehatan dan Institusi Pengujian Fasilitas Kesehatan.
+
+
+                                  Pasal 33
+
+(1)   Dalam jangka waktu dua tahun sejak memperoleh izin operasional,
+      Balai Pengujian Fasilitas Kesehatan dan institusi pengujian Alat
+      Kesehatan wajib terakreditasi oleh Komite Akreditasi Nasional.
+(2)   Dikecualikan dari ketentuan ayat (1) bagi Institusi Pengujian Fasilitas
+      Kesehatan berupa instalasi/unit di rumah sakit.
+
+
+                              Bagian Keempat
+                         Perubahan Izin Operasional
+
+                                  Pasal 34
+
+(1)   Perubahan izin operasional harus dilakukan apabila terjadi:
+      a. perubahan nama Balai Pengujian Fasilitas Kesehatan dan Institusi
+         Pengujian Fasilitas Kesehatan;
+      b. perubahan alamat dan tempat; dan/atau
+      c. peningkatan kelas.
+(2)   Perubahan izin operasional Balai Pengujian Fasilitas Kesehatan atau
+      Institusi Pengujian Fasilitas Kesehatan sebagaimana dimaksud pada
+      ayat (1) dilakukan dengan mengajukan permohonan izin operasional
+      baru serta melampirkan:
+      a. surat pernyataan penggantian nama, perubahan alamat dan
+         tempat, dan/atau peningkatan kelas; dan
+      b. salinan/fotokopi izin operasional yang lama, sebelum perubahan.
+
+
+                             BAB V
+        JAMINAN MUTU HASIL PENGUJIAN DAN/ATAU KALIBRASI
+
+                                  Pasal 35
+
+(1)   Setiap Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian
+      Fasilitas Kesehatan wajib memenuhi jaminan mutu hasil pengujian
+      dan/atau kalibrasi melalui interkomparasi, uji profisiensi, atau uji
+      banding.
+
+
+                                                      (2) Interkomparasi . . .
+=== Halaman 18 ===
+- 18 -
+
+(2)   Interkomparasi, uji profisiensi, atau uji banding       sebagaimana
+      dimaksud pada ayat (1) merupakan syarat akreditasi.
+(3)   Interkomparasi, uji profisiensi, atau uji banding dilakukan setiap
+      tahun secara berkala.
+(4)   Uji profisiensi diselenggarakan oleh Balai Pengujian Fasilitas
+      Kesehatan kelas A atau kelas B milik Pemerintah yang ditetapkan
+      oleh Menteri.
+
+                                 BAB VI
+                               PELAPORAN
+
+                                 Pasal 36
+
+(1)   Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+      Kesehatan wajib membuat dan menyampaikan laporan pelaksanaan
+      Pengujian dan/atau Kalibrasi Alat Kesehatan setiap 3 (tiga) bulan
+      sekali.
+(2)   Laporan sebagaimana dimaksud pada ayat (1) disampaikan kepada
+      Direktur Jenderal dengan tembusan kepada Dinas Kesehatan
+      Provinsi, Dinas Kesehatan Kabupaten/Kota, dan balai pengujian
+      fasilitas kesehatan kelas A milik Pemerintah.
+(3)   Laporan sebagaimana dimaksud pada ayat (1) paling sedikit memuat
+      tentang cakupan dan hasil pelaksanaan Pengujian dan/atau
+      Kalibrasi Alat Kesehatan.
+
+                              BAB VII
+                     PEMBINAAN DAN PENGAWASAN
+
+                                 Pasal 37
+
+(1)   Menteri, Gubernur, dan Bupati/Walikota melaksanakan pembinaan
+      dan pengawasan terhadap pelaksanaan Peraturan Menteri ini sesuai
+      dengan tugas, fungsi, dan kewenangan masing-masing.
+(2)   Dalam melakukan pembinaan dan pengawasan sebagaimana
+      dimaksud pada ayat (1), Menteri, Gubernur, dan Bupati/Walikota
+      dapat mengikutsertakan organisasi profesi terkait.
+(3)   Pembinaan dan pengawasan sebagaimana dimaksud pada ayat (1)
+      ditujukan untuk:
+      a. memenuhi kebutuhan masyarakat terhadap Alat Kesehatan di
+         Fasilitas Pelayanan Kesehatan dan Fasilitas Kesehatan lainnya
+         sesuai persyaratan mutu, keamanan, dan kemanfaatan; dan
+      b. meningkatkan mutu pelayanan, keselamatan pasien dan
+         melindungi masyarakat terhadap risiko yang dapat menimbulkan
+         bahaya bagi kesehatan atau merugikan masyarakat.
+
+
+                                                        (3) Pembinaan . . .
+=== Halaman 19 ===
+- 19 -
+
+(3)   Pembinaan sebagaimana dimaksud pada ayat (1) dapat berupa
+      pemberian bimbingan, supervisi, konsultasi, pelatihan dan/atau
+      kegiatan pemberdayaan lain.
+
+
+                                 Pasal 38
+
+(1)   Dalam rangka pembinaan dan pengawasan, Menteri dapat
+      memberikan sanksi administratif kepada Balai Pengujian Fasilitas
+      Kesehatan dan Institusi Pengujian Fasilitas Kesehatan yang
+      melakukan pelanggaran terhadap ketentuan Peraturan Menteri ini.
+(2)   Sanksi sebagaimana dimaksud pada ayat (1) dijatuhkan kepada Balai
+      Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+      Kesehatan yang melakukan pelanggaran sebagai berikut:
+      a. melakukan pelayanan tanpa izin operasional;
+      b. tidak memenuhi kewajiban sebagaimana dimaksud dalam Pasal
+         26; dan/atau
+      c. melakukan larangan sebagaimana dimaksud dalam Pasal 27.
+(3)   Sanksi administratif sebagaimana dimaksud pada ayat (1) dapat
+      berupa:
+      a. teguran tertulis;
+      b. penghentian pelayanan; dan/atau
+      c. pencabutan izin.
+
+
+                               BAB VIII
+                         KETENTUAN PERALIHAN
+
+                                 Pasal 39
+
+(1)   Izin yang telah dikeluarkan sebelum berlakunya Peraturan Menteri ini
+      tetap berlaku sampai dengan habis masa berlakunya izin.
+(2)   Pada saat Peraturan Menteri ini mulai berlaku, permohonan izin yang
+      sedang dalam proses penetapan diberikan sesuai ketentuan
+      Keputusan Menteri Kesehatan dan Kesejahteraan Sosial Nomor
+      394/MENKES-KESOS/SK/V/2001 tentang Institusi Penguji Alat
+      Kesehatan.
+
+
+                                 Pasal 40
+
+Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Fasilitas
+Kesehatan harus menyesuaikan dengan Peraturan Menteri ini paling
+lambat 2 (dua) tahun sejak Peraturan Menteri ini diundangkan.
+
+
+
+
+                                                                 BAB . . .
+=== Halaman 20 ===
+- 20 -
+
+                              BAB IX
+                        KETENTUAN PENUTUP
+
+                               Pasal 41
+
+Pada saat Peraturan Menteri ini mulai berlaku:
+a. Peraturan Menteri Kesehatan Nomor 363/MENKES/PER/IV/1998
+    tentang Pengujian dan Kalibrasi Alat Kesehatan di Sarana Pelayanan
+    Kesehatan; dan
+b. Keputusan Menteri Kesehatan dan Kesejahteraan Sosial Nomor
+    394/MENKES-KESOS/SK/V/2001 tentang Institusi Penguji Alat
+    Kesehatan,
+dicabut dan dinyatakan tidak berlaku.
+
+
+
+                               Pasal 42
+
+Peraturan Menteri ini mulai berlaku pada tanggal diundangkan.
+
+Agar setiap orang mengetahuinya, memerintahkan pengundangan
+Peraturan ini dengan penempatannya dalam Berita Negara Republik
+Indonesia.
+
+
+
+                                             Ditetapkan di Jakarta
+                                             pada tanggal 24 Juli 2015
+
+                                             MENTERI KESEHATAN
+                                             REPUBLIK INDONESIA,
+
+                                                      ttd
+
+                                             NILA FARID MOELOEK
+Diundangkan di Jakarta
+pada tanggal 13 Agustus 2015
+
+MENTERI HUKUM DAN HAK ASASI MANUSIA
+      REPUBLIK INDONESIA,
+
+               ttd
+
+         YASONNA H. LAOLY
+
+
+
+BERITA NEGARA REPUBLIK INDONESIA TAHUN 2015 NOMOR 1197
+=== Halaman 21 ===
+LAMPIRAN I
+                                                                    PERATURAN MENTERI KESEHATAN
+                                                                    NOMOR 54 TAHUN 2015
+                                                                    TENTANG
+                                                                    PENGUJIAN DAN/ATAU KALIBRASI
+                                                                    ALAT KESEHATAN
+
+
+
+     DAFTAR ALAT KESEHATAN DAN PERSYARATAN MINIMAL BALAI PENGUJIAN FASILITAS
+             KESEHATAN ATAU INSTITUSI PENGUJIAN FASILITAS KESEHATAN
+
+
+I.    Balai Pengujian Fasilitas Kesehatan dan Institusi Pengujian Alat Kesehatan
+
+                                                                           KELAS
+                      KRITERIA                                                                     KETERANGAN
+                                                            A          B           C       D
+ A    PELAYANAN
+           Pengujian dan/atau Kalibrasi Alat
+      I.
+           Kesehatan
+            a. Mampu melayani pengujian/ kalibrasi       20 Jenis   10 Jenis   5 Jenis   5 Jenis
+               peralatan High Risk:
+                 1   Anesthesia Units and Vaporaizers
+
+                 2   Anesthesia Ventilators
+                 3   Apnea Monitors
+                 4   Argon-Enhanced Coagulation
+                     Units
+                 5   Aspirators (Emergency and
+                     Tracheal)
+                 6   Autotransfusion Units
+                 7   Blood Pressure Units (Invasive)
+                 8   Capnometers
+                 9   Defibrillators (including
+                     Automated External Defibrillator)
+
+                10 Electrosurgical (Surgical
+                   Diathermy) Units
+                11 Fetal Monitors
+                12 Heart-Lung Bypass Units
+                13 Hemodialysis Units
+                14 Humidifiers (Heated)
+                15 Hypo/Hyperthermia Units
+                16 Incubators (Infant, including
+                   Transport Units)
+                17 Infusion Pumps/Controllers
+                18 Intra-Aortic Ballon Pumps
+                19 Lasers (Surgical)
+                20 Mobile High-Efficiency-Filter Air
+                   Cleaners
+                21 Nuclear Medicine Systems
+                22 Oximeters (Pulse)
+                23 Oxygen Monitors and Analyzers
+                24   Pacemakers (external)
+                25   Peritoneal Dialysis Units
+                26   Phacoemulsification Units
+                27   Physiologic Monitors and
+                     Monitoring Systems
+=== Halaman 22 ===
+KELAS
+            KRITERIA                                                                       KETERANGAN
+                                                    A          B           C       D
+      28   Radiant Warmers (Infant)
+      29   Radiographic Dye Injectors
+      30   Radiologic Imaging Systems
+      31   Regulators (for Tracheal Suction)
+
+      32 Resuscitators (Cardiac)
+      33 Resuscitators (Pulmonary)
+      34 Sterillizer (e.g.,Steam, Ethylene
+         Oxide [EtO])
+      35 Tourniquets (Pneumatics)
+      36 Transcutaneous Oxygen and
+         Carbon Dioxide Monitors
+      37 Ventilators
+
+b.   Mampu melayani pengujian/kalibrasi          18 jenis   10 jenis   2 jenis   2 jenis
+     peralatan Medium Risk:
+
+      1    Ambulatory ECG Recorders and
+           Scanners
+      2    Aspirators (Surgical, Thoracic, and
+           Uterine)
+      3    Blood Bank Refrigerators
+      4    Blood Gas/Ph Analyzers
+      5    Blood Pressure Units (Noninvasive
+           Electronic [used in critical care])
+
+      6  Blood/Solution Warmers
+      7  Cardiac Output Units
+      8  Centrifuges and Clinical Lab
+         Equipment
+      9 Circumcision Clamps
+      10 Cryosurgical Units
+      11 Electrocardiographs
+      12 Electroconvulsive Therapy Units
+
+      13   Electroencephalographs
+      14   Endoscopes
+      15   Enternal Pumps
+      16   Evoked Potential Units
+      17   Laparoscopic Insufflators
+      18   Lithotripters
+      19   Oxygen-Air Proportioners
+      20   Phonocardiograph
+      21   Phototherapy Units
+      22   Pneumatics Antishock Trousers
+
+      23 Pressure Transducers (All Types)
+
+      24 Pulmonary Function Analyzers
+      25 Radiant Warmers (Adult)
+      26 Regulators (Air, O2, Suction
+         [except tracheal])
+      27 Scales for Critical Applications
+         (e.g., Hemodialysis and Neonatal
+         Care Units)
+      28 Special Care Beds (e.g., Circle,
+         Floation)
+=== Halaman 23 ===
+KELAS
+                   KRITERIA                                                                     KETERANGAN
+                                                        A          B           C        D
+             29 Surgical Drills and Saws (Powered)
+
+             30 Traction Units
+             31 Treadmills
+             32 Ultrasound Scanners
+
+       c.   Mampu melayani pengujian/kalibrasi       26 jenis   20 jenis   10 jenis   2 jenis
+            peralatan Low Risk :
+
+             1    Alternating-Pressure Pads
+             2    Aspirators (Low Volume)
+             3    Breast Pumps
+             4    Cast Cutters
+             5    Circulating-Fluid Pumps
+             6    Diathermy Units (Phisical
+                  Therapy)
+             7    Electric Beds
+             8    Electric Wheelchairs
+             9    Electronic Scales (for General
+                  Patient Care)
+             10   Electronic Thermometers
+             11   Examination Light
+             12   Fiberoptic Light Sources
+             13   Oto/Ophthalmoscopes
+             14   Oxygen Concentrators
+             15   Paraffin Baths
+             16   Regulators (Low-Volume Suction)
+
+             17 Smoke Evacuators
+             18 Sphygmomanometers
+             19 Stimulators (Physical Therapy)
+             20 Surgical Lights
+             21 Surgical Microscopes
+             22 Surgical Tables
+             23 Temperature Monitors
+             24 Ultrasonic Nebulizers
+             25 Ultrasound Units (Phisical
+                Therapy)
+             26 Whirlpool Baths
+
+II.   Kalibrasi Alat Ukur
+       a.   Mampu melayani Kalibrasi Alat Ukur
+            Radiasi, berupa:                         2 jenis    1 jenis        -         -
+
+             1    Surveymeter
+             2    Dosimeter
+
+       b.   Mampu melayani Kalibrasi Alat Ukur
+            Non Radiasi berupa:                      5 jenis    2 jenis        -         -
+
+             1    DPM
+             2    ECG Simulator
+             3    Electro Safety Analyzer (ESA)
+             4    Tachometer
+                  Electro Surgery Unit Analyzer
+             5    (ESU)
+=== Halaman 24 ===
+KELAS
+                    KRITERIA                                                                        KETERANGAN
+                                                          A           B            C        D
+              6    Defibrilator Analyzer
+              7    Handy Calibrator
+              8    Infuse Device Analyzer
+              9    Incubator Analyzer
+              10   Ventilator Tester
+              11   Thermometer
+              12   Micro Pipet
+              13   Analytical Balance
+              14   Lux Meter
+              15   Thermohygrometer
+              16   alat ukur lainnya
+
+III.   Uji Kesesuaian X-ray
+        a.   Mampu melayani uji pesawat X-ray,
+                                                       9 jenis      4 jenis     2 jenis   2 jenis
+             berupa:
+              1 General Purpose X-ray
+              2 Flouroscopy
+              3 C-arm
+              4 Dental x-ray
+              5 Dental Panoramic
+              6   Mammography
+              7 Angiograpy
+              8 CT-scan
+              9 X-ray Mobile
+        b.   Mampu melayani uji paparan radiasi           √            √           √         -
+        c.   Mampu melayani uji peralatan
+                                                          √            -           -        -
+             kedokteran Nuklir
+
+
+IV.    Pengujian Pemantauan dosis Personal
+        a.   Menyediakan pelayanan Film Badge
+             dan/atau Thermo Luminescent                  √            √           √         -
+             Dosemeter
+        b.   Jumlah minimal Badge yang di uji           2500        1000         250
+                                                                                            -
+                                                        badge       badge       badge
+
+V.     Uji Produk
+        a.   Jumlah minimal pelayanan jenis uji
+                                                       2 jenis         -           -        -
+             produk
+
+
+VI.    Uji Profisiensi/Interkomparasi
+        a.   Telah menyelenggarakan uji profisiensi
+                                                          √            √
+             secara berkala
+        b.
+                                                       3 jenis      1 jenis
+             Jumlah minimal jenis uji profisiensi
+
+VII. Laboratorium Rujukan
+        a.   Sebagai Laboratorium rujukan             3 institusi 3 institusi
+                                                       penguji     penguji
+=== Halaman 25 ===
+KELAS
+                       KRITERIA                                                                        KETERANGAN
+                                                               A          B            C       D
+
+B   SUMBER DAYA MANUSIA
+     I.    Instalasi/laboratorium pengujian dan
+           kalibrasi dengan tenaga pelaksana yang
+           memiliki kompetensi pengujian dan/atau
+           kalibrasi:
+            a.   ≤ 25 alat kesehatan                        15 orang   12 orang    3 orang   3 orang
+            b.   25 alat kesehatan                          5 orang    5 orang     5 orang   1 orang
+            c.   50 alat kesehatan                          5 orang    5 orang     2 orang      -      Kualifikasi
+            d.   100 alat kesehatan                                                                    pendidikan
+                                                                                                       tenaga
+                                                            10 orang   3 orang         -        -      pelaksana
+                                                                                                       paling rendah
+                                                                                                       S1
+            e.   125 alat kesehatan                         5 orang        -           -        -      Kualifikasi
+                                                                                                       pendidikan
+                                                                                                       tenaga
+                                                                                                       pelaksana
+                                                                                                       paling rendah
+                                                                                                       S1
+     II.   Instalasi/laboratorium uji kesesuaian x-ray
+           dan proteksi radiasi dengan tenaga
+           pelaksana yang memiliki kompetensi
+           pengujian dan/atau kalibrasi:
+            a.   2 jenis peralatan x-ray                    1 orang    1 orang     1 orang   1 orang Kualifikasi
+                                                                                                     pendidikan
+            b.   4 jenis peralatan x-ray                    1 orang    1 orang     1 orang      -    tenaga
+            c.   5 jenis peralatan x-ray                    1 orang    1 orang         -        -    pelaksana
+                                                                                                     paling rendah
+            d.   9 jenis peralatan x-ray                    1 orang        -           -        -    S1
+    III. Instalasi/laboratorium prasaran kesehatan
+         dengan tenaga pelaksana yang memiliki
+         kompetensi pengujian dan/atau kalibrasi            2 orang        -           -        -
+         prasarana kesehatan
+    IV. instalasi/laboratorium pengujian
+        pemantauan dosis personal dengan tenaga
+        pelaksana yang memiliki kompetensi
+        pengujian dan/atau kalibrasi:
+
+
+            a.   Pelayanan film badge                       4 orang    3 orang     2 orang      -      Kualifikasi
+                                                                                                       pendidikan
+            b.   Pelayanan TLD
+                                                                                                       tenaga
+                                                            4 orang    3 orang     2 orang      -      pelaksana
+                                                                                                       paling rendah
+                                                                                                       S1
+C. PERALATAN, BANGUNAN, DAN PRASARANA
+
+     I.    Peralatan
+            a.   Alat kalibrasi besaran dasar kelistrikan
+                    1 Tegangan (Ac/Dc)
+                    2 Arus (Ac/Dc)
+                    3 Tahanan                                6 jenis    1 jenis        -        -
+                    4 Frekuensi
+                    5 Induktansi
+                    6 Capasitansi
+=== Halaman 26 ===
+KELAS
+                  KRITERIA                                                                          KETERANGAN
+                                                         A           B            C         D
+       b.   Alat kalibrasi besaran dasar
+                                                       3 jenis     1 jenis        -         -
+            tekanan/Gaya -Pressure calibrator
+       c.   Alat kalibrasi besaran dasar                                                            Anak timbangan
+              1 Anak timbangan Class E2                                                             Class E2,
+              2 Analitical balance                     3 jenis     1 jenis        -         -       Analitical
+              3 Micropipet                                                                          balance
+
+       d.   peralatan pengujian/kalibrasi alat
+            kesehatan sesuai kemampuan                125 jenis   100 jenis   50 jenis   25 jenis
+            pelayanan
+       e.   sumber radiasi yang digunakan untuk
+            kalibrasi AUR                              1 jenis     1 jenis        -         -
+            Cesium/Cobalt
+       f.   alat pembacaan dosis personal
+              1 TLD Reader
+                                                       1 jenis     1 jenis    1 jenis       -
+              2 Densitometer
+              3 Film Procesing Unit
+       g.   alat ukur uji Kesesuaian x-ray sesuai
+                                                       9 jenis     5 jenis    4 jenis    2 jenis
+            kemampuan pelayanan
+       h.   alat ukur uji Prasarana                    2 jenis        -           -         -
+       i.   alat ukur uji produk                                                                    2 jenis produk
+                                                       2 jenis        -           -         -
+                                                                                                    alat kesehatan
+       j.   peralatan (artefak) dalam rangka uji                                                    Diambil dari
+            profiesiensi                               3 jenis     1 jenis        -         -       125 jenis alat
+                                                                                                    kesehatan
+II.   Bangunan
+       a.   Memiliki ruangan Lab.
+                                                         √           √            √         √
+            Pengujian/Kalibrasi
+       b.   Memiliki ruangan Lab.                        √           √            -         -
+       c.   Memiliki ruangan Lab. Uji Kesesuaian x-      √           √            √         √
+       d.   Memiliki ruangan Lab. Uji Prasarana          √           -            -         -
+       e.   Memiliki ruangan Lab. Uji Pemantauan         √           √            √         -
+       f.   Memiliki ruangan Lab. Alat Ukur              √           √            -         -       Penanggung
+            Radiasi                                                                                 jawab dan
+                                                                                                    tenaga
+                                                                                                    pelaksana pada
+                                                                                                    lab alat ukur
+                                                                                                    radiasi dapat
+                                                                                                    dirangkap oleh
+                                                                                                    Penanggung
+                                                                                                    jawab dan
+                                                                                                    tenaga
+                                                                                                    pelaksana lab
+                                                                                                    Uji Kesesuaian x-
+                                                                                                    ray dan proteksi
+                                                                                                    radiasi
+=== Halaman 27 ===
+KELAS
+                    KRITERIA                                               KETERANGAN
+                                                   A   B           C   D
+        g.   Memiliki ruangan Lab Uji Produk       √   -           -   -   Penanggung
+                                                                           jawab dan
+                                                                           tenaga
+                                                                           pelaksana pada
+                                                                           lab uji produksi
+                                                                           dapat dirangkap
+                                                                           oleh
+                                                                           Penanggung
+                                                                           jawab dan
+                                                                           tenaga
+                                                                           pelaksana lab
+                                                                           Uji Kesesuaian x-
+                                                                           ray dan proteksi
+                                                                           radiasi
+
+
+
+        h.   Memiliki ruangan Persiapan alat       √   √           √   √
+        i.   Memiliki ruangan administrasi         √   √           √   √   Dapat
+                                                                           difungsikan
+                                                                           sebagai tempat
+                                                                           pengolahan
+                                                                           data, arsip,
+                                                                           perpustakaan,
+                                                                           dan tempat
+                                                                           pertemuan
+
+        j.   Memiliki ruangan untuk menaruh alat   √   √           √   √
+             kalibrasi
+        k.   Memiliki Gudang                       √   √           √   √
+        l.   Memiliki Parkir                       √   √           √   √
+III.   Prasarana
+        a.   Instalasi Listrik                     √   √           √   √   keberlangsunga
+                                                                           n sumber listrik
+                                                                           (memiliki UPS
+                                                                           dan genset)
+
+        b.   Instalasi Air Bersih                  √   √           √   √
+        c.   Instalasi Pengelolaan Limbah          √   √           √   √
+        d.   Proteksi Kebakaran                    √   √           √   √
+        e.   Sistem komunikasi                     √   √           √   √   Minimal 3 line
+                                                                           telepon dan fax,
+                                                                           line internal
+                                                                           (interkom)
+
+        f.   Akses internet                        √   √           √   √
+        g.   Kendaraan operasional pelayanan       √   √           √   √
+IV.    Administrasi dan Manajemen
+        a.   Status Badan Hukum                                            Untuk lembaga
+                                                   √   √           √   √   non pemerintah
+
+        b.   Pembimbingan teknis pada fasyankes    √   √           -   -
+        c.   Pembimbingan teknis mutu instusi                      -   -
+                                                   √   √
+             penguji/kalibrasi
+=== Halaman 28 ===
+KELAS
+                          KRITERIA                                               KETERANGAN
+                                                     A     B             C   D
+            d.   Struktur Organisasi                 √      √            √   √
+            e.   Tatalaksana / Tata Kerja / Uraian   √      √            √   √   Standar
+                 Tugas                                                           Pelayanan
+                                                                                 Minimal,
+                                                                                 Panduan Mutu,
+                                                                                 Standar
+                                                                                 Prosedur
+                                                                                 Operasional
+            f.   Komite Teknis                       √      √            -   -   Komite Teknis
+                                                                                 Peralatan
+                                                                                 Kesehatan,
+                                                                                 kesesuaian x-
+                                                                                 ray, dan
+                                                                                 pemantauan
+                                                                                 dosisi personal
+
+            g.   Terakreditasi                       √      √            √   √   ( ISO: IEC
+                                                                                 17020, 17025,
+                                                                                 17043, ISO
+                                                                                 9001)
+
+
+II.   Instalasi/Unit di Rumah Sakit
+
+      No                   Alat Kesehatan
+
+       1   Electro Cardiography
+
+       2   Baby Incubator
+
+       3   Infant Warmer
+
+       4   Timbangan Bayi
+
+       5   Fetal Dopler
+
+       6   Photo therapy
+
+       7   Tensimeter
+
+       8   Syringe Pump
+
+       9   Suction Pump
+
+       10 Centrifuge
+
+       11 Operating Lamp
+
+       12 Dental Unit
+
+
+
+                                                         MENTERI KESEHATAN
+                                                         REPUBLIK INDONESIA,
+
+
+                                                                   ttd
+
+                                                         NILA FARID MOELOEK
+=== Halaman 29 ===
+- 29 -
+
+                                       LAMPIRAN II
+                                       PERATURAN MENTERI KESEHATAN
+                                       NOMOR 54 TAHUN 2015
+                                       TENTANG
+                                       PENGUJIAN DAN KALIBRASI ALAT
+                                       KESEHATAN
+
+               SERTIFIKAT DAN LABEL ALAT KESEHATAN
+
+
+I. Contoh Sertifikat
+
+
+          (Kop Surat Berisi Nama Institusi Penguji, Alamat, Nomor Izin)
+
+
+
+                       SERTIFIKAT PENGUJIAN/ KALIBRASI
+                             Nomor :…………………….
+
+     Nama Alat :                          Nomor Registrasi :
+
+
+    Merek               :
+    Model / Tipe        :
+    Nomor Seri          :
+
+     Nama Pemilik :                       Identitas Pemilik :
+
+
+    Alamat Pemilik                           :
+    Tanggal Pelaksanaan Ujian/Kalibrasi      :
+    Penanggung Jawab Pengujian               :
+    Hasil Pengujian                          : Laik Pakai, berlaku s/d …………
+    Tingkat Ketelitian                       :
+    Metode Pengujian                         :
+
+
+                                             …………………….,………………….
+                                                Kepala Institusi Penguji
+
+                                             Ttd dan Stempel Institusi Penguji
+
+
+                                                 ( Nama Kepala Institusi )
+=== Halaman 30 ===
+- 30 -
+
+II. Contoh Surat Keterangan
+
+
+
+
+          (Kop Surat Berisi Nama Institusi Penguji, Alamat, Nomor Izin)
+
+
+
+                   SURAT KETERANGAN PENGUJIAN/ KALIBRASI
+                              Nomor :…………………….
+
+     Nama Alat :                          Nomor Registrasi :
+
+
+    Merek               :
+    Model / Tipe        :
+    Nomor Seri          :
+
+     Nama Pemilik :                       Identitas Pemilik :
+
+
+    Alamat Pemilik                          :
+    Tanggal Pelaksanaan Ujian/Kalibrasi     :
+    Penanggung Jawab Pengujian              :
+    Hasil Pengujian                         : Laik Pakai, berlaku s/d …………
+    Tingkat Ketelitian                      :
+    Metode Pengujian                        :
+
+
+
+                                            …………………….,………………….
+                                               Kepala Institusi Penguji
+
+                                            Ttd dan Stempel Institusi Penguji
+
+
+                                                 ( Nama Kepala Institusi )
+=== Halaman 31 ===
+- 31 -
+
+III. Contoh Label
+
+
+
+   A. Alat Kesehatan Radiasi Laik Pakai
+
+
+                           ( Nama dan Lambang Institusi Penguji )                      Warna hijau
+
+     Telah dilakukan pengujian/kalibrasi :
+     Tanggal                              : ………………Laik Pakai s/d :…………...
+     Nomor Sertifikat Pengujian/Kalibrasi : ……………………………………………………
+     No / Nama Ruangan                    : ……………………………………………………
+     Nama Alat                            : ……………………………………………………
+     Merek                                : ……………………………………………………
+     Model / Tipe                         : ……………………………………………………
+     Nomor Seri                           : ……………………………………………………
+     Keterangan                           : ……………………………………………………
+
+
+
+        DINYATAKAN AMAN BAGI PEKERJA, PENDERITA, DAN LINGKUNGAN
+
+
+
+
+   B. Alat Kesehatan Radiasi Tidak Laik Pakai
+
+
+                                                                                        Warna merah
+                           ( Nama dan Lambang Institusi Penguji )
+     Telah dilakukan pengujian/kalibrasi        :
+     Tanggal                                    : …………………………….......................
+     Nomor Surat Keterangan Pengujian/Kalibrasi : ……………………………………………………
+     No / Nama Ruangan                          : ……………………………………………………
+     Nama Alat                                  : ……………………………………………………
+     Merek                                      : ……………………………………………………
+     Model / Tipe                               : ……………………………………………………
+     Nomor Seri                                 : ……………………………………………………
+     Keterangan                                 : ……………………………………………………
+
+
+
+
+      DINYATAKAN TIDAK AMAN BAGI PEKERJA, PENDERITA, DAN LINGKUNGAN
+=== Halaman 32 ===
+- 32 -
+
+C. Alat Kesehatan Non Radiasi Laik Pakai
+
+
+                     ( Nama dan Lambang Institusi Penguji )                  Warna hijau
+
+  Telah dilakukan pengujian/kalibrasi :
+  Tanggal                              : ………………...Laik Pakai s/d : ………..
+  Nomor Sertifikat Pengujian/Kalibrasi : ……………………………………………………
+  No / Nama Ruangan                    : ……………………………………………………
+  Nama Alat                            : ……………………………………………………
+  Merek                                : ……………………………………………………
+  Model / Tipe                         : ……………………………………………………
+  Nomor Seri                           : ……………………………………………………
+  Keterangan                           : …………………………………………………..
+
+
+
+
+      DINYATAKAN AMAN BAGI PEKERJA, PENDERITA, DAN LINGKUNGAN
+
+
+
+D. Alat Kesehatan Non Radiasi Tidak Laik Pakai
+
+
+                     ( Nama dan Lambang Institusi Penguji )                  Warna merah
+
+
+  Telah dilakukan pengujian/kalibrasi        :
+  Tanggal                                    : …………………………………………………..
+  Nomor Surat Keterangan Pengujian/Kalibrasi : ……………………………………………………
+  No / Nama Ruangan                          : ……………………………………………………
+  Nama Alat                                  : ……………………………………………………
+  Merek                                      : ……………………………………………………
+  Model / Tipe                               : ……………………………………………………
+  Nomor Seri                                 : ……………………………………………………
+  Keterangan                                 : ……………………………………………………
+
+
+
+
+  DINYATAKAN TIDAK AMAN BAGI PEKERJA, PENDERITA, DAN LINGKUNGAN
+
+
+
+                                                           MENTERI KESEHATAN
+                                                           REPUBLIK INDONESIA,
+
+
+                                                                     ttd
+                                                           NILA FARID MOELOEK

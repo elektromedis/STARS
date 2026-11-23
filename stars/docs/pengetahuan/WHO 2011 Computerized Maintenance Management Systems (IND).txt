@@ -1,0 +1,2442 @@
+=== Halaman 1 ===
+Machine Translated by Google
+
+
+
+
+                               Sistem manajemen
+                                      pemeliharaan yang terkomp
+                                       Seri teknis perangkat medis WHO
+=== Halaman 2 ===
+Machine Translated by Google
+       SERI TEKNIS ALAT MEDIS WHO: UNTUK MEMASTIKAN PENINGKATAN AKSES, KUALITAS DAN PENGGUNAAN ALAT KESEHATAN
+
+
+
+
+                   PERKEMBANGAN DARI                                                                                                                                                                                                                                                            SUMBER DAYA MANUSIA
+
+                    ALAT MEDIS                                                                                                                                                                                                                                                                           UNTUK MEDIS
+                                                                                                                                                                                                                                                                                                                PERANGKAT
+                           KEBIJAKAN
+                                                                                                                                                                                                                                                                                               SERI TEKNIS ALAT KESEHATAN WHO
+       SERI TEKNIS ALAT KESEHATAN WHO
+
+
+
+                                                                                                                                                       Penelitian
+                                                                                                                                                       dan Pengembangan
+
+
+
+                                                                                                                                                                      ALAT MEDIS
+                                                                                                                                                                          INOVASI
+                                                                                                                                                                SERI TEKNIS ALAT KESEHATAN WHO
+                                                                                        Pengelolaan
+
+
+
+
+                                                                                                                                          Peraturan
+       kesehatan
+
+
+
+
+                                                 Peraturan
+                         Pengembangan
+       Alat
+
+
+
+                         Penelitian
+
+
+
+
+                                                                      Penilaian
+                         dan
+
+
+
+
+                                                                                                                                                                                         ALAT MEDIS
+                                                                                                                                                         PREMARKET                         PERATURAN
+                                                                                                                                                           PERSETUJUAN             SERI TEKNIS ALAT KESEHATAN WHO
+                                                                                                                                            SERI TEKNIS ALAT KESEHATAN WHO
+
+
+
+
+                                               Alat kesehatan                                                                                             Pengelolaan                                                                                    Penilaian
+
+
+                                                                   ALAT MEDIS                                                                                   BUTUH PENILAIAN                                                                           TEKNOLOGI KESEHATAN
+                                                                   TATA NAMA                                                                                           UNTUK MEDIS                                                                               PENILAIAN TERHADAP
+                                                             SERI TEKNIS ALAT KESEHATAN WHO
+                                                                                                                                                                                 PERANGKAT                                                                     ALAT KESEHATAN
+                                                                                                                                                               SERI TEKNIS ALAT KESEHATAN WHO                                                              SERI TEKNIS ALAT KESEHATAN WHO
+
+
+
+
+                                        ALAT KESEHATAN                                ALAT KESEHATAN
+                                        DENGAN PERAWATAN KESEHATAN                                     SECARA KLINIS
+                                                 FASILITAS                                            PROSEDUR
+                         SERI TEKNIS ALAT KESEHATAN WHO                           SERI TEKNIS ALAT KESEHATAN WHO
+
+
+
+
+                                                                                                                                                    PENGADAAN                          ALAT MEDIS                                                                 PASCA PASAR
+                                                                                                                                                         PROSES                            DONASI:                                                           PENGAWASAN DAN
+                                                                                                                                                 PANDUAN SUMBER DAYA              PERTIMBANGAN UNTUK                                                              KEJADIAN YANG TIDAK SANGAT
+                                                                                                                                            SERI TEKNIS ALAT KESEHATAN WHO                                                                                               PELAPORAN
+                                                                                                                                                                                     PERMINTAAN DAN
+                                                                                                                                                                                                                                                           SERI TEKNIS ALAT KESEHATAN WHO
+                                                                                                                                                                                            PERSEDIAAN
+                                                                                                                                                                                   SERI TEKNIS ALAT KESEHATAN WHO
+
+
+
+
+                                                      PERKENALAN PADA                                    PERALATAN MEDIS                           TERKOMPUTERISASI                              PENGGUNAAN YANG AMAN              UKUR                         PENONAKTIFAN
+                                                   PERALATAN MEDIS                                             PEMELIHARAAN                          PEMELIHARAAN                      ALAT KESEHATAN                                 KLINIS                     ALAT KESEHATAN
+                                                                                                                                                                                                                                                             SERI TEKNIS ALAT KESEHATAN WHO
+                                                            INVENTARIS                                          PROGRAM                              PENGELOLAAN                   SERI TEKNIS ALAT KESEHATAN WHO                 EFEKTIFITAS
+                                                         PENGELOLAAN                                               RINGKASAN                               SISTEM                                                       SERI TEKNIS ALAT KESEHATAN WHO
+                                                   SERI TEKNIS ALAT KESEHATAN WHO                        SERI TEKNIS ALAT KESEHATAN WHO     SERI TEKNIS ALAT KESEHATAN WHO
+
+
+
+
+      Publikasi tersedia pada Juni 2011
+=== Halaman 3 ===
+Machine Translated by Google
+
+
+
+
+                               Sistem manajemen
+                                      pemeliharaan yang terkomp
+                                       Seri teknis perangkat medis WHO
+=== Halaman 4 ===
+Machine Translated by Google
+
+
+
+
+                             Perpustakaan WHO Mengkatalogkan Data dalam Publikasi
+
+
+                              Sistem manajemen pemeliharaan yang terkomputerisasi.
+
+                              (Seri teknis perangkat medis WHO)
+
+
+                              1.Peralatan dan perlengkapan. 2.Teknik biomedis. 3.Sistem informasi manajemen. 4. Teknologi
+                             biomedis. I.Organisasi Kesehatan Dunia.
+
+                              ISBN 978 92 4 150141 5                                          (Klasifikasi NLM: WX 147)
+
+
+                             © Organisasi Kesehatan Dunia 2011
+                             Seluruh hak cipta. Publikasi Organisasi Kesehatan Dunia dapat diperoleh dari WHO Press,
+                             Organisasi Kesehatan Dunia, 20 Avenue Appia, 1211 Geneva 27, Swiss (tel.: +41 22 791 3264;
+                              faks: +41 22 791 4857; email: bookorders@ siapa.int). Permintaan izin untuk mereproduksi atau
+                             menerjemahkan publikasi WHO – baik untuk dijual atau untuk distribusi nonkomersial – harus
+                             ditujukan kepada WHO Press, di alamat di atas (faks: +41 22 791 4806; email: izin@who.int).
+
+
+
+                             Penunjukan yang digunakan dan penyajian materi dalam publikasi ini tidak mewakili ekspresi
+                              pendapat apa pun dari pihak Organisasi Kesehatan Dunia mengenai status hukum suatu negara,
+                              wilayah, kota atau wilayah atau otoritasnya, atau mengenai penetapan batas-batas atau
+                             perbatasannya. Garis putus-putus pada peta menunjukkan perkiraan garis batas yang mungkin
+                              belum disepakati sepenuhnya.
+
+
+                             Penyebutan perusahaan tertentu atau produk produsen tertentu tidak berarti bahwa perusahaan
+                             tersebut didukung atau direkomendasikan oleh Organisasi Kesehatan Dunia dibandingkan
+                             perusahaan lain yang sejenis yang tidak disebutkan. Kecuali kesalahan dan kelalaian, nama
+                              produk eksklusif dibedakan dengan huruf kapital awal.
+
+
+                             Semua tindakan pencegahan yang wajar telah diambil oleh Organisasi Kesehatan Dunia untuk
+                             memverifikasi informasi yang terkandung dalam publikasi ini. Namun, materi yang dipublikasikan
+                             didistribusikan tanpa jaminan apa pun, baik tersurat maupun tersirat. Tanggung jawab atas
+                             penafsiran dan penggunaan materi ada pada pembaca. Organisasi Kesehatan Dunia tidak
+                             bertanggung jawab atas kerugian yang timbul akibat penggunaannya.
+
+
+
+
+                              Desain & tata letak: L'IV Com Sàrl, Villars-sous-Yens, Swiss.
+
+
+
+   iv     Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 5 ===
+Machine Translated by Google
+
+
+
+
+          Isi
+          Gambar dan tabel                                                                      2
+          Kata pengantar
+                                                                                                3
+                Seri pemeliharaan dan panduan eksternal                                         4
+                Metodologi                                                                      4
+                Definisi                                                                        5
+          Ucapan Terima Kasih                                                                   6
+                Deklarasi Kepentingan                                                           6
+          Akronim dan singkatan                                                                 7
+          Ringkasan bisnis plan                                                                 8
+          1. Perkenalan                                                                         9
+          2 Tujuan                                                                            11
+          3 struktur CMMS                                                                     12
+                3.1 Bidang dan tabel 3.2                                                      12
+                Modul 3.2.1                                                                   12
+                      Modul inventaris peralatan 3.2.2 Modul                                  13
+                      inventarisasi dan manajemen suku cadang 3.2.3 Modul                     14
+                      pemeliharaan 3.2.4 Modul                                                14
+                      manajemen kontrak 3.3 Layar dan laporan                                 15
+                                                                                              16
+          4 Menerapkan CMMS                                                                   17
+             4.1 Evaluasi                                                                     17
+             4.2 Seleksi                                                                      18
+                      4.2.1 Paket komersial 4.2.2 Paket                                       18
+                      sumber terbuka 4.2.3 Paket yang                                         18
+                    dikembangkan secara lokal 4.3                                             18
+                Pengumpulan data 4.4                                                          19
+                Instalasi 4.5                                                                 19
+                Konfigurasi dan penyesuaian 4.6 Entri data                                    20
+                4.7 Pelatihan 4.8                                                             20
+                Tindak lanjut                                                                 20
+                dan pemantauan kinerja 4.9 Dokumentasi dan                                    20
+                pencadangan CMMS                                                              21
+          5 CMMS Jaringan                                                                     22
+          6 Catatan penutup                                                                   23
+          7 Referensi                                                                         24
+          8 Sumber daya yang berguna                                                          25
+          Lampiran A Bidang umum yang termasuk dalam inventaris peralatan medis               26
+          Lampiran B Contoh tangkapan layar CMMS                                              27
+
+
+
+
+                                                                                  Seri teknis perangkat medis WHO   1
+=== Halaman 6 ===
+Machine Translated by Google
+
+
+
+
+                             Lampiran C Tabel spesifikasi vendor                                              28
+
+                             Lampiran D Permintaan proposal dan contoh isi proposal vendor                    31
+
+                             Lampiran E Contoh vendor CMMS                                                    34
+
+                             Lampiran F Contoh penyedia CMMS open source                                      35
+
+                             Lampiran G Rencana perancangan perangkat lunak CMMS                              36
+
+
+
+
+                              Gambar dan tabel
+                              Gambar 1. Diagram alur fungsionalitas CMMS 10
+                             Tabel 1. Tabel yang umum digunakan dan bidang terkait 12
+                              Gambar 2. Tabel infrastruktur modul inventaris peralatan 13
+                              Gambar 3. Bagan alur pengelolaan perintah kerja 15
+                             Tabel 2. Jenis laporan yang dapat dihasilkan dari program CMMS 16
+                              Gambar 4. Diagram alir implementasi CMMS 17
+                             Tabel 3. Kelebihan dan kekurangan paket CMMS yang dikembangkan secara lokal 19
+                             Tabel 4. Solusi penerapan CMMS dan opsi jaringan terkait 22
+
+
+
+
+   2      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 7 ===
+Machine Translated by Google
+
+
+
+
+          Kata pengantar
+
+
+
+
+          Teknologi kesehatan sangat penting untuk berfungsinya sistem kesehatan. Peralatan medis khususnya
+          sangat penting dalam pencegahan, diagnosis, dan pengobatan penyakit, serta rehabilitasi pasien.
+          Menyadari peran penting teknologi kesehatan ini, Majelis Kesehatan Dunia mengadopsi resolusi pada
+          bulan Mei 2007. Resolusi tersebut mencakup isu-isu yang timbul dari penerapan dan penggunaan
+          teknologi kesehatan yang tidak tepat, dan kebutuhan untuk menetapkan prioritas dalam pemilihan dan
+          pengelolaan teknologi kesehatan, khususnya alat kesehatan. Dengan mengadopsi resolusi ini, delegasi
+          dari Negara-negara Anggota mengakui pentingnya teknologi kesehatan untuk mencapai tujuan
+          pembangunan yang berhubungan dengan kesehatan; mendesak perluasan keahlian di bidang teknologi
+          kesehatan, khususnya alat kesehatan; dan meminta agar Organisasi Kesehatan Dunia (WHO)
+          mengambil tindakan khusus untuk mendukung Negara-negara Anggota.
+
+
+
+          Salah satu tujuan strategis WHO adalah “menjamin peningkatan akses, kualitas dan penggunaan produk
+          dan teknologi medis.” Tujuan ini, bersama dengan resolusi Majelis Kesehatan Dunia, menjadi dasar
+          pembentukan Inisiatif Global tentang Teknologi Kesehatan (GIHT), dengan pendanaan dari Bill &
+          Melinda Gates Foundation. GIHT bertujuan untuk menyediakan teknologi kesehatan inti dengan harga
+          terjangkau, khususnya bagi masyarakat di rangkaian terbatas sumber daya, untuk secara efektif
+          mengendalikan masalah kesehatan penting. Ini memiliki dua tujuan khusus:
+
+
+
+            • menantang komunitas internasional untuk menetapkan kerangka kerja bagi pengembangan program
+               teknologi kesehatan penting nasional yang akan berdampak positif terhadap beban penyakit dan
+               memastikan penggunaan sumber daya secara efektif;
+            • untuk menantang komunitas bisnis dan ilmiah untuk mengidentifikasi dan mengadaptasi inovasi
+               teknologi yang dapat memberikan dampak signifikan terhadap kesehatan masyarakat.
+
+
+          Untuk mencapai tujuan ini, WHO dan mitranya telah berupaya merancang agenda, rencana aksi, alat
+          dan pedoman untuk meningkatkan akses terhadap perangkat medis yang tepat. Dokumen ini merupakan
+          bagian dari serangkaian dokumen referensi yang sedang dikembangkan untuk digunakan di tingkat
+          negara. Seri ini akan mencakup bidang studi berikut:
+
+
+            • kerangka kebijakan untuk teknologi kesehatan •
+            peraturan alat kesehatan
+            • pengkajian teknologi kesehatan •
+            manajemen teknologi kesehatan
+              › penilaian kebutuhan peralatan medis
+               › pengadaan alat kesehatan
+               › donasi alat kesehatan › pengelolaan
+               inventaris alat kesehatan
+               › pemeliharaan peralatan medis › sistem
+               manajemen pemeliharaan terkomputerisasi
+            • data perangkat medis
+               › nomenklatur alat kesehatan
+               › alat kesehatan menurut pengaturan layanan
+               kesehatan › alat kesehatan menurut prosedur klinis
+            • inovasi, penelitian dan pengembangan perangkat medis.
+
+
+
+                                                                                                  Seri teknis perangkat medis WHO   3
+=== Halaman 8 ===
+Machine Translated by Google
+
+
+
+
+                             Dokumen-dokumen ini dimaksudkan untuk digunakan oleh para insinyur biomedis, manajer kesehatan,
+                             donor, organisasi non-pemerintah dan lembaga akademis yang terlibat dalam teknologi kesehatan di tingkat
+                             distrik, nasional, regional atau global.
+
+
+
+
+                              Seri pemeliharaan dan panduan eksternal
+
+                             Tiga dokumen dalam seri teknis ini telah dikembangkan secara khusus untuk membantu fasilitas kesehatan
+                             atau kementerian kesehatan nasional dalam membangun atau meningkatkan program pemeliharaan
+                              peralatan medis. Dokumen tersebut membahas manajemen inventaris peralatan medis, pemeliharaan, dan
+                              sistem manajemen pemeliharaan terkomputerisasi.
+                              Masing-masing dokumen ini dapat digunakan sebagai dokumen yang berdiri sendiri, namun secara
+                              keseluruhan dokumen-dokumen tersebut menyajikan seluruh faktor yang perlu dipertimbangkan ketika
+                              mengembangkan program pemeliharaan peralatan medis. Selain itu, serangkaian manual komprehensif
+                              yang terdiri dari enam jilid untuk pengelolaan teknologi perawatan kesehatan, yang dikenal sebagai seri
+                             'Cara Mengelola', tersedia untuk orang-orang yang bekerja, atau membantu, organisasi penyedia layanan
+                             kesehatan di negara-negara berkembang dan tersedia untuk umum.1
+
+
+
+
+                              Metodologi
+
+                             Dokumen-dokumen dalam seri ini ditulis oleh para ahli internasional di bidangnya masing-masing, dan
+                             ditinjau oleh anggota Technical Advisory Group on Health Technology (TAGHT). TAGHT didirikan pada
+                              tahun 2009 untuk menyediakan forum bagi para profesional berpengalaman dan perwakilan negara untuk
+                              mengembangkan dan menerapkan alat dan dokumen yang sesuai untuk memenuhi tujuan GIHT. Kelompok
+                             ini telah bertemu tiga kali. Pertemuan pertama diadakan di Jenewa pada bulan April 2009 untuk
+                             memprioritaskan alat dan topik mana yang paling perlu diperbarui atau dikembangkan. Pertemuan kedua
+                             diadakan di Rio de Janeiro pada bulan November 2009 untuk berbagi kemajuan mengenai alat manajemen
+                             teknologi kesehatan yang sedang dikembangkan sejak April 2009, untuk meninjau tantangan dan strategi
+                              terkini yang dihadapi negara-negara percontohan, dan untuk mengadakan sesi interaktif yang akan
+                             dipresentasikan oleh kelompok tersebut. proposal untuk alat baru, berdasarkan informasi yang dikumpulkan
+                              dari presentasi dan diskusi sebelumnya. Pertemuan terakhir diadakan di Kairo pada bulan Juni 2010 untuk
+                             menyelesaikan dokumen dan membantu negara-negara mengembangkan rencana aksi untuk
+                             implementasinya. Selain pertemuan-pertemuan ini, para ahli dan penasihat telah berkolaborasi melalui
+                             komunitas online untuk memberikan umpan balik mengenai pengembangan dokumen-dokumen tersebut.
+                             Konsep-konsep ini dibahas lebih lanjut pada Forum Global WHO tentang Peralatan Medis yang Pertama
+                             pada bulan September 2010. Para pemangku kepentingan dari 106 negara membuat rekomendasi tentang
+                             bagaimana menerapkan informasi yang tercakup dalam rangkaian dokumen ini di tingkat negara.2
+
+
+
+
+                             Seluruh peserta pertemuan dan orang-orang yang terlibat dalam pengembangan dokumen-dokumen ini
+                             diminta untuk melengkapi formulir pernyataan kepentingan, dan tidak ada konflik yang teridentifikasi.
+
+
+
+
+                              1 Tersedia di http://www.healthpartners-int.co.uk/our_expertise/how_to_manage_series.html
+                             2    Pertama SIAPA   Global                         Perangkat:
+                                                           Forum aktif Medis dan masa depan konteks tindakan, hasil,      tersedia di: http://www.who.int/medical_devices/gfmd_report_fi nal.pdf (diakses
+                                  Maret 2011)
+
+
+
+
+   4      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 9 ===
+Machine Translated by Google
+
+
+
+
+          Definisi
+
+          Menyadari bahwa terdapat berbagai penafsiran terhadap istilah-istilah yang tercantum di bawah ini, maka
+          istilah-istilah tersebut didefinisikan sebagai berikut untuk tujuan seri teknis ini.
+
+
+          Teknologi kesehatan: Penerapan pengetahuan dan keterampilan terorganisir dalam bentuk peralatan, obat-
+          obatan, vaksin, prosedur dan sistem yang dikembangkan untuk memecahkan masalah kesehatan dan
+          meningkatkan kualitas hidup.3 Teknologi ini digunakan secara bergantian dengan teknologi layanan
+          kesehatan.
+
+
+          Alat kesehatan: Suatu benda, instrumen, peralatan atau mesin yang digunakan dalam pencegahan,
+          diagnosis atau pengobatan penyakit atau penyakit, atau untuk mendeteksi, mengukur, memulihkan,
+          memperbaiki atau memodifikasi struktur atau fungsi tubuh untuk tujuan kesehatan tertentu. Biasanya, tujuan
+          suatu alat kesehatan tidak dapat dicapai dengan cara farmakologis, imunologi atau metabolik.4
+
+
+
+
+          Peralatan medis: Peralatan medis yang memerlukan kalibrasi, pemeliharaan, perbaikan, pelatihan pengguna,
+          dan dekomisioning – aktivitas yang biasanya dikelola oleh insinyur klinis.
+          Peralatan medis digunakan untuk tujuan khusus diagnosis dan pengobatan penyakit atau rehabilitasi setelah
+          penyakit atau cedera; dapat digunakan sendiri atau dikombinasikan dengan aksesori, bahan habis pakai,
+          atau peralatan medis lainnya.
+          Peralatan medis tidak termasuk perangkat medis implan, sekali pakai, atau sekali pakai.
+
+
+
+
+          3 Resolusi Majelis Kesehatan Dunia WHA60.29, Mei 2007 (http://www.who.int/medical_devices/resolusi_wha60_29-en1.pdf, diakses Maret 2011).
+          4 Dokumen informasi mengenai pengertian istilah “alat kesehatan”. Gugus Tugas Harmonisasi Global, 2005 (http://www.ghtf.org/documents/sg1/sg1n29r162005.
+             pdf, diakses Maret 2011).
+
+
+
+
+                                                                                                                                                Seri teknis perangkat medis WHO   5
+=== Halaman 10 ===
+Machine Translated by Google
+
+
+
+
+                              Ucapan Terima Kasih
+
+
+                              Sistem manajemen pemeliharaan terkomputerisasi dikembangkan di bawah arahan utama Iyad Mobarek,
+                             Pejabat Teknis, Kantor Negara Organisasi Kesehatan Dunia (WHO), Amman, Yordania dan di bawah
+                              arahan keseluruhan dari Adriana Velazquez-Berumen, WHO, Jenewa, Swiss sebagai bagian dari proyek
+                             Inisiatif Global tentang Teknologi Kesehatan yang didanai oleh Bill & Melinda Gates Foundation.
+
+
+
+                             Draf tersebut ditinjau oleh Matthew Baretich (Baretich Engineering), Jennifer Barragan (WHO), Hashim
+                              El Zein (WHO), Victoria Gerrard (WHO), Adham Ismail (WHO), Joel Nobel (ECRI Institute) dan Frank
+                              Painter (University of Connecticut ), dan diedit oleh Inis Communication.
+
+
+
+                             Terima kasih khusus kepada direktur, kepala departemen dan staf Direktorat Teknik Biomedis di Yordania
+                              atas berbagi data dan dukungan mereka. Terima kasih juga disampaikan kepada seluruh staf administrasi
+                             di Kantor Negara WHO di Yordania, yaitu Miranda Shami, Julinda Kharabsheh, May Khoury, Samia
+                              Nawas, Banan Kharabsheh dan Layan Al Kindi, atas dukungan administratifnya.
+
+
+
+                             Kami mengucapkan terima kasih kepada Aditi A Sharma atas bantuannya dalam mengoreksi dan Karina
+                              Reyes-Moya serta Gudrun Ingolfsdottir atas dukungan administratif selama pengembangan dokumen ini.
+
+
+
+
+                              Deklarasi Kepentingan
+
+                              Pernyataan konflik kepentingan dikumpulkan dari seluruh kontributor dan peninjau pengembangan
+                             dokumen. Tidak ada konflik kepentingan yang diumumkan.
+
+
+
+
+   6      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 11 ===
+Machine Translated by Google
+
+
+
+
+          Akronim dan singkatan
+
+          CMMS         sistem manajemen pemeliharaan yang terkomputerisasi
+          DIA          inspeksi manajemen teknologi
+          HTM          kesehatan/teknologi informasi kesehatan dan pemeliharaan
+          PHT          preventif
+          SIAPA        Organisasi Kesehatan Dunia
+
+
+
+
+                                                                                  Seri teknis perangkat medis WHO   7
+=== Halaman 12 ===
+Machine Translated by Google
+
+
+
+
+                              Ringkasan bisnis plan
+
+
+                             Seiring dengan bertambahnya fasilitas kesehatan dan jumlah peralatan medis yang diandalkan untuk
+                              menyediakan layanan kesehatan berkualitas, kebutuhan untuk mengelola teknologi layanan
+                             kesehatan secara lebih efektif dan efisien menjadi jelas. Sistem manajemen pemeliharaan
+                             terkomputerisasi (CMMS) adalah alat yang dapat meningkatkan manajemen peralatan medis secara
+                             keseluruhan di tingkat fasilitas. Informasi yang disertakan dalam CMMS bervariasi tergantung pada
+                             situasi individu tetapi selalu mencakup inventaris peralatan medis dan biasanya mencakup informasi
+                              seperti riwayat layanan, prosedur pemeliharaan preventif, indikator peralatan dan kinerja, serta
+                             informasi biaya.
+
+
+                             CMMS terdiri dari bidang, tabel, dan modul yang diisi dengan data dari departemen teknik klinis atau
+                             peralatan medis di fasilitas tertentu. Dengan menggunakan CMMS, data penting dapat diakses,
+                             dimanipulasi, dan dianalisis menggunakan antarmuka yang ramah pengguna. Laporan dapat
+                             dihasilkan dari sistem untuk membantu pembuat kebijakan mengambil keputusan terkait teknologi
+                              kesehatan. Namun, penting untuk mempertimbangkan beberapa faktor ketika memutuskan untuk
+                             mengadopsi dan mengembangkan CMMS. Faktor-faktor seperti sumber daya keuangan dan teknis
+                              penting ketika menentukan apakah akan membeli produk komersial, menggunakan perangkat lunak
+                              sumber terbuka, atau mengembangkan sistem secara lokal. Implementasinya memerlukan proses
+                              melalui sejumlah tahapan yang memungkinkan sistem direncanakan secara komprehensif. Dengan
+                             menyelesaikan proses multilangkah ini, opsi penerapan akan dievaluasi secara menyeluruh; paket
+                              yang sesuai akan dipilih, diinstal, dan disesuaikan; data akan dimasukkan; dan pelatihan tentang
+                             CMMS akan diberikan.
+
+
+                              Bagi organisasi yang memiliki sumber daya yang sesuai untuk menerapkan alat ini, CMMS bisa
+                             sangat bermanfaat. Ini adalah alat yang sangat fleksibel yang bila diterapkan dengan benar memiliki
+                             kemampuan untuk mengubah manajemen peralatan medis sekaligus meningkatkan ketersediaan
+                             dan fungsionalitas teknologi yang diperlukan untuk mencegah, mendiagnosis, dan mengobati penyakit.
+
+
+
+
+   8      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 13 ===
+Machine Translated by Google
+
+
+
+
+           1. Perkenalan
+
+          Teknologi memainkan peran penting dalam                 manajer, tidak ada sistem yang tersedia yang
+          penyampaian layanan kesehatan yang efektif.             memberikan solusi lengkap. Namun sebagian besar
+          Pemilihan teknologi medis yang tepat dan                dapat disesuaikan untuk memenuhi kebutuhan spesifik
+          pengorganisasian untuk menjaga teknologi tersebut       fasilitas kesehatan. Alternatifnya, perusahaan TI
+          agar berfungsi dengan baik berada di bawah              dapat dikontrak untuk mengembangkan paket CMMS
+          kewenangan program manajemen teknologi layanan          yang disesuaikan dengan kebutuhan lokal. Paket
+          kesehatan (HTM) (1). HTM seringkali menjadi             CMMS yang disesuaikan umumnya lebih mahal
+          tanggung jawab departemen teknik klinis (atau           namun jika dirancang dan dipelihara dengan baik
+          peralatan medis), yang menguji, memperbaiki dan         sering kali akan menghasilkan solusi yang lebih
+          memelihara peralatan klinis diagnostik dan terapeutik   memuaskan yang memenuhi kebutuhan lokal.
+          untuk memastikan bahwa peralatan tersebut dapat
+          digunakan dengan aman dan efektif (2).
+          Sistem manajemen pemeliharaan terkomputerisasi          CMMS dapat digunakan untuk:
+
+          (CMMS) telah berevolusi untuk memberikan dukungan
+          kepada manajer HTM untuk memelihara peralatan             • melakukan standarisasi dan harmonisasi
+
+          medis dan memantau biaya terkait secara otomatis.             informasi dalam program HTM;
+                                                                    • membantu dalam perencanaan dan pemantauan
+                                                                       inspeksi dan pemeliharaan preventif, serta
+          CMMS adalah paket perangkat lunak yang berisi                menjadwalkan dan melacak perbaikan;
+          database komputer yang berisi informasi tentang
+          operasi pemeliharaan organisasi.                          • memantau indikator kinerja peralatan seperti
+          Di HTM, CMMS digunakan untuk mengotomatisasi                  waktu rata-rata antara kegagalan, waktu henti,
+
+          dokumentasi semua aktivitas yang berkaitan dengan             dan biaya pemeliharaan untuk masing-masing
+          perangkat medis, termasuk perencanaan peralatan,              atau kelompok peralatan dengan model, tipe,
+
+          manajemen inventaris, prosedur pemeliharaan                  atau pabrikan yang sama;
+          korektif dan preventif, pengendalian suku cadang,
+          kontrak servis, serta penarikan dan peringatan            • memantau indikator kinerja staf teknik klinis seperti
+          perangkat medis. Data yang dikumpulkan dapat                  perbaikan berulang kali oleh anggota staf yang
+          dianalisis dan digunakan untuk manajemen teknologi,           sama untuk masalah yang sama, waktu henti
+          jaminan kualitas, pengendalian perintah kerja, dan            rata-rata yang terkait dengan individu, dan
+          penganggaran peralatan medis (3).                            waktu kerja produktif untuk individu atau
+                                                                        kelompok;
+
+
+          Keputusan untuk mengotomatisasi sistem HTM atau           • menghasilkan laporan yang dapat digunakan
+          mengganti CMMS yang ada bergantung pada kondisi              untuk merencanakan program pelatihan
+          masing-masing fasilitas kesehatan, termasuk prosedur          pengguna berdasarkan tren kegagalan peralatan
+          kerja, infrastruktur teknologi informasi (TI) dan             di departemen atau fasilitas kesehatan tertentu;
+          anggaran yang tersedia. Agar dapat membantu
+          pengelolaan dan pemeliharaan peralatan medis              • menampung perpustakaan mengenai persyaratan
+          secara efektif, CMMS harus memenuhi kebutuhan                 peraturan dan informasi keselamatan;
+          pengguna secara komprehensif. Meskipun vendor             • menghasilkan dokumentasi yang sesuai untuk
+          besar berupaya mengembangkan sistem yang secara              akreditasi oleh organisasi pengatur dan standar;
+          universal memenuhi kebutuhan semua HTM
+                                                                    • menghasilkan laporan untuk membantu
+                                                                        pemantauan dan perbaikan
+
+
+
+
+                                                                                                          Seri teknis perangkat medis WHO   9
+=== Halaman 14 ===
+Machine Translated by Google
+
+
+
+
+                                     produktivitas, efektivitas dan kinerja HTM.                 Gambar 1 menyajikan diagram alur fungsionalitas
+                                     Contoh laporan ini meliputi:                                CMMS. CMMS, baik komersial atau khusus,
+                                                                                                 dapat digunakan oleh insinyur klinis sebagai alat
+                                     › persentase biaya pemeliharaan                             untuk melengkapi program HTM mereka saat ini
+                                         dibandingkan dengan total biaya peralatan               dan membantu mereka memenuhi tujuan khusus
+                                         dalam persediaan;                                       departemen mereka. Penerapan CMMS yang baik
+                                     › kepatuhan terhadap program inspeksi dan                   secara efektif akan meningkatkan pelayanan
+                                         pemeliharaan preventif;                                 pasien melalui manajemen dan pemeliharaan
+                                                                                                 peralatan medis yang efisien untuk memastikan
+                                     › berarti jam kerja produktif;                              fungsinya dapat diandalkan.
+                                     › identifikasi peralatan medis yang terkena
+                                         dampak bahaya dan peringatan penarikan kembali.
+
+
+
+
+                    Gambar 1. Diagram alur fungsionalitas CMMS
+
+
+
+
+                               Adopsi CMMS
+
+                     Seleksi/pengembangan CMMS
+                     Input dan pengujian data awal
+                     Input dan implementasi data akhir
+
+
+
+
+                             Penerimaan peralatan
+
+                        Pengiriman dan pemasangan
+                        Penerimaan
+                        Pelatihan (layanan dan pengoperasian)
+
+
+
+
+                             Pengoperasian peralatan
+
+
+
+
+                                                                               Evaluasi (waktu henti dan biaya dukungan)
+
+                                                                            Kinerja peralatan                                              Penonaktifan
+                        Layanan garansi (jika tersedia)                    Kinerja pemasok/produsen                                   atau penggantian
+                                                                            Memberikan rekomendasi (pengadaan,                            peralatan
+                        Pemeliharaan
+                                                                           dekomisioning, donasi, dll.)
+                        Pemantauan waktu henti
+                         Evaluasi dukungan lokal
+
+
+
+
+                     Kontrak layanan/dukungan internal
+                                                                                         Kontrol kualitas (QC)
+                Pemeliharaan
+                Pemantauan waktu henti                                              Indikator kinerja
+                Manajemen suku cadang                                               QC teknis dan administratif
+                Kinerja peralatan dan pemasok
+
+
+
+
+   10     Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 15 ===
+Machine Translated by Google
+
+
+
+
+          2 Tujuan
+
+          Tujuan dari dokumen ini adalah untuk menyediakan   item. Pembaca akan mendapatkan pemahaman
+          alat untuk memandu pekerja layanan kesehatan,      tentang komponen CMMS dan cara memilih atau
+          khususnya insinyur biomedis dan klinis, dalam      mengembangkan sistem yang paling sesuai dengan
+          mengadopsi dan menerapkan metode komputerisasi     kebutuhannya. Manajer tingkat tinggi dan pembuat
+          dalam mengelola sistem pemeliharaan mereka. Hal    kebijakan mungkin ingin membaca dokumen ini untuk
+          ini secara khusus ditujukan bagi mereka yang       meningkatkan pemahaman mereka tentang
+          memiliki sumber daya teknis dan keuangan untuk     pengelolaan peralatan medis dan memungkinkan
+          mendukung sistem tersebut.                         pengambilan keputusan yang tepat. pengambilan keputusan-ma.
+
+
+
+
+                                                                                                 Seri teknis perangkat medis WHO   11
+=== Halaman 16 ===
+Machine Translated by Google
+
+
+
+
+                              3 Struktur CMMS
+
+                             Paket CMMS mengintegrasikan semua layanan            Tabel yang umum digunakan beserta bidang
+                             peralatan medis ke dalam database yang terdiri       terkaitnya ditunjukkan pada Tabel 1.
+                              dari bidang, tabel, modul, dan layar. Bagian
+                             berikut memberikan pengenalan singkat tentang        Tabel 1. Tabel yang umum digunakan dan bidang terkait
+
+                              struktur dasar ini, yang dapat digunakan oleh
+                             manajer HTM untuk membantu memilih atau               Meja                  Bidang
+                             mengembangkan sistem yang sesuai dengan
+                                                                                   Tipe peralatan          • Tipe peralatan
+                             kebutuhan mereka.
+                                                                                                           • Inspeksi dan preventif
+                                                                                                               prosedur pemeliharaan (IPM).
+                                                                                                           • frekuensi PHT
+                                                                                                           • Tingkat risiko
+                              3.1 Bidang dan tabel
+                                                                                                           • Staf yang bertanggung jawab
+
+
+                                                                                   Model                   • Nomor model
+                             Bidang adalah satu informasi, misalnya 'nomor         peralatan               • Nomor seri
+                             seri peralatan'.                                                              • Daftar bagian
+                                                                                                           • Kode dan nama bagian
+                             Tabel adalah kumpulan bidang yang terkait,
+                                                                                                           • Prosedur PHT
+                             misalnya tabel lokasi peralatan dapat terdiri dari
+                                                                                   Pabrikan/               • Kode dan nama pabrikan
+                              bidang 'gedung', 'departemen, dan' ruangan'
+                                                                                   penjual                 • Kode dan nama penjual
+                              tempat peralatan disimpan.
+                                                                                                           • Email produsen, telepon dan alamat
+
+
+                                                                                                           • Email penjual, telepon dan alamat
+                                                                                                           • Nama kontak produsen
+                             Untuk menghindari teks deskriptif yang panjang,
+                                                                                                           • Nama kontak penjual
+                             ada gunanya mengembangkan sistem pengkodean
+                                                                                   Toko/suku cadang        • Kode dan nama toko
+                             yang komprehensif, konsisten dan sederhana                                    • Kode dan nama bagian
+                             untuk berbagai aktivitas database. Sebuah kode                                • Nomor pesanan suku cadang
+
+                              tunggal adalah sebuah field, dan kumpulan field      Staf                    • Kode karyawan
+                             dapat diorganisasikan ke dalam tabel. Pengkodean                              • Nama karyawan
+
+                              tabel dapat dikembangkan untuk inventaris                                    • Posisi karyawan
+                                                                                                           • Tingkat akses
+                              peralatan, personel, prosedur pemeliharaan, dan
+                                                                                                           • Detail pelatihan
+                             lokasi peralatan. Paket CMMS komersial biasanya
+                                                                                   Pemeliharaan            • Nomor inventaris
+                              memiliki seperangkat kode generik yang dapat                                 • Nomor perintah kerja
+                             disesuaikan atau disesuaikan dengan kebutuhan                                 • Penyedia layanan
+
+                             fasilitas kesehatan. Untuk pengkodean 'jenis                                  • Kode teknisi servis
+                                                                                                           • Kode dan nama kesalahan
+                             peralatan', nomenklatur standar seperti Sistem
+                                                                                                           • Prosedur PHT
+                             Nomenklatur Alat Kesehatan Universal dan Sistem
+                                                                                   Fasilitas kesehatan    • Kode dan nama fasilitas
+                             Nomenklatur Alat Medis Global harus
+                                                                                                          • Kode dan nama bangunan
+                              dipertimbangkan. Penerapan nomenklatur yang                                 • Kode dan nama departemen
+                              tepat juga dapat memfasilitasi pengelolaan                                  • Jenis fasilitas
+
+                             laporan peringatan dan kewaspadaan.
+
+
+
+                                                                                  3.2 Modul
+
+                             Lampiran A memberikan daftar bidang yang             Modul adalah kumpulan tabel dan layar data.
+                             umumnya disertakan dalam inventaris CMMS             Modul inventaris, misalnya, terdiri dari 'peralatan
+                             untuk manajemen teknologi kesehatan.
+
+
+
+
+   12     Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 17 ===
+Machine Translated by Google
+
+
+
+
+          tipe' tabel, tabel 'informasi pabrikan' dan tabel                                                    untuk menggunakan nilai default yang disimpan
+          'lokasi peralatan'.                                                                                   untuk membuat catatan inventaris peralatan baru,
+          Bagian berikut menjelaskan modul dasar paket                                                          karena hal ini mengurangi waktu masuk dan
+          CMMS.                                                                                                 menghindari kesalahan manusia. Misalnya, tabel
+                                                                                                                yang berisi informasi tentang jenis peralatan
+          3.2.1 Modul inventaris peralatan1                                                                    mencakup nilai yang disimpan sebelumnya seperti
+          Modul inventaris adalah inti dari setiap CMMS dan                                                    prosedur inspeksi dan pemeliharaan preventif
+          yang pertama dibangun. Oleh karena itu sangat                                                         (IPM) yang relevan, tingkat risiko, dan staf yang
+          penting untuk mencakup semua bidang yang                                                              bertanggung jawab untuk setiap jenis peralatan
+          diperlukan untuk HTM yang efektif. Ketika                                                             medis. Oleh karena itu, Anda hanya perlu
+          peralatan baru ditambahkan ke inventaris,                                                             memasukkan kode peralatan dari peralatan baru
+          peralatan tersebut didaftarkan dalam database                                                         ke dalam tabel peralatan dan semua nilai yang
+          CMMS melalui entri data                                                                              disimpan sebelumnya yang terkait dengan kode
+          layar.                                                                                               ini akan ditambahkan ke inventaris. Demikian
+                                                                                                               pula, area lainnya masing-masing menggambarkan
+          Gambar 2 menyajikan tabel infrastruktur dasar                                                        nilai default yang terkait dengan model peralatan,
+          untuk modul inventaris peralatan. Pada gambar                                                         lokasi peralatan medis, dan nomor inventaris. Hal
+          ini terdapat tiga tabel yang memberikan informasi                                                     ini memungkinkan modul dibangun dengan
+          pada daftar inventaris akhir. Ini adalah praktik                                                      efisiensi maksimum dan menjaga integritas data
+          umum                                                                                                  (3). Meskipun merupakan investasi waktu awal
+
+
+          1 Silakan lihat seri teknis Pengantar medis untuk inventaris peralatan
+                                                 manajemen                                 di dalam
+
+              untuk rincian lebih lanjut tentang pengembangan inventaris.
+
+
+
+
+          Gambar 2. Tabel infrastruktur untuk modul inventaris peralatan
+
+
+
+
+                                                                                         Tabel model peralatan
+                                                                                                                                           Tabel lokasi peralatan
+                                                                                                  Nilai yang dimasukkan
+                   Tabel jenis peralatan
+                                                                                                                                                   Nilai yang dimasukkan
+                                                                                         Nama dan kode pabrikan
+                             Nilai yang dimasukkan
+
+                                                                                           Nomor model peralatan
+                                                                                                                                               Nama dan kode fasilitas
+                   Kode dan nama peralatan
+                                                                                                                                                     Kode gedung
+
+                                                                                                                                             Nama dan kode departemen
+
+
+                                                                                                      Nilai yang tersimpan
+                              Nilai yang tersimpan
+
+
+                                                                                               Tanggung jawab keselamatan                          Nilai yang tersimpan
+                              prosedur PHT                                                                 Daftar bagian
+
+                               frekuensi PHT                                            Nama dan kode staf terlatih                            Membangun nilai default
+                                    Tingkat risiko
+                                                                                                                                                  Operator terlatih
+                             Staf yang bertanggung jawab
+                                                                                                                                                Kode toko periferal
+
+
+
+
+                                                                                                  Nilai yang dimasukkan
+
+
+
+                                                                                     Nomor inventaris (dibuat secara otomatis)
+                                                                                                      Tanggal instalasi
+
+                                                                                              Kode dan nama penjual
+
+                                                                                            Aksesori dan perangkat lunak
+
+                                                                                   Nomor pesanan pembelian (harga pembelian)
+
+
+
+                                                                                     Modul inventaris peralatan
+
+
+                                                                                                                                                       Seri teknis perangkat medis WHO   13
+=== Halaman 18 ===
+Machine Translated by Google
+
+
+
+
+                              diperlukan untuk membuat tabel pengkodean             Beberapa paket CMMS menyediakan operasi
+                              sebelum data inventaris dapat ditambahkan,            otomatis penuh yang mencakup semua fase
+                             penghematan waktu dan kesalahan jangka                 manajemen suku cadang mulai dari pengadaan
+                             panjang tidak signifikan.                              hingga pengiriman, pengujian penerimaan, dan
+                                                                                    penggunaan.
+                             3.2.2 Modul inventaris dan
+                             manajemen suku cadang                                  3.2.3 Modul pemeliharaan2
+                             Modul manajemen suku cadang merupakan                  Modul pemeliharaan membantu pengguna
+                              perpanjangan dari modul inventaris yang melacak       program CMMS untuk mengatur jadwal
+                             suku cadang yang terkait dengan peralatan dan          pemeliharaan mereka secara efektif.
+                             membantu menjaga tingkat stok.                         Gambar 3 memberikan gambaran bagaimana
+                                                                                    CMMS terintegrasi dengan sistem pemeliharaan
+                                                                                    standar di rumah sakit.
+                             Suku cadang yang tersedia mencakup suku                Seperti yang ditunjukkan pada gambar ini, CMMS
+                              cadang umum untuk sejumlah peralatan berbeda          dapat digunakan untuk pemeliharaan preventif
+                             seperti sekering, kabel, baterai, dan komponen         terencana dan pemeliharaan korektif.
+                             elektronik dasar, serta suku cadang yang lebih
+                             spesifik untuk model tertentu seperti papan sirkuit,
+                              catu daya, X -tabung sinar dan probe ultra-suara.     Pemeliharaan preventif yang direncanakan
+                              Bidang dalam inventaris suku cadang mungkin           Dengan masukan yang sesuai, sistem komputer
+                             mencakup:                                              dapat menghitung kapan suatu peralatan
+                                                                                    memerlukan pemeliharaan dan memberi saran
+                                                                                    suku cadang mana yang mungkin perlu dipesan
+                                • deskripsi bagian (nama);                          dan kapan. Paket juga dapat memantau proses
+                                • nomor stok (persediaan);                          pemeliharaan dan mencatat ketika sudah selesai.
+                                • nama pabrikan, nomor seri dan nomor               Bidang yang diperlukan untuk modul ini mungkin
+                                     komponen;                                      mencakup:
+                                • hubungan ke model peralatan;
+                                • tingkat stok minimum;                                • prosedur inspeksi dan pemeliharaan preventif
+                                • tingkat stok saat ini;                                      khusus peralatan;
+                                • lokasi penyimpanan sebagian;                         • jadwal inspeksi dan pemeliharaan preventif
+                                • harga dan tanggal pembelian.                                khusus peralatan;
+                                                                                       • frekuensi kesalahan peralatan;
+                              Tergantung pada kematangan sistem, data ini              • perkiraan jam pengoperasian peralatan.
+                             dapat dimasukkan secara manual atau dengan
+                             memindai kode batang tertentu, yang mengisi            Pemeliharaan korektif
+                             kolom yang sesuai dalam database. Data dapat           Ketika pengguna peralatan melaporkan masalah
+                             digunakan untuk menghasilkan layar yang:               pada suatu peralatan, departemen teknik klinis
+                                                                                    dapat mencatat kesalahan dalam sistem CMMS.
+                                                                                    Program ini secara otomatis akan menghasilkan
+                                • mengingatkan pengguna mengenai tingkat stok       perintah kerja dan memungkinkan manajer sistem
+                                    minimum untuk suku cadang tertentu;             untuk menugaskan seorang insinyur untuk
+                                • membuat laporan mengenai frekuensi                pekerjaan tersebut. Program CMMS dapat
+                                    penggantian suku cadang, yang dapat             memberikan informasi mengenai beban kerja,
+                                     membantu memperkirakan jadwal                  pelatihan dan keahlian masing-masing insinyur
+                                    pemeliharaan dan tingkat stok di masa depan;    untuk membantu pengambilan keputusan ini. Jika
+                                • membuat daftar semua suku cadang yang             evaluasi awal terhadap kesalahan mengidentifikasi
+                                     diperlukan untuk peralatan tertentu;           bahwa komponen tertentu diperlukan
+                                • laporan konsumsi barang bekas
+                                     bagian.                                        2 Silakan lihat seriIkhtisar
+                                                                                                         teknis ini untuk informasi
+                                                                                                                 program            lebihperalatan
+                                                                                                                           pemeliharaan  lanjut tentang
+                                                                                                                                                   medisperencanaan, pengelolaan,
+
+                                                                                        dan pelaksanaan pemeliharaan.
+
+
+
+
+   14     Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 19 ===
+Machine Translated by Google
+
+
+
+
+         Gambar 3. Diagram alir pengelolaan perintah kerja
+
+
+
+
+                                                                                             Departemen Teknik Klinis.
+                                                      Kesalahan peralatan
+                                                                                                  pemberitahuan ed
+
+
+
+
+                                                                                                Kesalahan peralatan
+
+                                                                                                dicatat di CMMS
+
+
+
+
+                                                                                                                                            Inventaris
+
+                  CMMS                                      jadwal PHT                      Perintah kerja dibuat
+
+
+
+
+                                                                                                                                      Sejarah peralatan
+                                                                                                                                                                        Sistem pelaporan
+                                                         prosedur PHT                                                                         layar
+
+
+                                                                                            Manajer perintah kerja
+
+                                                     Perintah kerja yang tertunda
+
+                                                       (IPM atau korektif)
+                                                                                                                                      Perintah kerja ditutup
+
+
+                              Manajer pemesanan
+                                                                                                  Tetapkan penyedia
+                                  suku cadang
+                                                                                                      layanan
+                                                                                                                                                      Ya
+
+
+
+
+                                                                                                                              TIDAK
+                                                  Bagian yang diperlukan untuk
+                                                                                                                                       Pekerjaan Selesai?
+           Manajer toko                             menyelesaikan pekerjaan?        TIDAK
+
+
+
+
+                                                       Ya                                                                Ya
+                                                                                               Suku cadang tersedia?                      Eksekusi pekerjaan
+
+
+            Bagian diterima
+                                                                                                   TIDAK
+
+
+
+
+          untuk menyelesaikan pekerjaan, sistem                                                 monitor adalah biaya dan kinerja vendor dan
+          komputerisasi dapat mencatatnya dan memberikan                                        peralatan.
+          informasi pemesanan yang sesuai tentang bagian
+          tersebut. Ketika pekerjaan selesai status peralatan                                    Jika peralatan medis berada di bawah kontrak,
+          dapat login dalam sistem.                                                             baik melalui garansi, kontrak layanan
+                                                                                                 komprehensif, atau kontrak layanan dukungan
+                                                                                                parsial, vendor wajib memberikan dukungan
+          Baik preventif maupun korektif, tingkat prioritas                                     teknis pada peralatan tersebut selama jangka
+          pemeliharaan yang harus dilakukan dapat                                               waktu yang disepakati.
+          ditetapkan dengan mengacu pada risiko peralatan,                                      Program CMMS dapat secara otomatis
+          nilai strategis bagi fasilitas kesehatan, dan                                         menghasilkan peringatan yang ditujukan kepada
+          ketersediaan peralatan cadangan. Selain itu,                                          vendor ketika sebuah peralatan dicatat sebagai
+          formulir perintah kerja pemeliharaan dapat                                            peralatan yang rusak atau dijadwalkan untuk
+          dibuat dalam format elektronik atau kertas untuk                                       inspeksi dan pemeliharaan preventif. Persyaratan
+          memuat prosedur pemeliharaan relevan yang                                             dan biaya terkait kontrak apa pun harus disimpan
+          diperlukan untuk menyelesaikan perintah kerja                                         dalam sistem untuk referensi.
+          (3,4).
+                                                                                                 Jika memungkinkan, menghubungkan program
+          3.2.4 Modul manajemen kontrak                                                         CMMS dengan sistem TI departemen akuntansi
+          Modul manajemen kontrak digunakan untuk                                                akan berguna. Seluruh pembayaran kepada
+          melacak semua layanan pemeliharaan yang                                               vendor eksternal kemudian dapat disetujui secara
+          disediakan secara eksternal. Faktor utama untuk                                       elektronik melalui bagian keuangan utama
+
+
+
+
+                                                                                                                                                  Seri teknis perangkat medis WHO          15
+=== Halaman 20 ===
+Machine Translated by Google
+
+
+
+
+                              sistem TI institusi kesehatan. Jika hal ini tidak                                      berkaitan dengan pengelolaan peralatan medis. Hal
+                              memungkinkan, formulir persetujuan untuk                                               ini membantu manajer untuk mengevaluasi kinerja
+                              berkomunikasi dengan departemen akuntansi dapat                                        keseluruhan sistem HTM mereka. Lampiran B
+                             dicetak dari CMMS.                                                                      menyajikan tangkapan layar dari perangkat lunak
+                                                                                                                     CMMS pada umumnya, termasuk layar riwayat
+                                                                                                                     peralatan.
+                              3.3 Layar dan laporan
+                                                                                                                     Seperti fungsi CMMS lainnya, laporan yang
+                             Layar memungkinkan pengguna untuk menambah,                                             dihasilkan dapat berupa standar yang telah
+                             mengumpulkan, dan menganalisis data dari pilihan                                        ditentukan sebelumnya atau disesuaikan untuk
+                             bidang, tabel, dan modul melalui antarmuka yang                                         aplikasi atau penggunaan tertentu. Antarmuka yang
+                              ramah pengguna. Misalnya, layar 'riwayat peralatan'                                    mudah digunakan memungkinkan pengguna memilih
+                              adalah kumpulan data dari berbagai modul yang                                          informasi yang ingin mereka ekstrak dan analisis
+                             merangkum aktivitas HTM terkait peralatan tertentu.                                     dari database. Data yang dihasilkan dapat diekspor
+                             Ini adalah fitur utama CMMS dan mencakup informasi                                      ke program lain untuk evaluasi atau presentasi lebih
+                             seperti rincian inventaris, aktivitas layanan, rincian                                  lanjut, seperti Excel, Access dan Fox Pro.
+                              perintah kerja, suku cadang yang digunakan dan
+                             biaya terkait, serta informasi penarikan kembali.
+
+
+                                                                                                                     Contoh jenis laporan yang dapat dihasilkan oleh
+                             Layar dapat digunakan untuk menghasilkan laporan                                        CMMS diuraikan pada Tabel 2.
+                             yang akan membantu dalam memantau kegiatan
+
+
+
+
+                             Tabel 2. Jenis laporan yang dapat dihasilkan dari program CMMS
+
+
+
+
+                               Tipe laporan             Contoh
+                               Daftar                   • Daftar peralatan menurut fasilitas kesehatan, departemen atau pabrik
+
+                                                        • Daftar kesalahan yang disebabkan oleh operator di departemen atau fasilitas kesehatan tertentu
+
+                                                        • Daftar perintah kerja yang diselesaikan oleh personel teknik klinis tertentu
+
+                                                        • Daftar seluruh stok yang diterima dalam sebulan terakhir
+
+                               Ringkasan                • Laporan khusus peralatan untuk memantau pekerjaan yang dilakukan pada suatu peralatan, mencatat waktu henti yang
+
+                                                            dialami, dan menilai ketersediaan umum perangkat
+
+                                                        • Laporan Dashboard, yang memberikan gambaran bagaimana program HTM berjalan. Informasi
+
+                                                            yang disajikan mungkin mencakup indikator kinerja utama seperti waktu rata-rata antara kegagalan, waktu henti, dan waktu
+
+                                                            respons
+
+                              Aktivitas                 • Kegiatan pemeliharaan fasilitas atau departemen kesehatan tertentu
+
+                                                        • Kegiatan pemeliharaan peralatan tertentu
+
+                              Alur kerja                • Perintah kerja pemeliharaan korektif
+
+                                                        • Jadwal pemeliharaan preventif yang direncanakan
+
+                                                        • Aktivitas staf individu sehubungan dengan perintah kerja yang perlu diselesaikan
+
+                                                        • Inspeksi yang akan datang, penggantian suku cadang, peningkatan, dll.
+
+                               Sumber daya manusia      • Jam kerja staf tahunan/bulanan
+
+                                                        • Waktu respons staf terhadap perintah kerja dan waktu yang dibutuhkan untuk mendiagnosis kesalahan
+
+                                                        • Rincian penyedia layanan dan jam kerja
+
+                               Keuangan                 • Biaya siklus hidup peralatan
+
+                                                        • Rasio biaya pelayanan, yaitu biaya pemeliharaan terhadap nilai peralatan
+
+                               Peraturan                • Ringkasan penarikan alat kesehatan
+
+                                                        • Informasi terkait kegagalan peralatan dan laporan kejadian buruk
+
+
+
+
+   16     Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 21 ===
+Machine Translated by Google
+
+
+
+
+          4 Menerapkan CMMS
+
+          Staf teknik klinis harus dilibatkan dalam       mengenai fungsi sistem, dan data yang
+          keseluruhan proses perencanaan dan              diperlukan untuk memenuhi fungsi ini
+          implementasi CMMS. Gambar 4 merangkum           diidentifikasi (3,4,7). Analisis ini dapat
+          proses tujuh langkah dasar untuk                digunakan untuk mengembangkan spesifikasi
+          mengimplementasikan CMMS.                       teknis yang jelas untuk CMMS yang
+                                                          mencakup semua fitur wajib dan opsional.
+                                                          Faktor-faktor lain yang perlu dipertimbangkan
+          4.1 Evaluasi                                    pada tahap ini mungkin mencakup
+                                                          infrastruktur TI yang ada saat ini, struktur
+          Penting untuk melakukan studi kelayakan         sistem HTM yang ada, tingkat keterampilan
+          untuk mengevaluasi dan menilai kebutuhan        staf, jumlah fasilitas kesehatan yang akan
+          CMMS. Selama fase ini, analisis lengkap         menggunakan sistem tersebut, dan tingkat
+          dilakukan dan ruang lingkup sistem              penerimaan staf (3). Hal ini juga berguna
+          ditentukan. Keputusan dibuat                    untuk mengidentifikasi hambatan apa pun dalam penerapan sistem yang mu
+
+
+
+
+          Gambar 4. Diagram alir implementasi CMMS
+
+
+
+                                                          Fase 1
+
+                                                          Evaluasi
+
+
+                                                                                           Fase 2
+
+                                                                                           Pilihan
+                             Fase 7
+
+
+                              Pelatihan
+
+
+
+
+                                                                                                           Fase 3
+
+                                                                                                        Pengumpulan data
+
+
+
+
+                            Fase 6
+
+
+                           Entri Data
+
+
+                                                                                         Fase 4
+
+                                                                                         Instalasi
+                                                          Fase 5
+
+
+                                                      Konfigurasi dan
+                                                       penyesuaian
+
+
+
+
+                                                                                           Seri teknis perangkat medis WHO   17
+=== Halaman 22 ===
+Machine Translated by Google
+
+
+
+
+                             4.2 Seleksi
+
+                             Program HTM dapat berkisar dari tanpa kertas              biaya harus diperhitungkan, seperti biaya lisensi
+                             hingga sepenuhnya otomatis menggunakan                    tahunan, biaya penyimpanan data tambahan,
+                              CMMS. Oleh karena itu, jumlah fitur dalam CMMS           biaya peningkatan, biaya kata sandi, dan biaya
+                             dapat bervariasi dan pemilihan fitur tersebut akan        dukungan teknis. Baik dibuat khusus atau dibeli
+                             didasarkan pada kebutuhan pengguna, yang                  secara komersial, tanggung jawab vendor selama
+                              mungkin ingin mengotomatisasi sistem manajemen           seluruh fase penerapan CMMS harus didefinisikan
+                             secara penuh atau mungkin hanya sebagian.                 dan didokumentasikan dengan jelas.
+                              Setelah spesifikasi suatu sistem telah diidentifikasi,
+                             paket yang sesuai dapat dipilih. Produk ini               Lampiran D memberikan contoh konten untuk
+                             mungkin tersedia secara komersial, disesuaikan            permintaan proposal dan proposal vendor. Daftar
+                              dengan kebutuhan fasilitas kesehatan, atau               lengkap vendor CMMS tersedia di Lampiran E.
+                             dirancang khusus untuk pengguna.
+
+
+                                                                                       4.2.2 Paket sumber terbuka
+                             4.2.1 Paket komersial                                     Ada sejumlah paket CMMS open source yang
+                             Ada beberapa paket CMMS komersial di pasaran,             dikembangkan oleh institusi atau personel
+                             yang menawarkan berbagai fitur. Kebanyakan                berbeda. Lampiran F menyediakan daftar paket
+                             CMMS komersial menyertakan opsi asisten digital           CMMS tersebut dan situs webnya. Tantangan
+                             pribadi dan pemindai kode batang untuk                    umum CMMS open source adalah kurangnya
+                             memungkinkan otomatisasi penuh pada sistem                dukungan teknis dan pembaruan serta biaya
+                             HTM.                                                      dukungan teknis yang tersembunyi.
+                              Sistem identifikasi frekuensi radio juga menjadi
+                             lebih populer dan mungkin akan segera menjadi
+                             bagian dari paket CMMS pada umumnya.                      4.2.3 Paket yang dikembangkan secara lokal
+                              Oleh karena itu penting untuk memastikan                 Jika tidak ada paket komersial yang memenuhi
+                              program ini cukup fleksibel untuk mengakomodasi          kebutuhan pengguna, CMMS dapat dikembangkan
+                             kebutuhan spesifik departemen teknik klinis di            secara lokal oleh tim pengembangan perangkat
+                             mana program tersebut akan digunakan. Memilih             lunak internal atau dengan kontraktor. Jika
+                              paket CMMS yang kaku dan memaksa pengguna                keputusan diambil dengan tim internal, penting
+                              untuk mengubah alur kerja yang ada secara                untuk diketahui bahwa tim profesional akan
+                             signifikan akan memberikan hasil yang buruk.              bertanggung jawab untuk menentukan
+                             Oleh karena itu adalah bijaksana untuk                    persyaratan aplikasi, pengujian, dan pada
+                              membandingkan prosedur HTM saat ini dengan               akhirnya memelihara dan memperbarui perangkat
+                              prosedur CMMS yang sedang dipertimbangkan.               lunak. Jika dukungan tersebut tidak tersedia
+                              Lampiran C menyediakan tabel spesifikasi vendor          dalam jangka panjang, lebih baik mempertimbangkan
+                             yang dapat digunakan untuk memandu proses                 kontraktor eksternal atau produk komersial.
+                              seleksi.                                                 Dalam kedua kasus tersebut, selama
+                              Selain spesifikasi ini, penting untuk                    pengembangan, sejumlah besar waktu staf
+                              mempertimbangkan reputasi dan pengalaman                 diperlukan untuk merancang dan menguji sistem.
+                             vendor dalam otomatisasi program HTM dan                  Pekerjaan tambahan apa pun yang diharapkan
+                              jumlah fasilitas kesehatan yang akan menggunakan         dari staf harus direncanakan sehubungan dengan
+                             CMMS.                                                     aktivitas kerja normal mereka. Setelah dirancang,
+                                                                                       institusi harus memastikan bahwa kode sumber
+                             Biaya akhir dan total CMMS merupakan faktor               diperbarui dan disimpan dengan aman.
+                             penting ketika memilih CMMS.
+                              Selain biaya awal, tersembunyi
+
+
+
+
+   18     Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 23 ===
+Machine Translated by Google
+
+
+
+
+          Untuk mendapatkan manfaat dari pengalaman                                               dan ketika modifikasi besar-besaran pada HTM
+          orang lain, tinjauan literatur tentang CMMS yang                                        diperlukan untuk menerapkan sistem komersial.
+          diproduksi secara lokal dan komersial sebaiknya
+          dilakukan sebelum mengembangkan paket secara
+          lokal (3). Lampiran G menyajikan usulan urutan
+          langkah-langkah desain perangkat lunak untuk                                            4.3 Pengumpulan data
+          pengembangan lokal CMMS. Setelah desain dasar
+          selesai, prosedur otomatis dioperasikan dengan                                          Survei komprehensif dan analisis terhadap semua
+          data pengujian dan keseluruhan desain diperbaiki                                        data yang tersedia harus dilakukan sebelum
+          berdasarkan umpan balik yang diperoleh dari                                             menerapkan CMMS. Informasi ini mungkin sudah
+          pengguna sistem. Proses ini diulangi untuk semua                                        tersedia di fasilitas kesehatan, namun ada juga
+          aktivitas; setelah semua aktivitas diotomatisasi,                                       yang perlu dikumpulkan dari sumber lain.
+          sistem yang lengkap dimasukkan ke dalam
+          pengujian operasional sampai semua pernyataan
+          telah dipertimbangkan dan semua masalah
+          terpecahkan.                                                                            4.4 Instalasi
+
+                                                                                                  Sebelum menginstal sistem, ditunjuk seorang
+          Keuntungan dan kerugian pengembangan CMMS                                               administrator sistem yang bertanggung jawab atas
+          secara lokal diuraikan pada Tabel 3.                                                    pemeliharaan teknis sistem dan mengelola
+                                                                                                  keamanan data.
+
+
+          Secara umum, keputusan untuk mengembangkan lokal
+          CMMS dibenarkan hanya jika paket komersial                                              CMMS dapat diimplementasikan sebagai sistem
+          tidak memenuhi persyaratan spesifik institusi                                           yang lengkap, berdasarkan modul individual,
+          layanan kesehatan                                                                       berdasarkan jenis peralatan, atau berdasarkan lokasi. Ini
+
+
+
+
+          Tabel 3. Kelebihan dan kekurangan paket CMMS yang dikembangkan secara lokal
+
+
+
+
+           Keuntungan                                                            Kekurangan
+           Sistem ini dirancang untuk memenuhi kebutuhan yang sebenarnya. Terdapat keterbatasan sehubungan dengan pengujian sistem dan lembaga pengumpulan tanpa
+
+           memerlukan modifikasi apa pun terhadap umpan balik pengguna. Sebaliknya, paket komersial mampu menjalankan fungsi dan prosedur departemen.
+
+                                                                                 menyelesaikan pengujian profesional sebelum tersedia untuk klien.
+
+                                                                                 Selain itu, mereka memiliki akses ke kelompok pengguna yang besar dan kemampuan untuk
+
+                                                                                 mengadakan konferensi untuk mengumpulkan umpan balik pengguna.
+
+
+
+           Sistem dapat dimodifikasi terus menerus sesuai dengan kebutuhan       Kode sumber untuk CMMS yang dikembangkan secara lokal terkadang ditulis dengan buruk,
+
+           operasional baru.                                                     sehingga membuat sistem menjadi lambat.
+
+
+           Institusi mempunyai kepemilikan penuh atas kode sumber jika ditulis   Waktu pengembangan mungkin lebih lama dibandingkan dengan paket komersial.
+
+           dan diperbarui dengan benar.
+
+
+           Laporan baru dapat dengan mudah dirancang sesuai permintaan           Sistem ini bergantung pada personel TI dan staf lain yang mengembangkannya.
+
+           dari departemen teknik klinis atau manajer fasilitas kesehatan.       Pengetahuan tersebut mungkin hilang ketika anggota staf tersebut meninggalkan organisasi.
+
+
+
+
+           Staf lebih mengenal sistem ini karena mereka telah berpartisipasi     Biaya berulang harus dibayarkan kepada individu, tim individu, atau perusahaan untuk
+
+           dalam pengembangannya.                                                mengembangkan dan memperbarui perangkat lunak secara berkala.
+
+
+          Sumber:Cohen T dkk.(2003) (3)
+
+
+
+
+                                                                                                                                                              Seri teknis perangkat medis WHO   19
+=== Halaman 24 ===
+Machine Translated by Google
+
+
+
+
+                             keputusan departemen teknik klinis dan akan          Entri data dapat diselesaikan ketika CMMS
+                             bergantung pada sumber daya yang tersedia.           berfungsi sesuai kebutuhan (3,7).
+
+
+
+                             Perangkat lunak ini diinstal pada server fasilitas   4.7 Pelatihan
+                             kesehatan atau pada komputer pribadi pengguna
+                              individu. Semua perangkat keras lainnya seperti     Penting bagi setiap anggota staf departemen
+                             printer garis dan pemindai juga harus diinstal dan   teknik klinis untuk sepenuhnya percaya diri dan
+                              dikonfigurasi.                                      memahami semua fungsi CMMS. Penting untuk
+                                                                                  memulai pelatihan staf pada tahap awal
+                                                                                  implementasi untuk meningkatkan keterlibatan
+                             4.5 Konfigurasi dan                                  staf dan meningkatkan kepercayaan diri. Untuk
+                                   penyesuaian                                    mengelola ekspektasi, penting juga untuk
+                                                                                  memberikan pelatihan basis data generik dasar
+                              Konfigurasi dan penyesuaian dengan mekanisme        bagi staf teknik klinis senior yang penting.
+                             dan prosedur yang ada dilakukan sebelum entri        Pelatihan pengguna khusus mengikuti instalasi
+                              data. Konfigurasi sistem dapat mencakup bidang-     dan pengujian sistem. Jika personel lain seperti
+                             bidang seperti alur kerja sederhana, akses dan       dokter dan perawat diharapkan menggunakan
+                             keamanan, serta preferensi pengguna.                 sistem ini, pelatihan tambahan harus diberikan
+                              Kustomisasi mengacu pada persyaratan                kepada mereka. Tinjauan berkala untuk menilai
+                             fungsional teknis sistem termasuk layar dan tabel    dan mengevaluasi kebutuhan pelatihan sangat
+                             khusus, alur kerja khusus fasilitas, dan bidang      disarankan, karena sering kali terdapat kurva
+                             data tambahan (3,8).                                 pembelajaran yang curam ketika menggunakan
+                                                                                  sistem tersebut.
+
+
+
+
+                             4.6 Entri data                                       Kebanyakan vendor menyediakan manual
+                                                                                  komprehensif untuk CMMS mereka dan menu
+                             Fase ini terdiri dari entri data awal bidang umum    bantuan untuk meningkatkan kegunaan. Bantuan
+                             seperti nomor model peralatan, kode inventaris,      online juga tersedia untuk beberapa sistem. Perlu
+                              sumber daya manusia, lokasi peralatan, informasi    dicatat bahwa penerapan CMMS akan lebih
+                             pabrikan dan klasifikasi nomenklatur. Tingkat        efektif jika dukungan diberikan dalam bahasa
+                             keamanan pengguna dan kata sandi terkait,            lokal; sebagian besar paket CMMS komersial
+                             tingkat akses dan jenis akses juga ditetapkan        tersedia dengan dukungan dalam berbagai
+                             pada tahap ini (3,8). Akan bermanfaat jika staf      bahasa berbeda.
+                             teknik klinis ditugaskan untuk mengisi database,
+                              karena mereka sudah familiar dengan istilah-
+                              istilah yang digunakan.                             4.8 Tindak lanjut dan
+                                                                                        pemantauan kinerja
+
+                                                                                  Pemantauan berkelanjutan terhadap sistem
+                              Fungsionalitas lengkap sistem dapat diuji dengan    dilakukan untuk memastikan bahwa sistem
+                              satu set data. Fungsi yang akan diuji meliputi      berkontribusi langsung terhadap perbaikan dan
+                             pembuatan permintaan pemeliharaan, pembuatan         berjalannya program HTM secara efektif.
+                             perintah kerja, penyelesaian perintah kerja,         Elemen yang harus dipantau meliputi:
+                             pemesanan suku cadang, dan pembuatan laporan.
+                                                                                    • kemampuan sistem untuk secara efektif
+                                                                                       menghasilkan semua indikator kinerja yang dibutuhkan
+
+
+
+
+  20      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 25 ===
+Machine Translated by Google
+
+
+
+
+               tor untuk program HTM, seperti waktu henti     perangkat lunak, prosedur operasi, peningkatan
+               dan kepatuhan inspeksi dan pemeliharaan        dan kebijakan cadangan, harus disimpan oleh
+               preventif;                                     departemen teknik klinis. Untuk paket yang
+            • evaluasi kecepatan kegiatan seperti pembuatan   disesuaikan, kode sumber harus didokumentasikan
+               laporan dan penginputan data;                  dan diperbarui pada setiap peningkatan sistem.
+                                                              Beberapa program CMMS menggunakan sistem
+            • kegunaan dan kepuasan pengguna                  sumber terbuka atau dikirimkan dengan kode
+               (dikumpulkan menggunakan kuesioner).           sumber untuk menghindari masalah kepemilikan
+                                                              dan komplikasi kode (3,7).
+          Selain itu, vendor besar mengadakan konferensi
+          tahunan di mana umpan balik pengguna
+          dikumpulkan dan dianalisis untuk melakukan          Disarankan untuk menetapkan kebijakan
+          perbaikan pada sistem mereka.                       pencadangan berkala untuk melindungi data jika
+                                                              terjadi keadaan darurat atau kerusakan sistem.
+                                                              Pencadangan otomatis hingga lebih dari satu
+          4.9 Dokumentasi CMMS dan                            media penyimpanan dapat digunakan; jika hal ini
+                 cadangannya                                  tidak memungkinkan, cadangan manual harian
+                                                              sudah cukup. Selain semua kebijakan pencadangan
+          Dokumentasi yang jelas, akurat dan komprehensif     dan pemulihan, disarankan untuk menggunakan
+          untuk semua komponen sistem, termasuk rincian       server mirror-image untuk meningkatkan keamanan
+          lengkap tentang perangkat keras,                    data, jika dan bila tersedia.
+
+
+
+
+                                                                                                 Seri teknis perangkat medis WHO   21
+=== Halaman 26 ===
+Machine Translated by Google
+
+
+
+
+                              5 CMMS Jaringan
+
+                             Tergantung pada infrastruktur TI yang                                              solusi on-premise dan on-demand (5).
+                             tersedia dan ukuran departemen teknik                                              Tabel 4 menjelaskan fitur solusi ini dan opsi
+                             klinis, CMMS dapat dihubungkan dalam                                               jaringan yang tersedia untuk masing-masing
+                             berbagai cara. Secara umum ada dua opsi                                            solusi.
+                             penerapan utama:
+
+
+
+
+                             Tabel 4. Solusi penerapan CMMS dan opsi jaringan terkait
+
+
+
+
+                               Larutan             Keterangan                          Fitur                                                   Opsi jaringan
+                               CMMS di lokasi dipasang dan dijalankan di lokasi         • Pelanggan bertanggung jawab atas                     • Sistem basis stasiun kerja mandiri,
+
+                                                   fasilitas kesehatan                     infrastruktur teknologi                                yang hanya berguna di bengkel kecil
+                                                                                        • Pelanggan membayar biaya lisensi untuk menggunakan      di rumah sakit kecil
+                                                                                            dan menyesuaikan perangkat lunak
+
+                                                                                        • Pelanggan dapat menyesuaikan                         • Sistem jaringan area lokal dalam
+                                                                                           fitur dan fungsi untuk memenuhi                        departemen teknik klinis
+                                                                                            kebutuhan                                          • Penerapan melalui Internet di
+                                                                                        • Pelanggan memiliki kendali penuh                        situs pelanggan (solusi online yang
+                                                                                            atas infrastruktur dan data                           dihosting sendiri)
+                                                                                                                                               • Arsitektur terbuka dengan integrasi ke
+                                                                                                                                                  aplikasi lain pada platform serupa atau
+                                                                                                                                                  berbeda
+                                                                                                                                               • Dibangun menggunakan standar Microsoft Web
+
+                                                                                                                                                  Teknologi
+
+
+                               Perangkat Lunak Sebagai Layanan Sesuai Permintaan (SAAS) • Vendor memberikan lisensi aplikasi                   • 100% aplikasi berbasis Internet tidak
+                                                                                            kepada banyak pelanggan                               memerlukan instalasi pada mesin
+                                                                                        • Infrastruktur dan aplikasi dikelola oleh                klien
+
+                                                                                            vendor                                             • Penerapan melalui Internet (solusi online
+                                                                                        • Sistem disampaikan melalui Internet                     yang dihosting)
+                                                                                        • Pengguna tidak memelihara perangkat keras atau       • Arsitektur terbuka dengan integrasi ke
+                                                                                            perangkat lunak                                       aplikasi lain pada platform serupa atau
+                                                                                        • Pelanggan membayar untuk akses                          berbeda
+                                                                                            ke aplikasi                                        • Dibangun menggunakan standar Microsoft Web
+
+                                                                                                                                                  Teknologi
+                                                   SAAS yang disesuaikan               Versi SAAS yang dapat disesuaikan
+
+
+
+
+  22      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 27 ===
+Machine Translated by Google
+
+
+
+
+          6 Catatan penutup
+
+          Baik itu paket yang tersedia secara komersial      inventaris peralatan, pengujian, perbaikan,
+          atau opsi yang dirancang khusus, CMMS memiliki     pemeliharaan dan riwayat peralatan. Jika
+          beberapa manfaat. Lebih sedikit waktu staf yang    diterapkan dengan benar, hal ini dapat digunakan
+          diperlukan untuk entri data, pelacakan             sebagai alat yang efektif oleh fasilitas kesehatan
+          pemeliharaan, dan pelaporan; ini meminimalkan      dan departemen teknik klinis untuk melengkapi
+          kesalahan manusia; dan hal ini memungkinkan        program yang ada dan meningkatkan manajemen
+          pemantauan yang lebih efektif terhadap indikator   teknologi secara keseluruhan, sekaligus
+          kinerja dan produktivitas staf (3,6,7). CMMS       berkontribusi pada pemberian layanan kesehatan
+          menyediakan dokumentasi elektronik                 yang lebih efektif.
+
+
+
+
+                                                                                                 Seri teknis perangkat medis WHO   23
+=== Halaman 28 ===
+Machine Translated by Google
+
+
+
+
+                              7 Referensi
+
+                              1. Cohen T. Sistem manajemen pemeliharaan terkomputerisasi. Jurnal Teknik Klinis, 2001, 26:200–211.
+
+
+
+                              2. Sistem Kesehatan Universitas Duke, Teknik Klinis. Durham, NC, Departemen Teknik Klinis Sistem
+                                       Kesehatan Universitas Duke, 2010 (http://clinicalengi-neering.duhs.duke.edu/modules/ce_pols/
+                                        index.php?id=1).
+
+
+                             3. Cohen T dkk. Sistem manajemen pemeliharaan terkomputerisasi untuk rekayasa klinis. Arlington,
+                                        Asosiasi Kemajuan Instrumentasi Medis, 2003.
+
+
+
+                             4.         Barta RA. Persyaratan sistem manajemen pemeliharaan terkomputerisasi untuk prosedur operasi
+                                       standar. Instrumentasi dan Teknologi Biomedis, 2001, 35(1):57-60.
+
+
+
+                              5. Sesuai Permintaan atau di Lokasi: Memahami opsi penerapan untuk sistem manajemen bisnis baru
+                                        Anda (Buku Putih). Richmond, Sage Amerika Utara, 2009.
+
+
+
+                             6. Institut ECRI (http://www.ecri.org).
+
+
+                              7.        Artikel yang tidak diterbitkan oleh Direktorat Teknik Biomedis Kementerian Kesehatan Yordania
+                                        (http://www.dbe.gov.jo).
+
+
+                             8.         Data tersedia dari CMMS Koneksi Pemeliharaan (http://www.maintenance-connection.com/
+                                       mcv18/online/mc_home.htm).
+
+
+
+
+  24      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 29 ===
+Machine Translated by Google
+
+
+
+
+          8 Sumber daya yang berguna
+
+
+
+          Panduan manajemen peralatan medis. Arlington, VA, Asosiasi Kemajuan Instrumentasi
+          Medis, 2005.
+
+          Cram N. Sistem manajemen pemeliharaan terkomputerisasi: tinjauan produk yang
+          tersedia. Jurnal Teknik Klinis, 1998, 23:147–223.
+
+          Kullolli I. Memilih sistem manajemen pemeliharaan yang terkomputerisasi. Instrumentasi
+          & Teknologi Biomedis, 2008, 42:276–278.
+
+          Mobarek I dkk. Peningkatan kinerja dan sistem rekayasa klinis yang hemat biaya untuk
+          Jordan. Jurnal Teknik Klinis, 2005, 30:42–55.
+
+          Mobarek I dkk. Sistem rekayasa klinis yang sepenuhnya otomatis. Jurnal Teknik Klinis,
+          2006, 31:46–60.
+
+          Staker T. Sistem informasi manajemen terkomputerisasi tanpa kertas untuk teknik klinis.
+          Dalam: Cohen T dkk, eds. Sistem manajemen pemeliharaan terkomputerisasi untuk
+          teknik klinis. Arlington, VA, Asosiasi Kemajuan Instrumentasi Medis, 2003.
+
+
+
+          Wickens CD, Sallie EG, Yili L. Pengantar rekayasa faktor manusia. New York, Penerbit
+          Pendidikan Addison-Wesley, 1998.
+
+
+
+
+                                                                                     Seri teknis perangkat medis WHO   25
+=== Halaman 30 ===
+Machine Translated by Google
+
+
+
+
+                              Lampiran A
+                              Bidang umum yang termasuk dalam inventaris peralatan medis
+
+                               Bidang                                     Keterangan
+
+                               Nomor inventaris peralatan Nomor unik yang diberikan oleh fasilitas kesehatan untuk mengidentifikasi masing-masing peralatan
+
+
+                               Deskripsi peralatan (tipe) dan kode        Kode yang menjelaskan peralatan dalam kaitannya dengan sistem tata nama yang relevan
+                               kelas
+
+                               Nama pabrikan dan                          Nama pabrikan peralatan dan kode yang mengidentifikasi pabrikan
+
+                               Kode yang dihasilkan CMMS
+
+                               Nomor model                                Kode yang ditetapkan oleh pabrikan untuk mengidentifikasi model peralatan
+
+
+                               Nomor seri pabrikan Kode yang ditetapkan oleh pabrikan yang membantu mengidentifikasi peralatan selama penarikan; juga digunakan untuk mencari peralatan
+
+                                                                          jika nomor inventaris dihapus
+
+                               Revisi perangkat lunak saat ini            Nama perangkat lunak yang sedang berjalan; membantu dalam mengidentifikasi perangkat yang terkena dampak
+
+                                                                          penarikan; juga digunakan untuk mengidentifikasi peralatan yang memerlukan peningkatan perangkat lunak
+
+
+                              Nama dan kode vendor (penjual) Nama vendor peralatan dan kode yang mengidentifikasi vendor
+
+
+                               Deskripsi lokasi dan kode                  Gedung, departemen, atau ruangan tempat peralatan dipasang, dan kode yang mengidentifikasi lokasi tersebut
+
+
+
+                               Harga pembelian                            Jumlah persis uang yang dibayarkan untuk peralatan dan mata uang yang digunakan untuk pembayaran
+
+
+                               Tanggal instalasi                          Tanggal ketika peralatan secara resmi diterima dan dioperasikan oleh staf medis dan insinyur klinis
+
+
+
+                              Tanggal kedaluwarsa garansi                 Tanggal garansi berakhir; biasanya ditunjukkan pada pesanan pembelian
+
+
+                               Referensi prosedur inspeksi dan            Kode yang menetapkan prosedur inspeksi dan pemeliharaan preventif khusus untuk peralatan, termasuk frekuensi
+
+                               pemeliharaan preventif                     prosedur per tahun
+
+
+
+                               Tanggung jawab pemeliharaan                Nama dan kode institusi atau departemen, baik bengkel eksternal, pusat atau periferal atau organisasi yang
+
+                                                                          bertanggung jawab atas pemeliharaan peralatan
+
+                               Bendera status ag                          Menunjukkan status peralatan saat ini (misalnya beroperasi, rusak, menunggu suku cadang, harus diganti)
+
+
+
+                               Bidang lain yang dapat disesuaikan         Bidang yang relevan dengan program manajemen teknis individu
+
+
+
+
+  26      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 31 ===
+Machine Translated by Google
+
+
+
+
+          Lampiran B
+          Contoh tangkapan layar CMMS1
+
+
+          Sejarah peralatan
+
+
+
+
+          Perintah kerja
+
+
+
+
+          1 Direproduksi dengan izin dari situs web ECRI Institute (6) .
+
+
+
+
+                                                                           Seri teknis perangkat medis WHO   27
+=== Halaman 32 ===
+Machine Translated by Google
+
+
+
+
+                              Lampiran C
+                             Tabel spesifikasi vendor
+
+                             Vendor dapat mengisi tabel seperti ini tetapi dapat memilih untuk menyertakan fitur tambahan.
+                             Persyaratan minimum diisi oleh pengguna berdasarkan situasi spesifiknya. Yang terlihat di
+                             sini hanyalah contoh.
+
+
+
+                              Spesifikasi teknis Persyaratan minimum                                                                    Spesifikasi pemasok
+                                                                               Silakan tentukan nama, alamat dan negara asal
+                              Informasi vendor
+
+
+
+                               Apakah vendor khusus dalam CMMS                 Tolong jawab ya atau tidak
+
+                               yang didedikasikan untuk teknologi kesehatan?
+
+
+                               Nama atau nomor versi                           Diperlukan
+
+                               CMMS
+
+
+                                                                               Harap berikan daftar lengkap negara, rumah
+                              Di mana dipasarkan
+                                                                               sakit, dll.
+
+
+                                                                               Silakan tentukan
+                               Standar kualitas didukung
+
+
+
+                                                                               Harap sebutkan tahun pertama penjualan dan lokasi
+                                                                               untuk:
+                              Tahun pertama terjual
+                                                                               • Versi CMMS pertama yang terjual
+
+                                                                               • Versi yang ditawarkan ini
+
+
+                               Ramah pengguna dengan kurva                     Diperlukan; tolong jelaskan
+
+                               belajar minimal
+
+
+                                                                               Diperlukan; tolong jelaskan
+                              Dukungan pelatihan
+
+
+
+                                                                               Diperlukan; silakan tentukan
+                               Sistem tata nama
+
+
+
+                                                                               Silakan tentukan batas maksimum
+                               Jumlah pengguna
+
+
+
+                                                                               Diperlukan
+                              Grup akses/tingkat keamanan
+
+
+                                                                               HTML dan editor dokumen
+                               Perpustakaan dokumen
+
+
+                                                                               Lebih disukai
+                              Akun/penganggaran
+
+
+
+                                                                               Harap tentukan dengan jelas harga Anda, termasuk
+                               Harga                                           semua komponen, seperti biaya berlangganan tahunan dan
+                                                                               biaya lisensi
+
+
+                                                                               Lebih disukai
+                              Antarmuka sistem keuangan otomatis
+
+
+
+
+                                                                               • Modul manajemen inventaris
+
+                               Manajemen persediaan                            • Pelacakan barcode
+
+                                                                               • Perekaman dan pelacakan online
+
+
+                                                                               • Kontrol inventaris
+                                                                               • Pemesanan stok minimal
+                               Modul manajemen suku cadang
+                                                                               • Pesanan suku cadang
+
+                                                                               • Penetapan biaya
+
+                                                                               • Pertukaran suku cadang
+
+
+
+
+  28      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 33 ===
+Machine Translated by Google
+
+
+
+
+           Spesifikasi teknis Persyaratan minimum •                                                                 Spesifikasi pemasok
+                                                     Manajer perintah kerja
+                                                     • Penjadwalan
+
+                                                     • Prioritas
+           Modul perintah kerja                      • Biaya layanan (misalnya waktu tenaga kerja,
+
+                                                          suku cadang)
+
+                                                     • Bidang terpadu
+                                                     • Bidang yang disesuaikan
+
+
+                                                     Diperlukan
+           Manajemen kontrak
+
+
+                                                     Diperlukan
+           Modul manajemen proyek
+
+
+                                                     Diperlukan
+           Menghasilkan pesanan pembelian
+
+
+
+           Permintaan perintah kerja atas            Opsional
+
+           Internet oleh staf klinis
+
+
+           Pelacakan aset multisitus dan             Diperlukan
+
+           perintah kerja
+
+
+                                                     Lebih disukai
+           Tutup perintah kerja secara instan
+
+           menggunakan asisten/barcode
+
+           digital pribadi genggam
+           pemindai
+
+
+                                                     24 jam, 7 hari seminggu
+           Dukungan teknis
+
+
+                                                     Diperlukan
+           Diagnosa jarak jauh
+
+
+                                                      • Mohon jelaskan kebijakan dan biayanya
+
+           Peningkatan sistem                         • Keuntungan yang diberikan untuk upgrade gratis atau biaya
+
+                                                          yang sudah termasuk dalam biaya tahunan atau lisensi
+
+
+                                                      • Penjadwalan
+
+                                                      • Perpustakaan inspeksi dan pemeliharaan preventif
+           Manajemen pemeliharaan
+                                                          (formulir)
+                                                      • Formulir yang dapat disesuaikan
+
+
+                                                      • Pelacakan pembelian
+
+           Manajemen siklus hidup                     • Evaluasi
+
+           peralatan                                  • Penerimaan otomatis
+
+                                                      • Catatan riwayat lengkap peralatan
+
+                                                     Silakan tentukan
+           Sistem operasi
+
+
+                                                      • Menjalankan laporan cepat, standar, teknis dan
+
+           Sistem pelaporan terintegrasi                  manajerial
+
+                                                      • Membuat laporan yang dapat disesuaikan
+
+
+                                                     Opsional
+           Pencocokan faktur
+
+
+                                                     Diperlukan
+           Peringatan dan penarikan otomatis
+
+
+
+           Buat tugas dan acara yang direncanakan Diperlukan
+
+
+                                                     Diperlukan
+           Laporan cetak, email atau faks
+
+
+                                                     Silakan tentukan
+           Sistem basis data
+
+
+           Pertimbangan untuk                        Bahasa lokal, mata uang, kalender
+
+           lingkungan setempat
+
+
+
+
+                                                                                                                                          Seri teknis perangkat medis WHO   29
+=== Halaman 34 ===
+Machine Translated by Google
+
+
+
+
+                              Spesifikasi teknis Persyaratan minimum                                                           Spesifikasi pemasok
+                                                                       • Jaringan area lokal
+
+                                                                       • 100% aplikasi berbasis Internet tidak
+
+                                                                           memerlukan instalasi pada mesin klien
+
+
+
+                                                                       • Penerapan melalui Internet (dihosting
+
+                                                                           solusi online) atau di situs pelanggan (solusi di
+
+                               Diperlukan penerapan dan koneksi            tempat yang dihosting sendiri)
+                               CMMS                                    • Arsitektur terbuka dengan integrasi ke aplikasi
+
+                                                                           lain pada platform serupa atau berbeda
+
+
+
+                                                                       • Koneksi terukur. (desain dan
+
+                                                                           arsitektur yang akan digunakan terlepas dari
+
+                                                                           apakah aplikasi memiliki 10 atau 10.000
+
+                                                                           pengguna secara bersamaan?)
+
+                                                                       Silakan tentukan perangkat keras dan sistem
+                               Jaringan didukung
+                                                                       operasi yang didukung
+
+                                                                       Diperlukan
+                               Dukungan beberapa situs
+
+
+                                                                       Tolong jawab ya atau tidak
+                               Penggunaan SQL atau lainnya oleh CMMS
+
+
+
+                                                                       Harap tentukan mekanisme yang digunakan untuk
+                               Memperbarui mekanisme
+                                                                       mencegah pembaruan secara bersamaan atau salah
+
+
+                               Utilitas impor dan ekspor tersedia      Silakan tentukan
+
+
+
+
+                                                                       Silakan tentukan
+                               Fitur sistem lainnya
+
+
+
+
+  30      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 35 ===
+Machine Translated by Google
+
+
+
+
+          Lampiran D
+          Permintaan konten sampel proposal dan proposal vendor
+
+          Berikut ini berdasarkan dokumen yang ditemukan di situs ECRI Institute (6). Hal ini dimaksudkan sebagai
+          referensi saja dan harus dimodifikasi agar sesuai dengan kebutuhan individu.
+
+
+
+          Permintaan Proposal (RFP)
+
+          Semua komponen perangkat lunak CMMS yang dipasok oleh vendor harus menjadi bagian dari produk
+          CMMS normal yang diproduksi vendor saat ini.
+
+
+          Semua biaya lain seperti biaya lisensi untuk penggunaan komponen perangkat lunak atau database
+          vendor harus dimasukkan dalam harga yang ditawarkan CMMS atau biaya tahunan.
+
+
+          Semua komponen CMMS yang disediakan menurut ketentuan RFP ini harus merupakan produksi terbaru.
+
+
+
+          Jika vendor berencana menghentikan produksi CMMS yang dirujuk di sini dan memproduksi model yang
+          lebih baik sebelum tanggal pengiriman, vendor harus segera memberi tahu pengguna secara tertulis
+          tentang fakta ini dan memberikan opsi untuk meningkatkan pembelian.
+
+
+          Semua layanan dukungan harus diberikan oleh karyawan penuh waktu yang memenuhi syarat dan
+          bekerja secara eksklusif untuk vendor secara terus menerus, 24 jam sehari, 7 hari seminggu.
+
+
+          Pelatihan di tempat harus diberikan oleh instruktur vendor yang berkualifikasi dan bukan perwakilan
+          penjualan. Pelatihan ini harus memadai untuk memastikan pemanfaatan CMMS secara optimal.
+
+
+
+          Urutan daftar kriteria seleksi ini belum tentu menunjukkan pentingnya kriteria tersebut. Diharapkan setiap
+          vendor yang mengajukan proposal akan menunjukkan kualifikasi, kemampuan dan pengalaman yang
+          luas dan substansial dalam mengembangkan, memasang dan mendukung CMMS, termasuk keberhasilan
+          penyediaan produk dan layanan yang sama kepada institusi kesehatan di seluruh dunia.
+
+
+
+          Pengguna bermaksud memilih vendor berdasarkan proposal yang diterima sebagai tanggapan terhadap
+          RFP ini dan informasi lain yang diperolehnya dari sumber lain mengenai CMMS dan vendor. Kunjungan
+          lapangan ke instalasi vendor juga dapat dilakukan oleh staf pengguna. Pengguna berhak membuat
+          keputusan akhir terlepas dari salah satu atau semua faktor di atas.
+
+
+
+
+                                                                                                     Seri teknis perangkat medis WHO   31
+=== Halaman 36 ===
+Machine Translated by Google
+
+
+
+
+                              Proposal harus disampaikan pada atau sebelum: [tanggal].
+
+
+                              Penawaran akan dikirimkan ke:
+
+
+                             Perhatian dari:
+
+
+                              Surel:
+
+
+                             Telepon:
+
+
+                              Fax:
+
+
+                             Alamat:
+
+
+                             Tanggal pemasangan yang diusulkan untuk CMMS adalah: [dd/mm/yyyy].
+
+
+
+
+                             Format proposal vendor
+
+                              Harga
+                             Bagian pertama dari proposal adalah penawaran harga total termasuk semua komponen sistem untuk
+                             pembelian, termasuk instalasi, start-up, pelatihan, pengujian dan biaya lisensi tahunan CMMS.
+
+
+
+
+                              Evaluasi harga didasarkan pada total biaya CMMS selama 10 tahun.
+
+
+                              Instalasi dan jadwal
+                             Jadwal pengiriman dan pemasangan yang diusulkan untuk CMMS harus diberikan, termasuk waktu yang
+                             diperlukan untuk pemasangan, permulaan, pengujian penerimaan vendor dan pengguna. Baik vendor maupun
+                             pengguna harus bekerja sama untuk memasang dan mengoperasikan CMMS di unit percontohan yang
+                              diidentifikasi oleh pengguna.
+
+
+                              Pembayaran
+                              Ketentuan pembayaran CMMS yang diusulkan, termasuk biaya pembatalan dan alternatif atau penawaran apa
+                             pun yang menghasilkan penghematan biaya bagi pengguna harus dinyatakan dengan jelas. Pembayaran
+                             penuh di muka pada saat pemesanan, misalnya, tidak dapat diterima oleh pengguna. Selain itu, denda atas
+                              keterlambatan atau tidak memadainya pengiriman, pemasangan atau pelatihan juga termasuk dalam ketentuan ini.
+
+
+                             Pengganti
+                             Vendor harus menyediakan CMMS terbaru atau versi baru apa pun tanpa biaya tambahan yang
+                              diperkenalkan oleh vendor setelah pemberian penghargaan, namun sebelum pengiriman, yang lebih
+                             sesuai memenuhi kebutuhan pengguna. Vendor harus secara spesifik mengatasi potensi perbedaan
+                             teknis.
+
+
+                              Rencana implementasi
+                             Vendor harus menyerahkan elemen utama rencana implementasi mereka sebagai bagian dari proposal. Mereka
+                              juga diharapkan mendemonstrasikan CMMS mereka atas permintaan pengguna.
+
+
+
+
+  32      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 37 ===
+Machine Translated by Google
+
+
+
+
+          Infrastruktur TI yang diperlukan
+          Vendor harus memberikan penjelasan lengkap dan rinci tentang semua persyaratan TI (perangkat keras dan
+          perangkat lunak) yang diperlukan untuk menginstal dan mengoperasikan sistem.
+
+
+          Peningkatan dan penyempurnaan
+          Vendor harus memberikan salinan kebijakan vendor untuk versi perangkat lunak yang baru dikembangkan,
+          modifikasi perangkat lunak untuk meningkatkan kinerja dan keandalan, serta koreksi desain. Vendor harus
+          menunjukkan apakah modifikasi, peningkatan, dan penyempurnaan tersebut merupakan item tanpa biaya. Hak
+          istimewa akan diberikan kepada vendor dengan peningkatan dan penyempurnaan gratis.
+
+
+
+
+          Pelatihan
+          Vendor harus memberikan penjelasan rinci tentang pelatihan yang akan diberikan bagi personel teknik klinis yang
+          ditentukan oleh pengguna. Hal ini dapat mencakup deskripsi tentang durasi dan format program, isi, kualifikasi
+          instruktur, dan materi tertulis atau elektronik. Deskripsi tersebut harus menjawab kebutuhan akan pelatihan
+          penyegaran dan pelatihan bagi pengguna baru yang ditentukan oleh pengguna selama masa pakai CMMS.
+
+
+
+
+          Panduan operator
+          Vendor harus menyediakan manual pengoperasian yang deskriptif lengkap secara online dan dalam bentuk CD.
+
+
+          Dukungan teknis
+          Deskripsi kemampuan dukungan teknis online, lokal atau regional, termasuk jumlah dan kualifikasi staf dukungan
+          teknis, serta pelatihan mereka, lokasi basis mereka, lokasi staf pendukung, dan perkiraan waktu tanggap darurat
+          (baik selama maupun di luar jam kerja reguler), harus disertakan.
+
+
+
+
+          Biaya berlangganan tahunan
+          Penjelasan lengkap tentang biaya berlangganan tahunan harus disertakan. Hal ini mencakup periode pasti yang
+          dicakupnya, selain semua syarat, ketentuan, dan biaya, penyempurnaan dan pemutakhiran sistem, pemeliharaan
+          perangkat lunak, dukungan teknis, lisensi perangkat lunak, dan faktor lain apa pun yang mungkin menarik bagi
+          pengguna dalam mengevaluasi proposal vendor.
+          Harga untuk setiap periode tahunan dan denda atas keterlambatan waktu respons terhadap permintaan layanan
+          ditunjukkan dengan jelas.
+
+
+
+
+                                                                                                            Seri teknis perangkat medis WHO   33
+=== Halaman 38 ===
+Machine Translated by Google
+
+
+
+
+                              Lampiran E
+                              Contoh vendor CMMS
+                             Berikut ini adalah daftar vendor dan produk yang menawarkan software CMMS. Daftar ini tidak dimaksudkan untuk
+                              lengkap. Dimasukkannya dalam daftar ini tidak berarti dukungan atau rekomendasi dari WHO. Hal ini dimaksudkan hanya
+                              sebagai panduan ketika mencari database yang paling sesuai dengan kebutuhan organisasi Anda.
+
+
+
+
+                               Penjual                          Situs web
+
+                               lebih Azier                      http://www.azzier.com
+
+
+
+                               Perangkat Lunak Drawbase, Inc.http://www.drawbase.com
+
+
+                                                                http://www.eaglecmms.com
+                               Elang Technology, Inc.
+
+
+                               Institut ECRI                    http://www.ecri.org.uk/ecriaims.htm
+
+
+
+                               eMaint Enterprises, LLC http://www.emaint.com
+
+
+                                                                http://www.eq2.com
+                               EQ2, Inc.
+
+
+                               Teknologi Fasilitas              http://www.fatech.com
+                               Kelompok
+
+
+
+                               FM Bekerja                       http://www.fmworks.com
+
+
+                               Perangkat Lunak Empat Sungai     http://www.frsoft.com
+                               Sistem
+
+                               Perawatan Kesehatan GE           http://www.gehealthcare.com/euen/services/asset-management-solutions/asset_plus/index.html
+
+
+                                                                http://www.isescorp.com/services/operationsmaintenanceprogramming.aspx
+                               Perusahaan ISES
+
+
+                               Koneksi Pemeliharaan http://www.maintenanceconnection.com
+
+
+                                                                http://www.micromain.com/
+                               Perusahaan MikroMain
+
+                               Pemeliharaan MPulse              http://www.mpulsesoftware.com
+                               Perangkat lunak
+
+
+
+                                                                http://www.vektr.com
+                               Nuvek, LLC
+
+                               Solusi Industri                  http://www.cmms4hospitals.com
+                               PUNCAK, LLC
+
+                               Phoenix Data Systems,            http://www.goaims.com
+                               Inc.
+
+                               Layanan Prediktif                http://www.predictiveservice.com
+
+
+                                                                http://www.simplesolutionsfm.com
+                               Solusi Sederhana FM
+
+
+                               Perusahaan Sistem                http://www.stcroixsystems.com/asset_manager.aspx
+                               St
+
+                                                                http://www.mainboss.com
+                               Berpikir Ltd.
+
+
+                               TISCOR                           http://www.tiscor.com
+
+
+                                                                www.tmasystems.com
+                               Sistem TMA, LLC
+
+
+
+
+  34      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 39 ===
+Machine Translated by Google
+
+
+
+
+          Lampiran F
+          Contoh penyedia CMMS open source
+
+          Berikut ini adalah daftar penyedia CMMS open source. Daftar ini tidak dimaksudkan untuk lengkap. Dimasukkannya dalam daftar ini tidak
+
+          berarti dukungan atau rekomendasi dari WHO. Hal ini dimaksudkan hanya sebagai panduan ketika mencari database yang paling sesuai
+
+          dengan kebutuhan organisasi Anda.
+
+
+
+
+           CMMS                           Situs web                                                               Catatan
+
+           Menyadari                      http://www.pninc.com/maint/aware.htm                                    Platform-independen
+
+
+                                          http://www.manageengine.com/products/facilities-desk/index.html Windows XP, 2000, Vista,
+           Meja Fasilitas
+                                                                                                            Linux
+
+           Asisten Pemeliharaan http://www.maintenanceassistant.com                                               Basis web dan opsi lainnya
+
+
+                                          http://www.nhuntsoftware.biz                                            Windows 95/98/ME/XP/2000/
+           Tempat Suku Cadang Perawatan
+                                                                                                                  tidak
+
+
+
+                                          http://www.mtrackcmms.com                                               Windows XP, Menang 98, MS
+           Pelacak Pemeliharaan
+                                                                                                                  Akses 2002
+
+
+                                          http://www.bmstech.com/mantra/download.htm                              Windows XP/2000/NT4/9x/
+           mantra
+                                                                                                                  SAYA/Windows 3.1x/DOS
+
+                                          http://www.healthpartners-int.co.uk/our_expertise/plamahs.html          Windows 95 atau lebih baru
+           PEMAHS
+
+
+
+
+                                                                                                                                    Seri teknis perangkat medis WHO   35
+=== Halaman 40 ===
+Machine Translated by Google
+
+
+
+
+                              Lampiran G
+                              Rencana desain perangkat lunak CMMS
+
+
+
+
+                                                                                             sistem HTM
+
+
+                                                   Kegiatan 1               Kegiatan 2                      Kegiatan 3                Aktivitas n      …
+
+                                                         PHT         Pemeliharaan korektif                Kontrol kualitas
+
+
+
+
+                                          Langkah-langkah prosedur individual
+
+
+
+
+                                         Tentukan bidang                                                       Tentukan
+                                                                        Menentukan prosedur                                            Tentukan
+                                                                             kegiatan                             persetujuan
+                                     yang dimaksud dalam prosedur
+                                                                                                                                       data keluaran
+                                                                                                                yang diperlukan
+
+
+
+
+                                                                        Buat layar yang diperlukan
+                                     Desain tabel database
+                                                                              untuk aktivitas
+
+
+
+
+                                                                          Bidang kegiatan
+                                          Bidang program
+                                                                                  program
+
+
+
+
+                                       Tetapkan bidang primer            Kegiatan program prosedur             Tentukan
+                                         dan sekunder                                                                                 Laporan desain
+                                                                                                               tautan
+                                                                                                                                         layar
+                                                                                                              persetujuan personel
+
+
+
+
+                                       Tabel desain referensi
+
+                                            silang
+
+
+
+
+                                        Desain entri data
+                                               layar
+
+
+                                                                                                                 Tetapkan            Bidang laporan
+                                                                          Menetapkan kegiatan                                             program
+                                                                                                             tingkat keamanan
+                                                                                tindak lanjut
+                                       Referensi silang layar
+
+                                            desain
+
+
+
+
+                                          Konsultasikan dengan
+
+                                             insinyur klinis
+
+
+
+
+  36      Sistem manajemen pemeliharaan yang terkomputerisasi
+=== Halaman 41 ===
+Machine Translated by Google
+
+
+
+
+                                                ISBN 978 92 4 150141 5
+      Departemen Teknologi Kesehatan Esensial
+      Organisasi Kesehatan Dunia
+      20 Jalan Appia
+      CH-1211 Jenewa 27
+      Swiss Telp:
+      +41 22 791 21 11
+      Email: medicaldevices@who.int
+      http://www.who.int/medical_devices/en/

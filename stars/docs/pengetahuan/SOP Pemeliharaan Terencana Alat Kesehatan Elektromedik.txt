@@ -1,0 +1,124 @@
+=== Halaman 1 ===
+PEMELIHARAAN TERENCANA
+ALAT KESEHATAN ELEKTROMEDIK
+
+STANDAR PROSEDUR
+OPERASIONAL
+
+| Rumah Sehat « No. Dokumen
+untuk Jakarta 026/SPO/03/RAD/CPY!II | No. Revisi Halaman
+RSUD Gipayung 01 1/4
+/2019
+Tanggal Terbit Ditetapkan :
+
+21 Februari 2019 Direktur RSUD Cipayung
+[penandatangan disaring]
+
+PENGERTIAN
+
+Pemeliharaan terencana adalah langkah-langkah pencegahan
+untuk mengembalikan kinerja alat kondisi tertentu — yaitu
+
+kondisi terbaik sesuai tujuan pengunaannya/spesifikasi
+pembuatnya yang dilaksanakan secara berkala (harian,
+
+mingguan, bulanan, triwulan, semester, dan tahunan).
+
+Pemeliharaan terencana mengacu pada kegiatan yang
+dijadwalkan dilakukan untuk memperpanjang umur perangkat
+dan mencegah kerusakan yaitu dengan cara mengkalibrasi,
+penggantian suku cadang, pelumasan dan pembersihan pada
+
+peralatan.
+
+TUJUAN
+
+1. Memberikan acuan dalam penyelenggaraan pelayanan
+yang dan
+dipertanggungjawabkan;
+
+elektromedik bermutu dapat
+
+2. Memberikan acuan dalam pengembangan pelayanan
+elektromedik di fasilitas pelayanan kesehatan atau
+fasilitas kesehatan elektromedik lain;
+
+3. Memberikan perlindungan dan kepastian hukum bagi
+elektromedis dalam menyelenggarakan pelayanan
+
+elektromedik,
+=== Halaman 2 ===
+4. Melindungi klien sebagai penerima pelayanan
+elektromedik; dan
+5. Menjamin persyaratan mutu, keamanan, keselamatan
+
+dan laik pakai alat elektromedik.
+
+KEBIJAKAN
+
+Peraturan Menteri Kesehatan Republik Indonesia Nomor 65
+Tahun 2016 Tentang Standar Pelayanan Elektromedik
+
+PROSEDUR
+
+Proses selengkapnya dapat dilihat pada diagram alur pada
+
+gambar 9:
+=== Halaman 3 ===
+¥
+Sam
+
+< SPA
+
+Mergajikan kebutuhan.
+pencafiharan
+
+Exchusi peliksamaan
+an hasil pemeliharaan
+
+Gambar 9. Diagram alur Proses Pemeliharaan Terencana
+
+Penjelasan gambar 9:
+=== Halaman 4 ===
+1.
+
+Pemeliharaan terencana dimulai dengan pendataan alat
+yang bertujuan untuk memastikan kondisi peralatan
+yang terakhir dan status kepemilikan dari alat (milik
+Instansi atau bukan).
+
+. Kebutuhan pemeliharaan perlu disiapkan antara lain:
+
+a. bahan habis pakai keperluan pemeliharaan,
+b. prosedur pemeliharaan dan
+
+c. asesoris.
+
+. Untuk jadwal pemeliharaan disusun berdasarkan
+
+perhitungan nilai Equipment Management (EM)
+berdasarkan:
+
+a. fungsi,
+
+b. aplikasi,
+
+c. kebutuhan pemeliharaan,
+
+d. riwayat kerusakan.
+
+. Padasaat pelaksanaan pemeliharaaan terencana
+
+dilakukan kegiatan :
+
+a. pembersihan alat,
+
+b. pelumasan dan
+
+C. penggantian asesoris yang telah mencapai batas
+
+usia pakai.
+
+UNIT TERKAIT
+
+Seluruh Unit Kerja di RSUD Cipayung

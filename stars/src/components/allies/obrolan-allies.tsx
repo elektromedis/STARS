@@ -51,8 +51,10 @@ function Blok({ b }: { b: BlokJawaban }) {
 }
 
 /** Panel obrolan "Tanya ALLIES": mode AI untuk pengguna login bila dikonfigurasi, selain itu mesin aturan lokal. */
-export function ObrolanAllies({ pembuka, saranAwal, ai = false }: { pembuka: Jawaban; saranAwal: string[]; ai?: boolean }) {
-  const [karyawan, setKaryawan] = useState<IdKaryawan>("umum");
+export function ObrolanAllies({ pembuka, saranAwal, ai = false, karyawanAktif, onGanti, onSibuk, className }: { pembuka: Jawaban; saranAwal: string[]; ai?: boolean; karyawanAktif?: IdKaryawan; onGanti?: (id: IdKaryawan) => void; onSibuk?: (sibuk: boolean) => void; className?: string }) {
+  const [karyawanSendiri, setKaryawanSendiri] = useState<IdKaryawan>("umum");
+  const karyawan = karyawanAktif ?? karyawanSendiri;
+  const setKaryawan = (id: IdKaryawan) => { setKaryawanSendiri(id); onGanti?.(id); };
   const [pesan, setPesan] = useState<Pesan[]>([{ dari: "allies", jawab: pembuka }]);
   const [teks, setTeks] = useState("");
   const [sibuk, setSibuk] = useState(false);
@@ -69,7 +71,10 @@ export function ObrolanAllies({ pembuka, saranAwal, ai = false }: { pembuka: Jaw
   useEffect(() => {
     const id = new URLSearchParams(location.search).get("karyawan");
     if (KARYAWAN.some((k) => k.id === id)) setKaryawan(id as IdKaryawan);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => { onSibuk?.(sibuk); }, [sibuk, onSibuk]);
 
   async function tanya(q: string) {
     const isi = q.trim();
@@ -90,7 +95,7 @@ export function ObrolanAllies({ pembuka, saranAwal, ai = false }: { pembuka: Jaw
   }
 
   return (
-    <div className="flex h-[34rem] flex-col overflow-hidden rounded-2xl border bg-gradient-to-b from-slate-50 to-white shadow-card">
+    <div className={cn("flex h-[34rem] flex-col overflow-hidden rounded-2xl border bg-gradient-to-b from-slate-50 to-white shadow-card", className)}>
       <div className="flex items-center gap-3 border-b bg-white px-4 py-3">
         <span className="relative flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-navy-700 text-white"><Bot className="size-5" aria-hidden /><span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full bg-green-500 ring-2 ring-white" aria-hidden /></span>
         <div className="leading-tight"><p className="font-semibold text-navy-800">Tanya ALLIES</p><p className="text-xs text-muted-foreground">{ai ? `${petugas.nama} · AI cloud · data pribadi disaring` : "Menjawab dari data STARS terkini · mesin lokal"}</p></div>

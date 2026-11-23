@@ -23,11 +23,11 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
       <div><h1 className="text-2xl font-bold text-navy-800">Basis Pengetahuan ALLIES</h1><p className="text-sm text-muted-foreground">Dokumen rujukan yang dibaca Karyawan AI. Jangan unggah dokumen berisi data pasien atau data pribadi.</p></div>
       {sp.ok && <p role="status" className="rounded-lg bg-green-50 px-4 py-2 text-sm text-green-800">{sp.ok}</p>}
       {sp.error && <p role="alert" className="rounded-lg bg-red-50 px-4 py-2 text-sm text-red-800">{sp.error}</p>}
-      <Card><CardHeader><CardTitle>Tambah dokumen</CardTitle><CardDescription>PDF berteks, TXT, atau MD, maksimal 40 MB.</CardDescription></CardHeader><CardContent>
+      <Card><CardHeader><CardTitle>Tambah dokumen</CardTitle><CardDescription>PDF berteks, TXT, atau MD. Bisa pilih hingga 60 berkas sekaligus, maksimal 40 MB per berkas. Judul mengikuti nama berkas bila memilih banyak.</CardDescription></CardHeader><CardContent>
         <form action="/api/admin/pengetahuan" method="post" encType="multipart/form-data" className="grid gap-3 md:grid-cols-[1fr_10rem_1fr_auto]">
-          <Input name="judul" placeholder="Judul dokumen" aria-label="Judul dokumen" maxLength={200} />
+          <Input name="judul" placeholder="Judul (opsional)" aria-label="Judul dokumen" maxLength={200} />
           <select name="jenis" aria-label="Jenis dokumen" className="h-10 rounded-md border bg-white px-3 text-sm">{["Pedoman", "Peraturan", "SOP", "Manual Alat", "Lainnya"].map((x) => <option key={x}>{x}</option>)}</select>
-          <input name="berkas" type="file" required accept=".pdf,.txt,.md" aria-label="Berkas" className="min-w-0 text-sm" />
+          <input name="berkas" type="file" multiple required accept=".pdf,.txt,.md" aria-label="Berkas" className="min-w-0 text-sm" />
           <Button type="submit">Unggah</Button>
         </form>
       </CardContent></Card>

@@ -1,0 +1,1179 @@
+=== Halaman 1 ===
+Needs assessment for
+     medical devices
+   WHO Medical device technical series
+=== Halaman 2 ===
+WHO MEDICAL DEVICE TECHNICAL SERIES: TO ENSURE IMPROVED ACCESS, QUALITY AND USE OF MEDICAL DEVICES
+
+
+
+
+                     DEVELOPMENT OF                                                                                                                                                                                                                                                                                          HUMAN RESOURCES
+                      MEDICAL DEVICE                                                                                                                                                                                                                                                                                              FOR MEDICAL
+                            POLICIES
+                                CIE                                                                                                                                                                                                                                                                                                   DEVICES
+                                                                                                                                                                                                                                                                                                                            WHO MEDICAL DEVICE TECHNICAL SERIES
+      WHO MEDICAL DEVICE TECHNICAL SERIES
+
+
+
+                                                                                                                                                                    Research
+                                                                                                                                                                    and development
+
+
+                                                                                                                                                                                     MEDICAL DEVICE
+                                                                                                                                                                                         INNOVATION
+                                                                                                                                                                               WHO MEDICAL DEVICE TECHNICAL SERIES
+                                                                                                Management
+                         Research and development
+   Medical devices
+
+
+
+
+                                                         Regulation
+
+
+
+
+                                                                                                                                                     Regulation
+                                                                              Assessment
+
+
+
+
+                                                                                                                                                                                                             MEDICAL DEVICE
+                                                                                                                                                                      PREMARKET                                REGULATIONS
+                                                                                                                                                                        APPROVAL                      WHO MEDICAL DEVICE TECHNICAL SERIES
+                                                                                                                                                       WHO MEDICAL DEVICE TECHNICAL SERIES
+
+
+
+
+                                                         Medical devices                                                                                               Management                                                                                                 Assessment
+
+
+                                                                             MEDICAL DEVICE                                                                                    NEEDS ASSESSMENT                                                                                    HEALTH TECHNOLOGY
+                                                                             NOMENCLATURE                                                                                            FOR MEDICAL                                                                                       ASSESSMENT OF
+                                                                      WHO MEDICAL DEVICE TECHNICAL SERIES
+                                                                                                                                                                                         DEVICES                                                                                      MEDICAL DEVICES
+                                                                                                                                                                              WHO MEDICAL DEVICE TECHNICAL SERIES                                                                  WHO MEDICAL DEVICE TECHNICAL SERIES
+
+
+
+
+                                                                                                                                                                                                                                                                                       
+                                                    MEDICAL DEVICES                               MEDICAL DEVICES
+                                                     BY HEALTH-CARE                                   BY CLINICAL
+                                                          FACILITIES                                 PROCEDURES
+                                     WHO MEDICAL DEVICE TECHNICAL SERIES                    WHO MEDICAL DEVICE TECHNICAL SERIES
+
+
+
+
+                                                                                                                                                               PROCUREMENT                              MEDICAL DEVICE                                                                     POST-MARKET
+                                                                                                                                                                   PROCESS                                   DONATIONS:                                                               SURVEILLANCE AND
+                                                                                                                                                             RESOURCE GUIDE                         CONSIDERATIONS FOR                                                                   ADVERSE EVENT
+                                                                                                                                                       WHO MEDICAL DEVICE TECHNICAL SERIES
+                                                                                                                                                                                                       SOLICITATION AND                                                                      REPORTING
+                                                                                                                                                                                                                                                                                    WHO MEDICAL DEVICE TECHNICAL SERIES
+                                                                                                                                                                                                              PROVISION
+                                                                                                                                                                                                      WHO MEDICAL DEVICE TECHNICAL SERIES
+
+
+
+
+                                                                                                                                                                                                         
+
+
+                                                                 INTRODUCTION TO                              MEDICAL EQUIPMENT                                 COMPUTERIZED                                  SAFE USE OF                                MEASURING                       DECOMMISSIONING
+                                                               MEDICAL EQUIPMENT                                   MAINTENANCE                                   MAINTENANCE                              MEDICAL DEVICES                                   CLINICAL                      MEDICAL DEVICES
+                                                                                                                                                                                                                                                                                      WHO MEDICAL DEVICE TECHNICAL SERIES
+                                                                       INVENTORY                                     PROGRAMME                                   MANAGEMENT                           WHO MEDICAL DEVICE TECHNICAL SERIES               EFFECTINESS
+                                                                     MANAGEMENT                                        OVERVIEW                                       SYSTEM                                                                WHO MEDICAL DEVICE TECHNICAL SERIES
+                                                                WHO MEDICAL DEVICE TECHNICAL SERIES            WHO MEDICAL DEVICE TECHNICAL SERIES     WHO MEDICAL DEVICE TECHNICAL SERIES
+
+
+
+
+                                                                                                                                                         
+
+
+
+ Publications available as of June 2011
+=== Halaman 3 ===
+Needs assessment for
+     medical devices
+   WHO Medical device technical series
+=== Halaman 4 ===
+WHO Library Cataloguing-in-Publication Data
+
+                      Needs assessment for medical devices.
+
+                      (WHO Medical device technical series)
+
+                      1.Appropriate technology. 2.Equipment and supplies. 3.Technology assessment,
+                      Biomedical. I.World Health Organization.
+
+                      ISBN 978 92 4 150138 5			                                         (NLM classification: WX 147)
+
+
+                      © World Health Organization 2011
+                      All rights reserved. Publications of the World Health Organization can be obtained from
+                      WHO Press, World Health Organization, 20 Avenue Appia, 1211 Geneva 27, Switzerland
+                      (tel.: +41 22 791 3264; fax: +41 22 791 4857; e-mail: bookorders@who.int). Requests
+                      for permission to reproduce or translate WHO publications – whether for sale or for
+                      noncommercial distribution – should be addressed to WHO Press, at the above address
+                      (fax: +41 22 791 4806; e-mail: permissions@who.int).
+
+                      The designations employed and the presentation of the material in this publication do
+                      not imply the expression of any opinion whatsoever on the part of the World Health
+                      Organization concerning the legal status of any country, territory, city or area or of its
+                      authorities, or concerning the delimitation of its frontiers or boundaries. Dotted lines on
+                      maps represent approximate border lines for which there may not yet be full agreement.
+
+                      The mention of specific companies or of certain manufacturers’ products does not imply
+                      that they are endorsed or recommended by the World Health Organization in preference
+                      to others of a similar nature that are not mentioned. Errors and omissions excepted, the
+                      names of proprietary products are distinguished by initial capital letters.
+
+                      All reasonable precautions have been taken by the World Health Organization to verify
+                      the information contained in this publication. However, the published material is being
+                      distributed without warranty of any kind, either expressed or implied. The responsibility
+                      for the interpretation and use of the material lies with the reader. In no event shall the
+                      World Health Organization be liable for damages arising from its use.
+
+
+
+
+                      Design & layout: L’IV Com Sàrl, Villars-sous-Yens, Switzerland.
+
+
+
+iv   Needs assessment for medical devices
+=== Halaman 5 ===
+Contents
+
+
+Figures and tables                                                                   2
+Preface                                                                              3
+   Methodology                                                                       4
+   Deﬁnitions                                                                        5
+Acknowledgements                                                                     6
+   Declarations of interests                                                         6
+Acronyms and abbreviations                                                           7
+Executive Summary                                                                    8
+1 Introduction                                                                       9
+2 Purpose                                                                          10
+3 General approach                                                                 11
+4 Speciﬁc approach                                                                 13
+   4.1    Step I: Baseline information on health service requirements              13
+   4.2    Step II: Baseline information on health service availability             14
+   4.3    Step III: Baseline information on medical devices                        15
+   4.4    Step IV: Baseline information on human resources                         17
+   4.5    Step V: Baseline information on ﬁnances                                  17
+   4.6    Step VI: Analysis and interpretation                                     18
+   4.7    Step VII: Prioritization and appraisal of options                        18
+          4.7.1 Prioritization                                                     18
+          4.7.2 Option appraisal                                                   19
+          4.7.3 Developing an implementation plan                                  20
+5 Concluding remarks                                                               21
+6 Useful resources                                                                 22
+
+Appendix A Certiﬁcate of need process                                              24
+
+
+
+
+                                                                         WHO Medical device technical series   1
+=== Halaman 6 ===
+Figures and Tables
+
+                     Table 1. General needs assessment approach (process)               11
+                     Figure 1. General needs assessment process                         12
+                     Table 2. Baseline information on health service requirements       13
+                     Table 3. Baseline information on health service availability       14
+                     Table 4. Baseline information on medical devices                   15
+                     Table 5. Baseline information on human resources                   17
+                     Table 6. Baseline information on ﬁnances                           17
+                     Table 7. Plan, Do, Study, Act (PDSA) prioritization matrix         19
+                     Table 8. Key questions for prioritizing and appraisal of options   20
+
+
+
+
+2   Needs assessment for medical devices
+=== Halaman 7 ===
+Preface
+
+Health technologies are essential for a functioning health system. Medical devices
+in particular are crucial in the prevention, diagnosis, and treatment of illness and
+disease, as well as patient rehabilitation. Recognizing this important role of health
+technologies, the World Health Assembly adopted resolution WHA60.29 in May 2007.
+The resolution covers issues arising from the inappropriate deployment and use of health
+technologies, and the need to establish priorities in the selection and management of
+health technologies, speciﬁcally medical devices. By adopting this resolution, delegations
+from Member States acknowledged the importance of health technologies for achieving
+health-related development goals; urged expansion of expertise in the ﬁeld of health
+technologies, in particular medical devices; and requested that the World Health
+Organization (WHO) take speciﬁc actions to support Member States.
+
+One of WHO’s strategic objectives is to “ensure improved access, quality and use of
+medical products and technologies.” This objective, together with the World Health
+Assembly resolution, formed the basis for establishing the Global Initiative on Health
+Technologies (GIHT), with funding from the Bill & Melinda Gates Foundation. GIHT
+aims to make core health technologies available at an affordable price, particularly
+to communities in resource-limited settings, to effectively control important health
+problems. It has two speciﬁc objectives:
+
+ • to challenge the international community to establish a framework for the
+   development of national essential health technology programmes that will have a
+   positive impact on the burden of disease and ensure effective use of resources;
+ • to challenge the business and scientiﬁc communities to identify and adapt innovative
+   technologies that can have a signiﬁcant impact on public health.
+
+To meet these objectives, WHO and partners have been working towards devising an
+agenda, an action plan, tools and guidelines to increase access to appropriate medical
+devices. This document is part of a series of reference documents being developed for
+use at the country level. The series will include the following subject areas:
+
+ • policy framework for health technology
+ • medical device regulations
+ • health technology assessment
+ • health technology management
+   › needs assessment of medical devices
+   › medical device procurement
+   › medical equipment donations
+   › medical equipment inventory management
+   › medical equipment maintenance
+   › computerized maintenance management systems
+ • medical device data
+   › medical device nomenclature
+   › medical devices by health-care setting
+   › medical devices by clinical procedures
+ • medical device innovation, research and development.
+
+
+                                                                             WHO Medical device technical series   3
+=== Halaman 8 ===
+These documents are intended for use by biomedical engineers, health managers,
+                     donors, nongovernmental organizations and academic institutions involved in health
+                     technology at the district, national, regional or global levels.
+
+
+                     Methodology
+
+                     The documents in this series were written by international experts in their respective
+                     ﬁelds, and reviewed by members of the Technical Advisory Group on Health Technology
+                     (TAGHT). The TAGHT was established in 2009 to provide a forum for both experienced
+                     professionals and country representatives to develop and implement the appropriate
+                     tools and documents to meet the objectives of the GIHT. The group has met on three
+                     occasions. The ﬁrst meeting was held in Geneva in April 2009 to prioritize which tools
+                     and topics most required updating or developing. A second meeting was held in Rio de
+                     Janeiro in November 2009 to share progress on the health technology management tools
+                     under development since April 2009, to review the current challenges and strategies
+                     facing the pilot countries, and to hold an interactive session for the group to present
+                     proposals for new tools, based on information gathered from the earlier presentations
+                     and discussions. The last meeting was held in Cairo in June 2010 to ﬁnalize the
+                     documents and to help countries develop action plans for their implementation. In
+                     addition to these meetings, experts and advisers have collaborated through an online
+                     community to provide feedback on the development of the documents. The concepts
+                     were discussed further during the First WHO Global Forum on Medical Devices in
+                     September 2010. Stakeholders from 106 countries made recommendations on how
+                     to implement the information covered in this series of documents at the country level.1
+
+                     All meeting participants and people involved in the development of these documents
+                     were asked to complete a declaration of interest form, and no conﬂicts were identiﬁed.
+
+
+
+
+                     1 First WHO Global Forum on Medical Devices: context, outcomes, and future actions is available at: http://www.who.int/medical_devices/gfmd_report_final.pdf (accessed March
+                       2011)
+
+
+
+4   Needs assessment for medical devices
+=== Halaman 9 ===
+Deﬁnitions
+
+Recognizing that there are multiple interpretations for the terms listed below, they are
+deﬁned as follows for the purposes of this technical series.
+
+Health technology: The application of organized knowledge and skills in the form of
+devices, medicines, vaccines, procedures and systems developed to solve a health
+problem and improve quality of life.2 It is used interchangeably with health-care
+technology.
+
+Medical device: An article, instrument, apparatus or machine that is used in the
+prevention, diagnosis or treatment of illness or disease, or for detecting, measuring,
+restoring, correcting or modifying the structure or function of the body for some health
+purpose. Typically, the purpose of a medical device is not achieved by pharmacological,
+immunological or metabolic means.3
+
+Medical equipment: Medical devices requiring calibration, maintenance, repair, user
+training, and decommissioning − activities usually managed by clinical engineers.
+Medical equipment is used for the speciﬁc purposes of diagnosis and treatment of
+disease or rehabilitation following disease or injury; it can be used either alone or in
+combination with any accessory, consumable, or other piece of medical equipment.
+Medical equipment excludes implantable, disposable or single-use medical devices.
+
+
+
+
+2 World Health Assembly resolution WHA60.29, May 2007 (http://www.who.int/medical_devices/resolution_wha60_29-en1.pdf, accessed March 2011).
+3 Information document concerning the definition of the term “medical device”. Global Harmonization Task Force, 2005 (http://www.ghtf.org/documents/sg1/sg1n29r162005.
+  pdf, accessed March 2011).
+
+
+
+                                                                                                                                               WHO Medical device technical series   5
+=== Halaman 10 ===
+Acknowledgements
+
+                     Needs assessment for medical devices was developed under the primary authorship of
+                     Ronald Bauer, Saniplan GmbH, and under the overall direction of Adriana Velazquez-
+                     Berumen, WHO, Geneva, Switzerland as part of the Global Initiative on Health
+                     Technologies project funded by the Bill & Melinda Gates Foundation.
+
+                     The document outline was reviewed by Andrew Gammie (Fishtail Consulting Ltd.) and
+                     James Wear (consultant), and the draft was reviewed by Jennifer Barragan (WHO),
+                     Adham Ismail (WHO), and was edited by Inis Communication.
+
+                     We would like to thank Aditi A Sharma for assistance in proofreading and Karina Reyes-
+                     Moya and Gudrun Ingolfsdottir for administrative support throughout the development
+                     of this document.
+
+
+                     Declarations of interests
+
+                     Conﬂict of interest statements were collected from all contributors to and reviewers of
+                     the document. Ronald Bauer declared his employment at Saniplan GmbH, a ﬁrm that
+                     provides technical assistance and consulting services with the aim to improve the quality
+                     and accessibility of health systems and services, and Andrew Gammie his employment
+                     at Fishtail Consulting Ltd., a ﬁrm that provides advice in the area of medical devices,
+                     particularly in developing countries, as remuneration from an organization with an
+                     interest related to the subject. None of these declared conﬂicts inﬂuenced the content
+                     of the document.
+
+
+
+
+6   Needs assessment for medical devices
+=== Halaman 11 ===
+Acronyms and abbreviations
+
+CENETEC    Centro Nacional de Excelencia Tecnológica en Salud (National Center for
+           Health Technology Excellence)
+CMMS       computerized maintenance management system
+CPG        clinical practice guidelines
+GIHT       Global Initiative on Health Technologies
+HIV/AIDS   human immunodeﬁciency virus/acquired immune deﬁciency syndrome
+HTA        health technology assessment
+HR         human resources
+iHTP       Integrated Healthcare Technology Package
+MoH        ministry of health
+NGO        nongovernmental organization
+PDSA       Plan, Do, Study, Act (prioritization matrix)
+SAM        Service Availability Mapping
+TAGHT      Technical Advisory Group on Health Technology
+UNICEF     United Nations Children’s Fund
+WHO        World Health Organization
+
+
+
+
+                                                                      WHO Medical device technical series   7
+=== Halaman 12 ===
+Executive Summary
+
+                     Needs assessment is a complex process, incorporating a number of variables, that
+                     provides decision-makers with the information necessary to prioritize and select
+                     appropriate medical devices at a national, regional or hospital level. This document
+                     describes and illustrates the objective, the general approach and the process of such
+                     a needs assessment. The main section, Speciﬁc approach (Section 4), demonstrates
+                     in seven steps how to identify related needs, consider the requirements of baseline
+                     information, analyse the gathered information, appraise the options, and prioritize the
+                     speciﬁc requirements. Tools are being continuously developed to support this decision-
+                     making process, and this document also includes information on useful tools that will
+                     help in the execution of these steps.1
+
+
+
+
+                     1 These links are also found in the section Useful resources.
+
+
+
+
+8   Needs assessment for medical devices
+=== Halaman 13 ===
+1 Introduction
+
+Needs assessment is a process for deter-      A needs assessment can be performed
+mining and addressing the gaps between        according to different scenarios and un-
+the current situation or condition, and the   der varying circumstances. It is impor-
+desired one. It is a strategic activity and   tant to note that this activity is regularly
+a part of the planning process that aims      performed as part of an effective medical
+to improve the current performance or to      equipment maintenance programme,1
+correct deﬁciencies.                          and occurs: when updating a medical
+                                              equipment inventory; when re-evaluating
+In this particular case, needs assessment     services; and/or when replacing equip-
+is the identification and definition of       ment. A needs assessment is also impor-
+prioritized requirements with regard          tant prior to the construction of any new
+to medical devices. A thorough needs          health facility.
+assessment includes the potential impact
+on performance of medical equipment           Furthermore, it can be performed at
+users, and on delivery of services within     national, regional, local or facility levels.
+the context of health system capabilities
+and service delivery priorities. It takes     It should be noted that ‘needs assessment
+into account the overall objectives of        of health technology’ differs from ‘health
+the institution, existing facilities and      technology assessment’ (HTA). HTA is
+infrastructures, long-term plan of use,       an instrument to analyse the technical,
+and human resources (HR) development          ethical, social and economical impact,
+prior to purchasing a medical device.         as well as the clinical effectiveness, of a
+                                              speciﬁc technology.2
+It is also critically important that end-
+users are taken into consideration and
+are involved in any assessment.
+
+                                              1 Please see Medical equipment maintenance programme overview in this technical
+                                                series for more information.
+                                              2 Please see Health technology assessment of medical devices in this technical series
+                                                for more information.
+
+
+
+
+                                                                                                          WHO Medical device technical series   9
+=== Halaman 14 ===
+2 Purpose
+
+                      The main objective of this document is      The document can be used for single
+                      to provide Member States with guidance      facilities as well as for a network of
+                      for a methodological approach, as well      facilities, up to national systems (referral
+                      as tools and references, and examples       systems). The tools referred to in this
+                      to conduct a proper assessment of           document do, however, need to be
+                      their current situation and future needs    properly selected and appropriately
+                      with regard to health technologies          applied. The ultimate goal is for countries
+                      – specifically, medical devices – in        to use the tools for integration of prioritized
+                      consideration of their country’s health     needs into national policies and action
+                      burden and disease data.                    plans.
+
+                      Because the characteristics of each         Note: The references and links provided
+                      Member State vary enormously, this          are not intended to be either complete or
+                      document presents only generic              comprehensive, but rather a selection of
+                      principles. However, the resources and      documents and tools identiﬁed by WHO
+                      examples shown (or referred to) should      as sources of information for decision-
+                      enable any country to elaborate or          makers.
+                      adapt these principles according to their
+                      particular needs.
+
+
+
+
+10   Needs assessment for medical devices
+=== Halaman 15 ===
+3 General approach
+
+The general approach in performing a                                                             By taking into consideration possible
+needs assessment is to examine what is                                                           ﬁnancial and HR restrictions, as well as
+available in the facility, region or country,                                                    prioritized epidemiological requirements,
+and to compare it with what should be                                                            a list of the prioritized needs can
+available, considering the particular                                                            be established. Table 1 and Figure 1
+demand and situation of the catchment                                                            summarize and visualize the process.
+area or target group. Part of this process                                                       Table 1 speciﬁcally outlines the questions
+includes looking at locally- and globally-                                                       to be asked, the data required to answer
+recognized standards. The identiﬁed gap                                                          those questions, and the tools available
+speciﬁes the overall need.                                                                       to collect and evaluate the data.
+
+Table 1. General needs assessment approach (process)
+
+                            Questions                               Data required                                        Toolsa                  Result
+    1             What do we want/need in                 • Population (target          • “Certificate of need”
+                  terms of health services?                 population, catchment area)   process, see Appendix A
+                                                          • Health service provider     • Clinical practice guidelines
+                                                            availability                  (CPG)
+                                                          • Epidemiological data        • Survey questionnaires
+                                                                                        • Standards of level of care
+                                                                                        • Integrated Healthcare
+                                                                                          Technology Package (iHTP)
+    2             What do we have?                        • Health service availability                  • Service Availability Mapping
+                  (local conditions/                      • Lists of available medical                     (SAM) questionnaires
+                  limitations)                              devices                                      • Evaluation manuals/tools
+                                                          • Human resources                              • Inventory management tool
+                                                            availability                                 • Computerized maintenance
+                                                                                                           management system
+                                                                                                           (CMMS)
+    3             Which standards/              • Standards/                 • (essential) Medical device
+                  recommended best                recommendations for health   lists; i.e., per facility type
+                  practices exist that could be   service delivery coverage    and department, or per
+                  applied or adapted?             (catchment areas)            clinical procedure
+                                                • Standards/
+                                                  recommendations for
+                                                  medical devices
+                                                • Standards/
+                                                  recommendations for
+                                                  human resources required
+                                                  for operation/maintenance/
+                                                  management of medical
+                                                  equipment
+    4=3-2 Overall gap:                                                                                                                    List of general
+                                                                                                                                          needs
+    5             What financial/human                    • Budget (capital investment
+                  resources do we have?                     and operational)
+                  (constraints)                           • Human resources
+    6=4-5 Prioritized needs:                                                                                                              Prioritized list of
+                                                                                                                                          needs
+a
+        Please refer to Useful resources and appendices included in this document for more information on these tools.
+
+
+
+
+                                                                                                                                              WHO Medical device technical series   11
+=== Halaman 16 ===
+12
+                                       Figure 1. General needs assessment process
+
+
+                                          Generic standards and
+                                                examples
+
+
+
+
+Needs assessment for medical devices
+                                                                                  Level of care
+                                                                           Clinical practice guidelines
+                                                                               Medical device lists
+
+
+                                                                                                                                 Prioritization
+
+
+                                                                                                                                                  Budgetary
+                                                                                                                     Overall gap /                  and HR     Prioritized need
+                                                                          Analysing/interpreting                         need                      situation
+
+
+
+
+                                                                    Epidemiological needs/disease priorities
+                                                              Population data (demography, catchment area, patient
+                                                                                      rate)
+                                                                       Service availability and accessibility
+                                                                             Infrastructure situation
+                                                                  Health technology / medical device situation
+                                                                            Human resource situation
+
+
+
+
+                                              Baseline data
+=== Halaman 17 ===
+4 Speciﬁc approach
+
+Expanding upon the general approach,                         suggestions for analysing and interpreting
+this section summarizes the seven spe-                       the results of Steps I-V. Lastly, Step VII
+ciﬁc data collection and analysis steps of                   brieﬂy discusses the issue of prioritization
+the needs assessment process. Steps I-III                    and option appraisal.
+refer to the baseline information collection
+of health service requirements, health                       The tables in Steps I-V also summarize
+service availability, and health technol-                    what information is to be collected,
+ogy. Steps IV and V refer to the speciﬁc                     the data to be considered during the
+situation in terms of human resources                        collection process, and the desired result
+and ﬁnances – and possible respective                        of the process. Due to the cross-cutting
+constraints – of the administration of the                   nature of the process, the same outcomes
+facility, region or state. Step VI provides                  may be mentioned in multiple steps.
+
+
+
+
+4.1 Step I: Baseline information on health service requirements
+
+Table 2. Baseline information on health service requirements
+
+Local geographical and public
+                                       Considerations                                 Result
+health conditions
+• Population of target area, including • Epidemiological needs (disease       • Appropriate health service delivery
+  size of the region/area, number and    priorities)                            requirements
+  density of population                • Population issues (demography /
+• Major disease burden                   catchment area, patient rate)
+                                       • CPG/protocols/national or local
+                                         recommendations
+                                       • Internationally-recognized standards
+                                         on diagnosis and treatment of
+                                         different diseases
+                                       • Health-care issue prioritization
+
+
+Complete details on Step I are not provided                  WHO has information available at the
+here, as they are outside the scope of this                  country level while national ministries of
+document and the responsibility of the                       health (MoHs) may have more detailed
+GIHT. However, Step I remains critically                     information.1
+important to address, as it directly refers to
+the health situation of the target population.
+                                                             1 WHO country profiles are available at http://www.who.int/countries/en
+
+
+
+
+                                                                                                                     WHO Medical device technical series   13
+=== Halaman 18 ===
+4.2 Step II: Baseline information on health service availability
+
+                      Table 3. Baseline information on health service availability
+
+                       Service delivery situation                 Considerations                                    Result
+                       • Available services (e.g., maternal          • Health service availability and              • Health service availability map
+                         and child health, HIV/AIDS, surgical,         accessibility                                  (overview)
+                         etc.)                                       • Opinions on health service delivery          • Facility map
+                       • Facilities (e.g., hospitals, clinics, etc.)   from the target population
+                       • Human resources                             • Opinions on health service delivery
+                                                                       from service providers
+                                                                     • Facility types, numbers, conditions
+                                                                     • Current staffing levels
+
+
+
+
+                      It is important to assess the current                                 • What is the caseload of staff?
+                      situation in order to identify the difference                         • How many full-time staff does the
+                      between what is needed and what exists.                                 service employ, and how much time
+                      Taking Table 3 into account, the following                              do they have available each week for
+                      questions can be asked to retrieve the                                  client appointments?
+                      relevant information:                                                 • Is there any information regarding
+                                                                                              staff satisfaction or facility-user sat-
+                        • Where is the facility(ies) located?                                 isfaction available by way of surveys?
+                        • Which health services are available                               • How do existing clients access
+                          at the facility?                                                    the facility (e.g., on foot, by public
+                        • What range of clients does the facility                             transportation, etc.)?
+                          cater to in terms of age, gender,                                 • How accessible is the service by
+                          geographical distribution, etc.?                                    public transportation?
+                        • Which speciﬁc needs does the facility
+                          (and its services) meet?                                        Speciﬁc tools1 can further assist in the
+                        • How does the facility receive referrals,                        collection of the appropriate information
+                          and from whom do its referrals come?                            for this and other steps in the process,
+                        • How many clients does the facility                              including:
+                          see each week/month/quarter/year?
+                        • On average, how long do clients stay                              • Service Availability Mapping (SAM)
+                          at the facility, and what are their                                 tool, World Health Organization.
+                          reasons for leaving (e.g., drop-out,                              • Rapid health facility assessment
+                          onward referral, etc.)?                                             flow chart. International Health
+                        • How many clients each week/month,                                   Facility Assessment Network, 2007.
+                          etc., are referred on to other agen-
+                          cies?
+                                                                                          1 Reference information for these tools can be found under Useful Resources.
+
+
+
+
+14   Needs assessment for medical devices
+=== Halaman 19 ===
+4.3 Step III: Baseline information on medical devices
+
+Table 4. Baseline information on medical devices
+
+Medical device situation                Considerations                                    Result
+• Availability and condition of medical • Medical equipment inventory                     • Facility map
+  devices (including type, number,         including status and condition                 • Medical equipment inventory
+  location and physical condition)       • Current health technology                        (quantitative and qualitative)
+• Status of electrical, water, and waste   management infrastructure (or lack             • Outline of health technology
+  disposal systems related to medical      thereof)                                         management infrastructure
+  device use
+
+
+
+
+This is the key step in the process with                               › power supply, electrical connec-
+regard to health technology. The main                                    tions and installations (e.g., is an
+goal is to identify what is available in                                 emergency generator available?);
+terms of medical devices and related                                   › waste disposal system (e.g., how
+infrastructure, and their condition. It is                               is waste handled, segregated, and
+important to collect as much detailed and                                disposed of?).
+reliable information as possible, because
+any change, correction or improvement                         Medical equipment1
+will have a major impact on the ﬁnancial
+and human resources, as well as on the                           • type and number of equipment
+environment.                                                     • brand name
+                                                                 • model
+A two-step approach can be followed                              • year of manufacture
+where the ﬁrst step is a neutral, quantitative                   • date of installation
+assessment, and the second, a more de-                           • location (medical department)
+tailed, qualitative assessment. It is up to                      • physical condition (in operation/out
+the implementer to decide if the second                            of order/repairable)
+step is desired or necessary.                                    • spare parts required/available for
+                                                                   repair
+Taking Table 4 into account, some of the                         • tools available for inspection, main-
+key information to be collected includes                           tenance, and repair
+the following:                                                   • medical equipment history if available
+                                                                   (operation/use time, maintenance/
+Infrastructure                                                     repair).
+
+ • type, size, and position of premise and                    Health technology management
+   building(s), including the number and
+   type of building(s);                                          • Type of existing management struc-
+ • availability and condition of:                                  ture, including responsibilities.
+   › water supply, connections and                               • Existing policy (if available).
+      installation (e.g., where does the
+      water come from?, what is the
+      quality?, etc);                                         1 Most of this data is collected in an inventory. Please refer to Introduction to medical
+                                                                equipment inventory management in this technical series for more details on
+                                                                developing an inventory.
+
+
+
+
+                                                                                                                             WHO Medical device technical series   15
+=== Halaman 20 ===
+Speciﬁc tools2 can further assist in the                                       • Interagency list of essential
+                      collection of the appropriate information                                        medical devices for reproductive
+                      for this and other steps in the process,                                         health. Geneva, World Health
+                      including:                                                                       Organization, 2008.
+                                                                                                     • Integrated Management for
+                        • Introduction to medical equipment                                            Emergency and Essential Surgical
+                          inventory management. Geneva,                                                Care (IMEESC) tool kit. Geneva,
+                          World Health Organization, 2011.                                             World Health Organization.
+                        • Computerized maintenance                                                   • Surgical care at the district
+                          management system. Geneva,                                                   hospital. Geneva, World Health
+                          World Health Organization, 2011.                                             Organization, 2003.
+                        • Integrated Healthcare Technology                                           • Package of essential noncommu-
+                          Package (iHTP). World Health                                                 nicable (PEN) disease interventions
+                          Organization.3                                                               for primary health care in low-
+                        • Rapid health facility assessment                                             resource settings. Geneva, World
+                          flow chart. International Health                                             Health Organization, 2010.
+                          Facility Assessment Network,                                               • Medical devices by health-care
+                          2007.                                                                        facilities (in preparation). Geneva,
+                        • Practical steps for developing                                               World Health Organization, 2011.
+                          health care technology policy.                                             • Medical devices by clinical proce-
+                          Brighton, Institute of Development                                           dures (in preparation). Geneva,
+                          Studies, 2000.                                                               World Health Organization, 2011.
+                        • Development of medical device                                              • Models and medical equipment
+                          policies, strategies and action                                              guidelines. Mexico City, Centro
+                          plans. Geneva, World Health                                                  Nacional de Excelencia Tecnológica
+                          Organization, 2011.                                                          en Salud (CENETEC).
+                                                                                                     • Primary health care centres
+                      Additionally, the following are some                                             and ﬁrst referral level hospitals.
+                      available tools on internationally or                                            Planning guide: Equipment and
+                      regionally recognized standards that are                                         renewable resources. New York,
+                      useful for comparison purposes:                                                  United Nations Children’s Fund,
+                                                                                                       2005.
+
+
+
+                      2 Reference information for these tools can be found under Useful Resources.
+                      3 Tool requires technical support from WHO before use.
+
+
+
+
+16   Needs assessment for medical devices
+=== Halaman 21 ===
+4.4 Step IV: Baseline information on human resources
+
+Table 5. Baseline information on human resources
+
+Human resources                           Considerations                            Result
+Qualification and number of human        • Availability, capacity, and capability   • Human resource data information
+resources required to cover the required   of current human resources                 (staffing plan)
+health-care demand (as defined by                                                   • Education and training map
+results of Step I)
+
+
+The minimum information that should be                                 › on-the-job training
+available for collection and assessment is:                            › human resources planning.
+
+ • existing posts and job descriptions                            Further details on Step IV are not provided
+ • number of vacant posts                                         here, as this is outside the scope of
+ • status and availability of:                                    this document and the responsibility of
+   › basic, higher or vocational educa-                           the GIHT. This information should be
+      tion                                                        available at the HR department of your
+   › continuous training                                          administration.
+
+
+
+
+4.5 Step V: Baseline information on ﬁnances
+Table 6. Baseline information on finances
+
+Financial situation                       Considerations                            Result
+Capacity to finance overall facility      • Financial resources                     • Budget
+operations, including health services,
+health technology, and infrastructure
+(Steps II and III above).
+
+
+
+
+The minimum information that should be                            Further details on Step V are not provided
+available for collection and assessment is:                       here, as this is outside the scope of
+                                                                  this document and the responsibility of
+ • budget and expenses from previous                              the GIHT. This information should be
+   periods                                                        available at the ﬁnancial department of
+ • current budget                                                 your administration.
+ • system of monitoring/controlling
+   budget.
+
+
+
+
+                                                                                                        WHO Medical device technical series   17
+=== Halaman 22 ===
+4.6 Step VI: Analysis and interpretation
+
+
+                      Once all the information is gathered,          III above) with an internationally- or
+                      it is possible to analyse, interpret and       regionally-recognized standard for the
+                      draw conclusions. The analysis and             type of facility and/or intervention being
+                      interpretation should be based directly        reviewed, and assess the respective gap.
+                      on the information gathered in the             Using spreadsheets in a programme such
+                      manner outlined in previous steps.             as Excel can be helpful, but if there is a
+                      Therefore, keep in mind that the use           large amount of data to compare, it may
+                      of poor methodology in the information-        be best to use the inventory section of a
+                      gathering stages will undermine the ability    CMMS, if available, for such purposes.
+                      to develop valid interpretations of the
+                      situation. In the end, this will affect the    The recent WHO background paper
+                      quality of the conclusions and resulting       entitled: A stepwise approach to identify
+                      recommendations targeting the needs of         gaps in medical devices (availability
+                      the population.                                matrix and survey methodology), is a
+                                                                     result of the Priority Medical Devices
+                      Speciﬁcally for analysing medical device       project, and it might be a helpful tool
+                      needs, it is necessary to compare the          during this stage of the process.
+                      current inventory list (results of Step
+
+
+
+
+                      4.7 Step VII: Prioritization and appraisal of options
+
+
+                      After having analysed the information           • Implementation: When agreement
+                      gathered in the earlier steps of the needs        has been reached about how the
+                      assessment process, and having drawn              needs are to be met, an action plan
+                      conclusions, there should now be a                and timetable should be drawn
+                      reasonably clear picture of the needs of          up, including a plan for resource
+                      the target population. Decisions regarding        allocation.
+                      the actions to take will depend on several
+                      crucial and closely connected activities.      In practice, the tasks of prioritization and
+                      These include:                                 option appraisal are directly linked. Both
+                                                                     must be considered together.
+                        • Prioritization: If there are insufﬁcient
+                          resources to meet all the identiﬁed        4.7.1 Prioritization
+                          needs, it may be necessary to rank         When sufficient resources are not
+                          them in order to decide which needs        available to meet all the identiﬁed needs
+                          should be met ﬁrst and which will be       (which is the case in most circumstances),
+                          met later.                                 it is important for prioritization to occur.
+                        • Option appraisal: There may be more        Prioritization is a strategic process,
+                          than one way of meeting the needs          undertaken by those responsible for
+                          identified. Various options should         the commissioning of services. Those
+                          be considered, and the evidence in         involved in prioritizing should also
+                          favour of each should be weighed           consider the opinions of service users
+                          carefully.                                 and service providers regarding how to
+
+
+
+18   Needs assessment for medical devices
+=== Halaman 23 ===
+prioritize needs. However, they may not                      required (in terms of medical devices) in
+always agree, so priority is best given to                   order to render the required services that
+those areas where they do.                                   will allow these priorities to be realized.
+
+The way in which decisions are made                          4.7.2 Option appraisal
+with regard to identiﬁed priorities will                     In most cases, there will be more than
+depend on local circumstances. National                      one way of responding to the needs which
+priorities and the availability of required                  have been identiﬁed. The options you
+resources are often what prompts the                         choose will depend on several factors,
+needs assessment process. Therefore,                         including:
+the purpose of this step is to determine
+speciﬁcally what should be done, how,                          • how the needs are prioritized
+and in what order. For example, national                       • what the likely impact of each option
+and local policy may require that services                       will be
+should be provided for maternal and                            • the availability of resources.
+child health. In this case, the local needs
+assessment will focus on identifying                         Table 7 provides one way of thinking
+the speciﬁc needs of women/mothers                           about the options for change following a
+and newborns in the local area, their                        needs assessment.
+prioritization, and what is particularly
+
+Table 7. Plan, Do, Study, Act (PDSA) prioritization matrix
+
+
+Finances/resources required to implement                               Likely impact of change
+change                                                              Low                      High
+Low                                                    Soft target: Wait          Win: Go!
+High                                                   Refrain or Wait            Challenging: Wait
+
+
+
+
+The aim will be to give ﬁrst priority to                     having little impact. It may be tempting/
+actions that will have the highest positive                  attractive to go ahead with these actions,
+impact on the ability to provide optimal                     but they can prove to be a distraction
+services to the target population, as well                   from the more high-impact actions. For
+as require the fewest additional resources.                  this reason, it is usually better to wait until
+                                                             the ‘quick wins’ have been successfully
+At the other extreme, it is better to avoid                  implemented ﬁrst.
+making changes that are likely to have a
+low impact but which require a high level                    Hooper and Longworth (2002) suggest
+of resources. In between are those actions                   that a number of key questions should be
+that are likely to have a high impact,                       addressed when appraising the options
+but will also demand high resources. In                      and prioritizing the needs following a
+most circumstances, these would not be                       needs assessment exercise. These
+selected for immediate action either, but                    questions focus on the issues of impact,
+rather, considered as long-term options.                     changeability, acceptability and resource
+                                                             feasibility, and are adapted here for the
+Similarly, so called ‘soft targets’ are those                application of needs assessment of health
+actions requiring few resources but                          technology.
+
+
+
+                                                                                                WHO Medical device technical series   19
+=== Halaman 24 ===
+Table 8. Key questions for prioritizing and appraisal of options
+
+
+                       Key questions to ask when appraising the options and prioritizing
+                       Impact
+                       • Which changes would have the greatest positive impact in meeting needs?
+                       • Do the identified needs relate to a local or a national priority (e.g., maternal and child health, HIV/AIDS, etc.)?
+                       • What would be the implications of not addressing the needs?
+                       Changeability
+                       • Which things can be changed and effectively improved?
+                       • What evidence is there of effective interventions?
+                       • Can negative impacts be stopped or reduced?
+                       • Are there national or local, professional or organizational policies that set out guidelines on what should be done (e.g.,
+                         national frameworks, national guidance, etc.)?
+                       Acceptability
+                       • Which of the options for change are likely to be most acceptable to the health service providers, to the target population,
+                         and to the managers?
+                       • What might be the ‘knock-on’ effects, or unintended consequences, of making a change?
+                       Resource feasibility
+                       • Which resources are required to implement the proposed changes?
+                       • Can existing resources be used differently?
+                       • Which resources will be released if ineffective actions are stopped/changed (e.g., proper management of health technology,
+                         etc.)?
+                       • Are there other resources available which have not been given prior consideration (e.g., income generation of laboratory
+                         services, consideration of public-private partnerships, assistance from NGOs, etc.)?
+                       • Which of the actions will achieve the greatest impact for the resources used?
+
+
+
+
+                      4.7.3 Developing an implementation                                       the speciﬁc steps and milestones
+                      plan                                                                     required to achieve it;
+                      Once priorities and the ways to address                                • the names of the individuals
+                      these priorities are agreed upon, the                                    responsible for carrying out each part
+                      next step is to develop an action plan                                   of the plan, what they will do and
+                      for implementation. An implementation                                    when, and the skills and training they
+                      plan should be realistic, achievable and                                 will need (in particular, with a focus
+                      adequately fundable, while at the same                                   on health technology management,
+                      time able to clearly outline the various                                 policy and structure);
+                      stages of the implementation process.                                  • details of the resources that will
+                                                                                               be required (including devices,
+                      It is important that health service providers                            and if applicable, administrative,
+                      are included in discussions regarding the                                managerial, and IT systems), and
+                      implementation plan – and are supportive                                 where they will come from;
+                      of it – because at an operational level,                               • a clear understanding of how the
+                      they will be directly involved in the                                    plan will be kept on track, how the
+                      implementation and introduction of the                                   implementation of each component
+                      agreed changes to existing services.                                     of the plan will be measured, and
+                                                                                               how the relevant people will be kept
+                      A good implementation plan includes:                                     motivated and involved.
+
+                        • a statement of the aims and objec-
+                          tives of the planned action, and
+
+
+
+
+20   Needs assessment for medical devices
+=== Halaman 25 ===
+5 Concluding remarks
+
+The needs assessment process is a             Determining how to best use the
+powerful tool for determining medical         resources available to ﬁll that gap will
+device needs at the facility, regional and/   lead to a prioritization of activities that
+or country level. By collecting baseline      can eventually lead to a more efﬁcient
+information and comparing it to a             provision of health services and better
+desired standard, the existing gap can        quality of care.
+be identiﬁed.
+
+
+
+
+                                                                            WHO Medical device technical series   21
+=== Halaman 26 ===
+6 Useful resources
+
+                      All URLs accessed 30th March 2011
+
+                      For these and more resources, please visit the World Health Organization Library
+                      Information System (WHOLIS) at http://dosei.who.int, or the e-Documentation centre
+                      for WHO Health Technologies/Medical devices at http://hinfo.humaninfo.ro/gsdl/
+                      healthtechdocs.
+
+                      Medical equipment maintenance programme overview. Geneva, World Health
+                      Organization, 2011.
+
+                      Health technology assessment of medical devices. Geneva, World Health Organization,
+                      2011.
+
+                      Service Availability Mapping (SAM), World Health Organization (http://www.who.int/
+                      healthinfo/systems/serviceavailabilitymapping/en).
+
+                      Rapid health facility assessment ﬂow chart. New York, International Health Facility
+                      Assessment Network, 2007 (http://ihfan.org/home/docs/attachments/ms-08-28_
+                      ﬂowchart.pdf).
+
+                      Introduction to medical equipment inventory management. Geneva, World Health
+                      Organization, 2011.
+
+                      Computerized maintenance management system. Geneva, World Health Organization,
+                      2011.
+
+                      Integrated Healthcare Technology Package (iHTP), World Health Organization (http://
+                      www.ihtp.info).
+
+                      Temple-Bird C. Practical steps for developing health care technology policy. Brighton,
+                      Institute of Development Studies, 2000.
+
+                      Development of medical device policies, strategies and action plans. Geneva, World
+                      Health Organization, 2011.
+
+                      Interagency list of essential medical devices for reproductive health. Geneva, World
+                      Health Organization, 2008 (http://whqlibdoc.who.int/hq/2008/WHO_PSM_PAR_2008.1_
+                      eng.pdf).
+
+                      Integrated Management for Emergency and Essential Surgical Care (IMEESC) tool.
+                      Geneva, World Health Organization (http://www.who.int/surgery/publications/imeesc/
+                      en/index.html).
+
+
+
+
+22   Needs assessment for medical devices
+=== Halaman 27 ===
+Surgical care at the district hospital. Geneva, World Health Organization, 2003 (http://
+www.who.int/surgery/publications/scdh_manual/en).
+
+Package of essential noncommunicable (PEN) disease interventions for primary
+health care in low-resource settings. Geneva, World Health Organization, 2010 (http://
+whqlibdoc.who.int/publications/2010/9789241598996_eng.pdf).
+
+Medical devices by health-care facilities (in preparation). Geneva, World Health
+Organization, 2011.
+
+Medical devices by clinical procedures (in preparation). Geneva, World Health
+Organization, 2011.
+
+Models and medical equipment guidelines. Mexico City, Centro Nacional de Excelencia
+Tecnológica en Salud (CENETEC) (http://www.cenetec.salud.gob.mx/interior/modelos_
+equip.html).
+
+Primary health care centres and ﬁrst referral level hospitals. Planning guide: Equipment
+and renewable resources. New York, United Nations Children’s Fund, 2005 (http://
+www.unicef.org/supply/ﬁles/050307PlanningGuideHandbookAug2005%281%29.pdf).
+
+A stepwise approach to identify gaps in medical devices (availability matrix and survey
+methodology). Background paper 1. Geneva, World Health Organization, 2010 (http://
+whqlibdoc.who.int/hq/2010/WHO_HSS_EHT_DIM_10.1_eng.pdf).
+
+Priority medical devices project. World Health Organization (http://www.who.int/medi-
+cal_devices/access/en/index.html).
+
+Hooper J and Longworth P. (2002). Health needs assessment workbook. Health
+Development Agency, 2002 (http://www.nice.org.uk/niceMedia/documents/hna.pdf).
+
+Certiﬁcado de Necesidad (Certiﬁcate of Need). Mexico City, Centro Nacional de
+Excelencia Tecnológica en Salud (CENETEC) (http://www.cenetec.salud.gob.mx/interior/
+cert_nec.html).
+
+‘How to Manage’ series of health care technology guides. St Albans, Ziken International
+(Health Partners International), 2005 (http://www.healthpartners-int.co.uk/our_expertise/
+how_to_manage_series.html).
+
+Liu, X. Policy tools for allocative efﬁciency of health services. Geneva, World Health
+Organization, 2003 (http://whqlibdoc.who.int/publications/2003/9241562528.pdf).
+
+
+
+
+                                                                             WHO Medical device technical series   23
+=== Halaman 28 ===
+Appendix A
+                      Certiﬁcate of need process
+
+                      The Certificate of Need is a planning                                            • Description of need
+                      tool used to support decision-makers                                               › Service characteristics
+                      in evaluating investments of highly-                                               › Clinical procedures required
+                      specialized and expensive medical                                                  › Number of referred patients to
+                      equipment, based on technical,                                                       another site
+                      epidemiological, and cost-beneﬁt criteria                                          › Other available equipment in the
+                      in order to best optimize resources. 1                                               area.
+                      Many countries do not have this process
+                      in place but may be something decision-                                          • Proposal
+                      makers may want to consider. For those                                             › Medical equipment
+                      countries who have or will implement                                               › Staff
+                      this process, it is important to take into                                         › Infrastructure.
+                      consideration the following when applying
+                      for a certiﬁcate of need.                                                        • Resources needed
+                                                                                                         › Investment
+                        • General Data                                                                   › Operational costs
+                          › Place                                                                        › Sources of ﬁnancing.
+                          › Catchment area
+                          › Epidemiology information
+                          › Mortality/morbidity
+                          › Applicants data.
+
+
+                      1 CENETEC definition translated from Spanish (http://www.cenetec.salud.gob.mx/
+                        interior/cert_nec.html)
+
+
+
+
+24   Needs assessment for medical devices
+=== Halaman 29 ===
+The flow chart below demonstrates the process for obtaining a certificate of need.
+
+
+
+
+   Fill in application for
+     certificate of need
+
+
+
+
+                                                   Pre-assessment
+     >1 million USD?
+                                                        study
+                                     No
+
+
+
+         Yes
+                                    Evaluation
+
+
+
+
+                                    Approval?                               Certificate of need
+                                                               Yes
+
+
+
+
+                                                                                                  WHO Medical device technical series   25
+=== Halaman 30 ===
+ISBN 978 92 4 150138 5
+Department of Essential Health Technologies
+World Health Organization
+20 Avenue Appia
+CH-1211 Geneva 27
+Switzerland
+Tel: +41 22 791 21 11
+E-mail: medicaldevices@who.int
+http://www.who.int/medical_devices/en/

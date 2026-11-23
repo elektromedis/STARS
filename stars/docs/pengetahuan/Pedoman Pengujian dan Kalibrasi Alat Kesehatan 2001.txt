@@ -1,0 +1,4323 @@
+=== Halaman 1 ===
+i PENGUJIAN DANKAL-I           ALAT KESEIiATAN
+                                   4..   ',
+                                              3,
+
+
+
+
+k.   IMPROWG CALIBRATION SrSTEM OF MEDICAL
+          E Q I J I P M ~ T M T B [ E C H -~ . '
+           4!mdmet 3-aecamdf-i ~CUVWS
+                                  A    ,-
+=== Halaman 2 ===
+PEDOMAN
+PENQUJIAN DAN KALIBRASI ALAT KESEHATAN
+
+
+
+
+    IMPROVING CALIBRATION SYSTEM OF MEDICAL
+           EQUIPMENT IN THE HOSPITAL
+            Product 3 second stage activities
+
+
+
+
+            DEPARTEMEN KESEHATAN RI
+      DIREKTORAT JENDERAL PELAYANAN MEDIK
+                  JAKARTA 2001
+=== Halaman 3 ===
+KATA PENGANTAR
+KEPALA DIREKTORAT INSTALASI MEDIK
+
+Berdasarkan Surat Keputusan Kepala Direktorat Instalasi Medik No. KS.00.03.6.1.092
+tanggal 17 Maret 1998 tentang Pembentukan Tim Penyusunan Guidelines for
+Calibration in the Hospital proyek Quality of Health Care System bantuan WHO
+Biennium 98/99 untuk produk 3. Improving Calibration System of Medical in Distric
+Hospital maka Direktorat Instalasi Medik menyusun Pedoman Pengujian dan Kalibrasi
+Alat Kesehatan.
+
+Pedoman ini disusun dengan dilengkapi formulir-formulir, tabel-tabel serta lembar
+kerja dalam rangka pelaksanaan pengujian dan kalibrasi alat kesehatan.
+
+Pedoman Pengujian dan Kalibrasi Alat Kesehatan ini telah dibahas dan diuji coba di
+beberapa rumah sakit dan telah dimintakan tanggapan dari pejabat terkait di jajaran
+Direktorat Jenderal Pelayanan Medik, Departemen Kesehatan.
+
+Pedoman ini diharapkan dapat dipergunakan dalam pelaksanaan, pembinaan dan
+pengawasan kegiatan pengujian dan kalibrasi alat kesehatan di sarana pelayanan
+kesehatan maupun di institusi penguji.
+
+Kepada semua anggota panitia penyusun, kami mengucapkan terima kasih yang tak
+terhingga atas peran serta dalam menyusun pedoman pengujian dan kalibrasi alat
+kesehatan ini
+
+Semoga buku pedoman ini bermanfaat pada kita semua.
+
+Jakarta, 9 Mei 1999
+
+KEPALA DIREKTORAT INSTALASI MEDIK,,
+
+RAL
+
+IR. SRIJANTO
+NIP. 140 114 002
+=== Halaman 4 ===
+SAMBUTAN DIREKTUR JENDERAL PELAYANAN MEDIK
+                          DEPARTEMEN KESEHATAN RI
+
+
+Meningkatnya kegiatan pelayanan kesehatan akan meningkatkan penggunaan alat
+kesehatan pada Sarana Pelayanan Kesehatan. Penggunaan alat kesehatan disamping
+meniberihan manfaat dapat pula meiiimbillkan dampak negatif yang memgikan.
+Untuk memberikan perlindungan yang menyeluruh terhadap masyarakat dan untuk
+menjamin kebenaran kelaikan penggunaan alat kesehatan perlu dilakukan pengujian
+dan kalibrasi.
+Peraturan Menteri Kesehatan RI No. 363/Menkes/Per/IV/1998 tanggal 8 April 1998
+tentang Pengujian dan Kalibrasi Alat Kesehatan, mewajibkan setiap alat kesehatan
+yang dipergunakan di Sarana Pelayanan ~ i s e h a t a ndilakukan pengujian dan kalibrasi
+secara berkala sekurang-kurangnya 1 (satu) kali dalam setahun.
+Dengan terbitnya Pedoman Pengujian dan Kalibrasi Alat Kesehatan ini, diharapkan
+dapat dipergunakan sebagai panduan bagi semua institusi dan petugas terkait, sehingga
+kegiatan pengujian dan kalibrasi alat kesehatan dapat terselenggara dengan baik.
+Kepada semua anggota tim penyusun, kami mengucapkan terima kasih atas peran
+serta dan segala upaya yang dilakukan dalam penyusunan pedoman pengujian dan
+kalibrasi alat kesehatan ini.
+Semoga buku pedoman ini bermanfaat bagi kita semua.
+
+
+                                                Jakarta,    Mei 1999
+
+
+
+
+                                       Dr. Sri Astuti S. Suparmanto. MScPH
+                                                  NIP. 140 06 1 167
+=== Halaman 5 ===
+BAB 1.
+
+BAB I
+
+BAB III
+
+DAFTAR ISI
+
+PENDAHULUAN
+A. Latar belakang
+B. Tujuan
+1. Tujuan Umum
+2. Tujuan Khusus
+C. Sasaran
+
+D. Batasan dan pengertian
+
+PENGUJIAN DAN KALIBRASI
+A. Pengujian dan kalibrasi alat kesehatan
+1. Pengujian alat kesehatan
+2. Kalibrasi alat kesehatan
+3. Alat kesehatan wajib uji atau kalibrasi
+4. Biaya pengujian dan kalibrasi alat kesehatan
+B. Kalibrasi alat ukur dan besaran standar
+1. Kalibrasi alat ukur
+2. Kalibrasi besaran standar
+C. Sertifikat dan tanda
+|. Sertifikat
+2. Tanda -
+INSTITUSI PENGUJI DAN INSTITUSI PENGUJI RUJUKAN
+A. Persyaratan umum
+B. Institusi pensuji
+1. Tugas dan hak
+2. Wewenang dan tanggung jawab
+3. Sanksi bagi institusi penguji
+C. Institusi penguji rujukan
+1. Tugas dan hak
+2. Wewenang dan tanggung jawab
+3. Sanksi bagi institusi penguji rujukan
+=== Halaman 6 ===
+BAB IV   SARANA PELAYANAN KESEHATAN
+         A. Jenis sarana pelaj~anqkesehatan
+           1. Sarana pelayanan kesehalan dasar
+           2. Sarana pela~lanankeseham rujukan'
+           3. Sarana pelaj~anankesehatan penunjang
+         B. Hak dan kewajiban sarana pelayanan kesehatan
+           1. Hak swmz pelayulaii ksehatan.
+           2. Kewajiban sarana pelayanan kesehatan
+           3. Sanhi bagi sarana pelajman kesehatan
+
+
+BAB V. MEKANISME PENGUJIAN DAN KALIBRASI
+         A. Mekanisme pengujian dan kalibrasi alat !:esehatan
+            1. Pengujian dan kalibrasi alat kesehatan di institusi penguji
+            2. Pengujian dan kalibrasi alat kesehatan di sarana pelayanan kesehatan
+            3. Diagram pengujian dan kalibrasi alat kesehatan
+            4. Pemberian tanda dan sertifikat pengujian atau kalibrasi
+            5. Diagram pemberian tanda dan sertifikat
+         B. Mekanisme kalibrasi alat ukur dan besaran standar
+            1. Pelapnan kalibrasi alat ukur dan besaran standar
+           2. Diagram kalibrasi alat ukur dan bzsaran standar
+            3. Pemberian tanda dan sertifikat kalibrasi
+
+
+ BAB VI PEMBINAAN DAN PENGAWA5AN
+         A. Pembinaan dan penga\vasan tingkat pusat
+         B. Pembinaan dan pengalvasan tingkat \\ilayah
+=== Halaman 7 ===
+DAFTAR LAMPIRAN
+
+
+Lampiran 1 :    Permenkes No. 363/Menkes/Per/lV/1998
+Lampiran 2 :    SK Medies. No. 1 164/Menkes/SK/VIIL/2000
+Lampiran 3 :    Nilai Arnbang Batas pada Keselamatan Listrik dan Nilai Penyimpangan
+                yang Diijinkan pada Keluaran Kinerja
+Lampiran 4 :    Daftar alat kesehatan yang wajib uji atau kalibrasi
+Lampiran 5 :    Formulir pennintaan kalibrasi alat ukur atau besaran standar oleh institusi
+                penguji
+Lampiran 6 :    Formulir laporan pelaksanaan pengujian atau kalibrasi oleh institusi penguji
+Lampiran 7 :    Formulir laporan pelaksanaan kalibrasi alat ukur atau besaran standar oleh
+                institusi penguji
+Lampiran 8 :    Formulir laporan pelaksanaan kalibrasi alat ukur atau besaran standar oleh
+                institusi penguji rujukan
+Lampiran 9 :    Formulir permintaan pengujian atau kalibrasi alat kesehatan oleh sarana
+                pelavanan kesehatan
+Lampiran 10 :   Formulir laporan pelaksanaan pengujian atau kalibrasi alat kesehatan oleh
+                sarana pelayanan kesehatan
+Lampiran 11 :   Formulir inventarisasi alat kesehatan aspek pengujian dan kalibrasi
+Lampiran 12 :   Tabel wahu pelaksanaan pengujian atau kalibrasi alat kesehatan
+Lampiran 13 :   Formulir kesanggupan melaksanakan pengujian atau kalibrasi alat kesehatan
+                oleh institusi penguji
+Lampiran 14 :   Formulir kesanggupan melaksanakan kalibrasi alat ukur atau besaran standar
+                oleh institusi penguji.
+=== Halaman 8 ===
+BAB I.
+
+                               PENDAHULUAN.
+
+
+A. Latar Belakang.
+
+  Pembangunan Kesehatan adalah bagian dari Pembangunan Nasional yang
+  bertujuan untuk mewjudkan derajat kesehatan yang optimal. Undang Undang
+  No. 23 tahun 1992 tentang Kesehatan dan Peraturan Pemerintah No. 72 tahun
+  1998, bertujuan untuk melindungi pemberi dan penerima jasa pelayanan
+  kesehatan, serta memberikan kepastiah dan perlindungan hukum dalam rangka
+  meningkatkan, mengarahkan dan memberi dasar bagi pembangunanan kesehatan.
+  Dalam rangka pembangunan kesehatan, perlu dilakukan peningkatan pelayanan
+  kesehatan kepada masyarakat.
+  Untuk meningkatkan mutu pelayanan kesehatan diperlukan tersedianya alat
+  kesehatan yang berkualitas, yaitu alat kesehatan yang tejamin ketelitian,
+  ketepatan dan keamanan penggunaannya. Agar alat kesehatan dimaksud
+  berkualitas maka perlu dilakukan pengujian dan kalibrasi.
+  Berdasarkan SK Menkes No. 28UMENKESISWIVl1992 tentang Organisasi dan
+  Tatakeja Balai P6,lgamanan Fasilitas Kesdlatan, telah terbentuk 2 (dua) Balai
+  Pengamanan Fasilitas Kesehatan (BPFK) yaitu BPFK Jakarta untuk melayani
+  pengujian dan kaiibrasi alat kesehatan pada sarana pelayanan kesehatan wilayah
+  Indonesia bagian Barat dan BPFK Surabaya untuk Indonesia bagian Timur.
+  BPFK sebagai unit pelaksana teknis pada Direktorat Jenderal Pelayanan Medik
+  yang    memiliki tugas dan fingsi untuk menyelenggarakan Pengujian dan
+  Kalibrasi alat kesehatan adalah merupakan Institusi Penguji yang diselenggarakan
+  oleh Pemerintah.
+  Berdasarkan Permenkes No.363/MENKES/PER/IVl1998tanggal 8 April 1998,
+  tentang Pengujian dan Kalibrasi Alat Kesehatan, setiap alat kesehatan yang
+   dipergunakan sarana pelayanan kesehatan wajib dilakukan pengujian dan kalibrasi
+=== Halaman 9 ===
+oleh Institusi Penguji, untuk menjamin ketelitian dan ketepatan serta keamanan
+  penggunaan alat kesehatan.
+  Sampai saat ini jumlah Institusi Penguji yang telah ada, dibandingkan dengan
+  beban kerja yang demikian banyak dan luas, dirasakan masih kurang. BPFK
+  dalam melaksanakan kegiatan pengujian dan kalibrasi alat kesehatan belum
+  didukung oleh tersedianya rneknisma keja, prosedur keja dan tarif pelayarian.
+  Guna mengatasi permasalahan yang tersebut diatas,      perlu disusun pedoman
+  mekanisme kej a pelayanan, pelaksanaan, pembinaan dan pengawasan pengujian
+  dan kalibrasi alat kesehatan. Disamping itu rumah sakit pemerintah maupun
+  swasta yang memiliki peralatan kesehatan dalam jumlah besar perlu didorong
+  untuk mendirikan Institusi Penguji supaya dapat melayani kebutuhan rumah sakit
+  sendiri maupun sarana pelayanan kesehatan sekitarnya. Demikian pula pihak
+  perusahaan swasta perlu dimotivasi untuk dapat berperan aktif dalam
+  menyelenggarakan pengujian dan kalibrasi alat kesehatan.
+
+
+B. Tujuan.
+
+  1. Tujuan Umum.
+
+     Terciptanya Sistem Pengujian dan Kalibrasi, agar tercapai kondisi laik pakai
+     untuk menjamin ketelitian, ketepatan serta keamanan alat kesehatan, dalam
+     rangka mendukung peningkatan mutu pelayanan kesehatan.
+
+  2. Tujuan Khusus.
+
+     - Terlaksananya pedoman pengujian dan kalibrasi alat kesehatan.
+      -   Terlaksananya mekanisme permintaan dan pelaksanaan pengujian dan
+          kalibrasi alat kesehatan.
+      - Terlaksananya mekanisme permintaan dan pelaksanaan kalibrasi alat ukur
+          dan besaran standar
+      - Terlaksananya prosedur kerja pelaksanaan pengujian dan kalibrasi alat
+          kesehatan.
+=== Halaman 10 ===
+- Terlaksananya pembinaan dan pengawasan pengujian dan kalibrasi alat
+kesehatan, alat ukur dan besaran standar.
+
+C. Sasaran.
+
+Pedoman dipergunakan oleh Institusi Penguji, Institusi Penguji Rujukan, Sarana
+
+Pelayanan Kesehatan dan Institusi Pembinaan dan Pengawasan dalam rangka
+
+pengujian dan kalibrasi alat kesehatan, alat ukur dan besaran standar.
+
+D. Batasan dan Pengertian.
+
+1.
+
+Alat Kesehatan adalah instrumen, aparatus, mesin, implan yang tidak
+mengandung obat yang digunakan untuk mencegah, mendiagnosis,
+menyembuhkan dan meringankan penyakit, merawat orang sakit serta
+memulihkan kesehatan pada manusia dan atau untuk membentuk struktur dan
+memperbaiki fungsi tubuh.
+
+Alat Ukur adalah semua peralatan yang digunakan untuk mengukur,
+memeriksa atau memeriksa cuplikan untuk menentukan keberlakuan standar
+yang mampu menampilkan objek besaran, dipergunakan untuk mengetahui
+kebanaran suatu besaran dari bahan ukur. Alat ukur yang dipergunakan dalam
+pelaksanaan pengujian atau kalibrasi alat kesehatan, berupa alat ukur besaran
+
+dasar maupun alat ukur besaran turunan.
+
+. Besaran Standar adalah alat atau bahan yang memiliki besaran tertentu dan
+
+nilainya diketahui, sehingga dapat dipergunakan sebagai bahan pembanding
+terhadap besaran sejenis yang diukur pada objek ukur. Besaran standar yang
+dipergunakan dalam pelaksanaan pengujian atau kalibrasi alat kesehatan
+berupa besaran dasar maupun besaran turunan.
+
+Institusi Penguji adalah sarana kesehatan atau sarana lainnya yang
+mempunyai tugas dan fungsi untuk melakukan pengujian dan kalibrasi alat
+kesehatan.
+=== Halaman 11 ===
+11.
+
+12.
+
+14.
+
+Institusi Penguji Rujukan adalah institusi penguji yang mempunyai tugas
+dan fungsi untuk melakukan dan kalibrasi , alat ukur dan tesaran standar
+serta pengujian atau kalibrasi alat kesehatan.
+
+. Kalibrasi adalah kegiatan peneraan untuk menentukan kebenaran nilai
+
+penunjukan alat ukur dan/atau bahan ukur.
+
+. Kemampuan Telusur adalah kemampuan untuk menghubungkan hasil alat-
+
+alat ukur tertentu dengan hasil pengukuran pada standar nasional atau secara
+nasional diterima sebagai sistem pengukuran melalui suatu mata rantai
+
+tertentu.
+
+. Ketelitian (precision) adalah kemampuan proses pengukuran untuk
+
+menunjukan hasil yang sama dan pengukuran dilakukan secara berulang-
+ulang.
+
+Laboratorium Kalibrasi adalah Unit kerja yang melaksanakan kegiatan
+teknis kalibrasi alat kesehatan pada institusi penguji alat kesehatan.
+
+. Lulus Kalibrasi adalah kondisi besaran pada alat kesehatan sesuai dengan
+
+besaran sebenarnya dan laik dipergunakan dalam pelayanan kesehatan.
+Lulus Uji adalah kondisi alat kesehatan yang memenuhi spesifikasi dan laik
+dipergunakan dalam pelayanan kesehatan.
+
+. Pengujian adalah keseluruhan tindakan yang meliputi pemeriksaan fisik dan
+
+pengukuran untuk membandingkan alat ukur dengan standar untuk satuan
+ukuran yang sesuai guna menetapkan sifat ukurnya (sifat metrologik) atau
+
+menentukan besaran atau kesalahan pengukuran.
+
+. Pengukuran adalah kegiatan atau proses mengaitkan angka secara empirik
+
+dan obyektif pada sifat-sifat obyek atau kejadian nyata sedemikin rupa,
+sehingga angka tadi dapat memberikan gambaran yang jelas mengenai obyek
+atau kejadian tersebut
+
+Sarana Pelayanan Kesehatan adalah institusi yang melaksanakan pelayanan
+
+kesehatan kepada masyarakat baik dasar, penunjang maupun rujukan.
+=== Halaman 12 ===
+15. Sertifikat Kalibrasi adalah sertifikat yang dikeluarkan oleh institusi penguji
+terhadap alat yang lulus kalibrasi.
+
+16. Sertifikat Pengujian adalah sertifikat yang dikeluarkan oleh institusi
+penguji terhadap alat yang lulus uji. |
+
+17. Standar Internasional adalah suatu standar yang ditetapkan oleh suatu
+persetujuan internasional sebagai dasar untuk menetapkan harga atau suatu
+harga besaran bagi semua standar lain dari besaran yang ada.
+
+18. Standar Nasional adalah suatu standar yang ditetapkan oleh peraturan
+pemerintah sebagai dasar untuk menetapkan harga atau besaran dalam suatu
+negara untuk semua standar lain dari besaran yang ada.
+
+19. Tanda laik pakai adalah tanda yang ditempelkan pada :
+
+- alat kesehatan untuk menyatakan lulus uji atau lulus kalibrasi.
+- alat ukur atau besaran standar untuk menyatakan lulus kalibrasi
+
+20. Tanda tidak laik pakai adalah tanda yang ditempelkan pada :
+
+- alat kesehatan untuk meyatakan tidak lulus uji atau tidak lulus kalibrasi.
+- alat ukur atau besaran standar untuk meyatakan tidak lulus kalibrasi.
+=== Halaman 13 ===
+BAB II.
+
+                         PENGUJIAN DAN KALIBRASI
+
+
+Akurasi suatu instrumen tidak dengan sendirinya timbul dari rancangan yang baik.
+Rancangan suatu instrumen merupakan hasil kompromi antara kineja, stabilitas,
+keandalan dan biaya serta faktor-faktor lain yang mempengaruhinya. Akurasi dapat
+diperoleh hanya dari kegiatan kalibrasi yang benar, sedangkan stabilitas dan
+keandalan dapat diketahui dari pengujian, atas dasar inilah perlunya dilakukan
+pengujian dan kalibrasi terhadap instrumen secara teratur.
+Dewan Standar Nasional menyatakan suatu filosofi yaitu : "setiap instrumen hams
+dianggap tidak cukup baik untuk dipergunakan, sampai terbukti melalui pengujian
+dan kalibrasi bahwa instrumen tersebut memang baik ". Dengan mengacu pada
+filosofi tersebut, maka terhadap instrumen yang masih baru harus dilakukan
+pengujian atau kalibrasi sebelum dipergunakan.
+Pengujian adalah kegiatan untuk menentukan satu atau lebih karakteristik dari suatu
+bahan atau instrumen, sehingga dapat dipastikan kesesuaian antara karakteristik
+dengan spesifikasinya.
+Kalibrasi bertujuan untuk memastikan hubungan antara :
+-   Nilai-nilai yang ditunjukkan oleh instrumen ukur atau sistem pengukuran, atau
+- Nilai-nilai yang diabadikar. pada suatu bahan ukur,
+dengan nilai sebenarn~adari besaran yang diukur.
+Nilai sebenarnva adalah konsep ideal yang tidak dapat diketahui dengan pasti. Dalam
+prakteknya nilai ini diganti oleh suatu nilai yang diabadikan pada suatu standar,
+kemudian secara internasional dinyatakan sebagai nilai yang benar (kebenaran
+konvensional). Dengan demikian kalibrasi dapat didefinisikan sebagai :
+Suatu kegiatan untuk menentukan kebenaran konvensional penunjukan instrumen
+ukur dan bahan ukur, dengan cara membandingkan terhadap standar ukurnya yang
+tertelusur (traceable) ke standar Nasional danlatau Internasional.
+=== Halaman 14 ===
+Dengan demikian dapat disimpulkan juga bahwa pengujian dan kalibrasi bertujuan
+F
+    untuk :
+    - Memastikan kesesuaian karakteristik terhadap spesifikasi dari suatu bahan ukur
+        atau instrumen.
+    -   Menentukan deviasi kebenaran konvensional nilai penunjukan suatu instrumen
+        ukur atau deviasi dimensi nominal yang seharusnya untuk suatu bahan ukur.
+    -   Menjamin hasil-hasil penskuran sesuai dengan standar Nasional maupun
+        Internasional.
+    Manfaat yang dapat diperoleh dari kegiatap pengujian dan kalibrasi adalah : kondisi
+    instrumen ukur dan bahan ukur tetap tejaga sesuai dengan spesifikasinya.
+
+
+    A. Pengujian dan Kalibrasi Alat Kesehatan.
+
+        Sebagaimana ditetapkan pada Pennenkes No. 363/Menkes/Per/IV/1998 alat
+        kesehatan yang dipergunakan di sarana pelayanan kesehatan wajib diuji atau
+        dikalibrasi secara berkala, sekurang-kurangnya 1 (satu) kali setiap tahun.
+        Pengujian atau kalibrasi wajib dilakukan terhadap alat kesehatan dengan kriteria :
+        a. Belum memiliki sertifikat dan tanda lulus pengujian atau kalibrasi.
+        b. Masa berlaku sertifikat dan tanda lulus pengujian atau kalibrasi telah habis.
+        c. Diketahui penunjukannya atau keluarannya atau kinerjanya (perlormance)
+              atau keamanannya (sajety) tidak sesuai lagi, walaupun sertifikat dan tanda
+              masih berlaku.
+        d. Telah mengalami perbaikan, walaupun sertifikat dan tanda masih berlaku.
+        e. Telah dipindahkan bagi yang memerlukan instalasi, walaupun sertifikat dan
+              tanda masih berlaku.
+         tau jika tanda laik pakai pada alat kesehatan tersebut hilang atau rusak,
+        sehingga tidak dapat memberikan informasi yang sebenamya.
+        Tingkat teknologi, beban kerja dan umur sangat mempengaruhi kinerja alat
+        kesehatan, baik untuk akurasi, ketelitian maupun keamanannya. Oleh karena itu
+        selang waktu pengujian atau kalibrasi ulang peralatan kesehatan, dipengaruhi
+        oleh faktor-faktor tersebut.
+=== Halaman 15 ===
+Dengan demikian dapat disimpulkan juga bahwa pengujian dan kalibrasi bertujuan
+untuk :
+- Memastikan kesesuaian karakteristik terhadap spesifikasi dari suatu bahan ukur
+   atau instrumen.
+- Menentukan deviasi kebenaran konvensional nilai penunjukan suatu instrumen
+   ukur atau deviasi dimensi nominal yang seharusnya untuk suatu bahan ukur.
+- Menjamin hasil-hasil penskuran sesuai dengan standar Nasional maupun
+   Internasional.
+Manfaat yang dapat diperoleh dari k e g i a t ~pengujian dan kalibrasi adalah : kondisi
+instrumen ukur dan bahan ukur tetap terjaga sesuai dengan spesifikasinya.
+
+
+A. Pengujian dan Kalibrasi Alat Kesehatan.
+
+    Sebagaimana ditetapkan pada Pennenkes No. 363/MenkesfPer/IV/1998 alat
+   kesehatan yang dipergunakan di sarana pelayanan kesehatan wajib diuji atau
+    dikalibrasi secara berkala, sekurang-kurangnya 1 (satu) kali setiap tahun.
+   Pengujian atau kalibrasi wajib dilakukan terhadap alat kesehatan dengan kriteria :
+    a. Belum memiliki sertifikat dan tanda lulus pengujian atau kalibrasi.
+    b. Masa berlaku sertifikat dan tanda lulus pengujian atau kalibrasi telah habis.
+    c. Diketahui penunjukannya atau keluarannya atau kinerjanya (perfonnarrce)
+          atau kearnanannya (safety) tidak sesuai lagi, walaupun sertifikat dan tanda
+          masih berlaku.
+    d. Telah mengalami perbaikan, walaupun sertifikat dan tanda masih berlaku.
+    e. Telah dipindahkan bagi yang memerlukan instalasi, walaupun sertifikat dan
+          tanda masih berlaku.
+    Atau jika tanda laik pakai pada alat kesehatan tersebut hilang atau rusak,
+    sehingga tidak dapat memberikan informasi yang sebenarnya.
+    Tingkat teknologi, beban kerja dan umur sangat mempengaruhi kinerja alat
+    kesehatan, baik untuk akurasi, ketelitian maupun keamanannya. Oleh karena itu
+    selang waktu pengujian atau kalibrasi ulang peralatan kesehatan, dipengaruhi
+    oleh faktor-faktor tersebut.
+=== Halaman 16 ===
+Alat kesehatan dinyatakan lulus pengujian atau kalibrasi apabila :
+a. Penyimpangan hasil pengukuran dibandingkan dengan nilai yang diabadikan
+   pada alat kesehatan tersebut, tidak melebihi penyimpangan yang diijinkan
+b. Nilai hasil pengukuran keselamatan kerja, berada dalam nilai ambang batas
+   yang diijinkan.
+Tabel penyimpangan yang diijinkan dan nilai ambang batas keselamatan kerja
+untuk 20 (dua puluh) alat kesehatan, terdapat pada lampiran 2.
+Pengujian dan kalibrasi alat kesehatan hanya dapat dilaksanakan oleh tenaga
+profesional, menggunakan alat ukur dan besaran standar yang terkalibrasi.
+
+
+1. Pengujian Alat Kesehatan.
+
+   Pengujian alat kesehatan adalah merupakan keseluruhan tindakan meliputi
+   pemeriksaan fisik dan pengukuran untuk menentukan karakteristik alat
+   kesehatan, sehingga dapat dipastikan kesesuaian alat kesehatan terhadap
+   keselamatan kerja dan spesifikasinya.
+   Dengan pelaksanaan kegiatan pengujian, dapat dijamin peralatan kesehatan
+   bersangkutan aman dan laik pakai dalam pelayanan kesehatan.
+   Kegiatan pengujian dilakukan terhadap alat kesehatan yang tidak memiliki
+   standar besaran yang terbaca. berarti tidak terdapat nilai yang diabadikan
+   pada alat kesehatan bersangkutan, sehingga pengujian dilaksanakan mengacu
+   pada :
+   -     nilai standar   yang ditetapkan secara nasional maupun internasional,
+         misalnya : arus bocor, fiekuensi kerja dan paparan radiasi
+       - hngsi alat dalam pelayanan kesehatan, misalnya : h a t cahaya, daya
+          hisap, sterilitas, putaran, energi dan temperatur
+   Pengujian alat kesehatan dilaksanakan dengan kegiatan sebagai berikut:
+   - Pengukuran kondisi lingkungan
+   - Pemeriksaan kondisi fisik dan hngsi komponen alat.
+   - Pengukuran keselamatan kerj a.
+   - Pengukuran kinerja.
+=== Halaman 17 ===
+2. Kalibrasi Alat Kesehatan.
+
+   Kalibrasi alat kesehatan bertujuan untuk menjaga kondisi alat kesehatan agar
+   tetap sesuai dengan standar besaran pada spesifikasinya.
+   Dengan pelaksanaan kegiatan kalibrasi maka akurasi, ketelitian dan
+   kearnanan alat kesehatan dapat dijamin sesuai dengan besaran-besaran yang
+   tertera / diabadikan pada alzt kesehataii tersangkitan.
+   Standar besaran yang dapat dibaca pada alat kesehatan mungkin berupa
+   pemilih (selector) atau metering, merupakan nilai yang diabadikan pada alat
+   kesehatan bersangkutan. Sehingga pelaksanaan kalibrasi dapat dilakukan
+   dengan membandingkan nilai terukur dengan nilai y2ng diabadikan pada alat
+   kesehatan, misalnya : Tegangan (voltage), Arus listrik (electric current),
+   Waktu, Energi dan Suhu
+   Kalibrasi alat kesehatan dilaksanakan dengan kegiatan sebagai berikut :
+   - Pengukuran kondisi lingkungan
+   - Pemeriksaan kondisi fisik dan hngsi komponen alat.
+   - Pengukuran keselarnatan kerja.
+   - Pengukuran kinej a sebelum dan setelah penyetelan atau pemberian faktor
+      kalibrasi sehingga nilai terukur sesuai dengan nilai yang diabadikan pada
+      bahan ukur.
+
+
+3. Alat Kesehatan Wajib Uji atau Kalibrasi.
+
+   Berkaitan dengan kegiatan pengujian atau kalibrasi, secara teknis peralatan
+   kesehatan dapat dibedakan ke dalam alat kesehatan yang memiliki acuan
+   besaran dan alat kesehatan yang tidak memiliki acuan besaran. Acuan
+   besaran dapat dipergunakan sebagai pembanding terhadap nilai terukur.
+   Terhadap alat kesehatan yang memiliki acuan besaran dilakukan kalibrasi,
+   contoh: ECG, cardiotocograph, electroencephalograpl~X-Ray.
+=== Halaman 18 ===
+Sedangkan terhadap alat kesehatan yang tidak memiliki acuan besaran
+   dilakukan pengujian, karena tidak memiliki nilai pembanding, contoh: dental
+   unit, ESU, alat hisap medik.
+   Permenkes No. 363lPerfiVi1998 telah menetapkan sebanyak 125 alat
+   kesehatan wajib diuji atau kalibrasi, seperti yang terdapat pada dafiar alat
+   kesehatan wajib uji atau kalibrasi pada lampiran 3.
+
+
+4. Biaya Pengujian dan Kalibrasi Alat Kesehatan.
+
+   Biaya yang diperlukan untuk pelaksanaan pengujian         atau kalibrasi alat
+   kesehatan, sepenuhnya menjadi beban sarana pelayanan kesehatan sebagai
+   pemilik alat. Biaya yang diperlukan meliputi:
+   - Tarif peiayanan pengujian dan Kalibrasi
+   - Biaya perjalanan petugas.
+
+   4.1. Tarif Pelayanan Pengujian dan Kalibrasi.
+
+        Pola tarif pelaksanaan pengujian dan kalibrasi alat kesehatan pada
+        BPFK ditetapkan oleh Menteri Kesehatan atas persetujuan Menteri
+        Keuangan, dipergunakan sebagai tarif pelayanan BPFK mencak up :
+        - Biaya operasional
+        -   Alat, bahan
+        - Jasa
+        Besaran tarif tersebut belum termasuk biaya transportasi dan biaya
+        akomodasi petugas pengujian dan kalibrasi karena biaya tersebut sangat
+        bervariasi untuk masing-masing sarana pelayanan kesehatan yang
+        dipengaruhi oleh lokasi sarana pelayanan kesehatan clan jenis serta
+        jumlah alat kesehatan yang akan diuji dan atau dikalibrasi.
+        Jika peralatan kesehatan diuji dan atau dikalibrasi pada Laboratorium
+        Institusi Penguji, maka biaya transportasi dan biaya akomodasi petugas
+        pengujian dan kalibrasi ditiadakan.
+=== Halaman 19 ===
+42. Biaya Perjalanan Petugas. -
+
+Biaya perjalanan petugas terdiri dari biaya transportasi dan akomodasi,
+yang akan menjadi beban sarana pelayanan kesehatan jika pengujian
+dan atau kalibrasi alat kesehatan dilaksanakan pada lokasi sarana
+pelayanan kesehatan.
+4.2.1. Biaya Transportasi Petugas.
+Biaya transportasi petugas adalah biaya dari tempat kedudukan
+Institusi Penguji ke lokasi sarana pelayanan kesehatan pergi —
+pulang sesuai peraturan yang berlaku atau atas kesepakatan
+bersama.
+42.2 Biaya Akomodasi.
+Biaya akomodasi petugas berlaku biaya lumpsum pegawai
+negeri, sesuai peraturan yang berlaku.
+Besarnya biaya akomodasi dihitung berdasarkan jumlah petugas
+dan lamanya pelaksanaan pengujian atau kalibrasi dalam hari.
+
+B. Kalibrasi Alat Ukur dan Besaran Standar.
+
+Untuk menjamin kebenaran, keakuratan dan keamanan pengujian atau kalibrasi
+alat kesehatan, maka alat ukur dan besaran standar yang dipergunakan untuk
+penguiian dan kalibrasi alat kesehatan wajib dikalibrasi secara berkala oleh
+Institusi Penguji Rujukan.
+
+Contoh alat ukur dan besaran standar : leakage current meter, RPM meter,
+diathermy analyzer, freguency counter, ECG simulator, defibrillator analyzer,
+electrosurgery analyzer, conductivity meter, flow meter, volume meter, pH mater
+standar, biometer, sound level meter.
+
+1. Kalibrasi Alat Ukur.
+
+Kalibrasi alat ukur adalah kegiatan untuk menjaga kondisi alat ukur agar hasil
+
+pengukuran sesuai dengan nilai sebenarnya dari bahan ukur. Dengan
+=== Halaman 20 ===
+pelaksanaan kegiatan kalibrasi maka akurasi dan ketelitian alat ukur dapat
+dijamin.
+Alat ukur yang dipergunakan dalam pengujian dan kalibrasi alat kesehatan
+adalah alat ukur besaran dasar maupun alat ukur besaran turunan. Kedua jenis
+alat ukur tersebut dikalibrasi dengan melakukan metode pengukuran
+langsling atau metode pengubiran paralel.
+
+1.1. Metode Pengukuran Langsung.
+     Alat ukur yang akan dikalibrasi dipergunakan untuk mengukur suatu
+     bahan ukur yang nilai sebenarnya telah diketahui. Kondisi atau
+     ketelitian serta kecermatan alat ukur yang dikalibrasi, dapat diketahui
+     densan membandingkan nilai sebenarnya dan bahan ukur dengan nilai
+     terbaca pada alat ukur.
+     Jika terdapat pert>edaan antara nilai sebenarnya dari bahan ukur dengan
+     nilai terukur, maka dilakukan penyetelan pada alat ukur bila
+     memungkinkan. Setelah penyetelan, dilakukan pengukuran ulang
+     sekurang-kurangnya 3 (tiga) kali pada masing-masing skaldparameter,
+     sehingga diperoleh kondisi stabil pengukuran.
+
+1.2. Metode Pengukuran Paralel.
+     Alat ukur yang telah diketahui ketelitian serta kecermatannya
+     (terkalibrasi) disebut alat ukur reference, dipergunakan paralel
+     (bersamaan) dengan alat ukur yang akan dikalibrasi untuk mengukur
+     suatu bahan ukur. Kondisi alat ukur yang dikalibrasi dapat diketahui
+     dengan membandingkan hasil pengukurannya dengan alat ukur
+     reference. Jika terdapat perbedaan antara alat ukur reference dengan
+     nilai terbaca pada alat ukur yang dikalibrasi, maka dilakukan penyetelan
+     pada alat ukur yang dikalibrasi bila memungkinkan. Setelah penyetelan
+     dilakukan pengukuran ulang sekurang-kurang nya 3 (tiga) kali pada
+     masing-masing skala / parameter, sehingga diperoleh kondisi stabil
+     pengukuran.
+=== Halaman 21 ===
+2. Kalibrasi Besaran Standar.
+
+   Kalibrasi besaran standar hanya dapat dilakukan dengan met ode pengukuran
+                             '
+
+
+
+
+   langsung. Nilai sebenarnya dari besaran standar, diukur secara langsung
+   menggunakan alat ukur yang telah diketahui ketelitian serta kecermatannya
+   (terkalibrasi). Jika nilai terukur berbeda dengan nilai yang diabadikan pada
+   besaran standar, dilakukan penyetelan jika             memungkinkan.   Setelah
+   penyetelan dilakukan pengakuran ulang sekurang-kurangnya 3 (tiga) kali
+   pada masing-masing skaldparameter, sehingga diperoleh kondisi stabil
+   pengukuran. Faktor Kalibrasi dapat diberikan jika penyimpangan nilai
+   terukur, berada dalam rentang nilai yang diijir,kan.
+
+
+Sertifikat dan Tanda
+
+Alat kesehatan, Alat Ukur maupun Besaran Standar yang lulus kalibrasi akan
+mendapatkan Sertifikat Kalibrasi serta Tanda Laik Pakai, demikian juga Alat
+Kesehatan yang lulus uji akan akan mendapatkan Sertifikat Pengujian dan tanda
+Laik Pakai .
+Alat kesehatan, Alat Ukur dan Besaran Standar yang tidak lulus kalibrasi serta
+Alat Kesehatan yang tidak lulus uji akan mendapatkan Tanda Tidak Laik Pakai.
+Sertifikat Pengujian dan Sertifikat Kalibrasi serta Tanda Laik Pakai dan Tanda
+Tidak Laik Pakai alat kesehatan dikeluarkan oleh Institusi Penguji dan Institusi
+Penguji Rujukan. Sedangkan Sertifikat Pengujian dan Sertifikat Kalibrasi dan
+Tanda Laik dan Tidak Laik Pakai alat ukur serta besaran standar dikeluarkan
+oleh Institusi Penguji Rujukan.
+
+
+1. Sertifikat.
+
+   Sertifikat Pengujian atau Sertifikat Kalibrasi dapat memberikan perlindungan
+   llukum kepada sarana pelayanan kesehatan dalam penggunaan alat kesehatan
+   bersangkutan. Format masing-masing Sertifikat Pengujian maupun Sertifikat
+    Kalibrasi sekurang-kurangnya harus memuat informasi tentang :
+=== Halaman 22 ===
+- Nama Institusi Penguji, Alamat dan Nomor Ijin dari Menkes
+  - Nama Alat Kesehatan
+  -    Merk, ModeVType dan Nomor Seri Alat Kesehatan
+  - Nama Sarana Pelayanan Kesehatan
+  - Identitas Sarana Pelayanan Kesehatan
+  -    Alamat Sarana Pelayanan Kesehatan
+  - Tanggal Pelaksanaan Pengujian atau Kalibrasi
+  - Masa berlaku Sertifikat
+  - Tingkat ketelitian alat kesehatan
+  -    Metode pengujian atau kalibrasi yang dipergunakan
+  - Penanggung jawab Pengujian atau Kalibrasi
+
+
+2. Tanda.
+
+  Tanda Laik Pakai akan memberikan rasa aman kepada pengguna jasa
+   pelayanan kesehatan.
+   Agar masyarakat pengguna jasa pelayanan kesehatan dapat mengetahui
+   dengan jelas tentang kinerja dan keamanan (safety) alat kesehatan, maka pada
+   setiap alat kesehatan akan ditempelkan tanda laik pakai atau tanda tidak
+   laik pakai, sesuai dengan hasil pengujian atau kalibrasi alat kesehatan
+   tersebut. Penempelan tanda perlu memperhatikan ha1 sebagai berikut :
+   -   Tanda Laik Pakai atau Tidak Laik Pakai dipasangfditempelkan oleh
+       petugas pengujian atau kalibrasi segera, setelah pelaksanaan pengujian
+       atau kalibrasi selesai dilaksanakan.
+   -   Petugas pengujian atau kalibrasi menuliskan tanggal pelaksanaan, masa
+       berlaku dan paraf pada Taqda Laik Pakai dan tanggal pelaksanaan serta
+       paraf pada Tanda Tidak laik Pakai.
+   - Tanda Laik Pakai atau Tidak Laik Pakai dibuat oleh Institusi Penguji,
+       dibuat dari bahan yang perekatnya tidak mudah lepas.
+=== Halaman 23 ===
+<
+
+
+
+
+2.1 Tanda Laik Pakai
+    Tanda Laik Pakai alat kesehatan berwarna dasar hijau dengan tulisan
+    hitam, ukuran tanda disesuaikan dengan besar kecilnya alat kesehatan
+    yang akan ditempel tanda tersebut.
+    Penggunaan tanda dibedakan antara alat kesehatan yang menggunakan
+    radiasi dan yang tidak menggunakan radiasi.
+    -   Tanda Laik Pakai Alat Kesehatan Radiasi, dilengkapi dengan simbol
+        radiasi dengan warna dasar kuning dan simbol berwarna merah
+        Cengan pernyataan " DINYATAKAN AMAN BAG1 PEKERJA,
+        PENDERITA DAN LMGKUNGAN ".
+    - Tanda Laik Pakai Alat Kesehatan non Radiasi, dilengkapi pernyataan
+      " DINYATAKAN AMAN UNTUK PELAYANAN "
+    -   Tanda Laik Pakai, sekurang-hurangnya hams memuat informasi
+        tentang :
+        > Nama dan Lambang Lnstitusi Penguji
+        > Nama alat kesehatan
+        > Merk, Model / Type dan Nomor Seri alat kesehatan
+        4 Tanggal Pelaksanaan Pengujian atau Kalibrasi
+        > Nomor SertifiKat Pengujian atau Kalibrasi
+        > Pernyataan Laik Pakai dan jangka waktu berlaku Tanda Pengujian
+           atau Kalibrasi
+        3 Nomor 1Narna Ruangan tempat alat kesehatan dipergunakan
+
+2.2 Tanda Tidak Laik Pakai
+    Tanda Tidak Laik Pakai alat kesehatan berwarna dasar merah depgan
+    tulisan hitam, besarnya tanda disesuaikan dengan besar kecilnya alat
+    kesehatan yang akan ditempel tanda tersebut.
+    Penggunaan tanda dibedakan antara alat kesehatan yang menggunakan
+    radiasi dan yang tidak menggunakan radiasi.
+=== Halaman 24 ===
+- Tanda Tidak Laik Pakai Alat Kesehatan Radiasi, dilengkapi dengan
+  simbol radiasi dengan warna dasar kuning dan simbol berwarna
+  merah dengan pernyataan " DINYATAKAN TIDAK AMAN BAG1
+  PEKERJA, PENDERITA DAN LINGKUNGAN ".
+- Tanda Tidak Laik Pakai Alat Kesehatan non Radiasi, dilengkapi
+  pernyataan    "   DINYATAKAN        TlTl.4K   AMAN      IJN'TUK
+  PELAYANAN "
+- Tanda Tidak Laik Pakai, sekurang-kurangnya hams memuat
+  informasi tentang :
+  P Nama dan Lambang Institusi Penguji
+  P Nama alat kesehatan
+  3 Tanggal Pelaksanaan Pengujian atau Kalibrasi dan Pernyataan
+     Tidak Laik Pakai.
+=== Halaman 25 ===
+BAB JlI.
+
+
+       INSTITUSI PENGUJI DAN INSTITUSI PENGUJI RUJUKAN.
+
+
+A. Persyaratan Umum
+
+  Agar kualitas clan cakupsn dari petgujizn atati kalibrasi ala;: kesehatan dapat
+  dijamin serta sesuai dengan kebutuhan, rnaka pendirian Institusi Penguji baik
+  pemerintah maupun swasta perlu ditumbuh kembangkan.
+  Institusi Penguji yang diselenggarakan oleh pemerintah maupun swasta harus
+  memenuhi persyaratan antara lain :
+  - Berbadan Hukum
+  -    Memiliki sumber daya manusia yang ahli dalam pengujian dan kalibrasi alat
+       kese hatan.
+  - Memiliki fasilitas kerja meliputi laboratorium serta peralatan uji dan kalibrasi
+       untuk alat kesehatan.
+  - Memperoleh ijin dari Menteri Kesehatan.
+   Institusi Penguji Rujukan yang diselenggarakan oleh pemerintah maupun swasta
+   harus memenuhi persyaratan antara lain :
+   -   Berbadan Hukum
+   - Memiliki sumber daya manusia yang ahli dalam kalibrasi alat ukur dan
+       besaran standar serta pengujian atau kalibrasi alat kesehatan.
+   - Memiliki fasilitas kerja meliputi laboratorium serta peralatan kalibrasi untuk
+       alat ukur dan besaran standar serta pengujian atau kalibrasi alat kesehatan.
+   - Memperoleh ijin dari Menteri Kesehatan.
+   Persyaratan pendirian Institusi Penguji dan Institusi Penguji Rujukan ditetapkan
+   dengan peraturan Menteri Kesehatan.
+   Sebagai penyelenggara pengujian atau kalibrasi, Institusi Penguji maupun
+   Institusi Penguji Rujukan dilengkapi dengan laboratorium pengujian dan
+   kalibrasi mempunyai kriteria sebagai berikut:
+=== Halaman 26 ===
+-   Manajemen personalia yang menggambarkan secara jelas tugas dan
+       tanggung jawab dalam pelaksanaan pengujian dan atau kalibrasi.
+   -   Sarana dan lingkungan yang memenuhi persyaratan untuk melaksanakan
+       pengujian atau kalibrasi.
+   -   AIat untuk bahan pembanding yang sewaktu-waktu dapat dipergunakan
+       untuk membandingkan keman~puanalat ukur atai alat uji yang sehari-hari
+       dipergunakan.
+   - Kemampuan telusur (traceable) untuk setiap besaran yang dipergunakan
+       dalam pelaksanaan pengujian atau kalibrasi.
+   - Metoda uji dan kalibrasi yang memenuhi persyaratan dan dapat
+       dipertanggung jawabkan secara ilmiah.
+   -   Penanganan alat uji dan kalibrasi sehingga kualitas pengujian atau
+       kalibrasi dapat dipertanggungjawabkan.
+   - Rekaman sehingga data dari setiap pelaksanaan pengujian atau kalibrasi
+       dapat diperoleh bilamana diperlukan. (perhatikan lampiran 4.)
+   -   Sertifikat dan laporan dari setiap alat yang diuji atau dikalibrasi, sebagai
+       bahan pertanggung jawaban.
+   - Sub kontrak pengujian dan kalibrasi, bilamana dalam ha1 tertentu
+       pengujian atau kalibrasi tidak dapat dilaksanakan oleh Institusi Penguji
+       bersangkutan.
+   -   Jasa penunjang dan perbekalan dari luar yang behngsi untuk
+       mendukung terlaksananya pengujian atau kalibrasi.
+   - Pengaduan 1 keluhan bilamana konsumen tidak menerima atas sebagian
+       atau seluruh pelaksanaan pengujian atau kalibrasi.
+
+
+B. Institusi Penguji
+
+   Institusi Pefiguji (P)adalah sarana kesehatan atau sarana lainnya yang
+   mempunyai tugas dan hngsi untuk melakukan pengujian atau kalibrasi alat
+   kesehatan.
+=== Halaman 27 ===
+BPFK sebagai unit pelaksana teknis di bidang pengamanan fasilitas kesehatan di
+lingkungan Departemen Kesehatan yang b6rada di bawah Direktorat Jenderal
+Pelayanan Medik dengan tugas melaksanakan pengukuran, kalibrasi dan proteksi
+radiasi fasilitas kesehatan di lingkungan pemerintah maupun swasta. Untuk
+menyelenggarakan tugas tersebut BPFK mempunyai fhngsi antara lain:
+-   Melakukan pemeriksaan, pengukurzn dan pengujian fasilitas kesehatan.
+-   Melakukan peneraan fasilitas kesehatan.
+-   Melakukan proteksi radiasi bagi pasien, tenaga kesehatan dan masyarakat.
+Berdasarkan tugas pokok dan fhngsinya tersebut BPFK adalah merupakan
+institusi penguji yang diselenggarakan dleh pemerintah.
+Dalam melaksanakan fhngsi dan kewajibannya, Institusi Penguji memiliki tugas,
+hak, wewenang serta tanggung jawab dalam pengujian atau kalibrasi alat
+kesehatan.
+
+
+1. Tugas dan Hak
+
+    1.1 Tugas Institusi Penguji
+        Tugas Institusi Penguji adalah melaksanakan pengujian dan kalibrasi alat
+        kesehatan sesuai dengan ijin yang diberikan oleh Menteri Kesehatan.
+        Dalam mendukung tugas tersebut Institusi Penguji berkewajiban untuk
+        melaksanakan :
+        - Memberikan informasi kepada sarana pelayanan kesehatan, tentang
+             nama atau jenis alat kesehatan yang dapat diuji atau dikalibrasi
+             berdasarkan ijin yang dimiliki.
+        -    Mengkalibrasikan alat ukur dan besaran standar yang dimiliki ke
+             Institusi Penguji Rujukan, secara berkala sesuai dengan ketentuan
+             yang berlaku. Menggunakan formulir permintaan kalibrasi alat u h r
+             dan besaran standar sesuai dengan lampiran 5.
+        -    Melaporkan     kegiatan   pengujian   atau   kalibrasi   yang   telah
+             dilaksanakan secara berkala ke instansi pembina dan pengawas
+=== Halaman 28 ===
+pelaksanaan pengujian dan ka1ih.i alat kesehatan, menggunakan
+           formulir sesuai lampiran 6.
+       - Melaporkan kalibrasi alat ukur dan besaran standar yang dimiliki
+           secara berkala menggunakan formulir lampiran 7.
+       - Meningkatkan kemampuan laboratorium kalibrasi dan tenaga ahli,
+           baik secara kualitas maupun kuantitas.
+
+   1.2 Hak Institusi Penguji
+       Setiap institusi penguji, dalam melaksanakan pengujian atau kalibrasi
+       alat kesehatan, berhak atas pembayaran jasa sesuai dengan peraturan
+       yang berlaku.
+
+
+2. Wewenang dan Tanggung Jawab.
+
+  Setiap Institusi Penguji alat kesehatan yang telah mendapat ijin dari Menteri
+  Kesehatan, memiliki wewenang dan tanggung jawab dalam penyelenggaraan
+  pengujian atau kalibrasi alat kesehatan.
+
+       Wewenang Institusi Penguji.
+       Institusi    Penguji    Pemerintah      memiliki      wewenang       untuk
+       menyelenggarakan pengujian atau kalibrasi alat kesehatan di sarana
+       pelayanan kesehatan dalam wilayah kejanya. Kewenangan tersebut
+       meliputi :
+       -   Menerbitkan tanda laik pakai untuk alat kesehatan yang lulus uji
+           atau kalibrasi, baik alat radiasi maupun non radiasi.
+       - Menerbitkan tanda tidak laik pakai untuk alat kesehatan yang tidak
+           lulus uji atau kalibrasi baik alat radiasi maupun non radiasi.
+        - Menerbitkan sertifikat pengujian untuk alat kesehatan yang lulus
+            uji.
+        - Menerbitkan sertifikat kalibrasi untuk alat kesehatan yang lulus
+            kalibrasi.
+=== Halaman 29 ===
+2.2 Tanggung Jawab Institusi Penguji.
+         - Institusi Penguji bertanggung' jawab atas pelaksanaan pengujian
+             atau kalibrasi alat kesehatan yang dilakukan sendiri maupun
+             dilaksanakan dengan dasar sub kontrak kepada pihak ke 111.
+             Tanggungjawab tersebut meliputi:
+             - Institusi Penguji bertanggung jawab atas hasil dzn kebenaran
+                pelaksanaan pengujian atau kalibrasi alat kesehatan.
+
+
+3. Sanksi Bagi Institusi Penguji
+
+   Institusi Penguji dapat dikenakan sanksi berupa teguran lisan, teguran tertulis,
+   penghentian sementara kegiatan atau pencabutan ijin serta sanksi lain sesuai
+   dengan per-aturan perundang-undangan, apabila :
+   - Melakukan pengujian atau kalibrasi alat kesehatan melebihi kewenangan
+      yang ditetapkan.
+   - Menggunakan alat ukur atau besaran standar yang tidak terkalibrasi.
+   - Melakukan pengujian atau kalibrasi tidak sesuai dengan prosedur tetap.
+   - Pengujian atau kalibrasi dilakukan oleh tenaga yang tidak berwenang.
+   - Mengeluarkan sertifikat pengujian atau kalibrasi serta tanda laik pakai
+      secara tidak benar.
+   - Mengeluarkan tanda tidak laik pakai secara tidak benar.
+
+Institusi Penguji Rujukan
+Institusi Penguji Rujukan ( IPR) adalah Institusi P*enguji
+                                                   ,      yang mempunyai tugas
+melakukan kalibrasi alat ukur dan besaran standar serta melakukan pengujian
+atau kalibrasi alat kesehatan.
+Dalam melaksanakan tugas dan fbngsinya, Institusi Penguji Rujukan memiliki
+tugas, hak, wewenang dan tanggung jawab dalam bidang pengujian dan kalibrasi
+alat kesehatan serta kalibrasi alat ukur dan besaran standar.
+=== Halaman 30 ===
+1. Tugas dan Hak
+
+  1.1 Tugas Institusi Penguji Rujukan.
+      Institusi Penguji Rujukan bertugas untuk :
+       - Melaksanakan kalibrasi terhadap alat ukur dan besaran standar serta
+          pengujian dan kalibrasi alat kesehatan.
+      -   Bekeja sama dengan organisasi profesi                 menyelenggarakan
+          pelatihan sumber daya manusia dalam bidang pengujian dan
+          kalibrasi alat kesehatan.
+      Dalam    mendukung      tugas tersebut        Institusi   Penguji   Rujukan
+      berkewajiban untuk melaksanak-m :
+      -   Mengkalibrasikan alat ukur dan besaran standar yang dimiliki secara
+          berkala sesuai dengan ketentuan yang berlahw.
+      -   Melaporkan secara berkala kegiatan pengujian atau kalibrasi alat
+
+
+
+      -   kesehatan yang telah dilaksanakan, ke instansi pembina dan
+          pengawas menggunakan formulir laporan sesuai dengan lampiran 6.
+          Melaporkan secara berkala kegiatan kalibrasi alat ukur atau besaran
+          standar yang telah dilaksanakan, ke instansi pembina dan pengawas
+          menggunakan formulir laporan sesuai dengan lampiran 8.
+      -   Pemberian bimbingan teknis        kepada Institusi Penguji, tentang
+          pelaksanaan pengujian atau kalibrasi alat kesehatan.
+      -   Melaporkan secara berkala sertifikasi tenaga penguji dan kalibrasi
+          alat kesehatan yang telah diterbitkan, kepada instansi pembina dan
+          pengawas..
+      - Melaporkan kegiatan pelatihan sumber daya manusia dalam bidang
+          pengujian dan kalibrasi alat kesehatan kepada instansi pembina dan
+          pengawas.
+=== Halaman 31 ===
+1.2 Hak Institusi Penguji Rujukan .
+     Institusi Penguji Rujukan berhak melaksanakan kalibrasi alat ularr,
+     besaran standar serta pengujian dan kalibrasi alat kesehatan dan berhak
+     atas pembayaran jasa sesuai dengan peraturan yang berlaku.
+
+
+Wewenang dan Tanggung Jawab.
+
+Institusi Penguji Rujukan, memiliki wewenang dan tanggung jawab dalam
+penyelenggaraan kalibrasi alat ukur dan besaran standar, pengujian dan
+kalibrasi alat kesehatan serta pelaksanaan pelatihan sumber daya manusia
+dalam bidang pengujian dan kalibki alat kesehatan.
+2.1 Wewenang Institusi Penguji Rujukan
+     Institusi Penguji ,Rujuican memiliki kewenangan meliputi seluruh
+     kewenangan hstitusi Penguji serta:
+     -   Menerbitkan tanda laik pakai untuk alat ukur atau besaran standar
+         yang lulus kalibrasi.
+     -   Menerbitkan tanda tidak laik pakai untuk alat ukur atau besaran
+         standar yang tidak lulus kalibrasi.
+     - Menerbitkan sertifikat kalibrasi untuk alat ukur atau besaran standar
+         yang lulus kalibrasi.
+     - Menerbitkan sertifikat bagi sumber daya manusia dalam bidang
+         pengujian atau kalibrasi alat kesehatan yang lulus pelatihan.
+
+2.2 Tanggung jawab Institusi Penguji Rujukan.
+     Institusi Penguji Rujukan bertanggung jawab atas pelaksanaan kalibrasi
+     alat ukur dan besaran standar serta pengujian dan kalibrasi alat
+     kesehatan yang dilakukan sendiri maupun yang dilaksanakan dengan
+     dasar sub kontrak kepada        pihak ke 111. Tanggung jawab tersebut
+     meliputi :
+     - Hasil dan kebenaran pelaksanaan kalibrasi alat ukur dan besaran
+         standar.
+=== Halaman 32 ===
+- Hasil dan kebenaran pelaksanaan pengujian atau kalibrasi alat
+            kesehatan.
+        - Kemampuan sumber daya manusia dalam bidang pengujian atau
+            kalibrasi alat kesehatan sesuai sertifikatnya.
+
+
+3. Sanksi Bagi Institusi Penguji Rujukan.
+
+   Institusi Penguji Rujukan dapat dikenakan sanksi teguran lisan, teguran
+   tertulis, penghentian sementara kegiatan atau pencabutan ijin serta sanksi lain
+   sesuai dengan peraturan perundang-undangan, apabila :
+   - Melakukan pengujian atau kalibrasi alat kesehatan melebihi kewenangan
+     yang ditetapkan.
+   - Melakukan kalibrasi alat ukur dan besaran standar melebihi kewenangan
+      yang ditetapkan.
+   - Menggunakan alat ukur atau besaran standar yang tidak terkalibrasi.
+   - Melakukan pengujian dan kalibrasi tidak sesuai prosedur tetap.
+   - Pengujian atau kalibrasi dilakukan oleh tenaga yang tidak berwenang.
+   - Mengeluarkan sertifikat pengujian atau kalibrasi secara tidak benar.
+   - Mengeluarkan tanda laik pakai secara tidak benar
+   - Mengeluarkan tanda tidak laik pakai secara tidw benar
+   - Melakukan sertifikasi sumber daya manusia dalam bidang pengujian atau
+      kalibrasi alat kesehatan secara tidak benar.
+=== Halaman 33 ===
+BAB IV.
+
+
+                      SARANA PELAYANAN KESEHATAN.
+
+
+
+A. Jenis Sarana Pelayanan Kesehatan.
+
+   Jenis Sarana Pelayanan Kesehatan terdiri dari Sarana Pelayanan Kesehatan
+   Dasar, Sarana Pelayanan Kesehatan Rujukan dan Sarana Pelayanan Kesehatan
+   Penunjang.
+
+
+   1. Sarana Pelayanan Kesehatan Dasar.
+
+      Sarana Pelayanan Kesehatan Dasar, yaitu satuan keja yang memberikan
+      pelayanan kesehatan dasar kepada masyarakat, temasuk dalam kelompok ini
+      antara lain :
+      -    Puskesmas.
+      -    Balai Pengobatan
+      - Praktek Dokter Umum
+      -    Praktek Bidan
+      - Poliklinik
+
+   2. Sarana Pelayanan Kesehatan Rujukmn.
+
+      Sarana Pelayanan Kesehatan Rujukan yaitu satuan kej a yang memberikan
+      pelayanan kesehatan RujukanISpesialistik kepada masyarakat, termasuk
+      dalam kelompok ini antara lain :
+      - Rurnah Sakit, (Pemerintah, ABRVBUMN, Swasta)
+       -   Kiinik Bersama Dokter Spesialis.
+       -   Praktek Dokter Spesialis.
+=== Halaman 34 ===
+3. Sarana Pelayanan Kesehatan Penunjang
+
+      Sarana Pelayanan Kesehatan Penunjang yaitli satuan kerja yang memberikan
+      pelayanan kesehatan penunjang kepada masyarakat. Termasuk dalam
+      kelompok ini antara lain :
+      - Laboratorium Klinik ( Pemerintah, ABRI, BUMN, Swasta).
+      -   Balai Laboratcrium Xeszhatan.
+      - Apotik
+
+B. Hak dan Kewajiban Sarana Pelayanan Kesehatan.
+
+   1. Hak Sarana Pelayanan Kesehatan
+
+      Dalam pelaksanaan pengujian dan kalibrasi alat kesehatan, sarana pelayanan
+      kesehatan berhak untuk :
+      -   Memperoleh pelayanan pengujian dan kalibrasi alat kesehatan dari
+          Institusi Penguji atau Institusi Penguji Rujukan sesuai permintaan dan
+          kesepakatan.
+      -   Memperoleh penjelasan tehnis tentang alat kesehatan yang tidak lulus uji
+          atau kalibrasi
+      -   Memperoleh perlindungan hukum terhadap penggunaan alat kesehatan
+          yang lulus uji atau lulus kalibrasi.
+      -   Mengetahui bahwa alat ukur dan besaran standar yang digunakan oleh
+          Institusi Penguji dan atau Institusi Penguji Rujukan terkalibrasi.
+      -   Menerima sertifikat pengujian atau kalibrasi dan tanda laik pakai, bagi
+          alat kesehatan yang lulus uji atau lulus kalibrasi.
+
+
+   2. Kewajiban Sarana Pelayanan Kesehatan
+
+      Sarana Pelayanan Kesehatan wajib untuk menguji atau mengkalibrasikan alat
+      kesehatan ke Institusi Penguji atau Institusi Penguji Rujukan.
+      Untuk mendukung kewajiban tersebut, Sarana Pelayanan Kesehatan
+      melaksanakan :
+=== Halaman 35 ===
+-   Pemeliharaan alat dan kondisi livgkungan sehingga memenuhi prasyarat
+    untuk pengoperasian.
+- Inventarisasi alat kesehatan yang dimiliki dan wajib uji atau kalibrasi
+    sesuai Permenkes No. 363/Menkes/Per/lV/ 1998.
+-   Merencanakan dan menyediakan anggaran pengujian dan kalibrasi alat
+    kesehatan secara berkesinambungan.
+- Mengajukan permintaan pelayanan pengujian atau kalibrasi ke Institusi
+    Penguji, menggunakan formulir lampiran 9.
+- Menjaga tanda lulus uji dan kalibrasi, tetap menempel pada alat yang
+    bersangkutan dan rnenyimpan krtifikat pengujian dan kalibrasi.
+-   Melaporkan hasil pelaksanaan pengujian dan kalibrasi alat kesehatan
+    yang dimiliki ke Instansi Pembina dan Pengawas, menggunakan formulir
+    lampiran 10.
+-   Menginformasikan kepada masyarakat bahwa alat kesehatan yang
+    dimiliki dan dipergunakan untuk pelayanan kesehatan, telah lulus
+    pengujian atau kalibrasi.
+
+      Pemeliharaan Alat Kesehatan dan Kondisi Lingkungan.
+      Usia pakai alat kesehatan dipengaruhi oleh kualitas pemeliharaan dan
+      kondisi lingkungan. Kondisi lingkungan yang perlu diperhatikan untuk
+      mendukung opersional alat kesehatan yaitu:
+      - Catu tegangan yang stabil dan sesuai dengan kebutuhan alat.
+      - Kapasitas daya listrik yang dapat memenuhi konsumsi daya
+        kebutuhan alat.
+      - Nilai pentanahan titik pembumian yang befingsi sebagai pengaman
+        terhadap arus bocor. Nilai yang dipersyaratkan adalah 5 5 Ohm.
+      - Temperatur/kondisi udara ruangan alat kesehatan dioperasikan. Hal
+        ini dipersyaratkan untuk pengoperasian beberapa alat kesehatan.
+      - Tingkat kelembaban ruangan dengan nilai tertentu merupakan
+         persyaratan untuk pengoperasian beberapa alat kesehatan.
+=== Halaman 36 ===
+aR
+
+2.2.
+
+Inventarisasi Alat Kesehatan Yang Wajib Uji atau Kalibrasi.
+Inventarisasi alat kesehatan untuk keperluan pengujian atau kalibrasi
+adalah kegiatan pencatatan data peralatan kesehatan, termasuk
+perubahan data yang diperlukan dalam pelaksanaan pengujian atau
+kalibrasi alat kesehatan.
+
+Informasi yang diperlukan untuk pelaksanaan pengujian atau kalibrasi,
+alat kesehatan meliputi :
+
+- Nama Alat Kesehatan
+
+- Merk
+
+- Type/model
+
+- Nomor Seri
+
+- Tahun Pengadaan/Pemasangan
+
+- Beban Kerja
+
+- Masa Berakhir Sertifikat Pengujian atau Kalibrasi
+
+- Keterangan lain yang diperlukan
+
+Inventarisasi peralatan kesehatan dilaksanakan oleh Sarana Pelayanan
+Kesehatan, dalam hal ini dilakukan Instalasi Pemelihara Sarana Rumah
+Sakit (IPSRS) / Unit Pemelihara Alat Kesehatan atau unit lain yang
+diberi tugas, bekerja sama dengan pengelola barang / Inventarisasi
+Kekayaan Milik Negara. Daftar inventaris peralatan kesehatan wajib uji
+dan kalibrasi disimpan oleh IPSRS / Unit Pemelihara Alat Kesehatan
+atau unit Jain yang diberi tugas dan melaporkan secara berkala kepada
+pimpinan menggunakan formulir lampiran 11. Selanjutnya pimpinan
+menyampaikan kepada Instansi Pembina Tingkat Wilayah dengan
+tembusan kepada Institusi Penguji..
+
+Untuk lebih menjamin kecepatan dan ketepatan informasi, kegiatan
+inventarisasi alat kesehatan wajib uji dan kalibrasi sebaiknya dilakukan
+
+dengan sistem komputerisasi.
+=== Halaman 37 ===
+2.3. Perencanaan dan Penyediaan Biaya Pengujian dan Kalibrasi Alat
+       Kesehatan.
+       Untuk merencanakan dan menyediakan kebutuhan biaya pengujian atau
+       kalibrasi alat kesehatan, dilakukan langkah-langkah sebagai berikut :
+       2.3.1. Perencanaan kebutuhan biaya pengujian atau kalibrasi dihitung
+              berdasarkan jumlah dan jenis alat yang wajib uji atau kalibrasi,
+              besaran tarif, biaya pejalanan petugas Institusi Penguji atau
+              petugas sarana pelayanan kesehatan.
+       2.3.2. Untuk menghitung jumlah petugas dan jumlah hari pelaksanaan,
+              berdasarkan jumlah dan jenis alat yang diuji atau dikalibrasi.
+              Waktu yang dibutuhkan untuk pelaksanaan pengujian atau
+              kalibrasi 20 (dua puluh) alat kesehatan sesuai lampiran 12.
+       2.3.3. Sarana Pelayanan Kesehatan wajib menyediakan biaya pengujian
+              dan kalibrasi alat kesehatan, sesuai dengan kebutuhan dalam
+              perencanaan.
+2.4.   Permintaan pelayanan pengujian dan kalibrasi alat kesehatan.
+       Sarana pelayanan kesehatan menyampaikan surat permintaan pelayanan
+       pengujian atau kalibrasi alat kesehatan kepada Institusi Penguji atau
+       Institusi Penguji Rujukan dengan melengkapi informasi antara lain:
+       -   NamafJenis dan jumlah alat
+       -   Merk TypeModel masing-masing alat kesehatan
+       -   Waktu/jadwal pelaksanaan pengujian/kalibrasi
+       Selengkapnya perhatikan formulir lampiran 9.
+2.5.   Menjaga Tanda Laik Pakai dan Penyimpanan Sertifikat.
+       Tan& laik pakai yang ditempel pada alat kesehatan hams dijaga jangan
+       sampai rusak atau lepas, ha1 ini sangat penting untuk mengetahui hasil
+       pengujian atau kalibrasi alat.
+       Sertifikat Lulus Pengujian atau Kalibrasi perlu disimpan dengan baik
+       sebagai bahan pertanggung jawaban bahwa penpjian atau kalibrasi
+       telah dilaksanakan dan untuk perencanaan dan pengawasan.
+=== Halaman 38 ===
+2.6. Pelaporan pelaksanaan pengujian atau kalibrasi alat kesehatan.
+        Untuk pemSinaan dan pengawasan kegiatan pengujian dan kalibrasi alat
+        kesehatan, sarana pelayanan kesehatan waj ib membuat laporan kepada
+        Instansi Pembina dan Pengawas Tingkat Wilayah.
+        Laporan disampaikan secara berkala 1 (satu) kali dalam setahun. Isi
+        laporan memuat informasi tentang:
+        - Nama, jenis dan jumlah alat yang sudah diuji atau dikalibrasi.
+        - Keterangan lain yang diperlukan.
+        Formulir laporan seperti pada lampiran 9.
+   2.7. Informasi kepada masyarakat.
+        Untuk meningkatkan kepercayaan masyarakat dalam ha1 mutu
+        pelayanan,    sarana    pelayanan     kesehatan    secara      pro     aktif
+        menginforrnasikan      bahwa   alat   kesehatan   yang      dimiliki   dan
+        dipergunakan untuk pelayanan sudah dilakukan pengujian atau
+        kalibrasi.
+
+
+3. Sanksi Bagi Sarana Pelayanan Kesehatan.
+
+   Sarana Pelayanan Kesehatan da- at dikenakan sanksi berupa teguran lisan,
+   teguran tertulis dan penghentian kegiatan sementara serta sanksi peraturan
+   perundang-undangan lain, apabila:
+   - Tidak memenuhi kewajiba untuk melaksanakan pengujian atau kalibrasi
+     bagi alat kesehatan yang dimiliki sesuai daftar lampiran 3.
+   - Menggunakan alat kesehatan yang tidak diuji atau dikalibrasi.
+=== Halaman 39 ===
+BAB V.
+
+
+                 MEKANISME PENGUJIAN DAN KALLBRASI
+
+
+
+
+Kegiatan pengujian dan kalibrasi alat kesehatan mengikuti mekanisme yang
+ditetapkan, agar pelaksanaan pengujian dan kalibrasi alat kesehatan serta kalibrasi
+alat ukur dan besaran standar, mencapai hasil yang optimal dan dapat dipertanggung
+jawabkan.
+
+
+A. Mekaaisme Pengujian dan Kalibrasi Alat Kesehatan.
+
+   Pengujian dan kalibrasi alat kesehatan dapat dilakukan di Institusi Penguji atau
+   di Sarana Pelayanan Kesehatan tergantung jenis alat kesehatan bersangkutan.
+
+
+   1. Pengujian dan Kalibrasi Alat Kesehatan di Institusi Penguji.
+
+       - Sarana Pelayanan Kesehatan mengajukan permintaan pelayanan
+            pengujian atau kalibrasi alat kesehatan ke institusi penguji dengan
+            melampirkan formulir yang memuat informasi tentang :
+            3 Nama alat kesehatan
+            3 Merk, Type/Model masing-masing alat kesehatan
+            3 Waktu pelaksanaan pengujiadkalibrasi
+            Selengkapnya perhatikan formulir lampiran 9
+       - Institusi Penguji memberi tanggapanfiawaban ke Sarana Pelayanan
+            Kesehatan, dengan melampirkan formulir yang memuat informasi antara
+            lain :
+            > Kesanggupan memenuhi permintaan kalibrasi
+            P Total waktu pelaksanaan
+            > Total biaya
+            Selengkapnya perhatikan formulir lampiran 13
+=== Halaman 40 ===
+-   Tercapai kesepakatan biaya dan waktu pelaksanaan antara institusi
+       penguji dan sarana pelayanan kesehatan :
+   -   Alat kesehatan diantar oleh petugas sarana pelayanan kesehatan ke
+       institusi penguji.
+   - Pada saat alat kesehatan diterima oleh petugas Institusi Penguji,
+       dilakulcan pemeriksaan awal yaitu pcmeriksaan kondisi fisik dan
+       komponen alat untuk memastikan alat siap uji atau kalibrasi.
+       Alat kesehatan yang layak uji atau kalibrasi diterima petugas Institusi
+       Penguji dan pemilik alat menerima tanda terima yang memuat :
+       Nama pemilik, Nama alat kesehatan, Merk dan Type, Nomor seri,
+       Kondisi fisik,Waktu selesai pelaksanaan pengujian atau kalibrasi.
+       Selanjutnya alat kesehatan diberi nomor registrasi dan diserahkan kepada
+       pelaksana pengujian atau kalibrasi
+   - Pelaksanaan pengujian atau kalibrasi oleh tenaga ahli institusi penguji
+       menggunakan prosedur tetap pengujian atau kalibrasi yang sesuai dengan
+       masing-masing alat kesehatan.
+   -   Pemberitahuan ke sarana pelayanan kesehatan bahwa pengujian atau
+       kalibrasi telah selesai.
+   -   Petugas sarana pelayanan kesehatan mengambil alat kesehatan ke institusi
+       penguji
+   -   Penyelesaian administrasi antara sx-ma pelayanan kesehatan dengan
+       institusi penguji.
+   - Alat kesehatan diserahkan ke petugas sarana pelayanan kesehatan beserta
+       hasil pengujianblibrasi, termasuk penyerahan sertifikat pengujian atau
+       kalibrasi bagi alat kesehatan yang lulus uji atau kalibrasi.
+
+
+2. Pengujian dan Kalibrasi Alat Kesehatan di Sarana Pelayanan Kesehatan
+
+   -   Sarana Pelayanan           Kesehatan   mengajukan   permintaau   pelayanan
+       pengujianlkalibrasi alat kesehatan ke institusi penguji dengan melengkapi
+       in formasi :
+=== Halaman 41 ===
+> Nama alat kesehatan
+       Merk, Type/Model dan jumlah masing-masing alat kesehatan
+    > Waktu pelaksanaan pengujianlkalibrasi
+    Selengkapnya perhatikan formulir lampiran 9.
+- Institusi Penguji memberi tanggapanljawaban ke sarana pelayanan
+    kesehatan dengan melengkapi informasi :
+    "r Jumlah petugas
+       Kesanggupan memenuhi permintaan kalibrasi (jumlahljenis alat)
+    "r Waktu pelaksanaan
+    4 Total hiaya
+    Selengkapnya perhatikan formulir lampiran 13
+-   Tercapai kesepakatan biaya dan waktu pelaksanaan antara institusi
+    penguji dan sarana pelayanan kesehatan :
+-   Pelaksana pengujian atau kalibrasi tiba dan melapor ke pimpinan sarana
+    pelayanan kesehatan.
+-   Pimpinan sarana pelayanan kesehatan menunjuk petugas sarana
+    pelayanan kesehatan yang mendampingi selama pelaksanaan pengujian
+    atau kalibrasi.
+- Pelaksanaan pengujian atau kalibrasi oleh tenaga ahli institusi penguji
+    menggunakan prosedur tetap pengujian atau kalibrasi yang sesuai dengan
+    masing-masing alat kesehatan.
+- Pelaksana memberitahukan ke sarana pelayanan kesehatan bahwa
+    pengujian atau kalibrasi telah selesai.
+-   Penyelesaian administrasi antara sarana pelayanan kesehatan dengan
+    petugas institusi penguji.
+-   Institusi penguji menerbitkan sertifikat pengujian atau kalibrasi, sesuai
+    dengan daftar alat kesehatan yang lulus uji atau kalibrasi.
+- Pengiriman sertifikat pengujian atau kalibrasi dari institusi penguji ke
+    sarana pelayanan kesehatan selambat-lambatnya 1 (satu) bulan sejak
+    selesainya pelaksanaan pengujian atau kalibrasi.
+=== Halaman 42 ===
+3. Diagram Pengujian dan Kalibrasi Alat Kesehatan.
+         3.1 Pengujian dan Kalibrasi Alat Kesehatan'di Institusi Penguji.
+                                                    I                              I
+
+                                                        Sarpelkes mengajukan
+                                                        P/K ke Institusi Penguji
+
+
+
+                                                    [    IP menjawvab kepada
+                                                               Syk.                ]
+                                                                                       Ya
+
+                                                                                           ,          +
+                                                                                                 Alkes diantar ke
+                                                                                                                    \
+
+
+
+
+                                                                                                 Institmi Penguji
+
+
+                                                                                           I Pemeriksaan Awal oleh I
+
+             Tidak
+             :.-------
+
+
+
+
+I   Alkes dibawa kembali
+       oleh Sarpelkes                         1                                        I    Pemberitahuankepada
+                                                                                            Sarpelkes P/K selesai   1
+                                                                                       I       Petugas SarpeUca
+                                                                                                 Datang di IP       1
+              .......-.........-.....-...........         Selesai                          Alkes dixralhn Kepada
+                                                                                              Perugas Sarpelkes
+=== Halaman 43 ===
+3.2 Pengujian dan Kalibrasi Alat Kesebatan di Sarana Pelayanan Kesehatan.
+
+                  r                           \
+
+                    Sarpelkes mengajukan
+                 b P/K ke Institusi Penguji
+
+
+
+
+                                                  Ya
+                                                  c                            7
+
+                                                            Petugas IP
+                                                        Datang di Sarpelkes
+
+
+                                                       Pemeriksaan Asal oleh
+                                                            Petugas IP
+
+
+
+
+                                                            Petugas IP
+                                                             Kembali
+=== Halaman 44 ===
+4. Pemberian Tanda dan Sertifikat Pengujian atau Kalibrasi
+
+   4.1 Pemberian Tanda dan Sertifikat Pengujian
+        Alat kesehatan diuji sesuai dengan metode pengukuran dan prosedur
+        pengujian. Pelaksana harus mencatat semua data alat dan hasil
+        pengukuran sesuai dengan kolom pada lembar kerja pengujian. Jika saat
+        dilakukan pemeriksaan dan penguhran, hasilnya berada dalam rentang
+        nilai ambang batas dan penyimpangan nilai t e r u h r tidak melebihi batas
+        yang diijinkan, maka alat kesehatan tersebut dinyatakan lulus uji dan
+        pada alat tersebut ditempel TANDA LAIK PAKAI.
+        Institusi Penguji wajib menerbitkan SERTIFIKAT PENGUJIAN
+        terhadap alat kesehatan yang lulus uji, selanjutnya alat kesehatan
+        dikembalikan kepada pemilik untuk dipergunakan.
+        Jika hasil penguhran nilai besaran pada alat kesehatan tidak berada
+        dalam rentang nilai ambang batas atau penyimpangan melebihi batas
+        yang diijinkan, maka alat kesehatan tersebut dinyatakan tidak lulus uji
+        dan ditempel TANDA TIDAK LAM PAKAI.
+        Pemberian tanda dibedakan antara alat kesehatan yang menggunakan
+        radiasi dan alat kesehatan yang tidak menggunakan radiasi.
+        Alat kesehatan yang tidak lulus uji tidak diterbitkan sertifikat pengujian.
+
+
+  4.2 Pemberian Tanda dan Sertifikat Kalibrasi.
+       Alat kesehatan dikalibrasi sesuai dengan metode pengukuran dan lembar
+       kerja kalibrasi. Pelaksana harus mencatat semua data alat dan hasil
+       pengukuran sesuai dengan kolom pada lembar kerja kalibrasi. Dalam
+       pelaksanaan kalibrasi akan diperoleh hasil pengukuran sesuai dengan
+       nilai yang diabadikan pada alat (bahan ukur) atau alat kesehatan
+       memerlukan penyetelan. Jika saat dilakukan pengukuran nilai temkur
+       sesuai dengan nilai yang diabadikan pada alat kesehatan, maka pada alat
+       kesehatan tersebut ditempel TANDA LAIK PAKAI. Bilamana saat
+       dilakukan pengukuran nilai t e r u h r tidak sesuai dengan nilai yang
+=== Halaman 45 ===
+diabadikan pada alat kesehatan, pelaksana kalibrasi harus melakukan
+       penyetelan sehingga penyimpangan nilai temkur berada dalam batas
+       yang diijinkan dan alat kesehatan tersebut dinyatakan lulus kalibrasi.
+       Selanjutnya pada alat tersebut ditempel TANDA LAIK PAKAI.
+       Institusi Penguji wajib menerbitkan SERTIFIKAT KALIBRASI dan
+       memberikan Faktor Kalibrasi terhadap alat kesehatan yang dinyatakan
+       lulus kalibrasi.
+       Jika penyetelan telah dilakukan tetapi nilai temkur tidak berada pada
+       dalam batas yang diijinkan, diasumsikan alat kesehatan tersebut
+       memerlukan perbaikan, maka pada alat kesehatan tersebut ditempel
+       TANDA TIDAK LAIK PAKAI.
+       Pemberian tanda dibedakan antara alat kesehatan yang menggunakan
+       radiasi dengan alat kesehatan yang tidak menggunakan radiasi.
+       Untuk alat yang tidak lulus kalibrasi tidak diterbitkan sertifikat kalibrasi.
+
+
+5. Diagram Pemberian Tanda dan Sertifikat Pengujian atau Kalibrasi.
+   5.1 Diagram Pemberian Tanda dan Sertifikat Pengujian.
+
+
+
+
+                   Tidak                               Ya
+
+       r                                                                     1
+
+            Tempe1 Tanda                                 Tempe1 Tanda
+           Tidak Laik Pakai                               Laik Pakai
+       \                       /                   \                         /
+
+
+
+
+                                                       Tehitkan Sertifikat
+           Penjelasan Teknis                               Pengujian
+=== Halaman 46 ===
+5.2 Diagram Pemberian Tanda dan Sertifikat Kalibrasi
+
+                             Pclaksanaan Pengukuran
+
+
+
+
+                                                      ,    TempelTanda
+                                                            Laik Pakai
+                                                                           \
+
+
+
+
+                                                                           /
+
+
+
+
+           Tempel Tanda
+          Tidak Laik Pakai                            I   Terbikm Sertifikat
+                                                              Kalibrasi
+                                                                               I
+
+B. Mekanisme Kalibrasi Alat Ukur dan Besaran Standar
+
+   Institusi Penguji wajib mengkalibrasikan alat ukur dan besaran standar yang
+   dimilikinya pada Institusi Penguji Rujukan melalui mekanisme yang ditetapkan.
+
+
+   1. Pelayanan Kalibrasi Alat Ukur atau Besaran Standar
+
+      -   Institusi Penguji mengajukan permintaan pelayanan kalibrasi alat ukur
+          atau besaran standar ke Institusi Penguji Rujukan dengan melengkapi :
+          > Nama alat ukur atau besaran standar
+          3 Merk, Type/Model dan jumlah alat ukur atau besaran standar
+          Selengkapnya perhatikan formulir lampiran 5.
+=== Halaman 47 ===
+-   Institusi Penguji Rujukan memberi tanggapanljawaban ke Institusi
+    Penguji dengan melengkapi inf&masi :
+    > Kesanggupan memenuhi permintaan
+    > Waktu pelaksanaan
+    > Total biaya pelaksanaan
+    Selengkapnya perhatikan formulir lampiran 14
+-   Alat ukur atau bsaran standar oleh petugas institusi penguji ke institusi
+    penguji rujukan.
+-   Pada saat alat ukur atau besaran standar diterima oleh petugas Institusi
+    Penguji Rujukan, dilakukan pemeriksaan awal yaitu pemeriksaan kondisi
+    fisik dan komponen alat untuk memastikan alat siap kalibrasi.
+    Alat ukur atau besaran standar yang layak kalibrasi, diterima petusas
+    Institusi Penguji Rujukan dan pemilik alat menerima tanda terima yang
+    memuat :
+    Nama pemilik, Nama alat ukur atau besaran standar, Merk dan Type,
+    Nomor seri, Kondisi ftsik, Waktu selesai pelaksanaan kalibrasi.
+    Selanjutnya alat ukur atau besaran standar diberi nomor registrasi dan
+    diserahkan kepada pelaksana kalibrasi.
+- Pelaksanaan k-librasi oleh tenaga ahli institusi penguji rujukan
+    menggunakan prosedur tetap kalibrasi yang sesuai dengan masing-masing
+    alat ukur atau besaran standar.
+-   Pemberitahuan ke Institusi Penguji bahwa          kalibrasi alat ukur atau
+    besaran standar telah selesai.
+-   Institusi penguji mengambil alat ukur atau besaran standar ke institusi
+    penguji rujukan.
+-   Penyelesaian administrasi antara institusi penguji dengan institusi penguji
+    rujukan.
+-   Alat ukur atau besaran standar diserahkan ke petugas institusi penguji
+    beserta h ~ i kalibrasi,
+                  l          termasuk penyerahan sertifikat kalibrasi bagi alat
+    ukur atau besaran standar yang lulus kalibrasi.
+=== Halaman 48 ===
+2. Diagram Kalibrasi Alat Ukur dan Besaran Standar.
+
+                                  IP mengajukan
+                               kalibrasi kc lnstilusi
+                                 Pcnrmii Ruiukan
+
+                          7                               \
+
+                               IPR menjawab kepada
+                                  Institusi Penguji
+                                                          #
+
+
+                          /                               \
+
+                               Alat ukur atau besaran
+                                  standar diantar ke
+                              Institusi Penguii Ruiukan
+                          \
+
+
+
+
+                               PemeriLsaaa Awal oleh
+                              Institusi Penguji Rujukan
+
+
+
+
+               TiQk
+
+           i
+                                                                            f                 I
+
+                                                                  Alat ukur atau besaran
+           I                                                      standar di terima IPR
+
+
+
+
+   BcrikanPetunjuk
+                                                                             +
+                                                              6
+                                                                   Peneditan Sertifdcat
+                                                                             +                I
+                                                                                              *
+                                                                  Pemberitahuan kepada
+                                                                   IP Kalibrasi selesai
+
+
+ Alat Ukur atau &saran
+ Standar dibawa kembali
+  oleh btitusi Penguii                                        I   Petugas lnstitusi Penguji
+                                                                      Datang di IPR
+                                                                                              I
+                                            \                 1   Alkes "serahkan kepada
+                                                                  petugas lnstitusi Penguji
+=== Halaman 49 ===
+3. Pemberian Tanda dan Sertifikat Kalibrasi.
+
+   Alat ukur dan besaran aandar dikalibrasi sesuai dengan metode pengukuran
+   dan lembar kerja kalibrasi. Pelaksana hams mencatat semua data alat dan
+   hasil pengukuran sesuai dengan kolom pada lembar k e j a kalibrasi. Dalam
+   pelaksanaan kalibrasi akan diperoleh hasil pengukuran sesuai dengan nilai
+   seknamya atau d a t memerlukan penyetelan. Jika saat dilakukan pengukuran
+   nilai terukur sesuai dengan nilai yang diabadikan pada alat (nilai sebenamya),
+   pada alat ukur atau besaran standar tersebut ditempel TANDA LAIK PAKAI.
+   Bilamana saat dilakukan pengukuran nilai terukur tidak sesuai dengan nilai
+   sebenamya, pelaksana kalibrasi hams melakukan penyetelan sehingga
+   penyimpangan nilai terukur tidak memenuhi batas yang diijinkan, dan alat
+   ukur atau besaran standar dinyatakan lulus kalibrasi. Selanjutnya pada alat
+   tersebut ditempel TANDA L A X PAKAI.
+   Institusi Penguji wajib menerbitkan SERTIFIKAT KALIBRASI dan
+   memberi Faktor Kalibrasi terhadap alat ukur dan besaran standar yang
+   dinyatakan lulus kalibrasi.
+   Jika penyetelan telah dilakukan tetapi nilai terukur tidak berada dalam batas
+   yang diijinkan, diasumsikan alat ukur atau besaran standar tersebut
+   memerlukan perbaikan, maka pada alat tersebut ditempel TANDA TIDAK
+   LAIK P AKAI.
+   Terhadap alat ukur dan besaran standar yang tidak lulus kalibrasi tidak
+   diterbitkan sertifikat kalibrasi.
+   Diagram pemberian tanda dan sertifikat kalibrasi alat ukur dan besaran
+   standar, sama seperti diagram pemberian tanda dan kalibrasi alat kesehatan.
+=== Halaman 50 ===
+BAB M.
+
+
+
+
+Berdasarkan Permenkes No. 363/Menkes/Per/IV/1998 pasal 11 dan             pasal 12,
+terhadap pelaksanaan pengujian dan kalibrasi alat kesehatan, serta pelaksanaan
+pengujian dan atau kalibrasi, alat ukur dan besaran standar dilakukan pembinaan dan
+pengawasan.
+Pembinaan dan pengawasan tersebut dilakukan secara terus menerus dari waktu ke
+waktu agar pelaksanaan pengujian dan kalibrasi dapat diperluas dan semakin
+berkualitas, sehingga tercapai kondisi alat kesehatan yang terjamin kehandalannya.
+
+
+A.   Pembinaan dan Pengawasan Tingkat Pusat.
+     Pembinaan dan pengawasan pelaksanaan pengujian dan kalibrasi alat kesehatan
+     pada tingkat pusat dilakukan oleh Direktur Jenderal Pelayanan Medik melalui
+     Direktorat Instalasi Medik.
+     Direktorat Instalasi Medik bertugas untuk melaksanakan pembinaan kepada
+     seluruh Institusi Penguji dan Institusi Penguji Rujukan, guna meningkatkan
+     cakupan dar? mutu pelaksanaan pengujian clan kalibrasi.
+     Pembinaan dilakukan melalui pemantauan dan evaluasi laporan pelaksanaan
+     pengujian dan kalibrasi.
+     Untuk keperluan pembinaan dan pengawasan, maka setiap Institusi Penguji
+     dan Institusi Penguji Rujukan wajib menyampaikan laporan secara berkala
+     kepada Direktorat Instalasi Medik, mencakup:
+     Laporan dari Inst itusi Penguj i:
+     - Rekapitulasi pelaksanaan pengujian dan kalibrasi alat kesehatan setiap 1
+       (satu) tahun, menggunakan formulir lampiran 6.
+     - Rekapitulasi pengujian dan atau kalibrasi alat ukur dan besaran standar yang
+       dimiliki sekali setahun, menggunakan formulir lampiran 7.
+=== Halaman 51 ===
+Laporan dari h t i t u s i Penguji Rujukan:
+- Rekapitulasi pelaksanaan pengujian dan kalibrasi alat kesehatan setiap 1
+  (satu) tahun, menggunakan formulir lampiran 6.
+- Rekapitulasi pengujian dan atau kalibrasi alat ukur dan besaran standar yang
+  dimiliki sekali setahun, menggunakan formulir larnpiran 7.
+- Rekapitulasi pengujiaq atau kalibrasi alat ukur dan besaran standar setiap 6
+  (enam) bulan, menggunakan formulir lampiran 8.
+- Pelaksanaan pelatihan sumber daya manusia dalam bidang pengujian dan
+  atau kalibrasi alat kesehatan setiap kegiatan.
+- Rekapitulasi sertifikat yang diterbiikan, setiap 6 (enam) bulan.
+
+Laporan dari Institusi Penguji dan Institusi Penguji Rujukan dievaluasi oleh
+Direktorat Instalasi Medik. Apabila dianggap perlu Direktorat Instalasi Medik
+akan melakukan pemantauan langsung ke Institusi Penguji, Institusi Penguji
+Rujukan atau Sarana Pelayanan Kesehatan. Hasil pamantauan langsung dan
+laporan dari Institusi Penguji dipergunakan sebagai bahan pembinaan teknis
+agar tidak terjadi penyimpangan berdasarkan Permenkes 363/Menkes/Per/IV/
+1998. Pembinaan dan pengawasan yang dilakukan oleh Direktorat Instalasi
+Medik dimaksudkan untuk meningkatkan mutu dai; cakupan pengujian dan
+kalibrasi alat kesehatan.
+Direktorat Instalasi M e d i ~berkewajiban melaporkan hasil pembinaan dan
+pengawasan tersebut kepada Direktur Jenderal Pelayanan Medik.
+=== Halaman 52 ===
+Diagram Pembinaan dan Pengawasan Institusi Penguji.
+
+
+
+
+  P=l
+    Institusi Penguji
+                                          I    Hasil Pemantauan
+                                                   Supervisi
+                                                                  1
+                        '        +
+                        Evaluasi Laporan dan
+                                               \
+
+                         Hasil Pernantauan
+=== Halaman 53 ===
+B. Pembinaan dan Pengawasan Tingkat Wilayah.
+    Pembinaan dan pengawasan di tingkat wilayah dilakukan oleh Kantor Wilayah
+    Departemen Kesehatan Propinsi.
+    Kantor Wilayah Departemen Kesehatan melaksanakan pembinaan dan
+    pengawasan kepada seluruh Sarana Pelayanan Kesehatan dan Institusi Penguji
+    yang berada pada wilayahnya, agar cakupan dan mutu pelaksanaan pengujiaan
+    dan kalibrasi alat kesehatan semakin luas dan baik.
+    Pembinaan dan pengawasan dilakukan melaui pemantauan dan evaluasi
+    laporan pelaksanaan pengujian dan kalibrasi terhadap Institusi Penguji dan
+    sarana pelayanan kesehatan, bila dianggap perlu dapat dilakukan pemantauan
+    langsung.
+    Untuk keperluan pembinaan $an pengawasan setiap Institusi Penguji dan
+    sarana pelayanan kesehatan wajib menyampaikan laporan secara berkala
+    kepada Kanwil Departemen Kesehatan, mencakup:
+    Laporan dari Institusi Penguji yaitu:
+    - Rekapitulasi pelaksanaan pengujian dan kalibrasi alat kesehatan yang
+      dilaksanakan di wilayah keqa Kantor Wilayah Departemen Kesehatan
+      setempat setiap 6 (enam) bulan, menggunakan formulir lampiran 6.
+    Laporan dari Sarana Pelayanan Kesehatan yaitt:
+    - Rekapitulasi pengujian dan kalibrasi alat kesehatan yang dimiliki sekali
+      setahun, menggunakan formulir lampiran 13.
+    Laporan dari Institusi Penguji dan Sarana Pelayanan Kesehatan dievaluasi oleh
+    Kantor Wilayah Departemen Kesehatan. Apabila dianggap perlu Kantor
+    Wilayah Departemen Kesehatan akan melakukan pemantauan langsung ke
+    Sarana Pelayanan Kesehatan. Hasil evaluasi dilaporkan ke Direktur Jendral
+    Pelayanan Medik melalui Direktorat Instalasi Medik sebagai ba-han untuk
+    pelaksanzan pembinaan.
+    Pembinaan dan pengawasan yang dilakukan oleh Kantor Wilayah Departemen
+    Kesehatan dimaksudkan untuk meningkatkan mutu dan calcllpan pengujian dan
+    kalibrasi alat kesehatan pada wilayahnya.
+=== Halaman 54 ===
+Diagram Pembinaan dan Pengawasan Sarana Pelayanan Kesehatan.
+
+
+
+          Laporan
+          Sarpelkes                       Supervisi
+
+
+
+
+                       Evaluasi Lapom
+
+                       Hasil Pemantauan
+=== Halaman 55 ===
+TIM PENYUSUNAN GUIDELINES FOR CALIBRATION IN THE HOSPITAL
+  POJECT QUALITY, OF HEALTH CARE SYSTEM BIENNIUM 98/99
+
+BERDASARKAN KEPUTUSAN KEPALA DIREKTORAT INSTALASI MEDTK
+DENGAN NOMOR : HK.00.08.6.3.182 PADA TANGGGAL, 17 MARET 1998.
+
+          Pembina                 : Dr. H. Soejoga, MPH
+                                   Direktur Jenderal Pelayanan Medik
+
+          Pembina Harian          : Dr. Ingerani, SKM.
+          Koordinator             : Ir. Srijanto
+          Penanggung Jawab Produk : Sudharto Wahab, SH, DFM.
+
+          Ketua                   : Sudjarwo, SE, MM.
+
+          Wakil Ketua             : Ir. Imam Rifai.
+
+          Sekretaris I            : K. Chandra Meliala, Dipl. IM
+
+          Sekretaris I1           : Drs. Slamet Dirotaruno
+
+          Konsultan               : Mrs. Namita Pradhan
+
+                                  : 1. Dr. Ali Alkatiri
+                                    2. Dr. Sutedjo R
+                                    3. Ir. Torang P. Batubara, MARS
+                                    4. Erwin Mulyono, AIM.
+                                    5. Dr. Untung Suseno.
+                                    6. Dr. Tatan Saefbddin. DSR.
+                                    7. Dr. Ratna Mardiati Soemardi
+                                    8. Dr. Hanna PS. MARS.
+                                    9. Dr. Aris Halim, MARS
+                                    10. Imam, BE
+                                    11. Sanjaya, BE
+                                    12. Ir. Supardjo, Dipl. IM
+                                    13. Ir. Wahyu Hidayat, AIM
+                                    14. Ir. Hilman Hamid
+                                    15. Ign. Prastowo
+                                    16. Suryono Nugroho, ST
+
+          Sekretariat             : 1. Sri Nurismiyati BE
+                                    2. Winarso, BE
+                                    3. Sujatni
+                                    4. Suherman
+                                    5. M. Afifih
+                                    6. Sugeng Margiono
+                                    7. S. Sugijanto, AR
+=== Halaman 56 ===
+MENTERI KESEHATAN
+                             REPUBLIK I N D O N E S I A
+                                         *
+
+
+         PEWTURAN MENTERl KESEHATAN REPUBLIK INDONESIA
+                  NOMOR : 3631MENKESIPEWIVIl998
+                              TENTANG
+             PENGUJIAN DAN KALlBRASl ALAT KESEHATAN
+                PADASARANAPELAYANANKESEHATAN
+
+                 MENTERI KESEHATAN REPUBLIK INDONESIA,
+
+Menirnbang : a. bahwa dengan       meningkatnya     kegiatan   pembangunan
+                kesehatan, akan meningkat pula kebutuhan pelayanan
+                keseh-atan yang menggunakan berbagai peralatan sesuai
+                dengan perkembangan ilmu dan teknologi kesehatan pada
+                sarana pelayanan kesehatan pernerintah rnaupun swasta;
+
+            b. bahwa untuk memberikan perlindungan yang rnenyeluruh
+               terhadap masyarakat dan menjamin kebenaran kondisi alat
+               kesehatan yang dipergunakan perlu dilakukan pengujian dan
+               kalibrasi alat kesehatan secara teratur;
+
+            s. bahwa sehubungan dengan butir a dan b tersebut di atas, perlu
+               disusun dan ditetapkan Peraturan Menteri Kesehatan tentang
+               Pengujian dan Kalibrasi Alat Kesehatan Pada Sarana
+               Pelayanan Kesehatan;
+
+Mengingat   :I. Undang-undang Nomor 23 Tahun 1992 tentang Kesehatan
+                (Lembaran Negara Tahun 1992 Nomor l00, Tarnbahan
+                Lembaran Negara Nomor 3495);
+
+             2. Peraturan Pemerintah Nomor 2 Tahun 1989 tentang Standar
+                Nasional untuk Satuan Ukuran ( Lernbaran Negara Tahun 1989
+                Nomor 3, Tambahan Lembaran Negara Nomor 3380 );
+=== Halaman 57 ===
+MENTERI KESEHATAN
+                                REPUBLIK INDONESIA
+                                        *
+
+
+
+               3.    Keputusan Presiden Republik lndonesia Nomor 44 Tahun
+                     ? 974 tentang Pokok-pokok Organisasi Departemen;
+
+               4.    Keputusan Presiden Republik Indonesia Nomor 15 Tahun
+                     1984 tentang Susunan Organisasi Departemen;
+
+               5.    Keputusan Menteri Kesehatan Republik lndonesia Nomor
+                     558/MenkeslSW1984 tentang Or~anisasi Dan Tata Kerja
+                     Departemen Kesehatan;
+
+                              MEMUTUSKAN:
+
+Menetapkan :        PERATURAN    MENTERI    KESEHATAN     REPUBLIK
+                    INDONESIA TENTANG PENGUJIAN DAN KALIBRASI A M T
+                    KESEHATAN PADA SARANA PELAYANAN KESEHATAN.
+
+                                    BAB 1
+                               KETENTUAN UMUM
+                                    Pasal I
+
+Dalam Peraturan ini yang dimaksud dengan :
+1. Alat Kesehatan adalah instrumen, aparatus, mesin, implan yang iidak
+    mengandung obat yang digunakan untuk mencegah, mendiag~osis,
+    menyembuhkan dan meringankan penyakit, merawat orang sakit serta
+    memulihkan kesehatan pada manusia dan atau untuk rnembentuk struktur
+    dan memperbaiki fungsi tubuh.
+
+2.   Pengujian adalah keseluruhan tindakan yang meliputi pemeriksaan fisik dan
+     pengukuran untuk membandingkan alat ukur dengan standar untuk satuan
+     ukuran yang sesuai guna rnenetapkan sifzt ukurnya (sifat metrologik) atau
+     menentukan besaran atau kesalahan pengukuran;
+
+ 3. Perneriksaan fisik adalah kegiatan yang rneliputi penilaian fisik secara visual,
+     kelengkapan dan kinerja aiat.
+=== Halaman 58 ===
+MENTERI KESEHATAN
+                              REPUBLlK INOONESIA
+                                      *
+
+  pengukuran adalah kegiatan atau proses rnengaitkan angka secara ernpirik
+  dan obyeMif pada sifat-sifat obyek atau kejadian nyata sedemikian rupa,
+  sehingga angka tadi dapat mernberikan gambaran yang jelas mengenai
+  obyek atau kejadian tersebut.
+
+  Kalibrasi adalah kegiatan peneraan untuk rnenentukan kebenaran
+                                                              . . . nilai
+
+  penunjukan alat ukur hatilatau bahan ukur;
+
+  lnstitusi Penguji adalah sarana kesehatan atau sarana lainnya yang
+  mempunyai tugas dan fungsi untuk melakukan pengujian dan kalibrasi alat
+  kesehatan.
+
+  Direktur Jenderal adalah Direktur Jenderal Pelayanan Medik.
+
+                              BAB I1
+                   ALAT KESEHATAN YANG WAJlB
+                      DlUJl DAN DiKALlSRASI
+
+                                PasaI 2
+1) Setiap alat kesehatan wajib dilakukan pengujian dadatau kalibrasi untuk
+   menjamin kebenaran nilai keluaran atau kinerja dan keselarnatan
+   pernakaian.
+
+2) Pengujian danldau kalibrasi sebagaimana dimaksud pada ayat (1) dilakukan
+   pada alat kesehatan yang dipergunakan di sarana pelayanan kesehatan
+   dengan kriteria :
+   a. belurn mernpunyai sertifikai dadatau tanda;
+   b. sudah berakhir jangka waktu sertifikat danlatau tanda;
+    6. diketahui penunjukannya atau keluarannya atau kinerjanya (performance)
+       atau keamanannya (safety) tidak sesuai lagi walaupun sertifikat danlatau
+       tanda masih berlaku;
+   d. telah mengalami perbaikan, walaupun sertifikat dadatau tanda masih
+       berlaku;
+=== Halaman 59 ===
+MENTERI KESEHATAN
+                                REPUBLIK INDONESIA
+                                        *
+
+   e. telah dipindahkan bagi yang memerlukan instalasi, walau pu n sertifikat
+      danlatau tanda masih berlaku.
+
+(3) Sarana pelayanan kesehatan sebagaimana dimaksud pada ayat (2) meliputi
+    sarana pelayanan kesehatan dasar, sarana pelayanan kesehatan rujukan
+    dan sarana pelayanau kesehatan penunjang.
+
+                                   Pasal3
+Alat kesehatan yang wajib diuji dan dikalibrasi sebagaimana dimaksud dalam
+pasal2 sebagaimana tercanturn dalam lampiran.
+
+                                   Pasal4
+(I) Pengujian dan latau kalibrasi alat kesehatan dilakukan oleh lnstitusi Penguji
+    secara berkala, sekurang-kurangnya satu kali dalam satu tahun.
+
+(2) Dalam ha1 tertentu Pengujian dadatau kalibrasi slat kesehatan dapat
+    dilakukan sesuai kebutuhan sebagaimana dimaksud dalam Pasal 2 ayat
+    (2) butir c, butir d dan bi!tir e.
+
+                                    Pasal5
+(I) lnstitusi Penguji ala! kesehatan sebagaimana dimaksud dalam Pasal 4 dapat
+    diselenggarakan oleh pemerintah atau swasta.
+
+(2) Ketentuan dan tata cara penyelenggaraan dan perijinan lnstitusi Penguji
+    sebagaimana dimaksud pada ayat (1) ditetapkan tersendiri.
+
+                                       Pasal6
+(1) Alat uji danlatau alat kalibrasi         yang dimiliki oleh institusi penguji
+    sebagaimana dimaksud dalam Pasal 5 harus diuji danlatau dikalibrasi secara
+    berkala oleh institusi penguji rujukan yang ditunjuk Menteri.
+
+(2) Ketentuan dan persyaratan penyelenggaraari ir~stitusi penguji rujukan
+    sebagaimana dimaksud pada ayat (1) ditetapkan tersendiri.
+=== Halaman 60 ===
+L4ENTERl KESEHATAN
+                                REPUBLIK INDONESIA
+                                        t
+
+
+
+
+                              BAB Ill
+                      PENANDAAN DAN SERTIFIKASI
+
+                                   Pasal7
+1) Setiap alat kesehatan yang telah dilakukan pengujian danlatau kalibrasi
+   dengan hasil yang rnernenuhi standar diberikan sertifikat dan tanda yang
+   menyatakan alat tersebut h i k pakai oleh institusi penguji yang bersangkutan.
+
+2) Sefiap alat kesehatan yang telah dilakukan pengujian danlatau kalibrasi
+   dengan hasil yang tidak nernenuhi standar hanya diberi tanda oleh institusi
+   penguji yang bersangkutan.
+
+3) Bentuk dan format sertifikat atau tanda sebagairnana dimaksud pada ayat
+   (1) dan ayat (2) tercantum dalam contoh form. I,form 2 dan form 3.
+
+                                   Pasal 8
+Sertifikat sebagaitnana dimaksud dalam Pasa.1 7 sekurang - kurangnya
+n-ernuat:
+I,  uraiarl tentang alat kesehatan yang dilakukan pengujian danlatau kalibrasi.
+1.  tanggal pelaksanaan.
+: nama institusi yang melakukan pengujian danlatau kalibrasi.
+. jangka waktu berlakunya.
+?.  hasil peng~jiandanlatau kalibrasi serta tingkat ketelitiannya.
+. metode yang dipakai.
+1. penanggung jawab pelaksana pengujian danlatau kalibrasi.
+
+                                    Pasal9
+Tanda - sebagaimana dimaksud dalam Pasal 7 sekurang-kurangnya memuat :
+3. uraian tentang alat kesehatan yang dilakukan pengujian danlatau kalibrasi
+3. tanggal pelaksanaan;
+c. jangka waktu berlakunya bagi yang laik pakai, atau pernyataan tidak laik
+    pakai bagi yang tidak rnernenuhi standar;
+d. keterangan lainnya yang diperlukan misalnya faktor kalibrasi.
+=== Halaman 61 ===
+(1)
+
+(2)
+
+(1)
+
+2
+
+(3)
+
+MENTERI KESEHATAN
+REPUBLIK INOONESIA
+*
+
+Pasal 10
+
+Sertifikat harus dijaga agar tidak hilang sampai habis masa berlakunya
+bersama-sama dengan alat kesehatan yang bersangkutan.
+
+Tanda harus ditempelkan pada alat kesehatan yang bersangkutan agar tidak
+lepas atau rusak.
+
+BAB IV
+PEMBINAAN DAN PENGAWASAN
+
+Pasal 11
+Pembinaan dan pengawasan terhadap segala kegiatan yang berhubungan
+
+dengan pengujian dan kalibrasi alat kesehatan -diarahkan untuk
+meningkatkan mutu dan cakupan.
+
+Pembinaan dan pengawasan di tingkat pusat dilakukan oleh Direktur
+Jenderal dan/atau unit utama terkait sesuai tugas dan kewenangan masing-
+masing.
+
+Pembinaan dan pengawasan di tingkat wilayah dilakukan oleh Kepala Kantor
+Wilayah Departemen Kesehatan Propinsi.
+
+Pasal 12
+
+Dalam rangka pengawasan sebagaimana dimaksud dalam Pasal 11 dapat
+diambil tindakan administratif terhadap pelanggaran ketentuan peraturan ini
+berupa :
+
+a.
+
+b
+Len
+d
+
+teguran lisan:
+
+teguran tertulis:
+
+penghentian sementara kegiatan:
+pencabutan izin.
+=== Halaman 62 ===
+LtENTERI KESEHATAN
+                                 REPUOLIK I N D O N E S I A
+                                             t
+
+
+
+
+                              BAB V
+                        KETENTUAN PERALIHAN
+
+                                 Pasal 13
+(1) Dengan berlakunya peraturan ini maka semua alat kesehatan sebagaimana
+    diatur dalam peratuian ini wajib diuji dan dikalibrasi di lnstitusi penguji yang
+    ditunjuk.
+
+(2) Penunjukan sebzgaimana dimaksud                     ayat (1) ditetapkan oleh Direktur
+    Jenderal.
+
+                               B A B VI
+                          KETENTUAN PENUTUP
+
+                                 Pasall4
+~al-hal'teknis yang belurn diatur dalarn peraturan ini ditetapkan lebih lanjui oleh
+Direktur Jenderal danlatau unit utarna terkait sesuai dengan kewenangan
+masing-masing.
+
+                                  Pasall5
+Peraturan ini berlaku sejak tanggal ditetapkan
+
+     Agar setiap orang mecgetahuinya, memerintahkan pengundangan Feraturan
+in! dengan penempatannya dalarn eerita Negara Republik Indonesia.
+
+                                                       Ditetapkan di Jakarta
+                                         ------.--:-.
+                                                 -..
+                                                          .. tanggal : 8 April 1998
+                                         , I.,:.r .A!. pads
+                                                   !.
+
+
+
+
+                                                  PROF. Dr. F.A. MOELOEK
+=== Halaman 63 ===
+!.!EN1 E R I K E S E H A T A N
+              REPUOLlK INDONESIA
+                            *
+
+
+                                Campiran
+                                Peraturan Menteri Kesehatan RI
+                                Nomor : 363 MenkedPER/IV/1998
+                                Tanggal : 0 8 April 1998
+
+
+      DAFTAR ALAT KESEHATAN
+YANG WAJlS DlUJl DAN 1 ATAU DlKALlBRASl
+=== Halaman 64 ===
+I.1ENTERI K E S E H A T A N
+                                      R E P U O L I K INDONESIA
+                                                      *
+
+
+
+
+  76 Mobile Operating Lamp                                    103 Trombolastograph
+  77 Magnetic Resonant.Imaging                                104 TL. Chromatograph
+  78 Nebulker                                                 105 Ultrasonlc Cleaner
+  79 Nesofaringoscopc*                                        106 Ultrasonography
+  80 Operating Lamp Ceiling Type                              107 Ultrasonic Pachymoter
+  81 Operating Microscopc                                     108 Ultra Violet Unit
+' 82 ~ l c y ~ e n ~ e n t                                    109 UV. Sterilizer
+  83 Pace Maker                                             I 110 Vacum Extractor
+  84 PH Meter                                               '
+                                                              111 Vector Cardiograph
+  85 Phototeraphy Unit                                        112 Ventilator
+  86 Protombln Meter                                          7 13 Viscorneter
+  87 Pulse Oximeter                                           7 14 Water Bath
+  88 Phoncardio~raph                                           1 15 Water Destilator
+   89 Pleurel Biopsy                                           116 X- Ray Angiography
+   80 Photo Fundus Unit                                        117 X- Ray Oontal Panoramic
+   81 Preceslon Balance                                        118 X- Ray Oental Unit
+   92 Photo Meter                                              1 19 X- Ray Mobile C-Arm
+   83 Respiration A p p 3 : ~ t u s                            120 X- Ray Mobile h i t
+   84 Resuscitator                                             121 X- Ray General Porpuso
+   85 Relractometer                                            122 X- Ray stimulator
+   88 Retinoscope                                              123 X- Ray Teraphy
+   97 Refrigerator                                             124 X- Ray Tomography
+   98 Spectrophotometcr                                        125 X-Ray Marnography
+   99 Spirometer
+
+
+
+
+                                                                D i t e t a ~ k a n : 01 Jakarta
+
+
+
+
+                                       .     ..
+                                       v,, ' .:. .
+                                                \
+
+
+
+
+                                           .'\,...: . ..        Prof.0r. F.A. MOELOEK.
+
+
+
+
+                                                       2 dari 2
+=== Halaman 65 ===
+Contoh tbnn 1
+
+               ( ICop Surnt Bcrisi N u m n 111stitusi Pcnguji, Alnruat,
+                             Nolno r Lzin dil ri Mcnlccs)
+
+
+
+
+                                                                                                1
+
+Nama Alat :                                      Nomor Kegristrasi :
+
+-
+Merek
+Model I Tipe
+Notlior Seri
+
+
+ Narna Pemilik :                                 Identitas Perrri1i.k:
+
+
+Alamat Pemilik
+Tanggal Pelaksanaan Pengu-jian
+Pcnanggurlg Jawab P c n g u j i a ~ ~
+Hasil Pengujisn                         : Laik Pskai? be.rlaku sl'd : .......................
+Ting'rat Ketelitian
+Metode Pcngujina
+=== Halaman 66 ===
+.
+               ( I<op Sur-at Berisi N n m n Ins titusi Pengujuji, Alamnt,
+                              N o m o r Izin d u r i Menlces)
+
+
+
+
+                      SER TIFIIU T ICA LIBMSI
+                      Nomor :..................................................
+
+
+
+lama Alot :                                          N o n ~ o rRcsristrasi :
+
+
+derek
+dodel I Tipe
+{omor Seri
+
+
+Nama Pcmilik :
+
+
+ilamat Pemilik
+ranggal Pelaksa~laanKalibrasi
+'e~~anggung  Jawab Kali brasi
+lasil Kalibrasi                             : Lcsik Pakai, bcrlfik:~s/d : .......................
+ringkat ~eielitian
+detode Kalibrasi
+
+
+                                                         .....................................................
+                                                             Kcpala h t i t u s i Pcnguji
+
+
+                                                                               ttd
+                                                               Stcmpc:l hstitusi Pcnguji
+                                                             (            Nama          1
+=== Halaman 67 ===
+unrlu Pengujian / I<aLibrasi Laik Pakai
+Wnrnn dnsar hijau
+Besar kecilnya tantla tli$r.sliailtn~~
+                                    tlengan t)r.s:~rliecilnya ala t
+
+
+
+                                ( pama dan Lambang Institusi Pcnguji)
+
+    Telah dilalculcm pcngujiadltalibrasi :
+    Tanggal                           ': ......................... I.aik Pakni s/d :       ...............
+    Noillor Sertifilca t               .....................................................................
+    No / Nama Ru:ingan                 : .............................................
+    ~ i m mat
+           a                           ..............................................
+    Merelc                             ..............................................
+    Modcl / Tipc                       ..............................................
+    Nomor Seri                         ..............................................
+    Iceterangan                        ..............................................
+       I)WAT.N.ILh; 1lh.t.W BifCJI PEKERJA, PENDERIT.4, DAN LINGICCJNGAN
+
+
+
+
+                                ( Nan13 dan Lanibang Imtitusi Pcnguji)
+
+     Tclnh dilalculcarl pc.nyjiadlc;llibl-:lsi :
+     Tiinggal                   : ......................... L;~iliP a l ~ d~t li : ...............
+     Noiuor Scl-tifiknt         .....................................................................
+     N o / nl=lnla Ruangnn : ...................................................................
+     Nan1 n;A1nt              .....................................................................
+     ~dr&                              ....................................................................
+     Model / Tipe.                     ....................................................................
+     Nomor Seri                        ....................................................................
+     Tceterangnn                       .....................................................................
+                      DLNYATAI<A!! .&\IAN             ~rNTLIE;PELAY ANAN
+=== Halaman 68 ===
+~mduPengujian / Ihlibrasi Tidiilc Liiilc Pukai
+.Warn0 dnsai*mcrah
+.Besnr Icecihya tarrda disr.s\lniltnn dcngan I~csnrItccilnyn ;\In t
+
+
+                               ( Nama dnn Lambang hstitusi Pengujl )
+
+     Telah dil3Iculun pengujijln/li3libr3si :
+     Tnnggal                 : ......................... Tidalc 1,aik Pakai
+     Nomor Regris trasi      .....................................................................
+     No / Nal~~a.Ruuiiga~r: .............................................
+     Nanla N3 t              ..............................................
+     Merelc                  ..............................................
+     blodel / Tipe           ..............................................
+     Nomor Seri              ..............................................
+     Keterangan              .............................................
+       DCTYXTAKLY TIDAK-tkl.-Cy BACI PEKERJ.-1. I'ES'DERITA. DA! LE4CECL.C.W
+
+
+
+
+                                ( Nan13 d n n La111b;rrrgInstitmi P e n y j i )
+
+     Tdah dili.\l<~il;ar~
+                       penguji;lrdk;lli)~r-asi:
+     'l'cnggal                         : ......................... 'l'id3l; Laik l'ulcai
+     Nonlor Reg]-istrnsi               .....................................................................
+     No./.Nanla lluangan               ....................................................................
+     Nailla Ala t                      .....................................................................
+     Plvlerek                          .................................................. b.................
+     klodel/ Tipc                      ....................................................................
+     Nomor Seri                        ....................................................................
+     Keterangan                        .....................................................................
+                      DTNYAT..Zh'AN TTnAh' AMAN l!h'TIlK P F . 1 . A Y A N A N
+
+   -
+=== Halaman 69 ===
+Lampiran 2
+
+
+                      MENTERI KESEHATAN
+                      F;EPIIBLIK INOONECIA
+
+
+KEPU'TUSAN IJIE~.I'TERIKESEMATAN REPUBLIK IhrDONESIA
+          NC!lvfOR : 1 1 6 4 / M E ~ S / S W I I I / 2 0 0 0
+                            TENTANG
+             OXGANISASI-DAN CATAKERj.4
+     BALAI PEKGMANAN FASILITAS KESEI-IhT.4N
+
+
+                  MEXTERI KESEHATAEJ,
+
+
+      : bahwa dalam rangka mel!ingkatkan pcnsaniapan fasilitas kesehatari
+       n~elaluipelayansn pengujian, kalibrasi dan proteksi iadiasi           alat-alat
+       keschsrtan di lingkungcn instafisi pemeri~italidari swasta dipandang perlu
+       rnenata kem5aIi organisasi dan iatakcrja Ealai Fengamanan Fasilita;
+       Kcsellatan di lingkucgaa Depanen:c;l Keseiiatan:
+
+
+      : 1. Undang-Undang Nomor 23 Tahurr                  !992 tentzng Kesehatan
+          (Len~bara~.
+                   Negara tahun 1992 No 100, Tambahan Lernbaran Negarz
+           b l ~ m o 495
+                     r );
+       2. Keputusan Presiden Rep~blikIndonesia Nomor 136 Tahun !999
+          tentang Kedudukan, Tugas, Fungsi, Susunan Organisasi dan
+          Tn:ake j a Departernen sebagairnana telali diubah densan Keputusan
+          P:zsiden Republik Indonesia Nomor 147 Tahun 1999;
+       3. Keputusan Bersarrta Menteri Keseha!an Republik Indonesia dan
+           Direktur Jenderal Badan Tenaga Atom Nasional
+           Nan.:oi.       53S~Jienkes/SKBMII/1989                dan          Nomor
+           PN.61.01/94/DJ/l 989          tentang       I'endelegasian      Wewenang
+           Pemeriksaan Pemakaian Zat Radioaktii' clanlatau Radiasi di Bidang
+           Kesehatari ;
+       4. Keputusan Bersama Menteri Keseliatan Republik 1:ldonesia dan
+           Dircktur Scndcral Dadan Tcnaga Atoni Nasio~ial
+           Nomol- 676/Menkes/SKB/Vl:/l997 dari                 Nonior 368/DJ/V11/\997
+           tentang Pengernbangan Pen~awasandan l'cnggunaan Tenaga Atom
+           di Bidang Keseliatan;         .
+=== Halaman 70 ===
+MENTERI KESEHATAN
+REPUBLIK INDONESIA
+
+5. Keputusan Menteri Kesehatan Republik Indonesia Nomor
+130/Menkes/SK/1/2000 tentang Organisasi dan  Tatakerja
+
+Departemen Kesehatan.
+
+Memperhatikan : Persetujuan Menteri Negara Pendayagunaan Aparatur Negara dengan
+surat Nomor : 252/M.PAN/7/2000 Tangga! 19 Juli 2000.
+
+MEMUTUSKAN:
+
+Menetapkan : KEPUTUSAN MENTERI KESEHATAN REPUBLIK INDONESIA
+TENTANG ORGANISASI DAN TATAKERJA BALAI
+PENGAMANAN FASILITAS KESEHATAN.
+
+BAB J
+KEDUDUKAN, TUGAS, FUNGSI DAN TIPOLOGI
+
+Pasal 1
+(1) Balai Pengamanan Fasilitas Kesehatan yang selanjutnya dalam Keputusan ini disebut BPFK
+adalah Unit Pelaksana Teknis di bidang pengainanan fasilitas kesehatan di lingkungan
+
+Departemen Kesehatan.
+
+(2) BPFK dalam melaksanakan tugasnya secara teknis dan administratif bertanggung jawab
+kepada Direktur Jenderal yang mengurus pembinaan teknis pelayanan medik.
+
+(3) BPEK dipimpin oleh seorang Kepala.
+Pasal 2
+BPFK mempunyai tugas melaksanakan pengujian, kalibrasi dan proteksi radiasi fasilitas
+kesehatan di lingkungan Instansi Pemerintah dan Swasta.
+Pasal 3
+Dalam melaksanakan tugas sebagaimana dimaksud pada Pasal 2, BPFK menyelenggarakan
+
+fungsi :
+
+a. pengujian dan kaiibrasi peralatan kesehatan,
+b. kalibrasi alat ukur radiasi,
+=== Halaman 71 ===
+MENTERI KESEHATAN
+                                        REPUCLIK INDONESIA
+
+
+c. pcngl~kurankondisi fasil itas kesctiatan;
+d. pclayanan monitoring radiasi;
+e. pengukwran papsran radiasi;
+f. pengukl~ranluaran radiasi terapi;
+g. pelaksanaan urusan tata usaha dan rumah tangga Balai
+
+                                               Pasal 4
+BPFK terdiri dari 2 tipe, yaitu :
+a. BPFK tipe A;
+b. BPFK tipe B.
+                                               BAB I1
+                                     SUSUNAN ORGAKISASI
+                                            Bagian Fertama
+
+                                            BPFK Tipz A
+
+                                               Pasal 5
+BPFK tipe A, tcrdiri dari :
+a. Kepala;
+b. Subbagian Tata Usaha;
+c. Seksi Ta!a Operasional;
+d. Seksi Pzlayanan Teknis;
+e. Kelomyok Tenaga Fungsionsi.
+                                               I'asal 6
+(1) Subhagian Tata Usaha mempunyai tugas rnenyiapkan bahan koordinasi penyusunan program
+   dan layoran, urusan surat rnenyurat, keuangan, kepegawaian dan kerumahtanggaan.
+
+
+(2) Seksi Tata Operasional rnenlpunyai tugas lnel~kukan penyuluhan, pengendalian rnutu,
+    pengaturan penggunaan pemlatan, dan pcmeliharaan.
+
+
+(3) Seksi Pelayanan 7'eicnis ~nen~punyaitugas menyiapkan bahan pengujian, kalibrasi dall
+    proteksi radiasi fasilitas kcsehatan.
+=== Halaman 72 ===
+M E N T E R I KESEHATAN
+                                      HEPUBLIK INDONESIA
+
+
+                                         Bagian Kedua
+
+                                          BPFK Tipe B
+
+                                             Pasal 7
+BPFK tipe B, terdiri dari :
+e. Kepala;
+b. Subbagian Tata Usaha;
+c. Seksi Pelayanan;
+d. Kclompok Tenaga Fungsional.
+                                             Pasal S
+(1) Subbagian Tat3 Usaha mcnlpunyai tugas rnenyiapkar. bahan koordinasi penyusunan pi-ogrzm
+   dan laporan, ilrusan surat nl;:liyurat, keuangan, kepegawaian dan kcmmahtanaaan.
+
+
+(2) Seksi Pelayanan m e r n ~ ~ n y tugas
+                                    ai    menyiapkan bahan pengujian, kalibiasi, proteksi radiasi
+   fasi:ites kesehatan, perryuluhan, pcngendaiian mutu, dan pcr~gaturanpenggunasn peralatan
+   sert2 penieliharaan.
+
+
+                                             BAEIII
+                              KELOMPOK TENAGA FIJNGSIONAL
+                                              Pasal9
+(1) Kelompok Tenaga Fungsio~i~l
+                             memounyai tugas sesuai ketentuan yang berlaku.
+
+
+(2) Kelompok Tenaga Fu~igsionaldipirnpin oleh seorang Tenaga Senior yang dipilih oleh dan
+   Cari anggota kelompoknya untuk masa tertentu dan disabkan pengangkatannya oleh Kepala
+   BPFK.
+
+
+(3) Jumlah Kelompok Tenaga Fungsional tcrsebut pada ayat (1) Pasal ini ditetapkan menurut
+    lcebutuhan dan beban kcrja.
+
+
+(4) Ienis dan jcnjalrg Kelompok Tenaga Funssicnal tersebut pada ayat (I) diatur s w a i dengan
+    pcraturan pcrundang-undanzan yang berlaku,
+=== Halaman 73 ===
+MENTERI KESEHATAN
+REPUBLIK INDONESIA
+
+BAB IV
+TATA KERJA
+
+Pasal 10
+Dalam melaksanakan tugas Kepala BPFK, Kepala Subbagian, Kepala Seksi dan Kelompok
+Tenaga Fungsional wajib menerapkan prinsip koordinasi, integrasi dan sinkronisasi baik dalam
+lingkungan masing-masing maupun dengar instansi lain di luar BPFK sesuai dengan tugas
+masing-masing.
+
+Pasal 11
+Setiap pimpinan satuan organisasi dalam lingkungan BPFK wajib mengawasi bawahan masing-
+masing dan bila terjadi penyimpangan agar mengambil langkah-langkah yang diperlukan sesuai
+dengan peraturan perundang-undangar yang berlaku.
+
+Pasal 12
+Setiap pimpinan satuan organisasi dalam lingkungan BPFK bertanggung jawab memimpin dan
+mengkoordirasikan bawahan masing-masing dan memberikan bimbingan seria petunjuk
+pelaksanaan tugas bawahan.
+
+Pasal 13
+Setiap pimpinan satuan organisasi daiam lingkungan BPFK wajib mengikuti dan mematuni
+
+petunjuk dan bertanggung
+
+S
+
+jawab kepada atasan masing-masing dan menyampaikan laporan
+berkala tepat waktu.
+
+Pasal 14
+Setiap laporan yang diterima oleh pimpinan satuan organisasi dalam lingkungan BPFK dari
+bawahan wajib diolah dan dipergunakan sebagai bahan penyusunan laporan berkala lebih lanjut
+dan untuk memberikan petunjuk kepada bawahan.
+
+Pasal 15
+Dalam menyampaikan laporan masing-masing kepada atasan, tembusan laporan wajib
+disampaikan pula kepada satuan organisasi lain yarg secara fungsional mempunyai hubungan
+kerja.
+
+Pasal 16
+Dalam melaksanakan tugas, setiap pimpinan satuan organisasi di lingkungan BPFK — dalam
+
+Tangka pembcrian bimbingan kepada bawahan masing-masing wajib mengadakan rapat berkala.
+=== Halaman 74 ===
+MENTERI KESEHATAN
+REPUBLIK INDONESIA
+
+BAB V
+LOKASI
+Pasal 17
+Sejak berlakunya keputusan ini BPFK berjumlah 4 (empat) yang terdiri dari 2 (dua) tipe A dan 2
+
+(dua) tipz B, sebagaimana tercantum dalam lampiran I keputusan ini.
+
+BAB VI
+KETENTUAN LAIN
+Pasal 18
+(i) Sejak berlakunya keputusan ini, maka status BPFK secara bertahap beralih menjadi
+Perusahaan Jawatan sciambat-lambatnya 5 (lima) tahun untuk BPFK Jakarta dan Surabaya,
+serta 10 (sepuluh) taliun untuk BPFK Medan dan Makassar.
+(2) Dalam rangka pengalihan status sebagaimana pada ayat (1) Pasal ini, unit terkait di
+Departemen Kesehatan mengambii langkah-langkah persiapan peralihan status BPFK
+menjadi Perusahaan Jawatan sejak keputusan ini ditetapkan.
+
+BAB VII
+PENUTUP
+
+Pasal 19
+Perubahan atas organisasi dan tatakerja menurut keputusan ini ditetapkan oleh Menteri
+Kesehatan setelah terlebih dahulu rrendapat persetujuan tertulis dari Menteri yang bertanggung
+jawab di bidang pendayagunaan aparatur negara.
+
+Pasal 20
+Dengan berlakunya keputusan ini, maka Keputusan Menteri Kesehatan Republik Indonesia
+Nomor 282/Menkes/SK/TV/1992 dinyatakan tidak beriaku.
+
+Pasal 21
+
+Keputusan ini muJai berlaku sejak tanggal ditetapkan.
+
+DITETAPKANDI : JAKARTA
+PADA TANGGAL : 3 AGUSTUS 2000
+
+MENTERI KESEHATAN,
+
+ty je —
+
+/
+«Dr. ACHMAD SUJUDI
+=== Halaman 75 ===
+MENTERI KESEHATAN
+REPUBLIK INDONESIA
+
+Lampiran 1
+
+Keputusan Menteri Kesehatan R.I
+Nomor: 1164/Menkes/SK/VIII/2000
+Tanggal :3 Agustus 2000
+
+DAFTAR BALAI PENGAMANAN FASILITAS KESEHATAN
+
+we!
+
+NAMA | TIPE TEMPAT WILAYAH KERJA
+KEDUDUKAN
+
+Balai Pengamaran | A — | Provinsi DKI Jakarta | Provinsi DKI Jakarta, Jawa Barat,
+Fasilitas Keschatan | di Jakarta Jawa Tengah, D.I. Yogyakarta,
+Jakarta Kalimantan Barat, Sumatera
+Selatan, Lampung
+
+Balai Pengamanan A zovinsi Jawa | Provinsi Jawa Timur, Bali, Nnsa
+Fasilitas Kesehatan Timur, Tenggara Barat, - Kalimantan
+Surabaya di Surabaya Selatan, Kalimantan Timur,
+Kalimantan Teagah, Nusa
+Tenggara Timur.
+
+3 | Balai Pengamanan | B | pein Provinsi Daerah Istimewa Aceh,
+Fasilitas Kesehatan | | Sumatera Utara Sumatera Utara, Sumatera Barat,
+
+| Medan di Medan Jambi, Riau, dan Bengkulu
+4 | Balai Pengamanan B Provinsi Sulawesi | Provinsi Sulawesi Selatan,
+Fasilitas Kesehatan Selatan Sulawesi Tengah, Sulawesi Utara,
+Makassar di Makassar Sulawesi Tenggara, Maluku,
+
+Maluku Utara, dan Irian Jaya
+
+MENTERI KESEHATAN,
+1
+
+www
+Dr. ACHMAD SUJUDI
+=== Halaman 76 ===
+M E N T E R I UESEHATAN
+                               REPUBLIK INDONESIA
+
+
+
+
+                                          Lampiran I1
+                                          Keputusan Menteri Kesehatan R.I.
+                                          Nomor : 1 164/Menkes/SK/VII1/2000
+                                          Tanggal : 3 Agistus 2000
+
+
+          BAGAN ORGA.NISAS1 BALAI PENGAMANAN FASlLITAS KESEHATAN
+                                    TIPE
+                                    - -A
+
+
+
+
+                                                i
+                                                              TATA USAI-IA
+
+
+
+
+* Kelompok Tenasa Fungsional
+
+                                                              MENTERI KESEHATANA
+=== Halaman 77 ===
+MENTERI KESEHATAN
+REPUBLIK INDONESIA
+
+BAGAN ORGANISASI BALAI PENGAMANAN FASILITAS KESEHATAN
+et
+
+TiPEB
+
+KEPALA
+SUBBAGIAN
+—— TATAUSAHA
+
+SEKSI
+PELAYANAN
+
+.
+Kelompok Tenaga Fungsional
+
+MENTERI KESEHATAN
+
+Gee
+
+Dr. ACHMAD SUJUDI
+=== Halaman 78 ===
+TABEL
+NILAI AMBANG BATAS PADA KESELAMATAN LISTRIK
+NILAI PENYIMPANGAN YANG DIDINKAN PADA KELUARAN KINERJA
+
+Lampiran 3
+
+Keselamatan dan
+Jenis Keluaran
+
+Nama Alat
+
+Nilai Ambang
+Batas
+
+Nilai
+
+Penyimpangan Standar
+
+a. Arus bocor pada
+kabel pembumian
+b. Arus bocor pada
+selungkup
+
+c. Frequensi OD kanan
+dan kiri
+
+d. Tingkat tekanan
+suara (dB) OD kanan
+dan kiri
+
+e. Kebisingan — ruang
+Chamber
+
+Audiometer
+
+Anaesihesi Unit
+Ventilator
+
+a. Arus bocor pada
++ kabel pembumian
+
+b. Arus bocor pada
+
+selungkup
+
+Cc. Airway Pressure
+
+d. Tidal Volume
+
+e. FIO2
+
+f. Respiration Rate
+
+g. System Leakage
+
+h Pressure Display
+
+i. Sigh Volume
+j. Konsentrasi Vapor
+
+500 pA
+
+100 yA
+
+yg Diijinkan
+- TEC. 601-1-1
+Class I, type BF
+
+SNI 16 — 2634
+1192
+
+- TEC. 601-1
+Class I, Type BF
+
+10%
+
+10%
+
+10%
+
++ 1 breathe/min
+2 10 cm H,0
++£10%or+3cm
+1,0
+
+£10%
+
++10%
+
+ECRI 461 - 0595
+
+|
+
+Anaesthesi dengan
+Vaporizer
+
+a. Konsentrasi Vapor
+
++0.3 % Vapor or | ECRI 258-0595
+10 % of measure
+
+value
+
+Bed Electric a. Arus bocor pada
+kabel pembumian
+b. Arus bocor pada
+
+selungkup
+
+IEC 601-1-1
+Clas I,
+Type BF
+
+F
+
+Blood Pressure
+Monitor Invasive
+
+a. Arus bocor pada
+kabel pembumian
+b. Arus bocor pada
+
+selungkup
+Cc. Akurasi tekanan
+
+Capnometer a. Arus bocor pada
+kabel pembumian
+b. Arus bocor pada
+
+selungkup
+
+TEC 601-I-1
+Clas 1, Type BF
+
+ECRI 450-0595
+
+IEC 601-1-i
+Clas I, Type BF
+=== Halaman 79 ===
+Nilai
+
+Keselamatan dan Nilai Ambang .
+No Nam a Alat Jenis Keluaran Batas Penyimpangan Standar
+yg Diijinkan
+| c. Konsentrasi O, £3volor5% | ECRI 450-0595
+d. Konsentrasi CO, - + 0.4 vol % (+3
+mmHg) or + 10
+Yo
+e. Konsentrasi - +£0.25 vol %
+Halogenated
+f. Konsentrasi N,O - +5 vol % or
+&10 Yo
+g. Akurasi aliran - 20 Yo
+sampling .
+7. Cardiac Resuscitator | a. Arus bocor pada < 500 pA - TEC 60i-I-1
+kabel pembumian Clas I, Type BF
+b. Arus bocor pada " S100pA -
+selungkup
+c. Kemampuan nilai 60 - 80 | ECRI 421-0595
+Kompresi dan kali/menit
+Vantilasi
+d. Pergerakkan piston <5cm
+e. Pengaturan ventilator +20%
+f. Volume pengaturan 215L
+ventilator
+g. Kekautan tekanan <60 cm H:O
+pernapasan
+h Ratio kompresi 5:1
+8. | Cardiology USG a. Arus bocor pada < 500 pA - IFC 601-1-1
+kabel pembumian Clas I, Type CF
+b. Arus bocor pada < 100 pA -
+selungkup
+c. Horizontal distance - 45% ECRI 474-0595
+d. Vertical distance - t2Y
+e. Heart rate - +5%
+9. | Centrifuge a. Aris bocor pada < 500 pA - TEC 601-1-1
+kabel pembumian Clas I, Type B
+b. Arus bocor pada S100 pA -
+selungkup
+c. Akurasi setting - +10% ECRI 456-0595
+kecepatan
+d. Akurasi Timer - &10 Yo
+10. | Centrifuge a. Arus bocor pada < 500 pA - IEC 601-1-1
+Refrigerator kabel pembumian Clas I, Type B
+b. Arus bocor pada S 100 pA -
+selungkup
+c. Akurasi setting - 410% ECRI 456-0595
+kecepatan
+d. Akurasi timer - &10 Yo
+¢. Akurasi temperatur - 43°C
+=== Halaman 80 ===
+12.
+
+Nama Alat
+
+Defibrilator
+
+Keselamatan dan
+Jenis Keluaran
+
+a. Arus bocor pada
+kabel pembumian
+
+Energy
+
+e. Output Energy
+f. Jumiah Energy -
+
+g. Waktu pengisian s/d
+max,
+
+h. Energy max. pada 10
+kali pengisian
+
+Defibrilator Monitor
+
+a. Arus bocor pada
+kabel pembumian
+
+b. Arus bocor pada
+selungkup
+
+c. Arus bocor
+Elektroda
+
+d@. Internal
+energy
+
+ec. Output energy
+
+f. Jumlah energy
+setalah 60 sec
+
+g. Waktu pengisian s/d
+max.
+
+h Energy max. pada 10
+kali pengisian
+
+i. Heart rate
+
+Batasan alarm (Rate
+
+Alarm)
+
+pada
+
+paddle
+
+—.
+
+Nilai Ambang
+Batas
+
+13.
+
+Dental Unit
+
+a. Arus bocor pada
+kabel pembumian
+b. Arus bocor pada
+
+selungkup
+c. Kecepatan putaran
+bor (RPM)
+
+14.
+
+Diathermy
+
+a. Arus bocor pada |.
+kabel pembumian
+
+b. Ams bocor pada
+selungkup
+
+c. Arus bocor
+elcktrode
+
+d. Energy
+
+e. Working Frekuensi
+
+f. Timer
+
+pada
+
+Nilai
+Penyimpangan
+Diijinkan
+
+S50J
+
+t4Jor 15 Yo
+285%
+
+S15 sec
+
+£15%
+
+<50J
+
+£4Jor15 Yo
+285%
+
+S15 sec
+x15%
+
+t5%
+£15%
+
+Standar
+TEC 601-1-1
+Clas II, Type CF
+
+ECRI 407-0595
+
+| IEC 601-1-1
+Clas I, Type BF
+
+ECRI 453-0595
+
+IEC 601-1-1
+Clas I, Type B
+
+SNI...
+
+TEC 601-1-1
+Clas I, Type B
+=== Halaman 81 ===
+Keselamatan dan          Nilai Ambang             Nilai
+No       Nama Alat                                                       Pen~mpangan             Standar
+                            Jenis Keluaran              Batas
+                                                                          yg Diijinkan
+                                                                         -                   JEC 601-1-1
+                            kabcl pembumian                                                  Clas 11, Type CF
+                         b. Arus bocor pada           S 100 pA           -
+                            sel~gku~
+                         c. Arus bocor elektrode       S lOJL4           -
+                         d. Callibration 1 mV                            f5 %                E ~ R 410-0595
+                                                                                                   I
+                         e. Heart            rate         -              +5 % (5 bpm)
+                            callibration
+                         f. Frequensi response                           0.7 c m
+                         g. Linearitas                                   i5%
+                         h Papper speed                                  +2%
+
+16.   ECG Monitor        a. Arus    bocor pada      . s 500                                  IEC 601-1-1
+                            kabel pembumian                                                  Clas I, Tjpe CF
+                         b. Arus bocor pada           S l00.d            -
+                            selungkup
+                         c. Arus bocor pada            2 1 0 ~ ~ 4       -
+                            Elektrode
+                         d. Heart            rate         -              f5%bpm              ECRI 409-0595
+                            Callib~tion
+                         e. Rate alarm                                   f 5 %bpm
+                         f. Papper speed
+                         g. Sensivity QRS
+                         h Penguatan
+                                                          -          I :iE
+                                                                     I
+                                                                       +     10%
+                                                                                mv
+
+                            Amplitude (gain)
+
+17.   Haemodialisa       a. Arus bocor pada           S 500 JL4          -                   IEC 601-1-1
+                            kabel pernbumian                                                 Clas I, Type BF
+                         b. Arus bocc: pa&            5 100 yA           -
+                            selugkup
+                         c. Arus bocor pada            _< 50 JL4         -
+                            Applied Parl
+                         d. Akurasi temperature           -                        +
+                                                                         37 OC or S°C        ECEU 413-0595
+                         e. Blood        circuit                         f 10%
+                            P-                                           or 10 mmHg
+                         f. Blood pump flow                              f 10%
+                            meter
+                         g. Dialy sate                    -              f 10%
+                                                                                         I
+                         h Negative preesure               -             f 10 rnmIig
+18.   HeatedHumidifier   a. Arus    bocor pada        2 500 JL4          -                   E C 601-1-1
+                            kabel pembumian                                                  Clas I, Type BF
+                         b. Arus bocor pada           S 100 JL4
+                            selungkup
+                         c. Output temperature                           f 1 "C          I K R I 43 1-0595
+                         d. High temperature               -             S 1 "C
+
+19.   Infusion Pump      a. Arus    bocor pada        5 500 pA           -                   IEC 601-1-1
+                            kabel pernbumian                                                 Clas I, Type BF
+                         b. Arus bocor pada           S 100 pA           -
+                            selungkup
+=== Halaman 82 ===
+ae Nilai
+No Nama Alat Keselamatan dan Nilai Ambang Penyimpangan Standar
+Jenis Keluaran Batas anna
+yg Diijinkan
+c. Akurasi flow + +5% ECRI 416-0595
+d. Akurasi flow - +10%
+(dengan non critical)
+20. | Inkubator Perawatan | a. Arus bocor pada S500 pA - TEC.601-1-1
+kabel pembumian Clas I, Type BF
+b. Arus bucor pada S100 pA
+selungkup
+Cc. Patient probe - +3°C ECRI 415-0595
+d. Hood air temperature - £1°C
+21. | Laparascopic a. Arus bocor pada -< 500 pA - JEC 601-1-1
+Insuflator kabel pembumian Clas I, Type BF
+b. Arus bocor pada S100 pA -
+selungkup
+Cc. Akurasi setting - £3 mmHg ECRI 425-0595
+tekanan
+d. Akurasi displav - +3 mmHg or
+tekanan +10%
+22. | Medical Gas | a. Arus bocor pada < 500 pA - IEC 601-1-1
+Monitor kabel pembumian Clas I, Type B
+b. Arus bocor pada < 100 pA -
+selungkup
+€. Konsentrasi O2 &2 Yo0r 5 Ya ECRI 453-0595
+d. Konsentrasi CO: - £0.4 vol %
+(£3 mmHg)
+e. Konsentrasi cairan - | £0.25 vol %
+halogen
+f. Konsentrasi NO - +5 vol %or
++10%
+g. Laju aliran sampling - t20 Yo
+23. | Oz Monitor a. Arus bocor pada S500pA - IEC 601-1-1
+kabel pembumian Class I, Type BF
+b. Arus bocorpd < 100 pA -
+selungkup
+c. Oz Concentration - +2%o0r5% ECRI 450-0595
+d. Laju sampling aliran - +20
+
+Pace Maker
+External Non
+Invasive
+
+Arus bocor pada
+kabel pembumian
+
+. Arus bocor pada
+
+selungkup
+. Pulse width
+
+. Rate akurasi
+. Amplitudo akurasi
+
+IEC 601-1-1
+Clas), Type CF
+
+ECRI 447-0595
+=== Halaman 83 ===
+No
+
+Nama Alat
+
+Dental X-Ray
+
+X-Ray Diagnostic
+RF CCTV
+
+holes
+j. Voltage droop - +7%
+X-Ray General a. Arus bocor pada < 500 pA - IEC 601-1-1
+Purpose kabel pembumian Clas I. Type B
+b. Arus bocor pada S100 pA -
+selungkup
+€c. Akurasi kVP pada - t5Y ECRI 472-0595
+kondisi .....mA
+d. Linearitas mA/mAS - £10%
+pada
+kondisi.. KV
+e. Akurasi timer - Imsccort 5%
+penjuaran
+f. Voltage droop - 17%
+i a
+
+Keselamatan dan
+Jenis Keluaran
+
+. Arus bocor pada
+
+kabel pembumian
+
+b. Arus bocor pada
+selungkup
+
+c. Akurasi kVP pada
+kondisi .....MA
+
+d. Linearitas mA/mAS
+pada kondisi....KV
+
+ec. Akurasi timer
+
+f. Voltage droop
+
+. Arus bocor pada
+
+kabel pembumian
+
+b Arus bocor pada
+selungkup
+
+c. Akurasi KVP pada |
+
+d. Lincaritas mA/mAS
+
+pada
+kondisi.............
+e. Akurasi timer
+
+KV
+
+f. Exposure
+reproducibility
+g. AEC kVP
+compensation
+h. Standard
+fluoroscopic
+exposure rate
+i. Image quality
+
+Nilai
+
+Nilai .
+Ambang Penyimpangan Standar
+Batas wee
+yg Diijinkan
+< 500 pA - TEC 601-1-1
+Clas I, Type B
+< 100 pA -
+- 431 ECRI 472-0595
+- £10%
+- 1 msecor
+t5%
+- &71Y
+IEC 601-1-1
+Clas I. Type B
+S100 pA -
+- +5% ECRI 472-0595
+- +10%
+- 1 msecor
+t5Y
+- +£10%
++30D
+
+5 R/min. Manual
+only system 10
+
+R/min with ABS
+High contrast 2
+1.2 (p/mm 9 Fov
+Low contrast,
+
+observe at least
+the 3 smallest
+=== Halaman 84 ===
+an Nilai
+No Nama Alat Keselamatan dan Nilai Ambang Penyimpangan Standar
+Jenis Keluaran Batas wee
+: yg Diijinkan
+X-Ray Mammografi | a. Arus bocor pada < 500 pA - JEC 601-1-1
+kabel pembumian Clas I, Type B
+. Arus bocor pada < 100 pA -
+selungkup
+. Akurasi kVP pada - +5% ECRI 472-0595
+kondisi .....MA
+. Linearitas mA/mAS - +10%
+pada
+kondisi KV
+. Akurasi timer - 1m sec or
+t5%
+. Exposure - 45 Y
+Reproducibility
+. AEC kVP +30D
+objecthikness
+compensation |
+. AEC kVP - +30D
+compensation
+i. Image quality - 4 fibrilis
+3 speck clusters
+3 mosses
+j. Avarage Glandular < 300 m Rad
+(3mGY)
+k. Image quality - High contrast 2
+1.2 Iphmm 9” Foy
+Low contrast.
+observe at least
+the 3 smallest
+holes !
+1. Voltage droop - +7% |
+29. | Photo Therapy Unit | a. Arus bocor pada < 500 pA - IEC 60]-1-1
+kabel pembumian Clas I. Type BF
+b. Arus bocor pada < 100 pA -
+selungkup
+c. Spectral irradiance - &4 p W/cm? /nm | ECRI 469-0595
+30. pH Meter a. pH iarutan - &0.02 Ya
+b. Temperature - £10°C
+c. m Volt - +......m Volt
+31. | Pressure Transducer | a. Arus bocor pada TEC 601-1-1
+kabel pembumian Clas I, Type BF
+b. Arus bocoi pada < 100 pA -
+selungkup
+€. Akurasi tekanan - +2 mmHg or ECRI 435-0595
++5%
+32. | Pulmonary a. Cycling rate (adult) - > 50 /min ECRI 422-0595
+Resuscitator b. Cycling rate (infor) - > 70 /min
+€. Tekanan max. (aduh) - 50 to 60 cm H-0
+=== Halaman 85 ===
+I"
+
+a
+
+Nilai
+
+selungkup
+
+c. YO: (100 Yo
+sd 75%)
+
+d. %O: (75%
+sid 50%)
+
+€. Pulse rate
+
+Nama Alat Keselamatan dan Nilai Ambang Penyimpangan
+Jenis Keluaran Batas Lama
+. " g Diijinkan
+33. | Pulse Oximeter a. Arus bocor pada S 300 pA
+kabel pembumian
+b. Arus bocor pada < 100 pA
+
+Standar
+
+IEC 601-1-1
+Clas I. Type B
+
+ECRI 451-0595
+
+34. | Spectrophotometer
+
+selungkup
+c. Akurasi
+transmittance
+
+€. Stray radiant energy
+f. Akurasi panjang
+gelombang
+
+a. Arus bocor pada
+kabel pembumian
+b. Arus bocor pada
+
+| d. Akurasi Absorbance
+
+|
+
+< 500 yA
+S100 pA -
+- 43%
+- t3%
+- &3nm
+- 0-0.6%T
+
+35. |
+
+b. Akurasi pressure - +3 mmHg
+36. | Spirometer | a. Arus bocor pada S 500 pA - IEC 601-1-1
+kabel pembumian Clas 1. Type BF
+b. Arus bocor pada S100 pA -
+sclungkup '
+c. Vital capacity - +10% OTIS ®
+@. Forced vital - £10 Yo producer library
+e. Brochodiator - &10 Yo Ver 1.00 1998
+37. | Sterilizer Dry Type | a. Arus bocor pada S500 pA IEC 601-1-1
+kabel pembumian . Clas L. Type B
+b. Arus bocor pada S 100 yA -
+selungkup
+c. Temperature - #10 Ya SNI 16-3770
+1995
+d. Waktu - #10 Yo
+38. | Sterilizer Electric | a. Arus bocor pada IEC 601-I-1
+Heated kabel pembumian Clas I. Type B
+b. Arus bocor pada
+selungkup
+
+c. Temperature
+
+d. Waktu
+e. Tekanan
+
+Sphygmomanometer | a. Leakage pressure
+
+- +10%
+
+TEC 601-1-1
+Clas [. Type CF
+
+ECRI 458-0595
+
++10%
+
+- &100
+t10%
+
+SNI 16-3770
+1995
+=== Halaman 86 ===
+No
+
+39.
+
+41.
+
+42.
+
+43.
+
+Sterilizer Steam
+Heated
+
+Sterilizer Table Top
+Type
+
+Suction Unit Breast
+pump
+
+Suction Unit
+
+. Temperature
+
+. Arus bocor pada
+
+. Arus bocor pada
+
+Keselamatan dan
+
+Jenis Keluaran
+
+. Arus bocor pada
+
+kabel pembumian
+
+. Arus bocor pada
+
+selungkup
+
+. Waktu
+. Tekanan
+. Arus bocor pada
+
+kabel pembumian
+Arus bocor pada
+selungkup
+
+. Temperature
+
+. Waktu
+
+Tekanan
+
+kabel pembumian
+
+. Arus bocor pada
+
+selungkup
+Vacuum max.
+
+: Akurasi vacuum
+
+gauge
+
+Flow max.
+Laju kenaikan
+vacuum
+
+kabel pembumian
+
+. Arus bocor pada
+
+selungkup
+Vacuum max.
+
+. Akurasi vacuum
+
+gauge
+
+. Flow max.
+
+Laju kenaikan
+vacuum
+
+Nilai
+Penyimpangan
+Diijinkan
+
+Nilai Ambang
+
+tandar
+Batas Sta
+
+IEC 601-1-1
+Clas 1. Type B
+
+SNI 16-3770
+1995
+
+IEC 601-1-1
+Clas I. Type B
+
+SNI 16-3770
+1995
+
+Ho
+x
+
+TEC 601-1-1
+Clasi. TypeB ot
+
+Emergency
+b.
+c.
+d.
+e.
+f
+
+Suction Unit
+
+Surgical
+
+Arus bocor pada
+kabel pembumian
+Arus bocor pada
+selungkup
+Vacuum max.
+Akurasi vacuum
+gauge
+
+Flow max.
+
+Laju kenaikan
+vacuum
+
+< 100 pA -
+- > 200 mmHg ECRI 433-0595
+- +10%
+- 30 Umin
+- < 2/150 sec /
+mmHg
+< 500 pA TEC GO1-1-1 H
+Clas I. Type B
+- > 400 mmHg ECRI 433-0595
++10%
+
+- 25 Vmin
+- < 4/300 sec /
+mmHg
+
+IEC 601-1-1
+| las I, Type B
+
+> 400 mmHg ECRI 433-0595
+
+£10%
+
+25 Vmin
+< 4/300 sec /
+mmHg
+=== Halaman 87 ===
+Nilai
+                                   Keselarnatan dan    Nilai Arnbang
+I No         Nama Alat
+                                    Jenis Keluaran         Batas
+                                                                       Penyirnpangan         Standar
+                                                                        yg DiijinLan
+    44.   Suction Unit        a. Arus bomr pada          I 500 pA                        IEC 601-1-1
+          Tlioracic              kabel penibumian                                        Clas I. Tjpe B
+                              b. Arus bocor pada         I 100 p.4
+                                 selungkup
+I
+                              c. Vacuum mas.                  -        > 400 nunHg       E C p 433-0595
+                              d. Akurasi vacuutn                       f 10%
+                                 gauge
+                              e. Floii- mas.                           25 Ytiiin
+                              f. Laju kenaikan                         < 4 / 3 0 sec /
+                                 vacuum                                tnnfig
+
+    45.   Suction Unit        a. Arus bocor pada         I 500 pA      -                 IEC 601-1-1
+          Tracheal                                                                       Clas I. Type B
+
+                                                      1 . -
+                                 kabel pembumiali
+                              b. Arus bocor pada         I100pA        -
+                                 =lungkup
+                              c. Vacuum mas.                           > 400 mtnHg       ECRl433-0595
+                              d. Akurasi vacuum                        f 10%
+                                 lw4!v
+                              e. Flo\v mas                             30 Vnun
+                              f. Laju keraikkan                        < 31300 set/
+
+
+
+
+                                                                                                           I
+                                 \acuum                                l m g
+
+    46.   Suction Unit Uterine a. Arm bocor pada         I 500 pA      -                 IEC 601-1-1
+                                  kabel pem5umian                                        Clas I. Type B
+                               b. Arusbocor pada          I 100 pA     -
+                                  selungkup
+                               c. Vacuutn mas.                -        > 400 mmn.H_e     ECRI 433-0595
+                               d. Akurasi vacuum                       f 10%
+                                  Pau s
+                               e. Flow mas                             30 Umin
+,                              f. Laju kenaikkan                       < 31300 sou'
+                                  vacuum                               nim/Hg
+' 47.     Surgical Laser      a. Arus bocor pada          5 500 pA     -                 IEC 601-1-1
+          Argon                  kabel pembumian                                         Clas I. 'opeBF
+                              b. Arus bocor pada          5 100 pA      -
+                                 selungkup
+                              c. Arusbocor                5 10 pA       -                ECRI 433-0595
+                                 elektrode
+                              d. Powver output                -         2 10%
+                              e. Exposure duration            -         +_   10%
+
+    48.   Surgical Laser      a. Arus bocor pada          I 5 0 0 pA    -                IEC 601-1-1
+          Carbon Dioxide         kabel pemburnian                                        Clas I. Type BF
+                              b. Arus bocor pada          I100 pA       -
+                                 selungkup
+                              c. Arus bocor                I 10 pA      -                 ECRI 466-0595
+                                 elcktrode
+                              d. Exposure duration                -     f 10 O/u
+                              e. Rcpcal pulsc                           f 10%
+                              f. Po\\*eroutput                         f 10%
+=== Halaman 88 ===
+Nilai
+                               Keselamatan dan             Nilai Ambang                                  Standar
+No            Nama Alat
+                                                               Batas
+                                                                                  Penyimpangan
+                                Jenis Keluaran
+                                                                                   yg Diijinkan
+                             g. Lascr beam patern                   -             * 10%
+                             11. Therapeuticltinling                              f 10%
+                                 bean1 coincidence
+
+49.     Surgical Laser Ho-   a. Arus bocor pada                 I 500 pA          -                  IEC 601-1-1
+        Yag                     kabel pembu~nian                                                     Clas I. Type BF
+                             b. Arus bocor pada                 I 100 PA          -
+                                selungkup
+                             c. Arus bocor                       I 10 pA          -                  ECRI 447-0595
+                                elektrode
+                             d. Power output                        -             f 10%
+
+50.     Surgical Laser Nd-   a. Arus bocor pada               . I 5 0 0 pA                           IEC 601-1-1
+        Yag                     kabel pernbu~liian                                                   Clas I. T?pc BF
+                             b. Arusbocor pada                  I I(k) PA         -
+                                selungkup
+                                                                                                                       I
+                             c. Arus bocor
+                                elehrode
+                                                                 I 10 pA
+                                                                              I-                    I ECRI 466-0395    !
+                             d. Expsurc duration
+                                                                              I   + 10 %
+                                                                                  -
+5 1.    Te~~~perature        a. Arus bocor pada                 I 500 pA                             IEC 601-1-1
+        Monitor                 kabel pembumian        I                                             Clas I. Type BF
+                             b. Arusbocor pada                  I 100 pA
+                                selungkup
+                             c. Akurasi temperature
+                                                                     -
+                                                                                  * 0.3 "C           ECRl-1254595
+                             d. Akurasi temperature                               k 0.3 "C
+                                (IR unit)
+                             e. Alann temperature                                 f 0.6 "C
+       .---                   --                 ----------
+                                                                                  -          ---
+52.     Tractior.            a. Arusbocorpada                    I 500 J.LA                          1EC601-1-1
+                                kabel pe~nbumian                                                     Clas I. Type BF
+                             b. Arus bocor pada                  I 100 pA
+                                selungkup
+                             c. Traction control                                  f10%               ECRl427-0595
+                                accuraq
+                             d. Timer                                             f 10%
+
+53.     Transcutaneous Cz    e. Arus br     pada                   500 pA         -                  IEC 601-1-1
+        Monitor                  kabel pe~nburnian                                                   Clas I. Type BF
+                             f Arus bocor pada                   < 100 FA         -
+                                 selungkup
+                             g. Akurasi temperature                     -         f 0.1 "C           ECRI 153-0595
+                             h. Display telnperature                              i 0 . l "C
+                              i. Alam tcmperarure                       -         f 0.5 "C
+                                 tinggi
+                             j. Alarm tcmperature
+                                 rendall
+                                                       I                              f 0.5 "C
+
+                              k. Akurasi display tcp                                  f 5 INIIH~
+                                                                                               or
+                                 02                                                   f 10%
+=== Halaman 89 ===
+57.
+
+Ultrasound
+Diagnostic Doppler
+
+Ultrasound
+Diagnostic Portable
+
+Ultrasound Therapy
+
+UV Sterilizer
+
+Keselamatan dan
+
+. Arus bocor pada
+. Arus bocor pada
+. Kontol temperature
+
+. Display temperature
+. Alarm temperature
+
+. Akurasi display tcp
+
+. Arus bocor pada .
+
+. Arus bocor pada
+
+| elektrode
+. Horizontal distance
+
+. Horizontal! distance
+. Vertical distance
+
+. Simulator voltage or
+
+kabel pemtumian
+. Arus bocor pada
+
+. Kuat radiasi
+
+Nilai Ambang
+
+Jenis Keluaran Batas
+
+kabel pembumian
+selungkup
+
+tinggi
+Alarm temperature
+rendah
+
+COz
+
+kabel pembumian
+
+selungkup
+Arus bocor
+
+Vertical distance
+
+Current
+
+selungkup
+
+Nilai
+Penyimpangan
+yg Diijinkan
+
++5 mmHg or
++10%
+
+Standar
+
+IEC 601-1-1
+Clas I. Type BF
+
+ECRI 453-0595
+
+IEC 601-1-1
+Clas I. Type BF
+
+ECRI 474-0595
+
+IEC 601-1-1
+Clas I. Type BF
+
+ECRI 474-0595
+
+1 menit + 10 sec
+&20W
+
++10%
+
+IEC 601-1-1
+Clas I, Type BF
+
+ECRI 470-0595
+
+TEC 601-I-1
+Clas I, Type BF
+
+ECRI 469-0595
+=== Halaman 90 ===
+-                                                                                Nilai
+                                  Keselamatan dan            Nilai Arnbang                        Standar
+No           Nama Alat                                                       Penyimpangan
+                                   Jenis Keluaran                Batas
+                                                                              yg Diijinkan
+59.       Ventilator Maclune    a. Arus bocor pada             5 500 pA      -                IFC 601-1-1
+                                   kabel pc~libuniian                                         Clas 1, Type BF
+                                b. Anrs bocor pada             I 100 pA      -
+                                   selungkup
+                                c. Tidal \lolume                   -         10 %             EC)U 47 1-0595
+                                d. Respiration rate                -         f 1 breathlmin
+                                c. System leakage                            5 10cmIGO
+                                f. Prcssure display                          5 10%or
+                                                                             *3&0
+                                g. Sigli volume                              f 10%
+
+60.       Ventilator Nconatal   a. Ams bocor pada              s 500 pA      -                [EC 601-1-1
+                                   kabel pembu~nian      .                                    Clas I, Type BF
+                                b. Arus bocor pada             S 100 pA      -
+                                   sclungkup
+                                c. Tidal volumc                              + 10%
+                                d. Respiration ratc
+                                e. System leakage                            5 JOcm&O
+                                f. Pressure displa!.                         I10%or
+                                                                             *3&0
+                                g. Sigh volun~e                              +- 10%
+6 1.      Ventilator Portable   a. Arus boar pada              I 5 0 0 pA
+                                   kabel pembumian                                            Clas I, T g e BF
+                                b. Arusbocor pada               I 100 pA
+                                   selungkup
+                                c. Tidal volume                     -        +_      10%      ECRI 47 1-0595
+                                d. Respiration ratc                          f 1 bpni
+                                e. Syacm leaksge                    -        S 10 cnl Hz0
+                                1. Pressure display                 -        5 10%or
+                                                                             i3&0
+                                g. Sigh volume                               f 10%
+                                11. I : E ratio                     -        f 10%
+
+    62.   Ventilator Portable   a. Arus bocor pada              l 5 0 0 pA       -            E C 601-1-1
+                                    kabel pembtiniian                                         Clas I, Type BF
+                                b. Arus bocor pada              5 100 pA         -
+                                    selungkup
+                                c. Tidal volume                                  f 10%         ECRI 458-0595
+                                d. Respiration rate                 -            f 10%
+                                e. Inspiraton- time                    -         f 10%
+                                1. 1 : E r a t i o                     -         i 10%
+                                g. Minute volume                                 f 10%
+                                1~ Peakfmnean                          -         * 10%
+                                    inspiraton. time
+                                 i. PIP (Peak                          -         f 10%
+                                    Inspiraton. tinic)
+                                j. Breatlung ratc                                f 10%
+=== Halaman 91 ===
+Nilai
+Penyimpangan
+Diijinkan
+
+Nilai Ambang
+Batas
+
+Keselamatan dan
+Jenis Keluaran
+
+MAP (Mean Airway
+
+Standar
+
+re] ea |
+
+| Presse relist
+
+. Pressure relief
+
+Ventilator General IEC 601-1-1
+
+Clas L Type BF
+
+kabel pembumian
+Arus bocor pada
+selungkup
+Tidal volume
+Respiration rate
+Inspiratory time
+Flow
+Wave shapeume
+1: E ratio
+Minute volume
+Peak mean
+inspiratory flow
+PIP (Peak - +10%
+Inspiratory Pressure)
+MAP (Mean Airway - +10%
+Pressure)
+. PEEP - +10%
+FIO2 - 10 Yo
+Breathing circuit -
+Pressure relief
+
+s
+
+ro pm me Ae
+
+OF
+
+973
+=== Halaman 92 ===
+Lampiran 4
+— DAFTAR ALAT KESEHATAN YANG WAJIB UJI ATAU KALIBRASI
+
+Klasifikasi
+
+Pengujian | Kalibrasi | Radiasi | Non | Nama Lain
+Radiasi
+Vv V
+Vv
+
+Alat Bedah Frekwensi Tinggi Y
+Alat Hisap Medik |
+Anaesthesi Apparatus
+
+4]
+
+Suction Pump
+
+|
+
+26 | CT. Scaner Whole Body
+
+27 | CT Scaner Head
+
+29 | Cough Examination
+[30] Cardio Pulmonary
+
+31 | CO, Analyzer Vv Capnograph
+32 | Defibrillator DC Shock
+33 Defibrillator Monitor
+
+v
+Arrytmia Monitor
+Autoclave Table N Vv
+. | Asma Bronchial | V
+9 | Amnioscope LN V
+10 | Automatic Film Procesing N - ni
+11 | Acupunture Theraphy v N
+12 | Analgesia Y
+13 T Analytical Balance 1 Y
+14 | Automatic Microplate Laser nj
+15 | Blood Chemistry Analyzer Vv
+16 | Blood Gas Analyzer V V
+17 | Blood Pressure Monitor r vif |v
+18 | Blood Solution Warmer ni! V
+19 | Bed Side Monitor N| N Vital Sign Monitor
+20 | Bronchoscope N V Fibrescope
+21 | Blood Cell Counter V Ni
+22 | Cardiac Stress Test V V
+23 | Cardiotocograph v V Fetal Monitor
+24 | Central Monitor V
+25 | Centrifuge N N
+V
+
+|
+
+4/4)
+
+LI
+
+alee
+
+dl
+2
+=== Halaman 93 ===
+Nama Alat Kesehatan
+
+Dental Unit
+
+Pengujian | Kalibrasi | Radiasi
+
+Diathermy
+
+Duadeno Fiberscope Therapy
+
+Echocardiograph
+Electrocardiograph Monitor
+Elektrokardiograf
+Electroconvulsion Therapy
+Electrolite Analyzer
+Electromyograph
+Electrostimulator
+Endoscopy Unit
+
+ENT Treatment
+
+Klasifikasi
+
+Non
+Radiasi
+
+Nama Lain
+
+ECG
+
+Na,K Analyzer
+
+EMG
+
+ea jalal ala <4
+
+Examination Lamp
+Electro Coutry Treatment
+
+2
+
+Electrogravimetri
+Foetal Detector
+
+Finger Muscle Therapy
+
+Galvanic/Faradic
+Fibrescope
+
+Lampu Periksa
+
+Flame Photometer
+
+Tele Gamma Theraphy
+
+Gas Cromatograph
+
+Haemodialysa
+
+Hydrotubator
+
+: Head Lamp
+
+Horizontal Sterilizer
+
+Doppler
+
+Tele Theraphy
+
+Hydro Extractor
+Infusion Pump
+Inkubator Perawatan
+
+Instrument Washer
+infra Red Lamp
+
+Iso Enzym Electrophoresis
+Imuno Electrophoresis
+Laboratory Incubator
+
+ajaaa)
+
+Laboratory Refrigerator
+Laser Coagulator
+Laser Surgical Unit
+
+ajajaja)a,
+
+Light Source
+
+LINAC
+
+Baby Incubator
+
+IR Lamp
+
+aej2|a ae ea a alalala le je el Pa Ka KP Pa Ba Ka an Da Ke Kan Pc Ka
+=== Halaman 94 ===
+Klasifikasi
+ No    Nama Ala t Kesehatan             Pcngujian   Kalibrasi   Radiasi    Nan      Nama Lain
+                                                                          Radiasi
+ 71    Laser Lithotripsy                               4                    4
+ 72    Laser Therapy                                   4                    4
+ 73    Limphatic Physiotherapy             4                                4
+ 71    Microscope Laboratory
+               --------                    4
+                                         ----------.-                       4 ---
+ 75    Microtome                           4                                4
+ 76    Mobile Operating Lamp                4                               4
+  77   Magnetic Resonant Imaging                       4                    4
+  78   Nebulizer                           4                                d
+  79   Nesofaringoscope                    4                                4
+  80   Operating Lampceiling Type          4                                4
+  81   OperatingMicroscope                 4                                4
+  82   Osygen Tent                          4                               4
+  83   Pace Maker                                      4                    4
+  81 pH Meter                                           4                   4
+  85   Phototheraphy Unit                   4                               4
+  86   Protombin Meter                      4                               4
+  87   Pulse Oximeter                       4                               4       a-i
+- 88   Phonomdiograph
+                                    I                   4 I                 4
+  89   Pleurel Biopsy                       4                               4
+- 90   Photo Fundus Unit                    4                               4       Fun& Camera
+  91   Precision Balance                                4                   4
+  92   Photo Meter                                      4                   4
+  93   Respiration Apparatus                            4                   4       Respirator
+  91   Resuscitator                         4                               4
+  95   Refncto Meter                        4                               4
+  96   Retinoscope                          4                               4
+  97   Refrigerator                         4                               4
+  98   Spectrophotometer                                4                   4
+  99   Spirometer                                       4                   4
+   100 Stirrer                  -
+                                            4                               4
+   101 Suction Thorax                       4                                4      WSD
+   102 Thyroid Up Take                                  4                    4
+   103 Trombelastograph                     4                                4
+   104 TL Chromatograph                     4                                4
+   105 Ultrasonic Cleaner                   4                                4
+   106 Ultrasonography                                  4                    4      USG
+   107 Ultrasonic Pachpeter                 4                                4
+=== Halaman 95 ===
+Klasifikasi
+
+116 | X-Ray Angiography
+
+117 | X-Ray Dental Panoramic
+119 | X-Ray Mobile C-Arm
+120 | X-Ray Mobile Unit
+
+124 | X-Ray Tomography
+125 | X-Ray Mammography
+=== Halaman 96 ===
+1 qemer SunsZuevueg
+
+9 s 4
+CHOXUI p/s nyepaog Iepur)S UrAeO
+ue3usaya | syuyay, wwnyog Iseaquey lag JOWON MEJE ANYAN JEIY vuUEN
+JAYS
+XVd 8 FNOHdE TAL YONON
+dVAONAT LVWYTV
+UNONAd ISNLILSNI
+
+UVGNVLS NVUVSA NVC YAN LV Ty ISVAGITVA NVVININA Ad
+
+¢: uendwey
+=== Halaman 97 ===
+Lampiran : 6
+                  LAPORAN PELAKSANAAN PENGUJIAN & KALIBRASJ ALAT KESEHATAN
+
+NAMA MSTITTJSI PENGUJI
+ALAMAT LENGKAP
+NOMOR TELEPHONE DAN FAX
+SARANA PELAYANAN KESEHATAN       :
+
+                                     Type/                   Tanggal
+No.   Nama Alat Kesehatan   Merk     Model           Seri   Pclaksnnan           HASIL    Keterangan
+ 1            2              3         4         5               6                 7          8
+
+                                                             -
+                                                             -
+                                                             -
+
+
+
+
+                                                                     Penanggung Jawab :
+=== Halaman 98 ===
+Lampiran :7
+LAPORAN PELAKSANAAN KALIBRASI ALAT UKUR DAN BESARAN STANDAR
+
+NAMA INSTITUSI PENGUJI
+
+ALAMAT LENGKAP
+
+NOMOR TELEPHONE & FAX
+
+Nama Alat Ukur dan Type/ . Tanggal .
+No. Besaran Standar Merk Model Nomor Seri | petaksanan HASIL | Keterangan
+1 2 3 4 5 6 7 8
+—
+a
+—
+{
+pm  — ———
+
+Penanggung Jawab :
+=== Halaman 99 ===
+LAPORAN PELAKSANAAN KALIBRASI ALAT UKUR DAN BESARAN STANDAR
+
+NAMA INSTITUSI PENGUJI RUJUKAN
+
+ALAMAT LENGKAP
+
+NOMOR TELEPHONE DAN FAX
+
+INSTITUSI PENGUJI
+
+Nama Alat Ukur dan
+No, Besaran Standar
+
+1 2
+
+Nomor Seri
+5
+
+Tanggal
+Pelaksanan
+
+HASIL
+
+Lampiran
+
+Keterangan
+
+18
+
+6 7
+
+8
+
+—
+
+=
+
+=
+
+[
+
+Penanggung Jawab :
+=== Halaman 100 ===
+Lampiran : 9
+
+
+
+SARANA PELAYANAN KESEHATAN :
+ALAMAT LENGKAP
+NOMOR TELEPHONE & FAX
+
+
+No.   Nama Alat Kesehatan   Merk   TYpel   Nomor Seri   Masa Berakhir Dokumen Teknis   Keterangan
+                                   Model                  Sertifikat     Penyerta
+ '1           2              3       4         5              6             7                 8
+
+
+
+
+                                                                                       -
+
+
+
+
+                                                                Penanggung Jawab :
+=== Halaman 101 ===
+LAPORAN PELAKSANAAN PENGUJIAN & KALIBRASI ALAT KESEHATAN
+
+NAMA SARANA PELAYANAN KESEHATAN :
+ALAMAT LENGKAP :
+NOMOR TELEPHONE & FAX
+
+INSTITUSI PENGUJI PELAKSANA
+
+Nomor Seri
+
+Tanggal
+Pelaksanan
+
+Lampiran : 10
+
+Keterangan
+
+5
+
+6
+
+8
+
+Penanggung Jawab :
+=== Halaman 102 ===
+: qemer BungBueudg
+
+8 L 9 s v £ T i
+vyaduad P/s nyeraag PPOW
+uvsuviajayy | stuyay, uumyog | sya WAYWAIG | 499 soWON pdsy MADYA UvjBYyIsay WY EWEN | “ON
+'XVd 8 ANOHdATAL YOWON
+NOHVL dVAONAT LYNV TV
+NV 1nd NVLVHASAM NVNVAV Tdd VNVUVS
+
+ISVUGITVA ? NVIFNDNad MAadSV NVLVHASAM LY TV ISVSIAV.LNAANI
+
+IL: uendwey
+=== Halaman 103 ===
+TABEL WAKTU PELAKSANAAN
+
+Lampiran :
+
+PENGUJIAN ATAU KALIBRASI ALAT KESEHATAN
+
+NAMA ALAT
+
+Waktu Pelaksanaan
+
+KETERANGAN
+
+12
+
+Anaesthesi Apparatus
+Audiometer
+
+6 jam . 30 menit
+
+Inkubator Perawatan
+Centrifuge
+Defibrillator Monitor
+Dental Unit
+
+'30 menit
+
+30 menit
+
+Diathermy
+
+30 menit
+
+Elektrokardiograf
+Electro Surgery Unit
+Haemodialisa
+
+Infusion pump
+
+30 menit
+
+pH meter
+
+30 menit
+
+Spectrophotometer
+
+30 menit
+
+Suction unit
+
+30 menit
+
+Sphygmomanometer
+Traction
+
+30 menit
+
+Ultrasonograf
+
+Ultrasound terapi
+
+Ventilator
+
+X-ray Unit,
+
+Waktu pemeriksaan
+=== Halaman 104 ===
+Lampiran 13.
+
+KESANGGUPAN MELAKSANAKAN PENGUJIAN ATAU KALIBRASI
+ALAT KESEHATAN
+
+INSTITUSI PENGUJI
+ALAMAT LENGKAP :
+NOMOR TELEPHONE & FAX :
+
+Kesanggupan
+Nama Alat Kesehatan Melaksanakan Biaya / Tarif Keterangan
+Pengujian atau Kalibrasi
+
+Jumlah alat yang akan diuji atau kalibrasi
+Jumlah Petugas
+
+Jumlah Petugas x Hari : Biaya Transportasi
+Jumlah Biaya
+
+Penanggung Jawab :
+=== Halaman 105 ===
+: qemer Sun8Sueusg
+
+i rrr rr
+
+ABpULTG UAP
+
+UBHBUBSYEPY UEP AnYA) IWlY BUEN,
+uvdngguvsey
+
+XVd 8 INOHdATAL YOWON
+
+dVYONAT LYNV TY
+
+NVXNINY IMNONAd ISNLILSNI
+
+UVANVLS NVUVSId NV YAMA LYTV ISVUdITVA NYAVNYSAYTIW NVANDONYSIM
+
+‘pr uendwey

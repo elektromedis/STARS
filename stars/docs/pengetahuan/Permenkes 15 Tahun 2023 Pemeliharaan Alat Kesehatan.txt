@@ -1,0 +1,815 @@
+=== Halaman 1 ===
+PERATURAN MENTERI KESEHATAN REPUBLIK INDONESIA
+                     NOMOR 15 TAHUN 2023
+                          TENTANG
+ PEMELIHARAAN ALAT KESEHATAN DI FASILITAS PELAYANAN KESEHATAN
+
+              DENGAN RAHMAT TUHAN YANG MAHA ESA
+
+             MENTERI KESEHATAN REPUBLIK INDONESIA,
+
+
+Menimbang   : a.   bahwa untuk menjamin tersedianya alat kesehatan
+                   sesuai standar pelayanan, persyaratan mutu, keamanan,
+                   manfaat, keselamatan, dan laik pakai guna mendukung
+                   penyelenggaraan pelayanan kesehatan yang aman dan
+                   bermutu, perlu dilakukan pemeliharaan alat kesehatan
+                   yang digunakan di fasilitas pelayanan kesehatan;
+              b.   bahwa pemeliharaan alat kesehatan yang digunakan di
+                   fasilitas pelayanan kesehatan belum optimal karena
+                   jumlah     dan     kapasitas     sumber    daya    yang
+                   menyelenggarakan pemeliharaan alat kesehatan masih
+                   terbatas dan tidak seimbang dengan jumlah alat
+                   kesehatan;
+              c.   bahwa      berdasarkan     pertimbangan     sebagaimana
+                   dimaksud dalam huruf a dan huruf b, perlu menetapkan
+                   Peraturan Menteri Kesehatan tentang Pemeliharaan Alat
+                   Kesehatan di Fasilitas Pelayanan Kesehatan;
+
+Mengingat   : 1.   Pasal 17 ayat (3) Undang-Undang Dasar Negara Republik
+                   Indonesia Tahun 1945;
+              2.   Undang-Undang Nomor 36 Tahun 2009 tentang
+                   Kesehatan (Lembaran Negara Republik Indonesia Tahun
+                   2009 Nomor 144, Tambahan Lembaran Negara Republik
+                   Indonesia Nomor 5063);
+              3.   Undang-Undang Nomor 44 Tahun 2009 tentang Rumah
+                   Sakit (Lembaran Negara Republik Indonesia Tahun 2009
+                   Nomor 153, Tambahan Lembaran Negara Republik
+                   Indonesia Nomor 5072);
+              4.   Undang-Undang Nomor 23 Tahun 2014 tentang
+                   Pemerintahan Daerah (Lembaran Negara Republik
+                   Indonesia Tahun 2014 Nomor 244, Tambahan Lembaran
+                   Negara Republik Indonesia Nomor 5587) sebagaimana
+                   telah diubah beberapa kali terakhir dengan Peraturan
+                   Pemerintah Pengganti Undang-Undang Nomor 2 Tahun
+                   2022 tentang Cipta Kerja (Lembaran Negara Republik
+
+
+
+
+                                                            jdih.kemkes.go.id
+=== Halaman 2 ===
+-2-
+
+
+                   Indonesia Tahun 2022 Nomor 238, Tambahan Lembaran
+                   Negara Republik Indonesia Nomor 6841);
+              5.   Undang-Undang Nomor 36 Tahun 2014 tentang Tenaga
+                   Kesehatan (Lembaran Negara Republik Indonesia Tahun
+                   2014 Nomor 298, Tambahan Lembaran Negara Republik
+                   Indonesia Nomor 6573);
+              6.   Peraturan Presiden Nomor 18 Tahun 2021 tentang
+                   Kementerian Kesehatan (Lembaran Negara Republik
+                   Indonesia Tahun 2021 Nomor 83);
+              7.   Peraturan Menteri Kesehatan Nomor 5 Tahun 2022
+                   tentang Organisasi dan Tata Kerja Kementerian
+                   Kesehatan (Berita Negara Republik Indonesia Tahun 2022
+                   Nomor 156);
+
+                          MEMUTUSKAN:
+Menetapkan   : PERATURAN     MENTERI    KESEHATAN              TENTANG
+               PEMELIHARAAN   ALAT   KESEHATAN  DI             FASILITAS
+               PELAYANAN KESEHATAN.
+
+                                       BAB I
+                                  KETENTUAN UMUM
+
+                                        Pasal 1
+              Dalam Peraturan Menteri ini yang dimaksud dengan:
+              1. Alat Kesehatan adalah bahan, instrumen, aparatus,
+                  mesin, dan/atau implan yang tidak mengandung obat
+                  yang digunakan untuk mencegah, mendiagnosis,
+                  menyembuhkan dan meringankan penyakit, merawat
+                  orang sakit, memulihkan kesehatan pada manusia,
+                  dan/atau membentuk struktur dan memperbaiki fungsi
+                  tubuh.
+              2. Pemeliharaan Alat Kesehatan adalah suatu kegiatan
+                  menjaga kondisi alat kesehatan agar memenuhi
+                  persyaratan mutu, keamanan, manfaat, keselamatan,
+                  dan laik pakai.
+              3. Fasilitas Pelayanan Kesehatan adalah suatu alat
+                  dan/atau      tempat      yang    digunakan      untuk
+                  menyelenggarakan upaya kesehatan, baik promotif,
+                  preventif, kuratif maupun rehabilitatif yang dilakukan
+                  oleh pemerintah pusat, pemerintah daerah dan/atau
+                  masyarakat.
+              4. Pemerintah Pusat adalah Presiden Republik Indonesia
+                  yang memegang kekuasaan pemerintahan negara
+                  Republik Indonesia yang dibantu oleh Wakil Presiden dan
+                  menteri sebagaimana dimaksud dalam Undang-Undang
+                  Dasar Negara Republik Indonesia Tahun 1945.
+              5. Pemerintah Daerah adalah kepala daerah sebagai unsur
+                  penyelenggara pemerintahan daerah yang memimpin
+                  pelaksanaan urusan pemerintahan yang menjadi
+                  kewenangan daerah otonom.
+              6. Menteri adalah Menteri yang menyelenggarakan urusan
+                  pemerintahan di bidang kesehatan.
+
+
+
+
+                                                           jdih.kemkes.go.id
+=== Halaman 3 ===
+-3-
+
+
+                          BAB II
+                     PENYELENGGARAAN
+
+                        Bagian Kesatu
+                           Umum
+
+                            Pasal 2
+(1)   Setiap Alat Kesehatan yang digunakan di Fasilitas
+      Pelayanan Kesehatan harus berfungsi dengan baik sesuai
+      dengan      standar  pelayanan,   persyaratan    mutu,
+      keamanan, manfaat, keselamatan, dan laik pakai.
+(2)   Untuk menjaga Alat Kesehatan berfungsi dengan baik
+      sebagaimana dimaksud pada ayat (1) Fasilitas Pelayanan
+      Kesehatan      wajib melakukan    Pemeliharaan     Alat
+      Kesehatan.
+(3)   Fasilitas Pelayanan Kesehatan dalam menyelenggarakan
+      Pemeliharaan Alat Kesehatan dapat bekerja sama dengan
+      pihak lain.
+
+                        Bagian Kedua
+             Kegiatan Pemeliharaan Alat Kesehatan
+
+                             Pasal 3
+(1)   Kegiatan Pemeliharaan Alat Kesehatan di Fasilitas
+      Pelayanan Kesehatan meliputi:
+      a. inventarisasi Alat Kesehatan;
+      b. pemeliharaan promotif;
+      c.   pemeliharaan pemantauan fungsi/inspeksi;
+      d. pemeliharaan preventif; dan
+      e.   pemeliharaan korektif/perbaikan.
+(2)   Inventarisasi Alat Kesehatan sebagaimana dimaksud
+      pada ayat (1) huruf a dilakukan melalui pencatatan data
+      Alat Kesehatan di Fasilitas Pelayanan Kesehatan yang
+      akan dilakukan Pemeliharaan Alat Kesehatan.
+(3)   Pemeliharaan promotif sebagaimana dimaksud pada ayat
+      (1) huruf b merupakan kegiatan pemeliharaan yang
+      bersifat memberikan petunjuk penggunaan atau
+      pengoperasian Alat Kesehatan.
+(4)   Pemeliharaan pemantauan fungsi/inspeksi sebagaimana
+      dimaksud pada ayat (1) huruf c merupakan kegiatan
+      pemeliharaan yang bersifat melakukan pemantauan
+      fungsi pada setiap Alat Kesehatan yang akan digunakan
+      atau dioperasionalkan.
+(5)   Pemeliharaan preventif sebagaimana dimaksud pada
+      ayat (1) huruf d merupakan kegiatan pemeliharaan yang
+      bersifat pembersihan, pelumasan, penggantian suku
+      cadang dan aksesoris yang masa waktunya harus
+      diganti.
+(6)   Pemeliharaan       korektif/perbaikan      sebagaimana
+      dimaksud pada ayat (1) huruf e merupakan kegiatan
+      pemeliharaan yang bersifat perbaikan kerusakan ringan
+      sampai berat (overhaul).
+
+
+
+
+                                               jdih.kemkes.go.id
+=== Halaman 4 ===
+-4-
+
+
+                        Bagian Ketiga
+          Penyelenggara Pemeliharaan Alat Kesehatan
+
+                              Pasal 4
+(1)   Penyelenggara Pemeliharaan Alat Kesehatan di Fasilitas
+      Pelayanan Kesehatan terdiri atas:
+      a. unit Pemeliharaan Alat Kesehatan milik Rumah
+           Sakit;
+      b. unit Pemeliharaan Alat Kesehatan milik Pemerintah
+           Daerah; dan
+      c.   unit Pemeliharaan Alat Kesehatan milik masyarakat.
+(2)   Unit Pemeliharaan Alat Kesehatan milik rumah sakit
+      sebagaimana dimaksud pada ayat (1) huruf a dapat
+      berupa instalasi, unit, bagian, atau bidang yang memiliki
+      fungsi Pemeliharaan Alat Kesehatan.
+(3)   Unit Pemeliharaan Alat Kesehatan milik Pemerintah
+      Daerah sebagaimana dimaksud pada ayat (1) huruf b
+      merupakan unit pelaksana teknis daerah bidang
+      kesehatan atau unit fungsional pada satuan kerja
+      perangkat daerah dinas kesehatan.
+(4)   Unit Pemeliharaan Alat Kesehatan milik masyarakat
+      sebagaimana dimaksud pada ayat (1) huruf c merupakan
+      perusahaaan berbadan hukum yang bergerak di bidang
+      Pemeliharaan Alat Kesehatan.
+(5)   Unit Pemeliharaan Alat Kesehatan milik rumah sakit
+      sebagaimana dimaksud pada ayat (1) huruf a hanya
+      melakukan pemeliharaan terhadap Alat Kesehatan di
+      rumah sakit tersebut.
+(6)   Unit Pemeliharaan Alat Kesehatan milik Pemerintah
+      Daerah dan masyarakat sebagaimana dimaksud pada
+      ayat (1) huruf b dan huruf c dapat melakukan
+      pemeliharaan Alat Kesehatan pada setiap Fasilitas
+      Pelayanan Kesehatan.
+
+                              Pasal 5
+(1)   Unit Pemeliharaan Alat Kesehatan milik Pemerintah
+      Daerah dan masyarakat sebagaimana dimaksud dalam
+      Pasal 4 ayat (1) huruf b dan huruf c harus melakukan
+      registrasi melalui aplikasi terkait registasi penunjang
+      pelayanan kesehatan milik Kementerian Kesehatan.
+(2)   Registrasi Unit Pemeliharaan Alat Kesehatan milik
+      Pemerintah Daerah dan masyarakat sebagaimana
+      dimaksud pada ayat (1) dilakukan dengan melampirkan
+      dokumen yang paling sedikit terdiri atas:
+      a. nama Unit Pemeliharaan Alat Kesehatan;
+      b. alamat; dan
+      c. surat   keputusan     pembentukan      dari  pimpinan
+         instasi/institusi Pemeliharaan Alat Kesehatan.
+(3)   Ketentuan lebih lanjut mengenai registrasi sebagaimana
+      dimaksud pada ayat (1) diatur dalam petunjuk teknis
+      yang ditetapkan oleh Direktur Jenderal yang memiliki
+      tugas dan fungsi di bidang pelayanan kesehatan.
+
+
+
+
+                                                jdih.kemkes.go.id
+=== Halaman 5 ===
+-5-
+
+
+                             Pasal 6
+(1)   Penyelenggara       Pemeliharaan    Alat    Kesehatan
+      sebagaimana dimaksud dalam Pasal 4 harus memiliki
+      sumber daya manusia dengan kemampuan di bidang
+      Pemeliharaan Alat Kesehatan.
+(2)   Kemampuan di bidang Pemeliharaan Alat Kesehatan
+      sebagaimana dimaksud pada ayat (1) dibuktikan dengan
+      sertifikat pelatihan dari lembaga pelatihan yang telah
+      terakreditasi sesuai dengan ketentuan peraturan
+      perundang-undangan.
+
+                          Pasal 7
+Dalam     melakukan     Pemeliharaan  Alat   Kesehatan,
+penyelenggara Pemeliharaan Alat Kesehatan di Fasilitas
+Pelayanan     Kesehatan     mengacu   pada    Pedoman
+Penyelenggaraan Pemeliharaan Alat Kesehatan di Fasilitas
+Pelayanan Kesehatan      sebagaimana tercantum dalam
+Lampiran yang merupakan bagian tidak terpisahkan dari
+Peraturan Menteri ini.
+
+                       Bagian Keempat
+                         Pembiayaan
+
+                          Pasal 8
+Fasilitas Pelayanan Kesehatan harus menyediakan biaya
+pemeliharaan paling rendah 4% (empat persen) dari nilai aset
+Alat Kesehatan per tahun.
+
+                         BAB III
+                PENCATATAN DAN PELAPORAN
+
+                               Pasal 9
+(1)   Penyelenggara Pemeliharaan Alat Kesehatan wajib
+      melakukan pencatatan dan pelaporan pelaksanaan
+      kegiatan Pemeliharaan Alat Kesehatan di Fasilitas
+      Pelayanan Kesehatan.
+(2)   Pencatatan dan pelaporan sebagaimana dimaksud pada
+      ayat (1) paling sedikit memuat:
+      a. jenis Alat Kesehatan;
+      b. jumlah Alat Kesehatan; dan
+      c.   kondisi Alat Kesehatan;
+      yang telah dilakukan pemeliharaan.
+(3)   Pencatatan dan pelaporan sebagaimana dimaksud pada
+      ayat (2) dilakukan setiap 6 (enam) bulan sekali melalui
+      aplikasi sarana, prasarana, dan alat kesehatan yang
+      dikelola oleh Kementerian Kesehatan.
+
+                         BAB IV
+               PEMBINAAN DAN PENGAWASAN
+
+                           Pasal 10
+(1)   Menteri, Gubernur, dan Bupati/Wali kota melaksanakan
+      pembinaan dan pengawasan terhadap penyelenggaraan
+      Pemeliharaan Alat Kesehatan di Fasilitas Pelayanan
+      Kesehatan sesuai dengan tugas, fungsi, dan kewenangan
+      masing-masing.
+
+
+                                               jdih.kemkes.go.id
+=== Halaman 6 ===
+-6-
+
+
+(2)   Pembinaan dan pengawasan sebagaimana dimaksud
+      pada ayat (1) ditujukan untuk:
+      a. menjamin tersedianya Alat Kesehatan yang sesuai
+          standar pelayanan, persyaratan mutu, keamanan,
+          manfaat, keselamatan, dan laik pakai di Fasilitas
+          Pelayanan Kesehatan; dan
+      b. menjamin keselamatan pengguna, pasien, dan
+          lingkungan di Fasilitas Pelayanan Kesehatan.
+(3)   Pembinaan dan pengawasan sebagaimana dimaksud
+      pada ayat (1) dilakukan melalui:
+      a. sosialisasi dan advokasi;
+      b. bimbingan teknis;
+      c.  konsultasi;
+      d. pendidikan dan pelatihan;
+      e.  supervisi; dan/atau
+      f.  monitoring dan evaluasi.
+
+                         BAB V
+                   KETENTUAN PENUTUP
+
+                            Pasal 11
+Peraturan Menteri     ini    mulai berlaku   pada    tanggal
+diundangkan.
+
+
+
+
+                                             jdih.kemkes.go.id
+=== Halaman 7 ===
+-7-
+
+
+                 Agar   setiap    orang   mengetahuinya,   memerintahkan
+                 pengundangan Peraturan Menteri ini dengan penempatannya
+                 dalam Berita Negara Republik Indonesia.
+
+
+                                               Ditetapkan di Jakarta
+                                               pada tanggal 2 Maret 2023
+
+                                               MENTERI KESEHATAN
+                                               REPUBLIK INDONESIA,
+
+                                                        ttd.
+
+                                                 BUDI G. SADIKIN
+
+  Diundangkan di Jakarta
+  pada tanggal 2 Maret 2023
+
+  MENTERI HUKUM DAN HAK ASASI MANUSIA
+  REPUBLIK INDONESIA,
+
+          ttd.
+
+  YASONNA H. LAOLY
+
+
+  BERITA NEGARA REPUBLIK INDONESIA TAHUN 2023 NOMOR 204
+
+
+Kepala Biro Hukum        Direktur Jenderal           Sekretaris Jenderal
+                         Pelayanan Kesehatan
+tanggal                  tanggal                     tanggal
+Paraf                    Paraf                       Paraf
+
+
+
+
+                                                               jdih.kemkes.go.id
+=== Halaman 8 ===
+-8-
+
+
+                                    LAMPIRAN
+                                    PERATURAN MENTERI KESEHATAN
+                                    REPUBLIK INDONESIA
+                                    NOMOR 15 TAHUN 2023
+                                    TENTANG
+                                    PEMELIHARAAN ALAT KESEHATAN                DI
+                                    FASILITAS PELAYANAN KESEHATAN
+
+
+     PEDOMAN PENYELENGGARAAN PEMELIHARAAN ALAT KESEHATAN
+               DI FASILITAS PELAYANAN KESEHATAN
+
+                                   BAB I
+                               PENDAHULUAN
+
+A.   Latar Belakang
+           Alat Kesehatan merupakan salah satu faktor penting dalam
+     penyelenggaraan pelayanan kesehatan di Fasilitas Pelayanan Kesehatan.
+     Alat     kesehatan      digunakan      untuk     mencegah,    mendiagnosis,
+     menyembuhkan dan meringankan penyakit, merawat orang sakit,
+     memulihkan kesehatan pada manusia, dan/atau membentuk struktur
+     dan memperbaiki fungsi tubuh. Alat kesehatan yang tidak laik pakai dan
+     tidak berfungsi dengan baik dapat mengakibatkan kesalahan dalam
+     mendiagnosa pasien, yang secara tidak langsung dapat menghambat
+     pemberian pelayanan kesehatan bahkan menyebabkan kesalahan dalam
+     pemberian pelayanan kesehatan dan menimbulkan Kejadian yang Tidak
+     Diharapkan (KTD). Berdasarkan hal tersebut guna mencapai kondisi
+     maupun fungsi optimal alat kesehatan agar dapat mendukung pelayanan
+     kesehatan yang baik maka perlu adanya Pemeliharaan Alat Kesehatan
+     yang berkesinambungan untuk menjaga Alat Kesehatan dapat digunakan
+     dengan aman, bermutu, laik pakai, dan memperpanjang masa
+     penggunaan Alat Kesehatan.
+           Berdasarkan siklus pemanfaatan/penggunaan Alat Kesehatan, Alat
+     Kesehatan dibedakan sebelum masuk ke Fasilitas Pelayanan Kesehatan
+     (pre-market) dan setelah masuk ke Fasilitas Pelayanan Kesehatan (post-
+     market). Pengelolaan Alat Kesehatan di Fasilitas Pelayanan Kesehatan
+     (post-market), diawali sejak perencanaan (didahului dengan
+           penilaian teknologi dan evaluasi Alat Kesehatan yang ada,
+     pengadaan, penerimaan, pengoperasian, pemeliharaan, dan penghapusan,
+     termasuk di dalamnya proses inventarisasi, dekontaminasi, surveilens dan
+     vigilance serta recall. Hal ini dapat dilihat pada Gambar 1.1. Semua pihak
+     yang terkait dengan pengelolaan Alat Kesehatan diharapkan dapat
+     memahami siklus tersebut dan melaksanakannya sesuai dengan bidang
+     tugas masing-masing.
+
+
+
+
+                                                                 jdih.kemkes.go.id
+=== Halaman 9 ===
+-9-
+
+
+
+
+                         Gambar 1.1. Siklus Alat Kesehatan
+
+          Kementerian Kesehatan berperan baik pada tahap pre-market (antara
+     lain izin produksi, izin edar, izin distribusi alat kesehatan) maupun post-
+     market berupa pengelolaan Alat Kesehatan di Fasilitas Pelayanan
+     Kesehatan. Dalam pengelolaan Alat Kesehatan di Fasilitas Pelayanan
+     Kesehatan terdapat kegiatan Pemeliharaan Alat Kesehatan yang
+     merupakan salah satu indikator utama dalam menilai keberhasilan
+     pelaksanaan pengelolaan Alat Kesehatan di Fasilitas Pelayanan
+     Kesehatan.
+          Pemeliharaan Alat Kesehatan di Fasilitas Pelayanan Kesehatan dapat
+     dilakukan melalui unit Pemeliharaan Alat Kesehatan. Saat ini
+     Pemeliharaan Alat Kesehatan di rumah sakit telah berjalan cukup optimal
+     karena telah memiliki unit tersendiri yang didukung dengan sumber daya
+     yang dibutuhkan baik berbentuk instalasi, unit, bagian, atau bidang yang
+     memiliki fungsi pemeliharaan Alat Kesehatan sesuai dengan kebutuhan
+     dan beban kerja rumah sakit. Namun demikian Pemeliharaan Alat
+     Kesehatan di Pusat Kesehatan Masyarakat (Puskesmas) dan Fasilitas
+     Pelayanan Kesehatan lainnya belum berjalan secara optimal karena
+     keterbatasan unit atau tenaga Pemeliharaan Alat Kesehatan yang tidak
+     sebanding dengan Alat Kesehatan yang digunakan. Untuk itu diperlukan
+     peran Pemerintah Daerah untuk menyediakan unit yang bertanggung
+     jawab dalam Pemeliharaan Alat Kesehatan.
+          Unit Pemeliharaan Alat Kesehatan yang diselenggarakan oleh
+     Pemerintah Daerah dapat berbentuk unit pelaksana teknis daerah bidang
+     kesehatan atau unit fungsional pada satuan kerja perangkat daerah
+     dinas kesehatan yang melakukan Pemeliharaan Alat Kesehatan di
+     Puskesmas dan Fasilitas Pelayanan Kesehatan lainnya.
+          Untuk melaksanakan penyelenggaraan Pemeliharaan Alat Kesehatan
+     di Fasilitas Pelayanan Kesehatan secara optimal dan berkesinambungan
+     maka diperlukan pedoman sebagai acuan bagi Pemerintah Pusat,
+     Pemerintah Daerah, Fasilitas Pelayanan Kesehatan, dan penyelenggara
+     Pemeliharaan Alat Kesehatan, serta pemangku kepentingan terkait
+     lainnya, sehingga dapat mendukung pelaksanaan pelayanan kesehatan
+     secara efektif dan efisien yang sesuai dengan kebutuhan pelayanan
+     kesehatan kepada masyarakat.
+
+B.   Tujuan
+     1. memberikan acuan bagi Pemerintah Pusat, Pemerintah Daerah,
+         Fasilitas Pelayanan Kesehatan, dan masyarakat/swasta dalam
+         menyelenggarakan Pemeliharaan Alat Kesehatan.
+     2. menjamin tersedianya Alat Kesehatan yang sesuai standar
+
+
+
+                                                                 jdih.kemkes.go.id
+=== Halaman 10 ===
+-10-
+
+
+          pelayanan, persyaratan mutu, keamanan, manfaat, keselamatan,
+          dan laik pakai di Fasilitas Pelayanan Kesehatan.
+     3.   menjamin keselamatan pengguna, pasien, dan lingkungan di
+          Fasilitas Pelayanan Kesehatan.
+
+C.   Sasaran
+     1. Pemerintah Pusat
+     2. Pemerintah Daerah Provinsi dan Pemerintah Daerah Kabupaten/Kota
+     3. puskesmas, rumah sakit, dan Fasilitas Pelayanan Kesehatan lainnya
+     4. penyelenggara Pemeliharaan Alat Kesehatan
+
+
+
+
+                                                           jdih.kemkes.go.id
+=== Halaman 11 ===
+-11-
+
+
+                             BAB II
+          PENYELENGGARAAN PEMELIHARAAN ALAT KESEHATAN
+
+      Setiap Fasilitas Pelayanan Kesehatan bertanggung jawab terhadap
+Pemeliharaan Alat Kesehatan yang dimiliki. Alat Kesehatan merupakan
+investasi yang besar di Fasilitas Pelayanan Kesehatan sehingga diperlukan
+program pemeliharaan yang terencana dan berkesinambungan untuk menjaga
+Alat Kesehatan dapat digunakan dengan aman, bermutu, laik pakai, dan
+memiliki masa penggunaan sesuai dengan jangka waktu yang ditetapkan
+sesuai dengan standar masing-masing Alat Kesehatan. Program Pemeliharaan
+Alat Kesehatan yang efektif terdiri dari aspek perencanaan yang
+mempertimbangkan sumber daya manusia, sumber daya keuangan, dan
+fasilitas yang memadai, aspek manajemen, dan aspek pelaksanaan.
+A. Aspek Perencanaan
+      Hal yang harus diperhatikan dan dijadikan pertimbangan dalam
+      perencanaan pelaksanaan program Pemeliharaan Alat Kesehatan yang
+      efektif yaitu:
+      1. merencanakan dan mengidentifikasi jumlah dan sumber daya
+           manusia yang berkompeten untuk melakukan Pemeliharaan Alat
+           Kesehatan, misalnya jenis tenaga yang dibutuhkan yaitu lulusan
+           teknik elektromedik dan/atau tenaga lainnya yang terlatih di bidang
+           Pemeliharaan alat Kesehatan.
+      2. menghitung anggaran yang dibutuhkan untuk penyiapan suku
+           cadang, bahan pendukung, dan pemeliharaan sesuai kebutuhan alat
+           serta sumber daya keuangan yang dimiliki.
+      3. menyiapkan fasilitas kerja yang memadai yaitu ketersediaan
+           dokumen teknis, tempat, dan peralatan kerja yang dibutuhkan.
+
+B.   Aspek Manajemen
+     Aspek manajemen dalam Pemeliharaan Alat Kesehatan merupakan suatu
+     teknik dalam pengaturan pelaksanaan Pemeliharaan Alat Kesehatan yang
+     efektif dan efisien sehingga mampu menyelesaikan pekerjaan dengan
+     tepat waktu dan sesuai standar. Aspek manajemen meliputi:
+     1. Standar prosedur operasional;
+     2. Pendidikan dan pelatihan kemampuan teknis sumber daya manusia;
+          dan
+     3. Analisis kebutuhan sumber daya manusia berdasarkan beban kerja.
+
+C.   Aspek Pelaksanaan
+     Dalam      pelaksanaan     Pemeliharaan     Alat    Kesehatan      harus
+     mempertimbangkan volume pekerjaan, kemampuan teknisi, tingkat
+     teknologi Alat Kesehatan, fasilitas kerja, anggaran dan prosedur
+     pembiayaan. Berdasarkan pertimbangan tersebut maka pelaksanaan
+     Pemeliharaan Alat Kesehatan di Fasilitas Pelayanan Kesehatan dapat
+     dilakukan oleh teknisi Fasilitas Pelayanan Kesehatan tersebut. Jika
+     Fasilitas Pelayanan Kesehatan tersebut tidak memiliki teknisi
+     Pemeliharaan Alat Kesehatan dan/atau suatu alat tertentu memerlukan
+     suku cadang dan/atau keahlian khusus, maka pemeliharaan dapat
+     dilakukan oleh unit Pemeliharaan Alat Kesehatan milik Pemerintah
+     Daerah atau unit Pemeliharaan Alat Kesehatan milik masyarakat/swasta.
+     Pelaksanaan Pemeliharaan Alat Kesehatan dilakukan melalui kegiatan
+     berikut:
+     a. Inventarisasi Alat Kesehatan
+          Inventarisasi merupakan kegiatan untuk melakukan pendataan,
+          pencatatan, dan pelaporan hasil pendataan Alat Kesehatan
+          berdasarkan nilai investasi alat kesehatan, usia teknis, risiko atau
+
+
+                                                               jdih.kemkes.go.id
+=== Halaman 12 ===
+-12-
+
+
+     kombinasi dari kriteria tersebut. Inventarisasi Alat Kesehatan
+     dilakukan terhadap Alat Kesehatan yang digunakan dalam jangka
+     waktu yang lama, sehingga peralatan dengan usia teknis sangat
+     singkat (kurang dari satu tahun) sebaiknya tidak perlu dilakukan
+     inventarisasi, hal ini dilakukan dengan mempertimbangkan efisiensi
+     dan efektifitas Pemeliharaan Alat Kesehatan.
+b.   Pemeliharaan Promotif
+     Pemeliharaan Promotif adalah kegiatan pemeliharaan yang bersifat
+     memberikan petunjuk penggunaan atau pengoperasian alat
+     kesehatan.
+c.   Pemeliharaan Pemantauan Fungsi/Inspeksi
+     Pemeliharaan      Pemantauan    Fungsi/Inspeksi  adalah    kegiatan
+     pemeliharaan yang bersifat melakukan pemantauan fungsi pada
+     setiap alat kesehatan yang akan digunakan atau dioperasionalkan.
+d.   Pemeliharaan Preventif
+     Pemeliharaan Preventif adalah kegiatan pemeliharaan yang
+     dilakukan secara terjadwal, untuk memperpanjang umur peralatan
+     dan mencegah kegagalan (yaitu dengan kalibrasi, penggantian
+     bagian, pelumasan, pembersihan, dan lainnya).
+e.   Pemeliharaan Korektif/Perbaikan
+     Pemeliharaan Korektif merupakan kegiatan perbaikan terhadap
+     peralatan dengan tujuan mengembalikan fungsi peralatan sesuai
+     dengan kondisi awalnya. Ciri dari kegiatan pemeliharaan korektif
+     biasanya tidak terjadwal, berdasarkan permintaan dari pengguna
+     peralatan atau dari personel yang melakukan kegiatan performing
+     maintenance.
+
+
+
+
+                                                         jdih.kemkes.go.id
+=== Halaman 13 ===
+-13-
+
+
+                             BAB III
+            PENYELENGGARA PEMELIHARAAN ALAT KESEHATAN
+
+     Pemeliharaan Alat Kesehatan di Fasilitas Pelayanan Kesehatan dapat
+diselenggarakan oleh unit Pemeliharaan Alat Kesehatan milik rumah sakit,
+unit Pemeliharaan Alat Kesehatan milik Pemerintah Daerah, atau unit
+Pemeliharaan Alat Kesehatan milik masyarakat/swasta.
+A. Unit Pemeliharaan Alat Kesehatan Milik Rumah Sakit
+          Dalam era manajemen modern dewasa ini, rumah sakit dituntut
+     untuk melakukan pengelolaan yang tidak hanya optimal bagi pelayanan
+     yang bersifat sosial namun juga harus dapat memberikan keuntungan
+     bagi rumah sakit itu sendiri. Untuk dapat mencapai hal tersebut, para
+     profesional perumahsakitan menganggap bahwa sudah saatnya
+     manajemen rumah sakit hanya mengurusi masalah yang berhubungan
+     dengan bisnis intinya (core business), yaitu pelayanan kesehatan.
+     Pentingnya Pemeliharaan Alat Kesehatan di rumah sakit tidak dapat
+     dipungkiri, akan tetapi pada praktiknya kegiatan pemeliharaan jarang
+     mendapat perhatian yang memadai dari manajemen rumah sakit.
+     Padahal kita menyadari bahwa jika pemeliharaan tersebut tidak dilakukan
+     dengan semestinya dapat mengakibatkan pelayanan kesehatan yang tidak
+     optimal di rumah sakit, dengan kata lain pemeliharaan alat kesehatan
+     rumah sakit merupakan hal yang vital dalam penyelenggaraan rumah
+     sakit.
+          Untuk melakukan Pemeliharaan Alat Kesehatan maka diperlukan
+     organisasi yang efektif, efisien, dan akuntabel berbentuk unit, bagian,
+     instalasi, atau bidang yang memiliki fungsi Pemeliharaan Alat Kesehatan.
+     Unit, bagian, instalasi atau bidang yang memiliki fungsi Pemeliharaan Alat
+     Kesehatan dapat dilakukan secara terintegrasi dengan pengelolaan sarana
+     dan prasarana lainnya di rumah sakit atau dapat berdiri sendiri.
+          Unit, bagian, instalasi atau bidang yang memiliki fungsi
+     Pemeliharaan Alat Kesehatan adalah suatu unit fungsional untuk
+     melaksanakan kegiatan atau usaha yang menjamin agar fasilitas yang
+     menunjang pelayanan kesehatan di rumah sakit yaitu sarana, prasarana
+     dan peralatan khususnya Alat Kesehatan selalu berada dalam keadaan
+     laik pakai. Unit, bagian, instalasi atau bidang yang memiliki fungsi
+     Pemeliharaan Alat Kesehatan berada langsung di bawah serta
+     bertanggung jawab kepada Direktur Rumah Sakit.
+          Tugas pokok unit, bagian, instalasi atau bidang tersebut adalah
+     melaksanakan pengelolaan teknik dalam menunjang pelayanan
+     kesehatan di rumah sakit sedangkan fungsinya adalah menyiapkan
+     sarana, prasarana dan alat kesehatan yang diperlukan di rumah sakit
+     untuk menyelenggarakan pelayanan yang efektif dan efisien.
+          Struktur organisasi dan tata kerja unit, bagian, instalasi atau bidang
+     yang memiliki fungsi Pemeliharaan Alat Kesehatan diuraikan lebih rinci
+     dalam rangka pembagian habis tugas dan tanggung jawab, sebagai
+     berikut:
+     1. Unit, Bagian, Instalasi atau Bidang yang Memiliki Fungsi
+          Pemeliharaan Alat Kesehatan yang Terintegrasi dengan Pemeliharaan
+          Sarana Dan Prasarana.
+          a. Kepala/Pimpinan
+                Adalah kepala/pimpinan yang mengoordinir seluruh kegiatan
+                pemeliharaan sarana, prasarana, dan Alat Kesehatan.
+          b. Penanggung Jawab Administrasi
+                Adalah penanggung jawab yang mengoordinir kegiatan
+                administrasi teknik dan umum, urusan logistik dan
+                perlengkapan.
+
+
+                                                                 jdih.kemkes.go.id
+=== Halaman 14 ===
+-14-
+
+
+          c.   Penanggung Jawab Sarana
+               Adalah penanggung jawab yang mengoordinir kegiatan sarana
+               antara lain urusan gedung dan sarana penunjang gedung di
+               rumah sakit.
+          d. Penanggung Jawab Prasarana
+               Adalah penanggung jawab yang mengoordinir kegiatan
+               prasarana yaitu urusan listrik, air bersih dan limbah, gas, uap,
+               penyejuk udara, komunikasi dan prasarana lainnya di rumah
+               sakit.
+          e.   Penanggung Jawab Peralatan Medik dan Non Medik
+               Adalah Penanggung Jawab yang mengoordinir kegiatan
+               peralatan medik dan non medik di rumah sakit.
+          f.   Teknisi
+               Adalah petugas dengan kemampuan di bidang Pemeliharaan Alat
+               Kesehatan yang berada pada unit, bagian, instalasi atau bidang
+               yang memiliki fungsi pemeliharaan sarana, prasarana, dan Alat
+               Kesehatan rumah sakit yang melaksanakan kegiatan teknis
+               sarana, prasarana, peralatan di rumah sakit.
+     2.   Unit, Bagian, Instalasi atau Bidang yang Memiliki Fungsi
+          Pemeliharaan Alat Kesehatan
+          a. Kepala/Pimpinan:
+               Adalah Kepala/Pimpinan yang mengoordinir seluruh kegiatan
+               pemeliharaan Alat Kesehatan.
+          b. Penanggung Jawab Administrasi:
+               Adalah penanggung jawab yang mengoordinir kegiatan
+               administrasi teknik dan umum, urusan logistik dan
+               perlengkapan.
+          c.   Penanggung Jawab Peralatan medik dan non medik:
+               Adalah penanggung jawab yang mengoordinir kegiatan peralatan
+               medik dan non medik di rumah sakit.
+          d. Teknisi:
+               Adalah petugas dengan kemampuan di bidang Pemeliharaan Alat
+               Kesehatan yang berada pada unit, bagian, instalasi atau bidang
+               yang memiliki fungsi Pemeliharaan Alat Kesehatan di rumah
+               sakit yang melaksanakan kegiatan teknis sarana, prasarana,
+               peralatan di rumah sakit.
+
+          Ketentuan teknis mengenai penyelenggaraan Pemeliharaan Alat
+     Kesehatan di unit Pemeliharaan Alat Kesehatan milik rumah sakit diatur
+     lebih lanjut dalam pedoman yang ditetapkan oleh Direktur Jenderal yang
+     memiliki tugas dan fungsi di bidang pelayanan kesehatan.
+
+B.   Unit Pemeliharaan Alat Kesehatan Milik Pemerintah Daerah
+          Fasilitas Pelayanan Kesehatan khususnya Fasilitas Pelayanan
+     Kesehatan tingkat pertama seperti puskesmas dan klinik belum memiliki
+     perhatian yang cukup besar dalam Pemeliharaan Alat Kesehatan, hal ini
+     antara lain diakibatkan karena jumlah Alat Kesehatan yang digunakan
+     tidak dalam jumlah yang besar/terbatas sehingga timbul anggapan lebih
+     mudah melakukan penggantian jika terjadi kerusakan ataupun
+     ketidakberfungsian suatu Alat Kesehatan dibandingkan dengan
+     melakukan Pemeliharaan Alat Kesehatan yang telah dimiliki. Selain itu
+     juga terdapat keterbatasan unit dan tenaga yang menyelenggarakan
+     Pemeliharaan Alat Kesehatan.
+          Kurangnya perhatian terhadap Pemeliharaan Alat Kesehatan dapat
+     menimbulkan terganggunya kualitas pelayanan kesehatan, bahkan dapat
+     menimbulkan risiko Kejadian yang Tidak Diharapkan (KTD) di Fasilitas
+
+
+                                                                jdih.kemkes.go.id
+=== Halaman 15 ===
+-15-
+
+
+     Pelayanan Kesehatan yang dapat menimbulkan cedera bagi pasien,
+     sumber daya manusia di Fasilitas Pelayanan Kesehatan, pengunjung,
+     maupun lingkungan Fasilitas Pelayanan Kesehatan.
+          Untuk mencegah terjadinya risiko tersebut maka diperlukan
+     optimalisasi Pemeliharaan Alat Kesehatan melalui pembentukan unit
+     Pemeliharaan Alat Kesehatan milik Pemerintah Daerah. Unit Pemeliharaan
+     Alat Kesehatan juga dapat meningkatkan efisiensi penggunaan Alat
+     Kesehatan di Fasilitas Pelayanan Kesehatan karena Alat Kesehatan
+     dilakukan perawatan dan perbaikan sesuai dengan kebutuhan dan
+     analisis yang mengategorikan bahwa Alat Kesehatan tersebut rusak berat,
+     rusak sedang, dan/atau rusak ringan. Apabila Alat Kesehatan tersebut
+     tergolong rusak sedang ataupun rusak ringan maka dapat dilakukan
+     perbaikan, sehingga tidak perlu membeli yang baru.
+          Unit Pemeliharaan Alat Kesehatan milik Pemerintah Daerah
+     merupakan suatu unit pelaksana teknis daerah bidang kesehatan atau
+     unit fungsional pada satuan kerja perangkat daerah dinas kesehatan yang
+     melakukan Pemeliharaan Alat Kesehatan di Puskesmas dan Fasilitas
+     Pelayanan Kesehatan lainnya. Alat Kesehatan yang dilakukan
+     pemeliharaan pada unit tersebut dapat berupa Alat Kesehatan di
+     Puskesmas, klinik, rumah sakit, dan Fasilitas Pelayanan Kesehatan
+     lainnya.
+          Unit Pemeliharaan Alat Kesehatan milik Pemerintah Daerah atau
+     yang disebut dengan Unit Regional Alat Kesehatan (Regional Maintenance
+     Center) dapat difungsikan secara optimal untuk melaksanakan
+     pengelolaan Alat Kesehatan antara lain fungsi pemeliharaan, pengujian
+     dan/atau kalibrasi internal Alat Kesehatan. Lingkup kegiatan yang
+     dilaksanakan oleh Unit Regional Alat Kesehatan (Regional Maintenance
+     Center) meliputi:
+     1. Perencanaan.
+     2. Melakukan pendampingan uji fungsi dan uji coba Alat Kesehatan
+          baik yang baru maupun yang selesai diperbaiki.
+     3. Melakukan Pemeliharaan Alat Kesehatan.
+     4. Memberikan penilaian teknis terhadap Alat Kesehatan.
+     5. Pengawasan dalam kegiatan instalasi/pemasangan, pemeliharaan
+          dan pengujian dan/atau kalibrasi Alat Kesehatan yang dilaksanakan
+          oleh pihak lain.
+     6. Pelatihan untuk pengguna Alat Kesehatan.
+          Ketentuan teknis mengenai penyelenggaraan Pemeliharaan Alat
+     Kesehatan di Unit Pemeliharaan Alat Kesehatan milik Pemerintah Daerah
+     atau Unit Regional Alat Kesehatan (Regional Maintenance Center) diatur
+     lebih lanjut dalam pedoman yang ditetapkan oleh Direktur Jenderal yang
+     memiliki tugas dan fungsi di bidang pelayanan kesehatan.
+
+C.   Unit Pemeliharaan Alat Kesehatan Milik Swasta/Masyarakat
+          Dalam pelaksanaan Pemeliharaan Alat Kesehatan khususnya
+     pemeliharaan tingkat lanjut, tidak semua Fasilitas Pelayanan Kesehatan
+     atau dinas kesehatan daerah provinsi/dinas kesehatan daerah
+     kabupaten/kota memiliki sumber daya sendiri dalam pelaksanaan
+     Pemeliharaan Alat Kesehatan. Untuk itu diperlukan unit pemelihara yang
+     dilakukan oleh pihak lain dalam hal ini milik swasta/masyarakat.
+          Unit Pemeliharaan Alat Kesehatan milik swasta/masyarakat dapat
+     dibentuk oleh badan hukum yang beroperasional dalam bidang
+     Pemeliharaan Alat Kesehatan. Dalam pelaksanaan Pemeliharaan Alat
+     Kesehatan, unit Pemeliharaan Alat Kesehatan milik swasta/masyarakat
+     berada dibawah pengawasan Pemerintah Pusat dan Pemerintah Daerah.
+
+
+
+
+                                                             jdih.kemkes.go.id
+=== Halaman 16 ===
+-16-
+
+
+                                BAB IV
+                               PENUTUP
+
+     Pedoman penyelenggaraan Pemeliharaan Alat Kesehatan di Fasilitas
+Pelayanan Kesehatan menjadi acuan bagi Pemerintah Pusat, Pemerintah
+Daerah, Fasilitas Pelayanan Kesehatan, dan unit pemeliharaan pelayanan
+kesehatan, sehingga diharapkan Pemeliharaan Alat Kesehatan di Fasilitas
+Pelayanan Kesehatan dapat berjalan dengan baik dan optimal.
+     Pemeliharaan Alat Kesehatan sesuai dengan standar pelayanan,
+persyaratan mutu, keamanan, manfaat, keselamatan, dan laik pakai
+merupakan hal yang penting untuk mendukung pemberian pelayanan
+kesehatan yang optimal dan memperhatikan keselamatan pasien, serta sumber
+daya manusia, pengunjung dan lingkungan Fasilitas Pelayanan Kesehatan.
+Selain itu dengan diselenggarakannya Pemeliharaan Alat Kesehatan akan
+meningkatkan efisiensi penggunaan Alat Kesehatan sehingga dapat menekan
+biaya pembelian Alat Kesehatan yang baru.
+
+
+                                            MENTERI KESEHATAN
+                                            REPUBLIK INDONESIA,
+
+                                                     ttd.
+
+                                               BUDI G. SADIKIN
+
+
+
+
+                                                            jdih.kemkes.go.id
