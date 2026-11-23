@@ -8,7 +8,7 @@ import { QrScan } from "./qr-scan";
 import { MenuBawah } from "./menu-bawah";
 import { FaviconAnimasi } from "./favicon-animasi";
 import { BahasaProvider, useBahasa } from "@/lib/bahasa";
-import { BilahAtas, EtalaseSitus, KembaliKeAtas, KontakSitus, PopupPengumuman } from "./bilah-situs";
+import { BilahAtas, EtalaseSitus, KembaliKeAtas, KontakSitus, PopupPengumuman, TombolBantuan } from "./bilah-situs";
 import { Aksesibilitas } from "./aksesibilitas";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -38,6 +38,7 @@ function Shell({ children }: { children: React.ReactNode }) {
       <div className="contents print:hidden"><MenuBawah /></div>
       <QrScan />
       <FaviconAnimasi />
+      <TombolBantuan />
       <KembaliKeAtas />
       <Aksesibilitas />
       <PopupPengumuman />

@@ -37,8 +37,6 @@ export function Aksesibilitas() {
     };
     document.addEventListener("click", baca, true); return () => { document.removeEventListener("click", baca, true); speechSynthesis.cancel(); };
   }, [o.suara]);
-  useEffect(() => { const f = () => setBuka((b) => !b); window.addEventListener("stars:a11y-buka", f); return () => window.removeEventListener("stars:a11y-buka", f); }, []);
-  useEffect(() => { window.dispatchEvent(new CustomEvent("stars:a11y-status", { detail: buka })); }, [buka]);
   useEffect(() => { const k = (e: KeyboardEvent) => { if (e.altKey && e.key.toLowerCase() === "a") setBuka((b) => !b); if (e.key === "Escape") setBuka(false); }; window.addEventListener("keydown", k); return () => window.removeEventListener("keydown", k); }, []);
 
   const ubah = <K extends keyof Opsi>(k: K, v: Opsi[K]) => setO((x) => ({ ...x, [k]: v }));
@@ -54,6 +52,10 @@ export function Aksesibilitas() {
 
   return (
     <>
+      <button type="button" onClick={() => setBuka(true)} aria-label={t("Menu aksesibilitas (Alt+A)", "Accessibility menu (Alt+A)")} aria-expanded={buka}
+        className="fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-3 z-40 grid size-14 place-items-center rounded-full bg-blue-600 p-[3px] text-white shadow-lg shadow-blue-900/40 transition hover:scale-105 hover:bg-blue-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-400 print:hidden md:bottom-5">
+        <span className="grid size-full place-items-center rounded-full border-[3px] border-white bg-[#1e3a8a]"><PersonStanding className="size-7" strokeWidth={2.5} aria-hidden /></span>
+      </button>
       {o.pemandu && <div aria-hidden className="pointer-events-none fixed inset-x-0 z-[80] h-10 border-y-4 border-amber-400 bg-amber-200/20" style={{ top: y - 20 }} />}
       {buka && (
         <div data-a11y-panel role="dialog" aria-modal="false" aria-label={t("Aksesibilitas", "Accessibility")} className="a11y-panel fixed bottom-0 left-0 z-[75] flex max-h-[90vh] w-full flex-col overflow-hidden rounded-t-2xl bg-white text-navy-900 shadow-2xl sm:bottom-4 sm:left-4 sm:w-[23rem] sm:rounded-2xl print:hidden">

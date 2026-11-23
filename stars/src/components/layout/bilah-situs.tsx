@@ -140,6 +140,21 @@ export function KembaliKeAtas() {
   );
 }
 
+/** Tombol Bantuan WhatsApp di kiri bawah, tepat di atas tombol Aksesibilitas. */
+export function TombolBantuan() {
+  const { info } = useSitus();
+  const { t } = useBahasa();
+  if (!info.whatsapp) return null;
+  const teks = info.bantuanTeks === "Bantuan?" ? t("Bantuan?", "Need help?") : info.bantuanTeks;
+  return (
+    <a href={`https://wa.me/${info.whatsapp}?text=${encodeURIComponent(t("Halo, saya butuh bantuan terkait STARS.", "Hello, I need help with STARS."))}`} target="_blank" rel="noopener noreferrer" aria-label={`${teks} WhatsApp`}
+      className="fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] left-3.5 z-40 flex items-center gap-2 print:hidden md:bottom-[5.5rem]">
+      <span className="grid size-12 place-items-center rounded-full bg-teal-600 text-white shadow-lg transition hover:scale-105 hover:bg-teal-700"><MessageCircle className="size-6" aria-hidden /></span>
+      <span className="hidden rounded-full bg-teal-50 px-3 py-1.5 text-sm font-semibold text-teal-800 shadow md:inline">{teks}</span>
+    </a>
+  );
+}
+
 /** Iklan/pengumuman pop-up di beranda — sekali per sesi; Esc/klik latar/Tutup untuk menutup. */
 export function PopupPengumuman() {
   const pathname = usePathname();
