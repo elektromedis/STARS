@@ -3,7 +3,8 @@ import { ChevronRight, Glasses } from "lucide-react";
 import { LogoTegak } from "@/components/layout/logo-animasi";
 import { StatusSinkron } from "@/components/layout/status-sinkron";
 import { GulirHalus } from "@/components/beranda/gulir-halus";
-import { KaryawanPublik } from "@/components/beranda/karyawan-publik";
+import { Dashboard3D } from "@/components/dashboard/dashboard-3d";
+import type { DivisiKantor } from "@/lib/allies-kantor";
 import { RobotAllies } from "@/components/beranda/robot-allies";
 import { SlideshowHero } from "@/components/beranda/slideshow-hero";
 import type { IdTahap } from "@/lib/allies-siklus";
@@ -75,7 +76,7 @@ const TEMA = [
 const persen = (x: number) => `${x.toFixed(1).replace(".", ",")}%`;
 const miliar = (x: number) => (x >= 1e9 ? `Rp ${(x / 1e9).toFixed(1).replace(".", ",")} M` : `Rp ${Math.round(x / 1e6).toLocaleString("id-ID")} jt`);
 
-export function Panggung({ d }: { d: DataPanggung }) {
+export function Panggung({ d, divisi }: { d: DataPanggung; divisi: DivisiKantor[] }) {
   return (
     <div className="panggung mb-10 grid gap-3">
       {/* 1. Slideshow pembuka: logo, STARS + 4 panel, ALLIES */}
@@ -120,9 +121,9 @@ export function Panggung({ d }: { d: DataPanggung }) {
           <div className="flex h-full flex-col gap-3 bg-white/90 px-4 pb-14 pt-4 md:px-16 lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-6 lg:pt-6">
             <JudulHero judul="Karyawan AI" sub={<>Lima petugas virtual untuk pengelolaan alat kesehatan.<span className="mt-1 block text-xs opacity-75 md:text-sm">Hanya membaca data dan memberi saran.</span></>}>
               <Pil href="/login?callbackUrl=/allies/kantor">Masuk ke Kantor AI</Pil>
-              <Pil href="/login?callbackUrl=/dashboard-3d" varian="garis">Dashboard 3D</Pil>
+              <Pil href="/dashboard-3d" varian="garis">Dashboard 3D</Pil>
             </JudulHero>
-            <KaryawanPublik />
+            <Dashboard3D divisi={divisi} publik mini />
           </div>
         ) },
       ]} />

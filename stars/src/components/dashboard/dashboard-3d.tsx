@@ -17,7 +17,7 @@ const GAYA = [
 ] as const;
 
 /** Dashboard alternatif: kantor 3D Karyawan AI dengan jumlah tugas nyata dari STARS. */
-export function Dashboard3D({ divisi }: { divisi: DivisiKantor[] }) {
+export function Dashboard3D({ divisi, publik = false, mini = false }: { divisi: DivisiKantor[]; publik?: boolean; mini?: boolean }) {
   const wadah = useRef<HTMLDivElement>(null);
   const label = useRef<(HTMLButtonElement | null)[]>([]);
   const pilihan = useRef(0);
@@ -35,7 +35,8 @@ export function Dashboard3D({ divisi }: { divisi: DivisiKantor[] }) {
     if (!el) return;
     let batal = false;
     let bersih: (() => void) | undefined;
-    import("three").then((T) => {
+    let terlihat = true;
+    const mulai = () => import("three").then((T) => {
       if (batal) return;
       let renderer: THREE.WebGLRenderer;
       try { renderer = new T.WebGLRenderer({ antialias: true, powerPreference: "low-power" }); } catch { setTiga("gagal"); return; }
@@ -164,7 +165,7 @@ export function Dashboard3D({ divisi }: { divisi: DivisiKantor[] }) {
       let raf = 0, lalu = 0;
       const putar = (w: number) => {
         raf = requestAnimationFrame(putar);
-        if (w - lalu < 33 || document.hidden || diam()) return;
+        if (w - lalu < 33 || document.hidden || !terlihat || diam()) return;
         lalu = w;
         const s = w / 1000;
         kini.x += (arah.x - kini.x) * 0.05; kini.y += (arah.y - kini.y) * 0.05;
@@ -175,19 +176,42 @@ export function Dashboard3D({ divisi }: { divisi: DivisiKantor[] }) {
         });
         gambar();
       };
+      const io = new IntersectionObserver(([x]) => { terlihat = x.isIntersecting; }); io.observe(el);
       raf = requestAnimationFrame(putar);
       setTiga("siap");
 
       bersih = () => {
-        cancelAnimationFrame(raf); ro.disconnect();
+        cancelAnimationFrame(raf); ro.disconnect(); io.disconnect();
         el.removeEventListener("pointermove", gerak); renderer.domElement.removeEventListener("click", klik);
         adegan.traverse((x) => { if (x instanceof T.Mesh) x.geometry.dispose(); });
         bahan.forEach((m) => m.dispose()); bahanPapan.dispose(); teksturPapan.dispose();
         renderer.dispose(); renderer.domElement.remove(); gambarUlang.current = () => undefined;
       };
     }).catch(() => setTiga("gagal"));
-    return () => { batal = true; bersih?.(); };
+    const pemicu = new IntersectionObserver(([x]) => { if (x.isIntersecting) { pemicu.disconnect(); mulai(); } });
+    pemicu.observe(el);
+    return () => { batal = true; pemicu.disconnect(); bersih?.(); };
   }, [divisi]);
+
+  const panggung = (
+        <div ref={wadah} className={cn("relative overflow-hidden rounded-2xl border bg-slate-100", mini ? "size-full min-h-0" : "h-[52svh] min-h-[20rem] lg:h-[min(72svh,44rem)]")}>
+          {tiga === "muat" && <p className="absolute inset-0 grid place-items-center text-sm text-slate-600">Memuat kantor 3D...</p>}
+          {tiga === "gagal" && <p className="absolute inset-0 grid place-items-center px-6 text-center text-sm text-slate-600">Perangkat ini belum mendukung tampilan 3D.</p>}
+          {divisi.map((x, i) => (
+            <button key={x.id} ref={(e) => { label.current[i] = e; }} type="button" onClick={() => pilihOrang(i)} aria-pressed={pilih === i}
+              className={cn("absolute left-0 top-0 z-10 whitespace-nowrap rounded-full px-2 py-1 text-[10px] font-semibold shadow-md transition-colors md:px-2.5 md:text-xs", tiga !== "siap" && "invisible", pilih === i ? "bg-sky-600 text-white" : "tetap-putih bg-white text-slate-900")}>
+              {x.nama.split(" ").slice(-1)[0]} · {formatNumber(x.total)}
+            </button>
+          ))}
+          {tiga === "siap" && !mini && (
+            <div className="absolute bottom-3 right-3 z-10 grid overflow-hidden rounded-lg bg-white text-slate-800 shadow-md">
+              <button type="button" onClick={() => ubahZoom(-0.1)} aria-label="Perbesar kantor" className="grid size-8 place-items-center hover:bg-slate-100"><Plus className="size-4" /></button>
+              <button type="button" onClick={() => ubahZoom(0.1)} aria-label="Perkecil kantor" className="grid size-8 place-items-center border-t hover:bg-slate-100"><Minus className="size-4" /></button>
+            </div>
+          )}
+        </div>
+  );
+  if (mini) return <div id="dashboard-3d-mini" className="min-h-0 w-full flex-1 lg:h-[26rem] lg:flex-none">{panggung}</div>;
 
   return (
     <div id="dashboard-3d" className="grid gap-3">
@@ -198,27 +222,12 @@ export function Dashboard3D({ divisi }: { divisi: DivisiKantor[] }) {
         </div>
         <div className="flex gap-2">
           <Link href="/" className="inline-flex h-9 items-center gap-1.5 rounded-full border bg-card px-3 text-sm font-medium"><LayoutDashboard className="size-4" aria-hidden /> Dashboard biasa</Link>
-          <Link href="/allies/kantor" className="inline-flex h-9 items-center gap-1.5 rounded-full bg-teal-600 px-3 text-sm font-medium text-white hover:bg-teal-700"><Bot className="size-4" aria-hidden /> Tanya ALLIES</Link>
+          <Link href={publik ? "/login?callbackUrl=/allies/kantor" : "/allies/kantor"} className="inline-flex h-9 items-center gap-1.5 rounded-full bg-teal-600 px-3 text-sm font-medium text-white hover:bg-teal-700"><Bot className="size-4" aria-hidden /> Tanya ALLIES</Link>
         </div>
       </div>
 
       <div className="grid gap-3 lg:block lg:relative">
-        <div ref={wadah} className="relative h-[52svh] min-h-[20rem] overflow-hidden rounded-2xl border bg-slate-100 lg:h-[min(72svh,44rem)]">
-          {tiga === "muat" && <p className="absolute inset-0 grid place-items-center text-sm text-slate-600">Memuat kantor 3D...</p>}
-          {tiga === "gagal" && <p className="absolute inset-0 grid place-items-center px-6 text-center text-sm text-slate-600">Perangkat ini belum mendukung tampilan 3D. Data petugas tetap tersedia di bawah.</p>}
-          {divisi.map((x, i) => (
-            <button key={x.id} ref={(e) => { label.current[i] = e; }} type="button" onClick={() => pilihOrang(i)} aria-pressed={pilih === i}
-              className={cn("absolute left-0 top-0 z-10 whitespace-nowrap rounded-full px-2 py-1 text-[10px] font-semibold shadow-md transition-colors md:px-2.5 md:text-xs", tiga !== "siap" && "invisible", pilih === i ? "bg-sky-600 text-white" : "tetap-putih bg-white text-slate-900")}>
-              {x.nama.split(" ").slice(-1)[0]} · {formatNumber(x.total)}
-            </button>
-          ))}
-          {tiga === "siap" && (
-            <div className="absolute bottom-3 right-3 z-10 grid overflow-hidden rounded-lg bg-white text-slate-800 shadow-md">
-              <button type="button" onClick={() => ubahZoom(-0.1)} aria-label="Perbesar kantor" className="grid size-8 place-items-center hover:bg-slate-100"><Plus className="size-4" /></button>
-              <button type="button" onClick={() => ubahZoom(0.1)} aria-label="Perkecil kantor" className="grid size-8 place-items-center border-t hover:bg-slate-100"><Minus className="size-4" /></button>
-            </div>
-          )}
-        </div>
+        {panggung}
 
         <aside aria-live="polite" className="rounded-2xl border bg-card p-4 shadow-sm lg:absolute lg:left-3 lg:top-3 lg:z-20 lg:max-h-[calc(100%-1.5rem)] lg:w-80 lg:overflow-y-auto">
           <p className="text-base font-bold text-navy-900">{d.nama}</p>
@@ -237,7 +246,7 @@ export function Dashboard3D({ divisi }: { divisi: DivisiKantor[] }) {
               ))}
             </ul>
           )}
-          <Link href={`/allies/kantor?petugas=${d.id}`} className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 hover:underline">Buka di Kantor AI <ArrowRight className="size-4" aria-hidden /></Link>
+          <Link href={publik ? "/login?callbackUrl=/dashboard-3d" : `/allies/kantor?petugas=${d.id}`} className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 hover:underline">{publik ? "Masuk untuk melihat rincian" : "Buka di Kantor AI"} <ArrowRight className="size-4" aria-hidden /></Link>
         </aside>
       </div>
     </div>

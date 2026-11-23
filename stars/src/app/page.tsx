@@ -22,6 +22,7 @@ import { getRingkasanPemeliharaan } from "@/lib/pemeliharaan-ringkasan";
 import { ringkasanMonitoring } from "@/lib/monitoring-data";
 import { ringkasanLintasMenu } from "@/lib/dashboard-data";
 import { ringkasanAllies } from "@/lib/allies";
+import { dataKantor, divisiPublik } from "@/lib/allies-kantor";
 import { keputusan } from "@/lib/allies-siklus";
 import { badgeStatusPermintaan } from "@/lib/pemeliharaan";
 import { unitTerkunci } from "@/lib/akses";
@@ -100,7 +101,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
   return (
     <>
-      <Panggung d={{
+      <Panggung divisi={divisiPublik(await dataKantor((await unitTerkunci())?.id ?? null))} d={{
         pagu: ringkasan.totalNilai, serapanPersen: ringkasan.realisasiPersen, paket: ringkasan.jumlahPaket,
         alat: pml.alatMedik + pml.alatNon, laporanTerbuka: pml.laporanTerbuka, woAktif: pml.woAktif, cakupanKal: lintas.kalibrasi.cakupan,
         titikPantau: mon.total, alarm: mon.alarm, produkHta: lintas.hta.produk, jenisHta: lintas.hta.jenis,

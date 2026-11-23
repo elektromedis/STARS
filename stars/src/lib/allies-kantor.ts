@@ -21,3 +21,6 @@ export async function dataKantor(unitId: number | null): Promise<DivisiKantor[]>
   daftar.umum = lain.flatMap((id) => daftar[id].length ? [{ judul: `Koordinasi ${KARYAWAN.find((k) => k.id === id)!.nama}`, sub: `${daftar[id].length} tugas terbuka`, href: `/allies/kantor?petugas=${id}` }] : []);
   return KARYAWAN.map((k) => ({ id: k.id, nama: k.nama, bidang: k.bidang, total: daftar[k.id].length, tugas: daftar[k.id].slice(0, 12) }));
 }
+
+/** Versi publik: hanya jumlah tugas, tanpa nama alat, kode, atau unit. */
+export const divisiPublik = (d: DivisiKantor[]): DivisiKantor[] => d.map((x) => ({ ...x, tugas: [] }));
