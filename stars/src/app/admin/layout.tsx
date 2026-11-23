@@ -46,11 +46,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         title="Administrasi Data"
         description="Kelola data paket lewat unggah dan unduh Excel, tanpa input satu per satu."
         actions={
-          <div className="flex items-center gap-3 rounded-lg border bg-card px-3 py-2 text-sm shadow-card">
+          <div className="flex w-full min-w-0 flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border bg-card px-3 py-2 text-sm shadow-card sm:w-auto">
             <UserCircle2 className="size-5 text-teal-700" aria-hidden />
-            <div className="leading-tight">
-              <div className="font-medium text-navy-800">{u.nama}</div>
-              <div className="text-xs text-muted-foreground">{u.email}</div>
+            <div className="min-w-0 flex-1 leading-tight sm:flex-none">
+              <div className="truncate font-medium text-navy-800">{u.nama}</div>
+              <div className="truncate text-xs text-muted-foreground">{u.email}</div>
             </div>
             <Badge variant="teal">{u.peran}</Badge>
             {u.unitKerja && <Badge variant="outline">{u.unitKerja}</Badge>}

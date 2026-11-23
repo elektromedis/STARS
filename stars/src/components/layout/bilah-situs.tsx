@@ -148,7 +148,7 @@ export function TombolBantuan() {
   return (
     <a href={`https://wa.me/${info.whatsapp}?text=${encodeURIComponent(t("Halo, saya butuh bantuan terkait STARS.", "Hello, I need help with STARS."))}`} target="_blank" rel="noopener noreferrer"
       className="fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-3 z-40 flex items-center gap-2 print:hidden md:bottom-5 md:right-[calc(clamp(4.5rem,5.5vw,6rem)+0.5rem)]">
-      <span className="rounded-full bg-teal-50 px-3 py-1.5 text-sm font-semibold text-teal-800 shadow">{info.bantuanTeks === "Bantuan?" ? t("Bantuan?", "Need help?") : info.bantuanTeks}</span>
+      <span className="sr-only rounded-full bg-teal-50 px-3 py-1.5 text-sm font-semibold text-teal-800 shadow sm:not-sr-only">{info.bantuanTeks === "Bantuan?" ? t("Bantuan?", "Need help?") : info.bantuanTeks}</span>
       <span className="grid size-12 place-items-center rounded-full bg-teal-600 text-white shadow-lg"><MessageCircle className="size-6" aria-hidden /></span>
     </a>
   );

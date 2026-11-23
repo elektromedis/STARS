@@ -191,7 +191,7 @@
  * Tiap adegan bersilang-pudar 3 dtk dengan adegan berikutnya. 5 berkas WebP ±315 KB total (1920 px),
  * dimuat setelah halaman (tidak menghambat), animasi hanya transform/opacity (GPU), tanpa JavaScript.
  * Mati otomatis bila "kurangi gerakan" aktif, dan tidak ikut tercetak. */
-body { background-color: #fff; }
+body { background-color: #fff; overflow-x: clip; }
 .langit { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; background: #fff; }
 .langit::after { content: ""; position: absolute; inset: 0;
   background: radial-gradient(70% 60% at 50% 42%, rgba(255,255,255,.6), rgba(255,255,255,0) 75%); }

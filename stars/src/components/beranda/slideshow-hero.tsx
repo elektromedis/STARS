@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export type SlideHero = { label: string; gelap?: boolean; isi: React.ReactNode };
@@ -17,6 +18,7 @@ export function SlideshowHero({ slide }: { slide: SlideHero[] }) {
   const trek = useRef<HTMLDivElement>(null);
   const ke = useCallback((i: number) => setAktif((i + n) % n), [n]);
   const gelap = Boolean(slide[aktif].gelap);
+  const tenang = useReducedMotion();
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setPutar(false);
@@ -39,7 +41,7 @@ export function SlideshowHero({ slide }: { slide: SlideHero[] }) {
       id="slideshow-beranda"
       aria-roledescription="carousel"
       aria-label="Sorotan STARS"
-      className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200"
+      className="relative h-[calc(100svh-13rem)] max-h-[46rem] min-h-[25rem] overflow-hidden rounded-3xl ring-1 ring-slate-200 md:h-[34rem] lg:h-[32rem]"
       onMouseEnter={() => setTahan(true)}
       onMouseLeave={() => setTahan(false)}
       onFocusCapture={() => setTahan(true)}
@@ -53,10 +55,10 @@ export function SlideshowHero({ slide }: { slide: SlideHero[] }) {
         if (Math.abs(d) > 45) ke(aktif + (d < 0 ? 1 : -1));
       }}
     >
-      <div ref={trek} className="flex transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] motion-reduce:transition-none" style={{ transform: `translateX(-${aktif * 100}%)` }}>
+      <div ref={trek} className="flex h-full transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] motion-reduce:transition-none" style={{ transform: `translateX(-${aktif * 100}%)` }}>
         {slide.map((s, i) => (
-          <div key={s.label} role="group" aria-roledescription="slide" aria-label={`${i + 1} dari ${n}: ${s.label}`} aria-hidden={i !== aktif} className="slide-hero flex w-full shrink-0 items-stretch">
-            <div className="w-full">{s.isi}</div>
+          <div key={s.label} role="group" aria-roledescription="slide" aria-label={`${i + 1} dari ${n}: ${s.label}`} aria-hidden={i !== aktif} className="slide-hero h-full w-full shrink-0">
+            <motion.div className="h-full w-full" initial={false} animate={tenang ? undefined : { opacity: i === aktif ? 1 : 0.35, scale: i === aktif ? 1 : 0.985 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>{s.isi}</motion.div>
           </div>
         ))}
       </div>

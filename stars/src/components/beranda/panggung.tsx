@@ -3,6 +3,7 @@ import { ChevronRight, Glasses } from "lucide-react";
 import { LogoTegak } from "@/components/layout/logo-animasi";
 import { StatusSinkron } from "@/components/layout/status-sinkron";
 import { DiagramSiklus } from "@/components/allies/diagram-siklus";
+import { GulirHalus } from "@/components/beranda/gulir-halus";
 import { SlideshowHero } from "@/components/beranda/slideshow-hero";
 import type { IdTahap } from "@/lib/allies-siklus";
 import { cn, formatNumber } from "@/lib/utils";
@@ -52,6 +53,17 @@ function Angka({ nilai, label, gelap }: { nilai: string; label: string; gelap?: 
   );
 }
 
+function JudulHero({ judul, sub, gelap, utama, children }: { judul: React.ReactNode; sub: React.ReactNode; gelap?: boolean; utama?: boolean; children: React.ReactNode }) {
+  const H = utama ? "h1" : "h2";
+  return (
+    <div className="shrink-0 text-center">
+      <H className={cn("text-[34px] font-semibold leading-none tracking-tight md:text-6xl lg:text-7xl", gelap ? "text-white" : "text-[#1d1d1f]")}>{judul}</H>
+      <p className={cn("mx-auto mt-1.5 max-w-md text-sm leading-snug md:mt-3 md:text-xl lg:text-2xl", gelap ? "text-white/85" : "text-[#1d1d1f]/80")}>{sub}</p>
+      <div className="mt-2.5 flex flex-wrap justify-center gap-2 md:mt-5 md:gap-3 [&>a]:px-4 [&>a]:py-1.5 [&>a]:text-sm md:[&>a]:px-5 md:[&>a]:py-2 md:[&>a]:text-[15px]">{children}</div>
+    </div>
+  );
+}
+
 const TEMA = [
   { label: "HIS-SIMRS", href: "https://rsudcipayung.jakarta.go.id/rsudcipayung/index.php", luar: true, src: "/tema/hospital.webp", alt: "Ilustrasi rumah sakit: gedung 24 jam, ambulans, dokter, dan radiologi" },
   { label: "TELEMEDICINE", href: "/dalam-pengembangan?fitur=telemedicine", luar: false, src: "/tema/distance-diagnostics.webp", alt: "Ilustrasi pemantauan pasien jarak jauh lewat laptop dan ponsel" },
@@ -66,27 +78,28 @@ export function Panggung({ d }: { d: DataPanggung }) {
   return (
     <div className="panggung mb-10 grid gap-3">
       {/* 1. Slideshow pembuka: logo, STARS + 4 panel, ALLIES */}
+      <GulirHalus />
       <SlideshowHero slide={[
         { label: "Logo STARS", isi: (
-          <div className="flex h-full min-h-[27rem] flex-col items-center justify-center gap-5 bg-white/75 px-4 pb-14 pt-8 backdrop-blur-[2px] lg:min-h-[32rem]">
-            <div className="panggung-logo w-[min(330px,72%)]"><LogoTegak className="w-full" /></div>
+          <div className="flex h-full flex-col items-center justify-center gap-4 bg-white/80 px-4 pb-14 pt-5 backdrop-blur-[2px]">
+            <div className="panggung-logo w-[min(330px,68%,42svh)]"><LogoTegak className="w-full" /></div>
             <StatusSinkron />
           </div>
         ) },
         { label: "STARS", isi: (
-          <div className="grid h-full min-h-[27rem] items-center gap-6 bg-white/90 px-4 pb-14 pt-8 md:px-16 lg:min-h-[32rem] lg:grid-cols-[0.8fr_1.2fr]">
-            <Teks utama judul={<span className="text-[52px] md:text-[80px]">STARS</span>} sub={<>Seluruh Siklus Alat Kesehatan.<br />Satu Sistem. Satu Pintu.</>}>
+          <div className="flex h-full flex-col gap-3 bg-white/90 px-4 pb-14 pt-4 md:px-16 lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-6 lg:pt-6">
+            <JudulHero judul="STARS" utama sub={<>Seluruh Siklus Alat Kesehatan.<br />Satu Sistem. Satu Pintu.</>}>
               <Pil href="#perencanaan">Lihat data</Pil>
               <Pil href="/allies" varian="garis">Tanya ALLIES</Pil>
-            </Teks>
-            <ul className="mx-auto grid w-full max-w-[34rem] grid-cols-2 gap-3 lg:grid-cols-2" aria-label="Cakupan STARS">
+            </JudulHero>
+            <ul className="mx-auto grid min-h-0 w-full max-w-[34rem] flex-1 grid-cols-2 grid-rows-2 gap-2 md:gap-3 lg:h-[26rem] lg:flex-none" aria-label="Cakupan STARS">
               {TEMA.map((t) => (
-                <li key={t.src} className="tema-ubin overflow-hidden rounded-2xl ring-1 ring-slate-900/5">
-                  <a href={t.href} {...(t.luar ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="relative block focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal-300" aria-label={`${t.label}${t.luar ? " (situs RSUD Cipayung, tab baru)" : " — dalam pengembangan"}`}>
+                <li key={t.src} className="tema-ubin min-h-0 overflow-hidden rounded-2xl ring-1 ring-slate-900/5">
+                  <a href={t.href} {...(t.luar ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="relative block h-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal-300" aria-label={`${t.label}${t.luar ? " (situs RSUD Cipayung, tab baru)" : " — dalam pengembangan"}`}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={t.src} alt={t.alt} width={720} height={720} loading="lazy" decoding="async" className="block aspect-[4/3] w-full object-cover" />
-                    <span className="absolute left-2 top-2 rounded-full bg-navy-950/85 px-2.5 py-1 text-[11px] font-bold tracking-wide text-white shadow-sm md:text-xs">{t.label}</span>
-                    {!t.luar && <span className="absolute bottom-2 right-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-navy-800 shadow-sm">Segera hadir</span>}
+                    <img src={t.src} alt={t.alt} width={720} height={720} loading="lazy" decoding="async" className="block size-full object-cover" />
+                    <span className="absolute left-1.5 top-1.5 rounded-full bg-navy-950/85 px-2 py-0.5 text-[10px] font-bold tracking-wide text-white shadow-sm md:left-2 md:top-2 md:px-2.5 md:py-1 md:text-xs">{t.label}</span>
+                    {!t.luar && <span className="absolute bottom-1.5 right-1.5 rounded-full bg-white/90 px-2 py-0.5 text-[9px] font-semibold text-navy-800 shadow-sm md:text-[10px]">Segera hadir</span>}
                   </a>
                 </li>
               ))}
@@ -94,15 +107,12 @@ export function Panggung({ d }: { d: DataPanggung }) {
           </div>
         ) },
         { label: "ALLIES", gelap: true, isi: (
-          <div className="grid h-full min-h-[27rem] items-center gap-5 bg-black px-4 pb-14 pt-8 md:px-16 lg:min-h-[32rem] lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <Teks gelap judul={<>ALLIES<span className="bg-gradient-to-r from-teal-300 to-[#a99bff] bg-clip-text text-transparent">.</span></>} sub="Agen alat medik. Dari analisa kebutuhan sampai penghapusan — lalu mulai lagi.">
-                <Pil href="/allies#tanya">Tanya sekarang</Pil>
-                <Pil href="/allies" varian="garis" gelap>Pelajari siklusnya</Pil>
-              </Teks>
-              <p className="mt-4 text-center text-sm text-white/70">{formatNumber(d.kandidat)} alat direkomendasikan untuk diganti atau dihapus.</p>
-            </div>
-            <div className="mx-auto w-full max-w-[32rem] rounded-2xl bg-white p-2"><DiagramSiklus jumlah={d.perTahap} /></div>
+          <div className="flex h-full flex-col gap-3 bg-black px-4 pb-14 pt-4 md:px-16 lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-6 lg:pt-6">
+            <JudulHero gelap judul={<>ALLIES<span className="bg-gradient-to-r from-teal-300 to-[#a99bff] bg-clip-text text-transparent">.</span></>} sub={<>Agen alat medik, dari kebutuhan sampai penghapusan.<span className="mt-1 block text-xs text-white/70 md:text-sm">{formatNumber(d.kandidat)} alat direkomendasikan diganti atau dihapus.</span></>}>
+              <Pil href="/allies#tanya">Tanya sekarang</Pil>
+              <Pil href="/allies" varian="garis" gelap>Siklusnya</Pil>
+            </JudulHero>
+            <div className="mx-auto flex min-h-0 w-full max-w-[32rem] flex-1 items-center justify-center rounded-2xl bg-white p-1.5 lg:h-[26rem] lg:flex-none [&>*]:h-full [&>*]:w-full [&>*]:max-w-none [&_svg]:h-full [&_svg]:w-full"><DiagramSiklus jumlah={d.perTahap} /></div>
           </div>
         ) },
       ]} />
