@@ -49,7 +49,7 @@ function orang(c: CanvasRenderingContext2D, a: Aktor, wkt: number, pilih: boolea
   c.restore();
 }
 
-export function KantorAI({ divisi, pembuka, saranAwal, ai }: { divisi: DivisiKantor[]; pembuka: Jawaban; saranAwal: string[]; ai: boolean }) {
+export function KantorAI({ divisi, pembuka, saranAwal, ai, aiLabel }: { divisi: DivisiKantor[]; pembuka: Jawaban; saranAwal: string[]; ai: boolean; aiLabel: string }) {
   const router = useRouter();
   const kanvas = useRef<HTMLCanvasElement>(null);
   const aktorRef = useRef<Aktor[]>([]);
@@ -165,7 +165,7 @@ export function KantorAI({ divisi, pembuka, saranAwal, ai }: { divisi: DivisiKan
         <div className="flex min-w-0 items-center overflow-hidden rounded-2xl border border-slate-700 bg-[#0b1324] shadow-card">
           <canvas ref={kanvas} id="kantor-ai" onClick={klik} role="img" aria-label="Simulasi kantor isometrik Karyawan AI. Daftar petugas tersedia di bawah." className="block h-auto w-full cursor-pointer" style={{ aspectRatio: `${W}/${H}` }} />
         </div>
-        <ObrolanAllies pembuka={pembuka} saranAwal={saranAwal} ai={ai} karyawanAktif={aktif} onGanti={setPilih} onSibuk={setSibuk} className="h-[34rem]" />
+        <ObrolanAllies pembuka={pembuka} saranAwal={saranAwal} ai={ai} aiLabel={aiLabel} karyawanAktif={aktif} onGanti={setPilih} onSibuk={setSibuk} className="h-[34rem]" />
       </div>
       <section className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_27rem]" aria-label="Daftar Karyawan AI">
         <div className="grid content-start gap-2 sm:grid-cols-2 xl:grid-cols-3">

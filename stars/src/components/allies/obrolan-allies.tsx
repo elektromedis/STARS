@@ -51,7 +51,7 @@ function Blok({ b }: { b: BlokJawaban }) {
 }
 
 /** Panel obrolan "Tanya ALLIES": mode AI untuk pengguna login bila dikonfigurasi, selain itu mesin aturan lokal. */
-export function ObrolanAllies({ pembuka, saranAwal, ai = false, karyawanAktif, onGanti, onSibuk, className }: { pembuka: Jawaban; saranAwal: string[]; ai?: boolean; karyawanAktif?: IdKaryawan; onGanti?: (id: IdKaryawan) => void; onSibuk?: (sibuk: boolean) => void; className?: string }) {
+export function ObrolanAllies({ pembuka, saranAwal, ai = false, aiLabel = "AI", karyawanAktif, onGanti, onSibuk, className }: { pembuka: Jawaban; saranAwal: string[]; ai?: boolean; aiLabel?: string; karyawanAktif?: IdKaryawan; onGanti?: (id: IdKaryawan) => void; onSibuk?: (sibuk: boolean) => void; className?: string }) {
   const [karyawanSendiri, setKaryawanSendiri] = useState<IdKaryawan>("umum");
   const karyawan = karyawanAktif ?? karyawanSendiri;
   const setKaryawan = (id: IdKaryawan) => { setKaryawanSendiri(id); onGanti?.(id); };
@@ -98,7 +98,7 @@ export function ObrolanAllies({ pembuka, saranAwal, ai = false, karyawanAktif, o
     <div className={cn("flex h-[34rem] flex-col overflow-hidden rounded-2xl border bg-gradient-to-b from-slate-50 to-white shadow-card", className)}>
       <div className="flex items-center gap-3 border-b bg-white px-4 py-3">
         <span className="relative flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-navy-700 text-white"><Bot className="size-5" aria-hidden /><span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full bg-green-500 ring-2 ring-white" aria-hidden /></span>
-        <div className="leading-tight"><p className="font-semibold text-navy-800">Tanya ALLIES</p><p className="text-xs text-muted-foreground">{ai ? `${petugas.nama} · AI cloud · data pribadi disaring` : "Menjawab dari data STARS terkini · mesin lokal"}</p></div>
+        <div className="leading-tight"><p className="font-semibold text-navy-800">Tanya ALLIES</p><p className="text-xs text-muted-foreground">{ai ? `${petugas.nama} · ${aiLabel}` : "Menjawab dari data STARS terkini · mesin lokal"}</p></div>
       </div>
       {ai && (
         <div role="group" aria-label="Pilih Karyawan AI" className="flex gap-2 overflow-x-auto border-b bg-white px-3 py-2 [scrollbar-width:thin]">

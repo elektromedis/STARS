@@ -8,6 +8,7 @@ import { ipDari } from "@/lib/audit";
 import { batasi } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 300;
 
 /** Tanya ALLIES: login + kunci API → mode AI; selain itu mesin aturan lokal. Pesan tidak disimpan oleh STARS. */
 export async function POST(req: NextRequest) {

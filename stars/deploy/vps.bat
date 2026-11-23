@@ -42,9 +42,10 @@ echo  4. Ambil cadangan terbaru dari VPS ke laptop
 echo  5. Lihat status VPS
 echo  6. Masuk VPS tanpa sandi - pasang kunci SSH laptop
 echo  7. Ganti alamat VPS
-echo  8. Keluar
+echo  8. Aktifkan AI gratis - Hermes + n8n
+echo  9. Keluar
 echo.
-choice /C 12345678 /N /M "Pilih nomor [1-8]: "
+choice /C 123456789 /N /M "Pilih nomor [1-9]: "
 set "PIL=%errorlevel%"
 if "%PIL%"=="1" goto siapkan
 if "%PIL%"=="2" goto pindah
@@ -53,6 +54,7 @@ if "%PIL%"=="4" goto ambil
 if "%PIL%"=="5" goto status
 if "%PIL%"=="6" goto kunci
 if "%PIL%"=="7" goto ganti
+if "%PIL%"=="8" goto aktifkan_ai
 goto selesai
 
 REM ---------------------------------------------------------- 1
@@ -115,6 +117,17 @@ echo.
 echo [INFO] Pastikan perubahan sudah dikirim lewat Sync Changes di VS Code.
 ssh -t %VPS% "bash /opt/STARS/stars/deploy/pasang-vps.sh perbarui"
 if errorlevel 1 goto gagal_vps
+goto jeda
+
+REM ---------------------------------------------------------- 8
+:aktifkan_ai
+echo.
+echo [INFO] Pastikan commit terbaru sudah dikirim ke GitHub.
+ssh -t %VPS% "cd /opt/STARS && git pull --ff-only && bash /opt/STARS/stars/deploy/aktifkan-ai.sh"
+if errorlevel 1 goto gagal_vps
+echo.
+echo Membuka n8n: biarkan jendela SSH berikut terbuka, lalu buka http://localhost:5678
+start "Terowongan n8n" ssh -N -L 5678:127.0.0.1:5678 %VPS%
 goto jeda
 
 REM ---------------------------------------------------------- 4

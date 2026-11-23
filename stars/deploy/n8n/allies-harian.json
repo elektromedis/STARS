@@ -1,0 +1,90 @@
+{
+  "name": "STARS - Ringkasan ALLIES Harian",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000001",
+      "name": "Setiap 07.00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://app:3000/api/integrasi/allies",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $env.STARS_INTEGRASI_TOKEN }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000002",
+      "name": "Ambil tugas STARS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const d = $input.first().json;\nconst daftar = (d.kalibrasiPrioritas || []).slice(0, 5).map((a) => `- ${a.nama} (${a.kode}, ${a.unit}): ${a.status}`).join('\\n');\nreturn [{ json: { judul: 'Ringkasan ALLIES', pesan: `Alat aktif: ${d.aktif}\\nPerlu kalibrasi: ${d.perluKalibrasi}\\nPemeliharaan terbuka: ${d.pemeliharaanTerbuka}\\nKandidat ganti/hapus: ${d.kandidatGanti}\\n\\nKalibrasi prioritas:\\n${daftar || '-'}` } }];"
+      },
+      "id": "a1000000-0000-4000-8000-000000000003",
+      "name": "Susun pesan",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Setiap 07.00": {
+      "main": [
+        [
+          {
+            "node": "Ambil tugas STARS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ambil tugas STARS": {
+      "main": [
+        [
+          {
+            "node": "Susun pesan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "timezone": "Asia/Jakarta"
+  },
+  "active": false
+}

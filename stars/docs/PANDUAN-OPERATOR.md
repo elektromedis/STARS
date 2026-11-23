@@ -198,7 +198,7 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
 ## ALLIES — agen pengelolaan alat medik
 
 Menu **ALLIES** membantu siklus alat dari **Analisa Kebutuhan** sampai **Penghapusan**, lalu mengulang siklus
-Pre-Market → Post-Market untuk alat penggantinya. Skor dan status dihitung dari data STARS. Bila `ANTHROPIC_API_KEY`
+Pre-Market → Post-Market untuk alat penggantinya. Skor dan status dihitung dari data STARS. Mode gratis memakai Hermes 3 lewat Ollama di server sendiri (`vps.bat` menu 8), sehingga data tidak dikirim ke layanan AI luar. Alternatifnya, bila `ANTHROPIC_API_KEY`
 dipasang, pengguna yang login dapat memakai **Karyawan AI** (Koordinator, Inventaris, Pemeliharaan, Kalibrasi, Perencanaan) melalui LLM cloud.
 Pertanyaan dan data alat yang relevan dikirim ke penyedia AI; email, NIK/NIP, dan nomor telepon disaring otomatis, tetapi **nama orang dan data pasien
 jangan diketik**. Karyawan AI hanya membaca dan memberi saran. Tanpa kunci API atau tanpa login, ALLIES memakai mesin aturan lokal. STARS tidak menyimpan pertanyaan.

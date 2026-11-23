@@ -36,6 +36,10 @@ services:
       INTEGRASI_TOKEN: ${INTEGRASI_TOKEN:-}
       SMARTMFK_URL: ${SMARTMFK_URL:-}
       SMARTMFK_URL_PUBLIK: ${SMARTMFK_URL_PUBLIK:-}
+      # ALLIES AI: kosong = mesin lokal; profil "ai" mengisi http://ollama:11434
+      ALLIES_LLM_URL: ${ALLIES_LLM_URL:-}
+      ALLIES_MODEL: ${ALLIES_MODEL:-hermes3:3b}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
       SMTP_HOST: ${SMTP_HOST:-}
       SMTP_PORT: ${SMTP_PORT:-465}
       SMTP_USER: ${SMTP_USER:-}
@@ -64,7 +68,47 @@ services:
     depends_on:
       - app
 
+  # Profil "ai" (gratis): model Hermes lewat Ollama, hanya bisa dijangkau layanan di dalam Docker.
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["ai"]
+    restart: unless-stopped
+    mem_limit: ${OLLAMA_MEM:-3500m}
+    environment:
+      OLLAMA_NUM_PARALLEL: "1"
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_KEEP_ALIVE: 10m
+    volumes:
+      - ollama_data:/root/.ollama
+
+  # Otomasi n8n Community; hanya terbuka di 127.0.0.1 VPS, dibuka lewat terowongan SSH.
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:stable
+    profiles: ["ai"]
+    restart: unless-stopped
+    mem_limit: ${N8N_MEM:-700m}
+    environment:
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:-}
+      N8N_HOST: 127.0.0.1
+      N8N_PORT: "5678"
+      N8N_PROTOCOL: http
+      N8N_SECURE_COOKIE: "false"
+      N8N_DIAGNOSTICS_ENABLED: "false"
+      N8N_VERSION_NOTIFICATIONS_ENABLED: "false"
+      N8N_BLOCK_ENV_ACCESS_IN_NODE: "false"
+      GENERIC_TIMEZONE: Asia/Jakarta
+      TZ: Asia/Jakarta
+      STARS_INTEGRASI_TOKEN: ${INTEGRASI_TOKEN:-}
+    ports:
+      - "127.0.0.1:5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+    depends_on:
+      - app
+
 volumes:
+  ollama_data:
+  n8n_data:
   stars_data:
   stars_uploads:
   caddy_data:
