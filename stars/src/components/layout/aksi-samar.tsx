@@ -1,49 +1,53 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ChevronRight, MessageCircle, PersonStanding } from "lucide-react";
+import { MessageCircle, PersonStanding } from "lucide-react";
 import { useBahasa } from "@/lib/bahasa";
 import { cn } from "@/lib/utils";
 import { useSitus } from "./use-situs";
 
-const TOMBOL = "flex h-11 items-center gap-2 whitespace-nowrap rounded-full border border-white/60 bg-white/70 pl-1.5 pr-3.5 text-sm font-semibold text-navy-800 shadow-lg ring-1 ring-slate-900/10 backdrop-blur-xl transition duration-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-600 motion-reduce:transition-none";
+const TOMBOL = "flex h-11 items-center whitespace-nowrap rounded-full border border-white/60 bg-white/80 p-1.5 text-sm font-semibold text-navy-800 shadow-lg ring-1 ring-slate-900/10 backdrop-blur-xl transition-colors duration-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-600 motion-reduce:transition-none";
 
-/** Pegangan samar di tepi kiri; Bantuan dan Aksesibilitas hanya muncul saat dibuka. */
+/** Bantuan dan Aksesibilitas selalu terlihat samar; jelas saat kursor, fokus, atau ketukan pertama. */
 export function AksiSamar() {
   const { info } = useSitus();
   const { t } = useBahasa();
-  const [buka, setBuka] = useState(false);
+  const [aktif, setAktif] = useState(false);
   const wadah = useRef<HTMLDivElement>(null);
   const teksBantuan = info.bantuanTeks === "Bantuan?" ? t("Bantuan", "Help") : info.bantuanTeks;
 
   useEffect(() => {
-    if (!buka) return;
-    const luar = (e: PointerEvent) => { if (!wadah.current?.contains(e.target as Node)) setBuka(false); };
-    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setBuka(false); };
-    const waktu = setTimeout(() => setBuka(false), 7000);
+    if (!aktif) return;
+    const luar = (e: PointerEvent) => { if (!wadah.current?.contains(e.target as Node)) setAktif(false); };
+    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setAktif(false); };
+    const waktu = window.matchMedia("(hover: none)").matches ? setTimeout(() => setAktif(false), 7000) : undefined;
     document.addEventListener("pointerdown", luar);
     document.addEventListener("keydown", esc);
     return () => { clearTimeout(waktu); document.removeEventListener("pointerdown", luar); document.removeEventListener("keydown", esc); };
-  }, [buka]);
+  }, [aktif]);
+
+  /** Di layar sentuh, ketukan pertama hanya memperjelas tombol agar tidak salah tekan. */
+  const ketukPertama = useRef(false);
+  const label = (teks: string) => <span className={cn("overflow-hidden transition-all duration-200 motion-reduce:transition-none", aktif ? "ml-2 mr-2 max-w-40 opacity-100" : "max-w-0 opacity-0")}>{teks}</span>;
 
   return (
-    <div ref={wadah} id="aksi-samar" className="fixed bottom-[calc(6rem+env(safe-area-inset-bottom))] left-0 z-40 flex items-end print:hidden md:bottom-24">
-      <button type="button" onClick={() => setBuka((b) => !b)} aria-expanded={buka} aria-controls="aksi-samar-isi" aria-label={t("Buka Bantuan dan Aksesibilitas", "Open Help and Accessibility")}
-        className="group flex h-14 w-5 items-center justify-start outline-none">
-        <span className={cn("flex h-11 w-3.5 items-center justify-center rounded-r-lg bg-slate-600/25 text-white backdrop-blur transition-all duration-200 group-hover:w-4 group-hover:bg-teal-700/80 group-focus-visible:w-4 group-focus-visible:bg-teal-700", buka && "bg-teal-700/80")}>
-          <ChevronRight className={cn("size-3 transition-transform duration-200", buka && "rotate-180")} aria-hidden />
-        </span>
+    <div ref={wadah} id="aksi-samar" data-aktif={aktif}
+      onPointerEnter={(e) => { if (e.pointerType === "mouse") setAktif(true); }}
+      onPointerMove={(e) => { if (e.pointerType === "mouse" && !aktif) setAktif(true); }}
+      onPointerLeave={(e) => { if (e.pointerType === "mouse") setAktif(false); }}
+      onPointerDownCapture={(e) => { ketukPertama.current = e.pointerType !== "mouse" && !aktif; if (ketukPertama.current) setAktif(true); }}
+      onClickCapture={(e) => { if (ketukPertama.current) { ketukPertama.current = false; e.preventDefault(); e.stopPropagation(); } }}
+      onFocusCapture={() => setAktif(true)}
+      onBlurCapture={(e) => { if (!wadah.current?.contains(e.relatedTarget as Node)) setAktif(false); }}
+      className={cn("fixed bottom-[calc(6rem+env(safe-area-inset-bottom))] left-2 z-40 grid justify-items-start gap-2 transition-opacity duration-200 motion-reduce:transition-none print:hidden md:bottom-24", aktif ? "opacity-100" : "opacity-30")}>
+      {info.whatsapp && (
+        <a href={`https://wa.me/${info.whatsapp}?text=${encodeURIComponent(t("Halo, saya butuh bantuan terkait STARS.", "Hello, I need help with STARS."))}`} target="_blank" rel="noopener noreferrer" aria-label={teksBantuan} className={TOMBOL}>
+          <span className="grid size-8 shrink-0 place-items-center rounded-full bg-teal-600 text-white"><MessageCircle className="size-4" aria-hidden /></span>{label(teksBantuan)}
+        </a>
+      )}
+      <button type="button" aria-label={t("Aksesibilitas", "Accessibility")} onClick={() => { setAktif(false); window.dispatchEvent(new Event("stars:a11y-buka")); }} className={TOMBOL}>
+        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[#1e3a8a] text-white"><PersonStanding className="size-5" strokeWidth={2.5} aria-hidden /></span>{label(t("Aksesibilitas", "Accessibility"))}
       </button>
-      <div id="aksi-samar-isi" inert={!buka} className={cn("ml-1 grid origin-bottom-left gap-2 transition-all duration-200 ease-out motion-reduce:transition-none", buka ? "translate-x-0 scale-100 opacity-100" : "pointer-events-none -translate-x-3 scale-95 opacity-0")}>
-        {info.whatsapp && (
-          <a href={`https://wa.me/${info.whatsapp}?text=${encodeURIComponent(t("Halo, saya butuh bantuan terkait STARS.", "Hello, I need help with STARS."))}`} target="_blank" rel="noopener noreferrer" onClick={() => setBuka(false)} className={TOMBOL}>
-            <span className="grid size-8 place-items-center rounded-full bg-teal-600 text-white"><MessageCircle className="size-4" aria-hidden /></span>{teksBantuan}
-          </a>
-        )}
-        <button type="button" onClick={() => { setBuka(false); window.dispatchEvent(new Event("stars:a11y-buka")); }} className={TOMBOL}>
-          <span className="grid size-8 place-items-center rounded-full bg-[#1e3a8a] text-white"><PersonStanding className="size-5" strokeWidth={2.5} aria-hidden /></span>{t("Aksesibilitas", "Accessibility")}
-        </button>
-      </div>
     </div>
   );
 }

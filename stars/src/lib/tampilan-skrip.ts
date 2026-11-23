@@ -1,4 +1,4 @@
 export const KUNCI_TAMPILAN = "stars-tampilan";
 
 /** Dijalankan sebelum halaman tampil agar tema tidak berkedip saat memuat. */
-export const SKRIP_TAMPILAN = `try{var s=JSON.parse(localStorage.getItem("${KUNCI_TAMPILAN}")||"{}"),d=document.documentElement;if(s.gelap)d.classList.add("dark");d.dataset.latar=s.latar===2||s.latar===3?String(s.latar):"1"}catch(e){document.documentElement.dataset.latar="1"}`;
+export const SKRIP_TAMPILAN = `try{var s=JSON.parse(localStorage.getItem("${KUNCI_TAMPILAN}")||"{}"),d=document.documentElement;if(s.gelap)d.classList.add("dark");d.dataset.latar=[2,3,4].indexOf(s.latar)>=0?String(s.latar):"1"}catch(e){document.documentElement.dataset.latar="1"}`;

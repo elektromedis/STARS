@@ -5,13 +5,13 @@ import { Moon, Sun } from "lucide-react";
 import { useBahasa } from "@/lib/bahasa";
 import { KUNCI_TAMPILAN } from "@/lib/tampilan-skrip";
 
-type Latar = 1 | 2 | 3;
-const berikut = (x: Latar): Latar => (x === 3 ? 1 : (x + 1) as Latar);
+type Latar = 1 | 2 | 3 | 4;
+const berikut = (x: Latar): Latar => (x === 4 ? 1 : (x + 1) as Latar);
 type Tampilan = { gelap: boolean; latar: Latar };
 
 function baca(): Tampilan {
   const d = document.documentElement;
-  return { gelap: d.classList.contains("dark"), latar: d.dataset.latar === "3" ? 3 : d.dataset.latar === "2" ? 2 : 1 };
+  return { gelap: d.classList.contains("dark"), latar: (["2", "3", "4"].includes(d.dataset.latar ?? "") ? Number(d.dataset.latar) : 1) as Latar };
 }
 
 function terapkan(t: Tampilan) {

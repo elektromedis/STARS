@@ -34,15 +34,23 @@ $kode = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($aturan))
 $p = Start-Process powershell -Verb RunAs -Wait -PassThru -ArgumentList "-NoProfile -EncodedCommand $kode"
 if ($p.ExitCode -ne 0) { Gagal "Aturan firewall gagal dibuat." }
 
-Get-Process -Name "ollama*" -ErrorAction SilentlyContinue | Stop-Process -Force
-Start-Sleep -Seconds 2
-$app = Join-Path $folder "ollama app.exe"
-if (Test-Path $app) { Start-Process $app } else { Start-Process $ollama -ArgumentList "serve" -WindowStyle Hidden }
+# Lewati proxy kantor untuk alamat Tailscale, lalu jalankan server langsung agar alamatnya pasti terpakai.
+[System.Net.WebRequest]::DefaultWebProxy = $null
+$env:NO_PROXY = "$ipLaptop,127.0.0.1,localhost"
+Get-Process -Name "ollama*" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+Start-Sleep -Seconds 3
+$log = Join-Path $env:TEMP "stars-ollama.log"
+$logKeluar = Join-Path $env:TEMP "stars-ollama-keluar.log"
+Start-Process $ollama -ArgumentList "serve" -WindowStyle Hidden -RedirectStandardError $log -RedirectStandardOutput $logKeluar
 $siap = $false
-foreach ($i in 1..30) {
-  try { Invoke-RestMethod "http://$alamat/api/version" -TimeoutSec 2 | Out-Null; $siap = $true; break } catch { Start-Sleep -Seconds 1 }
+foreach ($i in 1..90) {
+  try { Invoke-RestMethod "http://$alamat/api/version" -TimeoutSec 3 | Out-Null; $siap = $true; break } catch { Start-Sleep -Seconds 1 }
 }
-if (-not $siap) { Gagal "Ollama tidak menyala di alamat Tailscale." }
+if (-not $siap) {
+  Write-Host "--- Catatan Ollama ---"
+  if (Test-Path $log) { Get-Content $log -Tail 12 }
+  Gagal "Ollama tidak menyala di alamat $alamat."
+}
 
 Write-Host "[INFO] Mengunduh Hermes 3, sekitar 2 GB..."
 & $ollama pull hermes3:3b

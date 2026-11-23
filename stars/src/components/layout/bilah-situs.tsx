@@ -18,7 +18,7 @@ export function BilahAtas() {
       <div className="mx-auto flex max-w-[1360px] items-center gap-3 px-4 py-1 text-xs md:px-6">
         {info.tampilBilahAtas && <span className="flex min-w-0 items-center gap-1.5 truncate"><MapPin className="size-3.5 shrink-0" aria-hidden /><span className="truncate">{info.alamat}</span></span>}
         {info.tampilBilahAtas && info.telepon && <a href={`tel:${info.telepon.replace(/[^\d+]/g, "")}`} className="hidden shrink-0 items-center gap-1 font-semibold hover:underline sm:flex"><Phone className="size-3.5" aria-hidden /> {info.telepon}</a>}
-        <span className="ml-auto flex shrink-0 items-center gap-2"><span className="sr-only">{t("Bahasa", "Language")}</span><PilihBahasa /></span>
+        <span className="ml-auto flex shrink-0 items-center gap-2"><span id="slot-slideshow" className="flex items-center empty:hidden" /><span className="sr-only">{t("Bahasa", "Language")}</span><PilihBahasa /></span>
       </div>
     </div>
   );

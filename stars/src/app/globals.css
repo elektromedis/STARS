@@ -268,53 +268,103 @@ html.a11y-tanpa-gambar .latar-galaksi { visibility: hidden; }
   .dark .a11y-ubin { background: #182235; border-color: #334158; color: #e6edf7; }
 }
 
-/* ───────── Tema 3: Golden Gate, kaca bening dan jembatan senja ───────── */
-.latar-gerbang { display: none; position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; background: linear-gradient(180deg, #7fb2dc 0%, #c9d8e4 34%, #f8d3a8 58%, #f29a62 76%, #c9604a 100%); }
-html[data-latar="3"] .langit { display: none; }
+/* ───────── Tema 3: Golden Gate. Konten tenang dan rata; kaca hanya pada header, dock, dan panel sementara. ───────── */
+.latar-gerbang { display: none; position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; background: linear-gradient(180deg, #dce8f2 0%, #e9eef2 42%, #f3ece4 66%, #dfe5ea 100%); }
+.latar-gerbang::after { content: ""; position: absolute; inset: 0; background: rgb(246 247 249 / .68); }
+html:is([data-latar="3"], [data-latar="4"]) .langit { display: none; }
 html[data-latar="3"] .latar-gerbang { display: block; }
 .latar-gerbang svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.gg-matahari { position: absolute; left: 62%; top: 43%; width: 34vmin; height: 34vmin; border-radius: 50%; background: radial-gradient(circle, rgba(255,239,190,.95), rgba(255,190,120,.35) 45%, transparent 70%); }
-.gg-bukit-jauh { fill: #a9788a; opacity: .62; } .gg-bukit { fill: #6c4a5f; opacity: .78; } .gg-air { fill: #41627f; opacity: .72; }
-.gg-jembatan { fill: none; stroke: #c0391f; }
-.gg-kabut { position: absolute; left: -35%; width: 170%; height: 24%; top: 52%; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,255,255,.72), transparent); filter: blur(14px); }
+.gg-matahari { position: absolute; left: 62%; top: 43%; width: 34vmin; height: 34vmin; border-radius: 50%; background: radial-gradient(circle, rgb(255 246 226 / .8), transparent 68%); }
+.gg-bukit-jauh { fill: #b9c6d2; opacity: .6; } .gg-bukit { fill: #9dadbb; opacity: .55; } .gg-air { fill: #a9bccb; opacity: .5; }
+.gg-jembatan { fill: none; stroke: #71869a; opacity: .7; }
+.gg-kabut { position: absolute; left: -35%; width: 170%; height: 24%; top: 52%; border-radius: 50%; background: radial-gradient(closest-side, rgb(255 255 255 / .72), transparent); filter: blur(14px); }
 .gg-kabut-b { top: 64%; left: -10%; opacity: .62; }
 @media (prefers-reduced-motion: no-preference) {
   .gg-kabut-a { animation: kabut 46s ease-in-out infinite alternate; } .gg-kabut-b { animation: kabut 62s ease-in-out infinite alternate-reverse; }
   @keyframes kabut { from { transform: translate3d(-9%, 0, 0); } to { transform: translate3d(11%, -5%, 0); } }
-  html[data-latar="3"] main > * { animation: jendela-gg .42s cubic-bezier(.22,1,.36,1) both; }
-  @keyframes jendela-gg { from { opacity: 0; transform: translateY(10px) scale(.992); } to { opacity: 1; transform: none; } }
 }
 html.a11y-diam .gg-kabut { display: none; }
 html.a11y-tanpa-gambar .latar-gerbang { visibility: hidden; }
 @media screen {
-  html[data-latar="3"] { --radius: .75rem; --ring: 12 72% 45%; --primary: 12 72% 42%; --primary-foreground: 0 0% 100%; --accent: 24 90% 92%; --accent-foreground: 12 70% 30%; }
-  html[data-latar="3"] body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-sans), system-ui, sans-serif; background-color: #f4c9a0; }
-  html[data-latar="3"] :is(header.sticky, .bg-card, .panggung section, #bilah-cepat) { border-color: rgb(255 255 255 / .55); background-color: rgb(255 255 255 / .76); box-shadow: 0 10px 34px rgb(62 35 30 / .18), inset 0 1px 0 rgb(255 255 255 / .7); -webkit-backdrop-filter: blur(22px) saturate(1.5); backdrop-filter: blur(22px) saturate(1.5); }
-  html[data-latar="3"] .panggung section { background-image: none; border-radius: 1.1rem; }
-  html[data-latar="3"] .panggung section:not(#slideshow-beranda) :is(h2, p, .text-white, [class*="text-white/"]):not([class*="bg-"]) { color: #231c22; }
-  html[data-latar="3"] .panggung section:not(#slideshow-beranda) .text-teal-300 { color: #a93219; --tw-ring-color: #c0391f; }
-  html[data-latar="3"] .panggung section:not(#slideshow-beranda) .text-teal-300:hover { color: #fff; background-color: #c0391f; }
-  html[data-latar="3"] #slideshow-beranda { border-radius: 1.1rem; }
-  html[data-latar="3"] :is(.bg-teal-600, .bg-navy-800) { background-color: #c0391f; }
-  html[data-latar="3"] :is(.hover\:bg-teal-700, .hover\:bg-navy-900):hover { background-color: #a42f18; }
-  html[data-latar="3"] :is(.text-teal-600, .text-teal-700) { color: #a93219; }
-  html[data-latar="3"] .ring-teal-600 { --tw-ring-color: #c0391f; }
-  html[data-latar="3"] #bilah-cepat { border-radius: 1.5rem; }
-  html.dark[data-latar="3"] { --primary: 14 78% 56%; --primary-foreground: 0 0% 100%; --ring: 14 78% 56%; --accent: 14 35% 22%; --accent-foreground: 24 90% 86%; }
-  html.dark[data-latar="3"] body { background-color: #151320; }
-  html.dark .latar-gerbang { background: linear-gradient(180deg, #0d1430 0%, #27264e 42%, #693a55 62%, #a8503f 76%, #291d2d 100%); }
-  html.dark .gg-matahari { opacity: .42; } html.dark .gg-bukit-jauh { fill: #33284a; opacity: .9; } html.dark .gg-bukit { fill: #1b1729; opacity: .95; } html.dark .gg-air { fill: #111a2f; opacity: .9; }
-  html.dark .gg-jembatan { stroke: #e0553a; } html.dark .gg-kabut { opacity: .16; }
-  html.dark[data-latar="3"] :is(header.sticky, .bg-card, .panggung section, #bilah-cepat) { border-color: rgb(255 255 255 / .13); background-color: rgb(24 23 38 / .78); box-shadow: 0 10px 34px rgb(0 0 0 / .38), inset 0 1px 0 rgb(255 255 255 / .1); }
-  html.dark[data-latar="3"] .panggung section:not(#slideshow-beranda) :is(h2, p, .text-white, [class*="text-white/"]):not([class*="bg-"]) { color: #f3eff4; }
-  html.dark[data-latar="3"] .panggung section:not(#slideshow-beranda) .text-teal-300 { color: #ff9b7e; --tw-ring-color: #ff9b7e; }
-  html.dark[data-latar="3"] :is(.text-teal-600, .text-teal-700) { color: #ff9b7e; }
+  html:is([data-latar="3"], [data-latar="4"]) {
+    --gg-aksen: #0a66d6; --gg-aksen-kuat: #0855b3; --gg-tautan: #0060c7; --gg-tint: #e8f1fd; --gg-permukaan: #fff; --gg-garis: rgb(0 0 0 / .1); --gg-teks: #1d1d1f; --gg-kaca: rgb(250 250 252 / .72);
+    --radius: .625rem; --background: 240 8% 97%; --foreground: 240 3% 12%; --card: 0 0% 100%; --card-foreground: 240 3% 12%; --primary: 213 91% 44%; --primary-foreground: 0 0% 100%;
+    --secondary: 240 6% 94%; --secondary-foreground: 240 3% 12%; --muted: 240 6% 95%; --muted-foreground: 240 3% 38%; --accent: 214 85% 95%; --accent-foreground: 213 91% 34%; --border: 240 5% 88%; --input: 240 5% 84%; --ring: 213 91% 50%;
+  }
+  html.dark:is([data-latar="3"], [data-latar="4"]) {
+    --gg-aksen: #0b72e0; --gg-aksen-kuat: #2a86ea; --gg-tautan: #64b0ff; --gg-tint: #17304d; --gg-permukaan: #242426; --gg-garis: rgb(255 255 255 / .12); --gg-teks: #f5f5f7; --gg-kaca: rgb(40 40 43 / .72);
+    --background: 240 3% 12%; --foreground: 240 11% 96%; --card: 240 3% 15%; --card-foreground: 240 11% 96%; --primary: 211 91% 46%; --primary-foreground: 0 0% 100%;
+    --secondary: 240 3% 20%; --secondary-foreground: 240 11% 96%; --muted: 240 3% 19%; --muted-foreground: 240 5% 70%; --accent: 212 53% 20%; --accent-foreground: 211 100% 80%; --border: 240 3% 25%; --input: 240 3% 30%; --ring: 211 100% 60%;
+  }
+  html:is([data-latar="3"], [data-latar="4"]) body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-sans), system-ui, sans-serif; background-color: hsl(var(--background)); color: var(--gg-teks); }
+  html.dark .latar-gerbang { background: linear-gradient(180deg, #17202c 0%, #20262f 48%, #2b2a2e 68%, #1a1c20 100%); }
+  html.dark .latar-gerbang::after { background: rgb(28 28 30 / .74); }
+  html.dark .gg-matahari { opacity: .12; } html.dark .gg-bukit-jauh { fill: #343c47; } html.dark .gg-bukit { fill: #292f38; } html.dark .gg-air { fill: #252c35; } html.dark .gg-jembatan { stroke: #6f8092; } html.dark .gg-kabut { opacity: .07; }
+
+  /* Lapisan perintah: kaca secukupnya. */
+  html:is([data-latar="3"], [data-latar="4"]) header.sticky, html:is([data-latar="3"], [data-latar="4"]) #bilah-cepat { border-color: var(--gg-garis); background-color: var(--gg-kaca); -webkit-backdrop-filter: blur(24px) saturate(1.6); backdrop-filter: blur(24px) saturate(1.6); }
+  html:is([data-latar="3"], [data-latar="4"]) header.sticky { box-shadow: none; }
+  html:is([data-latar="3"], [data-latar="4"]) #bilah-cepat { border-radius: 1.4rem; box-shadow: 0 8px 28px rgb(0 0 0 / .18), inset 0 1px 0 rgb(255 255 255 / .18); }
+  html:is([data-latar="3"], [data-latar="4"]) .bg-teal-700.text-white.print\:hidden { background-color: var(--gg-permukaan); color: var(--gg-teks); border-bottom: 1px solid var(--gg-garis); }
+  html:is([data-latar="3"], [data-latar="4"]) button.fixed.bg-emerald-600 { background-color: var(--gg-kaca); color: var(--gg-teks); box-shadow: 0 4px 16px rgb(0 0 0 / .16); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); }
+
+  /* Lapisan konten: rata, garis tipis, tanpa kaca dan bayangan. */
+  html:is([data-latar="3"], [data-latar="4"]) .bg-card { background-color: var(--gg-permukaan); border-color: var(--gg-garis); box-shadow: none; }
+  html:is([data-latar="3"], [data-latar="4"]) .panggung section:not(#slideshow-beranda) { background: var(--gg-permukaan); border: 1px solid var(--gg-garis); border-radius: .75rem; box-shadow: none; }
+  html:is([data-latar="3"], [data-latar="4"]) #slideshow-beranda { border-radius: .75rem; --tw-ring-color: var(--gg-garis); }
+  html:is([data-latar="3"], [data-latar="4"]) .panggung section:not(#slideshow-beranda) :is(h2, p, .text-white, [class*="text-white/"]):not([class*="bg-"]) { color: var(--gg-teks); }
+  html:is([data-latar="3"], [data-latar="4"]) .panggung section:not(#slideshow-beranda) .vr-grid { display: none; }
+  html:is([data-latar="3"], [data-latar="4"]) .panggung section:not(#slideshow-beranda) .bg-white\/20 { background-color: var(--gg-garis); }
+
+  /* Satu aksen biru untuk tindakan utama, tautan, dan pilihan. */
+  html:is([data-latar="3"], [data-latar="4"]) :is(.bg-teal-500, .bg-teal-600, .bg-navy-800):not(.print\:hidden) { background-color: var(--gg-aksen); }
+  html:is([data-latar="3"], [data-latar="4"]) :is(.hover\:bg-teal-600, .hover\:bg-teal-700, .hover\:bg-navy-900):hover { background-color: var(--gg-aksen-kuat); color: #fff; }
+  html:is([data-latar="3"], [data-latar="4"]) :is(.text-teal-600, .text-teal-700, .text-teal-800, .text-teal-900, .hover\:text-teal-700:hover, .hover\:text-teal-800:hover):not([class*="bg-teal-6"]) { color: var(--gg-tautan); }
+  html:is([data-latar="3"], [data-latar="4"]) .text-teal-300 { color: #7cbcff; --tw-ring-color: #7cbcff; }
+  html:is([data-latar="3"], [data-latar="4"]) .panggung section:not(#slideshow-beranda) .text-teal-300 { color: var(--gg-tautan); --tw-ring-color: var(--gg-tautan); }
+  html:is([data-latar="3"], [data-latar="4"]) .text-teal-300:hover { color: #fff; background-color: var(--gg-aksen); }
+  html:is([data-latar="3"], [data-latar="4"]) :is(.bg-teal-50, .bg-teal-50\/60, .hover\:bg-teal-50:hover) { background-color: var(--gg-tint); }
+  html:is([data-latar="3"], [data-latar="4"]) :is(.border-teal-200, .border-teal-600, .hover\:border-teal-300:hover, .hover\:border-teal-400:hover) { border-color: var(--gg-aksen); }
+  html:is([data-latar="3"], [data-latar="4"]) :is(.ring-teal-300, .ring-teal-400, .ring-teal-600) { --tw-ring-color: var(--gg-aksen); }
+  html:is([data-latar="3"], [data-latar="4"]) :is(.bg-teal-400, .lacak-titik) { background-color: #4a9cf0; }
+  html.dark:is([data-latar="3"], [data-latar="4"]) #slideshow-beranda :is(.bg-white\/80, .bg-white\/90) { background-color: var(--gg-permukaan); }
+  html.dark:is([data-latar="3"], [data-latar="4"]) #logo-header, html.dark:is([data-latar="3"], [data-latar="4"]) .panggung-logo { background: #f5f5f7; }
 }
-@media screen and (max-width: 767px) {
-  html[data-latar="3"] :is(.bg-card, .panggung section) { -webkit-backdrop-filter: none; backdrop-filter: none; background-color: rgb(255 255 255 / .9); }
-  html.dark[data-latar="3"] :is(.bg-card, .panggung section) { background-color: rgb(24 23 38 / .92); }
+@media screen and (prefers-reduced-transparency: reduce) {
+  html:is([data-latar="3"], [data-latar="4"]) :is(header.sticky, #bilah-cepat, button.fixed.bg-emerald-600) { background-color: var(--gg-permukaan); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 @media print { .latar-gerbang { display: none !important; } }
+
+/* ───────── Tema 4: utilitas Mac. Sidebar abu-abu penuh, konten putih rata, aksen merah muda. ───────── */
+.sidebar-t4 { display: none; }
+@media screen {
+  html[data-latar="4"] {
+    --gg-aksen: #c92f6f; --gg-aksen-kuat: #a82459; --gg-tautan: #c02a68; --gg-tint: #fbe9f1; --gg-permukaan: #fff; --gg-garis: rgb(0 0 0 / .08); --gg-teks: #1d1d1f; --gg-kaca: rgb(255 255 255 / .84); --t4-sisi: #ececec; --t4-pilih: #d9d9d9; --t4-ikon: #d93a7c;
+    --background: 0 0% 100%; --primary: 335 62% 49%; --accent: 335 75% 95%; --accent-foreground: 335 65% 36%; --ring: 335 62% 49%; --muted: 0 0% 96%; --secondary: 0 0% 94%;
+  }
+  html.dark[data-latar="4"] {
+    --gg-aksen: #c93a76; --gg-aksen-kuat: #d94f8a; --gg-tautan: #f27bae; --gg-tint: #40202f; --gg-permukaan: #252525; --gg-garis: rgb(255 255 255 / .09); --gg-teks: #f4f4f4; --gg-kaca: rgb(30 30 30 / .84); --t4-sisi: #2c2c2a; --t4-pilih: #474745; --t4-ikon: #f06fa6;
+    --background: 0 0% 12%; --card: 0 0% 14.5%; --primary: 335 57% 51%; --accent: 335 34% 19%; --accent-foreground: 335 85% 82%; --ring: 335 80% 70%; --muted: 0 0% 18%; --secondary: 0 0% 20%;
+  }
+  html.dark:is([data-latar="3"], [data-latar="4"]) :is(.bg-slate-50, .bg-slate-100, .hover\:bg-slate-100:hover) { background-color: hsl(var(--secondary)); }
+  html.dark:is([data-latar="3"], [data-latar="4"]) :is(.bg-slate-200, .hover\:bg-slate-200:hover) { background-color: hsl(var(--input)); }
+  html[data-latar="4"] .text-teal-300 { color: var(--gg-tautan); --tw-ring-color: var(--gg-tautan); }
+  html[data-latar="4"] #slideshow-beranda .bg-black .text-teal-300 { color: #f79cc3; --tw-ring-color: #f79cc3; }
+  html[data-latar="4"] :is(.bg-teal-400, .lacak-titik) { background-color: var(--t4-ikon); }
+}
+@media screen and (min-width: 1024px) {
+  html[data-latar="4"] .sidebar-t4 { display: block; }
+  html[data-latar="4"] .kolom-utama { padding-left: 16rem; }
+  html[data-latar="4"] header.sticky button[aria-haspopup="dialog"], html[data-latar="4"] #logo-header { display: none; }
+  html[data-latar="4"] #aksi-samar { left: 16.5rem; }
+  html[data-latar="4"] .sidebar-t4 aside.bg-navy-800 { width: 16rem; background: var(--t4-sisi); color: var(--gg-teks); border-right: 1px solid var(--gg-garis); }
+  .sidebar-t4 aside > div { border-color: var(--gg-garis); }
+  .sidebar-t4 aside :is(p, span) { color: var(--gg-teks); }
+  .sidebar-t4 nav a { border-radius: .5rem; background: transparent; color: var(--gg-teks); font-size: .875rem; }
+  .sidebar-t4 nav a svg { color: var(--t4-ikon); }
+  .sidebar-t4 nav a:hover { background: rgb(127 127 127 / .14); color: var(--gg-teks); }
+  .sidebar-t4 nav a[aria-current="page"] { background: var(--t4-pilih); color: var(--gg-teks); font-weight: 600; box-shadow: none; }
+}
 
 /* ───────── Widget aksesibilitas (components/layout/aksesibilitas.tsx) ───────── */
 .a11y-ubin { display: flex; min-height: 4.2rem; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; border-radius: .75rem; border: 1px solid #e2e8f0; background: #f8fafc; padding: .4rem; text-align: center; font-size: .75rem; font-weight: 600; line-height: 1.15; color: #0b2545; }
