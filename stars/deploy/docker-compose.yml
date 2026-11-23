@@ -32,6 +32,7 @@ services:
       STARS_MODE: ${STARS_MODE:-intranet}
       SYNC_TOKEN: ${SYNC_TOKEN:-}
       STARS_URL_PUBLIK: ${STARS_URL_PUBLIK:-}
+      TRILUX_URL: ${TRILUX_URL:-}
       # Bridging SMART MFK (token sama di kedua aplikasi; kosong = API integrasi nonaktif)
       INTEGRASI_TOKEN: ${INTEGRASI_TOKEN:-}
       SMARTMFK_URL: ${SMARTMFK_URL:-}
