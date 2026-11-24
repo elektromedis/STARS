@@ -10,10 +10,12 @@ import { authConfig } from "./auth.config";
  */
 const lindungi = NextAuth(authConfig).auth as unknown as (req: NextRequest, ev: NextFetchEvent) => Promise<Response>;
 
+/** IMMS_HOST boleh berisi port (mis. "nama.ts.net:8443" untuk Funnel) atau nama host saja; beberapa dipisah koma. */
 export function hostImms(host: string | null) {
-  const h = (host ?? "").split(",")[0].trim().split(":")[0].toLowerCase();
-  const env = (process.env.IMMS_HOST ?? "").trim().toLowerCase();
-  return (env !== "" && h === env) || /^(imms|cmms)\./.test(h);
+  const lengkap = (host ?? "").split(",")[0].trim().toLowerCase();
+  const nama = lengkap.split(":")[0];
+  const daftar = (process.env.IMMS_HOST ?? "").toLowerCase().split(",").map((x) => x.trim()).filter(Boolean);
+  return daftar.some((d) => (d.includes(":") ? lengkap === d : nama === d)) || /^(imms|cmms)\./.test(nama);
 }
 
 export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
