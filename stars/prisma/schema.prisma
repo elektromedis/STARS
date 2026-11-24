@@ -219,6 +219,7 @@ model Alat {
   dokumen          DokumenAlat[]
   titikPantau      LokasiPantau[]
   auditItem        AuditItem[]
+  riwayatEm        RiwayatEm[]
 
   @@index([unitKerjaId])
   @@index([kondisi])
@@ -302,6 +303,19 @@ model PerintahKerja {
   tanggalSelesai DateTime?
   jadwal         JadwalPreventif? @relation(fields: [jadwalId], references: [id])
   jadwalId       Int?
+  // --- IMMS: alur perbaikan Permenkes 65/2016 & prioritas WHO IMMIS 2025 ---
+  tanggapanPada  DateTime? // pertama kali ditangani (waktu tanggap)
+  analisis       String? // pengecekan kondisi & analisis kerusakan
+  pelaksana      String? // Internal | Pihak Ketiga
+  perluSukuCadang Boolean         @default(false)
+  usulan         String? // isi usulan: suku cadang / alasan pihak ke-3
+  perkiraanBiaya Float?
+  usulanStatus   String? // Diajukan | Disetujui | Ditolak (null = tidak perlu usulan)
+  usulanOleh     String?
+  usulanCatatan  String?
+  usulanPada     DateTime?
+  ujiFungsi      String? // Laik | Tidak laik
+  hasilInspeksi  String? // JSON lembar inspeksi (kondisi, keberadaan, keselamatan, unjuk kerja)
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
 
@@ -808,4 +822,23 @@ model PotonganPengetahuan {
   dokumen   DokumenPengetahuan @relation(fields: [dokumenId], references: [id], onDelete: Cascade)
 
   @@index([dokumenId, halaman])
+}
+
+/// IMMS: setiap perhitungan nilai EM (F + A + M + H, Permenkes 65/2016) disimpan agar perubahan akibat kerusakan dapat ditelusuri.
+model RiwayatEm {
+  id           Int      @id @default(autoincrement())
+  alat         Alat     @relation(fields: [alatId], references: [id], onDelete: Cascade)
+  alatId       Int
+  fungsi       Int
+  aplikasi     Int
+  pemeliharaan Int
+  riwayat      Int
+  total        Int
+  kerusakan    Int // jumlah perbaikan 30 bulan terakhir
+  intervalBulan Int? // frekuensi jadwal hasil hitung (null = tidak dijadwalkan)
+  sebab        String // Penilaian | Perbaikan selesai | Hitung ulang
+  oleh         String?
+  waktu        DateTime @default(now())
+
+  @@index([alatId, waktu])
 }

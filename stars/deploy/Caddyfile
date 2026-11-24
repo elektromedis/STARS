@@ -11,3 +11,17 @@
     }
     reverse_proxy app:3000
 }
+
+# STARS IMMS (Inventaris & Pemeliharaan) — subdomain terpisah, aplikasi & basis data sama dengan STARS.
+# Arahkan DNS A-record subdomain ini ke IP VPS; middleware memetakan semua halaman ke /imms.
+{$IMMS_DOMAIN:imms.example.id} {
+    encode gzip zstd
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        -Server
+    }
+    reverse_proxy app:3000
+}

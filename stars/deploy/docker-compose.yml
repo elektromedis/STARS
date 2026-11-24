@@ -33,6 +33,7 @@ services:
       SYNC_TOKEN: ${SYNC_TOKEN:-}
       STARS_URL_PUBLIK: ${STARS_URL_PUBLIK:-}
       TRILUX_URL: ${TRILUX_URL:-}
+      IMMS_HOST: ${IMMS_DOMAIN:-}
       # Bridging SMART MFK (token sama di kedua aplikasi; kosong = API integrasi nonaktif)
       INTEGRASI_TOKEN: ${INTEGRASI_TOKEN:-}
       SMARTMFK_URL: ${SMARTMFK_URL:-}
@@ -59,6 +60,7 @@ services:
     restart: unless-stopped
     environment:
       STARS_DOMAIN: ${STARS_DOMAIN:?isi STARS_DOMAIN untuk profil internet}
+      IMMS_DOMAIN: ${IMMS_DOMAIN:-imms.example.id}
     ports:
       - "80:80"
       - "443:443"
