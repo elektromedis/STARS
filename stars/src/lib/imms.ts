@@ -1,5 +1,5 @@
 /**
- * STARS IMMS — logika inti aplikasi Inventaris & Pemeliharaan (domain terpisah).
+ * EMASCARE (STARS IMMS) — logika inti aplikasi Inventaris & Pemeliharaan (domain terpisah).
  *  • Alur kerja: Permenkes 65/2016 Standar Pelayanan Elektromedik (pemeliharaan terencana, inspeksi, perbaikan).
  *  • Kerangka data & indikator: WHO Inventory and Maintenance Management Information System (IMMIS) 2025.
  *  • Nilai EM = F + A + M + H (Fennigkoh & Smith); H dihitung dari perbaikan 30 bulan terakhir.

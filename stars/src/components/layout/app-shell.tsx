@@ -16,7 +16,7 @@ import { LatarGalaksi, LatarGerbang } from "./tampilan";
 import { Sidebar } from "./sidebar";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
-  // STARS IMMS (/imms, domain terpisah) memakai kerangka jendelanya sendiri.
+  // EMASCARE (STARS IMMS) (/imms, domain terpisah) memakai kerangka jendelanya sendiri.
   if (usePathname()?.startsWith("/imms")) return <BahasaProvider>{children}</BahasaProvider>;
   return <BahasaProvider><Shell>{children}</Shell></BahasaProvider>;
 }

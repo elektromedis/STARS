@@ -11,11 +11,12 @@ export default async function Page() {
   return (
     <div className="imms-masuk">
       <div className="kaca w-full max-w-[380px] rounded-[26px] p-7 text-center">
-        <div className="mx-auto mb-3 grid h-16 w-16 place-items-center rounded-[18px] text-2xl font-bold text-white" style={{ background: "linear-gradient(145deg,#0a84ff,#5e5ce6)", boxShadow: "0 10px 30px -10px rgba(10,132,255,.7)" }}>EM</div>
-        <h1 className="text-xl font-bold">STARS IMMS</h1>
-        <p className="redup mb-5 text-[13px]">Inventaris &amp; Pemeliharaan Alat Elektromedik — RSUD Cipayung</p>
+        <span className="emas-tanda besar mx-auto mb-4" aria-hidden>E</span>
+        <h1 className="emas-teks text-2xl font-bold tracking-[.1em]">EMASCARE</h1>
+        <p className="redup text-[12px]">Electromedical Asset Management &amp; Service Care System</p>
+        <p className="mb-5 mt-2 text-[11px] font-bold tracking-[.18em]" style={{ color: "var(--aksen)" }}>KENALI. RAWAT. KENDALIKAN.</p>
         <FormMasuk />
-        <p className="redup2 mt-5 text-[11px]">Memakai akun STARS yang sama. Alur kerja: Permenkes 65/2016 · WHO IMMIS 2025</p>
+        <p className="redup2 mt-5 text-[11px]">EMAS: Electromedical Asset Management · CARE: Care, Maintenance, Reliability. Memakai akun STARS. Alur kerja: Permenkes 65/2016 · WHO IMMIS 2025</p>
       </div>
     </div>
   );

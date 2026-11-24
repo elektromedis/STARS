@@ -35,7 +35,7 @@ const MENU: { judul: string; item: { href: string; label: string; ikon: typeof H
 
 export function judulHalaman(path: string) {
   for (const g of MENU) for (const i of g.item) if (i.href === path) return i.label;
-  return "STARS IMMS";
+  return "EMASCARE";
 }
 
 export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: string; peran: string; tingkat: number; menunggu: number; children: React.ReactNode }) {
@@ -57,17 +57,18 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
   return (
     <>
       <div className="imms-menubar">
-        <Gauge size={14} aria-hidden />
-        <span className="font-semibold">STARS IMMS</span>
-        <span className="sembunyi-hp redup">Inventaris &amp; Pemeliharaan Alat Elektromedik</span>
+        <span className="emas-tanda kecil" aria-hidden>E</span>
+        <span className="emas-teks font-bold tracking-[.08em]">EMASCARE</span>
+        <span className="sembunyi-hp redup">Electromedical Asset Management &amp; Service Care</span>
         <span className="ml-auto flex items-center gap-3">
           <button type="button" onClick={ganti} aria-label={gelap ? "Mode terang" : "Mode gelap"}>{gelap ? <Sun size={14} /> : <Moon size={14} />}</button>
           <span className="sembunyi-hp tabular-nums">{jam}</span>
         </span>
       </div>
       <div className="imms-jendela kaca">
-        <aside className="imms-samping kaca" data-buka={buka ? "1" : "0"} aria-label="Navigasi IMMS">
+        <aside className="imms-samping kaca" data-buka={buka ? "1" : "0"} aria-label="Navigasi EMASCARE">
           <div className="flex items-center gap-2 px-2 pb-2"><div className="lampu" aria-hidden><i /><i /><i /></div></div>
+          <div className="flex items-center gap-2.5 px-2 pb-1 pt-1"><span className="emas-tanda" aria-hidden>E</span><div><div className="emas-teks text-[15px] font-bold tracking-[.08em]">EMASCARE</div><div className="redup2 whitespace-nowrap text-[9px] font-semibold tracking-[.06em]">KENALI. RAWAT. KENDALIKAN.</div></div></div>
           {MENU.map((g) => ({ ...g, item: g.item.filter((i) => (i.min ?? 0) <= tingkat) })).filter((g) => g.item.length).map((g) => (
             <nav key={g.judul} aria-label={g.judul}>
               <h6>{g.judul}</h6>

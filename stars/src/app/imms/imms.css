@@ -1,4 +1,4 @@
-/* STARS IMMS — tampilan bergaya macOS Tahoe 26 ("Liquid Glass"): kaca tembus pandang, sudut besar, kapsul. */
+/* EMASCARE (STARS IMMS) — tampilan bergaya macOS Tahoe 26 ("Liquid Glass"): kaca tembus pandang, sudut besar, kapsul. */
 .imms {
   --bg1: #bcd7f5; --bg2: #e9d8f7; --bg3: #c7efe4;
   --kaca: rgba(255, 255, 255, 0.55); --kaca-kuat: rgba(255, 255, 255, 0.78); --kaca-tepi: rgba(255, 255, 255, 0.7);
@@ -99,3 +99,16 @@ html.dark .imms-menubar { background: rgba(20, 20, 26, 0.35); }
   .imms-jendela { position: static; border: 0; box-shadow: none; background: #fff; } .imms-gulir { overflow: visible; } .kaca { box-shadow: none; backdrop-filter: none; background: #fff; }
 }
 @media (min-width: 768px) { .tombol-menu-hp { display: none; } }
+
+/* Identitas EMASCARE: kesederhanaan Apple + kilau teknologi (gradasi biru–ungu–merah muda, cahaya lembut). */
+.imms { --emas-gradasi: linear-gradient(120deg, #2f6bff 0%, #7b5cff 45%, #d96bd0 80%, #ff8a7a 100%); }
+.emas-teks { background: var(--emas-gradasi); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.emas-tanda { position: relative; display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; flex-shrink: 0;
+  font-weight: 800; font-size: 17px; color: #fff; background: var(--emas-gradasi); box-shadow: 0 8px 22px -8px rgba(123, 92, 255, .8), inset 0 1px 0 rgba(255,255,255,.45); }
+.emas-tanda::after { content: ""; position: absolute; top: 5px; right: 5px; width: 6px; height: 6px; border-radius: 99px; background: #fff; box-shadow: 0 0 8px 2px rgba(255,255,255,.9); }
+.emas-tanda.kecil { width: 18px; height: 18px; border-radius: 6px; font-size: 10px; } .emas-tanda.kecil::after { display: none; }
+.emas-tanda.besar { display: grid; width: 72px; height: 72px; border-radius: 22px; font-size: 34px; }
+.emas-tanda.besar::after { top: 10px; right: 10px; width: 9px; height: 9px; }
+@media (prefers-reduced-motion: no-preference) { .emas-tanda.besar { animation: emas-napas 4s ease-in-out infinite; } }
+@keyframes emas-napas { 50% { box-shadow: 0 10px 34px -6px rgba(217, 107, 208, .85), inset 0 1px 0 rgba(255,255,255,.45); } }
+.imms .kapsul.utama { background: var(--emas-gradasi); box-shadow: 0 6px 18px -6px rgba(123, 92, 255, .7); }
