@@ -211,3 +211,35 @@ export async function batalkanPerintah(f: FormData) {
   await audit("IMMS: perintah kerja dibatalkan", { email: s.user.email, objek: wo.nomor });
   segar("/imms/perbaikan", `/imms/perbaikan/${wo.nomor}`);
 }
+
+/* ───────── Kelola data alat (CMS) — tabel Alat yang sama dengan STARS ───────── */
+const KONDISI = ["Baik", "Rusak Ringan", "Rusak Berat", "Afkir"];
+export async function simpanAlat(f: FormData) {
+  const s = await sesiImms("Operator");
+  if (process.env.STARS_MODE === "internet") throw new Error("Server mode internet bersifat baca saja.");
+  const idLama = Number(f.get("id")) || null;
+  const kode = teks(f, "kode", 60), nama = teks(f, "nama", 200), unitKerjaId = Number(f.get("unitKerjaId"));
+  if (!kode || !nama || !Number.isInteger(unitKerjaId) || unitKerjaId <= 0) throw new Error("Kode, nama, dan unit kerja wajib diisi.");
+  if (!(await prisma.unitKerja.findUnique({ where: { id: unitKerjaId } }))) throw new Error("Unit kerja tidak dikenal.");
+  const ruanganId = Number(f.get("ruanganId")) || null;
+  if (ruanganId && !(await prisma.ruangan.findFirst({ where: { id: ruanganId, unitKerjaId } }))) throw new Error("Ruangan bukan milik unit kerja itu.");
+  const bentrok = await prisma.alat.findUnique({ where: { kode }, select: { id: true } });
+  if (bentrok && bentrok.id !== idLama) throw new Error(`Kode ${kode} sudah dipakai alat lain.`);
+  const thn = Number(f.get("tahunPerolehan"));
+  const kondisi = teks(f, "kondisi");
+  const statusOperasi = teks(f, "statusOperasi") === "Tidak beroperasi" ? "Tidak beroperasi" : "Beroperasi";
+  const data = {
+    kode, nama, unitKerjaId, ruanganId,
+    merek: teks(f, "merek", 120) || null, model: teks(f, "model", 120) || null, nomorSeri: teks(f, "nomorSeri", 120) || null,
+    kategori: teks(f, "kategori", 120) || null, kodeAspak: teks(f, "kodeAspak", 60) || null, udi: teks(f, "udi", 200) || null,
+    jenis: teks(f, "jenis") === "Non Medik" ? "Non Medik" : "Medik",
+    kondisi: KONDISI.includes(kondisi) ? kondisi : "Baik", statusOperasi,
+    alasanTidakOperasi: statusOperasi === "Tidak beroperasi" ? teks(f, "alasanTidakOperasi", 120) || null : null,
+    tahunPerolehan: Number.isInteger(thn) && thn >= 1950 && thn <= 2100 ? thn : null,
+    catatan: teks(f, "catatan") || null,
+  };
+  const a = idLama ? await prisma.alat.update({ where: { id: idLama }, data }) : await prisma.alat.create({ data });
+  await audit(idLama ? "IMMS: ubah alat" : "IMMS: tambah alat", { email: s.user.email, objek: a.kode, detail: a.nama });
+  segar("/imms/inventaris", "/imms/data-alat", `/imms/inventaris/${a.kode}`, "/admin/alat");
+  redirect(`/imms/inventaris/${encodeURIComponent(a.kode)}`);
+}

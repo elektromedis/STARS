@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { AMBANG_EM, fmtTgl, indikator, kerusakanPerAlat, hitungEm, PRIORITAS_WHO, batasSelesai } from "@/lib/imms";
 import { Kartu, Lencana } from "@/components/imms/ui";
+import { LogoEmas } from "@/components/imms/logo";
 
 export default async function Beranda({ searchParams }: { searchParams: Promise<{ ditolak?: string }> }) {
   const { ditolak } = await searchParams;
@@ -23,6 +24,18 @@ export default async function Beranda({ searchParams }: { searchParams: Promise<
   return (
     <div className="space-y-5">
       {ditolak && <div className="kaca panel text-[13px]" role="alert">Halaman itu memerlukan peran <b>{ditolak}</b>.</div>}
+      <section className="kaca panel emas-panggung text-center" aria-label="EMASCARE">
+        <LogoEmas ukuran={96} className="mx-auto mb-3 block" />
+        <h1 className="emas-teks text-4xl font-bold tracking-[.06em] md:text-6xl">EMASCARE</h1>
+        <p className="redup mt-2 text-[15px] md:text-lg">Electromedical Asset Management &amp; Service Care System</p>
+        <p className="mt-1 text-[12px] font-semibold tracking-[.2em]" style={{ color: "var(--aksen)" }}>KENALI. RAWAT. KENDALIKAN.</p>
+        <div className="mt-5 flex flex-wrap justify-center gap-2">
+          <Link href="/imms/inventaris" className="kapsul utama">Inventaris alat</Link>
+          <Link href="/imms/keluhan" className="kapsul">Lapor keluhan ›</Link>
+          <Link href="/imms/jadwal" className="kapsul">Jadwal pemeliharaan ›</Link>
+          <a href="/admin" className="kapsul">Buka STARS ›</a>
+        </div>
+      </section>
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4" aria-label="Ringkasan inventaris">
         <Kartu judul="Alat elektromedik aktif" nilai={alat.length} ket={`${tidakOperasi} tidak beroperasi`} href="/imms/inventaris" />
         <Kartu judul={`Masuk program (EM ≥ ${AMBANG_EM})`} nilai={program} ket={`${dinilai} dari ${alat.length} sudah dinilai`} nada="biru" href="/imms/nilai-em" />

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
-  Activity, BarChart3, Boxes, CalendarClock, CheckCircle2, ClipboardCheck, FileClock, Gauge, Home, LogOut, Menu, Moon, PackageSearch, Stethoscope, Sun, Wrench, ShieldCheck, ArrowUpRight,
+  Activity, BarChart3, Boxes, CalendarClock, CheckCircle2, ClipboardCheck, FileClock, Gauge, Home, LogOut, Menu, Moon, PackageSearch, Stethoscope, Sun, Wrench, DatabaseZap, ScanBarcode, ShieldCheck, ArrowUpRight,
 } from "lucide-react";
 import { keluar } from "@/app/login/actions";
 import { KUNCI_TAMPILAN } from "@/lib/tampilan-skrip";
@@ -14,6 +14,7 @@ const MENU: { judul: string; item: { href: string; label: string; ikon: typeof H
   { judul: "Ringkasan", item: [{ href: "/imms", label: "Beranda", ikon: Home }] },
   { judul: "Inventaris", item: [
     { href: "/imms/inventaris", label: "Inventaris Alat", ikon: Boxes },
+    { href: "/imms/data-alat", label: "Kelola Data Alat", ikon: DatabaseZap, min: 1 },
     { href: "/imms/nilai-em", label: "Nilai EM", ikon: Gauge },
     { href: "/imms/kalibrasi", label: "Kalibrasi", ikon: ShieldCheck, min: 1 },
   ] },
@@ -36,6 +37,7 @@ const MENU: { judul: string; item: { href: string; label: string; ikon: typeof H
 
 export function judulHalaman(path: string) {
   for (const g of MENU) for (const i of g.item) if (i.href === path) return i.label;
+  if (path.startsWith("/imms/pindai")) return "Pindai Barcode";
   return "EMASCARE";
 }
 
@@ -58,8 +60,8 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
   return (
     <>
       <div className="imms-menubar">
-        <LogoEmas ukuran={20} />
-        <span className="emas-teks font-bold tracking-[.08em]">EMASCARE</span>
+        <Link href="/imms" className="flex items-center gap-2" aria-label="EMASCARE — kembali ke Beranda"><LogoEmas ukuran={20} />
+        <span className="emas-teks font-bold tracking-[.08em]">EMASCARE</span></Link>
         <span className="sembunyi-hp redup">Electromedical Asset Management &amp; Service Care</span>
         <span className="ml-auto flex items-center gap-3">
           <button type="button" onClick={ganti} aria-label={gelap ? "Mode terang" : "Mode gelap"}>{gelap ? <Sun size={14} /> : <Moon size={14} />}</button>
@@ -69,7 +71,7 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
       <div className="imms-jendela kaca">
         <aside className="imms-samping kaca" data-buka={buka ? "1" : "0"} aria-label="Navigasi EMASCARE">
           <div className="flex items-center gap-2 px-2 pb-2"><div className="lampu" aria-hidden><i /><i /><i /></div></div>
-          <div className="flex items-center gap-2.5 px-2 pb-1 pt-1"><LogoEmas ukuran={36} /><div><div className="emas-teks text-[15px] font-bold tracking-[.08em]">EMASCARE</div><div className="redup2 whitespace-nowrap text-[9px] font-semibold tracking-[.06em]">KENALI. RAWAT. KENDALIKAN.</div></div></div>
+          <Link href="/imms" aria-label="Kembali ke Beranda" className="flex items-center gap-2.5 rounded-xl px-2 pb-1 pt-1"><LogoEmas ukuran={36} /><div><div className="emas-teks text-[15px] font-bold tracking-[.08em]">EMASCARE</div><div className="redup2 whitespace-nowrap text-[9px] font-semibold tracking-[.06em]">KENALI. RAWAT. KENDALIKAN.</div></div></Link>
           {MENU.map((g) => ({ ...g, item: g.item.filter((i) => (i.min ?? 0) <= tingkat) })).filter((g) => g.item.length).map((g) => (
             <nav key={g.judul} aria-label={g.judul}>
               <h6>{g.judul}</h6>
@@ -91,6 +93,10 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
           <div className="imms-alat">
             <button type="button" className="kapsul tombol-menu-hp" style={{ padding: "0 10px" }} onClick={(e) => { e.stopPropagation(); setBuka(true); }} aria-label="Buka menu"><Menu /></button>
             <h1>{judulHalaman(path)}</h1>
+            <form action="/imms/pindai" role="search" className="relative ml-auto w-full max-w-[280px]">
+              <ScanBarcode size={15} className="redup2 absolute left-3 top-1/2 -translate-y-1/2" aria-hidden />
+              <input name="k" className="isian cari" placeholder="Pindai / ketik barcode alat…" aria-label="Barcode alat" autoComplete="off" />
+            </form>
           </div>
           <div className="imms-gulir">{children}</div>
         </div>
