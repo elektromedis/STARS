@@ -1,4 +1,5 @@
 "use client";
+import { LogoEmas } from "./logo";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -57,7 +58,7 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
   return (
     <>
       <div className="imms-menubar">
-        <span className="emas-tanda kecil" aria-hidden>E</span>
+        <LogoEmas ukuran={20} />
         <span className="emas-teks font-bold tracking-[.08em]">EMASCARE</span>
         <span className="sembunyi-hp redup">Electromedical Asset Management &amp; Service Care</span>
         <span className="ml-auto flex items-center gap-3">
@@ -68,7 +69,7 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
       <div className="imms-jendela kaca">
         <aside className="imms-samping kaca" data-buka={buka ? "1" : "0"} aria-label="Navigasi EMASCARE">
           <div className="flex items-center gap-2 px-2 pb-2"><div className="lampu" aria-hidden><i /><i /><i /></div></div>
-          <div className="flex items-center gap-2.5 px-2 pb-1 pt-1"><span className="emas-tanda" aria-hidden>E</span><div><div className="emas-teks text-[15px] font-bold tracking-[.08em]">EMASCARE</div><div className="redup2 whitespace-nowrap text-[9px] font-semibold tracking-[.06em]">KENALI. RAWAT. KENDALIKAN.</div></div></div>
+          <div className="flex items-center gap-2.5 px-2 pb-1 pt-1"><LogoEmas ukuran={36} /><div><div className="emas-teks text-[15px] font-bold tracking-[.08em]">EMASCARE</div><div className="redup2 whitespace-nowrap text-[9px] font-semibold tracking-[.06em]">KENALI. RAWAT. KENDALIKAN.</div></div></div>
           {MENU.map((g) => ({ ...g, item: g.item.filter((i) => (i.min ?? 0) <= tingkat) })).filter((g) => g.item.length).map((g) => (
             <nav key={g.judul} aria-label={g.judul}>
               <h6>{g.judul}</h6>
