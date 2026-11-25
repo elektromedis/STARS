@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
-  Activity, BarChart3, Boxes, CalendarClock, CheckCircle2, ClipboardCheck, FileClock, Gauge, Home, LogOut, Menu, Moon, PackageSearch, Stethoscope, Sun, Wrench, DatabaseZap, ScanBarcode, ShieldCheck, ArrowUpRight,
+  Activity, BarChart3, Boxes, CalendarClock, CheckCircle2, ClipboardCheck, FileClock, Gauge, Home, LogOut, Menu, Moon, PackageSearch, Stethoscope, Sun, Wrench, DatabaseZap, ScanBarcode, RefreshCw, ShieldCheck, ArrowUpRight,
 } from "lucide-react";
 import { keluar } from "@/app/login/actions";
 import { KUNCI_TAMPILAN } from "@/lib/tampilan-skrip";
@@ -32,6 +32,7 @@ const MENU: { judul: string; item: { href: string; label: string; ikon: typeof H
   { judul: "Laporan", item: [
     { href: "/imms/laporan", label: "Laporan & Indikator", ikon: BarChart3, min: 1 },
     { href: "/imms/audit", label: "Jejak Audit", ikon: FileClock, min: 2 },
+    { href: "/imms/sinkron", label: "Sinkron TRILUX", ikon: RefreshCw, min: 2 },
   ] },
 ];
 

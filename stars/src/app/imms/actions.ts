@@ -243,3 +243,12 @@ export async function simpanAlat(f: FormData) {
   segar("/imms/inventaris", "/imms/data-alat", `/imms/inventaris/${a.kode}`, "/admin/alat");
   redirect(`/imms/inventaris/${encodeURIComponent(a.kode)}`);
 }
+
+/* ───────── Sinkron TRILUX (arsip) ───────── */
+export async function sinkronSekarang() {
+  const s = await sesiImms("Admin");
+  const { sinkronTrilux, sinkronAktif } = await import("@/lib/sinkron-trilux");
+  if (!sinkronAktif()) throw new Error("TRILUX_DB_URL belum diisi di server.");
+  await sinkronTrilux(s.user.email ?? "admin");
+  segar("/imms/sinkron", "/imms/inventaris", "/imms/perbaikan", "/imms/kalibrasi", "/imms/keluhan", "/imms/suku-cadang", "/imms/jadwal");
+}

@@ -842,3 +842,18 @@ model RiwayatEm {
 
   @@index([alatId, waktu])
 }
+
+/// Pemetaan baris STARS ↔ TRILUX untuk sinkronisasi dua arah tanpa bentrok.
+/// `hash` = sidik isi bersama saat sinkron terakhir; dipakai untuk tahu sisi mana yang berubah.
+model SinkronTrilux {
+  id       Int      @id @default(autoincrement())
+  entitas  String // ruangan | alat | perintah | kalibrasi | keluhan | suku | jadwal
+  idStars  Int
+  idTrilux Int
+  asal     String // stars | trilux (tempat baris pertama kali dibuat)
+  hash     String
+  waktu    DateTime @default(now()) @updatedAt
+
+  @@unique([entitas, idStars])
+  @@unique([entitas, idTrilux])
+}

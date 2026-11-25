@@ -33,6 +33,9 @@ services:
       SYNC_TOKEN: ${SYNC_TOKEN:-}
       STARS_URL_PUBLIK: ${STARS_URL_PUBLIK:-}
       TRILUX_URL: ${TRILUX_URL:-}
+      # Sinkron dua arah dengan basis data TRILUX (arsip). Kosong = nonaktif. Contoh: mysql://stars_sync:SANDI@trilux-db:3306/trilux_lite
+      TRILUX_DB_URL: ${TRILUX_DB_URL:-}
+      TRILUX_SINKRON_MENIT: ${TRILUX_SINKRON_MENIT:-15}
       IMMS_HOST: ${IMMS_HOST:-${IMMS_DOMAIN:-}}
       # Bridging SMART MFK (token sama di kedua aplikasi; kosong = API integrasi nonaktif)
       INTEGRASI_TOKEN: ${INTEGRASI_TOKEN:-}
