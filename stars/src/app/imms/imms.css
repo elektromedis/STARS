@@ -130,3 +130,18 @@ html.dark .imms .emas-panel-notif { background: rgba(36, 36, 44, .97); }
 .emas-pindai-video { position: relative; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: #000; }
 .emas-pindai-video video { width: 100%; height: 100%; object-fit: cover; }
 .emas-pindai-video span { position: absolute; inset: 18%; border: 3px solid rgba(255,255,255,.9); border-radius: 18px; box-shadow: 0 0 0 999px rgba(0,0,0,.25), 0 0 24px rgba(34,211,238,.6); }
+
+/* Dock bawah EMASCARE */
+.emas-dock { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 45; display: flex; align-items: flex-end; gap: 4px; padding: 7px 10px; border-radius: 24px; background: var(--kaca-kuat); box-shadow: 0 16px 44px rgba(15,23,42,.28); }
+.emas-dock-item { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; width: 58px; font-size: 10px; font-weight: 500; }
+.emas-dock-ubin { position: relative; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; color: #fff; box-shadow: 0 3px 8px rgba(15,23,42,.28), inset 0 1px 0 rgba(255,255,255,.45); transition: transform .2s; }
+.emas-dock-ubin svg { width: 21px; height: 21px; }
+.emas-dock-ubin .emas-titik { position: absolute; top: -4px; right: -4px; }
+.emas-dock-item:hover .emas-dock-ubin, .emas-dock-item:focus-visible .emas-dock-ubin { transform: translateY(-4px) scale(1.12); }
+.emas-dock-item:active .emas-dock-ubin { transform: scale(.9); }
+.emas-dock-item[aria-current="page"] { font-weight: 700; }
+.emas-dock-item[aria-current="page"]::after { content: ""; position: absolute; bottom: -5px; width: 4px; height: 4px; border-radius: 9px; background: currentColor; }
+.imms-gulir { padding-bottom: 96px; }
+@media (max-width: 767px) { .imms-gulir { padding-bottom: 96px; } .emas-dock { width: calc(100% - 20px); justify-content: space-around; } .emas-dock-item { width: auto; flex: 1; } }
+@media (prefers-reduced-motion: reduce) { .emas-dock-ubin { transition: none; } }
+@media print { .emas-dock { display: none; } }

@@ -21,9 +21,11 @@ export function hostImms(host: string | null) {
 export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
   const p = req.nextUrl.pathname;
   if (hostImms(req.headers.get("x-forwarded-host") ?? req.headers.get("host")) && !/^\/(imms|api|admin|login|_next)(\/|$)/.test(p) && !/\.[a-z0-9]+$/i.test(p)) {
-    const u = req.nextUrl.clone();
-    u.pathname = "/imms" + (p === "/" ? "" : p);
-    return NextResponse.rewrite(u);
+    // Dialihkan (bukan rewrite) agar alamat di browser selalu /imms/… — kerangka STARS tidak ikut tampil.
+    // URL mutlak dengan host asli; Funnel (:443/:8443) selalu https meski proxy tidak mengirim X-Forwarded-Proto.
+    const host = (req.headers.get("x-forwarded-host") ?? req.headers.get("host") ?? req.nextUrl.host).split(",")[0].trim();
+    const proto = /:(443|8443)$/.test(host) ? "https" : (req.headers.get("x-forwarded-proto")?.split(",")[0].trim() ?? req.nextUrl.protocol.replace(":", ""));
+    return NextResponse.redirect(`${proto}://${host}/imms${p === "/" ? "" : p}${req.nextUrl.search}`, 307);
   }
   if (p.startsWith("/admin") || p.startsWith("/api/admin")) return lindungi(req, ev);
   return NextResponse.next();

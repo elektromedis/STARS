@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Camera, X } from "lucide-react";
 
+/** Kirim peristiwa ini untuk membuka pemindai dari tombol lain (mis. dock bawah). */
+export const BUKA_PINDAI = "emas:pindai";
+
 type Detektor = { detect: (s: CanvasImageSource) => Promise<{ rawValue: string }[]> };
 
 /** Pindai QR/barcode alat lewat kamera: BarcodeDetector bawaan (QR + barcode 1D), cadangan jsQR (QR saja). Hasil → /imms/pindai. */
@@ -11,6 +14,10 @@ export function PindaiKamera() {
   const [pesan, setPesan] = useState("Arahkan kamera ke QR / barcode alat");
   const video = useRef<HTMLVideoElement>(null);
   const router = useRouter();
+  useEffect(() => {
+    const b = () => { setPesan("Arahkan kamera ke QR / barcode alat"); setBuka(true); };
+    window.addEventListener(BUKA_PINDAI, b); return () => window.removeEventListener(BUKA_PINDAI, b);
+  }, []);
 
   useEffect(() => {
     if (!buka) return;

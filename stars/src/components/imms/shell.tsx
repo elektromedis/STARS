@@ -1,6 +1,7 @@
 "use client";
 import { LogoEmas } from "./logo";
 import { Lonceng } from "./lonceng";
+import { DockEmas } from "./dock";
 import { PindaiKamera } from "./pindai-kamera";
 
 import Link from "next/link";
@@ -41,6 +42,8 @@ const MENU: { judul: string; item: { href: string; label: string; ikon: typeof H
 export function judulHalaman(path: string) {
   for (const g of MENU) for (const i of g.item) if (i.href === path) return i.label;
   if (path.startsWith("/imms/pindai")) return "Pindai Barcode";
+  if (path === "/imms/notifikasi") return "Notifikasi";
+  if (path === "/imms/akun") return "Akun Saya";
   return "EMASCARE";
 }
 
@@ -107,6 +110,7 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
           <div className="imms-gulir">{children}</div>
         </div>
       </div>
+      <DockEmas />
     </>
   );
 }
