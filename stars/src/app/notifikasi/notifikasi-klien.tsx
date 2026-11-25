@@ -2,14 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { BadgeCheck, BellOff, BellRing, CalendarClock, CheckCheck, ClipboardList, Gauge, LogIn, Loader2, Wrench } from "lucide-react";
+import { BadgeCheck, BellOff, BellRing, CalendarClock, CheckCheck, ClipboardList, Gauge, LogIn, Loader2, Wrench, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNotifikasi } from "@/components/layout/use-notifikasi";
 import type { ItemNotif } from "@/lib/notifikasi-jenis";
 import { waktuDibaca } from "@/lib/lokal";
 import { cn } from "@/lib/utils";
 
-const IKON: Record<ItemNotif["jenis"], typeof BellRing> = { laporan: Wrench, wo: ClipboardList, preventif: CalendarClock, kalibrasi: Gauge, "laporan-saya": BadgeCheck };
+const IKON: Record<ItemNotif["jenis"], typeof BellRing> = { laporan: Wrench, wo: ClipboardList, preventif: CalendarClock, kalibrasi: Gauge, "laporan-saya": BadgeCheck, perubahan: RefreshCw };
 const WARNA: Record<ItemNotif["tingkat"], string> = {
   info: "bg-teal-50 text-teal-700", sukses: "bg-emerald-50 text-emerald-700", peringatan: "bg-amber-50 text-amber-700", bahaya: "bg-red-50 text-red-700",
 };

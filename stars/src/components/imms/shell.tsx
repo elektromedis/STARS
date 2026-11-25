@@ -1,5 +1,7 @@
 "use client";
 import { LogoEmas } from "./logo";
+import { Lonceng } from "./lonceng";
+import { PindaiKamera } from "./pindai-kamera";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -65,6 +67,7 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
         <span className="emas-teks font-bold tracking-[.08em]">EMASCARE</span></Link>
         <span className="sembunyi-hp redup">Electromedical Asset Management &amp; Service Care</span>
         <span className="ml-auto flex items-center gap-3">
+          <Lonceng />
           <button type="button" onClick={ganti} aria-label={gelap ? "Mode terang" : "Mode gelap"}>{gelap ? <Sun size={14} /> : <Moon size={14} />}</button>
           <span className="sembunyi-hp tabular-nums">{jam}</span>
         </span>
@@ -94,7 +97,9 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
           <div className="imms-alat">
             <button type="button" className="kapsul tombol-menu-hp" style={{ padding: "0 10px" }} onClick={(e) => { e.stopPropagation(); setBuka(true); }} aria-label="Buka menu"><Menu /></button>
             <h1>{judulHalaman(path)}</h1>
-            <form action="/imms/pindai" role="search" className="relative ml-auto w-full max-w-[280px]">
+            <span className="ml-auto" />
+            <PindaiKamera />
+            <form action="/imms/pindai" role="search" className="relative w-full max-w-[280px]">
               <ScanBarcode size={15} className="redup2 absolute left-3 top-1/2 -translate-y-1/2" aria-hidden />
               <input name="k" className="isian cari" placeholder="Pindai / ketik barcode alat…" aria-label="Barcode alat" autoComplete="off" />
             </form>

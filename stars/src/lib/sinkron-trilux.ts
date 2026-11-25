@@ -341,6 +341,7 @@ async function jalankan(a: Adaptor, k: Konteks): Promise<HasilEntitas> {
   return h;
 }
 
+const NAMA: Record<string, string> = { ruangan: "Ruangan", alat: "Alat", suku: "Suku cadang", perintah: "Perintah kerja", kalibrasi: "Kalibrasi", keluhan: "Keluhan", jadwal: "Jadwal" };
 let berjalan: Promise<HasilEntitas[]> | null = null;
 export const sinkronAktif = () => !!process.env.TRILUX_DB_URL;
 
@@ -372,7 +373,7 @@ export function sinkronTrilux(oleh = "otomatis"): Promise<HasilEntitas[]> {
         catch (e) { gagal.push(`${a.entitas}: ${(e as Error).message.slice(0, 200)}`); hasil.push({ entitas: a.entitas, keTrilux: 0, keStars: 0, konflik: 0, dilewati: 0 }); }
       }
       if (gagal.length) await audit("TRILUX: sinkron gagal", { email: oleh, detail: gagal.join(" | ") });
-      const ringkas = hasil.filter((x) => x.keTrilux + x.keStars + x.konflik || x.dilewati).map((x) => `${x.entitas}: →TRILUX ${x.keTrilux}, →STARS ${x.keStars}${x.konflik ? `, konflik ${x.konflik}` : ""}${x.dilewati > 0 ? `, dilewati ${x.dilewati}` : x.dilewati < 0 ? " (tabel TRILUX belum ada)" : ""}`).join("; ");
+      const ringkas = hasil.filter((x) => x.keTrilux + x.keStars + x.konflik || x.dilewati).map((x) => `${NAMA[x.entitas] ?? x.entitas}: ${x.keStars} masuk dari TRILUX, ${x.keTrilux} dikirim ke TRILUX${x.konflik ? `, ${x.konflik} konflik` : ""}${x.dilewati > 0 ? `, dilewati ${x.dilewati}` : x.dilewati < 0 ? " (tabel TRILUX belum ada)" : ""}`).join("; ");
       await audit("TRILUX: sinkron", { email: oleh, detail: ringkas || "tidak ada perubahan" });
       return hasil;
     } catch (e) {

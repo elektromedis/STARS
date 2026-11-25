@@ -47,3 +47,36 @@ export async function notifikasiPetugas(o: { penggunaId: number | null; unit: st
   });
   return item.sort((a, b2) => b2.waktu.localeCompare(a.waktu));
 }
+
+/* ───────── Perubahan data lintas aplikasi (STARS · EMASCARE · TRILUX) ───────── */
+const AWALAN_DATA = ["alat.", "ruangan.", "perintah.", "permintaan.", "kalibrasi", "stok.", "jadwal", "rkbu.", "paket.", "penghapusan.", "IMMS:", "TRILUX:"];
+const LABEL_AKSI: Record<string, string> = {
+  "alat.buat": "menambah alat", "alat.ubah": "mengubah data alat", "alat.foto": "memperbarui foto alat", "ruangan.buat": "menambah ruangan",
+  "perintah.buat": "membuat perintah kerja", "perintah.ubah": "memperbarui perintah kerja", "permintaan.buat": "membuat laporan kerusakan", "permintaan.status": "mengubah status laporan",
+  "stok.mutasi": "mencatat mutasi stok",
+};
+/** Sumber perubahan menurut kode audit: "IMMS:" = EMASCARE, "TRILUX:" = hasil sinkron, selainnya STARS. */
+export const asalPerubahan = (aksi: string) => (aksi.startsWith("IMMS:") ? "EMASCARE" : aksi.startsWith("TRILUX:") ? "TRILUX" : "STARS");
+
+/** Notifikasi bila data diubah di salah satu aplikasi oleh orang lain (atau oleh sinkron TRILUX). Untuk Operator ke atas. */
+export async function notifikasiPerubahan(o: { email: string | null; hari?: number }): Promise<ItemNotif[]> {
+  const log = await prisma.auditLog.findMany({
+    where: {
+      waktu: { gte: new Date(Date.now() - (o.hari ?? 3) * HARI) },
+      OR: AWALAN_DATA.map((a) => ({ aksi: { startsWith: a } })),
+      NOT: [{ aksi: "TRILUX: sinkron", detail: "tidak ada perubahan" }, ...(o.email ? [{ email: o.email }] : [])],
+    },
+    orderBy: { waktu: "desc" }, take: 40,
+  });
+  return log.map((l) => {
+    const asal = asalPerubahan(l.aksi), sinkron = l.aksi.startsWith("TRILUX:");
+    const apa = LABEL_AKSI[l.aksi] ?? l.aksi.replace(/^(IMMS|TRILUX): ?/, "").replace(/\./g, " ");
+    return {
+      id: `ubah-${l.id}`, jenis: "perubahan" as const,
+      judul: sinkron ? (l.aksi.includes("gagal") ? "Sinkron TRILUX gagal" : l.aksi.includes("konflik") ? "Konflik data TRILUX (isi STARS dipakai)" : "Data tersinkron dengan TRILUX") : `Perubahan data di ${asal}`,
+      isi: sinkron ? [l.objek, l.detail].filter(Boolean).join(" · ") : `${l.email ?? "Sistem"} ${apa}${l.objek ? ` · ${l.objek}` : ""}${l.detail ? ` — ${l.detail}` : ""}`.slice(0, 220),
+      waktu: l.waktu.toISOString(), href: sinkron ? "/imms/sinkron" : asal === "EMASCARE" ? "/imms/audit" : "/admin/audit",
+      tingkat: l.aksi.includes("gagal") ? "bahaya" : l.aksi.includes("konflik") ? "peringatan" : "info",
+    };
+  });
+}
