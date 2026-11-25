@@ -50,6 +50,10 @@ services:
       SMTP_USER: ${SMTP_USER:-}
       SMTP_PASS: ${SMTP_PASS:-}
       SMTP_FROM: ${SMTP_FROM:-}
+      # Notifikasi perubahan data ke email/WA tiap N menit (0 = mati). WA lewat gateway HTTP (mis. Fonnte: https://api.fonnte.com/send)
+      NOTIF_KIRIM_MENIT: ${NOTIF_KIRIM_MENIT:-10}
+      WA_GATEWAY_URL: ${WA_GATEWAY_URL:-}
+      WA_GATEWAY_TOKEN: ${WA_GATEWAY_TOKEN:-}
     volumes:
       - stars_data:/app/data
       - stars_uploads:/app/uploads

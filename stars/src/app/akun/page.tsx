@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BadgeCheck, Building2, ClipboardList, Clock, Gauge, LogIn, LogOut, Mail, Settings, ShieldCheck, Wrench } from "lucide-react";
+import { BadgeCheck, BellRing, Building2, ClipboardList, Clock, Gauge, LogIn, LogOut, Mail, Settings, ShieldCheck, Wrench } from "lucide-react";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { keluar } from "@/app/login/actions";
@@ -11,6 +11,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { PageHeader } from "@/components/dashboard/page-header";
 import { UbahSandi } from "./ubah-sandi";
 import { PengaturanPerangkat } from "./pengaturan-perangkat";
+import { AturNotifikasi } from "./atur-notifikasi";
+import { bacaPref, waSiap } from "@/lib/notif-kirim";
+import { emailSiap } from "@/lib/email";
 
 export const metadata: Metadata = { title: "Akun Saya" };
 export const dynamic = "force-dynamic";
@@ -41,9 +44,10 @@ export default async function AkunPage() {
     );
   }
 
-  const u = await prisma.pengguna.findUnique({ where: { email: s.user.email }, select: { nama: true, email: true, peran: true, terakhirLogin: true, createdAt: true, unitKerja: { select: { nama: true } } } });
+  const u = await prisma.pengguna.findUnique({ where: { email: s.user.email }, select: { id: true, nama: true, email: true, peran: true, terakhirLogin: true, createdAt: true, unitKerja: { select: { nama: true } } } });
   const peran = u?.peran ?? s.user.peran;
   const operator = cukup(peran, "Operator");
+  const pref = operator && u ? await bacaPref(u.id) : null;
   const pintasan = [
     { href: "/admin", label: "Admin", ikon: Settings, tampil: true },
     { href: "/admin/pemeliharaan", label: "Laporan & perintah kerja", ikon: Wrench, tampil: true },
@@ -84,6 +88,14 @@ export default async function AkunPage() {
           <CardHeader><CardTitle>Ganti sandi</CardTitle><CardDescription>Minimal 8 karakter. Gunakan sandi yang tidak dipakai di aplikasi lain.</CardDescription></CardHeader>
           <CardContent><UbahSandi /></CardContent>
         </Card>
+
+        {pref && (
+          <Card>
+            <CardHeader><CardTitle className="flex items-center gap-2"><BellRing className="size-4 text-teal-700" /> Notifikasi email &amp; WhatsApp</CardTitle>
+              <CardDescription>Ringkasan perubahan data oleh orang lain di STARS, EMASCARE, dan hasil sinkron TRILUX, dikirim tiap beberapa menit bila ada perubahan.</CardDescription></CardHeader>
+            <CardContent><AturNotifikasi email={pref.email} wa={pref.wa} emailSiap={emailSiap()} waSiap={waSiap()} /></CardContent>
+          </Card>
+        )}
 
         <PengaturanPerangkat />
 

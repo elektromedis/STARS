@@ -10,4 +10,10 @@ export async function mulai() {
     setTimeout(putar, 60_000);
     setInterval(putar, menit * 60_000);
   }
+  // Kirim ringkasan perubahan data ke email/WA petugas (NOTIF_KIRIM_MENIT, bawaan 10; 0 = mati).
+  const mNotif = Number(process.env.NOTIF_KIRIM_MENIT ?? 10);
+  if (mNotif > 0) {
+    const { kirimNotifPerubahan } = await import("./lib/notif-kirim");
+    setInterval(() => { kirimNotifPerubahan().catch((e) => console.error("[notif] gagal:", (e as Error).message)); }, mNotif * 60_000);
+  }
 }

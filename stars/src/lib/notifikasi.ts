@@ -68,7 +68,14 @@ export async function notifikasiPerubahan(o: { email: string | null; hari?: numb
     },
     orderBy: { waktu: "desc" }, take: 40,
   });
-  return log.map((l) => {
+  return log.map(itemPerubahan);
+}
+
+/** Saring AuditLog perubahan data (dipakai lonceng & pengiriman email/WA). */
+export const saringPerubahan = { OR: AWALAN_DATA.map((a) => ({ aksi: { startsWith: a } })), NOT: [{ aksi: "TRILUX: sinkron", detail: "tidak ada perubahan" }] };
+
+export function itemPerubahan(l: { id: number; waktu: Date; email: string | null; aksi: string; objek: string | null; detail: string | null }): ItemNotif {
+  {
     const asal = asalPerubahan(l.aksi), sinkron = l.aksi.startsWith("TRILUX:");
     const apa = LABEL_AKSI[l.aksi] ?? l.aksi.replace(/^(IMMS|TRILUX): ?/, "").replace(/\./g, " ");
     return {
@@ -78,5 +85,5 @@ export async function notifikasiPerubahan(o: { email: string | null; hari?: numb
       waktu: l.waktu.toISOString(), href: sinkron ? "/imms/sinkron" : asal === "EMASCARE" ? "/imms/audit" : "/admin/audit",
       tingkat: l.aksi.includes("gagal") ? "bahaya" : l.aksi.includes("konflik") ? "peringatan" : "info",
     };
-  });
+  }
 }

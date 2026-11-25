@@ -37,3 +37,29 @@ export async function ubahSandiSendiri(_prev: StatusSandi, fd: FormData): Promis
   await audit("pengguna.sandi-sendiri", { email: s.user.email, ip });
   return { ok: "Sandi berhasil diganti. Gunakan sandi baru saat masuk berikutnya." };
 }
+
+export type StatusNotif = { ok?: string; error?: string } | undefined;
+
+/** Simpan preferensi notifikasi perubahan data (email/WA) milik sendiri. Tombol "uji" mengirim pesan percobaan. */
+export async function simpanNotifSaya(_prev: StatusNotif, fd: FormData): Promise<StatusNotif> {
+  const s = await auth();
+  if (!s?.user?.email) return { error: "Sesi berakhir. Silakan masuk lagi." };
+  const u = await prisma.pengguna.findUnique({ where: { email: s.user.email }, select: { id: true, nama: true, email: true, peran: true } });
+  if (!u || u.peran === "Viewer") return { error: "Notifikasi perubahan data untuk peran Operator ke atas." };
+  const { normalWa } = await import("@/lib/wa");
+  const mentah = String(fd.get("wa") ?? "").trim();
+  const wa = mentah ? normalWa(mentah) : null;
+  if (mentah && !wa) return { error: "Nomor WhatsApp tidak valid. Contoh: 0812xxxxxxx." };
+  const email = fd.get("email") === "on";
+  const { kunciPref, kirimWa, waSiap } = await import("@/lib/notif-kirim");
+  const { simpanPengaturan } = await import("@/lib/pengaturan");
+  await simpanPengaturan(kunciPref(u.id), JSON.stringify({ email, wa }), u.email);
+  await audit("akun.notifikasi", { email: u.email, ip: ipDari(await headers()), detail: `email ${email ? "aktif" : "mati"}, WA ${wa ? "diisi" : "kosong"}` });
+  if (fd.get("uji") !== "1") return { ok: "Tersimpan." };
+  const { emailSiap, kirimEmail } = await import("@/lib/email");
+  const hasil: string[] = [];
+  const teks = `Halo ${u.nama}, ini pesan uji notifikasi STARS. Pengiriman sudah berfungsi.`;
+  if (email) hasil.push(!emailSiap() ? "email: SMTP belum diatur Admin" : await kirimEmail(u.email, "Uji notifikasi STARS", teks).then(() => "email terkirim", (e) => `email gagal (${(e as Error).message})`));
+  if (wa) hasil.push(!waSiap() ? "WA: gateway belum diatur Admin" : await kirimWa(wa, teks).then(() => "WA terkirim", (e) => `WA gagal (${(e as Error).message})`));
+  return hasil.length ? { ok: `Tersimpan. Uji: ${hasil.join("; ")}.` } : { ok: "Tersimpan. Aktifkan email atau isi nomor WA untuk menguji." };
+}
