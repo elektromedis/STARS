@@ -119,3 +119,19 @@ export async function ubahPerintah(_prev: StatusAksi, fd: FormData): Promise<Sta
   revalidatePath("/admin/pemeliharaan");
   return { ok: `Perintah kerja ${wo.nomor} diperbarui ke status ${d.status}.` };
 }
+
+/** Hapus laporan kerusakan / perintah kerja yang salah input atau tidak jadi (Admin). WO "Selesai" tidak dapat dihapus. */
+export async function hapusPemeliharaan(_prev: StatusAksi, fd: FormData): Promise<StatusAksi> {
+  const { sesi, tolak } = await sesiApi("Admin");
+  if (tolak) return { error: "Menghapus memerlukan peran Admin." };
+  if (process.env.STARS_MODE === "internet") return { error: "Server mode internet bersifat baca saja." };
+  const id = Number(fd.get("id"));
+  if (!Number.isInteger(id) || id <= 0) return { error: "ID tidak sah." };
+  const jenis = fd.get("jenis") === "wo" ? "wo" : "wr";
+  const { hapusPermintaan, hapusPerintah } = await import("@/lib/pemeliharaan-hapus");
+  const h = jenis === "wo" ? await hapusPerintah(id) : await hapusPermintaan(id);
+  if ("error" in h) return { error: h.error };
+  await audit(jenis === "wo" ? "perintah.hapus" : "permintaan.hapus", { email: sesi.user.email, ip: await ip(), objek: String(id), detail: h.ok });
+  revalidatePath("/admin/pemeliharaan");
+  return { ok: h.ok };
+}

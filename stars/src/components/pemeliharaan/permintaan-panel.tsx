@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { badgePrioritas, badgeStatusPermintaan, STATUS_PERMINTAAN } from "@/lib/pemeliharaan";
+import { TombolHapus } from "./tombol-hapus";
 import { buatPerintahDariPermintaan, ubahStatusPermintaan, type StatusAksi } from "@/app/admin/pemeliharaan/actions";
 
 type Teknisi = { id: number; nama: string };
@@ -26,7 +27,7 @@ function Pesan({ status }: { status: StatusAksi }) {
     : <p className="flex items-center gap-1.5 text-xs text-emerald-700"><CheckCircle2 className="size-3.5" /> {status.ok}</p>;
 }
 
-function Baris({ p, teknisi, bolehKelola }: { p: Permintaan; teknisi: Teknisi[]; bolehKelola: boolean }) {
+function Baris({ p, teknisi, bolehKelola, bolehHapus }: { p: Permintaan; teknisi: Teknisi[]; bolehKelola: boolean; bolehHapus: boolean }) {
   const [stStatus, aksiStatus, pendStatus] = useActionState<StatusAksi, FormData>(ubahStatusPermintaan, undefined);
   const [stWO, aksiWO, pendWO] = useActionState<StatusAksi, FormData>(buatPerintahDariPermintaan, undefined);
 
@@ -97,6 +98,7 @@ function Baris({ p, teknisi, bolehKelola }: { p: Permintaan; teknisi: Teknisi[];
                 </div>
               </form>
             )}
+            {bolehHapus && <TombolHapus id={p.id} jenis="wr" nomor={p.nomor} catatan={p.perintah ? `Perintah kerja ${p.perintah.nomor} yang terkait ikut dihapus (bila belum selesai).` : undefined} />}
           </div>
         )}
       </div>
@@ -104,7 +106,7 @@ function Baris({ p, teknisi, bolehKelola }: { p: Permintaan; teknisi: Teknisi[];
   );
 }
 
-export function PermintaanPanel({ data, teknisi, bolehKelola }: { data: Permintaan[]; teknisi: Teknisi[]; bolehKelola: boolean }) {
+export function PermintaanPanel({ data, teknisi, bolehKelola, bolehHapus = false }: { data: Permintaan[]; teknisi: Teknisi[]; bolehKelola: boolean; bolehHapus?: boolean }) {
   return (
     <Card>
       <CardHeader><CardTitle>Laporan / permintaan kerja masuk ({data.length})</CardTitle></CardHeader>
@@ -112,7 +114,7 @@ export function PermintaanPanel({ data, teknisi, bolehKelola }: { data: Perminta
         {data.length === 0 ? (
           <p className="px-4 py-6 text-center text-sm text-muted-foreground">Belum ada laporan kerusakan.</p>
         ) : (
-          <div className="overflow-hidden rounded-lg border">{data.map((p) => <Baris key={p.id} p={p} teknisi={teknisi} bolehKelola={bolehKelola} />)}</div>
+          <div className="overflow-hidden rounded-lg border">{data.map((p) => <Baris key={p.id} p={p} teknisi={teknisi} bolehKelola={bolehKelola} bolehHapus={bolehHapus} />)}</div>
         )}
       </CardContent>
     </Card>

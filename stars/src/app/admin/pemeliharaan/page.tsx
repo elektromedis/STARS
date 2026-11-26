@@ -49,8 +49,8 @@ export default async function PemeliharaanPage() {
         <StatCard label="Perintah kerja selesai" value={formatNumber(cSelesai)} hint="total tercatat" />
       </section>
 
-      <PermintaanPanel data={permintaan} teknisi={teknisi} bolehKelola={bolehKelola} />
-      <PerintahPanel data={perintahTte} teknisi={teknisi} bolehKelola={bolehKelola} />
+      <PermintaanPanel data={permintaan} teknisi={teknisi} bolehKelola={bolehKelola} bolehHapus={bolehKelola && cukup(s.user.peran, "Admin")} />
+      <PerintahPanel data={perintahTte} teknisi={teknisi} bolehKelola={bolehKelola} bolehHapus={bolehKelola && cukup(s.user.peran, "Admin")} />
     </div>
   );
 }

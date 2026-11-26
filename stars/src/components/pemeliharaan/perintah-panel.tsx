@@ -1,4 +1,5 @@
 "use client";
+import { TombolHapus } from "./tombol-hapus";
 
 import { useActionState, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
@@ -50,7 +51,7 @@ function KotakTte({ wo, bolehKelola }: { wo: Perintah; bolehKelola: boolean }) {
 
 const tgl = (d: string | Date | null) => (d ? new Date(d).toLocaleString("id-ID", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" }) : "—");
 
-function Baris({ wo, teknisi, bolehKelola }: { wo: Perintah; teknisi: Teknisi[]; bolehKelola: boolean }) {
+function Baris({ wo, teknisi, bolehKelola, bolehHapus }: { wo: Perintah; teknisi: Teknisi[]; bolehKelola: boolean; bolehHapus: boolean }) {
   const [st, aksi, pend] = useActionState<StatusAksi, FormData>(ubahPerintah, undefined);
   return (
     <details className="group border-b last:border-b-0">
@@ -109,12 +110,13 @@ function Baris({ wo, teknisi, bolehKelola }: { wo: Perintah; teknisi: Teknisi[];
             </div>
           </form>
         ) : null}
+        {bolehHapus && wo.status !== "Selesai" && <div className="md:col-start-2"><TombolHapus id={wo.id} jenis="wo" nomor={wo.nomor} catatan={wo.permintaan ? `Laporan ${wo.permintaan.nomor} tetap ada dan kembali berstatus Baru.` : undefined} /></div>}
       </div>
     </details>
   );
 }
 
-export function PerintahPanel({ data, teknisi, bolehKelola }: { data: Perintah[]; teknisi: Teknisi[]; bolehKelola: boolean }) {
+export function PerintahPanel({ data, teknisi, bolehKelola, bolehHapus = false }: { data: Perintah[]; teknisi: Teknisi[]; bolehKelola: boolean; bolehHapus?: boolean }) {
   return (
     <Card>
       <CardHeader><CardTitle>Perintah kerja / work order ({data.length})</CardTitle></CardHeader>
@@ -122,7 +124,7 @@ export function PerintahPanel({ data, teknisi, bolehKelola }: { data: Perintah[]
         {data.length === 0 ? (
           <p className="px-4 py-6 text-center text-sm text-muted-foreground">Belum ada perintah kerja. Buat dari laporan masuk di atas.</p>
         ) : (
-          <div className="overflow-hidden rounded-lg border">{data.map((wo) => <Baris key={wo.id} wo={wo} teknisi={teknisi} bolehKelola={bolehKelola} />)}</div>
+          <div className="overflow-hidden rounded-lg border">{data.map((wo) => <Baris key={wo.id} wo={wo} teknisi={teknisi} bolehKelola={bolehKelola} bolehHapus={bolehHapus} />)}</div>
         )}
       </CardContent>
     </Card>

@@ -4,20 +4,21 @@ import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
 import { cukup } from "@/lib/peran";
 import { fmtTgl, PRIORITAS_WHO } from "@/lib/imms";
-import { buatKeluhan, terimaKeluhan, tolakKeluhan } from "@/app/imms/actions";
+import { buatKeluhan, hapusKeluhan, terimaKeluhan, tolakKeluhan } from "@/app/imms/actions";
+import { HapusKonfirmasi } from "@/components/imms/hapus-konfirmasi";
 import { Kosong, Lencana, Tabel } from "@/components/imms/ui";
 
 export default async function Keluhan({ searchParams }: { searchParams: Promise<{ alat?: string; s?: string; dibuat?: string }> }) {
   await sesiImms();
   const sp = await searchParams; const s = await auth();
-  const teknisi = cukup(s?.user.peran, "Operator");
+  const teknisi = cukup(s?.user.peran, "Operator"), admin = cukup(s?.user.peran, "Admin");
   const unit = s?.user.peran === "Viewer" ? s.user.unitKerjaId : null;
   const st = sp.s ?? "baru";
   const [alat, wr] = await Promise.all([
     prisma.alat.findMany({ where: { aktif: true, ...(unit ? { unitKerjaId: unit } : {}) }, orderBy: { nama: "asc" }, select: { id: true, nama: true, kode: true, ruangan: { select: { nama: true } } }, take: 3000 }),
     prisma.permintaanKerja.findMany({
       where: { ...(unit ? { unitKerjaId: unit } : {}), status: st === "baru" ? { in: ["Baru", "Ditinjau"] } : st === "proses" ? "Diproses" : { in: ["Selesai", "Ditolak"] } },
-      orderBy: { createdAt: "desc" }, take: 300, include: { perintah: { select: { nomor: true } }, unitKerja: { select: { nama: true } } },
+      orderBy: { createdAt: "desc" }, take: 300, include: { perintah: { select: { nomor: true, status: true } }, unitKerja: { select: { nama: true } } },
     }),
   ]);
   return (
@@ -38,7 +39,7 @@ export default async function Keluhan({ searchParams }: { searchParams: Promise<
       <section className="space-y-3" aria-label="Daftar keluhan">
         <div className="flex gap-2">{[["baru", "Menunggu"], ["proses", "Diproses"], ["tutup", "Selesai / ditolak"]].map(([v, l]) => <Link key={v} href={`/imms/keluhan?s=${v}`} className={`kapsul ${st === v ? "utama" : ""}`}>{l}</Link>)}</div>
         {wr.length === 0 ? <div className="kaca panel"><Kosong>Tidak ada laporan.</Kosong></div> : (
-          <Tabel><thead><tr><th>Nomor</th><th>Alat & keluhan</th><th>Prioritas</th><th>Status</th><th>Tanggal</th>{teknisi && st === "baru" && <th>Tindakan</th>}</tr></thead>
+          <Tabel><thead><tr><th>Nomor</th><th>Alat & keluhan</th><th>Prioritas</th><th>Status</th><th>Tanggal</th>{teknisi && st === "baru" && <th>Tindakan</th>}{admin && <th><span className="sr-only">Hapus</span></th>}</tr></thead>
             <tbody>{wr.map((w) => (
               <tr key={w.id}>
                 <td className="whitespace-nowrap font-medium">{w.nomor}{w.perintah && <div><Link className="tautan text-[12px]" href={`/imms/perbaikan/${w.perintah.nomor}`}>{w.perintah.nomor}</Link></div>}</td>
@@ -53,6 +54,7 @@ export default async function Keluhan({ searchParams }: { searchParams: Promise<
                     <form action={tolakKeluhan} className="flex gap-1"><input type="hidden" name="id" value={w.id} /><input name="alasan" placeholder="Alasan tolak" className="isian !py-1 text-[12px]" aria-label="Alasan tolak" /><button className="kapsul bahaya">Tolak</button></form>
                   </div></td>
                 )}
+                {admin && <td>{w.perintah?.status !== "Selesai" && <HapusKonfirmasi aksi={hapusKeluhan} id={w.id} pesan={`Hapus laporan ${w.nomor}?${w.perintah ? ` Perintah kerja ${w.perintah.nomor} ikut dihapus.` : ""}\n\nTindakan ini tidak bisa dibatalkan.`} />}</td>}
               </tr>
             ))}</tbody></Tabel>
         )}

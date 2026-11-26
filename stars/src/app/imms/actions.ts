@@ -290,3 +290,23 @@ export async function keluarImms() {
   await signOut({ redirect: false });
   redirect("/imms/login");
 }
+
+/** Hapus laporan keluhan / perintah kerja yang salah input atau tidak jadi (Admin). WO "Selesai" tidak dapat dihapus. */
+export async function hapusKeluhan(f: FormData) {
+  const s = await sesiImms("Admin");
+  const { hapusPermintaan } = await import("@/lib/pemeliharaan-hapus");
+  const h = await hapusPermintaan(id(f));
+  if ("error" in h) throw new Error(h.error);
+  await audit("IMMS: laporan dihapus", { email: s.user.email, detail: h.ok });
+  segar("/imms/keluhan", "/imms/perbaikan");
+}
+
+export async function hapusPerintahImms(f: FormData) {
+  const s = await sesiImms("Admin");
+  const { hapusPerintah } = await import("@/lib/pemeliharaan-hapus");
+  const h = await hapusPerintah(id(f));
+  if ("error" in h) throw new Error(h.error);
+  await audit("IMMS: perintah kerja dihapus", { email: s.user.email, objek: h.nomor, detail: h.ok });
+  segar("/imms/keluhan", "/imms/perbaikan");
+  redirect("/imms/perbaikan");
+}

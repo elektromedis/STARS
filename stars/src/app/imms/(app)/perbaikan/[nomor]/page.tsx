@@ -6,7 +6,8 @@ import { auth } from "@/auth";
 import { cukup } from "@/lib/peran";
 import { urai } from "@/lib/pemeliharaan";
 import { batasSelesai, fmtRp, fmtTgl, PRIORITAS_WHO, TAHAP_PERBAIKAN, tahapPerbaikan } from "@/lib/imms";
-import { batalkanPerintah, mulaiPerbaikan, setujuiUsulan, tolakUsulan, selesaikanPerbaikan, selesaikanTerencana, simpanAnalisis, simpanInspeksi } from "@/app/imms/actions";
+import { HapusKonfirmasi } from "@/components/imms/hapus-konfirmasi";
+import { hapusPerintahImms, batalkanPerintah, mulaiPerbaikan, setujuiUsulan, tolakUsulan, selesaikanPerbaikan, selesaikanTerencana, simpanAnalisis, simpanInspeksi } from "@/app/imms/actions";
 import { Lencana } from "@/components/imms/ui";
 import { TombolCetak } from "@/components/imms/cetak";
 
@@ -168,6 +169,9 @@ export default async function DetailWo({ params }: { params: Promise<{ nomor: st
 
       {pimpinan && !tutup && (
         <form action={batalkanPerintah} className="cetak-sembunyi flex flex-wrap gap-2"><input type="hidden" name="id" value={w.id} /><input name="alasan" placeholder="Alasan pembatalan" className="isian max-w-xs" aria-label="Alasan pembatalan" /><button className="kapsul bahaya">Batalkan perintah kerja</button></form>
+      )}
+      {pimpinan && w.status !== "Selesai" && (
+        <div className="cetak-sembunyi"><HapusKonfirmasi aksi={hapusPerintahImms} id={w.id} label="Hapus perintah kerja (salah input / tidak jadi)" pesan={`Hapus ${w.nomor}?${w.permintaan ? ` Laporan ${w.permintaan.nomor} tetap ada dan kembali berstatus Baru.` : ""}\n\nTindakan ini tidak bisa dibatalkan.`} /></div>
       )}
       <div className="hidden print:grid grid-cols-2 gap-8 pt-10 text-center text-[13px]"><div>Pelaksana<br /><br /><br />( {w.teknisi?.nama ?? "………………"} )</div><div>Pengguna ruangan<br /><br /><br />( ……………… )</div></div>
     </div>
