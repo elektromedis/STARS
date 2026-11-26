@@ -4,6 +4,7 @@ import { bolehAksi } from "@/lib/role";
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { z } from "zod";
+import { tebakKategoriAlat } from "@/lib/kategori-inventaris";
 import { prisma } from "@/lib/prisma";
 import { cariIkatemi, tebakIkatemi } from "@/lib/klasifikasi-ikatemi";
 import { sesiApi } from "@/lib/sesi";
@@ -24,7 +25,7 @@ async function penjaga() {
 
 function bacaForm(fd: FormData) {
   return skemaAlat.safeParse({
-    kode: fd.get("kode"), nama: fd.get("nama"), merek: fd.get("merek") || undefined, model: fd.get("model") || undefined,
+    kode: fd.get("kode"), kategoriInventaris: fd.get("kategoriInventaris") || null, nama: fd.get("nama"), merek: fd.get("merek") || undefined, model: fd.get("model") || undefined,
     nomorSeri: fd.get("nomorSeri") || undefined, unitKerjaId: fd.get("unitKerjaId"), ruanganId: fd.get("ruanganId") || null,
     lokasi: fd.get("lokasi") || undefined, kategori: fd.get("kategori") || undefined, jenis: fd.get("jenis") || "Medik",
     risiko: fd.get("risiko") || null, tahunPerolehan: fd.get("tahunPerolehan") || null, hargaPerolehan: fd.get("hargaPerolehan") || null,
@@ -75,7 +76,7 @@ export async function klasifikasiOtomatis(): Promise<StatusAksi> {
 
 function rapikan(d: DataAlat) {
   return {
-    ...d, merek: d.merek || null, model: d.model || null, nomorSeri: d.nomorSeri || null, ruanganId: d.ruanganId ?? null,
+    ...d, kategoriInventaris: d.kategoriInventaris ?? null, merek: d.merek || null, model: d.model || null, nomorSeri: d.nomorSeri || null, ruanganId: d.ruanganId ?? null,
     lokasi: d.lokasi || null, kategori: d.kategori || null, tahunPerolehan: d.tahunPerolehan ?? null,
     hargaPerolehan: d.hargaPerolehan ?? null, usiaTeknis: d.usiaTeknis ?? null, garansiSampai: d.garansiSampai ?? null, catatan: d.catatan || null,
     kodeAspak: d.kodeAspak || null, pendanaan: d.pendanaan || null, akl: d.akl || null, produsen: d.produsen || null, distributor: d.distributor || null,
@@ -129,7 +130,7 @@ export async function buatAlat(_prev: StatusAksi, fd: FormData): Promise<StatusA
   await prisma.alat.create({ data: rapikan(d) });
   await audit("alat.buat", { email: g.sesi.user.email, ip: await ip(), objek: d.kode, detail: d.nama });
   revalidatePath("/admin/alat");
-  return { ok: `Alat ${d.kode} ditambahkan.` };
+  return { ok: `Alat ${d.kode} ditambahkan.${await peringatanSeri(d.nomorSeri, d.kode)}` };
 }
 
 export async function ubahAlat(_prev: StatusAksi, fd: FormData): Promise<StatusAksi> {
@@ -150,5 +151,25 @@ export async function ubahAlat(_prev: StatusAksi, fd: FormData): Promise<StatusA
   await prisma.alat.update({ where: { id: id.data }, data: rapikan(d) });
   await audit("alat.ubah", { email: g.sesi.user.email, ip: await ip(), objek: d.kode, detail: `kondisi ${d.kondisi}` });
   revalidatePath("/admin/alat");
-  return { ok: `Alat ${d.kode} diperbarui.` };
+  return { ok: `Alat ${d.kode} diperbarui.${await peringatanSeri(d.nomorSeri, d.kode)}` };
+}
+
+/** Peringatan bila nomor seri sudah dipakai alat lain (tetap disimpan; diberi tahu agar diperiksa). */
+async function peringatanSeri(seri: string | null | undefined, kode: string) {
+  const sn = (seri ?? "").trim();
+  if (!sn || ["-", "0", "tidak ada", "n/a", "na"].includes(sn.toLowerCase())) return "";
+  const lain = await prisma.alat.findMany({ where: { nomorSeri: sn, NOT: { kode } }, select: { kode: true }, take: 5 });
+  return lain.length ? ` ⚠ Nomor seri ${sn} juga dipakai alat ${lain.map((a) => a.kode).join(", ")} — periksa kemungkinan data ganda.` : "";
+}
+
+export async function kategorikanOtomatis(): Promise<StatusAksi> {
+  const { sesi, pesan } = await penjaga();
+  if (!sesi) return { error: pesan ?? "Tidak diizinkan." };
+  const alat = await prisma.alat.findMany({ where: { kategoriInventaris: null }, select: { id: true, nama: true, jenis: true } });
+  const kel = new Map<string, number[]>();
+  for (const a of alat) { const k = tebakKategoriAlat(a.nama, a.jenis); kel.set(k, [...(kel.get(k) ?? []), a.id]); }
+  for (const [k, ids] of kel) await prisma.alat.updateMany({ where: { id: { in: ids } }, data: { kategoriInventaris: k } });
+  await audit("alat.kategori.otomatis", { email: sesi.user.email, ip: ipDari(await headers()), detail: `${alat.length} alat dikategorikan` });
+  revalidatePath("/admin/alat");
+  return { ok: `${alat.length} alat dikategorikan otomatis: ${[...kel].map(([k, v]) => `${k} ${v.length}`).join(", ") || "-"}. Periksa & koreksi di form alat bila perlu.` };
 }

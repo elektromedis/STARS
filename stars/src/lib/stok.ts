@@ -1,7 +1,7 @@
 /** Inventaris pendukung (WHO §4 & §9.7): suku cadang, BHP, alat kerja, alat uji. */
 import { z } from "zod";
 
-export const JENIS_BARANG = ["Suku cadang", "BHP", "Alat kerja", "Alat uji"] as const;
+export const JENIS_BARANG = ["Sparepart", "BHP-BMHP", "Alat kerja", "Alat uji"] as const;
 export const JENIS_MUTASI = ["Masuk", "Keluar", "Penyesuaian"] as const;
 export const HARI_PERINGATAN = 60;
 

@@ -65,7 +65,7 @@ export const MENU_AKSES: { grup: string; item: { href: string; label: string }[]
     { href: "/admin/bobot", label: "Pembobotan" }, { href: "/admin/regulasi", label: "Regulasi" }, { href: "/admin/kir", label: "KIR Ruangan" },
     { href: "/admin/label-inspeksi", label: "Label Inspeksi" }, { href: "/admin/analitik", label: "Analitik WHO" }, { href: "/admin/monitoring", label: "Monitoring (admin)" },
     { href: "/admin/log", label: "Log Impor" }, { href: "/admin/situs", label: "CMS Situs" }, { href: "/admin/jdih", label: "CMS JDIH" },
-    { href: "/admin/pengguna", label: "CMS Pengguna" }, { href: "/admin/user-system", label: "· User System" }, { href: "/admin/sistem", label: "Sistem" },
+    { href: "/admin/karyawan-ai", label: "Karyawan AI" }, { href: "/admin/pengguna", label: "CMS Pengguna" }, { href: "/admin/user-system", label: "· User System" }, { href: "/admin/sistem", label: "Sistem" },
   ] },
 ];
 export const SEMUA_MENU = MENU_AKSES.flatMap((g) => g.item.map((i) => i.href));

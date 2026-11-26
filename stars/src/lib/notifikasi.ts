@@ -45,6 +45,21 @@ export async function notifikasiPetugas(o: { penggunaId: number | null; unit: st
     id: `kal-segera-${hariIni.slice(0, 10)}-${r.kalSegera}`, jenis: "kalibrasi", judul: "Kalibrasi segera habis (≤ 30 hari)",
     isi: `${r.kalSegera} alat masa berlaku kalibrasinya habis dalam 30 hari.`, waktu: hariIni, href: "/kalibrasi?status=segera#data-kalibrasi", tingkat: "peringatan",
   });
+  // Nomor seri ganda (alat berbeda, nomor seri sama) — kemungkinan data dobel/salah ketik.
+  const ganda = await prisma.alat.groupBy({
+    by: ["nomorSeri"], where: { nomorSeri: { not: null, notIn: ["", "-", "0", "N/A", "n/a", "NA", "Tidak ada", "tidak ada"] }, ...(o.unit ? { unitKerja: { nama: o.unit } } : {}) },
+    _count: { _all: true }, having: { nomorSeri: { _count: { gt: 1 } } }, orderBy: { nomorSeri: "asc" }, take: 200,
+  });
+  if (ganda.length) item.push({
+    id: `seri-ganda-${hariIni.slice(0, 10)}-${ganda.length}`, jenis: "seri", judul: "Nomor seri ganda",
+    isi: `${ganda.length} nomor seri dipakai lebih dari satu alat (mis. ${ganda.slice(0, 3).map((g) => g.nomorSeri).join(", ")}). Periksa data dobel.`,
+    waktu: hariIni, href: "/admin/alat#seri-ganda", tingkat: "peringatan",
+  });
+  // Laporan kerja Karyawan AI 24 jam terakhir.
+  const { bacaLog } = await import("./karyawan-ai");
+  for (const c of (await bacaLog()).filter((c) => kini.getTime() - new Date(c.waktu).getTime() < HARI).slice(0, 10)) item.push({
+    id: `kai-${c.id}`, jenis: "karyawan-ai", judul: `Karyawan AI · ${c.judul}`, isi: c.isi.slice(0, 2).join(" · "), waktu: c.waktu, href: c.href, tingkat: c.tingkat,
+  });
   return item.sort((a, b2) => b2.waktu.localeCompare(a.waktu));
 }
 

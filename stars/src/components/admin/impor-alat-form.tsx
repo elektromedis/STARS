@@ -17,7 +17,7 @@ type Pratinjau = { kode: string; status: "baru" | "diperbarui"; nama: string; me
 type Hasil = {
   mode: string; sheet: string; barisHeader: number; totalBaris: number; barisValid: number; barisBaru: number; barisDiperbarui: number; barisError: number;
   ganti?: boolean; akanDihapus?: number; akanDinonaktifkan?: number;
-  kolomDikenali: string[]; kolomTidakDikenali: string[]; unitTidakAda: number; kalibrasi: number; errors: Masalah[]; warnings: Masalah[]; pratinjau: Pratinjau[];
+  kolomDikenali: string[]; kolomTidakDikenali: string[]; unitTidakAda: number; kalibrasi: number; seriGanda?: number; errors: Masalah[]; warnings: Masalah[]; pratinjau: Pratinjau[];
   simpan?: { logId: number; barisBaru: number; barisDiperbarui: number; ruanganBaru: number; kalibrasiBaru: number; barisDihapus?: number; barisDinonaktifkan?: number }; error?: string;
 };
 
@@ -104,6 +104,7 @@ export function ImporAlatForm({ bolehSimpan: izin = true }: { bolehSimpan?: bool
               </div>
             )}
             {hasil.errors.length > 0 && <Daftar judul={`Error (${hasil.errors.length}) — harus diperbaiki`} items={hasil.errors} variant="danger" />}
+            {(hasil.seriGanda ?? 0) > 0 && <p role="alert" className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm font-medium text-amber-950">⚠ {hasil.seriGanda} baris memakai nomor seri ganda (di berkas atau dengan alat yang sudah ada). Periksa daftar peringatan di bawah sebelum menyimpan.</p>}
             {hasil.warnings.length > 0 && <Daftar judul={`Peringatan (${hasil.warnings.length}) — tidak menghalangi`} items={hasil.warnings} variant="warning" />}
             {hasil.pratinjau.length > 0 && (
               <div className="overflow-hidden rounded-lg border">

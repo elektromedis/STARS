@@ -256,7 +256,7 @@ const keluhan: Adaptor = {
 const suku: Adaptor = {
   entitas: "suku",
   tabel: ["m_parts"],
-  bacaStars: () => prisma.barangStok.findMany({ where: { jenis: "Suku cadang" } }) as Promise<Baris[]>,
+  bacaStars: () => prisma.barangStok.findMany({ where: { jenis: "Sparepart" } }) as Promise<Baris[]>,
   bacaTrilux: async (k) => (await q(k.db, "SELECT id_part id, p.* FROM m_parts p")) as unknown as Baris[],
   dariStars: (s) => ({ _kode: teks(s.kode), nama: teks(s.nama), tipe: teks(s.alatTerkait), harga: angka(s.harga), minimum: angka(s.stokMinimum) ?? 0, ket: teks(s.catatan), aktif: !!s.aktif }),
   dariTrilux: (t) => ({ _kode: teks(t.pn) ?? `PART-TRX-${t.id}`, _idT: Number(t.id), nama: teks(t.name), tipe: teks(t.tipe), harga: angka(t.harga), minimum: angka(t.minimum_stok) ?? 0, ket: teks(t.desc), aktif: !Number(t.deleted) }),
@@ -267,7 +267,7 @@ const suku: Adaptor = {
     for (const [a, b] of [["nama", "nama"], ["tipe", "alatTerkait"], ["harga", "harga"], ["minimum", "stokMinimum"], ["ket", "catatan"], ["aktif", "aktif"]] as const) if (beda(u, lama, a)) d[b] = u[a];
     if (d.nama === null) d.nama = "Suku cadang TRILUX";
     if (s) { if (Object.keys(d).length) await prisma.barangStok.update({ where: { id: s.id }, data: d }); return s.id; }
-    return (await prisma.barangStok.create({ data: { ...d, kode: (await prisma.barangStok.findUnique({ where: { kode: String(u._kode) } })) ? `${u._kode}-TRX${u._idT}` : String(u._kode), jenis: "Suku cadang" } as never })).id;
+    return (await prisma.barangStok.create({ data: { ...d, kode: (await prisma.barangStok.findUnique({ where: { kode: String(u._kode) } })) ? `${u._kode}-TRX${u._idT}` : String(u._kode), jenis: "Sparepart" } as never })).id;
   },
 };
 

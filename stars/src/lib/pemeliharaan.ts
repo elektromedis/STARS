@@ -3,6 +3,7 @@
  * Dipisah dari data pengadaan (Paket) agar tidak saling memengaruhi.
  */
 import { z } from "zod";
+import { KATEGORI_ALAT } from "./kategori-inventaris";
 import { prisma } from "./prisma";
 
 export const PRIORITAS = ["Rendah", "Normal", "Tinggi", "Darurat"] as const;
@@ -55,6 +56,7 @@ export const skemaPermintaan = z.object({
 });
 
 export const skemaAlat = z.object({
+  kategoriInventaris: z.enum(KATEGORI_ALAT).nullable().optional(),
   kode: teks(60, "Kode/nomor inventaris wajib diisi"),
   nama: teks(200, "Nama alat wajib diisi"),
   merek: z.string().trim().max(120).optional(),

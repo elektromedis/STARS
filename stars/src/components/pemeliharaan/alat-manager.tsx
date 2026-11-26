@@ -1,5 +1,6 @@
 "use client";
 
+import { KATEGORI_ALAT } from "@/lib/kategori-inventaris";
 import { useActionState, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { AlertTriangle, CheckCircle2, ChevronDown, DoorOpen, FolderOpen, Loader2, Plus, Printer, QrCode, XCircle } from "lucide-react";
@@ -21,7 +22,7 @@ export type RuanganRingkas = { id: number; nama: string; gedung: string | null; 
 export type Alat = {
   id: number; kode: string; nama: string; merek: string | null; model: string | null; nomorSeri: string | null;
   unitKerjaId: number; unitKerja: { nama: string }; ruanganId: number | null; ruangan: { nama: string } | null;
-  lokasi: string | null; kategori: string | null; jenis: string; risiko: string | null; tahunPerolehan: number | null;
+  lokasi: string | null; kategori: string | null; kategoriInventaris?: string | null; jenis: string; risiko: string | null; tahunPerolehan: number | null;
   hargaPerolehan: number | null; usiaTeknis: number | null; garansiSampai: string | Date | null;
   kondisi: string; catatan: string | null; _count: { permintaan: number; perintah: number };
   kodeAspak: string | null; noUrutAset: string | null; instalasi: string | null; pelayanan: string | null; tahunPembelian: number | null; tahunPembukuan: number | null;
@@ -57,6 +58,7 @@ function Medan({ a, units, ruangan }: { a?: Alat; units: Unit[]; ruangan: Ruanga
       <label className={L}>Merek<Input name="merek" defaultValue={a?.merek ?? ""} maxLength={120} className="h-9" /></label>
       <label className={L}>Model<Input name="model" defaultValue={a?.model ?? ""} maxLength={120} className="h-9" /></label>
       <label className={L}>Nomor seri<Input name="nomorSeri" defaultValue={a?.nomorSeri ?? ""} maxLength={120} className="h-9" /></label>
+      <label className={L}>Kategori inventaris<Select name="kategoriInventaris" defaultValue={a?.kategoriInventaris ?? ""} className="h-9"><option value="">— belum —</option>{KATEGORI_ALAT.map((x) => <option key={x}>{x}</option>)}</Select></label>
       <label className={L}>Kategori<Input name="kategori" defaultValue={a?.kategori ?? ""} maxLength={120} className="h-9" placeholder="mis. Life support" /></label>
       <label className={L}>Unit kerja *
         <Select name="unitKerjaId" defaultValue={a?.unitKerjaId ?? ""} required className="h-9">
@@ -255,7 +257,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
       ) : (
         <div className="grid gap-1 bg-muted/20 px-4 py-3 text-sm sm:grid-cols-2">
           <p><span className="text-muted-foreground">Nomor seri:</span> {a.nomorSeri ?? "—"}</p>
-          <p><span className="text-muted-foreground">Kategori:</span> {a.kategori ?? "—"} · <span className="text-muted-foreground">Risiko:</span> {a.risiko ?? "—"}</p>
+          <p><span className="text-muted-foreground">Inventaris:</span> {a.kategoriInventaris ?? "—"} · <span className="text-muted-foreground">Kategori:</span> {a.kategori ?? "—"} · <span className="text-muted-foreground">Risiko:</span> {a.risiko ?? "—"}</p>
           <p><span className="text-muted-foreground">Perolehan:</span> {a.tahunPerolehan ?? "—"} · <span className="text-muted-foreground">Usia teknis:</span> {a.usiaTeknis ?? "—"} th</p>
           <p><span className="text-muted-foreground">Garansi sampai:</span> {a.garansiSampai ? new Date(a.garansiSampai).toLocaleDateString("id-ID") : "—"}</p>
           <p className="flex flex-wrap gap-3 sm:col-span-2"><TautanLabel href={label} /> <TautanDetail kode={a.kode} /> <a href={`/api/admin/htm/uji-terima/${a.id}`} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-teal-700 hover:underline">Lembar uji terima</a></p>

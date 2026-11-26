@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { bolehAksi } from "@/lib/role";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { bacaExcelAlat, rencanaGantiAlat, simpanAlat, tandaiStatus, validasiAlat } from "@/lib/impor-alat";
+import { bacaExcelAlat, rencanaGantiAlat, simpanAlat, tandaiStatus, peringatanSeriGanda, validasiAlat } from "@/lib/impor-alat";
 import { sesiApi } from "@/lib/sesi";
 import { cukup } from "@/lib/peran";
 import { audit, ipDari } from "@/lib/audit";
@@ -41,6 +41,8 @@ export async function POST(req: NextRequest) {
   }
   hasil.errors.sort((a, b) => a.baris - b.baris);
   await tandaiStatus(hasil.valid);
+  const seriGanda = await peringatanSeriGanda(hasil.valid);
+  hasil.warnings.unshift(...seriGanda);
   const unitDibatasi = sesi.user.unitKerja && !cukup(sesi.user.peran, "Admin") ? sesi.user.unitKerja : null;
   const rencana = ganti && hasil.valid.length ? await rencanaGantiAlat(hasil.valid, unitDibatasi) : null;
   const ringkas = {
@@ -49,6 +51,7 @@ export async function POST(req: NextRequest) {
     barisBaru: hasil.valid.filter((b) => b.status === "baru").length, barisDiperbarui: hasil.valid.filter((b) => b.status === "diperbarui").length,
     barisError: new Set(hasil.errors.map((e) => e.baris)).size, kolomDikenali: dibaca.kolomDikenali, kolomTidakDikenali: dibaca.kolomTidakDikenali,
     unitTidakAda: hasil.valid.filter((b) => b.unitKerja === "TIDAK ADA").length, kalibrasi: hasil.valid.filter((b) => b.tanggalKalibrasi).length,
+    seriGanda: seriGanda.length,
     errors: hasil.errors.slice(0, 300), warnings: hasil.warnings.slice(0, 300),
     pratinjau: hasil.valid.slice(0, 25).map((b) => ({ kode: b.kode, status: b.status, nama: b.nama, merek: b.merek, unitKerja: b.unitKerja, ruangan: b.ruangan, kondisi: b.kondisi, kalibrasi: b.tanggalKalibrasi ? b.tanggalKalibrasi.toISOString().slice(0, 10) : null })),
   };

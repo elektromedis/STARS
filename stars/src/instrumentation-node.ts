@@ -23,4 +23,9 @@ export async function mulai() {
     const { kirimNotifPerubahan } = await import("./lib/notif-kirim");
     setInterval(() => { kirimNotifPerubahan().catch((e) => console.error("[notif] gagal:", (e as Error).message)); }, mNotif * 60_000);
   }
+  // Karyawan AI otomatis: cek jadwal tiap menit (atur di Admin → Karyawan AI; KARYAWAN_AI=0 untuk mematikan penjadwal).
+  if (process.env.KARYAWAN_AI !== "0" && process.env.STARS_MODE !== "internet") {
+    const { putaranJadwal } = await import("./lib/karyawan-ai");
+    setInterval(() => { putaranJadwal().catch((e) => console.error("[karyawan-ai] gagal:", (e as Error).message)); }, 60_000);
+  }
 }

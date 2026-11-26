@@ -9,7 +9,7 @@ import type { ItemNotif } from "@/lib/notifikasi-jenis";
 import { waktuDibaca } from "@/lib/lokal";
 import { cn } from "@/lib/utils";
 
-const IKON: Record<ItemNotif["jenis"], typeof BellRing> = { laporan: Wrench, wo: ClipboardList, preventif: CalendarClock, kalibrasi: Gauge, "laporan-saya": BadgeCheck, perubahan: RefreshCw };
+const IKON: Record<ItemNotif["jenis"], typeof BellRing> = { laporan: Wrench, wo: ClipboardList, preventif: CalendarClock, kalibrasi: Gauge, "laporan-saya": BadgeCheck, perubahan: RefreshCw, seri: ClipboardList, "karyawan-ai": BellRing };
 const WARNA: Record<ItemNotif["tingkat"], string> = {
   info: "bg-teal-50 text-teal-700", sukses: "bg-emerald-50 text-emerald-700", peringatan: "bg-amber-50 text-amber-700", bahaya: "bg-red-50 text-red-700",
 };

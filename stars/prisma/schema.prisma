@@ -148,6 +148,7 @@ model Alat {
   ruanganId             Int?
   lokasi                String?
   kategori              String?
+  kategoriInventaris    String? // Alat Elektromedik Non Radiasi | Alat Elektromedik Radiasi | Alat Non Elektromedik
   jenis                 String            @default("Medik") // Medik | Non Medik
   risiko                String? // Tinggi | Sedang | Rendah (klasifikasi EM)
   tahunPerolehan        Int?
@@ -227,6 +228,8 @@ model Alat {
   @@index([kondisi])
   @@index([jenis])
   @@index([aktif, unitKerjaId])
+  @@index([kategoriInventaris])
+  @@index([nomorSeri])
   @@index([nama])
 }
 
@@ -578,7 +581,7 @@ model BarangStok {
   id              Int          @id @default(autoincrement())
   kode            String       @unique
   nama            String
-  jenis           String // Suku cadang | BHP | Alat kerja | Alat uji
+  jenis           String // Sparepart | BHP-BMHP | Alat kerja | Alat uji
   satuan          String       @default("pcs")
   stok            Int          @default(0)
   stokMinimum     Int          @default(0) // titik pesan ulang

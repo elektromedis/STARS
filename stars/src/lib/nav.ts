@@ -1,4 +1,4 @@
-import { Cpu, FileHeart, HeartPulse, Library, Pill, ShoppingCart, Video, BadgeCheck, Activity, Landmark, ArrowLeftRight, CalendarDays, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, ShieldCheck, Thermometer, Wallet, Wrench, type LucideIcon, Box } from "lucide-react";
+import { Globe, Cpu, FileHeart, HeartPulse, Library, Pill, ShoppingCart, Video, BadgeCheck, Activity, Landmark, ArrowLeftRight, CalendarDays, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, ShieldCheck, Thermometer, Wallet, Wrench, type LucideIcon, Box } from "lucide-react";
 
 export type NavItem = {
   label: string; href: string; icon: LucideIcon; description: string;
@@ -94,6 +94,11 @@ export const NAV_SAMPING: NavItem[] = [
   ] },
   { label: "RCD", href: dp("nomenklatur"), icon: Library, description: "Reference & Coding Database", children: [
     { label: "NOMENKLATUR", href: dp("nomenklatur"), icon: Library, description: "Nomenklatur alat kesehatan (dalam pengembangan)" },
+  ] },
+  { label: "WHO", href: "/admin/htm", icon: Globe, description: "CMS WHO: audit inventaris, HTM WHO 2025, dan analitik WHO (perlu login)", children: [
+    { label: "Audit Inventaris", href: "/admin/audit", icon: ClipboardList, description: "Audit inventaris alat kesehatan (WHO Medical Device Inventory)" },
+    { label: "HTM WHO 2025", href: "/admin/htm", icon: Cpu, description: "Health Technology Management WHO 2025" },
+    { label: "Analitik WHO", href: "/admin/analitik", icon: Database, description: "Indikator & analitik kinerja pengelolaan alat ala WHO" },
   ] },
   { label: "JDIH", href: "/jdih", icon: Landmark, description: "Jaringan Dokumentasi dan Informasi Hukum" },
   { label: "SMARTMFK", href: "/smart-mfk", icon: ShieldCheck, description: "Manajemen Fasilitas dan Keselamatan (akreditasi bab MFK)" },

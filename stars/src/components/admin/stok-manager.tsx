@@ -28,7 +28,7 @@ function Pesan({ st }: { st: StatusAksi }) {
 
 function MedanBarang({ b }: { b?: Barang }) {
   const L = "grid gap-1 text-xs text-muted-foreground";
-  const [jenis, setJenis] = useState(b?.jenis ?? "Suku cadang");
+  const [jenis, setJenis] = useState(b?.jenis ?? "Sparepart");
   return (
     <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6 [&>*]:min-w-0">
       {b && <input type="hidden" name="id" value={b.id} />}

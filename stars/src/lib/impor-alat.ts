@@ -191,6 +191,18 @@ export async function tandaiStatus(valid: BarisAlat[]) {
   return valid;
 }
 
+const SERI_KOSONG = new Set(["", "-", "0", "n/a", "na", "tidak ada", "none"]);
+/** Peringatan nomor seri ganda: sesama baris berkas, atau sudah dipakai alat lain (kode berbeda) di basis data. */
+export async function peringatanSeriGanda(valid: BarisAlat[]) {
+  const out: { baris: number; kolom: string; pesan: string }[] = [];
+  const pakai = new Map<string, BarisAlat[]>();
+  for (const v of valid) { const sn = (v.nomorSeri ?? "").trim(); if (SERI_KOSONG.has(sn.toLowerCase())) continue; pakai.set(sn, [...(pakai.get(sn) ?? []), v]); }
+  for (const [sn, b] of pakai) if (b.length > 1) for (const x of b) out.push({ baris: x.baris, kolom: "no_seri", pesan: `Nomor seri ${sn} ganda di berkas (baris ${b.map((y) => y.baris).join(", ")})` });
+  const di = await prisma.alat.findMany({ where: { nomorSeri: { in: [...pakai.keys()] } }, select: { kode: true, nomorSeri: true } });
+  for (const a of di) for (const x of pakai.get(a.nomorSeri ?? "") ?? []) if (x.kode !== a.kode) out.push({ baris: x.baris, kolom: "no_seri", pesan: `Nomor seri ${a.nomorSeri} sudah dipakai alat ${a.kode} di STARS` });
+  return out;
+}
+
 type Tx = Parameters<Parameters<typeof prisma.$transaction>[0]>[0];
 
 /**

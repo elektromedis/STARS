@@ -12,6 +12,8 @@ import { Pagination } from "@/components/dashboard/pagination";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { cukup } from "@/lib/peran";
+import { UnggahMassalDokumen } from "@/components/admin/unggah-massal-dokumen";
 import { cn, formatNumber, formatRupiah } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Dokumen Paket" };
@@ -19,7 +21,8 @@ export const dynamic = "force-dynamic";
 
 /** CMS dokumen paket: kelengkapan RKPBU, AKPA, Nota Dinas, SP/SPK, Invoice/Faktur per paket. */
 export default async function DokumenPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
-  await sesiHalaman("Viewer");
+  const sesi = await sesiHalaman("Viewer");
+  const bolehMassal = cukup(sesi.user.peran, "Operator") && process.env.STARS_MODE !== "internet";
   const sp = await searchParams;
   const { filter, options } = await resolveFilter(sp);
   const q = (first(sp.q) ?? "").trim();
@@ -35,6 +38,15 @@ export default async function DokumenPage({ searchParams }: { searchParams: Prom
 
   return (
     <div className="grid gap-4">
+      {bolehMassal && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2"><FileCheck2 className="size-5 text-teal-700" /> Unggah massal dokumen alat</CardTitle>
+            <CardDescription>Pilih banyak berkas sekaligus. Berkas otomatis ditautkan ke alat yang <strong>nomor seri</strong>, <strong>tipe</strong>, atau <strong>nama alat</strong>-nya tertulis di nama berkas. Periksa pratinjau pasangan dulu, lalu unggah.</CardDescription>
+          </CardHeader>
+          <CardContent><UnggahMassalDokumen bolehSimpan={bolehMassal} /></CardContent>
+        </Card>
+      )}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2"><FolderOpen className="size-5 text-teal-700" /> Kelengkapan dokumen</CardTitle>

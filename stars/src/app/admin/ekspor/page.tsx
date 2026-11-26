@@ -10,7 +10,6 @@ import { formatRupiah, formatNumber } from "@/lib/utils";
 import { sesiHalaman } from "@/lib/sesi";
 import { cukup } from "@/lib/peran";
 import { bolehMenu } from "@/lib/role";
-import { SubTab } from "@/components/admin/sub-tab";
 import ImporBagian from "../impor/bagian";
 
 export const metadata: Metadata = { title: "CMS Impor-Ekspor" };
@@ -22,7 +21,7 @@ export default async function EksporPage({ searchParams }: { searchParams: Promi
   const s = await sesiHalaman("Viewer");
   const bolehImpor = cukup(s.user.peran, "Operator") && (await bolehMenu(s.user.id, "/admin/impor"));
   const bagian = sp.bagian === "ekspor" || !bolehImpor ? "ekspor" : sp.bagian === "impor" ? "impor" : "impor";
-  const sub = <SubTab aktif={bagian} item={[...(bolehImpor ? [{ kode: "impor", label: "Impor Excel", href: "/admin/ekspor?bagian=impor" }] : []), { kode: "ekspor", label: "Ekspor & Template", href: "/admin/ekspor?bagian=ekspor" }]} />;
+  const sub = null;
   if (bagian === "impor") return <div className="grid gap-4">{sub}<div><ImporBagian s={s} /></div></div>;
   const { filter, options } = await resolveFilter(sp);
   const [r, jumlahBaris] = await Promise.all([getRingkasan(filter), prisma.paket.count({ where: whereFilter(filter) })]);
