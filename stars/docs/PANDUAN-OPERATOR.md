@@ -18,7 +18,7 @@ Susunan materi = urutan sesi pelatihan. Rekam layar saat sesi berlangsung untuk 
    - **Lupa sandi?** (di atas kolom sandi): isi email → tautan *buat sandi baru* dikirim ke email (berlaku 30 menit,
      sekali pakai). Bila server email belum diatur, permintaan dicatat dan Admin menyetel ulang sandi.
    - **Belum punya akun?** → *Daftar akun baru*: isi nama, email, unit, jabatan/keperluan, dan sandi.
-     Akun baru **aktif setelah disetujui Admin** (Admin → Pengguna → *Menunggu persetujuan* → pilih peran & unit →
+     Akun baru **aktif setelah disetujui Admin** (Admin → CMS Pengguna → *Menunggu persetujuan* → pilih peran & unit →
      **Setujui** atau **Tolak**).
 4. Sesi habis setelah 8 jam — login ulang adalah hal normal.
 5. Login dan menu **Admin** bisa dipakai dari mana saja: komputer RS (`http://<IP-server>:3000`) maupun
@@ -35,7 +35,7 @@ Susunan materi = urutan sesi pelatihan. Rekam layar saat sesi berlangsung untuk 
    - `nilai`, `harga_satuan`, `vol1`, `vol2`: angka tanpa "Rp" (format Indonesia 1.000.000,50 boleh).
    - `serapan`: ya/tidak (sudah terserap atau belum).
    - **Jangan mengganti nama kolom. Jangan menghapus kolom `kode`** (pengenal baris — kosong untuk baris baru).
-3. **Admin → Impor Excel** → pilih berkas → **Periksa**.
+3. **Admin → CMS Impor-Ekspor → Impor Excel** → pilih berkas → **Periksa**.
    - Tabel pratinjau muncul + daftar **error** (merah, menyebut baris & kolom — wajib diperbaiki) dan **peringatan** (kuning — boleh lanjut).
    - Baris lama yang cocok ditandai "akan diperbarui" — ini normal, bukan duplikat.
 4. **Simpan** (aktif hanya bila nol error) → buka dashboard → pastikan data Anda muncul dan totalnya masuk akal.
@@ -75,7 +75,7 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
   *Kelola* → unggah per jenis (PDF/JPG/PNG/DOCX/XLSX, maks 15 MB; isi berkas diperiksa, bukan hanya
   ekstensinya). Di menu Paket, kolom dokumen menampilkan ikon bila sudah ada; membukanya wajib login, dan
   Viewer ber-unit hanya bisa membuka dokumen unitnya. Operator yang dibatasi unit hanya mengelola dokumen unitnya.
-- **Label QR alat:** Admin → *Daftar Alat* → *Cetak label QR alat* (per unit/ruangan) atau *Cetak label QR*
+- **Label QR alat:** Admin → *CMS Pemeliharaan → Inventarisasi → Alat Kesehatan* → *Cetak label QR alat* (per unit/ruangan) atau *Cetak label QR*
   di baris satu alat. Tiap QR menunjuk tepat ke satu alat; dipindai kamera HP (atau tombol Scan QR) →
   halaman **detail inventaris** alat itu (berisi tombol *Lapor Kerusakan*). Label lama (berisi `/lapor?alat=`)
   tetap berfungsi. Isi kolom alamat dengan alamat **https publik** STARS (mis. Tailscale) —
@@ -98,7 +98,7 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
   DOCX/XLSX, maks 30 MB). Untuk User Manual, Service Manual, SOP, dan AKD/AKL tersedia centang **"Terapkan juga
   ke alat lain dengan nama, merek & tipe sama"** — satu berkas langsung tertaut ke semua alat sejenis.
   Hapus dokumen bisa dari alat ini saja atau dari semua alat yang memakainya. Sertifikat Kalibrasi diambil
-  otomatis dari CMS Kalibrasi. Dari Admin → *Daftar Alat*, tautan *Foto, dokumen & detail* membuka halaman ini.
+  otomatis dari CMS Kalibrasi. Dari Admin → *CMS Pemeliharaan → Inventarisasi → Alat Kesehatan*, tautan *Foto, dokumen & detail* membuka halaman ini.
 - **CMS Kalibrasi (Operator):** Admin → *Kalibrasi* → *Unggah sertifikat* (PDF/JPG/PNG, boleh banyak sekaligus).
   Dari **PDF berteks** STARS mengisi otomatis tanggal kalibrasi, masa berlaku, nomor sertifikat, lembaga, hasil
   (laik/tidak), dan alatnya (dicocokkan lewat **nomor seri/kode** yang tercantum; ikon ✦ = terisi otomatis).
@@ -184,6 +184,27 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
 - **Membersihkan data lama (Admin):** Admin → Sistem → *Hapus data paket per tahun / tahap*. Centang
   tahun/tahap, ketik `HAPUS`, lalu tekan *Hapus permanen*. Salinan basis data dibuat otomatis sebelum
   menghapus (di server: folder `cadangan` di samping basis data); tetap disarankan unduh cadangan dulu.
+
+## Pembaruan November 2026 (menu & fitur baru)
+
+- **Menu samping baru.** DASHBOARD, ALLIES - AGEN AI KAMU, IMMIS (EMASCARE), CMMS (TRILUX, SI-FARMALKES), EHR,
+  ESP (SI-ALKES), MDM-IOT (LIS), BMS (SI-LOGGER), SCPS (SI-PENGADAAN), QMS (SI-TRACKING), RCD (NOMENKLATUR), WHO,
+  JDIH, SMARTMFK, AVICENNA, TELEMEDICINE, TELEFARMA, TENTANG SAYA, ADMIN. Menu berpanah → klik untuk sub-menu.
+- **ADMIN dikelompokkan:**
+  - *CMS Impor-Ekspor*: Impor Excel · Ekspor & Template · Dokumen Paket & Unggah Massal.
+  - *CMS Pemeliharaan*: Lembar Kerja · Korektif/Perbaikan · Preventif · Pemantauan Fungsi/Inspeksi ·
+    Inventarisasi (Alat Kesehatan, Sparepart & BHP-BMHP, KIR Ruangan) · Pembobotan.
+  - *CMS WHO*: Audit Inventaris · HTM WHO 2025 · Analitik WHO.
+  - *CMS Pengguna*: Akun Pengguna · User System (30 peran, sakelar ON/OFF izin & menu).
+- **Unggah massal dokumen alat:** beri nama berkas berisi nomor seri / tipe / nama alat
+  (mis. `SN12345_BA_Penerimaan.pdf`, `B450_User_Manual.pdf`) → pilih banyak berkas → periksa pratinjau → **Unggah**.
+- **Kategori inventaris:** Alat Elektromedik Non Radiasi / Radiasi / Non Elektromedik (di form alat atau
+  *Kategorikan otomatis*); Sparepart dan BHP-BMHP di menu terpisah.
+- **Nomor seri ganda** muncul sebagai peringatan kuning, di lonceng notifikasi, dan saat impor — periksa data dobel.
+- **Lihat & bagikan dokumen** (menu Data): dokumen tampil di browser dulu → *Bagikan / Unduh* .pdf/.xlsx/.docx/.pptx.
+- **Hapus laporan/WO salah input** di Korektif/Perbaikan (WO berstatus Selesai tidak bisa dihapus).
+- **Mode Presentasi** di Pengujian & Kalibrasi, unduh .pptx (bisa diedit) atau .pdf.
+- **Karyawan AI** (Admin): nyalakan sakelar, atur jam kerja → laporan otomatis tiap hari di Catatan kerja & notifikasi.
 
 ## Pesan error yang sering muncul
 

@@ -17,7 +17,7 @@
 
 1. Login → Admin → **Ekspor & Template** → unduh template (atau ekspor data yang ada).
 2. Isi/ubah di Excel. **Jangan mengubah nama kolom dan jangan menghapus kolom `kode`.** Kolom `unit_kerja` wajib salah satu dari 28 unit resmi.
-3. Admin → **Impor Excel** → pilih berkas → **Periksa** → baca pratinjau dan peringatan → **Simpan** (hanya aktif bila nol error).
+3. Admin → **CMS Impor-Ekspor** → **Impor Excel** → pilih berkas → **Periksa** → baca pratinjau dan peringatan → **Simpan** (hanya aktif bila nol error).
 4. Buka dashboard publik, cocokkan Total Nilai dengan kertas kerja. **Nol error bukan berarti angka benar** — kebenaran angka tanggung jawab pengunggah/PPA.
 
 ## 3. Persetujuan
