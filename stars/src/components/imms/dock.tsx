@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bell, Boxes, Home, ScanQrCode, UserRound, type LucideIcon } from "lucide-react";
+import { Bell, Boxes, History, Home, LogIn, ScanQrCode, UserRound, Wrench, type LucideIcon } from "lucide-react";
 import { useNotifikasi } from "@/components/layout/use-notifikasi";
 import { BUKA_PINDAI } from "./pindai-kamera";
 
@@ -13,7 +13,14 @@ const MENU: { label: string; href: string; ikon: LucideIcon; warna: string }[] =
 ];
 
 /** Dock bawah EMASCARE (padanan menu bawah STARS): Beranda, Inventaris, Pindai QR, Notifikasi, Akun. */
-export function DockEmas() {
+const MENU_PUBLIK: typeof MENU = [
+  { label: "Beranda", href: "/imms", ikon: Home, warna: "linear-gradient(#38bdf8,#2563eb)" },
+  { label: "Lapor", href: "/imms/lapor", ikon: Wrench, warna: "linear-gradient(#fb923c,#ea580c)" },
+  { label: "Lacak", href: "/imms/riwayat", ikon: History, warna: "linear-gradient(#fbbf24,#d97706)" },
+  { label: "Masuk", href: "/imms/login", ikon: LogIn, warna: "linear-gradient(#94a3b8,#475569)" },
+];
+
+export function DockEmas({ publik = false }: { publik?: boolean }) {
   const path = usePathname() ?? "/imms";
   const { belum } = useNotifikasi();
   const aktif = (h: string) => (h === "/imms" ? path === "/imms" : path === h || path.startsWith(h + "/"));
@@ -24,6 +31,7 @@ export function DockEmas() {
       <span className="emas-dock-label">{label}</span>
     </Link>
   );
+  if (publik) return <nav className="emas-dock kaca" aria-label="Menu cepat EMASCARE">{MENU_PUBLIK.map((m) => <Ubin key={m.href} {...m} />)}</nav>;
   return (
     <nav className="emas-dock kaca" aria-label="Menu cepat EMASCARE">
       {MENU.slice(0, 2).map((m) => <Ubin key={m.href} {...m} />)}

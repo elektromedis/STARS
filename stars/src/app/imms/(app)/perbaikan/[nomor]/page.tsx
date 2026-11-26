@@ -1,3 +1,4 @@
+import { sesiImms } from "@/lib/imms-sesi";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
@@ -12,6 +13,7 @@ import { TombolCetak } from "@/components/imms/cetak";
 type Inspeksi = Record<string, string>;
 
 export default async function DetailWo({ params }: { params: Promise<{ nomor: string }> }) {
+  await sesiImms();
   const nomor = decodeURIComponent((await params).nomor);
   const s = await auth();
   const w = await prisma.perintahKerja.findUnique({ where: { nomor }, include: { alat: { include: { unitKerja: true, ruangan: true } }, permintaan: true, teknisi: { select: { nama: true } }, jadwal: true } });

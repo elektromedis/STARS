@@ -1,3 +1,4 @@
+import { sesiImms } from "@/lib/imms-sesi";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
@@ -7,6 +8,7 @@ import { hitungUlangSemua } from "@/app/imms/actions";
 import { Cari, Kartu, Lencana, Tabel, Kosong } from "@/components/imms/ui";
 
 export default async function NilaiEm({ searchParams }: { searchParams: Promise<{ q?: string; f?: string }> }) {
+  await sesiImms();
   const sp = await searchParams; const s = await auth();
   const q = (sp.q ?? "").trim();
   const unit = s?.user.peran === "Viewer" ? s.user.unitKerjaId : null;

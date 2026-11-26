@@ -1,3 +1,4 @@
+import { sesiImms } from "@/lib/imms-sesi";
 import Link from "next/link";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
@@ -8,6 +9,7 @@ import { Cari, Hal, Kosong, Lencana, Tabel } from "@/components/imms/ui";
 const PER = 50;
 
 export default async function Inventaris({ searchParams }: { searchParams: Promise<{ q?: string; unit?: string; kondisi?: string; hal?: string }> }) {
+  await sesiImms();
   const sp = await searchParams;
   const s = await auth();
   const hal = Math.max(1, Number(sp.hal) || 1);

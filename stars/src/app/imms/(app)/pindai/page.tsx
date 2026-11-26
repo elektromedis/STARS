@@ -1,8 +1,10 @@
+import { sesiImms } from "@/lib/imms-sesi";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 
 /** Kolom barcode: hasil pemindai (USB/kamera) atau ketikan kode → buka detail alat bila tepat satu cocok. */
 export default async function Pindai({ searchParams }: { searchParams: Promise<{ k?: string }> }) {
+  await sesiImms();
   let k = ((await searchParams).k ?? "").trim().slice(0, 300);
   try { const u = new URL(k); k = u.searchParams.get("kode") ?? u.searchParams.get("alat") ?? decodeURIComponent(u.pathname.split("/").pop() ?? k); } catch { /* bukan URL */ }
   if (!k) redirect("/imms/inventaris");

@@ -1,3 +1,4 @@
+import { sesiImms } from "@/lib/imms-sesi";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
@@ -7,6 +8,7 @@ import { buatKeluhan, terimaKeluhan, tolakKeluhan } from "@/app/imms/actions";
 import { Kosong, Lencana, Tabel } from "@/components/imms/ui";
 
 export default async function Keluhan({ searchParams }: { searchParams: Promise<{ alat?: string; s?: string; dibuat?: string }> }) {
+  await sesiImms();
   const sp = await searchParams; const s = await auth();
   const teknisi = cukup(s?.user.peran, "Operator");
   const unit = s?.user.peran === "Viewer" ? s.user.unitKerjaId : null;

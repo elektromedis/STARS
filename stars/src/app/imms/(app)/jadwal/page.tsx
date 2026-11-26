@@ -1,3 +1,4 @@
+import { sesiImms } from "@/lib/imms-sesi";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
@@ -7,6 +8,7 @@ import { buatPerintahJadwal } from "@/app/imms/actions";
 import { Kosong, Lencana, Tabel } from "@/components/imms/ui";
 
 export default async function Jadwal({ searchParams }: { searchParams: Promise<{ rentang?: string }> }) {
+  await sesiImms();
   const { rentang = "90" } = await searchParams;
   const s = await auth(); const teknisi = cukup(s?.user.peran, "Operator");
   const kini = new Date(), sampai = rentang === "semua" ? undefined : new Date(kini.getTime() + Number(rentang) * 86_400_000);

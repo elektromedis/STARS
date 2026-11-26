@@ -1,3 +1,4 @@
+import { sesiImms } from "@/lib/imms-sesi";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
@@ -11,6 +12,7 @@ import { simpanEm, buatInspeksiAlat } from "@/app/imms/actions";
 import { Lencana } from "@/components/imms/ui";
 
 export default async function Detail({ params }: { params: Promise<{ kode: string }> }) {
+  await sesiImms();
   const kode = decodeURIComponent((await params).kode);
   const s = await auth();
   const a = await prisma.alat.findUnique({
