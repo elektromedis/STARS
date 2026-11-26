@@ -191,12 +191,49 @@ export async function tandaiStatus(valid: BarisAlat[]) {
   return valid;
 }
 
-export async function simpanAlat(baris: BarisAlat[], meta: { namaBerkas: string; ukuranByte: number; pengguna?: string | null; berkasTersimpan?: string | null; barisError: number }) {
+type Tx = Parameters<Parameters<typeof prisma.$transaction>[0]>[0];
+
+/**
+ * Mode ganti: alat lama pada unit kerja yang ada di berkas (opsional dibatasi satu unit) tetapi kodenya
+ * TIDAK ada di berkas. Alat tanpa riwayat dihapus; alat yang punya riwayat kerja (perbaikan, jadwal, kalibrasi
+ * manual, peminjaman, penghapusan, lembar kerja) dinonaktifkan agar riwayat RS tidak hilang.
+ * Alat yang kodenya ada di berkas diperbarui seluruh isinya (riwayatnya tetap).
+ */
+export async function rencanaGantiAlat(baris: BarisAlat[], unitDibatasi: string | null, db: Tx | typeof prisma = prisma) {
+  const namaUnit = unitDibatasi ? [unitDibatasi] : [...new Set(baris.map((b) => b.unitKerja))];
+  const unitIds = (await db.unitKerja.findMany({ where: { nama: { in: namaUnit } }, select: { id: true } })).map((u) => u.id);
+  const kodeBerkas = new Set(baris.map((b) => b.kode));
+  const lama = (await db.alat.findMany({ where: { unitKerjaId: { in: unitIds } }, select: { id: true, kode: true } })).filter((a) => !kodeBerkas.has(a.kode));
+  const ids = lama.map((a) => a.id);
+  if (!ids.length) return { hapus: [] as number[], nonaktif: [] as number[] };
+  const w = { alatId: { in: ids } };
+  const pakai = new Set<number>();
+  const tandai = (r: { alatId: number | null }[]) => r.forEach((x) => x.alatId != null && pakai.add(x.alatId));
+  tandai(await db.kalibrasi.findMany({ where: { ...w, NOT: { kalibrator: "(impor Trilux)" } }, select: { alatId: true } }));
+  tandai(await db.permintaanKerja.findMany({ where: w, select: { alatId: true } }));
+  tandai(await db.perintahKerja.findMany({ where: w, select: { alatId: true } }));
+  tandai(await db.jadwalPreventif.findMany({ where: w, select: { alatId: true } }));
+  tandai(await db.peminjaman.findMany({ where: w, select: { alatId: true } }));
+  tandai(await db.penghapusan.findMany({ where: w, select: { alatId: true } }));
+  tandai(await db.lembarKerja.findMany({ where: w, select: { alatId: true } }));
+  tandai(await db.kegiatanPromotif.findMany({ where: w, select: { alatId: true } }));
+  return { hapus: ids.filter((i) => !pakai.has(i)), nonaktif: ids.filter((i) => pakai.has(i)) };
+}
+
+export async function simpanAlat(baris: BarisAlat[], meta: { namaBerkas: string; ukuranByte: number; pengguna?: string | null; berkasTersimpan?: string | null; barisError: number }, opsi?: { ganti?: boolean; unitDibatasi?: string | null }) {
   const units = new Map((await prisma.unitKerja.findMany()).map((u) => [u.nama, u.id]));
-  let ruanganBaru = 0, kalibrasiBaru = 0;
+  let ruanganBaru = 0, kalibrasiBaru = 0, barisDihapus = 0, barisDinonaktifkan = 0;
   const totalNilai = baris.reduce((a, b) => a + (b.hargaPerolehan ?? 0), 0);
   try {
     await prisma.$transaction(async (tx) => {
+      if (opsi?.ganti) {
+        const r = await rencanaGantiAlat(baris, opsi.unitDibatasi ?? null, tx);
+        if (r.hapus.length) {
+          await tx.kalibrasi.deleteMany({ where: { alatId: { in: r.hapus } } });
+          barisDihapus = (await tx.alat.deleteMany({ where: { id: { in: r.hapus } } })).count;
+        }
+        if (r.nonaktif.length) barisDinonaktifkan = (await tx.alat.updateMany({ where: { id: { in: r.nonaktif } }, data: { aktif: false } })).count;
+      }
       const cacheRuangan = new Map<string, number>();
       for (const b of baris) {
         const unitKerjaId = units.get(b.unitKerja) ?? units.get("TIDAK ADA");
@@ -229,6 +266,6 @@ export async function simpanAlat(baris: BarisAlat[], meta: { namaBerkas: string;
     throw err;
   }
   const barisBaru = baris.filter((b) => b.status === "baru").length;
-  const log = await prisma.logImpor.create({ data: { ...meta, totalBaris: baris.length, barisBaru, barisDiperbarui: baris.length - barisBaru, totalNilai, status: "Berhasil", pesan: `Impor inventaris alat: ${ruanganBaru} ruangan baru, ${kalibrasiBaru} catatan kalibrasi` } });
-  return { logId: log.id, barisBaru, barisDiperbarui: baris.length - barisBaru, ruanganBaru, kalibrasiBaru, totalNilai };
+  const log = await prisma.logImpor.create({ data: { ...meta, totalBaris: baris.length, barisBaru, barisDiperbarui: baris.length - barisBaru, totalNilai, status: "Berhasil", pesan: `Impor inventaris alat: ${ruanganBaru} ruangan baru, ${kalibrasiBaru} catatan kalibrasi${opsi?.ganti ? `; mode ganti: ${barisDihapus} alat lama dihapus, ${barisDinonaktifkan} dinonaktifkan (punya riwayat)` : ""}` } });
+  return { logId: log.id, barisBaru, barisDiperbarui: baris.length - barisBaru, ruanganBaru, kalibrasiBaru, totalNilai, barisDihapus, barisDinonaktifkan };
 }

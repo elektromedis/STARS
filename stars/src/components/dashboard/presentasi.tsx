@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { ChevronLeft, ChevronRight, Grid3x3, Maximize, Minimize, Pause, Play, Printer, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Grid3x3, Maximize, Minimize, Pause, Play, Presentation, Printer, X } from "lucide-react";
 import { LogoIkon } from "@/components/layout/logo-animasi";
 import { useSitus } from "@/components/layout/use-situs";
 import { urlLogoRsud } from "@/lib/situs";
@@ -15,13 +15,13 @@ const LEBAR = 1200; // lebar desain isi slide (px), lalu diskalakan agar pas
  * lalu satu slide per grafik/kartu. Isi disalin (clone) dari halaman sehingga angka & grafik
  * selalu sama dengan yang tampil.
  */
-function susunSlide(bagian: { id: string; label: string }[]): Slide[] {
+function susunSlide(bagian: { id: string; label: string }[], awal = "Dashboard"): Slide[] {
   const kepala = bagian.map((b) => document.getElementById(b.id)).filter((x): x is HTMLElement => Boolean(x));
   const target = [...document.querySelectorAll<HTMLElement>("[data-slide]")].filter((x) => x.offsetHeight > 0);
   // Urutkan dalam urutan dokumen: judul bagian → slide pembatas; elemen data-slide → slide isi.
   const semua = [...kepala, ...target].sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
   const slides: Slide[] = [];
-  let judulBagian = "Dashboard";
+  let judulBagian = awal;
   for (const el of semua) {
     if (kepala.includes(el)) {
       judulBagian = el.querySelector("h2")?.textContent?.trim() || judulBagian;
@@ -48,7 +48,7 @@ function salin(el: HTMLElement) {
 }
 
 /** Satu slide 16:9 berukuran tetap 1280×720 (diskalakan pemanggil). */
-function KanvasSlide({ s, i, n, judulLaporan, tanggal, logoRsud }: { s: Slide | "sampul" | "penutup"; i: number; n: number; judulLaporan: string; tanggal: string; logoRsud: string }) {
+function KanvasSlide({ s, i, n, judulLaporan, tanggal, logoRsud, labelSampul = "Laporan Dashboard" }: { s: Slide | "sampul" | "penutup"; i: number; n: number; judulLaporan: string; tanggal: string; logoRsud: string; labelSampul?: string }) {
   const wadah = useRef<HTMLDivElement>(null);
   const [skala, setSkala] = useState(1);
   useLayoutEffect(() => {
@@ -74,7 +74,7 @@ function KanvasSlide({ s, i, n, judulLaporan, tanggal, logoRsud }: { s: Slide | 
         <div className="flex items-center gap-4 rounded-2xl bg-white px-5 py-3 self-start">{logo}</div>
         {s === "sampul" ? (
           <div className="relative">
-            <p className="text-xl font-semibold uppercase tracking-[0.3em] text-emerald-200">Laporan Dashboard</p>
+            <p className="text-xl font-semibold uppercase tracking-[0.3em] text-emerald-200">{labelSampul}</p>
             <h1 className="mt-3 text-7xl font-extrabold leading-tight">{judulLaporan}</h1>
             <p className="mt-4 text-2xl opacity-90">Sistem Terintegrasi Alat Kesehatan Rumah Sakit · RSUD Cipayung</p>
           </div>
@@ -120,7 +120,13 @@ function Skala({ children, lebar, tinggi }: { children: React.ReactNode; lebar: 
   return <div style={{ width: 1280 * k, height: 720 * k }} className="relative shrink-0 overflow-hidden rounded-md shadow-2xl"><div style={{ transform: `scale(${k})`, transformOrigin: "top left" }} className="absolute left-0 top-0">{children}</div></div>;
 }
 
-export function TombolPresentasi({ bagian, judul = "Dashboard STARS" }: { bagian: { id: string; label: string }[]; judul?: string }) {
+export function TombolPresentasi({ bagian, judul = "Dashboard STARS", bagianAwal, labelSampul, tombol = false, unduhan = [] }: {
+  bagian: { id: string; label: string }[]; judul?: string; bagianAwal?: string; labelSampul?: string;
+  /** Tampilkan tombol "Mode Presentasi" sendiri (di luar beranda yang memakai tombol bilah atas). */
+  tombol?: boolean;
+  /** Tautan unduhan berkas (mis. .pptx / .pdf) yang ditampilkan di bilah kontrol presentasi. */
+  unduhan?: { label: string; href: string }[];
+}) {
   const { info } = useSitus();
   const [slides, setSlides] = useState<(Slide | "sampul" | "penutup")[] | null>(null);
   const [i, setI] = useState(0);
@@ -137,7 +143,7 @@ export function TombolPresentasi({ bagian, judul = "Dashboard STARS" }: { bagian
   const tutup = useCallback(() => { setSlides(null); setPutar(false); setIkhtisar(false); if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); }, []);
 
   function mulai() {
-    setSlides(["sampul", ...susunSlide(bagian), "penutup"]); setI(0);
+    setSlides(["sampul", ...susunSlide(bagian, bagianAwal), "penutup"]); setI(0);
     requestAnimationFrame(() => akar.current?.requestFullscreen?.().catch(() => {}));
   }
   const bukaPresentasi = useRef(mulai);
@@ -178,9 +184,14 @@ export function TombolPresentasi({ bagian, judul = "Dashboard STARS" }: { bagian
   }, [cetak]);
 
   const tbl = "grid size-10 place-items-center rounded-full text-white/90 hover:bg-white/15 disabled:opacity-30";
-  const props = { n, judulLaporan: judul, tanggal, logoRsud: urlLogoRsud(info) };
+  const props = { n, judulLaporan: judul, tanggal, logoRsud: urlLogoRsud(info), labelSampul };
   return (
     <>
+      {tombol && (
+        <button type="button" onClick={mulai} className="inline-flex h-9 items-center gap-2 rounded-md bg-navy-800 px-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 print:hidden">
+          <Presentation className="size-4" aria-hidden /> Mode Presentasi
+        </button>
+      )}
       {slides && createPortal(
         <div ref={akar} id="presentasi-root" role="dialog" aria-modal="true" aria-label="Presentasi laporan dashboard" aria-roledescription="presentasi" className="fixed inset-0 z-[90] flex flex-col bg-slate-950 text-white">
           {cetak && <div className="slide-cetak">{slides.map((s, k) => <div key={k} className="slide-halaman"><KanvasSlide s={s} i={k} {...props} /></div>)}</div>}
@@ -208,6 +219,9 @@ export function TombolPresentasi({ bagian, judul = "Dashboard STARS" }: { bagian
             <span className="flex-1 sm:hidden" />
             <button type="button" className={tbl} onClick={() => setPutar((v) => !v)} aria-pressed={putar} aria-label={putar ? "Jeda putar otomatis" : "Putar otomatis (8 detik/slide)"} title={putar ? "Jeda" : "Putar otomatis"}>{putar ? <Pause /> : <Play />}</button>
             <button type="button" className={tbl} onClick={() => setIkhtisar((v) => !v)} aria-pressed={ikhtisar} aria-label="Ikhtisar semua slide" title="Ikhtisar (G)"><Grid3x3 /></button>
+            {unduhan.map((u) => (
+              <a key={u.href} href={u.href} download className="hidden h-8 items-center gap-1 rounded-full border border-white/30 px-3 text-xs font-semibold text-white/90 hover:bg-white/15 sm:inline-flex" title={`Unduh ${u.label}`}><Download className="size-3.5" aria-hidden /> {u.label}</a>
+            ))}
             <button type="button" className={tbl} onClick={() => setCetak(true)} aria-label="Cetak / simpan PDF" title="Cetak / simpan PDF (lanskap)"><Printer /></button>
             <button type="button" className={`${tbl} hidden sm:grid`} onClick={() => (penuh ? document.exitFullscreen() : akar.current?.requestFullscreen())?.catch(() => {})} aria-label={penuh ? "Keluar layar penuh" : "Layar penuh"} title="Layar penuh (F)">{penuh ? <Minimize /> : <Maximize />}</button>
             <button type="button" className={tbl} onClick={tutup} aria-label="Tutup presentasi" title="Tutup (Esc)"><X /></button>

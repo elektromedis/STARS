@@ -6,7 +6,10 @@ import { useBahasa } from "@/lib/bahasa";
 import { KUNCI_TAMPILAN } from "@/lib/tampilan-skrip";
 
 type Latar = 1 | 2 | 3 | 4;
-const berikut = (x: Latar): Latar => (x === 4 ? 1 : (x + 1) as Latar);
+/** Nomor tampilan (T1–T4) untuk tiap latar internal: latar 3 = T1, 2 = T2, 4 = T3, 1 = T4. Nilai internal tetap agar pilihan tersimpan tidak berubah. */
+const NOMOR: Record<Latar, number> = { 3: 1, 2: 2, 4: 3, 1: 4 };
+const URUT: Latar[] = [3, 2, 4, 1];
+const berikut = (x: Latar): Latar => URUT[(URUT.indexOf(x) + 1) % URUT.length];
 type Tampilan = { gelap: boolean; latar: Latar };
 
 function baca(): Tampilan {
@@ -33,7 +36,7 @@ function useTampilan() {
   return nilai;
 }
 
-/** Tombol Tema 1/2 dan mode terang/gelap di header. */
+/** Tombol Tema (T1–T4) dan mode terang/gelap di header. */
 export function TombolTampilan() {
   const { t } = useBahasa();
   const { gelap, latar } = useTampilan();
@@ -41,8 +44,8 @@ export function TombolTampilan() {
   return (
     <div className="flex shrink-0 items-center rounded-full bg-slate-100 p-0.5" role="group" aria-label={t("Pengaturan tampilan", "Display settings")}>
       <button type="button" className={kelas} onClick={() => terapkan({ gelap, latar: berikut(latar) })}
-        aria-label={t(`Latar Tema ${latar}. Ganti ke Tema ${berikut(latar)}`, `Background Theme ${latar}. Switch to Theme ${berikut(latar)}`)} title={t(`Tema ${latar}`, `Theme ${latar}`)}>
-        T{latar}
+        aria-label={t(`Latar Tema ${NOMOR[latar]}. Ganti ke Tema ${NOMOR[berikut(latar)]}`, `Background Theme ${NOMOR[latar]}. Switch to Theme ${NOMOR[berikut(latar)]}`)} title={t(`Tema ${NOMOR[latar]}`, `Theme ${NOMOR[latar]}`)}>
+        T{NOMOR[latar]}
       </button>
       <button type="button" className={kelas} onClick={() => terapkan({ gelap: !gelap, latar })} aria-pressed={gelap}
         aria-label={t("Mode gelap", "Dark mode")} title={gelap ? t("Ganti ke mode terang", "Switch to light mode") : t("Ganti ke mode gelap", "Switch to dark mode")}>

@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { bacaExcelAlat, simpanAlat, tandaiStatus, validasiAlat } from "@/lib/impor-alat";
+import { bacaExcelAlat, rencanaGantiAlat, simpanAlat, tandaiStatus, validasiAlat } from "@/lib/impor-alat";
 import { sesiApi } from "@/lib/sesi";
 import { cukup } from "@/lib/peran";
 import { audit, ipDari } from "@/lib/audit";
@@ -12,13 +12,14 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 const MAKS_BYTE = 15 * 1024 * 1024;
 
-/** POST /api/admin/impor-alat (multipart: file=.xlsx/.xls/.csv, mode=validasi|simpan) — impor inventaris alat (format Trilux atau template STARS). */
+/** POST /api/admin/impor-alat (multipart: file=.xlsx/.xls/.csv, mode=validasi|simpan, ganti=1 opsional) — impor inventaris alat (format Trilux atau template STARS). */
 export async function POST(req: NextRequest) {
   const { sesi, tolak } = await sesiApi("Operator");
   if (tolak) return tolak;
   const form = await req.formData();
   const file = form.get("file");
   const mode = form.get("mode") === "simpan" ? "simpan" : "validasi";
+  const ganti = form.get("ganti") === "1";
   if (mode === "simpan" && process.env.STARS_MODE === "internet") return NextResponse.json({ error: "Server mode internet bersifat baca saja." }, { status: 403 });
   if (mode === "simpan" && !cukup(sesi.user.peran, "Operator")) return NextResponse.json({ error: "Menyimpan memerlukan peran Operator atau lebih tinggi." }, { status: 403 });
   if (!(file instanceof File)) return NextResponse.json({ error: "Berkas tidak ditemukan (field `file`)." }, { status: 400 });
@@ -38,7 +39,10 @@ export async function POST(req: NextRequest) {
   }
   hasil.errors.sort((a, b) => a.baris - b.baris);
   await tandaiStatus(hasil.valid);
+  const unitDibatasi = sesi.user.unitKerja && !cukup(sesi.user.peran, "Admin") ? sesi.user.unitKerja : null;
+  const rencana = ganti && hasil.valid.length ? await rencanaGantiAlat(hasil.valid, unitDibatasi) : null;
   const ringkas = {
+    ganti, akanDihapus: rencana?.hapus.length ?? 0, akanDinonaktifkan: rencana?.nonaktif.length ?? 0,
     sheet: dibaca.sheet, barisHeader: dibaca.barisHeader, totalBaris: dibaca.baris.length, barisValid: hasil.valid.length,
     barisBaru: hasil.valid.filter((b) => b.status === "baru").length, barisDiperbarui: hasil.valid.filter((b) => b.status === "diperbarui").length,
     barisError: new Set(hasil.errors.map((e) => e.baris)).size, kolomDikenali: dibaca.kolomDikenali, kolomTidakDikenali: dibaca.kolomTidakDikenali,
@@ -59,9 +63,9 @@ export async function POST(req: NextRequest) {
   } catch { /* opsional */ }
   const ip = ipDari(req.headers);
   try {
-    const simpan = await simpanAlat(hasil.valid, { namaBerkas: file.name, ukuranByte: file.size, pengguna: sesi.user.email, berkasTersimpan, barisError: ringkas.barisError });
+    const simpan = await simpanAlat(hasil.valid, { namaBerkas: file.name, ukuranByte: file.size, pengguna: sesi.user.email, berkasTersimpan, barisError: ringkas.barisError }, { ganti, unitDibatasi });
     revalidatePath("/", "layout");
-    await audit("alat.impor", { email: sesi.user.email, ip, objek: file.name, detail: `${simpan.barisBaru} baru, ${simpan.barisDiperbarui} diperbarui, ${simpan.ruanganBaru} ruangan, ${simpan.kalibrasiBaru} kalibrasi` });
+    await audit("alat.impor", { email: sesi.user.email, ip, objek: file.name, detail: `${simpan.barisBaru} baru, ${simpan.barisDiperbarui} diperbarui, ${simpan.ruanganBaru} ruangan, ${simpan.kalibrasiBaru} kalibrasi${ganti ? `, mode ganti: ${simpan.barisDihapus} dihapus, ${simpan.barisDinonaktifkan} dinonaktifkan` : ""}` });
     return NextResponse.json({ mode, ...ringkas, simpan });
   } catch (err) {
     await audit("alat.impor.gagal", { email: sesi.user.email, ip, objek: file.name, detail: err instanceof Error ? err.message : String(err) });

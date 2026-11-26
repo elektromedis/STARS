@@ -16,8 +16,9 @@ type Masalah = { baris: number; kolom: string; pesan: string };
 type Pratinjau = { kode: string; status: "baru" | "diperbarui"; nama: string; merek: string | null; unitKerja: string; ruangan: string | null; kondisi: string; kalibrasi: string | null };
 type Hasil = {
   mode: string; sheet: string; barisHeader: number; totalBaris: number; barisValid: number; barisBaru: number; barisDiperbarui: number; barisError: number;
+  ganti?: boolean; akanDihapus?: number; akanDinonaktifkan?: number;
   kolomDikenali: string[]; kolomTidakDikenali: string[]; unitTidakAda: number; kalibrasi: number; errors: Masalah[]; warnings: Masalah[]; pratinjau: Pratinjau[];
-  simpan?: { logId: number; barisBaru: number; barisDiperbarui: number; ruanganBaru: number; kalibrasiBaru: number }; error?: string;
+  simpan?: { logId: number; barisBaru: number; barisDiperbarui: number; ruanganBaru: number; kalibrasiBaru: number; barisDihapus?: number; barisDinonaktifkan?: number }; error?: string;
 };
 
 /** Impor inventaris alat: pilih berkas (ekspor Trilux / template) → Periksa → Simpan. */
@@ -26,13 +27,22 @@ export function ImporAlatForm({ bolehSimpan: izin = true }: { bolehSimpan?: bool
   const [hasil, setHasil] = useState<Hasil | null>(null);
   const [sibuk, setSibuk] = useState<"" | "validasi" | "simpan">("");
   const [pesan, setPesan] = useState<string | null>(null);
+  const [ganti, setGanti] = useState(false);
   const router = useRouter();
 
   async function kirim(mode: "validasi" | "simpan") {
     if (!file) return;
+    if (mode === "simpan" && ganti) {
+      const yakin = window.confirm(
+        `Mode GANTI aktif: ${formatNumber(hasil?.akanDihapus ?? 0)} alat lama (unit kerja yang sama dengan berkas, tidak ada di berkas) akan DIHAPUS` +
+        `${hasil?.akanDinonaktifkan ? ` dan ${formatNumber(hasil.akanDinonaktifkan)} alat yang punya riwayat dinonaktifkan` : ""}, lalu diganti ${formatNumber(hasil?.barisValid ?? 0)} alat dari berkas.\n\nTindakan ini tidak bisa dibatalkan. Lanjutkan?`
+      );
+      if (!yakin) return;
+    }
     setSibuk(mode); setPesan(null);
     try {
       const fd = new FormData(); fd.append("file", file); fd.append("mode", mode);
+      if (ganti) fd.append("ganti", "1");
       const res = await fetch("/api/admin/impor-alat", { method: "POST", body: fd });
       const data = (await res.json()) as Hasil;
       if (!res.ok && !data.totalBaris) { setPesan(data.error ?? `Gagal (${res.status})`); setHasil(null); } else { setHasil(data); if (data.error) setPesan(data.error); if (data.simpan) router.refresh(); }
@@ -60,6 +70,17 @@ export function ImporAlatForm({ bolehSimpan: izin = true }: { bolehSimpan?: bool
           </div>
         </CardContent>
         <CardContent className="pt-0"><AmbilGsheet kunci="alat" nama="Google_Sheets_Inventaris_CMMS" onFile={(f) => { setFile(f); setHasil(null); setPesan(null); }} /></CardContent>
+        <CardContent className="pt-0">
+          <label className={`flex cursor-pointer items-start gap-2 rounded-lg border p-3 text-sm ${ganti ? "border-red-300 bg-red-50 text-red-900" : "text-muted-foreground"}`}>
+            <input type="checkbox" className="mt-0.5 accent-red-600" checked={ganti} onChange={(e) => { setGanti(e.target.checked); setHasil(null); setPesan(null); }} />
+            <span>
+              <strong>Ganti data lama (hapus lalu impor ulang).</strong> Semua alat lama pada <em>unit kerja yang sama</em> dengan isi berkas akan dihapus
+              lebih dulu, lalu diganti seluruh isi berkas — satu kali impor, data lama terganti utuh. Alat lama yang sudah punya riwayat
+              (perbaikan, jadwal, kalibrasi, peminjaman) dinonaktifkan, bukan dihapus, agar riwayatnya tetap ada.
+              Tanpa centang ini, impor hanya menambah/memperbarui baris yang cocok tanpa menghapus apa pun.
+            </span>
+          </label>
+        </CardContent>
       </Card>
 
       {pesan && !tersimpan && <div role="alert" className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800"><XCircle className="mt-0.5 size-4 shrink-0" /> {pesan}</div>}
@@ -76,6 +97,12 @@ export function ImporAlatForm({ bolehSimpan: izin = true }: { bolehSimpan?: bool
                 <div key={String(l)} className="rounded-lg border bg-muted/30 p-3"><p className="text-xs text-muted-foreground">{l}</p><p className={`mt-1 text-lg font-bold tabular-nums ${l === "Unit TIDAK ADA" && Number(v) > 0 ? "text-amber-700" : "text-navy-800"}`}>{formatNumber(Number(v))}</p></div>
               ))}
             </div>
+            {hasil.ganti && !tersimpan && (
+              <div className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-900">
+                <AlertTriangle className="mt-0.5 size-4 shrink-0" />
+                <span>Mode ganti aktif: saat Simpan, <strong>{formatNumber(hasil.akanDihapus ?? 0)} alat lama</strong> pada unit kerja yang sama akan dihapus{hasil.akanDinonaktifkan ? <> dan <strong>{formatNumber(hasil.akanDinonaktifkan)}</strong> alat berriwayat dinonaktifkan</> : null}, lalu diganti isi berkas.</span>
+              </div>
+            )}
             {hasil.errors.length > 0 && <Daftar judul={`Error (${hasil.errors.length}) — harus diperbaiki`} items={hasil.errors} variant="danger" />}
             {hasil.warnings.length > 0 && <Daftar judul={`Peringatan (${hasil.warnings.length}) — tidak menghalangi`} items={hasil.warnings} variant="warning" />}
             {hasil.pratinjau.length > 0 && (
@@ -100,7 +127,7 @@ export function ImporAlatForm({ bolehSimpan: izin = true }: { bolehSimpan?: bool
             )}
             <div className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
               {tersimpan ? (
-                <p className="flex items-center gap-2 text-sm text-emerald-800"><CheckCircle2 className="size-5" /> Tersimpan: {formatNumber(hasil.simpan!.barisBaru)} alat baru, {formatNumber(hasil.simpan!.barisDiperbarui)} diperbarui, {formatNumber(hasil.simpan!.ruanganBaru)} ruangan baru, {formatNumber(hasil.simpan!.kalibrasiBaru)} catatan kalibrasi (log #{hasil.simpan!.logId}).</p>
+                <p className="flex items-center gap-2 text-sm text-emerald-800"><CheckCircle2 className="size-5" /> Tersimpan: {hasil.ganti ? `${formatNumber(hasil.simpan!.barisDihapus ?? 0)} lama dihapus, ${formatNumber(hasil.simpan!.barisDinonaktifkan ?? 0)} dinonaktifkan, ` : ""}{formatNumber(hasil.simpan!.barisBaru)} alat baru, {formatNumber(hasil.simpan!.barisDiperbarui)} diperbarui, {formatNumber(hasil.simpan!.ruanganBaru)} ruangan baru, {formatNumber(hasil.simpan!.kalibrasiBaru)} catatan kalibrasi (log #{hasil.simpan!.logId}).</p>
               ) : <p className="text-sm text-muted-foreground">{hasil.barisError > 0 ? "Perbaiki error, lalu pilih berkas lagi dan Periksa ulang." : `${formatNumber(hasil.barisValid)} alat siap disimpan.`}</p>}
               <div className="flex gap-2">
                 {tersimpan && <Button variant="outline" asChild><Link href="/admin/alat">Lihat Daftar Alat</Link></Button>}

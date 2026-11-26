@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CalendarClock, Download, FileSpreadsheet, Gauge, Landmark, Lock, Search, Settings2, TableProperties } from "lucide-react";
+import { CalendarClock, Download, FileSpreadsheet, FileText, Presentation, Gauge, Landmark, Lock, Search, Settings2, TableProperties } from "lucide-react";
 import { auth } from "@/auth";
 import { unitTerkunci } from "@/lib/akses";
 import { getDataKalibrasi, JENIS_UJI, STATUS_DATA, type FilterKalibrasi } from "@/lib/kalibrasi-data";
@@ -16,6 +16,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { PageHeader } from "@/components/dashboard/page-header";
 import { StatCard } from "@/components/dashboard/stat-card";
 import { Pagination } from "@/components/dashboard/pagination";
+import { TombolPresentasi } from "@/components/dashboard/presentasi";
 import { BatangPeringkat, BatangStatus, BatangTipis, KolomSatuSeri, KolomTahun, LencanaStatus } from "@/components/kalibrasi/grafik";
 
 export const metadata: Metadata = { title: "Pengujian dan Kalibrasi" };
@@ -45,6 +46,7 @@ export default async function KalibrasiPublikPage({ searchParams }: { searchPara
   const masuk = Boolean(sesi?.user);
   const adaFilter = Boolean(f.q || f.unit || f.status || f.jenis || f.lembaga || f.tahun);
   const qEkspor = keQuery(f).toString();
+  const qPres = (fmt: string) => { const q = keQuery({ ...f, mode: "alat" }); q.set("format", fmt); return `/api/kalibrasi/presentasi?${q}`; };
 
   return (
     <>
@@ -52,40 +54,44 @@ export default async function KalibrasiPublikPage({ searchParams }: { searchPara
         title="Pengujian dan Kalibrasi Alat"
         description={`Status pengujian & kalibrasi alat kesehatan${kunci ? ` unit ${kunci.nama}` : " RSUD Cipayung"}: masa berlaku, jatuh tempo, lembaga penguji, dan riwayat lengkap per alat. Status alat dihitung dari catatan terbarunya.`}
         actions={<>
+          <TombolPresentasi tombol bagian={[]} judul="Pengujian dan Kalibrasi Alat" bagianAwal="Pengujian & Kalibrasi" labelSampul="Laporan Pengujian & Kalibrasi"
+            unduhan={[{ label: ".pptx", href: qPres("pptx") }, { label: ".pdf", href: qPres("pdf") }]} />
+          <Button variant="outline" asChild><a href={qPres("pptx")} download><Presentation /> Unduh .pptx</a></Button>
+          <Button variant="outline" asChild><a href={qPres("pdf")} download><FileText /> Unduh .pdf</a></Button>
           <Button variant="outline" asChild><a href={`/api/kalibrasi/ekspor${qEkspor ? `?${qEkspor}` : ""}`}><FileSpreadsheet /> Unduh Excel</a></Button>
           <Button variant="teal" asChild><Link href="/admin/kalibrasi"><Settings2 /> Kelola (login)</Link></Button>
         </>}
       />
 
-      <section aria-label="Indikator" className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <section data-slide="Indikator utama" aria-label="Indikator" className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Alat wajib uji/kalibrasi" value={formatNumber(r.total)} hint="alat medik aktif & alat yang pernah diuji" />
         <StatCard label="Cakupan berlaku" value={`${(r.cakupan * 100).toFixed(1).replace(".", ",")}%`} hint={`${formatNumber(r.hitung.berlaku + r.hitung.segera + r.hitung["tanpa-batas"])} alat punya catatan yang masih berlaku`} />
         <StatCard label="Kedaluwarsa / tidak laik" value={formatNumber(r.hitung.bermasalah)} hint={`${formatNumber(r.tidakLaik)} tidak laik · ${formatNumber(r.hitung.belum)} belum pernah`} />
         <StatCard label="Jatuh tempo ≤ 90 hari" value={formatNumber(r.jatuhTempo90)} hint={`${formatNumber(r.hitung.segera)} di antaranya ≤ 30 hari`} />
       </section>
 
-      <Card className="mb-6">
+      <Card data-slide="Status kalibrasi alat" className="mb-6">
         <CardHeader><CardTitle className="flex items-center gap-2"><Gauge className="size-4 text-teal-700" /> Status kalibrasi alat</CardTitle><CardDescription>{formatNumber(r.total)} alat · {formatNumber(r.catatan)} catatan ({formatNumber(r.pengujian)} pengujian) · {formatNumber(r.sertifikat)} bersertifikat digital</CardDescription></CardHeader>
         <CardContent><BatangStatus hitung={r.hitung} total={r.total} /></CardContent>
       </Card>
 
       <div className="mb-6 grid gap-6 lg:grid-cols-2 [&>*]:min-w-0">
-        <Card>
+        <Card data-slide="Jatuh tempo 12 bulan ke depan">
           <CardHeader><CardTitle className="flex items-center gap-2"><CalendarClock className="size-4 text-teal-700" /> Jatuh tempo 12 bulan ke depan</CardTitle><CardDescription>Jumlah alat yang masa berlakunya habis per bulan — rencanakan anggaran & jadwal kalibrasi.</CardDescription></CardHeader>
           <CardContent><KolomSatuSeri data={d.bulan} satuan="alat jatuh tempo" /></CardContent>
         </Card>
-        <Card>
+        <Card data-slide="Lembaga penguji / kalibrator">
           <CardHeader><CardTitle className="flex items-center gap-2"><Landmark className="size-4 text-teal-700" /> Lembaga penguji / kalibrator</CardTitle><CardDescription>Jumlah catatan per lembaga (seluruh riwayat).</CardDescription></CardHeader>
           <CardContent><BatangPeringkat data={d.lembaga} satuan="catatan" /></CardContent>
         </Card>
       </div>
 
       <div className="mb-6 grid gap-6 lg:grid-cols-[2fr_3fr] [&>*]:min-w-0">
-        <Card>
+        <Card data-slide="Catatan per tahun">
           <CardHeader><CardTitle>Catatan per tahun</CardTitle><CardDescription>Realisasi pengujian & kalibrasi menurut tahun pelaksanaan.</CardDescription></CardHeader>
           <CardContent><KolomTahun data={d.perTahun} /></CardContent>
         </Card>
-        <Card className="overflow-hidden">
+        <Card data-slide="Per unit kerja" className="overflow-hidden">
           <CardHeader><CardTitle>Per unit kerja</CardTitle><CardDescription>Klik unit untuk menyaring tabel data di bawah.</CardDescription></CardHeader>
           <div className="max-h-[22rem] overflow-y-auto border-t">
             <Table>
