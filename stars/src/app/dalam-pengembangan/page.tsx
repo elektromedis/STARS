@@ -8,6 +8,9 @@ export const metadata: Metadata = { title: "Dalam Pengembangan" };
 const FITUR: Record<string, { nama: string; ket: string }> = {
   telemedicine: { nama: "TELEMEDICINE", ket: "Konsultasi & pemantauan pasien jarak jauh antara tenaga kesehatan dan pasien." },
   telefarma: { nama: "TELEFARMA", ket: "Layanan kefarmasian jarak jauh: resep elektronik, konsultasi obat, dan pengantaran." },
+  "mdm-iot": { nama: "MDM-IOT", ket: "Medical Device Management & IoT: konektivitas alat medis, termasuk LIS." },
+  "si-pengadaan": { nama: "SI-PENGADAAN", ket: "Sistem informasi pengadaan alat kesehatan (bagian SCPS)." },
+  nomenklatur: { nama: "NOMENKLATUR", ket: "Basis data nomenklatur & kode alat kesehatan (bagian RCD)." },
   lis: { nama: "LIS", ket: "Laboratory Information System: alur pemeriksaan, hasil, dan integrasi alat laboratorium." },
 };
 

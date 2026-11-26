@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Download } from "lucide-react";
+import { Download, Eye } from "lucide-react";
 import { PageHeader } from "@/components/dashboard/page-header";
 import { DataTerbaru } from "@/components/dashboard/data-terbaru";
 import { Badge } from "@/components/ui/badge";
@@ -14,9 +14,12 @@ export const dynamic = "force-dynamic";
 
 const tgl = (d: Date | null) => (d ? new Intl.DateTimeFormat("id-ID", { day: "2-digit", month: "short", year: "numeric" }).format(d) : "-");
 
+/** Lihat dokumen di browser dulu, lalu bagikan/unduh (.pdf, .xlsx, .docx, .pptx) dari halaman pratinjau. */
 function Unduh({ href, label = "" }: { href: string; label?: string }) {
+  const lihat = href.replace("/api/dataset/", "/data/lihat/");
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-wrap gap-2">
+      <Button variant="teal" size="sm" asChild><a href={lihat}><Eye /> Lihat &amp; bagikan{label}</a></Button>
       <Button variant="outline" size="sm" asChild><a href={`${href}${href.includes("?") ? "&" : "?"}format=xlsx`}><Download /> XLSX{label}</a></Button>
       <Button variant="outline" size="sm" asChild><a href={`${href}${href.includes("?") ? "&" : "?"}format=csv`}><Download /> CSV{label}</a></Button>
     </div>

@@ -58,14 +58,14 @@ export const MENU_AKSES: { grup: string; item: { href: string; label: string }[]
   { grup: "SI-FARMALKES", item: [{ href: "/pemeliharaan", label: "Pemeliharaan" }, { href: "/alat", label: "Detail Alat" }, { href: "/kalibrasi", label: "Pengujian & Kalibrasi" }, { href: "/kalender", label: "Kalender" }, { href: "/peminjaman", label: "Peminjaman" }] },
   { grup: "Modul", item: [{ href: "/cmms", label: "CMMS (TRILUX)" }, { href: "/imms", label: "EMASCARE" }, { href: "/monitoring", label: "SI-LOGGER" }, { href: "/tracking", label: "SI-TRACKING" }, { href: "/avicenna", label: "AVICENNA" }, { href: "/smart-mfk", label: "SMART MFK" }, { href: "/jdih", label: "JDIH" }] },
   { grup: "Admin", item: [
-    { href: "/admin/impor", label: "Impor Excel" }, { href: "/admin/ekspor", label: "Ekspor & Template" }, { href: "/admin/dokumen", label: "Dokumen Paket" },
+    { href: "/admin/ekspor", label: "CMS Impor-Ekspor" }, { href: "/admin/impor", label: "· Impor Excel" }, { href: "/admin/dokumen", label: "Dokumen Paket" },
     { href: "/admin/pemeliharaan", label: "Pemeliharaan (admin)" }, { href: "/admin/lembar-kerja", label: "Lembar Kerja" }, { href: "/admin/pengetahuan", label: "Pengetahuan AI" },
     { href: "/admin/alat", label: "Daftar Alat" }, { href: "/admin/jadwal", label: "Jadwal Preventif" }, { href: "/admin/kalibrasi", label: "Kalibrasi (admin)" },
     { href: "/admin/stok", label: "Stok & BHP" }, { href: "/admin/audit", label: "Audit Inventaris" }, { href: "/admin/htm", label: "HTM WHO 2025" },
     { href: "/admin/bobot", label: "Pembobotan" }, { href: "/admin/regulasi", label: "Regulasi" }, { href: "/admin/kir", label: "KIR Ruangan" },
     { href: "/admin/label-inspeksi", label: "Label Inspeksi" }, { href: "/admin/analitik", label: "Analitik WHO" }, { href: "/admin/monitoring", label: "Monitoring (admin)" },
     { href: "/admin/log", label: "Log Impor" }, { href: "/admin/situs", label: "CMS Situs" }, { href: "/admin/jdih", label: "CMS JDIH" },
-    { href: "/admin/pengguna", label: "Pengguna" }, { href: "/admin/user-system", label: "User System" }, { href: "/admin/sistem", label: "Sistem" },
+    { href: "/admin/pengguna", label: "CMS Pengguna" }, { href: "/admin/user-system", label: "· User System" }, { href: "/admin/sistem", label: "Sistem" },
   ] },
 ];
 export const SEMUA_MENU = MENU_AKSES.flatMap((g) => g.item.map((i) => i.href));

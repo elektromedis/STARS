@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
-import { cukup } from "@/lib/peran";
 import { aksesPengguna } from "@/lib/role";
 
 /** Halaman awal admin: tab pertama yang diizinkan (Impor untuk Operator ke atas, Ekspor untuk Viewer). Pesan `ditolak` diteruskan. */
@@ -8,7 +7,7 @@ export default async function AdminIndex({ searchParams }: { searchParams: Promi
   const { ditolak } = await searchParams;
   const s = await auth();
   const akses = await aksesPengguna(s?.user?.id);
-  const calon = [...(cukup(s?.user?.peran, "Operator") ? ["/admin/impor"] : []), "/admin/ekspor", "/admin/pemeliharaan", "/admin/alat", "/admin/kalibrasi", "/admin/dokumen", "/admin/jadwal"];
+  const calon = ["/admin/ekspor", "/admin/pemeliharaan", "/admin/alat", "/admin/kalibrasi", "/admin/dokumen", "/admin/jadwal"];
   const tujuan = calon.find((h) => !akses || akses.menu[h] !== false);
   if (!tujuan) redirect("/?ditolak=" + encodeURIComponent("Admin (semua menu admin dimatikan untuk peran Anda)"));
   redirect(ditolak ? `${tujuan}?ditolak=${encodeURIComponent(ditolak)}` : tujuan);

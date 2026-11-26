@@ -1,9 +1,15 @@
-import { Activity, Landmark, ArrowLeftRight, CalendarDays, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, ShieldCheck, Thermometer, Wallet, Wrench, type LucideIcon, Box } from "lucide-react";
+import { Cpu, FileHeart, HeartPulse, Library, Pill, ShoppingCart, Video, BadgeCheck, Activity, Landmark, ArrowLeftRight, CalendarDays, Glasses, Boxes, LifeBuoy, Bot, Radar, ClipboardList, Database, Gauge, LayoutDashboard, PackageSearch, Printer, Scale, Settings, ShieldCheck, Thermometer, Wallet, Wrench, type LucideIcon, Box } from "lucide-react";
 
 export type NavItem = {
   label: string; href: string; icon: LucideIcon; description: string;
   /** Awalan path lain yang membuat menu ini aktif (menu gabungan). */
   match?: string[];
+  /** Sub-menu yang muncul mengambang saat menu diklik. */
+  children?: NavItem[];
+  /** Tautan ke situs luar (dibuka di tab baru). */
+  external?: boolean;
+  /** Label bahasa Inggris (menu samping). */
+  en?: string;
 };
 
 /** Sub-menu Perencanaan-Pengadaan; tampil sebagai tab di atas halaman Nilai, Paket, dan Data. */
@@ -29,6 +35,7 @@ export const SIALKES_TABS: NavItem[] = [
   { label: "HTA", href: "/hta", icon: Scale, description: "Health Technology Assessment: bandingkan merek & tipe alat kesehatan (keselamatan, keandalan, biaya, spesifikasi) — perlu login" },
 ];
 
+/** Daftar modul lama (dipakai pintasan di Dashboard). Menu samping memakai NAV_SAMPING. */
 export const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard, description: "Ringkasan seluruh menu: perencanaan-pengadaan, pemeliharaan alat, dan laporan kerusakan" },
   { label: "DASHBOARD 3D", href: "/dashboard-3d", icon: Box, description: "Dashboard alternatif: kantor 3D Karyawan AI dengan jumlah tugas terbuka tiap petugas" },
@@ -45,7 +52,54 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "TENTANG SAYA", href: "/about", icon: LifeBuoy, description: "Bantuan, tentang aplikasi, sumber data, dan cara kerja STARS" },
 ];
 
-export function menuAktif(item: NavItem, pathname: string) {
+export function menuAktif(item: NavItem, pathname: string): boolean {
+  if (item.external) return false;
+  if (item.children?.length) return item.children.some((c) => menuAktif(c, pathname)) || (item.match ?? []).some((p) => pathname === p || pathname.startsWith(`${p}/`));
+  if (item.href.includes("?")) return false;
   if (item.href === "/") return pathname === "/";
   return (item.match ?? [item.href]).some((p) => pathname === p || pathname.startsWith(`${p}/`));
 }
+
+const dp = (fitur: string) => `/dalam-pengembangan?fitur=${fitur}`;
+
+/** Menu samping kiri (dock): grup bersub-menu muncul mengambang saat diklik. */
+export const NAV_SAMPING: NavItem[] = [
+  { label: "DASHBOARD", href: "/", icon: Box, match: ["/dashboard-3d"], description: "Dashboard ringkasan dan Dashboard 3D Karyawan AI", children: [
+    { label: "Dashboard", href: "/", icon: LayoutDashboard, description: "Ringkasan seluruh menu: perencanaan-pengadaan, pemeliharaan alat, dan laporan kerusakan" },
+    { label: "Dashboard 3D", href: "/dashboard-3d", icon: Box, description: "Kantor 3D Karyawan AI dengan jumlah tugas terbuka tiap petugas" },
+  ] },
+  { label: "ALLIES - AGEN AI KAMU", en: "ALLIES - YOUR AI AGENT", href: "/allies", icon: Bot, description: "Agen AI pengelolaan alat medik: siklus alat dari analisa kebutuhan s.d. penghapusan, rekomendasi, dan tanya-jawab data STARS" },
+  { label: "IMMIS", href: "/imms", icon: HeartPulse, description: "Integrated Medical Equipment Management Information System", children: [
+    { label: "EMASCARE", href: "/imms", icon: HeartPulse, description: "Keluhan alat, perintah kerja, dan usulan alat dari ruangan" },
+  ] },
+  { label: "CMMS", href: "/cmms", icon: Wrench, match: ["/pemeliharaan", "/alat", "/kalibrasi", "/lapor", "/kalender", "/peminjaman"], description: "Computerized Maintenance Management System", children: [
+    { label: "TRILUX", href: "/cmms", icon: Wrench, description: "Aplikasi CMMS TRILUX (akun terpisah, tab baru)" },
+    { label: "SI-FARMALKES", href: "/pemeliharaan", icon: Activity, match: ["/pemeliharaan", "/alat", "/kalibrasi", "/lapor", "/kalender", "/peminjaman"], description: "Pemeliharaan & inventaris, pengujian dan kalibrasi, lapor kerusakan" },
+  ] },
+  { label: "EHR", href: "https://rsudcipayung.jakarta.go.id", external: true, icon: FileHeart, description: "Electronic Health Record — situs RSUD Cipayung (tab baru)" },
+  { label: "ESP", href: "/nilai", icon: Boxes, match: [...PERENCANAAN_TABS.map((t) => t.href), "/hta"], description: "Equipment Service Planning", children: [
+    { label: "SI-ALKES", href: "/nilai", icon: Boxes, match: [...PERENCANAAN_TABS.map((t) => t.href), "/hta"], description: "Perencanaan-pengadaan (nilai, paket, data, cetak RKBU) dan HTA" },
+  ] },
+  { label: "MDM-IOT", href: dp("mdm-iot"), icon: Cpu, description: "Medical Device Management & Internet of Things (dalam pengembangan)", children: [
+    { label: "LIS", href: dp("lis"), icon: Cpu, description: "Laboratory Information System (dalam pengembangan)" },
+  ] },
+  { label: "BMS", href: "/monitoring", icon: Thermometer, description: "Building Management System", children: [
+    { label: "SI-LOGGER", href: "/monitoring", icon: Thermometer, description: "Live monitoring suhu & kelembapan dari sensor IoT" },
+  ] },
+  { label: "SCPS", href: dp("si-pengadaan"), icon: ShoppingCart, description: "Supply Chain & Procurement System", children: [
+    { label: "SI-PENGADAAN", href: dp("si-pengadaan"), icon: ShoppingCart, description: "Sistem informasi pengadaan (dalam pengembangan)" },
+  ] },
+  { label: "QMS", href: "/tracking", icon: BadgeCheck, description: "Quality Management System", children: [
+    { label: "SI-TRACKING", href: "/tracking", icon: Radar, description: "Lacak proses kerja: paket, laporan kerusakan, perintah kerja, kalibrasi" },
+  ] },
+  { label: "RCD", href: dp("nomenklatur"), icon: Library, description: "Reference & Coding Database", children: [
+    { label: "NOMENKLATUR", href: dp("nomenklatur"), icon: Library, description: "Nomenklatur alat kesehatan (dalam pengembangan)" },
+  ] },
+  { label: "JDIH", href: "/jdih", icon: Landmark, description: "Jaringan Dokumentasi dan Informasi Hukum" },
+  { label: "SMARTMFK", href: "/smart-mfk", icon: ShieldCheck, description: "Manajemen Fasilitas dan Keselamatan (akreditasi bab MFK)" },
+  { label: "AVICENNA", href: "/avicenna", icon: Glasses, description: "Virtual Reality untuk pelatihan alat kesehatan" },
+  { label: "TELEMEDICINE", href: dp("telemedicine"), icon: Video, description: "Konsultasi jarak jauh (dalam pengembangan)" },
+  { label: "TELEFARMA", href: dp("telefarma"), icon: Pill, description: "Layanan kefarmasian jarak jauh (dalam pengembangan)" },
+  { label: "TENTANG SAYA", en: "ABOUT", href: "/about", icon: LifeBuoy, description: "Bantuan, tentang aplikasi, sumber data, dan cara kerja STARS" },
+  { label: "ADMIN", href: "/admin", icon: Settings, description: "CMS impor-ekspor, pemeliharaan, daftar alat, pengguna, dan log (perlu login)" },
+];

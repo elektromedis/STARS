@@ -381,23 +381,32 @@ html.a11y-tanpa-gambar :is(.latar-gerbang, .latar-tahoe) { visibility: hidden; }
   html:is([data-latar="3"], [data-latar="4"]) .sidebar-t4 aside.bg-navy-800 { inset: 50% auto auto .6rem; width: 4.3rem; height: auto; max-height: calc(100vh - 1.2rem); border: 1px solid var(--gg-garis); border-radius: 1.55rem; background: var(--gg-kaca); color: var(--gg-teks); box-shadow: 0 16px 44px rgb(0 0 0 / .26), inset 0 1px 0 rgb(255 255 255 / .3); -webkit-backdrop-filter: blur(26px) saturate(1.7); backdrop-filter: blur(26px) saturate(1.7); opacity: 0; transform: translate(calc(-100% - 1rem), -50%); transition: transform .24s cubic-bezier(.22,1,.36,1), opacity .18s ease; }
   html:is([data-latar="3"], [data-latar="4"]) .sidebar-t4:is(:hover, :focus-within) aside.bg-navy-800 { opacity: 1; transform: translate(0, -50%); }
   .sidebar-t4 aside > div:first-child, .sidebar-t4 aside > div:last-child { display: none !important; }
-  .sidebar-t4 aside > div:nth-child(2) { flex: none; padding: .4rem; overflow: visible; }
-  .sidebar-t4 nav { gap: .05rem; }
-  .sidebar-t4 nav a { display: grid; width: 3.4rem; height: 2.9rem; padding: 0; place-items: center; border-radius: .9rem; background: transparent; color: var(--gg-teks); transform-origin: left center; transition: transform .16s ease-out, background-color .16s ease; }
-  .sidebar-t4 nav a > span:not(.sr-only) { display: none; }
-  .sidebar-t4 nav a svg { width: 1.55rem; height: 1.55rem; color: var(--t4-ikon); }
-  .sidebar-t4 nav a:nth-of-type(6n+1) svg { color: #0a84ff; }
-  .sidebar-t4 nav a:nth-of-type(6n+2) svg { color: #f59e0b; }
-  .sidebar-t4 nav a:nth-of-type(6n+3) svg { color: #22a06b; }
-  .sidebar-t4 nav a:nth-of-type(6n+4) svg { color: #8b5cf6; }
-  .sidebar-t4 nav a:nth-of-type(6n+5) svg { color: #ec4899; }
-  .sidebar-t4 nav a:nth-of-type(6n) svg { color: #14a3b8; }
-  .sidebar-t4 nav a:is(:hover, :focus-visible) { transform: scale(1.16); background: rgb(127 127 127 / .16); }
-  .sidebar-t4 nav a[aria-current="page"] { background: var(--t4-pilih); box-shadow: none; }
+  /* Dock bergaya macOS: ukuran ikon menyesuaikan tinggi layar (18 menu muat tanpa gulir), tepat di tengah, perbesaran halus + tetangga. */
+  .sidebar-t4 { --dock-sel: clamp(2rem, calc((100vh - 3.4rem) / 18.6), 2.85rem); }
+  .sidebar-t4 aside > div:nth-child(2) { flex: none; padding: .42rem; overflow: visible; }
+  html:is([data-latar="3"], [data-latar="4"]) .sidebar-t4 aside.bg-navy-800 { width: auto; }
+  .sidebar-t4 nav { display: flex; flex-direction: column; align-items: center; gap: .14rem; }
+  .sidebar-t4 nav :is(a, button) { position: relative; display: flex; align-items: center; justify-content: center; width: var(--dock-sel); height: var(--dock-sel); min-height: 0; padding: 0; margin: 0; gap: 0; border-radius: 28%; background: transparent; box-shadow: none; color: var(--gg-teks); transform-origin: left center; transition: transform .22s cubic-bezier(.3,1.5,.5,1), background-color .16s ease; will-change: transform; }
+  .sidebar-t4 nav :is(a, button) > :not(svg:first-child):not(.sr-only) { display: none !important; }
+  .sidebar-t4 nav :is(a, button) > svg:first-child { width: 58%; height: 58%; margin: 0; color: var(--t4-ikon); transition: none; }
+  .sidebar-t4 nav > :nth-child(6n+1) svg { color: #0a84ff; }
+  .sidebar-t4 nav > :nth-child(6n+2) svg { color: #f59e0b; }
+  .sidebar-t4 nav > :nth-child(6n+3) svg { color: #22a06b; }
+  .sidebar-t4 nav > :nth-child(6n+4) svg { color: #8b5cf6; }
+  .sidebar-t4 nav > :nth-child(6n+5) svg { color: #ec4899; }
+  .sidebar-t4 nav > :nth-child(6n) svg { color: #14a3b8; }
+  .sidebar-t4 nav :is(a, button):is(:hover, :focus-visible) { transform: scale(1.32); background: rgb(127 127 127 / .14); z-index: 1; }
+  .sidebar-t4 nav > :has(+ * :is(a, button):hover, + :is(a):hover) :is(a, button), .sidebar-t4 nav > a:has(+ * button:hover, + a:hover) { transform: scale(1.12); }
+  .sidebar-t4 nav > :is(a, div):has(:hover) + :is(a, div) :is(a, button), .sidebar-t4 nav > a:hover + :is(a, div) :is(a, button), .sidebar-t4 nav > :is(a, div):has(:hover) + a, .sidebar-t4 nav > a:hover + a { transform: scale(1.12); }
+  .sidebar-t4 nav :is(a[aria-current="page"], button[data-aktif], button[aria-expanded="true"]) { background: var(--t4-pilih); }
+  .sidebar-t4 nav :is(a[aria-current="page"], button[data-aktif])::after { content: ""; position: absolute; left: -.3rem; top: 50%; width: .22rem; height: .22rem; border-radius: 50%; background: var(--gg-teks); opacity: .75; transform: translateY(-50%); }
+  .sidebar-t4 nav > div.contents { display: contents; }
 }
-@media screen and (min-width: 1024px) and (max-height: 720px) {
-  .sidebar-t4 nav a { height: 2.35rem; }
-  .sidebar-t4 nav a svg { width: 1.3rem; height: 1.3rem; }
+@media screen and (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .sidebar-t4 nav :is(a, button) { transition: background-color .16s ease; transform: none !important; }
+}
+@media screen and (min-width: 1024px) and (max-height: 640px) {
+  html:is([data-latar="3"], [data-latar="4"]) .sidebar-t4 aside.bg-navy-800 { overflow-y: auto; }
 }
 
 :root { --robot-aksen: #2dd4bf; }

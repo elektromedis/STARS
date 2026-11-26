@@ -395,7 +395,7 @@ export function AlatManager({ data, units, ruangan, bolehKelola, alamatPublik, t
       <Card>
         <CardHeader className="flex-row items-start justify-between gap-4">
           <CardTitle id="daftar-alat">Daftar alat ({jumlah.toLocaleString("id-ID")})</CardTitle>
-          {bolehKelola && <Button variant="outline" size="sm" asChild><Link href="/admin/impor#alat">Impor dari Excel Trilux</Link></Button>}
+          {bolehKelola && <Button variant="outline" size="sm" asChild><Link href="/admin/ekspor?bagian=impor#alat">Impor dari Excel Trilux</Link></Button>}
         </CardHeader>
         {saring}
         <CardContent className="px-0">

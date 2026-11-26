@@ -4,6 +4,9 @@ import { labelFilter, labelNilai, resolveFilter, SEMUA_TAHAP, type Filter } from
 import { getNilaiPerKategori, getNilaiPerUnit, getPaketForExport, getUnitKerjaRows } from "@/lib/queries";
 import { keCsv, keXlsx, namaBerkas } from "@/lib/export";
 import { formatRpPdf, kePdf, type KolomPdf } from "@/lib/pdf";
+import { keDocx, kePptx } from "@/lib/dokumen-office";
+import { JUDUL } from "@/lib/dataset-judul";
+import { barisDataset } from "@/lib/dataset";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -16,32 +19,27 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ slug
   const tolakE = await tolakEkspor(); if (tolakE) return tolakE;
   const { slug } = await params;
   const sp = Object.fromEntries(req.nextUrl.searchParams);
-  const format = sp.format === "csv" ? "csv" : sp.format === "pdf" ? "pdf" : "xlsx";
+  const format = sp.format === "csv" ? "csv" : sp.format === "pdf" ? "pdf" : sp.format === "docx" ? "docx" : sp.format === "pptx" ? "pptx" : "xlsx";
   const { filter } = await resolveFilter(sp);
 
   if (format === "pdf") return pdfDataset(slug, filter);
 
-  let baris: Record<string, unknown>[];
-  let nama: string;
-  switch (slug) {
-    case "paket":
-      baris = await getPaketForExport(filter);
-      nama = namaBerkas(["paket", filter.tahun, filter.tahap, filter.unit], format);
-      break;
-    case "nilai-per-unit":
-      baris = (await getNilaiPerUnit(filter)).map((r, i) => ({ no: i + 1, unit_kerja: r.name, jumlah_paket: r.paket, nilai: r.value }));
-      nama = namaBerkas(["nilai_per_unit", filter.tahun, filter.tahap], format);
-      break;
-    case "nilai-per-kategori":
-      baris = (await getNilaiPerKategori(filter)).map((r, i) => ({ no: i + 1, kategori: r.name, jumlah_paket: r.paket, nilai: r.value }));
-      nama = namaBerkas(["nilai_per_kategori", filter.tahun, filter.tahap, filter.unit], format);
-      break;
-    case "unit-kerja":
-      baris = await getUnitKerjaRows(filter.unitTerkunci ? filter.unit : null);
-      nama = namaBerkas(["unit_kerja"], format);
-      break;
-    default:
-      return NextResponse.json({ error: "Dataset tidak dikenal" }, { status: 404 });
+  const ds = await barisDataset(slug, filter);
+  if (!ds) return NextResponse.json({ error: "Dataset tidak dikenal" }, { status: 404 });
+  const { baris } = ds;
+  const nama = namaBerkas([...ds.namaDasar], format);
+
+  if (format === "docx" || format === "pptx") {
+    const judul = JUDUL[slug] ?? slug;
+    const sub = `${labelFilter(filter)}${filter.unit ? ` - ${filter.unit}` : ""}`;
+    const buf = format === "docx" ? await keDocx(judul, sub, baris) : await kePptx(judul, sub, baris);
+    return new NextResponse(new Uint8Array(buf), {
+      headers: {
+        "Content-Type": format === "docx" ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document" : "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "Content-Disposition": `attachment; filename="${nama}"`,
+        "Content-Length": String(buf.byteLength),
+      },
+    });
   }
 
   if (format === "csv") {

@@ -4,12 +4,20 @@ import { sesiHalaman } from "@/lib/sesi";
 import { PERAN, PERAN_KETERANGAN } from "@/lib/peran";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { FormPenggunaBaru, BarisPengguna, BarisPendaftar } from "@/components/admin/pengguna-form";
+import { SubTab } from "@/components/admin/sub-tab";
+import { bolehMenu } from "@/lib/role";
+import UserSystemBagian from "../user-system/bagian";
 
-export const metadata: Metadata = { title: "Pengguna" };
+export const metadata: Metadata = { title: "CMS Pengguna" };
 export const dynamic = "force-dynamic";
 
-export default async function PenggunaPage() {
+/** CMS Pengguna: akun pengguna + User System (peran, tingkatan, sakelar akses & menu) dalam satu menu. */
+export default async function PenggunaPage({ searchParams }: { searchParams: Promise<{ bagian?: string; role?: string }> }) {
   const s = await sesiHalaman("Admin");
+  const sp = await searchParams;
+  const bolehUs = await bolehMenu(s.user.id, "/admin/user-system");
+  const sub = <SubTab aktif={sp.bagian === "akses" && bolehUs ? "akses" : "akun"} item={[{ kode: "akun", label: "Akun Pengguna", href: "/admin/pengguna" }, ...(bolehUs ? [{ kode: "akses", label: "User System (peran & akses)", href: "/admin/pengguna?bagian=akses" }] : [])]} />;
+  if (sp.bagian === "akses" && bolehUs) return <div className="grid gap-4">{sub}<UserSystemBagian role={sp.role} /></div>;
   const [pengguna, units, pendaftar] = await Promise.all([
     prisma.pengguna.findMany({ where: { menunggu: false }, orderBy: [{ aktif: "desc" }, { nama: "asc" }], include: { unitKerja: { select: { nama: true } } } }),
     prisma.unitKerja.findMany({ orderBy: { urut: "asc" }, select: { id: true, nama: true } }),
@@ -20,6 +28,7 @@ export default async function PenggunaPage() {
 
   return (
     <div className="grid gap-4">
+      {sub}
       {pendaftar.length > 0 && (
         <Card className="border-amber-300">
           <CardHeader>
@@ -45,7 +54,7 @@ export default async function PenggunaPage() {
       </Card>
 
       <Card>
-        <CardHeader><CardTitle>Daftar pengguna ({pengguna.length})</CardTitle><CardDescription>Atur menu & aksi tiap peran di <a href="/admin/user-system" className="text-teal-700 underline">User System</a>. Klik Ubah untuk mengganti peran, tingkatan, unit, status aktif, atau menyetel ulang sandi.</CardDescription></CardHeader>
+        <CardHeader><CardTitle>Daftar pengguna ({pengguna.length})</CardTitle><CardDescription>Atur menu & aksi tiap peran di <a href="/admin/pengguna?bagian=akses" className="text-teal-700 underline">User System</a>. Klik Ubah untuk mengganti peran, tingkatan, unit, status aktif, atau menyetel ulang sandi.</CardDescription></CardHeader>
         <CardContent className="grid gap-3">
           {pengguna.map((p) => (
             <BarisPengguna

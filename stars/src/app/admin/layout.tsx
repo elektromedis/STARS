@@ -16,8 +16,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const s = await sesiHalaman("Viewer");
   const u = s.user;
   const tabs = [
-    { href: "/admin/impor", label: "Impor Excel", icon: "upload" as const, tampil: cukup(u.peran, "Operator") },
-    { href: "/admin/ekspor", label: "Ekspor & Template", icon: "download" as const, tampil: true },
+    { href: "/admin/ekspor", label: "CMS Impor-Ekspor", icon: "upload" as const, tampil: true },
     { href: "/admin/dokumen", label: "Dokumen Paket", icon: "file" as const, tampil: true },
     { href: "/admin/pemeliharaan", label: "Pemeliharaan", icon: "wrench" as const, tampil: true },
     { href: "/admin/lembar-kerja", label: "Lembar Kerja", icon: "audit" as const, tampil: true },
@@ -37,8 +36,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     { href: "/admin/log", label: "Log Impor", icon: "history" as const, tampil: cukup(u.peran, "Operator") },
     { href: "/admin/situs", label: "CMS Situs", icon: "situs" as const, tampil: cukup(u.peran, "Admin") },
     { href: "/admin/jdih", label: "CMS JDIH", icon: "jdih" as const, tampil: cukup(u.peran, "Admin") },
-    { href: "/admin/pengguna", label: "Pengguna", icon: "users" as const, tampil: cukup(u.peran, "Admin") },
-    { href: "/admin/user-system", label: "User System", icon: "users" as const, tampil: cukup(u.peran, "Admin") },
+    { href: "/admin/pengguna", label: "CMS Pengguna", icon: "users" as const, tampil: cukup(u.peran, "Admin") },
     { href: "/admin/sistem", label: "Sistem", icon: "settings" as const, tampil: cukup(u.peran, "Admin") },
   ].filter((t) => t.tampil);
   // Menu yang dimatikan untuk peran pengguna (Admin → User System) disembunyikan.
