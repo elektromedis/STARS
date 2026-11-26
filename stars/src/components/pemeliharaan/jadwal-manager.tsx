@@ -92,10 +92,14 @@ function Baris({ j, bolehKelola }: { j: Jadwal; bolehKelola: boolean }) {
   );
 }
 
-export function JadwalManager({ data, alat, bolehKelola }: { data: Jadwal[]; alat: AlatRingkas[]; bolehKelola: boolean }) {
+export function JadwalManager({ data, alat, bolehKelola, total, jatuhTempo, saring, halaman }: {
+  data: Jadwal[]; alat: AlatRingkas[]; bolehKelola: boolean;
+  /** Jumlah seluruh jadwal & jatuh tempo (data hanya satu halaman). */
+  total?: number; jatuhTempo?: number; saring?: React.ReactNode; halaman?: React.ReactNode;
+}) {
   const [stB, aksiB, pendB] = useActionState<StatusAksi, FormData>(buatJadwal, undefined);
   const [stS, aksiS, pendS] = useActionState<StatusAksi, FormData>(buatSemuaJatuhTempo, undefined);
-  const tempo = data.filter((j) => j.aktif && j.berikutnya && new Date(j.berikutnya).getTime() <= Date.now() && j.perintah.length === 0).length;
+  const tempo = jatuhTempo ?? data.filter((j) => j.aktif && j.berikutnya && new Date(j.berikutnya).getTime() <= Date.now() && j.perintah.length === 0).length;
   return (
     <div className="grid gap-4">
       {bolehKelola && (
@@ -124,9 +128,11 @@ export function JadwalManager({ data, alat, bolehKelola }: { data: Jadwal[]; ala
         </Card>
       )}
       <Card>
-        <CardHeader><CardTitle>Jadwal preventif ({data.length})</CardTitle></CardHeader>
+        <CardHeader><CardTitle id="daftar-jadwal">Jadwal preventif ({(total ?? data.length).toLocaleString("id-ID")})</CardTitle></CardHeader>
+        {saring}
         <CardContent className="px-0">
-          {data.length === 0 ? <p className="px-4 py-6 text-center text-sm text-muted-foreground">Belum ada jadwal.</p> : <div className="overflow-hidden rounded-lg border">{data.map((j) => <Baris key={j.id} j={j} bolehKelola={bolehKelola} />)}</div>}
+          {data.length === 0 ? <p className="px-4 py-6 text-center text-sm text-muted-foreground">{saring ? "Tidak ada jadwal yang cocok dengan pencarian/filter." : "Belum ada jadwal."}</p> : <div className="overflow-hidden rounded-lg border">{data.map((j) => <Baris key={j.id} j={j} bolehKelola={bolehKelola} />)}</div>}
+          {halaman}
         </CardContent>
       </Card>
     </div>
