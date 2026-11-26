@@ -223,6 +223,7 @@ model Alat {
   titikPantau           LokasiPantau[]
   auditItem             AuditItem[]
   riwayatEm             RiwayatEm[]
+  mutasi                MutasiAlat[]
 
   @@index([unitKerjaId])
   @@index([kondisi])
@@ -865,4 +866,37 @@ model SinkronTrilux {
 
   @@unique([entitas, idStars])
   @@unique([entitas, idTrilux])
+}
+
+/// Relokasi (pindah ruangan dalam unit yang sama) dan mutasi (pindah unit kerja) alat.
+/// Alur: Diajukan → Disetujui/Ditolak → Selesai (serah terima diterima; lokasi alat diperbarui) | Dibatalkan.
+/// Asal/tujuan disimpan sebagai id + nama (salinan) agar riwayat tetap terbaca walau ruangan diganti nama.
+model MutasiAlat {
+  id             Int       @id @default(autoincrement())
+  nomor          String    @unique // MUT-2026-0001
+  alat           Alat      @relation(fields: [alatId], references: [id], onDelete: Cascade)
+  alatId         Int
+  jenis          String // Relokasi | Mutasi
+  dariUnitId     Int
+  dariUnit       String
+  dariRuanganId  Int?
+  dariRuangan    String?
+  keUnitId       Int
+  keUnit         String
+  keRuanganId    Int?
+  keRuangan      String?
+  alasan         String
+  kondisi        String? // kondisi alat saat serah terima
+  status         String    @default("Diajukan")
+  diajukanOleh   String?
+  diputuskanOleh String?
+  diputuskanPada DateTime?
+  catatanKeputusan String?
+  diterimaOleh   String?
+  diterimaPada   DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([alatId])
+  @@index([status])
 }

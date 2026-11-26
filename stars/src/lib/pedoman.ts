@@ -4,7 +4,7 @@
  */
 export type BabPedoman = { id: string; judul: string; menu: string; tujuan: string; peran: string; dasar: string[]; sop: string[]; referensi: string[] };
 
-export const VERSI_PEDOMAN = "Versi 1.1 — 27 November 2026";
+export const VERSI_PEDOMAN = "Versi 1.2 — 28 November 2026";
 
 /** Dasar hukum umum yang berlaku untuk seluruh aplikasi. */
 export const DASAR_UMUM = [
@@ -63,6 +63,21 @@ export const BAB: BabPedoman[] = [
     dasar: ["Permenkes 31/2018 tentang Aplikasi Sarana, Prasarana, dan Alat Kesehatan (ASPAK) — kode ASPAK dicatat per alat.", "Permenkes 62/2017 tentang Izin Edar Alat Kesehatan (nomor AKL/AKD).", "Permenkes 15/2023 tentang Pemeliharaan Alat Kesehatan."],
     sop: ["Tambah alat satu per satu atau impor Excel (ADMIN › CMS Impor-Ekspor › Impor Excel, bagian Inventaris; opsi Ganti data lama tersedia).", "Pilih Kategori inventaris: Alat Elektromedik Non Radiasi, Alat Elektromedik Radiasi, atau Alat Non Elektromedik (atau tombol Kategorikan otomatis lalu periksa hasilnya). Sparepart dan BHP-BMHP dicatat terpisah di menu Sparepart & BHP-BMHP.", "Tindak lanjuti peringatan Nomor seri ganda (di Inventarisasi, lonceng notifikasi, dan saat impor): periksa apakah data dobel atau salah ketik.", "Unggah dokumen alat satu per satu di detail alat, atau massal di ADMIN › CMS Impor-Ekspor › Dokumen Paket & Unggah Massal: nama berkas memuat nomor seri (1 alat), tipe (semua alat bertipe sama), atau nama alat; periksa pratinjau pasangan lalu Unggah.", "Lengkapi data standar WHO: status operasi, daya, firmware, penanggung jawab, kontrak servis, EMDN/GMDN/UDI, kategori limbah.", "Klasifikasikan IKATEMI otomatis lalu tinjau hasilnya.", "Cetak label QR (kecil/besar) per unit atau per alat, tempel pada badan alat.", "Pindai QR untuk membuka detail alat dan tombol Lapor Kerusakan."],
     referensi: ["WHO. Introduction to medical equipment inventory management. Geneva: WHO; 2011.", "WHO. Inventory and maintenance management information system for medical devices. Geneva: WHO; 2025.", "IKATEMI. Klasifikasi Alat Kesehatan No. 1/2023."],
+  },
+  {
+    id: "mutasi", judul: "Relokasi & Mutasi Alat", menu: "ADMIN › CMS Pemeliharaan › Inventarisasi › Relokasi & Mutasi; detail alat › Riwayat Lokasi",
+    tujuan: "Memindahkan alat antar ruangan (relokasi) atau antar unit kerja (mutasi) secara tercatat, disetujui, dan diserahterimakan.",
+    peran: "Operator unit asal mengajukan; petugas lain/Admin menyetujui (izin Persetujuan); unit asal/tujuan atau Admin melakukan serah terima (izin Proses).",
+    dasar: ["Permendagri 19/2016 tentang Pedoman Pengelolaan Barang Milik Daerah (penggunaan dan pengamanan BMD).", "Permendagri 47/2021 tentang Pembukuan, Inventarisasi, dan Pelaporan BMD (pemutakhiran KIR)."],
+    sop: [
+      "Buka Relokasi & Mutasi (atau tautan Relokasi / mutasi pada alat), cari alat, pilih unit dan ruangan tujuan, isi alasan, Ajukan.",
+      "Unit sama = Relokasi; unit berbeda = Mutasi. Satu alat hanya boleh punya satu pengajuan terbuka.",
+      "Petugas lain atau Admin menekan Setujui atau Tolak (alasan wajib saat menolak). Pengaju tidak dapat menyetujui pengajuannya sendiri.",
+      "Saat alat diserahkan, pilih kondisi alat lalu tekan Serah terima selesai: unit/ruangan alat diperbarui otomatis.",
+      "Cetak Berita Acara, tanda tangani pihak yang menyerahkan, menerima, dan PJ Alkes/Pengurus Barang.",
+      "Perbarui dan sahkan ulang KIR ruangan asal dan tujuan.",
+    ],
+    referensi: ["WHO. Introduction to medical equipment inventory management. Geneva: WHO; 2011."],
   },
   {
     id: "lapor", judul: "Lapor Kerusakan, Perintah Kerja, dan TTE", menu: "CMMS › SI-FARMALKES › Lapor Kerusakan, ADMIN › CMS Pemeliharaan › Pemeliharaan Korektif / Perbaikan, Riwayat",

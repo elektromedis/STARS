@@ -33,6 +33,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       { href: "/admin/label-inspeksi", label: "Pemantauan Fungsi / Inspeksi" },
       { href: "/admin/alat", label: "Alat Kesehatan", seksi: "Inventarisasi" },
       { href: "/admin/stok", label: "Sparepart & BHP-BMHP", seksi: "Inventarisasi" },
+      { href: "/admin/mutasi", label: "Relokasi & Mutasi", seksi: "Inventarisasi" },
       { href: "/admin/kir", label: "KIR Ruangan", seksi: "Inventarisasi" },
       { href: "/admin/bobot", label: "Pembobotan" },
     ]) },
@@ -57,7 +58,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <>
-      <PageHeader
+      <div className="print:hidden"><PageHeader
         title="Administrasi Data"
         description="Kelola data paket lewat unggah dan unduh Excel, tanpa input satu per satu."
         actions={
@@ -73,7 +74,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <form action={keluar}><Button type="submit" variant="ghost" size="sm" title="Keluar"><LogOut /> Keluar</Button></form>
           </div>
         }
-      />
+      /></div>
       <AdminTabs tabs={tabsTampil} />
       <AdminSubMenu grup={subGrup} />
       {children}

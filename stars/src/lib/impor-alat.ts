@@ -229,6 +229,7 @@ export async function rencanaGantiAlat(baris: BarisAlat[], unitDibatasi: string 
   tandai(await db.penghapusan.findMany({ where: w, select: { alatId: true } }));
   tandai(await db.lembarKerja.findMany({ where: w, select: { alatId: true } }));
   tandai(await db.kegiatanPromotif.findMany({ where: w, select: { alatId: true } }));
+  tandai(await db.mutasiAlat.findMany({ where: w, select: { alatId: true } }));
   return { hapus: ids.filter((i) => !pakai.has(i)), nonaktif: ids.filter((i) => pakai.has(i)) };
 }
 

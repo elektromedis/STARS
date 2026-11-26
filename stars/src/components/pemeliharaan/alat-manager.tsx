@@ -228,6 +228,10 @@ function TautanLabel({ href }: { href: string }) {
 function TautanDetail({ kode }: { kode: string }) {
   return <Link href={urlDetailAlat(kode)} className="inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:underline"><FolderOpen className="size-3.5" /> Foto, dokumen &amp; detail</Link>;
 }
+/** Tautan ke alur relokasi/mutasi dengan alat terisi. */
+function TautanMutasi({ kode }: { kode: string }) {
+  return <Link href={`/admin/mutasi?alat=${encodeURIComponent(kode)}`} className="inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:underline">Relokasi / mutasi</Link>;
+}
 
 function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat; units: Unit[]; ruangan: RuanganRingkas[]; bolehKelola: boolean; label: string; alamat: string }) {
   const [st, aksi, pend] = useActionState<StatusAksi, FormData>(ubahAlat, undefined);
@@ -250,7 +254,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
           <input type="hidden" name="id" value={a.id} />
           <Medan a={a} units={units} ruangan={ruangan} />
           <div className="flex items-center justify-between gap-2">
-            <span className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">{a._count.permintaan} laporan · {a._count.perintah} perintah kerja <TautanLabel href={label} /> <TautanDetail kode={a.kode} /> <a href={`/api/admin/htm/uji-terima/${a.id}`} target="_blank" rel="noopener noreferrer" className="font-medium text-teal-700 hover:underline">Lembar uji terima</a></span>
+            <span className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">{a._count.permintaan} laporan · {a._count.perintah} perintah kerja <TautanLabel href={label} /> <TautanDetail kode={a.kode} /> <TautanMutasi kode={a.kode} /> <a href={`/api/admin/htm/uji-terima/${a.id}`} target="_blank" rel="noopener noreferrer" className="font-medium text-teal-700 hover:underline">Lembar uji terima</a></span>
             <div className="flex items-center gap-3"><Pesan status={st} /><Button type="submit" size="sm" variant="teal" disabled={pend}>{pend ? <Loader2 className="animate-spin" /> : null} Simpan perubahan</Button></div>
           </div>
         </form>
@@ -260,7 +264,7 @@ function BarisAlat({ a, units, ruangan, bolehKelola, label, alamat }: { a: Alat;
           <p><span className="text-muted-foreground">Inventaris:</span> {a.kategoriInventaris ?? "—"} · <span className="text-muted-foreground">Kategori:</span> {a.kategori ?? "—"} · <span className="text-muted-foreground">Risiko:</span> {a.risiko ?? "—"}</p>
           <p><span className="text-muted-foreground">Perolehan:</span> {a.tahunPerolehan ?? "—"} · <span className="text-muted-foreground">Usia teknis:</span> {a.usiaTeknis ?? "—"} th</p>
           <p><span className="text-muted-foreground">Garansi sampai:</span> {a.garansiSampai ? new Date(a.garansiSampai).toLocaleDateString("id-ID") : "—"}</p>
-          <p className="flex flex-wrap gap-3 sm:col-span-2"><TautanLabel href={label} /> <TautanDetail kode={a.kode} /> <a href={`/api/admin/htm/uji-terima/${a.id}`} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-teal-700 hover:underline">Lembar uji terima</a></p>
+          <p className="flex flex-wrap gap-3 sm:col-span-2"><TautanLabel href={label} /> <TautanDetail kode={a.kode} /> <TautanMutasi kode={a.kode} /> <a href={`/api/admin/htm/uji-terima/${a.id}`} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-teal-700 hover:underline">Lembar uji terima</a></p>
         </div>
       )}
     </details>

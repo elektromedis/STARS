@@ -28,6 +28,7 @@ async function cari(kode: string) {
     permintaan: { orderBy: { createdAt: "desc" as const }, take: 10, select: { nomor: true, status: true, prioritas: true, createdAt: true } },
     perintah: { orderBy: { createdAt: "desc" as const }, take: 10, select: { nomor: true, jenis: true, status: true, createdAt: true, tanggalSelesai: true } },
     jadwal: { where: { aktif: true }, orderBy: { berikutnya: "asc" as const }, select: { id: true, nama: true, intervalHari: true, berikutnya: true, terakhir: true } },
+    mutasi: { orderBy: { createdAt: "desc" as const }, take: 10, select: { nomor: true, jenis: true, status: true, dariUnit: true, dariRuangan: true, keUnit: true, keRuangan: true, createdAt: true, diterimaPada: true } },
   };
   return (await prisma.alat.findUnique({ where: { kode }, include: sertakan }))
     ?? (await prisma.alat.findFirst({ where: { OR: [{ nomorSeri: kode }, { noUrutAset: kode }] }, include: sertakan, orderBy: { aktif: "desc" } }));
@@ -294,6 +295,21 @@ export default async function DetailAlatPage({ searchParams }: { searchParams: P
         masuk={masuk} bolehKelola={bolehKelola} sejenis={sejenis} dipakaiBersama={dipakaiBersama}
       />
 
+      {masuk && (
+        <Card id="riwayat-lokasi">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2"><ClipboardList className="size-4 text-teal-700" /> Riwayat Lokasi (Relokasi & Mutasi)</CardTitle>
+            <CardDescription><a href={`/admin/mutasi?alat=${encodeURIComponent(a.kode)}`} className="text-teal-700 underline">Ajukan relokasi/mutasi alat ini</a></CardDescription>
+          </CardHeader>
+          <CardContent>
+            {a.mutasi.length ? (
+              <ul className="grid gap-1.5 text-sm">{a.mutasi.map((m) => (
+                <li key={m.nomor}><a href={`/admin/mutasi/${m.nomor}`} className="font-mono text-teal-700 hover:underline">{m.nomor}</a> · {m.jenis} · <b>{m.status}</b> · {m.dariUnit}{m.dariRuangan ? ` / ${m.dariRuangan}` : ""} → {m.keUnit}{m.keRuangan ? ` / ${m.keRuangan}` : ""} · {(m.diterimaPada ?? m.createdAt).toLocaleDateString("id-ID", { dateStyle: "medium", timeZone: "Asia/Jakarta" })}</li>
+              ))}</ul>
+            ) : <p className="text-sm text-muted-foreground">Belum pernah dipindahkan lewat STARS.</p>}
+          </CardContent>
+        </Card>
+      )}
       <div className="grid gap-5 lg:grid-cols-2 [&>*]:min-w-0">
         {/* Riwayat pemeliharaan */}
         <Card>

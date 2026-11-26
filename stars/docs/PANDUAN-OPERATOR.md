@@ -204,6 +204,8 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
 - **Lihat & bagikan dokumen** (menu Data): dokumen tampil di browser dulu → *Bagikan / Unduh* .pdf/.xlsx/.docx/.pptx.
 - **Hapus laporan/WO salah input** di Korektif/Perbaikan (WO berstatus Selesai tidak bisa dihapus).
 - **Mode Presentasi** di Pengujian & Kalibrasi, unduh .pptx (bisa diedit) atau .pdf.
+- **Relokasi & Mutasi** (CMS Pemeliharaan → Inventarisasi): ajukan → disetujui petugas lain/Admin → serah terima →
+  lokasi alat berubah otomatis; cetak Berita Acara; riwayat terlihat di detail alat. Sahkan ulang KIR ruangan.
 - **Karyawan AI** (Admin): nyalakan sakelar, atur jam kerja → laporan otomatis tiap hari di Catatan kerja & notifikasi.
 
 ## Pesan error yang sering muncul

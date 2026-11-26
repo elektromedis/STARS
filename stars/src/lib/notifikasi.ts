@@ -55,6 +55,12 @@ export async function notifikasiPetugas(o: { penggunaId: number | null; unit: st
     isi: `${ganda.length} nomor seri dipakai lebih dari satu alat (mis. ${ganda.slice(0, 3).map((g) => g.nomorSeri).join(", ")}). Periksa data dobel.`,
     waktu: hariIni, href: "/admin/alat#seri-ganda", tingkat: "peringatan",
   });
+  // Relokasi/mutasi yang menunggu keputusan atau serah terima.
+  const mut = await prisma.mutasiAlat.groupBy({ by: ["status"], where: { status: { in: ["Diajukan", "Disetujui"] }, ...(o.unit ? { OR: [{ dariUnit: o.unit }, { keUnit: o.unit }] } : {}) }, _count: { _all: true } });
+  for (const m of mut) item.push({
+    id: `mutasi-${m.status}-${hariIni.slice(0, 10)}-${m._count._all}`, jenis: "wo", judul: m.status === "Diajukan" ? "Relokasi/mutasi menunggu persetujuan" : "Relokasi/mutasi menunggu serah terima",
+    isi: `${m._count._all} pengajuan berstatus ${m.status}.`, waktu: hariIni, href: `/admin/mutasi?status=${m.status}`, tingkat: "peringatan",
+  });
   // Laporan kerja Karyawan AI 24 jam terakhir.
   const { bacaLog } = await import("./karyawan-ai");
   for (const c of (await bacaLog()).filter((c) => kini.getTime() - new Date(c.waktu).getTime() < HARI).slice(0, 10)) item.push({

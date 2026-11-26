@@ -25,7 +25,7 @@ export function AdminSubMenu({ grup }: { grup: { label: string; item: SubMenuAdm
   const seksi: { nama?: string; item: SubMenuAdmin[] }[] = [];
   for (const i of g.item) { const akhir = seksi[seksi.length - 1]; if (akhir && i.seksi && akhir.nama === i.seksi) akhir.item.push(i); else seksi.push({ nama: i.seksi, item: [i] }); }
   return (
-    <nav aria-label={`Sub-menu ${g.label}`} className="-mt-3 mb-6 flex flex-wrap items-center gap-1.5 rounded-xl border border-dashed bg-card/60 p-1.5">
+    <nav aria-label={`Sub-menu ${g.label}`} className="-mt-3 mb-6 flex flex-wrap print:hidden items-center gap-1.5 rounded-xl border border-dashed bg-card/60 p-1.5">
       {seksi.map((s, k) => {
         const isi = s.item.map((i) => {
           const aktif = i === g.item.find((x) => cocok(x.href, pathname, bagian));
@@ -50,7 +50,7 @@ export function AdminTabs({ tabs }: { tabs: TabAdmin[] }) {
           <ShieldX className="size-4" /> Halaman itu memerlukan peran <strong>{ditolak}</strong> atau lebih tinggi.
         </p>
       )}
-      <nav aria-label="Menu admin" className="mb-6 flex gap-1 overflow-x-auto rounded-xl border bg-card p-1 shadow-card">
+      <nav aria-label="Menu admin" className="mb-6 flex gap-1 overflow-x-auto print:hidden rounded-xl border bg-card p-1 shadow-card">
         {tabs.map((t) => {
           const active = (t.match ?? [t.href.split("?")[0]]).some((m) => pathname === m || pathname.startsWith(m + "/"));
           const Icon = IKON[t.icon];
