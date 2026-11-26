@@ -4,10 +4,12 @@ import { AMBANG_EM, fmtTgl, indikator, kerusakanPerAlat, hitungEm, PRIORITAS_WHO
 import { Kartu, Lencana } from "@/components/imms/ui";
 import { LogoEmas } from "@/components/imms/logo";
 import { auth } from "@/auth";
+import { sesiBacaBerlaku } from "@/lib/imms-sesi";
 
 export default async function Beranda({ searchParams }: { searchParams: Promise<{ ditolak?: string }> }) {
   const { ditolak } = await searchParams;
-  const masuk = Boolean((await auth())?.user); // tanpa login: hanya angka ringkasan, tanpa nama alat / perintah kerja
+  const sesi = await auth();
+  const masuk = Boolean(sesi?.user) && (await sesiBacaBerlaku(sesi?.user?.peran)), dosen = sesi?.user?.peran === "Dosen"; // tanpa login: hanya angka ringkasan, tanpa nama alat / perintah kerja
   const kini = new Date(), awalBulan = new Date(kini.getFullYear(), kini.getMonth(), 1);
   const [alat, jatuhTempo, terlambat, keluhanBaru, woTerbuka, usulan, kpi, kor] = await Promise.all([
     prisma.alat.findMany({ where: { aktif: true, jenis: "Medik" }, select: { id: true, kondisi: true, statusOperasi: true, emFungsi: true, emRisiko: true, emPemeliharaan: true } }),
@@ -28,6 +30,7 @@ export default async function Beranda({ searchParams }: { searchParams: Promise<
       {ditolak && <div className="kaca panel text-[13px]" role="alert">Halaman itu memerlukan peran <b>{ditolak}</b>.</div>}
       <section className="kaca panel emas-panggung text-center" aria-label="EMASCARE">
         <LogoEmas ukuran={96} className="mx-auto mb-3 block" />
+        {dosen && <p className="mb-1 text-[12px] font-bold tracking-[.18em]" style={{ color: "var(--aksen)" }}>DASHBOARD DOSEN PEMBIMBING</p>}
         <h1 className="emas-teks text-4xl font-bold tracking-[.06em] md:text-6xl">EMASCARE</h1>
         <p className="redup mt-2 text-[15px] md:text-lg">Electromedical Asset Management &amp; Service Care System</p>
         <p className="mt-1 text-[12px] font-semibold tracking-[.2em]" style={{ color: "var(--aksen)" }}>KENALI. RAWAT. KENDALIKAN.</p>
@@ -36,7 +39,7 @@ export default async function Beranda({ searchParams }: { searchParams: Promise<
             <Link href="/imms/inventaris" className="kapsul utama">Inventaris alat</Link>
             <Link href="/imms/keluhan" className="kapsul">Lapor keluhan ›</Link>
             <Link href="/imms/jadwal" className="kapsul">Jadwal pemeliharaan ›</Link>
-            <a href="/admin" className="kapsul">Buka STARS ›</a>
+            {dosen ? <Link href="/imms/laporan" className="kapsul">Laporan &amp; indikator ›</Link> : <a href="/admin" className="kapsul">Buka STARS ›</a>}
           </>) : (<>
             <Link href="/imms/lapor" className="kapsul utama">Lapor kerusakan ›</Link>
             <Link href="/imms/riwayat" className="kapsul">Lacak laporan ›</Link>

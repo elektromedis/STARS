@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sesiApi } from "@/lib/sesi";
+import { auth } from "@/auth";
 import { periode, rekapUnit } from "@/lib/imms-laporan";
 
 export const dynamic = "force-dynamic";
@@ -9,7 +10,7 @@ const sel = (v: unknown) => { let t = String(v ?? ""); if (/^[=+\-@\t\r]/.test(t
 /** GET /api/imms/laporan?p=YYYY-MM|YYYY — CSV perintah kerja periode (Operator+). */
 export async function GET(req: NextRequest) {
   const { tolak } = await sesiApi("Operator");
-  if (tolak) return tolak;
+  if (tolak && (await auth())?.user?.peran !== "Dosen") return tolak; // Dosen Pembimbing: baca saja, boleh unduh rekap
   const pr = periode(req.nextUrl.searchParams.get("p") ?? undefined);
   const { wo } = await rekapUnit(pr.dari, pr.sampai);
   const tgl = (d: Date | null) => (d ? d.toISOString().slice(0, 10) : "");

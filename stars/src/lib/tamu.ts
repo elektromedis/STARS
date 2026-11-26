@@ -35,3 +35,16 @@ export async function cekTamu(token: unknown): Promise<boolean> {
     return a.length === b.length && timingSafeEqual(a, b);
   } catch { return false; }
 }
+
+/* ───────── Mode Dosen Pembimbing: alamat EMASCARE langsung terbuka (baca saja, semua fitur) selama aktif ───────── */
+const KUNCI_DOSEN = "imms_dosen";
+export const PERAN_DOSEN = "Dosen";
+type Dosen = { sampai: string; oleh: string | null };
+
+export async function statusDosen(): Promise<Dosen | null> {
+  const m = await bacaPengaturan(KUNCI_DOSEN); if (!m) return null;
+  try { const d = JSON.parse(m) as Dosen; return new Date(d.sampai) > new Date() ? d : null; } catch { return null; }
+}
+export async function aturDosen(hari: number | null, oleh: string | null) {
+  await simpanPengaturan(KUNCI_DOSEN, hari ? JSON.stringify({ sampai: new Date(Date.now() + hari * 86_400_000).toISOString(), oleh } satisfies Dosen) : null, oleh);
+}

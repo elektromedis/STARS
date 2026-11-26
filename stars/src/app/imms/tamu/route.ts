@@ -9,7 +9,8 @@ export async function GET(req: NextRequest) {
   const proto = /:(443|8443)$/.test(host) ? "https" : (req.headers.get("x-forwarded-proto")?.split(",")[0].trim() ?? req.nextUrl.protocol.replace(":", ""));
   const dasar = `${proto}://${host}`;
   try {
-    await signIn("tamu", { token: req.nextUrl.searchParams.get("t") ?? "", redirect: false });
+    if (req.nextUrl.searchParams.get("dosen")) await signIn("dosen", { redirect: false });
+    else await signIn("tamu", { token: req.nextUrl.searchParams.get("t") ?? "", redirect: false });
     return NextResponse.redirect(`${dasar}/imms`, 303);
   } catch {
     return NextResponse.redirect(`${dasar}/imms/login?tamu=gagal`, 303);

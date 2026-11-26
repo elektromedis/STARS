@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { audit } from "@/lib/audit";
-import { sesiImms, tolakTamu } from "@/lib/imms-sesi";
+import { sesiAksiImms as sesiImms, tolakTamu } from "@/lib/imms-sesi";
 import { nomorBerikut } from "@/lib/pemeliharaan";
 import { perbaruiEm } from "@/lib/imms";
 
@@ -272,4 +272,21 @@ export async function cabutTautanTamu(): Promise<StatusTamu> {
   await cabutTamu(s.user.email ?? null);
   await audit("IMMS: tautan tamu dicabut", { email: s.user.email });
   return { ok: "Tautan dicabut. Tautan lama tidak bisa dipakai lagi." };
+}
+
+/** Admin: nyalakan / matikan Mode Dosen Pembimbing (alamat EMASCARE langsung terbuka, baca saja). */
+export async function aturModeDosen(f: FormData) {
+  const s = await sesiImms("Admin");
+  const hari = Number(f.get("hari")) || 0;
+  const { aturDosen } = await import("@/lib/tamu");
+  await aturDosen([1, 3, 7, 14, 30].includes(hari) ? hari : null, s.user.email ?? null);
+  await audit(hari ? "IMMS: mode dosen aktif" : "IMMS: mode dosen mati", { email: s.user.email, detail: hari ? `${hari} hari` : null });
+  revalidatePath("/imms/akun");
+}
+
+/** Keluar dari EMASCARE ke halaman masuk EMASCARE (bukan Beranda, agar Mode Dosen tidak langsung masuk lagi). */
+export async function keluarImms() {
+  const { signOut } = await import("@/auth");
+  await signOut({ redirect: false });
+  redirect("/imms/login");
 }

@@ -9,7 +9,8 @@ export const dynamic = "force-dynamic";
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ tamu?: string }> }) {
   const sp = await searchParams;
-  if ((await auth())?.user) redirect("/imms");
+  const s = await auth();
+  if (s?.user && s.user.peran !== "Tamu" && s.user.peran !== "Dosen") redirect("/imms"); // sesi baca-saja boleh berganti ke akun petugas
   return (
     <div className="imms-masuk">
       <div className="kaca w-full max-w-[380px] rounded-[26px] p-7 text-center">

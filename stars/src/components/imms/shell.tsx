@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import {
   Activity, BarChart3, Boxes, CalendarClock, CheckCircle2, ClipboardCheck, FileClock, Gauge, Home, LogOut, Menu, Moon, PackageSearch, Stethoscope, Sun, Wrench, DatabaseZap, ScanBarcode, RefreshCw, ShieldCheck, ArrowUpRight, LogIn,
 } from "lucide-react";
-import { keluar } from "@/app/login/actions";
+import { keluarImms as keluar } from "@/app/imms/actions";
 import { KUNCI_TAMPILAN } from "@/lib/tampilan-skrip";
 
 const MENU: { judul: string; item: { href: string; label: string; ikon: typeof Home; min?: number }[] }[] = [
@@ -100,7 +100,7 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, publik = false, chil
               <a href="/imms/login" className="kapsul utama w-full justify-center"><LogIn aria-hidden size={15} /> Masuk petugas</a>
             ) : (<>
               <div className="px-2 text-[12px]"><div className="font-semibold">{nama}</div><div className="redup2">{peran}</div></div>
-              {!peran.startsWith("Tamu") && <a href="/admin" className="imms-nav"><ArrowUpRight aria-hidden /> Buka STARS</a>}
+              {!peran.startsWith("Tamu") && !peran.startsWith("Dosen") && <a href="/admin" className="imms-nav"><ArrowUpRight aria-hidden /> Buka STARS</a>}
               <form action={keluar}><button className="imms-nav w-full" type="submit"><LogOut aria-hidden /> Keluar</button></form>
             </>)}
           </div>
@@ -118,7 +118,7 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, publik = false, chil
             </form>
             </>)}
           </div>
-          {peran.startsWith("Tamu") && <p className="emas-tamu" role="status"><b>Mode pratinjau</b> — hanya untuk melihat, data tidak dapat diubah. <a className="tautan" href="/imms/login">Masuk dengan akun</a></p>}
+          {(peran.startsWith("Tamu") || peran.startsWith("Dosen")) && <div className="emas-tamu" role="status"><b>{peran.startsWith("Dosen") ? "Dashboard Dosen Pembimbing" : "Mode pratinjau"}</b> — hanya untuk melihat, data tidak dapat diubah. <form action={keluar} className="inline"><button type="submit" className="tautan">Masuk dengan akun petugas</button></form></div>}
           <div className="imms-gulir">{children}</div>
         </div>
       </div>
