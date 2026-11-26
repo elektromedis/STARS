@@ -7,6 +7,7 @@ import { cukup, type Peran } from "./peran";
 export async function sesiHalaman(minimal: Peran = "Viewer") {
   const s = await auth();
   if (!s?.user) redirect("/login");
+  if (s.user.peran === "Tamu") redirect("/imms?ditolak=" + encodeURIComponent("akun STARS")); // tautan pratinjau hanya untuk EMASCARE
   if (!cukup(s.user.peran, minimal)) redirect(`/admin?ditolak=${encodeURIComponent(minimal)}`);
   return s;
 }

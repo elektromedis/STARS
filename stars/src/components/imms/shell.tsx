@@ -92,7 +92,7 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
           ))}
           <div className="mt-auto space-y-1 border-t pt-3" style={{ borderColor: "var(--garis)" }}>
             <div className="px-2 text-[12px]"><div className="font-semibold">{nama}</div><div className="redup2">{peran}</div></div>
-            <a href="/admin" className="imms-nav"><ArrowUpRight aria-hidden /> Buka STARS</a>
+            {!peran.startsWith("Tamu") && <a href="/admin" className="imms-nav"><ArrowUpRight aria-hidden /> Buka STARS</a>}
             <form action={keluar}><button className="imms-nav w-full" type="submit"><LogOut aria-hidden /> Keluar</button></form>
           </div>
         </aside>
@@ -107,6 +107,7 @@ export function ImmsShell({ nama, peran, tingkat, menunggu, children }: { nama: 
               <input name="k" className="isian cari" placeholder="Pindai / ketik barcode alat…" aria-label="Barcode alat" autoComplete="off" />
             </form>
           </div>
+          {peran.startsWith("Tamu") && <p className="emas-tamu" role="status"><b>Mode pratinjau</b> — hanya untuk melihat, data tidak dapat diubah. <a className="tautan" href="/imms/login">Masuk dengan akun</a></p>}
           <div className="imms-gulir">{children}</div>
         </div>
       </div>

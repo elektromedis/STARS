@@ -6,6 +6,7 @@ import { authConfig } from "./auth.config";
 import { prisma } from "./lib/prisma";
 import { audit } from "./lib/audit";
 import { batasi, reset } from "./lib/rate-limit";
+import { cekTamu, PERAN_TAMU } from "./lib/tamu";
 
 const MAKS_GAGAL_AKUN = 10; // setelah ini akun dikunci 15 menit
 const KUNCI_MENIT = 15;
@@ -58,6 +59,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         reset(`login:${ip}`);
         await audit("login.berhasil", { email, ip });
         return { id: String(u.id), email: u.email, name: u.nama, nama: u.nama, peran: u.peran, unitKerjaId: u.unitKerjaId, unitKerja: u.unitKerja?.nama ?? null };
+      },
+    }),
+    // Tautan pratinjau EMASCARE (baca saja) — lihat src/lib/tamu.ts.
+    Credentials({
+      id: "tamu",
+      name: "Tautan pratinjau",
+      credentials: { token: { label: "Token", type: "text" } },
+      async authorize(raw, req) {
+        const ip = (req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || req.headers.get("x-real-ip") || "lokal";
+        if (!batasi(`tamu:${ip}`, 10, KUNCI_MENIT * 60 * 1000).boleh) return null;
+        if (!(await cekTamu((raw as { token?: unknown })?.token))) { await audit("login.tamu-gagal", { ip }); return null; }
+        await audit("login.tamu", { email: "tamu@emascare", ip });
+        return { id: "tamu", email: "tamu@emascare", name: "Tamu (pratinjau)", nama: "Tamu (pratinjau)", peran: PERAN_TAMU, unitKerjaId: null, unitKerja: null };
       },
     }),
   ],

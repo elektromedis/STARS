@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { unitTerkunci } from "@/lib/akses";
+import { cukup } from "@/lib/peran";
 import { notifikasiPerubahan, notifikasiPetugas } from "@/lib/notifikasi";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +17,7 @@ export async function GET() {
   const kunci = await unitTerkunci();
   const [petugas, ubah] = await Promise.all([
     notifikasiPetugas({ penggunaId: Number(s.user.id) || null, unit: kunci?.nama ?? null }),
-    s.user.peran === "Viewer" ? Promise.resolve([]) : notifikasiPerubahan({ email: s.user.email ?? null }),
+    !cukup(s.user.peran, "Operator") ? Promise.resolve([]) : notifikasiPerubahan({ email: s.user.email ?? null }),
   ]);
   const item = [...petugas, ...ubah].sort((a, b) => b.waktu.localeCompare(a.waktu));
   return NextResponse.json({ masuk: true, nama: s.user.nama ?? s.user.name ?? null, item }, { headers: { "Cache-Control": "no-store" } });

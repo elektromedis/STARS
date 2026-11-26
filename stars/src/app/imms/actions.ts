@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { audit } from "@/lib/audit";
-import { sesiImms } from "@/lib/imms-sesi";
+import { sesiImms, tolakTamu } from "@/lib/imms-sesi";
 import { nomorBerikut } from "@/lib/pemeliharaan";
 import { perbaruiEm } from "@/lib/imms";
 
@@ -109,6 +109,7 @@ async function laporKerusakan(alatId: number, keluhan: string, pelapor: string, 
 
 export async function buatKeluhan(f: FormData) {
   const s = await sesiImms("Viewer");
+  tolakTamu(s);
   const alat = await prisma.alat.findUnique({ where: { id: id(f, "alatId") }, select: { id: true, nama: true, unitKerjaId: true, lokasi: true } });
   if (!alat) throw new Error("Alat tidak ditemukan");
   if (s.user.peran === "Viewer" && s.user.unitKerjaId && s.user.unitKerjaId !== alat.unitKerjaId) throw new Error("Alat di luar unit kerja Anda.");
@@ -251,4 +252,24 @@ export async function sinkronSekarang() {
   if (!sinkronAktif()) throw new Error("TRILUX_DB_URL belum diisi di server.");
   await sinkronTrilux(s.user.email ?? "admin");
   segar("/imms/sinkron", "/imms/inventaris", "/imms/perbaikan", "/imms/kalibrasi", "/imms/keluhan", "/imms/suku-cadang", "/imms/jadwal");
+}
+
+export type StatusTamu = { token?: string; sampai?: string; error?: string; ok?: string } | undefined;
+
+/** Admin: buat tautan pratinjau baca-saja (menggantikan tautan lama). */
+export async function buatTautanTamu(_p: StatusTamu, f: FormData): Promise<StatusTamu> {
+  const s = await sesiImms("Admin");
+  const hari = [1, 3, 7, 14, 30].includes(Number(f.get("hari"))) ? Number(f.get("hari")) : 7;
+  const { buatTamu } = await import("@/lib/tamu");
+  const r = await buatTamu(hari, s.user.email ?? null, teks(f, "ket", 120) || null);
+  await audit("IMMS: tautan tamu dibuat", { email: s.user.email, detail: `${hari} hari${teks(f, "ket") ? ` · ${teks(f, "ket", 120)}` : ""}` });
+  return r;
+}
+
+export async function cabutTautanTamu(): Promise<StatusTamu> {
+  const s = await sesiImms("Admin");
+  const { cabutTamu } = await import("@/lib/tamu");
+  await cabutTamu(s.user.email ?? null);
+  await audit("IMMS: tautan tamu dicabut", { email: s.user.email });
+  return { ok: "Tautan dicabut. Tautan lama tidak bisa dipakai lagi." };
 }

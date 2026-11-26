@@ -6,12 +6,15 @@ import { bacaPref, waSiap } from "@/lib/notif-kirim";
 import { keluar } from "@/app/login/actions";
 import { UbahSandi } from "@/app/akun/ubah-sandi";
 import { AturNotifikasi } from "@/app/akun/atur-notifikasi";
+import { TautanTamu } from "@/components/imms/tautan-tamu";
+import { statusTamu } from "@/lib/tamu";
 
 export const metadata = { title: "Akun Saya" };
 
 export default async function AkunEmas() {
   const s = await sesiImms();
   const u = await prisma.pengguna.findUnique({ where: { email: s.user.email! }, select: { id: true, nama: true, email: true, unitKerja: { select: { nama: true } } } });
+  const tamu = cukup(s.user.peran, "Admin") ? await statusTamu() : undefined;
   const pref = u && cukup(s.user.peran, "Operator") ? await bacaPref(u.id) : null;
   return (
     <div className="space-y-5">
@@ -26,7 +29,8 @@ export default async function AkunEmas() {
           <AturNotifikasi email={pref.email} wa={pref.wa} emailSiap={emailSiap()} waSiap={waSiap()} />
         </section>
       )}
-      <section className="kaca panel"><h2>Ganti sandi</h2><UbahSandi /></section>
+      {tamu !== undefined && <section className="kaca panel"><h2>Tautan pratinjau tanpa akun</h2><TautanTamu aktif={tamu} /></section>}
+      {u && <section className="kaca panel"><h2>Ganti sandi</h2><UbahSandi /></section>}
       <form action={keluar}><button className="kapsul" type="submit">Keluar</button></form>
     </div>
   );
