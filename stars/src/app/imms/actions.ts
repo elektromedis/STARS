@@ -7,6 +7,10 @@ import { audit } from "@/lib/audit";
 import { sesiAksiImms as sesiImms, tolakTamu } from "@/lib/imms-sesi";
 import { nomorBerikut } from "@/lib/pemeliharaan";
 import { perbaruiEm } from "@/lib/imms";
+import { bolehAksi, type KodeAksi } from "@/lib/role";
+
+/** Sakelar izin peran (Admin → User System); melempar galat yang ditampilkan halaman "Perubahan tidak tersimpan". */
+async function wajib(s: { user: { id?: string | null } }, a: KodeAksi) { if (!(await bolehAksi(s.user.id, a))) throw new Error("Peran Anda tidak diizinkan untuk aksi ini (atur di Admin → User System)."); }
 
 const teks = (f: FormData, k: string, maks = 2000) => String(f.get(k) ?? "").trim().slice(0, maks);
 const angka = (f: FormData, k: string) => { const v = Number(f.get(k)); return Number.isFinite(v) ? v : NaN; };
@@ -124,6 +128,7 @@ export async function buatKeluhan(f: FormData) {
 
 export async function terimaKeluhan(f: FormData) {
   const s = await sesiImms("Operator");
+  await wajib(s, "proses");
   const wr = await prisma.permintaanKerja.findUnique({ where: { id: id(f) }, include: { perintah: true } });
   if (!wr) throw new Error("Laporan tidak ditemukan");
   if (wr.perintah) redirect(`/imms/perbaikan/${wr.perintah.nomor}`);
@@ -169,6 +174,7 @@ export async function tolakUsulan(f: FormData) { await putuskanUsulan(f, false);
 
 async function putuskanUsulan(f: FormData, setuju: boolean) {
   const s = await sesiImms("Admin");
+  await wajib(s, "setujui");
   const wo = await prisma.perintahKerja.findUnique({ where: { id: id(f) } });
   if (!wo || wo.usulanStatus !== "Diajukan") throw new Error("Usulan tidak menunggu persetujuan");
   const catatan = teks(f, "catatan", 1000);
@@ -180,6 +186,7 @@ async function putuskanUsulan(f: FormData, setuju: boolean) {
 
 export async function mulaiPerbaikan(f: FormData) {
   const s = await sesiImms("Operator");
+  await wajib(s, "proses");
   const wo = await prisma.perintahKerja.findUnique({ where: { id: id(f) } });
   if (!wo) throw new Error("Tidak ditemukan");
   if (wo.usulanStatus === "Diajukan" || wo.usulanStatus === "Ditolak") throw new Error("Usulan belum disetujui pimpinan.");
@@ -190,6 +197,7 @@ export async function mulaiPerbaikan(f: FormData) {
 
 export async function selesaikanPerbaikan(f: FormData) {
   const s = await sesiImms("Operator");
+  await wajib(s, "proses");
   const wo = await prisma.perintahKerja.findUnique({ where: { id: id(f) } });
   if (!wo || wo.jenis !== "Korektif") throw new Error("Perintah kerja tidak sah");
   if (!wo.tanggalMulai) throw new Error("Perbaikan belum dimulai.");
@@ -217,6 +225,7 @@ export async function batalkanPerintah(f: FormData) {
 const KONDISI = ["Baik", "Rusak Ringan", "Rusak Berat", "Afkir"];
 export async function simpanAlat(f: FormData) {
   const s = await sesiImms("Operator");
+  await wajib(s, f.get("id") ? "ubah" : "buat");
   if (process.env.STARS_MODE === "internet") throw new Error("Server mode internet bersifat baca saja.");
   const idLama = Number(f.get("id")) || null;
   const kode = teks(f, "kode", 60), nama = teks(f, "nama", 200), unitKerjaId = Number(f.get("unitKerjaId"));
@@ -294,6 +303,7 @@ export async function keluarImms() {
 /** Hapus laporan keluhan / perintah kerja yang salah input atau tidak jadi (Admin). WO "Selesai" tidak dapat dihapus. */
 export async function hapusKeluhan(f: FormData) {
   const s = await sesiImms("Admin");
+  await wajib(s, "hapus");
   const { hapusPermintaan } = await import("@/lib/pemeliharaan-hapus");
   const h = await hapusPermintaan(id(f));
   if ("error" in h) throw new Error(h.error);
@@ -303,6 +313,7 @@ export async function hapusKeluhan(f: FormData) {
 
 export async function hapusPerintahImms(f: FormData) {
   const s = await sesiImms("Admin");
+  await wajib(s, "hapus");
   const { hapusPerintah } = await import("@/lib/pemeliharaan-hapus");
   const h = await hapusPerintah(id(f));
   if ("error" in h) throw new Error(h.error);

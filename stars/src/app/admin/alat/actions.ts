@@ -1,4 +1,5 @@
 "use server";
+import { bolehAksi } from "@/lib/role";
 
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
@@ -118,6 +119,7 @@ export async function buatRuangan(_prev: StatusAksi, fd: FormData): Promise<Stat
 export async function buatAlat(_prev: StatusAksi, fd: FormData): Promise<StatusAksi> {
   const g = await penjaga();
   if (!g.sesi) return { error: g.pesan! };
+  if (!(await bolehAksi(g.sesi.user.id, "buat"))) return { error: "Peran Anda tidak diizinkan menambah data (atur di Admin → User System)." };
   const parsed = bacaForm(fd);
   if (!parsed.success) return { error: pesanZod(parsed.error) };
   const d = parsed.data;
@@ -133,6 +135,7 @@ export async function buatAlat(_prev: StatusAksi, fd: FormData): Promise<StatusA
 export async function ubahAlat(_prev: StatusAksi, fd: FormData): Promise<StatusAksi> {
   const g = await penjaga();
   if (!g.sesi) return { error: g.pesan! };
+  if (!(await bolehAksi(g.sesi.user.id, "ubah"))) return { error: "Peran Anda tidak diizinkan mengubah data (atur di Admin → User System)." };
   const id = z.coerce.number().int().positive().safeParse(fd.get("id"));
   if (!id.success) return { error: "ID alat tidak valid." };
   const parsed = bacaForm(fd);

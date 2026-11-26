@@ -14,6 +14,7 @@ import { AksiSamar } from "./aksi-samar";
 import { Aksesibilitas } from "./aksesibilitas";
 import { LatarGalaksi, LatarGerbang } from "./tampilan";
 import { Sidebar } from "./sidebar";
+import { PenjagaAkses } from "./use-akses";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   // EMASCARE (STARS IMMS) (/imms, domain terpisah) memakai kerangka jendelanya sendiri.
@@ -37,6 +38,7 @@ function Shell({ children }: { children: React.ReactNode }) {
       <div className="kolom-utama flex min-h-screen flex-col">
         <BilahAtas />
         <div className="contents print:hidden"><Header onMenuClick={() => setOpen(true)} /></div>
+        <PenjagaAkses />
         <main id="main" className="mx-auto w-full max-w-[1360px] flex-1 px-4 pb-10 pt-6 md:pl-6 md:pr-6 md:pb-10 md:pt-8 min-[1600px]:pr-6 print:max-w-none print:p-0">
           {children}
         </main>

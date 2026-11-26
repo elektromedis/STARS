@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { menuAktif, NAV_ITEMS, type NavItem } from "@/lib/nav";
 import { NAV_EN, useBahasa } from "@/lib/bahasa";
 import { cn } from "@/lib/utils";
+import { menuTertutup, useMenuTertutup } from "./use-akses";
 
 type Tip = { href: string; label: string; description: string; top: number; left: number };
 
@@ -19,6 +20,7 @@ export function SidebarNav({ compact = false, onNavigate }: { compact?: boolean;
   const lbl = (it: { href: string; label: string }) => (bhs === "en" && NAV_EN[it.href] ? NAV_EN[it.href][0] : it.label);
   const ket = (it: { href: string; description: string }) => (bhs === "en" && NAV_EN[it.href]?.[1] ? NAV_EN[it.href][1] : it.description);
   const pathname = usePathname();
+  const menuMati = useMenuTertutup();
   const idDasar = useId();
   const [tip, setTip] = useState<Tip | null>(null);
   const [tampil, setTampil] = useState(false);
@@ -56,7 +58,7 @@ export function SidebarNav({ compact = false, onNavigate }: { compact?: boolean;
 
   return (
     <nav aria-label="Navigasi utama" className="flex flex-col gap-1">
-      {NAV_ITEMS.map((item, i) => {
+      {NAV_ITEMS.filter((item) => !menuTertutup(menuMati, item.href)).map((item, i) => {
         const active = menuAktif(item, pathname);
         const Icon = item.icon;
         return (

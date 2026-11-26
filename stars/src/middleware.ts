@@ -27,8 +27,14 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
     const proto = /:(443|8443)$/.test(host) ? "https" : (req.headers.get("x-forwarded-proto")?.split(",")[0].trim() ?? req.nextUrl.protocol.replace(":", ""));
     return NextResponse.redirect(`${proto}://${host}/imms${p === "/" ? "" : p}${req.nextUrl.search}`, 307);
   }
-  if (p.startsWith("/admin") || p.startsWith("/api/admin")) return lindungi(req, ev);
-  return NextResponse.next();
+  // Alamat halaman diteruskan ke komponen server (header x-stars-path) untuk pemeriksaan akses menu per peran.
+  const h = new Headers(req.headers); h.set("x-stars-path", p);
+  if (p.startsWith("/admin") || p.startsWith("/api/admin")) {
+    const r = await lindungi(req, ev);
+    if (r.headers.get("x-middleware-next") !== "1") return r;
+    return NextResponse.next({ request: { headers: h } });
+  }
+  return NextResponse.next({ request: { headers: h } });
 }
 
 export const config = { matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"] };

@@ -8,6 +8,10 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { audit, ipDari } from "@/lib/audit";
 import { PERAN, cukup, type Peran } from "@/lib/peran";
+import { ROLE_NONAKTIF, ROLE_PENUH, namaRole } from "@/lib/role-daftar";
+
+/** Peran (jabatan) dari formulir: kosong = ikuti tingkatan. Super Administrator hanya untuk tingkatan Super Admin. */
+const bacaRole = (fd: FormData, peran: string) => { const r = String(fd.get("role") ?? ""); if (!namaRole.has(r)) return null; if (r === ROLE_PENUH && peran !== "Super Admin") return null; return r; };
 import { notifHasilPendaftaran } from "@/lib/notif-akun";
 import { normalAlamat } from "@/lib/alamat";
 
@@ -40,7 +44,7 @@ export async function buatPengguna(_prev: StatusAksi, fd: FormData): Promise<Sta
   if (!s) return { error: error! };
   const d = parsed.data;
   if (await prisma.pengguna.findUnique({ where: { email: d.email } })) return { error: "Email sudah terdaftar." };
-  await prisma.pengguna.create({ data: { nama: d.nama, email: d.email, sandiHash: await bcrypt.hash(d.sandi, 12), peran: d.peran, unitKerjaId: d.unitKerjaId ?? null } });
+  await prisma.pengguna.create({ data: { nama: d.nama, email: d.email, sandiHash: await bcrypt.hash(d.sandi, 12), peran: d.peran, role: bacaRole(fd, d.peran), unitKerjaId: d.unitKerjaId ?? null, ...(bacaRole(fd, d.peran) === ROLE_NONAKTIF ? { aktif: false } : {}) } });
   await audit("pengguna.buat", { email: s.user.email, ip: await ip(), objek: d.email, detail: `peran ${d.peran}` });
   revalidatePath("/admin/pengguna");
   return { ok: `Pengguna ${d.email} dibuat.` };
@@ -57,10 +61,12 @@ export async function ubahPengguna(_prev: StatusAksi, fd: FormData): Promise<Sta
   const sayaSendiri = String(target.id) === s.user.id;
   // Checkbox "Aktif" di form dinonaktifkan untuk akun sendiri, dan input disabled
   // tidak dikirim browser — akun sendiri selalu dianggap tetap aktif.
-  const aktif = sayaSendiri ? true : d.aktif;
+  const role = bacaRole(fd, d.peran);
+  if (sayaSendiri && role === ROLE_NONAKTIF) return { error: "Anda tidak dapat menonaktifkan akun sendiri." };
+  const aktif = sayaSendiri ? true : role === ROLE_NONAKTIF ? false : d.aktif;
   if (sayaSendiri && !cukup(d.peran as Peran, "Admin")) return { error: "Anda tidak dapat menurunkan peran akun sendiri." };
-  await prisma.pengguna.update({ where: { id: d.id }, data: { nama: d.nama, email: d.email, peran: d.peran, unitKerjaId: d.unitKerjaId ?? null, aktif, ...(aktif ? { terkunciSampai: null, gagalLogin: 0, menunggu: false } : {}) } });
-  await audit("pengguna.ubah", { email: s.user.email, ip: await ip(), objek: d.email, detail: `peran ${d.peran}, aktif ${aktif}, unit ${d.unitKerjaId ?? "semua"}` });
+  await prisma.pengguna.update({ where: { id: d.id }, data: { nama: d.nama, email: d.email, peran: d.peran, role, unitKerjaId: d.unitKerjaId ?? null, aktif, ...(aktif ? { terkunciSampai: null, gagalLogin: 0, menunggu: false } : {}) } });
+  await audit("pengguna.ubah", { email: s.user.email, ip: await ip(), objek: d.email, detail: `tingkatan ${d.peran}, peran ${role ?? "-"}, aktif ${aktif}, unit ${d.unitKerjaId ?? "semua"}` });
   revalidatePath("/admin/pengguna");
   return { ok: `Pengguna ${d.email} diperbarui.` };
 }
@@ -88,7 +94,7 @@ export async function setujuiPendaftar(_prev: StatusAksi, fd: FormData): Promise
   if (!s) return { error: error! };
   const t = await prisma.pengguna.findUnique({ where: { id: parsed.data.id } });
   if (!t || !t.menunggu) return { error: "Pendaftar tidak ditemukan atau sudah diproses." };
-  await prisma.pengguna.update({ where: { id: t.id }, data: { aktif: true, menunggu: false, peran: parsed.data.peran, unitKerjaId: parsed.data.unitKerjaId ?? null, gagalLogin: 0, terkunciSampai: null } });
+  await prisma.pengguna.update({ where: { id: t.id }, data: { aktif: true, menunggu: false, peran: parsed.data.peran, role: bacaRole(fd, parsed.data.peran), unitKerjaId: parsed.data.unitKerjaId ?? null, gagalLogin: 0, terkunciSampai: null } });
   await audit("pengguna.setujui", { email: s.user.email, ip: await ip(), objek: t.email, detail: `peran ${parsed.data.peran}, unit ${parsed.data.unitKerjaId ?? "semua"}` });
   await notifHasilPendaftaran({ nama: t.nama, email: t.email, disetujui: true, peran: parsed.data.peran }, normalAlamat(process.env.STARS_URL_PUBLIK));
   revalidatePath("/admin/pengguna");

@@ -47,6 +47,8 @@ model Pengguna {
   nama           String
   sandiHash      String
   peran          String          @default("Viewer")
+  /// Peran/jabatan (Elektromedis, IPSRS, Farmasi, …) — menentukan menu & aksi lewat Admin → User System. null = mengikuti tingkatan.
+  role           String?
   unitKerja      UnitKerja?      @relation(fields: [unitKerjaId], references: [id])
   unitKerjaId    Int? // Operator: hanya boleh mengunggah data unit ini
   aktif          Boolean         @default(true)

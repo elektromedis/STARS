@@ -45,12 +45,12 @@ export default async function PenggunaPage() {
       </Card>
 
       <Card>
-        <CardHeader><CardTitle>Daftar pengguna ({pengguna.length})</CardTitle><CardDescription>Klik Ubah untuk mengganti peran, unit, status aktif, atau menyetel ulang sandi.</CardDescription></CardHeader>
+        <CardHeader><CardTitle>Daftar pengguna ({pengguna.length})</CardTitle><CardDescription>Atur menu & aksi tiap peran di <a href="/admin/user-system" className="text-teal-700 underline">User System</a>. Klik Ubah untuk mengganti peran, tingkatan, unit, status aktif, atau menyetel ulang sandi.</CardDescription></CardHeader>
         <CardContent className="grid gap-3">
           {pengguna.map((p) => (
             <BarisPengguna
               key={p.id}
-              pengguna={{ id: p.id, nama: p.nama, email: p.email, peran: p.peran, unitKerjaId: p.unitKerjaId, unitKerja: p.unitKerja?.nama ?? null, aktif: p.aktif, terakhirLogin: p.terakhirLogin?.toISOString() ?? null, terkunci: Boolean(p.terkunciSampai && p.terkunciSampai > new Date()) }}
+              pengguna={{ id: p.id, nama: p.nama, email: p.email, peran: p.peran, role: p.role, unitKerjaId: p.unitKerjaId, unitKerja: p.unitKerja?.nama ?? null, aktif: p.aktif, terakhirLogin: p.terakhirLogin?.toISOString() ?? null, terkunci: Boolean(p.terkunciSampai && p.terkunciSampai > new Date()) }}
               units={units}
               peranBoleh={p.peran === "Super Admin" && !superAdmin ? [] : peranBoleh}
               sayaSendiri={String(p.id) === s.user.id}

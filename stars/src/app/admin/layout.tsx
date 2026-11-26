@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { sesiHalaman } from "@/lib/sesi";
 import { cukup } from "@/lib/peran";
+import { aksesPengguna } from "@/lib/role";
 import { keluar } from "@/app/login/actions";
 
 export const metadata: Metadata = { title: { default: "Admin", template: "%s | Admin STARS" } };
@@ -37,8 +38,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     { href: "/admin/situs", label: "CMS Situs", icon: "situs" as const, tampil: cukup(u.peran, "Admin") },
     { href: "/admin/jdih", label: "CMS JDIH", icon: "jdih" as const, tampil: cukup(u.peran, "Admin") },
     { href: "/admin/pengguna", label: "Pengguna", icon: "users" as const, tampil: cukup(u.peran, "Admin") },
+    { href: "/admin/user-system", label: "User System", icon: "users" as const, tampil: cukup(u.peran, "Admin") },
     { href: "/admin/sistem", label: "Sistem", icon: "settings" as const, tampil: cukup(u.peran, "Admin") },
   ].filter((t) => t.tampil);
+  // Menu yang dimatikan untuk peran pengguna (Admin → User System) disembunyikan.
+  const akses = await aksesPengguna(u.id);
+  const tabsTampil = akses ? tabs.filter((t) => akses.menu[t.href] !== false) : tabs;
 
   return (
     <>
@@ -53,12 +58,13 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               <div className="truncate text-xs text-muted-foreground">{u.email}</div>
             </div>
             <Badge variant="teal">{u.peran}</Badge>
+            {akses && <Badge variant="outline">{akses.role}</Badge>}
             {u.unitKerja && <Badge variant="outline">{u.unitKerja}</Badge>}
             <form action={keluar}><Button type="submit" variant="ghost" size="sm" title="Keluar"><LogOut /> Keluar</Button></form>
           </div>
         }
       />
-      <AdminTabs tabs={tabs} />
+      <AdminTabs tabs={tabsTampil} />
       {children}
     </>
   );

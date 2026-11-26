@@ -6,6 +6,7 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { sesiApi } from "@/lib/sesi";
 import { audit, ipDari } from "@/lib/audit";
+import { bolehAksi } from "@/lib/role";
 import {
   JENIS_PERINTAH, PRIORITAS, STATUS_PERINTAH, STATUS_PERMINTAAN, nomorBerikut,
 } from "@/lib/pemeliharaan";
@@ -19,6 +20,7 @@ async function penjaga() {
   const { sesi, tolak } = await sesiApi("Operator");
   if (tolak) return { sesi: null, pesan: "Memerlukan peran Operator atau lebih tinggi." };
   if (process.env.STARS_MODE === "internet") return { sesi: null, pesan: "Server mode internet bersifat baca saja." };
+  if (!(await bolehAksi(sesi.user.id, "proses"))) return { sesi: null, pesan: "Peran Anda tidak diizinkan memproses laporan/perintah kerja (atur di Admin → User System)." };
   return { sesi, pesan: null };
 }
 
@@ -128,6 +130,7 @@ export async function hapusPemeliharaan(_prev: StatusAksi, fd: FormData): Promis
   const id = Number(fd.get("id"));
   if (!Number.isInteger(id) || id <= 0) return { error: "ID tidak sah." };
   const jenis = fd.get("jenis") === "wo" ? "wo" : "wr";
+  if (!(await bolehAksi(sesi.user.id, "hapus"))) return { error: "Peran Anda tidak diizinkan menghapus data (atur di Admin → User System)." };
   const { hapusPermintaan, hapusPerintah } = await import("@/lib/pemeliharaan-hapus");
   const h = jenis === "wo" ? await hapusPerintah(id) : await hapusPermintaan(id);
   if ("error" in h) return { error: h.error };

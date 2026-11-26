@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { revalidatePath } from "next/cache";
+import { bolehAksi } from "@/lib/role";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { bacaExcelAlat, rencanaGantiAlat, simpanAlat, tandaiStatus, validasiAlat } from "@/lib/impor-alat";
@@ -22,6 +23,7 @@ export async function POST(req: NextRequest) {
   const ganti = form.get("ganti") === "1";
   if (mode === "simpan" && process.env.STARS_MODE === "internet") return NextResponse.json({ error: "Server mode internet bersifat baca saja." }, { status: 403 });
   if (mode === "simpan" && !cukup(sesi.user.peran, "Operator")) return NextResponse.json({ error: "Menyimpan memerlukan peran Operator atau lebih tinggi." }, { status: 403 });
+  if (mode === "simpan" && !(await bolehAksi(sesi.user.id, "impor"))) return NextResponse.json({ error: "Peran Anda tidak diizinkan mengimpor data (atur di Admin → User System)." }, { status: 403 });
   if (!(file instanceof File)) return NextResponse.json({ error: "Berkas tidak ditemukan (field `file`)." }, { status: 400 });
   if (!/\.(xlsx|xlsm|xls|csv)$/i.test(file.name)) return NextResponse.json({ error: "Format harus .xlsx/.xls (atau .csv)." }, { status: 400 });
   if (file.size > MAKS_BYTE) return NextResponse.json({ error: "Ukuran berkas melebihi 15 MB." }, { status: 413 });

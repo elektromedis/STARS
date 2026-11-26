@@ -1,4 +1,5 @@
 "use client";
+import { ROLE } from "@/lib/role-daftar";
 
 import { useActionState, useState } from "react";
 import { CheckCircle2, KeyRound, Loader2, Pencil, UserPlus, XCircle } from "lucide-react";
@@ -17,11 +18,24 @@ function Pesan({ status }: { status: StatusAksi }) {
     : <p className="flex items-center gap-2 text-sm text-emerald-700"><CheckCircle2 className="size-4" /> {status.ok}</p>;
 }
 
-function PilihanPeranUnit({ units, peranBoleh, peran, unitKerjaId }: { units: Unit[]; peranBoleh: string[]; peran?: string; unitKerjaId?: number | null }) {
+function PilihanPeranUnit({ units, peranBoleh, peran, unitKerjaId, role }: { units: Unit[]; peranBoleh: string[]; peran?: string; unitKerjaId?: number | null; role?: string | null }) {
+  const [tingkat, setTingkat] = useState(peran ?? "Operator");
+  const [jabatan, setJabatan] = useState(role ?? "");
+  const pilihRole = (v: string) => {
+    setJabatan(v);
+    const t = ROLE.find((r) => r.nama === v)?.tingkat;
+    if (t && peranBoleh.includes(t)) setTingkat(t); // tingkatan mengikuti bawaan peran (tetap bisa diubah)
+  };
   return (
     <>
       <label className="grid gap-1 text-xs font-medium text-muted-foreground">Peran
-        <Select name="peran" defaultValue={peran ?? "Operator"} required>{peranBoleh.map((p) => <option key={p} value={p}>{p}</option>)}</Select>
+        <Select name="role" value={jabatan} onChange={(e) => pilihRole(e.target.value)}>
+          <option value="">— ikuti tingkatan —</option>
+          {ROLE.filter((r) => peranBoleh.includes(r.tingkat) || r.nama === jabatan).map((r) => <option key={r.nama} value={r.nama}>{r.nama}</option>)}
+        </Select>
+      </label>
+      <label className="grid gap-1 text-xs font-medium text-muted-foreground">Tingkatan sistem
+        <Select name="peran" value={tingkat} onChange={(e) => setTingkat(e.target.value)} required>{peranBoleh.map((p) => <option key={p} value={p}>{p}</option>)}</Select>
       </label>
       <label className="grid gap-1 text-xs font-medium text-muted-foreground">Batas unit kerja (Operator & Viewer)
         <Select name="unitKerjaId" defaultValue={unitKerjaId ?? ""}>
@@ -50,7 +64,7 @@ export function FormPenggunaBaru({ units, peranBoleh }: { units: Unit[]; peranBo
 }
 
 export function BarisPengguna({ pengguna: p, units, peranBoleh, sayaSendiri }: {
-  pengguna: { id: number; nama: string; email: string; peran: string; unitKerjaId: number | null; unitKerja: string | null; aktif: boolean; terakhirLogin: string | null; terkunci: boolean };
+  pengguna: { id: number; nama: string; email: string; peran: string; role?: string | null; unitKerjaId: number | null; unitKerja: string | null; aktif: boolean; terakhirLogin: string | null; terkunci: boolean };
   units: Unit[]; peranBoleh: string[]; sayaSendiri: boolean;
 }) {
   const [buka, setBuka] = useState<"" | "ubah" | "sandi">("");
@@ -66,6 +80,7 @@ export function BarisPengguna({ pengguna: p, units, peranBoleh, sayaSendiri }: {
           <div className="text-xs text-muted-foreground">{p.email} • login terakhir: {tgl}</div>
         </div>
         <Badge variant="teal">{p.peran}</Badge>
+        {p.role && <Badge variant="outline">{p.role}</Badge>}
         {p.unitKerja && <Badge variant="outline">{p.unitKerja}</Badge>}
         {!p.aktif && <Badge variant="danger">Nonaktif</Badge>}
         {p.terkunci && <Badge variant="warning">Terkunci</Badge>}
@@ -81,7 +96,7 @@ export function BarisPengguna({ pengguna: p, units, peranBoleh, sayaSendiri }: {
           <input type="hidden" name="id" value={p.id} />
           <label className="grid gap-1 text-xs font-medium text-muted-foreground">Nama<Input name="nama" defaultValue={p.nama} required /></label>
           <label className="grid gap-1 text-xs font-medium text-muted-foreground md:col-span-2">Email<Input name="email" type="email" defaultValue={p.email} required /></label>
-          <PilihanPeranUnit units={units} peranBoleh={peranBoleh} peran={p.peran} unitKerjaId={p.unitKerjaId} />
+          <PilihanPeranUnit units={units} peranBoleh={peranBoleh} peran={p.peran} unitKerjaId={p.unitKerjaId} role={p.role} />
           <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="aktif" defaultChecked={p.aktif} disabled={sayaSendiri} /> Aktif</label>
           <div className="md:col-span-6 flex items-center justify-between gap-3"><Pesan status={stUbah} /><Button type="submit" size="sm" disabled={pUbah}>{pUbah ? <Loader2 className="animate-spin" /> : <CheckCircle2 />} Simpan perubahan</Button></div>
         </form>

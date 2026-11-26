@@ -1,3 +1,4 @@
+import { tolakEkspor } from "@/lib/role";
 import { NextRequest, NextResponse } from "next/server";
 import { unitTerkunci } from "@/lib/akses";
 import { getDataKalibrasi, JENIS_UJI, STATUS_DATA, type FilterKalibrasi } from "@/lib/kalibrasi-data";
@@ -9,6 +10,7 @@ export const runtime = "nodejs";
 
 /** GET /api/kalibrasi/presentasi?format=pptx|pdf&… (filter sama dengan halaman) — berkas presentasi. Publik, sama seperti halaman /kalibrasi. */
 export async function GET(req: NextRequest) {
+  const tolakE = await tolakEkspor(); if (tolakE) return tolakE;
   const sp = req.nextUrl.searchParams;
   const g = (k: string) => sp.get(k)?.trim() ?? "";
   const format = g("format") === "pdf" ? "pdf" : "pptx";

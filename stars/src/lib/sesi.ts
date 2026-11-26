@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { cukup, type Peran } from "./peran";
@@ -9,6 +10,11 @@ export async function sesiHalaman(minimal: Peran = "Viewer") {
   if (!s?.user) redirect("/login");
   if (s.user.peran === "Tamu" || s.user.peran === "Dosen") redirect("/imms?ditolak=" + encodeURIComponent("akun STARS")); // tautan pratinjau hanya untuk EMASCARE
   if (!cukup(s.user.peran, minimal)) redirect(`/admin?ditolak=${encodeURIComponent(minimal)}`);
+  const path = (await headers()).get("x-stars-path");
+  if (path && path !== "/admin") {
+    const { bolehMenu } = await import("./role");
+    if (!(await bolehMenu(s.user.id, path))) redirect(`/admin?ditolak=${encodeURIComponent("menu ini (dimatikan untuk peran Anda)")}`);
+  }
   return s;
 }
 

@@ -1,4 +1,5 @@
 import { revalidatePath } from "next/cache";
+import { bolehAksi } from "@/lib/role";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sesiApi } from "@/lib/sesi";
@@ -60,6 +61,7 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
   const g = await penjaga((await params).id);
   if (g.tolak) return g.tolak;
   const { sesi, k } = g;
+  if (!(await bolehAksi(sesi.user.id, "hapus"))) return NextResponse.json({ error: "Peran Anda tidak diizinkan menghapus data (atur di Admin → User System)." }, { status: 403 });
   await prisma.kalibrasi.delete({ where: { id: k.id } });
   await hapusJikaYatim(k.berkas);
   await audit("kalibrasi.hapus", { email: sesi.user.email, ip: ipDari(req.headers), objek: k.alat.kode, detail: `#${k.id} tgl ${k.tanggal.toISOString().slice(0, 10)}${k.namaBerkas ? `; sertifikat ${k.namaBerkas}` : ""}` });

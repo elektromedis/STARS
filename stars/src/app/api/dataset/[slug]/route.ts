@@ -1,3 +1,4 @@
+import { tolakEkspor } from "@/lib/role";
 import { NextRequest, NextResponse } from "next/server";
 import { labelFilter, labelNilai, resolveFilter, SEMUA_TAHAP, type Filter } from "@/lib/filter";
 import { getNilaiPerKategori, getNilaiPerUnit, getPaketForExport, getUnitKerjaRows } from "@/lib/queries";
@@ -12,6 +13,7 @@ export const runtime = "nodejs";
  * Mengembalikan berkas unduhan. PDF = laporan siap cetak (baca saja), XLSX/CSV = untuk diedit/diimpor ulang.
  */
 export async function GET(req: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
+  const tolakE = await tolakEkspor(); if (tolakE) return tolakE;
   const { slug } = await params;
   const sp = Object.fromEntries(req.nextUrl.searchParams);
   const format = sp.format === "csv" ? "csv" : sp.format === "pdf" ? "pdf" : "xlsx";
