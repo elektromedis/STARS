@@ -343,7 +343,12 @@ function CetakLabelQr({ units, ruangan, alamat, setAlamat, ukuran, setUkuran, ju
   );
 }
 
-export function AlatManager({ data, units, ruangan, bolehKelola, alamatPublik }: { data: Alat[]; units: Unit[]; ruangan: RuanganRingkas[]; bolehKelola: boolean; alamatPublik: string }) {
+export function AlatManager({ data, units, ruangan, bolehKelola, alamatPublik, total, saring, halaman }: {
+  data: Alat[]; units: Unit[]; ruangan: RuanganRingkas[]; bolehKelola: boolean; alamatPublik: string;
+  /** Jumlah seluruh alat yang cocok filter (data hanya satu halaman). */
+  total?: number; saring?: React.ReactNode; halaman?: React.ReactNode;
+}) {
+  const jumlah = total ?? data.length;
   const [st, aksi, pend] = useActionState<StatusAksi, FormData>(buatAlat, undefined);
   const [alamat, setAlamatState] = useState(alamatPublik);
   const [ukuran, setUkuran] = useState<"kecil" | "besar">("kecil");
@@ -357,7 +362,7 @@ export function AlatManager({ data, units, ruangan, bolehKelola, alamatPublik }:
   const labelSatu = (id: number) => `/api/admin/alat/label?${new URLSearchParams({ id: String(id), ukuran, alamat }).toString()}`;
   return (
     <div className="grid gap-4">
-      {data.length > 0 && <CetakLabelQr units={units} ruangan={ruangan} alamat={alamat} setAlamat={setAlamat} ukuran={ukuran} setUkuran={setUkuran} jumlahAlat={data.length} />}
+      {jumlah > 0 && <CetakLabelQr units={units} ruangan={ruangan} alamat={alamat} setAlamat={setAlamat} ukuran={ukuran} setUkuran={setUkuran} jumlahAlat={jumlah} />}
       <Card>
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center gap-2 p-5 text-sm font-semibold text-navy-800">
@@ -389,15 +394,17 @@ export function AlatManager({ data, units, ruangan, bolehKelola, alamatPublik }:
 
       <Card>
         <CardHeader className="flex-row items-start justify-between gap-4">
-          <CardTitle>Daftar alat ({data.length})</CardTitle>
+          <CardTitle id="daftar-alat">Daftar alat ({jumlah.toLocaleString("id-ID")})</CardTitle>
           {bolehKelola && <Button variant="outline" size="sm" asChild><Link href="/admin/impor#alat">Impor dari Excel Trilux</Link></Button>}
         </CardHeader>
+        {saring}
         <CardContent className="px-0">
           {data.length === 0 ? (
-            <p className="px-4 py-6 text-center text-sm text-muted-foreground">Belum ada alat terdaftar.</p>
+            <p className="px-4 py-6 text-center text-sm text-muted-foreground">{saring ? "Tidak ada alat yang cocok dengan pencarian/filter." : "Belum ada alat terdaftar."}</p>
           ) : (
             <div className="overflow-hidden rounded-lg border">{data.map((a) => <BarisAlat key={a.id} a={a} units={units} ruangan={ruangan} bolehKelola={bolehKelola} label={labelSatu(a.id)} alamat={alamat} />)}</div>
           )}
+          {halaman}
         </CardContent>
       </Card>
     </div>

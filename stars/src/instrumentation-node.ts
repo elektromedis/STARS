@@ -1,5 +1,12 @@
 /** Bagian instrumentation yang hanya berjalan di runtime Node (dipisah agar tidak ikut dibundel untuk edge). */
 export async function mulai() {
+  // SQLite: mode WAL (baca & tulis tidak saling menunggu) + tunggu kunci 5 detik — tetap gesit dengan ribuan alat & banyak pengguna.
+  if ((process.env.DATABASE_URL ?? "").startsWith("file:")) {
+    const { prisma } = await import("./lib/prisma");
+    await prisma.$queryRawUnsafe("PRAGMA journal_mode=WAL;").catch(() => {});
+    await prisma.$queryRawUnsafe("PRAGMA busy_timeout=5000;").catch(() => {});
+    await prisma.$queryRawUnsafe("PRAGMA synchronous=NORMAL;").catch(() => {});
+  }
   const { bootstrap } = await import("./lib/bootstrap");
   await bootstrap().catch((e) => console.error("[bootstrap] gagal:", e));
   // Sinkron TRILUX berkala (hanya bila TRILUX_DB_URL diisi). Menit diatur lewat TRILUX_SINKRON_MENIT (0 = manual saja).
