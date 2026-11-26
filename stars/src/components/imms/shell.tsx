@@ -28,6 +28,8 @@ const MENU: { judul: string; item: { href: string; label: string; ikon: typeof H
   ] },
   { judul: "Perbaikan", item: [
     { href: "/imms/keluhan", label: "Laporan Keluhan", ikon: Activity },
+    { href: "/imms/penilaian", label: "Penilaian Perbaikan", ikon: CheckCircle2 },
+    { href: "/imms/permintaan-alat", label: "Permintaan Alat", ikon: PackageSearch },
     { href: "/imms/perbaikan", label: "Perintah Kerja", ikon: Wrench, min: 1 },
     { href: "/imms/persetujuan", label: "Persetujuan Usulan", ikon: CheckCircle2, min: 1 },
   ] },

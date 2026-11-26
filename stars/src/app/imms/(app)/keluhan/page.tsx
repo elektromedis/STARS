@@ -42,7 +42,7 @@ export default async function Keluhan({ searchParams }: { searchParams: Promise<
           <Tabel><thead><tr><th>Nomor</th><th>Alat & keluhan</th><th>Prioritas</th><th>Status</th><th>Tanggal</th>{teknisi && st === "baru" && <th>Tindakan</th>}{admin && <th><span className="sr-only">Hapus</span></th>}</tr></thead>
             <tbody>{wr.map((w) => (
               <tr key={w.id}>
-                <td className="whitespace-nowrap font-medium">{w.nomor}{w.perintah && <div><Link className="tautan text-[12px]" href={`/imms/perbaikan/${w.perintah.nomor}`}>{w.perintah.nomor}</Link></div>}</td>
+                <td className="whitespace-nowrap font-medium"><Link className="tautan" href={`/imms/keluhan/${w.nomor}`}>{w.nomor}</Link>{w.perintah && <div><Link className="tautan text-[12px]" href={`/imms/perbaikan/${w.perintah.nomor}`}>{w.perintah.nomor}</Link></div>}</td>
                 <td><b>{w.namaAlat}</b> <span className="redup2 text-[11px]">{w.unitKerja?.nama}</span><div className="redup line-clamp-2 max-w-[420px]">{w.keluhan}</div><div className="redup2 text-[11px]">Pelapor: {w.pelapor}</div></td>
                 <td><Lencana t={PRIORITAS_WHO[w.prioritas]?.label ?? w.prioritas} nada={w.prioritas === "Darurat" ? "merah" : w.prioritas === "Tinggi" ? "kuning" : "biru"} /></td>
                 <td><Lencana t={w.status} /></td><td className="redup whitespace-nowrap">{fmtTgl(w.createdAt)}</td>

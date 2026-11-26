@@ -4,6 +4,7 @@ import { sesiHalaman } from "@/lib/sesi";
 import { cukup } from "@/lib/peran";
 import { JENIS_BARANG } from "@/lib/stok";
 import { RingkasInventaris } from "@/components/pemeliharaan/ringkas-inventaris";
+import { KebutuhanSparepart } from "@/components/pemeliharaan/kebutuhan-sparepart";
 import { StokManager } from "@/components/admin/stok-manager";
 
 export const metadata: Metadata = { title: "Sparepart & BHP-BMHP" };
@@ -18,6 +19,7 @@ export default async function StokPage({ searchParams }: { searchParams: Promise
   return (
     <div className="grid gap-4">
     <RingkasInventaris aktif={jenis} />
+    <KebutuhanSparepart />
     <StokManager boleh={boleh} data={data.map((b) => ({
       ...b, kedaluwarsa: iso(b.kedaluwarsa), kalibrasiSampai: iso(b.kalibrasiSampai),
       mutasi: b.mutasi.map((m) => ({ id: m.id, jenis: m.jenis, jumlah: m.jumlah, stokSetelah: m.stokSetelah, keterangan: m.keterangan, oleh: m.oleh, waktu: m.waktu.toISOString() })),

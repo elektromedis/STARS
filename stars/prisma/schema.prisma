@@ -23,6 +23,7 @@ model UnitKerja {
   permintaan  PermintaanKerja[]
   ruangan     Ruangan[]
   titikPantau LokasiPantau[]
+  permintaanAlat PermintaanAlat[]
 }
 
 /// Ruangan/lokasi fisik alat (mis. "PERINA Lt. 2"), di bawah satu unit kerja.
@@ -224,6 +225,16 @@ model Alat {
   auditItem             AuditItem[]
   riwayatEm             RiwayatEm[]
   mutasi                MutasiAlat[]
+  // --- Fase A: aset tambahan (blueprint TRILUX) ---
+  noInternal            String? // nomor inventaris internal (mis. EM-ICU-012)
+  urutJenis             Int? // urutan alat sejenis dalam satu ruangan/unit
+  soleAgent             String? // agen tunggal / distributor resmi
+  tanggalTerhitung      DateTime? // tanggal mulai dihitung penyusutan
+  nilaiResidu           Float? // nilai sisa di akhir usia manfaat
+  kodeSimak             String? // kode barang SIMAK-BMN
+  kodeSimbada           String? // kode barang SIMBADA
+  penerimaan            PenerimaanAlat?   @relation(fields: [penerimaanId], references: [id], onDelete: SetNull)
+  penerimaanId          Int?
 
   @@index([unitKerjaId])
   @@index([kondisi])
@@ -232,6 +243,8 @@ model Alat {
   @@index([kategoriInventaris])
   @@index([nomorSeri])
   @@index([nama])
+  @@index([penerimaanId])
+  @@index([noInternal])
 }
 
 /// Riwayat kalibrasi/pengujian alat beserta sertifikat & masa berlaku.
@@ -284,6 +297,7 @@ model PermintaanKerja {
   perintah       PerintahKerja?
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
+  pesan          PesanKeluhan[]
 
   @@index([status])
   @@index([createdAt])
@@ -327,6 +341,17 @@ model PerintahKerja {
   hasilInspeksi   String? // JSON lembar inspeksi (kondisi, keberadaan, keselamatan, unjuk kerja)
   createdAt       DateTime         @default(now())
   updatedAt       DateTime         @updatedAt
+  // --- Fase B: rating pengguna & persetujuan ---
+  rating          Int? // 1..5, diberikan pelapor/kepala ruangan
+  ratingCatatan   String?
+  ratingOleh      String?
+  ratingPada      DateTime?
+  disetujuiOleh   String? // kepala IPSRS / PJ alkes
+  disetujuiPada   DateTime?
+  // --- EMASCARE: konfirmasi ruangan setelah perbaikan ---
+  hasilRuangan     String? // Berfungsi | Belum berfungsi
+  hasilRuanganOleh String?
+  hasilRuanganPada DateTime?
 
   @@index([status])
   @@index([teknisiId])
@@ -348,9 +373,12 @@ model JadwalPreventif {
   perintah     PerintahKerja[]
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
+  tugas        MasterTugas?    @relation(fields: [tugasId], references: [id], onDelete: SetNull)
+  tugasId      Int?
 
   @@index([alatId])
   @@index([berikutnya])
+  @@index([tugasId])
 }
 
 /// Dokumen pendukung paket (RKPBU, AKPA, Nota Dinas, SP/SPK, Invoice/Faktur).
@@ -896,7 +924,175 @@ model MutasiAlat {
   diterimaPada   DateTime?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
+  // --- Fase C: logistik ---
+  dijemputOleh     String?
+  dijemputPada     DateTime?
+  gudang           String?
+  nomorPenghapusan String?
 
   @@index([alatId])
   @@index([status])
+}
+
+// ======================= Fase A–E (blueprint TRILUX → STARS) =======================
+
+/// Satu tabel untuk supplier, rekanan pengadaan, kalibrator, dan penyedia servis (kolom `jenis`).
+model Rekanan {
+  id         Int              @id @default(autoincrement())
+  nama       String
+  jenis      String           @default("Supplier") // Supplier | Rekanan | Kalibrator | Servis
+  alamat     String?
+  kontak     String?
+  telepon    String?
+  email      String?
+  sertifikat String? // nomor akreditasi (kalibrator, mis. KAN) / izin penyalur alkes
+  catatan    String?
+  aktif      Boolean          @default(true)
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  penerimaan PenerimaanAlat[]
+
+  @@unique([nama, jenis])
+  @@index([jenis])
+}
+
+model MerkAlat {
+  id     Int        @id @default(autoincrement())
+  nama   String     @unique
+  negara String?
+  aktif  Boolean    @default(true)
+  tipe   TipeAlat[]
+}
+
+model TipeAlat {
+  id       Int      @id @default(autoincrement())
+  merk     MerkAlat @relation(fields: [merkId], references: [id], onDelete: Cascade)
+  merkId   Int
+  nama     String
+  namaAlat String? // jenis alat, mis. "Infusion Pump"
+  aktif    Boolean  @default(true)
+
+  @@unique([merkId, nama])
+}
+
+model PenerimaanAlat {
+  id           Int                @id @default(autoincrement())
+  nomor        String             @unique // PNR-2026-0001
+  nomorKontrak String
+  tanggal      DateTime
+  nomorBap     String? // Berita Acara Penerimaan / serah terima
+  tanggalBap   DateTime?
+  rekanan      Rekanan?           @relation(fields: [rekananId], references: [id], onDelete: SetNull)
+  rekananId    Int?
+  tipe         String             @default("Pembelian") // Pembelian | Hibah | Pinjam pakai | KSO | Lainnya
+  jenis        String             @default("Medik") // Medik | Non Medik
+  nilai        Float?
+  catatan      String?
+  oleh         String?
+  berkas       BerkasPenerimaan[]
+  alat         Alat[]
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  @@index([tanggal])
+  @@index([rekananId])
+}
+
+model BerkasPenerimaan {
+  id           Int            @id @default(autoincrement())
+  penerimaan   PenerimaanAlat @relation(fields: [penerimaanId], references: [id], onDelete: Cascade)
+  penerimaanId Int
+  jenis        String         @default("Kontrak") // Kontrak | BAP | Faktur | Lainnya
+  nama         String // nama asli berkas
+  berkas       String // nama simpan di UPLOAD_DIR/dokumen-alat
+  ukuran       Int?
+  oleh         String?
+  createdAt    DateTime       @default(now())
+
+  @@index([penerimaanId])
+}
+
+/// SKP = Sistem Kredit Poin (seperti tabel `skp` TRILUX): poin yang didapat teknisi per tugas selesai.
+model Skp {
+  id        Int           @id @default(autoincrement())
+  kode      String        @unique
+  nama      String
+  poin      Float         @default(0)
+  uraian    String?
+  aktif     Boolean       @default(true)
+  tugas     MasterTugas[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+/// Master tugas pemeliharaan (preventif/kalibrasi/inspeksi) — dasar generator jadwal massal.
+model MasterTugas {
+  id          Int               @id @default(autoincrement())
+  nama        String            @unique
+  jenis       String            @default("Preventif") // Preventif | Kalibrasi | Inspeksi | Korektif
+  durasiMenit Int               @default(60)
+  periodeHari Int               @default(90)
+  biaya       Float             @default(0)
+  kritis      Boolean           @default(false)
+  kataKunci   String? // pencocok nama alat, dipisah koma; kosong = semua alat
+  checklist   String?
+  sukuCadang  String? // satu per baris
+  skp         Skp?              @relation(fields: [skpId], references: [id], onDelete: SetNull)
+  skpId       Int?
+  aktif       Boolean           @default(true)
+  jadwal      JadwalPreventif[]
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([jenis])
+}
+
+// ======================= EMASCARE dari TRILUX =======================
+
+/// Percakapan pelapor ↔ teknisi pada satu laporan keluhan (setara messages TRILUX).
+model PesanKeluhan {
+  id           Int             @id @default(autoincrement())
+  permintaan   PermintaanKerja @relation(fields: [permintaanId], references: [id], onDelete: Cascade)
+  permintaanId Int
+  email        String?
+  nama         String
+  peran        String
+  isi          String
+  createdAt    DateTime        @default(now())
+
+  @@index([permintaanId])
+}
+
+/// Permintaan alat dari ruangan/instalasi (setara request_asset TRILUX).
+model PermintaanAlat {
+  id               Int                  @id @default(autoincrement())
+  nomor            String               @unique // PA-2026-0001
+  unitKerja        UnitKerja?           @relation(fields: [unitKerjaId], references: [id], onDelete: SetNull)
+  unitKerjaId      Int?
+  ruangan          String?
+  pemohon          String
+  emailPemohon     String?
+  uraian           String
+  status           String               @default("Baru") // Baru | Pengadaan | Mutasi | Relokasi | Ditolak | Selesai | Dibatalkan
+  diputuskanOleh   String?
+  diputuskanPada   DateTime?
+  catatanKeputusan String?
+  item             ItemPermintaanAlat[]
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
+
+  @@index([status])
+  @@index([unitKerjaId])
+}
+
+model ItemPermintaanAlat {
+  id              Int            @id @default(autoincrement())
+  permintaan      PermintaanAlat @relation(fields: [permintaanId], references: [id], onDelete: Cascade)
+  permintaanId    Int
+  namaAlat        String
+  jumlah          Int            @default(1)
+  jumlahSetuju    Int?
+  jumlahTerpenuhi Int            @default(0)
+
+  @@index([permintaanId])
 }

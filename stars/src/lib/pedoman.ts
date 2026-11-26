@@ -4,7 +4,7 @@
  */
 export type BabPedoman = { id: string; judul: string; menu: string; tujuan: string; peran: string; dasar: string[]; sop: string[]; referensi: string[] };
 
-export const VERSI_PEDOMAN = "Versi 1.2 — 28 November 2026";
+export const VERSI_PEDOMAN = "Versi 1.3 — 29 November 2026";
 
 /** Dasar hukum umum yang berlaku untuk seluruh aplikasi. */
 export const DASAR_UMUM = [
@@ -78,6 +78,35 @@ export const BAB: BabPedoman[] = [
       "Perbarui dan sahkan ulang KIR ruangan asal dan tujuan.",
     ],
     referensi: ["WHO. Introduction to medical equipment inventory management. Geneva: WHO; 2011."],
+  },
+  {
+    id: "penerimaan", judul: "Penerimaan Alat, Master Rekanan & Merk, Log Book", menu: "ADMIN › CMS Pemeliharaan › Inventarisasi › Penerimaan Alat, Master Rekanan & Merk, Log Book Alat",
+    tujuan: "Mencatat kontrak dan Berita Acara Penerimaan (BAP) alat, data baku rekanan/supplier/kalibrator/servis dan merk–tipe, serta riwayat lengkap tiap alat.",
+    peran: "Operator mencatat; Admin menghapus; Viewer melihat (Viewer ber-unit hanya alat unitnya di Log Book).",
+    dasar: ["Peraturan Presiden 16/2018 jo. 12/2021 tentang Pengadaan Barang/Jasa Pemerintah (kontrak & serah terima).", "Permendagri 19/2016 dan 47/2021 (pencatatan BMD, kode barang)."],
+    sop: [
+      "Master Rekanan & Merk: isi Supplier, Rekanan, Kalibrator (nomor akreditasi KAN), Servis, serta Merk & Tipe agar penulisan konsisten.",
+      "Penerimaan Alat: isi nomor & tanggal kontrak, nomor & tanggal BAP, rekanan, tipe (Pembelian/Hibah/Pinjam pakai/KSO), nilai; Simpan → nomor PNR-tahun-nnnn.",
+      "Unggah berkas Kontrak/BAP/Faktur, lalu tautkan kode alat yang diterima (pisahkan spasi/koma/baris).",
+      "Log Book Alat: cari kode alat → garis waktu perintah kerja, lembar kerja, kalibrasi, mutasi; lengkapi No. internal, sole agent, tanggal mulai penyusutan, nilai residu, kode SIMAK/SIMBADA.",
+      "Penyusutan garis lurus = (harga perolehan − nilai residu) ÷ usia teknis, dihitung sejak tanggal mulai penyusutan (atau tahun perolehan).",
+    ],
+    referensi: ["WHO. Procurement process resource guide. Geneva: WHO; 2011.", "Kementerian Keuangan. PMK tentang penyusutan BMN (metode garis lurus) — acuan perhitungan penyusutan."],
+  },
+  {
+    id: "tugas", judul: "Master Tugas, SKP, Jadwal Massal, Rating & Kinerja", menu: "ADMIN › CMS Pemeliharaan › Master Tugas & SKP, Jadwal Massal, Rating & Persetujuan WO, Logistik Mutasi, Kinerja Pemeliharaan",
+    tujuan: "Membakukan tugas pemeliharaan, membuat jadwal preventif sekaligus untuk banyak alat, menilai hasil kerja, dan memantau kinerja.",
+    peran: "Operator membuat tugas, jadwal, rating; Admin menyetujui WO dan menghapus master.",
+    dasar: ["Permenkes 15/2023 tentang Pemeliharaan Alat Kesehatan.", "Permenpan RB 28/2013 jo. 1/2023 (angka kredit/SKP teknisi elektromedis)."],
+    sop: [
+      "Master Tugas: isi nama, jenis (Preventif/Kalibrasi/Inspeksi/Korektif), periode (hari), durasi, biaya, kata kunci nama alat, checklist, suku cadang (satu per baris, jumlah boleh \"x 2\"), dan SKP (poin).",
+      "Jadwal Massal: pilih tugas dan cakupan (unit/ruangan/instalasi) → Pratinjau (jumlah alat cocok, yang sudah terjadwal tidak digandakan) → Buat jadwal.",
+      "Rating & Persetujuan WO: beri nilai 1–5 untuk perintah kerja selesai; Admin menyetujui hasil pekerjaan.",
+      "Logistik Mutasi: catat penjemputan alat yang mutasinya disetujui, penggudangan/pengembalian, atau usulan penghapusan (nomor HPS-tahun-nnnn, lanjut di modul Penghapusan).",
+      "Kinerja Pemeliharaan: waktu tanggap & penyelesaian, kepatuhan preventif, kinerja teknisi (poin SKP, rating), dan penyusutan per unit.",
+      "Kebutuhan sparepart (menu Sparepart & BHP-BMHP): sistem menghitung suku cadang yang dibutuhkan jadwal preventif 90 hari ke depan dan membandingkannya dengan stok; tindak lanjuti baris berwarna merah.",
+    ],
+    referensi: ["WHO. Medical equipment maintenance programme overview. Geneva: WHO; 2011 — §5.4 performance indicators."],
   },
   {
     id: "lapor", judul: "Lapor Kerusakan, Perintah Kerja, dan TTE", menu: "CMMS › SI-FARMALKES › Lapor Kerusakan, ADMIN › CMS Pemeliharaan › Pemeliharaan Korektif / Perbaikan, Riwayat",
@@ -158,6 +187,20 @@ export const BAB: BabPedoman[] = [
     dasar: ["Permenkes 15/2023 (kondisi lingkungan penyimpanan alat).", "Pedoman rantai dingin vaksin Kementerian Kesehatan RI yang berlaku."],
     sop: ["Tambah lokasi dan sensor, atur batas suhu/kelembapan dan tunda alarm.", "Buat token perangkat, pasang di ESP32/gateway (lihat docs/MONITORING-IOT.md).", "Pantau dashboard; akui alarm dan tulis catatan insiden.", "Unduh laporan/ekspor data untuk audit."],
     referensi: ["WHO. Temperature-sensitive health products in the Expanded Programme on Immunization cold chain (WHO/IVB). Geneva: WHO."],
+  },
+  {
+    id: "emascare", judul: "EMASCARE: Penilaian Perbaikan, Percakapan Laporan, Permintaan Alat", menu: "IMMIS › EMASCARE › Penilaian Perbaikan, Laporan Keluhan (nomor laporan), Permintaan Alat",
+    tujuan: "Ruangan menilai hasil perbaikan, berdiskusi dengan teknisi per laporan, dan mengajukan kebutuhan alat.",
+    peran: "Pengguna ruangan (Viewer, terbatas unitnya) menilai, berpesan, dan mengajukan; Admin memutuskan permintaan; Operator mencatat pemenuhan.",
+    dasar: ["Permenkes 15/2023 tentang Pemeliharaan Alat Kesehatan.", "Standar akreditasi RS bab MFK (umpan balik pengguna alat)."],
+    sop: [
+      "Penilaian Perbaikan: setelah WO korektif Selesai, pilih Berfungsi/Belum berfungsi dan rating 1–5. Belum berfungsi → laporan tindak lanjut prioritas Tinggi dibuat otomatis. Satu penilaian per WO.",
+      "Percakapan: klik nomor laporan di Laporan Keluhan, tulis pesan untuk teknisi/pelapor.",
+      "Permintaan Alat: isi hingga 5 baris (nama alat + jumlah) dan alasan → nomor PA-tahun-nnnn.",
+      "Admin memutuskan Pengadaan / Mutasi / Relokasi / Ditolak (alasan wajib saat menolak) dan jumlah disetujui per item.",
+      "Operator mencatat jumlah terpenuhi; bila semua terpenuhi, status otomatis Selesai. Untuk keputusan Mutasi/Relokasi, jalankan juga alur Relokasi & Mutasi di ADMIN.",
+    ],
+    referensi: ["WHO. Medical equipment maintenance programme overview. Geneva: WHO; 2011."],
   },
   {
     id: "karyawan-ai", judul: "Karyawan AI Otomatis", menu: "ADMIN › Karyawan AI",
