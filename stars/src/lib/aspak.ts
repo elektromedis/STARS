@@ -49,17 +49,27 @@ export function parseStandar(teks: string): { baris: BarisStandar[]; galat: stri
 }
 
 const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim();
-export type AlatMini = { nama: string; ruangan: string; unit: string };
+export type AlatMini = { nama: string; ruangan: string; unit: string; padanan?: string | null };
 export type HasilBaris = { namaRuangan: string; namaAlat: string; standar: number; ada: number; persen: number };
 /** Pemenuhan = min(ada, standar) / standar. Alat dicocokkan lewat kata dalam nama alat dan nama ruangan/unit kerja. */
 export function hitungPemenuhan(standar: BarisStandar[], alat: AlatMini[]): { baris: HasilBaris[]; total: number } {
-  const a = alat.map((x) => ({ nama: norm(x.nama), lok: norm(`${x.ruangan} ${x.unit}`) }));
+  const a = alat.map((x) => ({ nama: norm(x.nama), lok: norm(`${x.ruangan} ${x.unit}`), pad: norm(x.padanan ?? "") }));
   const baris = standar.map((s) => {
     const na = norm(s.namaAlat), nr = norm(s.namaRuangan);
-    const ada = a.filter((x) => x.nama.includes(na) && (x.lok.includes(nr) || (x.lok.trim() !== "" && nr.includes(x.lok.trim())))).length;
+    const cocokRuang = (x: (typeof a)[number]) => (x.pad ? x.pad.includes(nr) || nr.includes(x.pad) : x.lok.includes(nr) || (x.lok.trim() !== "" && nr.includes(x.lok.trim())));
+    const ada = a.filter((x) => x.nama.includes(na) && cocokRuang(x)).length;
     return { namaRuangan: s.namaRuangan, namaAlat: s.namaAlat, standar: s.jumlah, ada, persen: Math.round((Math.min(ada, s.jumlah) / s.jumlah) * 100) };
   });
   const st = baris.reduce((n, b) => n + b.standar, 0), ok = baris.reduce((n, b) => n + Math.min(b.ada, b.standar), 0);
   return { baris, total: st ? Math.round((ok / st) * 100) : 0 };
 }
 export const sisaHari = (d: Date | null | undefined, now = new Date()) => (d ? Math.ceil((d.getTime() - now.getTime()) / 86400000) : null);
+
+export const KUNCI_PMK = "perencanaan.persenPemeliharaan";
+export const PERSEN_PMK_BAWAAN = 4; // rasio yang teramati di TRILUX Plus (biaya pemeliharaan ÷ total belanja alat); ubah sesuai ketentuan yang Anda pakai
+export const bucketUsia = (tahunPerolehan: number | null, usiaTeknis: number | null, tahunIni = new Date().getFullYear()) => {
+  if (!tahunPerolehan || !usiaTeknis || usiaTeknis <= 0) return null;
+  const p = Math.min(1, Math.max(0, (tahunIni - tahunPerolehan) / usiaTeknis));
+  return Math.min(100, Math.floor(p * 5) * 20);
+};
+export const sisaBulan = (d: Date | null | undefined, now = new Date()) => { const h = sisaHari(d, now); return h == null ? null : h <= 0 ? 0 : Math.ceil(h / 30); };

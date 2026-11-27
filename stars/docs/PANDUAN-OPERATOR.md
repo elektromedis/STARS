@@ -213,6 +213,9 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
   inventaris ASPAK + pemetaan ruang → unit kerja, prasarana, perizinan & mutu, tenaga kesehatan. Admin mengunggah CSV RS Online.
 - **EMASCARE:** Penilaian Perbaikan, percakapan per laporan keluhan, Permintaan Alat dari ruangan.
 - **Karyawan AI** (Admin): nyalakan sakelar, atur jam kerja → laporan otomatis tiap hari di Catatan kerja & notifikasi.
+- **Perencanaan (Inventarisasi):** Perencanaan Pengadaan (usulan ruangan → verifikasi & nominasi → pagu), Perencanaan &
+  Usia Alat (perkiraan biaya pemeliharaan, usia teknis), Depresiasi & Inflasi (nilai buku & terinflasi), Status Kalibrasi,
+  Padanan Ruang ASPAK (ruangan → ruang standar), Peta Modul Terpadu. Viewer hanya mengusulkan untuk unitnya sendiri.
 
 ## Pesan error yang sering muncul
 

@@ -30,9 +30,9 @@ export default async function AspakPage({ searchParams }: { searchParams: Promis
   if (bagian === "pemenuhan") {
     const [standar, alat] = await Promise.all([
       strata ? prisma.standarAlat.findMany({ where: { strata }, orderBy: [{ namaRuangan: "asc" }, { namaAlat: "asc" }] }) : Promise.resolve([]),
-      prisma.alat.findMany({ where: { aktif: true }, select: { nama: true, ruangan: { select: { nama: true } }, unitKerja: { select: { nama: true } } } }),
+      prisma.alat.findMany({ where: { aktif: true }, select: { nama: true, ruangan: { select: { nama: true, padananAspak: true } }, unitKerja: { select: { nama: true } } } }),
     ]);
-    const { baris, total } = hitungPemenuhan(standar.map((x) => ({ ...x, kodeRuangan: x.kodeRuangan ?? undefined })), alat.map((a) => ({ nama: a.nama, ruangan: a.ruangan?.nama ?? "", unit: a.unitKerja.nama })));
+    const { baris, total } = hitungPemenuhan(standar.map((x) => ({ ...x, kodeRuangan: x.kodeRuangan ?? undefined })), alat.map((a) => ({ nama: a.nama, ruangan: a.ruangan?.nama ?? "", unit: a.unitKerja.nama, padanan: a.ruangan?.padananAspak })));
     const per = new Map<string, typeof baris>();
     baris.forEach((b) => per.set(b.namaRuangan, [...(per.get(b.namaRuangan) ?? []), b]));
     isi = (

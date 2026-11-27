@@ -36,6 +36,7 @@ model Ruangan {
   unitKerjaId Int
   kepala      String?
   aktif       Boolean   @default(true)
+  padananAspak String? // ruang standar ASPAK (Fase G)
   alat        Alat[]
 
   @@unique([nama, unitKerjaId])
@@ -1219,4 +1220,59 @@ model SyaratKompetensi {
 
   @@index([kompetensiId, strata, grup])
   @@index([kodeAspak])
+}
+
+// ======================= Fase I: perencanaan pengadaan & inflasi =======================
+
+model PaguBelanja {
+  id         Int    @id @default(autoincrement())
+  tahun      Int
+  sumberDana String
+  nilai      Float  @default(0)
+
+  @@unique([tahun, sumberDana])
+}
+
+model InflasiTahun {
+  tahun  Int   @id
+  persen Float
+}
+
+/// Usulan pengadaan alat dari unit/ruangan → verifikasi (nominasi) → pagu.
+model UsulanPengadaan {
+  id              Int       @id @default(autoincrement())
+  tahun           Int
+  unitKerjaId     Int?
+  ruangan         String?
+  namaAlat        String
+  sifat           String    @default("Baru") // Baru | Tambah | Ganti
+  jumlah          Int       @default(1)
+  hargaSatuan     Float     @default(0)
+  gantiUsia       Int?
+  gantiKondisi    String?
+  alasan          String?
+  pengusul        String
+  status          String    @default("Diajukan") // Diajukan | Disetujui | Ditolak
+  jumlahSetuju    Int?
+  verifikator     String?
+  verifikasiPada  DateTime?
+  catatan         String?
+  skorUrgensi     Int?
+  skorExisting    Int?
+  skorPeruntukan  Int?
+  kabidUrgensi    Int?
+  kabidExisting   Int?
+  kabidPeruntukan Int?
+  sesuaiIndikator Boolean   @default(false)
+  sesuaiProgram   Boolean   @default(false)
+  sesuaiAspak     Boolean   @default(false)
+  sesuaiLegal     Boolean   @default(false)
+  skorFinal       Float?
+  masukPagu       Boolean   @default(false)
+  sumberDana      String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([tahun, status])
+  @@index([unitKerjaId])
 }

@@ -4,7 +4,7 @@
  */
 export type BabPedoman = { id: string; judul: string; menu: string; tujuan: string; peran: string; dasar: string[]; sop: string[]; referensi: string[] };
 
-export const VERSI_PEDOMAN = "Versi 1.4 — 30 November 2026";
+export const VERSI_PEDOMAN = "Versi 1.5 — 27 November 2026";
 
 /** Dasar hukum umum yang berlaku untuk seluruh aplikasi. */
 export const DASAR_UMUM = [
@@ -123,6 +123,22 @@ export const BAB: BabPedoman[] = [
       "Belum ada webservice resmi ASPAK; perbarui data dengan mengunggah ekspor/ekstraksi terbaru secara berkala.",
     ],
     referensi: ["Kementerian Kesehatan RI. SIRS RS Online — sirs.kemkes.go.id.", "Kementerian Kesehatan RI. ASPAK — aspak.kemkes.go.id."],
+  },
+  {
+    id: "perencanaan", judul: "Perencanaan: Pengadaan, Usia Alat, Depresiasi & Status Kalibrasi", menu: "ADMIN › CMS Pemeliharaan › Inventarisasi › Perencanaan Pengadaan / Perencanaan & Usia Alat / Depresiasi & Inflasi / Status Kalibrasi / Padanan Ruang ASPAK / Peta Modul Terpadu",
+    tujuan: "Menyusun usulan pengadaan alat berbasis skor, memperkirakan biaya pemeliharaan dan nilai alat, memantau usia teknis dan masa berlaku kalibrasi, serta memetakan ruangan ke standar ASPAK.",
+    peran: "Viewer (ruangan) mengajukan usulan untuk unitnya sendiri; Operator memetakan padanan ruang; Admin memverifikasi usulan, mengatur pagu, inflasi, dan persentase pemeliharaan.",
+    dasar: ["Permenkes 15/2023 tentang Pemeliharaan Alat Kesehatan.", "Perpres 16/2018 jo. Perpres 46/2025 tentang Pengadaan Barang/Jasa Pemerintah.", "Permenkes 31/2018 tentang ASPAK."],
+    sop: [
+      "Perencanaan Pengadaan › Usulan: ruangan mengisi nama alat, sifat (Baru/Tambah/Ganti), jumlah, harga satuan, alasan, dan skor sendiri 1–5 (urgensi, alat yang ada, peruntukan).",
+      "Verifikasi & Nominasi: Admin/Kabid memberi skor verifikasi, jumlah disetujui, kesesuaian (indikator, program, ASPAK, legal), dan sumber dana. Nilai akhir = 40% skor pengusul + 60% skor verifikator (bawaan STARS, bukan aturan resmi).",
+      "Pagu & Ringkasan: isi pagu per sumber dana per tahun; usulan yang disetujui dan Masuk pagu dibandingkan dengan pagunya.",
+      "Perencanaan & Usia Alat: perkiraan biaya pemeliharaan = nilai perolehan × persentase (bawaan 4%, ubah sesuai ketentuan RS); usia teknis dikelompokkan 0–100%. Lengkapi tahun perolehan dan usia teknis alat.",
+      "Depresiasi & Inflasi: isi inflasi tahunan dari sumber resmi; halaman menghitung nilai buku garis lurus dan nilai terinflasi (perkiraan biaya penggantian).",
+      "Status Kalibrasi: daftar kalibrasi terakhir, masa berlaku, dan kelaikan setiap alat aktif — tindak lanjuti yang belum/kedaluwarsa.",
+      "Padanan Ruang ASPAK: petakan ruangan STARS ke nama ruang standar (Isi otomatis untuk nama yang identik); pemenuhan alat di Kelengkapan Faskes memakai padanan ini.",
+    ],
+    referensi: ["Peraturan Presiden 16/2018 dan perubahannya (Perpres 46/2025)."],
   },
   {
     id: "lapor", judul: "Lapor Kerusakan, Perintah Kerja, dan TTE", menu: "CMMS › SI-FARMALKES › Lapor Kerusakan, ADMIN › CMS Pemeliharaan › Pemeliharaan Korektif / Perbaikan, Riwayat",
