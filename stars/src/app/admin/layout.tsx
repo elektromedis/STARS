@@ -38,6 +38,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       { href: "/admin/label-inspeksi", label: "Pemantauan Fungsi / Inspeksi" },
       { href: "/admin/alat", label: "Alat Kesehatan", seksi: "Inventarisasi" },
       { href: "/admin/stok", label: "Sparepart & BHP-BMHP", seksi: "Inventarisasi" },
+      { href: "/admin/aspak", label: "Kelengkapan Faskes (ASPAK & RS Online)", seksi: "Inventarisasi" },
       { href: "/admin/penerimaan", label: "Penerimaan Alat", seksi: "Inventarisasi" },
       { href: "/admin/master", label: "Master Rekanan & Merk", seksi: "Inventarisasi" },
       { href: "/admin/logbook", label: "Log Book Alat", seksi: "Inventarisasi" },

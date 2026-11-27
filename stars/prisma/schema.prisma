@@ -23,6 +23,7 @@ model UnitKerja {
   permintaan  PermintaanKerja[]
   ruangan     Ruangan[]
   titikPantau LokasiPantau[]
+  aspakRuang  AspakRuang[]
   permintaanAlat PermintaanAlat[]
 }
 
@@ -1095,4 +1096,127 @@ model ItemPermintaanAlat {
   jumlahTerpenuhi Int            @default(0)
 
   @@index([permintaanId])
+}
+
+// ======================= Fase F: modul gaya ASPAK =======================
+
+/// Satu baris (id = 1): identitas dan strata faskes.
+model ProfilFaskes {
+  id         Int      @id
+  kodeFaskes String?
+  strata     String? // Utama | Madya | Pratama | Dasar
+  kelas      String?
+  updatedAt  DateTime @default(now()) @updatedAt
+}
+
+/// Standar alat per strata dan ruangan (diisi pengguna dari sumber resmi).
+model StandarAlat {
+  id          Int     @id @default(autoincrement())
+  strata      String
+  kodeRuangan String?
+  namaRuangan String
+  namaAlat    String
+  jumlah      Int     @default(1)
+
+  @@unique([strata, namaRuangan, namaAlat])
+  @@index([strata])
+}
+
+model PrasaranaFaskes {
+  id        Int     @id @default(autoincrement())
+  jenis     String // Genset | UPS | Listrik PLN
+  uraian    String
+  ada       Boolean @default(false)
+  jumlah    Float   @default(0)
+  satuan    String?
+  berfungsi Boolean @default(false)
+
+  @@unique([jenis, uraian])
+}
+
+/// Perizinan dan butir mutu dengan masa berlaku.
+model IzinFaskes {
+  id            Int       @id @default(autoincrement())
+  kelompok      String // Perizinan | Mutu
+  nama          String
+  ada           Boolean   @default(false)
+  nomor         String?
+  berlakuSampai DateTime?
+  selamanya     Boolean   @default(false)
+  catatan       String?
+  updatedAt     DateTime  @default(now()) @updatedAt
+
+  @@unique([kelompok, nama])
+}
+
+model TenagaFaskes {
+  id          Int     @id @default(autoincrement())
+  jenis       String  @unique
+  kelompok    String?
+  jumlah      Int     @default(0)
+  strMemiliki Int     @default(0)
+  strAktif    Int     @default(0)
+  sipMemiliki Int     @default(0)
+  sipAktif    Int     @default(0)
+}
+
+// ======================= ASPAK & SIRS RS Online (data snapshot, diunggah lewat Admin › Kelengkapan Faskes) =======================
+
+/// Master kode alat/sarana ASPAK (referensi standar kompetensi SIRS).
+model AspakKode {
+  kode      String   @id
+  nama      String
+  kelompok  String // Alat Kesehatan | Sarana
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+/// Ruang standar ASPAK + pemetaan ke unit kerja STARS (diverifikasi Admin).
+model AspakRuang {
+  kode         String      @id // R01..R43 atau kode ruang ASPAK
+  nama         String      @unique
+  unitKerja    UnitKerja?  @relation(fields: [unitKerjaId], references: [id], onDelete: SetNull)
+  unitKerjaId  Int?
+  terverifikasi Boolean    @default(false)
+}
+
+/// Inventaris alat per ruang ASPAK (satu baris = satu baris tabel Sarpras & Alkes SIRS), per tanggal snapshot.
+model AspakInventaris {
+  id         Int      @id @default(autoincrement())
+  namaAlat   String
+  kodeAspak  String?
+  ruangKode  String
+  jumlah     Int
+  rusak      Int      @default(0)
+  sumber     String   @default("SIRS RS Online") // SIRS RS Online | Ekspor ASPAK | Webservice ASPAK | Manual
+  snapshot   DateTime
+  createdAt  DateTime @default(now())
+
+  @@index([kodeAspak])
+  @@index([ruangKode])
+  @@index([snapshot])
+}
+
+/// 24 kompetensi RS (SIRS RS Online) + strata RS saat ini.
+model KompetensiRs {
+  id       Int               @id // id SIRS 1..24
+  nama     String
+  strataRs String // Dasar | Madya | Utama | Paripurna | Tidak Kompeten
+  syarat   SyaratKompetensi[]
+}
+
+/// Standar alat/sarana per kompetensi & strata. grup = kelompok substitusi (cukup satu); wajib = harus ada.
+model SyaratKompetensi {
+  id           Int          @id @default(autoincrement())
+  kompetensi   KompetensiRs @relation(fields: [kompetensiId], references: [id], onDelete: Cascade)
+  kompetensiId Int
+  strata       String // Dasar | Madya | Utama | Paripurna
+  kodeAspak    String
+  nama         String
+  kelompok     String?
+  status       String // Wajib | Substitusi
+  grup         String
+  jumlahRs     Int          @default(0) // jumlah versi SIRS saat snapshot
+
+  @@index([kompetensiId, strata, grup])
+  @@index([kodeAspak])
 }

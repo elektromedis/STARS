@@ -4,7 +4,7 @@
  */
 export type BabPedoman = { id: string; judul: string; menu: string; tujuan: string; peran: string; dasar: string[]; sop: string[]; referensi: string[] };
 
-export const VERSI_PEDOMAN = "Versi 1.3 — 29 November 2026";
+export const VERSI_PEDOMAN = "Versi 1.4 — 30 November 2026";
 
 /** Dasar hukum umum yang berlaku untuk seluruh aplikasi. */
 export const DASAR_UMUM = [
@@ -107,6 +107,22 @@ export const BAB: BabPedoman[] = [
       "Kebutuhan sparepart (menu Sparepart & BHP-BMHP): sistem menghitung suku cadang yang dibutuhkan jadwal preventif 90 hari ke depan dan membandingkannya dengan stok; tindak lanjuti baris berwarna merah.",
     ],
     referensi: ["WHO. Medical equipment maintenance programme overview. Geneva: WHO; 2011 — §5.4 performance indicators."],
+  },
+  {
+    id: "aspak", judul: "Kelengkapan Faskes: ASPAK & SIRS RS Online", menu: "ADMIN › CMS Pemeliharaan › Inventarisasi › Kelengkapan Faskes (ASPAK & RS Online)",
+    tujuan: "Memantau pemenuhan alat/sarana terhadap standar kompetensi RS (SIRS RS Online), inventaris ASPAK, prasarana, perizinan & mutu, dan tenaga kesehatan.",
+    peran: "Viewer melihat; Operator mengisi prasarana, izin, tenaga, standar; Admin mengatur strata, mengimpor data RS Online, dan memetakan ruang ASPAK.",
+    dasar: ["Permenkes 31/2018 tentang Aplikasi Sarana, Prasarana, dan Alat Kesehatan (ASPAK).", "Permenkes 40/2022 tentang Persyaratan Teknis Bangunan, Prasarana, dan Peralatan Kesehatan Rumah Sakit.", "Ketentuan Kemenkes tentang SIRS RS Online dan kompetensi/strata layanan rumah sakit yang berlaku."],
+    sop: [
+      "Kompetensi RS (RS Online): Admin mengunggah CSV hasil ekstraksi SIRS (aspak_device_ref, aspak_rooms, aspak_inventory, competency, competency_requirement) sekaligus; jenis berkas dikenali otomatis.",
+      "Pilih strata (Dasar/Madya/…): tiap kompetensi menampilkan grup terpenuhi dan daftar alat yang belum ada — jadikan bahan usulan RKBU/pengadaan.",
+      "Aturan: grup terpenuhi bila semua alat wajib tersedia dan minimal satu alat substitusi tersedia. Ketersediaan memakai inventaris ASPAK terbaru, lalu alat STARS berkode ASPAK sama, lalu angka snapshot SIRS.",
+      "Inventaris ASPAK: petakan tiap ruang ASPAK ke unit kerja STARS, centang Terverifikasi (tidak akan ditimpa impor berikutnya). Tabel Rekonsiliasi menunjukkan selisih jumlah ASPAK vs STARS per unit.",
+      "Lengkapi kode ASPAK pada alat STARS (Inventarisasi › Alat Kesehatan) agar ketersediaan dihitung dari data STARS sendiri.",
+      "Tab Prasarana / Perizinan & Mutu: klik Isi daftar baku sekali, lalu isi nilainya; masa berlaku ≤ 90 hari ditandai kuning, kedaluwarsa merah.",
+      "Belum ada webservice resmi ASPAK; perbarui data dengan mengunggah ekspor/ekstraksi terbaru secara berkala.",
+    ],
+    referensi: ["Kementerian Kesehatan RI. SIRS RS Online — sirs.kemkes.go.id.", "Kementerian Kesehatan RI. ASPAK — aspak.kemkes.go.id."],
   },
   {
     id: "lapor", judul: "Lapor Kerusakan, Perintah Kerja, dan TTE", menu: "CMMS › SI-FARMALKES › Lapor Kerusakan, ADMIN › CMS Pemeliharaan › Pemeliharaan Korektif / Perbaikan, Riwayat",

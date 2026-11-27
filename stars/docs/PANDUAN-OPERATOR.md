@@ -209,6 +209,8 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
 - **Fitur dari TRILUX (CMS Pemeliharaan):** Penerimaan Alat (kontrak/BAP/berkas), Master Rekanan & Merk, Log Book Alat
   (riwayat + penyusutan), Master Tugas & SKP, Jadwal Massal (pratinjau dulu), Rating & Persetujuan WO, Logistik Mutasi,
   Kinerja Pemeliharaan. **Kebutuhan sparepart** 90 hari tampil di menu Sparepart & BHP-BMHP.
+- **Kelengkapan Faskes (ASPAK & RS Online)** (Inventarisasi): pemenuhan alat per kompetensi RS dari SIRS RS Online,
+  inventaris ASPAK + pemetaan ruang → unit kerja, prasarana, perizinan & mutu, tenaga kesehatan. Admin mengunggah CSV RS Online.
 - **EMASCARE:** Penilaian Perbaikan, percakapan per laporan keluhan, Permintaan Alat dari ruangan.
 - **Karyawan AI** (Admin): nyalakan sakelar, atur jam kerja → laporan otomatis tiap hari di Catatan kerja & notifikasi.
 
