@@ -108,6 +108,12 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         kandidat: allies.kandidat.length, perTahap: allies.perTahap,
       }} />
 
+      <Link href="/perjalanan" className="muncul group mx-auto mb-10 mt-6 flex max-w-3xl items-center gap-4 rounded-2xl border bg-card p-4 shadow-card transition hover:border-teal-300 print:hidden">
+        <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-navy-700 text-white"><Activity className="size-6" aria-hidden /></span>
+        <span className="min-w-0 flex-1"><span className="block font-semibold text-navy-800">Perjalanan Alat Kesehatan</span><span className="block text-sm text-muted-foreground">Animasi interaktif: dari penerimaan sampai perencanaan, dengan angka langsung dari STARS.</span></span>
+        <ArrowRight className="size-5 shrink-0 text-teal-700 transition group-hover:translate-x-1" aria-hidden />
+      </Link>
+
       <h2 className="muncul mb-3 mt-4 text-center text-3xl font-semibold tracking-tight text-[#1d1d1f] md:text-5xl">Data lengkap.</h2>
       <p className="mb-4 text-center text-lg text-muted-foreground">Angka & grafik dari setiap menu, diperbarui langsung.</p>
       <TombolPresentasi bagian={BAGIAN} />

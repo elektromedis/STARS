@@ -17,8 +17,9 @@ import { Sidebar } from "./sidebar";
 import { PenjagaAkses } from "./use-akses";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
-  // EMASCARE (STARS IMMS) (/imms, domain terpisah) memakai kerangka jendelanya sendiri.
-  if (usePathname()?.startsWith("/imms")) return <BahasaProvider>{children}</BahasaProvider>;
+  const jalur = usePathname();
+  // EMASCARE (/imms) dan halaman publik Perjalanan Alat (/perjalanan, layar penuh) memakai kerangkanya sendiri.
+  if (jalur?.startsWith("/imms") || jalur?.startsWith("/perjalanan")) return <BahasaProvider>{children}</BahasaProvider>;
   return <BahasaProvider><Shell>{children}</Shell></BahasaProvider>;
 }
 

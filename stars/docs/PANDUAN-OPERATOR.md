@@ -216,6 +216,8 @@ kosong untuk pengumpulan usulan tertulis dari unit sebelum disalin ke template E
 - **Perencanaan (Inventarisasi):** Perencanaan Pengadaan (usulan ruangan → verifikasi & nominasi → pagu), Perencanaan &
   Usia Alat (perkiraan biaya pemeliharaan, usia teknis), Depresiasi & Inflasi (nilai buku & terinflasi), Status Kalibrasi,
   Padanan Ruang ASPAK (ruangan → ruang standar), Peta Modul Terpadu. Viewer hanya mengusulkan untuk unitnya sendiri.
+- **Perjalanan Alat Kesehatan** (/perjalanan, publik): animasi gulir isometrik 6 tahap dengan angka langsung — tautan di
+  Beranda dan halaman Masuk. **Lapor Kerusakan** kini 3 langkah: Alat & lokasi → Keluhan & bukti → Pelapor & kirim.
 
 ## Pesan error yang sering muncul
 

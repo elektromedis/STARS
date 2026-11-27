@@ -459,3 +459,59 @@ html.a11y-fokus body *:focus, html.a11y-fokus body *:focus-visible { outline: 4p
   body.mencetak-slide .slide-cetak { display: block; }
   body.mencetak-slide .slide-halaman { width: 1280px; height: 720px; overflow: hidden; break-after: page; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 }
+
+/* ───────── Perjalanan Alat (components/perjalanan/adegan.tsx) ───────── */
+.pj {
+  --pj-tanah: #eef3f2; --pj-jalan: #d9e0e3; --pj-gedung: #e3eaea; --pj-lantai: #f8faf9; --pj-lantai-aktif: #e6f6f4;
+  --pj-dinding-a: #ffffff; --pj-dinding-k: #e7edee; --pj-dinding-n: #d3dcdf; --pj-lis: #14b8a6;
+  --pj-perabot-a: #ffffff; --pj-perabot-k: #dfe6e8; --pj-perabot-n: #c8d2d6;
+  --pj-alat-a: #f1f5f9; --pj-alat-k: #94a3b8; --pj-alat-n: #64748b;
+  --pj-kardus-a: #e9cfa3; --pj-kardus-k: #d2b27c; --pj-kardus-n: #b8955e;
+  --pj-jalur: #0d9488; --pj-jalur-dasar: #b7c5c9; --pj-layar: #5eead4; --pj-alarm: #ef4444;
+  --pj-fasad-k: #f8fafc; --pj-fasad-n: #dbe4e7; --pj-atap: #ffffff; --pj-jendela: #9dd9d2; --pj-papan: #0f2a43;
+  --pj-kulit: #e0b48f; --pj-bayang: rgb(15 23 42 / .14);
+  background: radial-gradient(120% 80% at 70% 40%, #ffffff 0%, #eef4f3 70%);
+}
+.dark .pj {
+  --pj-tanah: #0e1726; --pj-jalan: #1a2536; --pj-gedung: #142033; --pj-lantai: #1a2639; --pj-lantai-aktif: #12363a;
+  --pj-dinding-a: #2a3a52; --pj-dinding-k: #1f2c40; --pj-dinding-n: #172235; --pj-lis: #2dd4bf;
+  --pj-perabot-a: #34465f; --pj-perabot-k: #243349; --pj-perabot-n: #1b283b;
+  --pj-alat-a: #475569; --pj-alat-k: #334155; --pj-alat-n: #1e293b;
+  --pj-kardus-a: #8a7148; --pj-kardus-k: #6f5a37; --pj-kardus-n: #57452a;
+  --pj-jalur: #2dd4bf; --pj-jalur-dasar: #31435a; --pj-layar: #2dd4bf;
+  --pj-fasad-k: #223149; --pj-fasad-n: #18243a; --pj-atap: #2a3a52; --pj-jendela: #1f6d69; --pj-papan: #0b1220;
+  --pj-bayang: rgb(0 0 0 / .35);
+  background: radial-gradient(120% 80% at 70% 40%, #121c2e 0%, #090e18 70%);
+}
+.pj-kabut { background: linear-gradient(90deg, #f4f8f7 0%, rgb(244 248 247 / .92) 45%, rgb(244 248 247 / 0) 100%); }
+.dark .pj-kabut { background: linear-gradient(90deg, #0b111d 0%, rgb(11 17 29 / .9) 45%, rgb(11 17 29 / 0) 100%); }
+.pj-tanah { fill: var(--pj-tanah); } .pj-jalan { fill: var(--pj-jalan); } .pj-lantai-gedung { fill: var(--pj-gedung); }
+.pj-lantai { fill: var(--pj-lantai); transition: fill .4s; } .pj-ruang-aktif .pj-lantai { fill: var(--pj-lantai-aktif); }
+.pj-perabot .pj-atas, .pj-rak .pj-atas, .pj-kasur .pj-atas, .pj-papan .pj-atas { fill: var(--pj-perabot-a); }
+.pj-perabot .pj-kiri, .pj-rak .pj-kiri, .pj-kasur .pj-kiri, .pj-papan .pj-kiri { fill: var(--pj-perabot-k); }
+.pj-perabot .pj-kanan, .pj-rak .pj-kanan, .pj-kasur .pj-kanan, .pj-papan .pj-kanan { fill: var(--pj-perabot-n); }
+.pj-dinding .pj-atas { fill: var(--pj-dinding-a); } .pj-dinding .pj-kiri { fill: var(--pj-dinding-k); } .pj-dinding .pj-kanan { fill: var(--pj-dinding-n); }
+.pj-lis polygon { fill: var(--pj-lis); }
+.pj-alat .pj-atas { fill: var(--pj-alat-a); } .pj-alat .pj-kiri { fill: var(--pj-alat-k); } .pj-alat .pj-kanan { fill: var(--pj-alat-n); }
+.pj-kardus .pj-atas { fill: var(--pj-kardus-a); } .pj-kardus .pj-kiri { fill: var(--pj-kardus-k); } .pj-kardus .pj-kanan { fill: var(--pj-kardus-n); }
+.pj-kasur .pj-atas { fill: #e0f2fe; } .dark .pj-kasur .pj-atas { fill: #3b5574; }
+.pj-papan .pj-kiri { fill: var(--pj-papan); }
+.pj-qr polygon { fill: #0f172a; } .pj-lampu .pj-atas { fill: #fde68a; } .pj-lampu .pj-kiri, .pj-lampu .pj-kanan { fill: #f59e0b; }
+.pj-layar { fill: var(--pj-layar); } .pj-layar-alarm { fill: var(--pj-alarm); animation: pj-kedip 1.1s steps(2) infinite; }
+.pj-jalur-dasar { fill: none; stroke: var(--pj-jalur-dasar); stroke-width: 3; stroke-dasharray: 2 9; stroke-linecap: round; stroke-linejoin: round; }
+.pj-jalur { fill: none; stroke: var(--pj-jalur); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+.pj-henti { fill: var(--pj-lantai); stroke: var(--pj-jalur-dasar); stroke-width: 3; } .pj-henti-lewat { fill: var(--pj-jalur); stroke: var(--pj-lantai); }
+.pj-penanda-inti { fill: var(--pj-jalur); stroke: #fff; stroke-width: 3; }
+.pj-penanda-cincin { fill: var(--pj-jalur); opacity: .25; transform-box: fill-box; transform-origin: center; animation: pj-denyut 1.6s ease-out infinite; }
+.pj-bayang { fill: var(--pj-bayang); } .pj-kepala { fill: var(--pj-kulit); }
+.pj-baju-teal .pj-badan { fill: #0d9488; } .pj-baju-navy .pj-badan { fill: #1e3a5f; } .pj-baju-putih .pj-badan { fill: #f1f5f9; stroke: #cbd5e1; } .pj-baju-amber .pj-badan { fill: #d97706; }
+.pj-fasad-kiri { fill: var(--pj-fasad-k); } .pj-fasad-kanan { fill: var(--pj-fasad-n); } .pj-atap { fill: var(--pj-atap); stroke: var(--pj-fasad-n); stroke-width: 2; }
+.pj-jendela { fill: var(--pj-jendela); } .pj-papan-nama { fill: var(--pj-papan); } .pj-nama-gedung { fill: #5eead4; font: 700 22px/1 ui-sans-serif, system-ui; letter-spacing: .12em; }
+.pj-teks { opacity: 0; transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
+.pj-teks-aktif { opacity: 1; transform: none; }
+@media (min-width: 768px) { .pj-teks { transform: translateY(calc(-50% + 14px)); } .pj-teks-aktif { transform: translateY(-50%); } }
+@keyframes pj-denyut { from { transform: scale(.7); opacity: .45; } to { transform: scale(1.8); opacity: 0; } }
+@keyframes pj-kedip { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) {
+  .pj-teks { transition: none; } .pj-penanda-cincin, .pj-layar-alarm { animation: none; }
+}

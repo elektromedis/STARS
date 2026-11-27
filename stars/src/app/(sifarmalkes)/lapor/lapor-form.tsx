@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { Building2, Camera, ExternalLink, Loader2, MapPin, ScanQrCode, Search, Send, Video, X, XCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Building2, Camera, Check, ExternalLink, Loader2, MapPin, ScanQrCode, Search, Send, Video, X, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -38,6 +38,12 @@ async function perkecilFoto(f: File): Promise<File> {
   } catch { return f; }
 }
 
+const LANGKAH = [
+  { judul: "Alat & lokasi", ket: "Alat apa dan di mana" },
+  { judul: "Keluhan & bukti", ket: "Gejala, urgensi, foto/video" },
+  { judul: "Pelapor & kirim", ket: "Kontak dan periksa ulang" },
+] as const;
+
 type Kirim = { tahap: "isi" | "kirim" | "selesai"; persen: number; error: string | null; nomor?: string; ringkasan?: RingkasanLapor };
 
 export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr = null, waAdmin = null }: { units: Unit[]; lokasi: SaranLokasi[]; kandidat?: AlatQr[]; pesanQr?: string | null; waAdmin?: string | null }) {
@@ -55,6 +61,9 @@ export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr 
   const [pesanMedia, setPesanMedia] = useState<string | null>(null);
   const [kirim, setKirim] = useState<Kirim>({ tahap: "isi", persen: 0, error: null });
   const formRef = useRef<HTMLFormElement>(null);
+  const [langkah, setLangkah] = useState(0);
+  const [isian, setIsian] = useState({ keluhan: "", prioritas: "Normal", pelapor: "" });
+  const langkahRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const fotoUrl = useMemo(() => (foto ? URL.createObjectURL(foto) : null), [foto]);
   const videoUrl = useMemo(() => (video ? URL.createObjectURL(video) : null), [video]);
@@ -109,8 +118,25 @@ export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr 
     setVideo(f);
   }
 
+  /** Periksa isian wajib pada langkah k; fokus ke isian pertama yang belum valid. */
+  function cekLangkah(k: number) {
+    if (k === 0 && unitTeks.trim() && !unitId) { setUnitSalah(true); setKirim({ tahap: "isi", persen: 0, error: "Unit kerja tidak ditemukan. Pilih dari daftar, atau kosongkan isian unit." }); return false; }
+    const el = langkahRef.current[k];
+    const salah = el ? [...el.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("input,textarea,select")].find((x) => !x.checkValidity()) : null;
+    if (salah) { salah.reportValidity(); salah.focus(); return false; }
+    setKirim((s) => ({ ...s, error: null }));
+    return true;
+  }
+  function keLangkah(k: number) {
+    if (k > langkah) for (let j = langkah; j < k; j++) if (!cekLangkah(j)) { setLangkah(j); return; }
+    setLangkah(k);
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   function kirimLaporan(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (langkah < LANGKAH.length - 1) { keLangkah(langkah + 1); return; }
+    for (let j = 0; j < LANGKAH.length; j++) if (!cekLangkah(j)) { setLangkah(j); return; }
     if (unitTeks.trim() && !unitId) { setUnitSalah(true); setKirim({ tahap: "isi", persen: 0, error: "Unit kerja tidak ditemukan. Pilih dari daftar, atau kosongkan isian unit." }); return; }
     const fd = new FormData(e.currentTarget);
     fd.set("alatId", alat ? String(alat.id) : "");
@@ -143,19 +169,57 @@ export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr 
   if (kirim.tahap === "selesai" && kirim.ringkasan) return <SuksesLapor r={kirim.ringkasan} waAdmin={waAdmin} />;
 
   const mengirim = kirim.tahap === "kirim";
+  const akhir = langkah === LANGKAH.length - 1;
+  const panel = (k: number) => cn("grid gap-4 sm:grid-cols-2 [&>*]:min-w-0", langkah !== k && "hidden");
   return (
-    <form ref={formRef} onSubmit={kirimLaporan} className="grid gap-4 rounded-2xl border bg-card p-4 shadow-card sm:p-6 [&>*]:min-w-0">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm text-muted-foreground">Ketik nama alat, unit, atau lokasi — pilihan muncul otomatis.</p>
-        <Button type="button" variant="outline" size="sm" onClick={bukaScan}><ScanQrCode /> Scan QR alat</Button>
-      </div>
-      {kirim.error && (
-        <p role="alert" className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800"><XCircle className="mt-0.5 size-4 shrink-0" /> {kirim.error}</p>
-      )}
-      {pesanQr && (
-        <p className="flex items-start gap-2 rounded-lg border border-teal-200 bg-teal-50 p-3 text-sm text-teal-900"><ScanQrCode className="mt-0.5 size-4 shrink-0" /> {pesanQr}</p>
-      )}
-      <div className="grid gap-4 sm:grid-cols-2 [&>*]:min-w-0">
+    <form ref={formRef} onSubmit={kirimLaporan} noValidate className="grid scroll-mt-20 overflow-hidden rounded-2xl border bg-card shadow-card md:grid-cols-[230px_1fr] [&>*]:min-w-0">
+      {/* Panel langkah (kiri, gelap) */}
+      <aside className="bg-navy-800 p-4 text-white md:p-5 dark:bg-[#0b1220]">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-teal-200">Lapor kerusakan · {langkah + 1}/{LANGKAH.length}</p>
+        <ol className="mt-3 flex gap-2 md:grid md:gap-1">
+          {LANGKAH.map((l, k) => (
+            <li key={l.judul} className="min-w-0 flex-1">
+              <button type="button" onClick={() => keLangkah(k)} aria-current={k === langkah ? "step" : undefined}
+                className={cn("flex w-full items-center gap-2.5 rounded-lg p-1.5 text-left text-sm transition md:p-2", k === langkah ? "bg-white/10" : "hover:bg-white/5")}>
+                <span className={cn("flex size-6 shrink-0 items-center justify-center rounded-full border text-xs font-bold", k < langkah ? "border-teal-400 bg-teal-400 text-navy-900" : k === langkah ? "border-teal-300 text-teal-200" : "border-white/30 text-white/60")}>
+                  {k < langkah ? <Check className="size-3.5" /> : k + 1}
+                </span>
+                <span className="hidden min-w-0 sm:block">
+                  <span className={cn("block truncate font-semibold", k > langkah && "text-white/70")}>{l.judul}</span>
+                  <span className="block truncate text-xs text-white/55">{l.ket}</span>
+                </span>
+              </button>
+            </li>
+          ))}
+        </ol>
+        {(alat || namaAlat) && (
+          <div className="mt-4 hidden rounded-lg bg-white/5 p-3 text-xs md:block">
+            <p className="text-white/55">Alat</p>
+            <p className="truncate font-semibold">{alat?.nama ?? namaAlat}</p>
+            {(namaUnitTerpilih || lokasi) && <p className="mt-1 truncate text-white/70">{[namaUnitTerpilih, lokasi].filter(Boolean).join(" · ")}</p>}
+            {langkah > 1 && isian.prioritas && <p className="mt-1 text-white/70">Urgensi: {isian.prioritas}</p>}
+          </div>
+        )}
+        <Button type="button" variant="outline" size="sm" onClick={bukaScan} className="mt-4 hidden w-full border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white md:inline-flex"><ScanQrCode /> Scan QR alat</Button>
+      </aside>
+
+      <div className="grid content-start gap-4 p-4 sm:p-6 [&>*]:min-w-0">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 className="text-lg font-bold text-navy-800 dark:text-white">{LANGKAH[langkah].judul}</h2>
+            <p className="text-sm text-muted-foreground">{langkah === 0 ? "Ketik nama alat, unit, atau lokasi — pilihan muncul otomatis." : langkah === 1 ? "Jelaskan masalahnya; foto atau video membantu teknisi." : "Isi nama Anda lalu periksa ringkasan sebelum mengirim."}</p>
+          </div>
+          {langkah === 0 && <Button type="button" variant="outline" size="sm" onClick={bukaScan} className="md:hidden"><ScanQrCode /> Scan QR alat</Button>}
+        </div>
+        {kirim.error && (
+          <p role="alert" className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800"><XCircle className="mt-0.5 size-4 shrink-0" /> {kirim.error}</p>
+        )}
+        {pesanQr && langkah === 0 && (
+          <p className="flex items-start gap-2 rounded-lg border border-teal-200 bg-teal-50 p-3 text-sm text-teal-900"><ScanQrCode className="mt-0.5 size-4 shrink-0" /> {pesanQr}</p>
+        )}
+
+        {/* Langkah 1 — alat & lokasi */}
+        <div ref={(el) => { langkahRef.current[0] = el; }} className={panel(0)}>
         {kandidat.length > 1 && (
           <label className={cn(L, "sm:col-span-2")}>
             Pilih alat sesuai QR
@@ -218,23 +282,19 @@ export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr 
           />
         </div>
 
-        <label className={L}>
-          Nama pelapor <span className="text-red-600">*</span>
-          <Input name="pelapor" required maxLength={120} placeholder="Nama Anda" autoComplete="name" />
-        </label>
-        <label className={L}>
-          No. WhatsApp / kontak
-          <Input name="kontak" maxLength={120} placeholder="mis. 0812xxxxxxx (untuk salinan laporan via WA)" autoComplete="tel" inputMode="tel" />
-        </label>
+        </div>
+
+        {/* Langkah 2 — keluhan & bukti */}
+        <div ref={(el) => { langkahRef.current[1] = el; }} className={panel(1)}>
         <label className={cn(L, "sm:col-span-2")}>
           Uraian keluhan / kerusakan <span className="text-red-600">*</span>
-          <textarea name="keluhan" required maxLength={2000} rows={4}
+          <textarea name="keluhan" required value={isian.keluhan} onChange={(e) => setIsian((s) => ({ ...s, keluhan: e.target.value }))} maxLength={2000} rows={4}
             className="flex w-full rounded-md border border-input bg-card px-3 py-2 text-sm placeholder:text-muted-foreground"
             placeholder="Jelaskan gejala, kapan terjadi, dan dampaknya ke pelayanan." />
         </label>
         <label className={L}>
           Tingkat urgensi
-          <Select name="prioritas" defaultValue="Normal">
+          <Select name="prioritas" value={isian.prioritas} onChange={(e) => setIsian((s) => ({ ...s, prioritas: e.target.value }))}>
             {PRIORITAS.map((p) => <option key={p} value={p}>{p}</option>)}
           </Select>
         </label>
@@ -274,20 +334,42 @@ export function LaporForm({ units, lokasi: daftarLokasi, kandidat = [], pesanQr 
             )}
           </div>
         )}
-      </div>
-
-      {mengirim && (foto || video) && (
-        <div className="grid gap-1" aria-live="polite">
-          <div className="h-2 overflow-hidden rounded-full bg-muted"><div className="h-full rounded-full bg-teal-500 transition-[width]" style={{ width: `${kirim.persen}%` }} /></div>
-          <p className="text-xs text-muted-foreground">Mengunggah lampiran… {kirim.persen}%</p>
         </div>
-      )}
 
-      <div className="flex flex-col-reverse items-stretch justify-between gap-3 pt-1 sm:flex-row sm:items-center">
-        <p className="text-xs text-muted-foreground">Data ini dipakai untuk penanganan pemeliharaan alat, bukan dipublikasikan.</p>
-        <Button type="submit" variant="teal" size="lg" disabled={mengirim}>
-          {mengirim ? <Loader2 className="animate-spin" /> : <Send />} Kirim laporan
-        </Button>
+        {/* Langkah 3 — pelapor & ringkasan */}
+        <div ref={(el) => { langkahRef.current[2] = el; }} className={panel(2)}>
+        <label className={L}>
+          Nama pelapor <span className="text-red-600">*</span>
+          <Input name="pelapor" required value={isian.pelapor} onChange={(e) => setIsian((s) => ({ ...s, pelapor: e.target.value }))} maxLength={120} placeholder="Nama Anda" autoComplete="name" />
+        </label>
+        <label className={L}>
+          No. WhatsApp / kontak
+          <Input name="kontak" maxLength={120} placeholder="mis. 0812xxxxxxx (untuk salinan laporan via WA)" autoComplete="tel" inputMode="tel" />
+        </label>
+          <dl className="grid gap-2 rounded-xl border bg-muted/40 p-3 text-sm sm:col-span-2 sm:grid-cols-2">
+            <div className="min-w-0"><dt className="text-xs text-muted-foreground">Alat</dt><dd className="truncate font-medium">{alat?.nama ?? (namaAlat || "—")}</dd></div>
+            <div className="min-w-0"><dt className="text-xs text-muted-foreground">Unit · lokasi</dt><dd className="truncate font-medium">{[namaUnitTerpilih, lokasi].filter(Boolean).join(" · ") || "—"}</dd></div>
+            <div className="min-w-0 sm:col-span-2"><dt className="text-xs text-muted-foreground">Keluhan</dt><dd className="line-clamp-3 font-medium">{isian.keluhan || "—"}</dd></div>
+            <div><dt className="text-xs text-muted-foreground">Urgensi</dt><dd className="font-medium">{isian.prioritas}</dd></div>
+            <div><dt className="text-xs text-muted-foreground">Lampiran</dt><dd className="font-medium">{[foto && "1 foto", video && "1 video"].filter(Boolean).join(", ") || "—"}</dd></div>
+          </dl>
+        </div>
+
+        {mengirim && (foto || video) && (
+          <div className="grid gap-1" aria-live="polite">
+            <div className="h-2 overflow-hidden rounded-full bg-muted"><div className="h-full rounded-full bg-teal-500 transition-[width]" style={{ width: `${kirim.persen}%` }} /></div>
+            <p className="text-xs text-muted-foreground">Mengunggah lampiran… {kirim.persen}%</p>
+          </div>
+        )}
+
+        <div className="flex flex-col-reverse items-stretch justify-between gap-3 border-t pt-4 sm:flex-row sm:items-center">
+          {langkah > 0
+            ? <Button type="button" variant="ghost" onClick={() => keLangkah(langkah - 1)} disabled={mengirim}><ArrowLeft /> Kembali</Button>
+            : <p className="text-xs text-muted-foreground">Data ini dipakai untuk penanganan pemeliharaan alat, bukan dipublikasikan.</p>}
+          <Button type="submit" variant="teal" size="lg" disabled={mengirim}>
+            {akhir ? <>{mengirim ? <Loader2 className="animate-spin" /> : <Send />} Kirim laporan</> : <>Lanjut <ArrowRight /></>}
+          </Button>
+        </div>
       </div>
     </form>
   );

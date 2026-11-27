@@ -4,7 +4,7 @@
  */
 export type BabPedoman = { id: string; judul: string; menu: string; tujuan: string; peran: string; dasar: string[]; sop: string[]; referensi: string[] };
 
-export const VERSI_PEDOMAN = "Versi 1.5 — 27 November 2026";
+export const VERSI_PEDOMAN = "Versi 1.6 — 27 November 2026";
 
 /** Dasar hukum umum yang berlaku untuk seluruh aplikasi. */
 export const DASAR_UMUM = [
@@ -141,11 +141,24 @@ export const BAB: BabPedoman[] = [
     referensi: ["Peraturan Presiden 16/2018 dan perubahannya (Perpres 46/2025)."],
   },
   {
+    id: "perjalanan", judul: "Perjalanan Alat Kesehatan (halaman publik)", menu: "Beranda › Perjalanan Alat Kesehatan, atau halaman Masuk › Lihat perjalanan alat (alamat /perjalanan)",
+    tujuan: "Memperkenalkan alur pengelolaan alat kesehatan di STARS kepada tamu, pimpinan, dan pegawai baru lewat animasi gulir isometrik dengan angka ringkasan langsung.",
+    peran: "Siapa saja, tanpa akun. Hanya menampilkan angka agregat (jumlah/persentase), tanpa nama pelapor atau data pribadi.",
+    dasar: ["Permenkes 15/2023 tentang Pemeliharaan Alat Kesehatan (siklus pengelolaan alat).", "UU 14/2008 tentang Keterbukaan Informasi Publik — informasi agregat yang dapat dibagikan."],
+    sop: [
+      "Buka /perjalanan, lalu gulir: gedung terbuka dan garis jalur mengikuti alat melewati 6 tahap — Penerimaan, Inventarisasi, Pemeliharaan, Kalibrasi, Lapor & Perbaikan, Perencanaan.",
+      "Tiap tahap menampilkan kartu angka dari data STARS saat itu dan tombol menuju menu terkait (menu yang perlu akun akan meminta Masuk).",
+      "Bilah tahap di bawah layar dapat diklik untuk melompat; pengguna yang mengaktifkan 'kurangi gerakan' di perangkatnya mendapat perpindahan tanpa animasi.",
+      "Untuk presentasi: buka di layar besar dan gulir perlahan; mode gelap mengikuti pengaturan tampilan STARS.",
+    ],
+    referensi: [],
+  },
+  {
     id: "lapor", judul: "Lapor Kerusakan, Perintah Kerja, dan TTE", menu: "CMMS › SI-FARMALKES › Lapor Kerusakan, ADMIN › CMS Pemeliharaan › Pemeliharaan Korektif / Perbaikan, Riwayat",
     tujuan: "Melaporkan kerusakan tanpa akun, menindaklanjuti dengan perintah kerja (WO), dan mengesahkan hasil perbaikan secara elektronik.",
     peran: "Pelapor (siapa saja) → Operator/elektromedis → pelapor menyetujui hasil.",
     dasar: ["Permenkes 15/2023 tentang Pemeliharaan Alat Kesehatan.", "PP 71/2019 — tanda tangan elektronik tidak tersertifikasi tetap sah sebagai alat bukti dengan syarat keterkaitan dan keutuhan data.", "Standar akreditasi RS bab MFK (pengelolaan peralatan medis)."],
-    sop: ["Pelapor memindai QR alat atau membuka Lapor Kerusakan, mengisi keluhan dan kontak, mengirim; simpan nomor WR & kode lacak.", "Operator menerima laporan, membuat WO, menunjuk teknisi, mengisi checklist, tindakan, suku cadang, biaya.", "Setelah selesai, teknisi menekan Tandatangani penyelesaian (TTE Teknisi).", "Pelapor membuka Riwayat, memeriksa alat, lalu Setujui hasil perbaikan (TTE Pelapor).", "Unduh PDF laporan berisi QR verifikasi; keaslian dicek di /verifikasi.", "Laporan kerusakan atau perintah kerja yang salah input/tidak jadi dapat dihapus (izin Hapus); perintah kerja berstatus Selesai tidak dapat dihapus."],
+    sop: ["Pelapor memindai QR alat atau membuka Lapor Kerusakan, lalu mengisi 3 langkah: (1) Alat & lokasi, (2) Keluhan, urgensi, foto/video, (3) Nama & kontak — periksa ringkasan, Kirim; simpan nomor WR & kode lacak.", "Operator menerima laporan, membuat WO, menunjuk teknisi, mengisi checklist, tindakan, suku cadang, biaya.", "Setelah selesai, teknisi menekan Tandatangani penyelesaian (TTE Teknisi).", "Pelapor membuka Riwayat, memeriksa alat, lalu Setujui hasil perbaikan (TTE Pelapor).", "Unduh PDF laporan berisi QR verifikasi; keaslian dicek di /verifikasi.", "Laporan kerusakan atau perintah kerja yang salah input/tidak jadi dapat dihapus (izin Hapus); perintah kerja berstatus Selesai tidak dapat dihapus."],
     referensi: ["WHO. Medical equipment maintenance programme overview. Geneva: WHO; 2011 — §5 corrective maintenance, §5.4 performance indicators.", "WHO. Computerized maintenance management system. Geneva: WHO; 2012."],
   },
   {
